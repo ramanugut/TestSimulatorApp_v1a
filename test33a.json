@@ -1,0 +1,336 @@
+{
+  "testName": "ICT2641 Chapter 2 Quiz: Competencies of a Business Analyst",
+  "questions": [
+    {
+      "text": "What does the \"T-Shaped Professional\" concept represent?",
+      "options": [
+        "Deep expertise in one area combined with broad skills across disciplines",
+        "Specializing exclusively in Agile methodologies",
+        "Financial competency across all domains",
+        "Rapid learning of industry certifications"
+      ],
+      "correctAnswer": "Deep expertise in one area combined with broad skills across disciplines",
+      "explanation": "The T-Shaped Professional model highlights a combination of deep expertise in a single domain and broad knowledge across various other areas to encourage collaboration and adaptability."
+    },
+    {
+      "text": "Which of the following is an essential personal quality for a Business Analyst?",
+      "options": [
+        "Communication skills",
+        "Hardware troubleshooting",
+        "Graphic design proficiency",
+        "Data analysis expertise"
+      ],
+      "correctAnswer": "Communication skills",
+      "explanation": "Effective communication is a core personal quality for Business Analysts, enabling clear understanding among stakeholders and successful requirements gathering."
+    },
+    {
+      "text": "What is the primary purpose of gap analysis for a Business Analyst?",
+      "options": [
+        "To manage suppliers effectively",
+        "To visualize business activities and processes",
+        "To compare the 'as is' and 'to be' models of a business situation",
+        "To develop an organization's balance sheet"
+      ],
+      "correctAnswer": "To compare the 'as is' and 'to be' models of a business situation",
+      "explanation": "Gap analysis helps Business Analysts identify the differences between the current state and the desired future state, guiding necessary actions to achieve business goals."
+    },
+    {
+      "text": "Which certification requires demonstrated experience and passing an examination?",
+      "options": [
+        "CBAP (Certified Business Analysis Professional)",
+        "CCBA (Certification of Capability in Business Analysis)",
+        "IIBA Certification",
+        "Project Management Professional (PMP)"
+      ],
+      "correctAnswer": "CBAP (Certified Business Analysis Professional)",
+      "explanation": "The CBAP certification is awarded to professionals with significant experience in business analysis who also pass a comprehensive exam."
+    },
+    {
+      "text": "Which of the following techniques is essential for requirements engineering?",
+      "options": [
+        "Stakeholder analysis",
+        "Facilitating workshops and brainstorming sessions",
+        "Requirements elicitation and modelling",
+        "Designing organizational charts"
+      ],
+      "correctAnswer": "Requirements elicitation and modelling",
+      "explanation": "Eliciting and modeling requirements is central to requirements engineering, allowing analysts to accurately define what is needed from a system or solution."
+    },
+    {
+      "text": "What does the \"T-Shaped Professional\" concept emphasize?",
+      "options": [
+        "Having expertise in multiple domains with no specialization",
+        "Balancing deep expertise in one area with broad skills across disciplines",
+        "Focusing only on Agile methodologies",
+        "Possessing only technical skills"
+      ],
+      "correctAnswer": "Balancing deep expertise in one area with broad skills across disciplines",
+      "explanation": "The T-shaped model emphasizes the importance of combining specialist knowledge with generalist skills to foster effective cross-functional collaboration."
+    },
+    {
+      "text": "Which of the following is NOT a personal quality required for a Business Analyst?",
+      "options": [
+        "Communication skills",
+        "Relationship building",
+        "Baking proficiency",
+        "Analytical thinking"
+      ],
+      "correctAnswer": "Baking proficiency",
+      "explanation": "While communication and analytical thinking are essential, baking is unrelated to a Business Analyst's role."
+    },
+    {
+      "text": "What is the primary goal of gap analysis?",
+      "options": [
+        "Designing stakeholder presentations",
+        "Comparing current business practices with desired outcomes",
+        "Developing marketing campaigns",
+        "Creating software prototypes"
+      ],
+      "correctAnswer": "Comparing current business practices with desired outcomes",
+      "explanation": "Gap analysis identifies where a business is versus where it wants to be, helping plan improvements to achieve goals."
+    },
+    {
+      "text": "In stakeholder analysis, what is a Business Analyst primarily responsible for?",
+      "options": [
+        "Identifying and managing stakeholder perspectives",
+        "Designing organizational workflows",
+        "Managing budgets for stakeholders",
+        "Providing training sessions"
+      ],
+      "correctAnswer": "Identifying and managing stakeholder perspectives",
+      "explanation": "Stakeholder analysis involves understanding stakeholder needs, influence, and impact to manage expectations effectively."
+    },
+    {
+      "text": "What does benefits management focus on?",
+      "options": [
+        "Building stakeholder relationships",
+        "Realizing and evaluating project returns on investment",
+        "Managing supplier contracts",
+        "Identifying risks and challenges"
+      ],
+      "correctAnswer": "Realizing and evaluating project returns on investment",
+      "explanation": "Benefits management ensures that the anticipated value of a project is realized and measured after implementation."
+    },
+    {
+      "text": "Which of the following professional techniques involves visualizing business activities?",
+      "options": [
+        "Business modelling",
+        "Stakeholder management",
+        "Benefits tracking",
+        "Agile development"
+      ],
+      "correctAnswer": "Business modelling",
+      "explanation": "Business modeling provides visual representations of business processes and activities, aiding analysis and communication."
+    },
+    {
+      "text": "What is the biggest challenge for developing personal skills as a Business Analyst?",
+      "options": [
+        "Designing questionnaires",
+        "Managing change and overcoming opposition",
+        "Learning technical coding languages",
+        "Creating financial reports"
+      ],
+      "correctAnswer": "Managing change and overcoming opposition",
+      "explanation": "Personal development often requires navigating organizational resistance and adapting to new ways of working."
+    },
+    {
+      "text": "Which quadrant in the Skill Alignment Framework involves undefined scope and approach?",
+      "options": [
+        "Quadrant 1: Ideal for junior analysts",
+        "Quadrant 2: Standardized approaches but unclear analysis required",
+        "Quadrant 3: Analysis defined but approach unclear",
+        "Quadrant 4: Requiring senior analysts with consultancy-level expertise"
+      ],
+      "correctAnswer": "Quadrant 4: Requiring senior analysts with consultancy-level expertise",
+      "explanation": "Quadrant 4 reflects the highest complexity where both the scope and approach are undefined, needing experienced analysts."
+    },
+    {
+      "text": "How can a Business Analyst develop industry-related skills?",
+      "options": [
+        "By attending networking events and conferences",
+        "By obtaining certifications (e.g., IIBA, BCS)",
+        "By applying skills through mentoring and work experience",
+        "All of the above"
+      ],
+      "correctAnswer": "All of the above",
+      "explanation": "Industry knowledge is built through a combination of formal education, certifications, networking, and practical experience."
+    },
+    {
+      "text": "You are tasked with improving stakeholder engagement for an ICT system overhaul. Some stakeholders are resistant due to past project failures. Which combination of interpersonal and professional skills should you prioritize?",
+      "options": [
+        "Analytical thinking and gap analysis",
+        "Communication, relationship building, and facilitation skills",
+        "Stakeholder mapping and benefits management",
+        "Agile planning and technical expertise"
+      ],
+      "correctAnswer": "Communication, relationship building, and facilitation skills",
+      "explanation": "Effective engagement requires trust-building and open communication, supported by facilitation to encourage involvement."
+    },
+    
+    {
+      "text": "A Business Analyst is conducting strategy analysis for a retail company facing declining sales. Which of the following would be a suitable first step?",
+      "options": [
+        "Create a stakeholder communication plan",
+        "Map the current customer journey and analyse gaps",
+        "Investigate IT system performance for scalability",
+        "Develop a benefits realization strategy"
+      ],
+      "correctAnswer": "Map the current customer journey and analyse gaps",
+      "explanation": "Understanding customer experiences helps identify pain points and areas for improvement, crucial for formulating effective strategies."
+    },
+    {
+      "text": "In an Agile project, a Business Analyst is required to adjust the requirements due to evolving customer needs. Which technique aligns best with this challenge?",
+      "options": [
+        "Strategy analysis",
+        "Data modelling",
+        "Requirements prioritization and iterative elicitation",
+        "Project planning and resource allocation"
+      ],
+      "correctAnswer": "Requirements prioritization and iterative elicitation",
+      "explanation": "Agile environments require ongoing engagement and iterative approaches to adapt to changing requirements."
+    },
+    {
+      "text": "You are evaluating multiple software solutions to address a business problem. Which gap analysis approach provides the most comprehensive comparison?",
+      "options": [
+        "Compare the functional features of each software against stakeholder preferences",
+        "Conduct a cost-benefit analysis for each solution",
+        "Assess the 'as is' state and compare it with the capabilities each software offers",
+        "Develop a risk mitigation plan for future upgrades"
+      ],
+      "correctAnswer": "Assess the 'as is' state and compare it with the capabilities each software offers",
+      "explanation": "A thorough gap analysis evaluates how well each solution bridges the gap between current operations and desired outcomes."
+    },
+    {
+      "text": "During a tense project meeting, stakeholders disagree on the scope of the project. As a Business Analyst, which interpersonal skills are most critical for resolving the conflict?",
+      "options": [
+        "Political awareness and attention to detail",
+        "Communication, influencing, and problem-solving",
+        "Leadership and self-belief",
+        "Analytical thinking and professional development"
+      ],
+      "correctAnswer": "Communication, influencing, and problem-solving",
+      "explanation": "Resolving conflicts requires strong communication, the ability to influence differing views, and collaborative problem-solving."
+    },
+    {
+      "text": "How can a Business Analyst effectively use business architecture to guide organizational change?",
+      "options": [
+        "By mapping processes and identifying cultural challenges",
+        "By conducting IT infrastructure audits exclusively",
+        "By defining key performance indicators (KPIs) for teams",
+        "By developing new supplier management frameworks"
+      ],
+      "correctAnswer": "By mapping processes and identifying cultural challenges",
+      "explanation": "Business architecture helps visualize processes, systems, and organizational culture to facilitate strategic change."
+    },
+    {
+      "text": "A company plans to implement an enterprise resource planning (ERP) system to streamline operations. As the Business Analyst, what is the most effective approach to ensure successful implementation?",
+      "options": [
+        "Focus solely on technical requirements",
+        "Conduct stakeholder workshops to gather diverse perspectives and map processes",
+        "Prioritize cost-cutting measures over usability during system design",
+        "Develop a marketing plan to promote the new system"
+      ],
+      "correctAnswer": "Conduct stakeholder workshops to gather diverse perspectives and map processes",
+      "explanation": "Inclusive stakeholder engagement ensures the ERP system reflects real business needs and gains user support."
+    },
+    {
+      "text": "Which of the following best defines the relationship between gap analysis and strategy analysis?",
+      "options": [
+        "Gap analysis focuses on ‘as is’ and ‘to be’ states, while strategy analysis identifies long-term objectives and strengths/weaknesses",
+        "Both are focused entirely on financial metrics",
+        "Gap analysis evaluates stakeholder satisfaction, while strategy analysis measures system performance",
+        "Both terms are interchangeable"
+      ],
+      "correctAnswer": "Gap analysis focuses on ‘as is’ and ‘to be’ states, while strategy analysis identifies long-term objectives and strengths/weaknesses",
+      "explanation": "Gap analysis is tactical, examining current and desired states, while strategy analysis sets the broader vision and goals."
+    },
+    {
+      "text": "How can understanding business architecture help Business Analysts drive change in organizations?",
+      "options": [
+        "By exclusively focusing on IT infrastructure updates",
+        "By mapping systems, processes, and management structures to identify areas for improvement",
+        "By optimizing marketing campaigns for products and services",
+        "By conducting financial audits of suppliers"
+      ],
+      "correctAnswer": "By mapping systems, processes, and management structures to identify areas for improvement",
+      "explanation": "A clear view of business architecture allows analysts to identify inefficiencies and opportunities for transformation."
+    },
+    {
+      "text": "During strategy analysis, a Business Analyst discovers that customer satisfaction has declined due to lengthy service delivery times. What action should be prioritized?",
+      "options": [
+        "Analyze the financial budgets of the affected departments",
+        "Map customer journeys to identify bottlenecks and propose process changes",
+        "Create marketing materials to rebuild customer loyalty",
+        "Focus solely on digital solutions to automate workflows"
+      ],
+      "correctAnswer": "Map customer journeys to identify bottlenecks and propose process changes",
+      "explanation": "Analyzing customer touchpoints reveals where delays occur, informing improvements to enhance satisfaction."
+    },
+    {
+      "text": "A Business Analyst working on a controversial project faces opposition from stakeholders. How should they handle such resistance effectively?",
+      "options": [
+        "Avoid engaging with stakeholders to reduce conflict",
+        "Use influencing skills and communication to address concerns and align expectations",
+        "Rely on senior management decisions to suppress opposition",
+        "Ignore the resistance to focus solely on project milestones"
+      ],
+      "correctAnswer": "Use influencing skills and communication to address concerns and align expectations",
+      "explanation": "Active engagement and persuasion are vital to resolve stakeholder concerns and promote project alignment."
+    },
+    {
+      "text": "Which of the following pathways is least effective for a Business Analyst seeking to develop professional techniques?",
+      "options": [
+        "Participating in industry conferences",
+        "Coaching colleagues in advanced investigation techniques",
+        "Ignoring self-study in favour of practical applications",
+        "Reading business analysis guides (e.g., BABOK V3)"
+      ],
+      "correctAnswer": "Ignoring self-study in favour of practical applications",
+      "explanation": "While practice is valuable, neglecting theory and self-study can limit a Business Analyst’s knowledge growth."
+    },
+    {
+      "text": "During the implementation phase of a centralized ICT system, you notice that end-users struggle to adapt to the new system. Which approach should you prioritize as a Business Analyst?",
+      "options": [
+        "Develop additional technical documentation for the ICT team",
+        "Conduct training sessions and provide ongoing support to users",
+        "Allocate more resources to the development team",
+        "Ignore user feedback to meet project deadlines"
+      ],
+      "correctAnswer": "Conduct training sessions and provide ongoing support to users",
+      "explanation": "Supporting users through training ensures better system adoption and improves overall implementation success."
+    },
+    {
+      "text": "A Business Analyst is working in an Agile environment. Requirements from stakeholders are continually changing. Which of the following is the best course of action?",
+      "options": [
+        "Finalize all requirements at the beginning and resist changes",
+        "Prioritize the updated requirements through backlog refinement sessions",
+        "Avoid engaging with stakeholders to prevent scope creep",
+        "Revert to the traditional Waterfall approach for stability"
+      ],
+      "correctAnswer": "Prioritize the updated requirements through backlog refinement sessions",
+      "explanation": "Backlog refinement ensures that changes are continuously integrated into the project’s priorities, aligning with Agile principles."
+    },
+    {
+      "text": "A company is exploring digital transformation to improve service delivery. What should be the primary focus of the Business Analyst during the strategy analysis phase?",
+      "options": [
+        "Assessing current IT infrastructure for technical limitations",
+        "Mapping customer pain points and identifying improvement opportunities",
+        "Developing detailed financial reports for stakeholders",
+        "Conducting job interviews with employees"
+      ],
+      "correctAnswer": "Mapping customer pain points and identifying improvement opportunities",
+      "explanation": "Focusing on customer experience helps identify critical areas where digital transformation can add value."
+    },
+    {
+      "text": "What is the primary purpose of developing a business case in a systems development project?",
+      "options": [
+        "To outline technical specifications",
+        "To justify the investment by evaluating costs, benefits, and risks",
+        "To define the project schedule and deadlines",
+        "To provide training plans for users"
+      ],
+      "correctAnswer": "To justify the investment by evaluating costs, benefits, and risks",
+      "explanation": "A business case demonstrates the value and feasibility of a project, aiding in decision-making and securing stakeholder support."
+    }
+  ]
+}

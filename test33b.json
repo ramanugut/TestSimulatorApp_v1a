@@ -1,0 +1,414 @@
+{
+  "testName": "ICT2641 Chapter 3 Quiz: Strategy and Enterprise Architecture",
+  "questions": [
+    {
+      "text": "What is the definition of strategy according to Johnson, Scholes, and Whittington (2008)?",
+      "options": [
+        "The process of setting short-term operational goals",
+        "The direction and scope of an organization over the long term",
+        "A collection of tactics for quick adaptation",
+        "The process of hiring visionary individuals"
+      ],
+      "correctAnswer": "The direction and scope of an organization over the long term",
+      "explanation": "Strategy is defined as the long-term direction and scope of an organization to gain advantage in a changing environment."
+    },
+    {
+      "text": "Which of the following is NOT a driver for strategy development?",
+      "options": [
+        "Visionary individuals",
+        "External forces",
+        "Random decision-making",
+        "Power and politics in business"
+      ],
+      "correctAnswer": "Random decision-making",
+      "explanation": "Strategy development is driven by purposeful elements like vision, external factors, and internal politics—not randomness."
+    },
+    {
+      "text": "What are the three levels of strategy?",
+      "options": [
+        "Tactical, dynamic, reactive",
+        "Corporate, business unit, operational",
+        "Linear, adaptive, hybrid",
+        "Strategic, primary, support"
+      ],
+      "correctAnswer": "Corporate, business unit, operational",
+      "explanation": "These levels ensure strategy is managed from the top-level direction down to day-to-day operations."
+    },
+    {
+      "text": "Which strategy development approach is based on continuous stakeholder feedback?",
+      "options": [
+        "Hybrid strategy",
+        "Adaptive strategy",
+        "Linear strategy",
+        "Compliance strategy"
+      ],
+      "correctAnswer": "Adaptive strategy",
+      "explanation": "Adaptive strategies adjust based on ongoing input and environmental changes."
+    },
+    {
+      "text": "A drawback of linear strategy development is:",
+      "options": [
+        "High employee empowerment",
+        "Rapid reaction to changes",
+        "Potential loss of market share",
+        "Frequent strategy revisions"
+      ],
+      "correctAnswer": "Potential loss of market share",
+      "explanation": "Linear strategies are rigid, potentially causing missed opportunities in fast-changing markets."
+    },
+    {
+      "text": "Hybrid strategy development involves:",
+      "options": [
+        "Ignoring market feedback",
+        "Combining adaptive and linear approaches",
+        "Discarding traditional frameworks",
+        "Excluding business unit input"
+      ],
+      "correctAnswer": "Combining adaptive and linear approaches",
+      "explanation": "Hybrid approaches blend structured planning with flexible adaptation for balanced execution."
+    },
+    {
+      "text": "Which EA domain includes the portfolio of applications used in an organization?",
+      "options": [
+        "Business Architecture",
+        "Data Architecture",
+        "Application Architecture",
+        "Compliance Architecture"
+      ],
+      "correctAnswer": "Application Architecture",
+      "explanation": "Application Architecture defines the software applications and how they interact to support business processes."
+    },
+    {
+      "text": "What is the role of Security Architecture within EA?",
+      "options": [
+        "To optimize financial decisions",
+        "To ensure information and asset protection",
+        "To organize business capabilities",
+        "To structure compliance frameworks"
+      ],
+      "correctAnswer": "To ensure information and asset protection",
+      "explanation": "Security Architecture focuses on safeguarding data, systems, and assets across the organization."
+    },
+    {
+      "text": "Which EA domain ensures legal and regulatory compliance?",
+      "options": [
+        "Business Architecture",
+        "Compliance Architecture",
+        "Infrastructure Architecture",
+        "Application Architecture"
+      ],
+      "correctAnswer": "Compliance Architecture",
+      "explanation": "Compliance Architecture ensures alignment with external legal and regulatory requirements."
+    },
+    {
+      "text": "PESTLE analysis includes which of the following factors?",
+      "options": [
+        "Political, Economic, Socio-cultural, Technological, Legal, Environmental",
+        "Profitability, Expenses, Strategy, Tactics, Leadership",
+        "Partnerships, Equity, Stakeholders, Transactions, Logistics",
+        "People, Efficiency, Sustainability, Timing, Evolution"
+      ],
+      "correctAnswer": "Political, Economic, Socio-cultural, Technological, Legal, Environmental",
+      "explanation": "PESTLE is a framework for analyzing macro-environmental factors affecting business strategy."
+    },
+    {
+      "text": "In Porter’s Five Forces model, which force represents customer influence?",
+      "options": [
+        "Competitive rivalry",
+        "Bargaining power of buyers",
+        "Threat of new entrants",
+        "Bargaining power of suppliers"
+      ],
+      "correctAnswer": "Bargaining power of buyers",
+      "explanation": "Buyers can influence pricing and demand, making their bargaining power a key force."
+    },
+    {
+      "text": "Which external factor does NOT belong in PESTLE analysis?",
+      "options": [
+        "Inflation rates",
+        "Employee job satisfaction",
+        "Government policies",
+        "Climate regulations"
+      ],
+      "correctAnswer": "Employee job satisfaction",
+      "explanation": "PESTLE focuses on external macro factors; employee satisfaction is an internal factor."
+    },
+    {
+      "text": "What does VMOST stand for?",
+      "options": [
+        "Value, Market, Operations, Stakeholders, Tactics",
+        "Vision, Mission, Objectives, Strategy, Tactics",
+        "Viability, Model, Oversight, System, Technology",
+        "Variables, Methods, Opportunities, Scalability, Time"
+      ],
+      "correctAnswer": "Vision, Mission, Objectives, Strategy, Tactics",
+      "explanation": "VMOST helps align strategic planning by linking high-level vision to practical actions."
+    },
+    {
+      "text": "A Balanced Scorecard assesses performance across which four areas?",
+      "options": [
+        "Financial, Internal Process, Learning & Growth, Customer",
+        "Leadership, Operations, Decision-making, Analysis",
+        "Technology, Finance, People, Compliance",
+        "Market Demand, Profit Margins, Cost Structures, Governance"
+      ],
+      "correctAnswer": "Financial, Internal Process, Learning & Growth, Customer",
+      "explanation": "The Balanced Scorecard evaluates both financial and non-financial business performance metrics."
+    },
+    {
+      "text": "In the BCG Matrix, a \"Cash Cow\" represents:",
+      "options": [
+        "Low market share, high market growth",
+        "High market share, low market growth",
+        "High market share, high market growth",
+        "Low market share, low market growth"
+      ],
+      "correctAnswer": "High market share, low market growth",
+      "explanation": "Cash Cows generate consistent cash with little need for investment due to low growth."
+    },
+
+    {
+      "text": "Which SWOT component refers to internal attributes that hinder success?",
+      "options": [
+        "Strengths",
+        "Weaknesses",
+        "Opportunities",
+        "Threats"
+      ],
+      "correctAnswer": "Weaknesses",
+      "explanation": "Weaknesses are internal factors that limit an organization’s ability to achieve its objectives."
+    },
+    {
+      "text": "What business tool defines how an organization creates, delivers, and captures value?",
+      "options": [
+        "Balanced Scorecard",
+        "Business Model Canvas",
+        "BCG Matrix",
+        "SWOT Matrix"
+      ],
+      "correctAnswer": "Business Model Canvas",
+      "explanation": "The Business Model Canvas illustrates the core functions and strategy of a business in delivering value."
+    },
+    {
+      "text": "A value stream model primarily:",
+      "options": [
+        "Shows the interactions of stakeholders with a value item",
+        "Measures financial progress",
+        "Determines compliance frameworks",
+        "Defines organizational philosophy"
+      ],
+      "correctAnswer": "Shows the interactions of stakeholders with a value item",
+      "explanation": "Value streams visualize how value is delivered to customers through stakeholder and process interactions."
+    },
+    {
+      "text": "Why is strategic alignment important?",
+      "options": [
+        "Ensures execution aligns with vision, mission, and objectives",
+        "Avoids external environmental analysis",
+        "Reduces employee motivation",
+        "Discourages stakeholder engagement"
+      ],
+      "correctAnswer": "Ensures execution aligns with vision, mission, and objectives",
+      "explanation": "Strategic alignment connects daily operations with overarching organizational goals for coherent direction."
+    },
+    {
+      "text": "A Target Operating Model (TOM) describes:",
+      "options": [
+        "Past business challenges",
+        "The optimal setup for strategy execution",
+        "Short-term financial goals",
+        "The resource audit process"
+      ],
+      "correctAnswer": "The optimal setup for strategy execution",
+      "explanation": "TOM defines how an organization should operate to execute strategy efficiently and effectively."
+    },
+    {
+      "text": "Which statement best reflects the dynamic nature of strategy in a volatile business environment?",
+      "options": [
+        "Strategy should be rigid to ensure long-term stability.",
+        "Successful strategies evolve continuously based on external influences.",
+        "Once a strategy is set, it must not be altered.",
+        "Business strategies are only relevant in static industries."
+      ],
+      "correctAnswer": "Successful strategies evolve continuously based on external influences.",
+      "explanation": "In volatile environments, flexible and evolving strategies are key to maintaining competitiveness."
+    },
+    {
+      "text": "Given a highly disruptive technological landscape, what strategic approach is most effective for maintaining competitiveness?",
+      "options": [
+        "Linear planning with predetermined execution steps.",
+        "Adaptive strategy allowing flexible responses to innovation shifts.",
+        "Corporate strategy emphasizing top-down leadership.",
+        "Cost-cutting measures to minimize risk exposure."
+      ],
+      "correctAnswer": "Adaptive strategy allowing flexible responses to innovation shifts.",
+      "explanation": "Adaptive strategies enable quick responses to changes, crucial in fast-evolving tech environments."
+    },
+    {
+      "text": "Which EA domain plays a critical role in defining the interrelationships between data governance and compliance architecture?",
+      "options": [
+        "Security Architecture",
+        "Application Architecture",
+        "Data Architecture",
+        "Business Architecture"
+      ],
+      "correctAnswer": "Data Architecture",
+      "explanation": "Data Architecture ensures the structure and governance of data, aligning with compliance needs."
+    },
+    {
+      "text": "An organization experiencing frequent security breaches decides to restructure its cybersecurity frameworks. Which EA domain is primarily responsible for this transformation?",
+      "options": [
+        "Infrastructure Architecture",
+        "Security Architecture",
+        "Compliance Architecture",
+        "Business Architecture"
+      ],
+      "correctAnswer": "Security Architecture",
+      "explanation": "Security Architecture focuses on protecting systems and information from internal and external threats."
+    },
+    {
+      "text": "How might a multinational organization adjust its strategy in response to emerging political risks in foreign markets?",
+      "options": [
+        "Ignore the risks and continue standard operations.",
+        "Implement contingency plans aligned with PESTLE analysis findings.",
+        "Reduce all investments in affected regions.",
+        "Focus exclusively on internal efficiency rather than external risks."
+      ],
+      "correctAnswer": "Implement contingency plans aligned with PESTLE analysis findings.",
+      "explanation": "PESTLE helps identify external political risks so organizations can prepare appropriate response strategies."
+    },
+    {
+      "text": "In Porter's Five Forces model, an industry with few substitute products and minimal supplier power is most likely to experience:",
+      "options": [
+        "Low competition and high profitability.",
+        "High consumer bargaining power.",
+        "Severe pricing constraints.",
+        "Constant disruption from new entrants."
+      ],
+      "correctAnswer": "Low competition and high profitability.",
+      "explanation": "Limited substitutes and weak suppliers reduce competitive pressure, enabling better margins."
+    },
+    {
+      "text": "Which factor in the Balanced Scorecard framework would best measure a company’s ability to continuously innovate and improve?",
+      "options": [
+        "Customer Satisfaction Index",
+        "Learning & Growth Metrics",
+        "Profitability Analysis",
+        "Market Expansion Rate"
+      ],
+      "correctAnswer": "Learning & Growth Metrics",
+      "explanation": "Learning & Growth focuses on innovation, employee development, and the organization's capacity to evolve."
+    },
+    {
+      "text": "How does VMOST analysis help business analysts align their recommendations with strategic objectives?",
+      "options": [
+        "It provides a rigid execution framework with no adaptability.",
+        "It ensures every strategic initiative is mapped to a clear vision and mission.",
+        "It focuses only on financial sustainability.",
+        "It excludes the influence of external market conditions."
+      ],
+      "correctAnswer": "It ensures every strategic initiative is mapped to a clear vision and mission.",
+      "explanation": "VMOST links vision and mission with strategy and tactics, ensuring alignment of all business activities."
+    },
+    {
+      "text": "In an organization struggling with misalignment between strategic goals and daily operations, which model is best suited for diagnosing the issue?",
+      "options": [
+        "Growth Share Matrix",
+        "Target Operating Model (TOM)",
+        "SWOT Analysis",
+        "Business Model Canvas"
+      ],
+      "correctAnswer": "Target Operating Model (TOM)",
+      "explanation": "TOM evaluates how well organizational capabilities and processes align with strategic goals."
+    },
+    {
+      "text": "Which capability within Business Capability Models (BCM) ensures an organization remains relevant in the face of evolving market demands?",
+      "options": [
+        "Core/Primary Capabilities",
+        "Support Capabilities",
+        "Static Business Units",
+        "Passive Organizational Structures"
+      ],
+      "correctAnswer": "Core/Primary Capabilities",
+      "explanation": "Primary capabilities are critical to delivering value to customers and staying competitive."
+    },
+    {
+      "text": "Which component of the Business Model Canvas primarily determines the financial sustainability of an organization?",
+      "options": [
+        "Key Resources",
+        "Revenue Streams",
+        "Customer Segments",
+        "Cost Structure"
+      ],
+      "correctAnswer": "Revenue Streams",
+      "explanation": "Revenue Streams define how a business earns money, which is essential to its financial viability."
+    },
+    {
+      "text": "When transitioning from a current state to a desired target state, which analysis technique is best suited for identifying gaps and prioritizing initiatives?",
+      "options": [
+        "SWOT Analysis",
+        "Gap Analysis",
+        "PESTLE Analysis",
+        "Growth Share Matrix"
+      ],
+      "correctAnswer": "Gap Analysis",
+      "explanation": "Gap Analysis compares current performance with future goals to highlight improvement areas."
+    },
+    {
+      "text": "A well-defined Business Capability Model (BCM) provides strategic advantages by:",
+      "options": [
+        "Ensuring detailed execution procedures.",
+        "Identifying stable organizational competencies for strategic alignment.",
+        "Limiting flexibility in business operations.",
+        "Eliminating the need for customer-centric strategies."
+      ],
+      "correctAnswer": "Identifying stable organizational competencies for strategic alignment.",
+      "explanation": "BCMs identify what an organization is good at, aligning these competencies with strategic direction."
+    },
+    {
+      "text": "Which strata within the BCM represents the capabilities that directly interact with customers and external stakeholders?",
+      "options": [
+        "Support Capabilities",
+        "Core/Primary Capabilities",
+        "Strategic Capabilities",
+        "Compliance Capabilities"
+      ],
+      "correctAnswer": "Core/Primary Capabilities",
+      "explanation": "Primary capabilities are customer-facing and crucial for delivering the organization’s value proposition."
+    },
+    {
+      "text": "Value stream modelling helps an organization by:",
+      "options": [
+        "Mapping interactions with stakeholders based on the provision of a value item.",
+        "Listing all physical assets owned by the organization.",
+        "Restricting business operations to internal processes.",
+        "Documenting employee hierarchies across departments."
+      ],
+      "correctAnswer": "Mapping interactions with stakeholders based on the provision of a value item.",
+      "explanation": "Value stream maps show how value flows from initiation to delivery, enhancing customer focus."
+    },
+    {
+      "text": "In developing a Target Operating Model (TOM), the organization must ensure alignment with:",
+      "options": [
+        "Product profitability over innovation strategy.",
+        "The business’s long-term strategic objectives.",
+        "Internal employee personal preferences.",
+        "Tactical decisions without external considerations."
+      ],
+      "correctAnswer": "The business’s long-term strategic objectives.",
+      "explanation": "TOM is designed to realize strategic objectives through optimal structures and processes."
+    },
+    {
+      "text": "An organization suffering from fragmented processes and inefficient execution should prioritize:",
+      "options": [
+        "A restructuring based on TOM principles.",
+        "Disregarding process inefficiencies for short-term profitability.",
+        "Rapid hiring to compensate for weak strategy execution.",
+        "Reducing stakeholder engagement efforts."
+      ],
+      "correctAnswer": "A restructuring based on TOM principles.",
+      "explanation": "TOM helps realign fragmented processes with strategy, improving efficiency and effectiveness."
+    }
+  ]
+}
+

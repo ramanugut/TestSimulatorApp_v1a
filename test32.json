@@ -1,0 +1,226 @@
+{
+  "testName": "ICT2641 Assignment 4",
+  "questions": [
+    {
+      "text": "What are the main objectives of conducting a feasibility assessment in business analysis?",
+      "options": [
+        "To determine whether a proposed solution is viable and aligns with business objectives",
+        "To design the software architecture",
+        "To evaluate employee performance",
+        "To implement the chosen solution"
+      ],
+      "correctAnswer": "To determine whether a proposed solution is viable and aligns with business objectives",
+      "explanation": "Feasibility assessment ensures the proposed change or solution is realistic, achievable, and supports business goals before major resources are committed."
+    },
+    {
+      "text": "Which of the following are common types of feasibility considered in business analysis?",
+      "options": [
+        "Technical feasibility",
+        "Economic feasibility",
+        "Operational feasibility",
+        "User satisfaction"
+      ],
+      "correctAnswer": ["Technical feasibility", "Economic feasibility", "Operational feasibility"],
+      "explanation": "Feasibility studies typically include technical, economic, and operational feasibility to assess whether the proposed change is practical and beneficial."
+    },
+    {
+      "text": "What is the main purpose of investment appraisal in business analysis?",
+      "options": [
+        "To assess the financial viability of a proposed project or solution",
+        "To identify new suppliers",
+        "To measure customer satisfaction",
+        "To establish team roles"
+      ],
+      "correctAnswer": "To assess the financial viability of a proposed project or solution",
+      "explanation": "Investment appraisal evaluates financial factors such as costs, benefits, risks, and return on investment to support decision-making."
+    },
+    {
+      "text": "Which of the following are common techniques used in investment appraisal?",
+      "options": [
+        "Payback period",
+        "Net Present Value (NPV)",
+        "Internal Rate of Return (IRR)",
+        "Gap analysis"
+      ],
+      "correctAnswer": ["Payback period", "Net Present Value (NPV)", "Internal Rate of Return (IRR)"],
+      "explanation": "The key techniques used in investment appraisal include payback period, NPV, and IRR, which assess profitability and time value of money."
+    },
+    {
+      "text": "What are the typical contents of a business case?",
+      "options": [
+        "Executive summary",
+        "Options analysis",
+        "Risk assessment",
+        "Detailed software code"
+      ],
+      "correctAnswer": ["Executive summary", "Options analysis", "Risk assessment"],
+      "explanation": "A business case typically includes an executive summary, assessment of different options, and an analysis of risks and benefits."
+    },
+    {
+      "text": "What is the purpose of the 'options analysis' section in a business case?",
+      "options": [
+        "To present possible alternative solutions and compare their merits",
+        "To document project milestones",
+        "To define the software coding standard",
+        "To allocate staff salaries"
+      ],
+      "correctAnswer": "To present possible alternative solutions and compare their merits",
+      "explanation": "Options analysis helps decision-makers compare alternatives—including a 'do nothing' option—to select the most beneficial approach."
+    },
+    {
+      "text": "Why should the 'do nothing' option be considered in a business case?",
+      "options": [
+        "It is always the cheapest option",
+        "It establishes a baseline for comparison and helps understand the consequences of inaction",
+        "It ensures the project will continue regardless of feasibility",
+        "It prevents alternative solutions from being proposed"
+      ],
+      "correctAnswer": "It establishes a baseline for comparison and helps understand the consequences of inaction",
+      "explanation": "Considering the 'do nothing' option clarifies the potential costs and risks of not implementing any change."
+    },
+    {
+      "text": "Which of the following statements about tangible and intangible benefits is correct?",
+      "options": [
+        "Tangible benefits can be easily quantified, while intangible benefits are harder to measure",
+        "Intangible benefits are always more valuable",
+        "Tangible benefits are always non-financial",
+        "Intangible benefits are recorded as financial transactions"
+      ],
+      "correctAnswer": "Tangible benefits can be easily quantified, while intangible benefits are harder to measure",
+      "explanation": "Tangible benefits include measurable outcomes such as cost savings, while intangible benefits involve qualitative improvements like morale or reputation."
+    },
+    {
+      "text": "Which of the following are common components of a CARDI log?",
+      "options": [
+        "Constraints",
+        "Assumptions",
+        "Risks",
+        "Dependencies",
+        "Issues"
+      ],
+      "correctAnswer": ["Constraints", "Assumptions", "Risks", "Dependencies", "Issues"],
+      "explanation": "A CARDI log documents key project considerations: Constraints, Assumptions, Risks, Dependencies, and Issues."
+    },
+    {
+      "text": "What is the main purpose of a risk assessment within a business case?",
+      "options": [
+        "To identify and evaluate potential obstacles that could affect project success",
+        "To determine the project’s coding requirements",
+        "To assign resources to team members",
+        "To measure system usability"
+      ],
+      "correctAnswer": "To identify and evaluate potential obstacles that could affect project success",
+      "explanation": "Risk assessment identifies and evaluates factors that could impact project success, allowing mitigation plans to be developed early."
+    },
+    {
+      "text": "Which of the following are considered types of costs in an investment appraisal?",
+      "options": [
+        "Development costs",
+        "Operational costs",
+        "Maintenance costs",
+        "Opportunity costs"
+      ],
+      "correctAnswer": ["Development costs", "Operational costs", "Maintenance costs", "Opportunity costs"],
+      "explanation": "These categories capture both direct and indirect costs that contribute to the total cost of ownership and investment evaluation."
+    },
+    {
+      "text": "Why is sensitivity analysis used in investment appraisal?",
+      "options": [
+        "To test how changes in assumptions affect project outcomes",
+        "To compare software performance across systems",
+        "To monitor project team productivity",
+        "To identify regulatory risks"
+      ],
+      "correctAnswer": "To test how changes in assumptions affect project outcomes",
+      "explanation": "Sensitivity analysis helps assess the impact of varying key financial assumptions such as costs, benefits, or interest rates."
+    },
+    {
+      "text": "Which of the following are types of business benefits?",
+      "options": [
+        "Financial benefits",
+        "Non-financial benefits",
+        "Tangible benefits",
+        "Intangible benefits"
+      ],
+      "correctAnswer": ["Financial benefits", "Non-financial benefits", "Tangible benefits", "Intangible benefits"],
+      "explanation": "Business benefits can be categorized as financial/non-financial and tangible/intangible, depending on how they are measured."
+    },
+    {
+      "text": "What does ROI stand for in investment appraisal?",
+      "options": [
+        "Return on Investment",
+        "Rate of Input",
+        "Revenue of Interest",
+        "Residual Operating Income"
+      ],
+      "correctAnswer": "Return on Investment",
+      "explanation": "ROI, or Return on Investment, measures the financial return relative to the cost of an investment."
+    },
+    {
+      "text": "What is the main purpose of the post-implementation review?",
+      "options": [
+        "To evaluate the effectiveness of the implemented solution",
+        "To plan future projects",
+        "To update company policies",
+        "To train new staff"
+      ],
+      "correctAnswer": "To evaluate the effectiveness of the implemented solution",
+      "explanation": "Post-implementation reviews measure whether expected benefits were achieved and identify lessons learned."
+    },
+    {
+      "text": "Which of the following are considered parts of a benefits realization plan?",
+      "options": [
+        "Defining benefit owners",
+        "Setting benefit measurement criteria",
+        "Tracking benefit delivery over time",
+        "Reallocating staff during project closure"
+      ],
+      "correctAnswer": ["Defining benefit owners", "Setting benefit measurement criteria", "Tracking benefit delivery over time"],
+      "explanation": "A benefits realization plan ensures accountability and tracks whether expected benefits are delivered after implementation."
+    },
+    {
+      "text": "What are the primary categories of costs and benefits in business analysis?",
+      "options": [
+        "Tangible and intangible",
+        "Operational and strategic",
+        "Fixed and variable",
+        "Short-term and long-term"
+      ],
+      "correctAnswer": "Tangible and intangible",
+      "explanation": "Costs and benefits are commonly grouped as tangible (measurable) and intangible (qualitative)."
+    },
+    {
+      "text": "Which document typically justifies the initiation of a project?",
+      "options": [
+        "Business case",
+        "Feasibility report",
+        "Project charter",
+        "Requirements specification"
+      ],
+      "correctAnswer": "Business case",
+      "explanation": "The business case justifies why a project should begin, outlining its purpose, benefits, and feasibility."
+    },
+    {
+      "text": "Which of the following are advantages of conducting a feasibility study?",
+      "options": [
+        "Helps identify potential risks early",
+        "Ensures technical and financial viability",
+        "Reduces uncertainty in decision-making",
+        "Guarantees project success"
+      ],
+      "correctAnswer": ["Helps identify potential risks early", "Ensures technical and financial viability", "Reduces uncertainty in decision-making"],
+      "explanation": "Feasibility studies provide clarity and minimize risk by evaluating project viability before large investments are made."
+    },
+    {
+      "text": "Why is it important to align the business case with strategic objectives?",
+      "options": [
+        "To ensure that the proposed change supports the overall organizational goals",
+        "To comply with financial auditing standards",
+        "To reduce the number of stakeholders involved",
+        "To simplify project reporting"
+      ],
+      "correctAnswer": "To ensure that the proposed change supports the overall organizational goals",
+      "explanation": "Strategic alignment ensures that every proposed initiative contributes to the organization's long-term goals and priorities."
+    }
+  ]
+}

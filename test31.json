@@ -1,0 +1,555 @@
+{
+"testName": "ICT2641 Assignment 3",
+"questions": [
+{
+"text": "Which of the following is described as a potential consequence of poor accessibility or usability in technological support?",
+"options": [
+"Increased productivity",
+"Higher customer satisfaction",
+"Development of unauthorised workarounds",
+"Reduced operational costs"
+],
+"correctAnswer": "Development of unauthorised workarounds",
+"explanation": "When users cannot easily access or use technology, they often create unofficial workarounds to complete their tasks, leading to inefficiencies and potential security risks."
+},
+{
+"text": "In an Agile environment, requirements are typically:",
+"options": [
+"Fully defined upfront before any development",
+"Never documented",
+"Defined in overview initially and evolve during development",
+"Only defined after development is complete"
+],
+"correctAnswer": "Defined in overview initially and evolve during development",
+"explanation": "In Agile projects, requirements are kept flexible. They are initially outlined at a high level and refined through iterative collaboration and feedback."
+},
+{
+"text": "What is the primary purpose of a gap analysis in business change?",
+"options": [
+"To identify differences between current and future business models",
+"To create a list of software requirements",
+"To determine the organization's budget",
+"To evaluate employee performance"
+],
+"correctAnswer": "To identify differences between current and future business models",
+"explanation": "Gap analysis determines what changes are needed by comparing the current situation to the desired future state of the organization."
+},
+{
+"text": "What is the main purpose of the 'Empathise' stage in design thinking?",
+"options": [
+"To frame the problem to be solved",
+"To understand the needs of the customers",
+"To generate ideas for solutions",
+"To evaluate prototypes"
+],
+"correctAnswer": "To understand the needs of the customers",
+"explanation": "The Empathise phase focuses on gaining deep insight into users’ needs, experiences, and challenges through observation and engagement."
+},
+{
+"text": "Which of these is NOT mentioned as a potential risk of using external subject matter experts?",
+"options": [
+"Lack of understanding of organizational culture",
+"Resentment from internal staff",
+"No knowledge transfer to internal stakeholders",
+"Higher project costs"
+],
+"correctAnswer": "Higher project costs",
+"explanation": "While costs can vary, the main risks focus on internal resistance, cultural misalignment, and failure to transfer knowledge effectively."
+},
+{
+"text": "Which of the following is NOT one of the five core activities in the RE framework?",
+"options": [
+"Requirements elicitation",
+"Requirements analysis",
+"Requirements coding",
+"Requirements validation"
+],
+"correctAnswer": "Requirements coding",
+"explanation": "Requirements Engineering (RE) involves identifying, analyzing, documenting, and validating requirements—not coding."
+},
+{
+"text": "Costs and benefits can be categorized as:",
+"options": [
+"Important and unimportant",
+"Tangible and intangible",
+"Short-term and long-term only",
+"Financial and non-financial only"
+],
+"correctAnswer": "Tangible and intangible",
+"explanation": "Tangible benefits are measurable (e.g., revenue), while intangible benefits are harder to quantify (e.g., employee satisfaction)."
+},
+{
+"text": "Which model is presented as a framework for thinking about different elements that form the organizational view?",
+"options": [
+"POPIT model",
+"McKinsey's 7S model",
+"Porter's Value Chain",
+"Balanced Scorecard"
+],
+"correctAnswer": "McKinsey's 7S model",
+"explanation": "The McKinsey 7S model analyzes seven interconnected elements—strategy, structure, systems, shared values, skills, style, and staff—to assess organizational effectiveness."
+},
+{
+"text": "What does a solution architecture provide?",
+"options": [
+"Detailed technical specifications",
+"An architectural description of a specific solution",
+"A list of project risks and issues",
+"The project budget breakdown"
+],
+"correctAnswer": "An architectural description of a specific solution",
+"explanation": "Solution architecture defines how different system components interact to deliver a complete solution aligned with business goals."
+},
+{
+"text": "When considering the People dimension in gap analysis, which of these is NOT mentioned as a key area to analyse?",
+"options": [
+"Required skills",
+"Skills development processes",
+"Recruitment processes",
+"Employee age demographics"
+],
+"correctAnswer": "Employee age demographics",
+"explanation": "Gap analysis focuses on identifying skill gaps and development needs, not demographic statistics such as employee age."
+},
+{
+"text": "Which of the following is NOT typically included in branding requirements?",
+"options": [
+"Logo specifications",
+"Font guidelines",
+"Colour requirements",
+"Staff dress code"
+],
+"correctAnswer": "Staff dress code",
+"explanation": "Branding requirements concern the organization’s visual identity and messaging, not employee appearance or uniforms."
+},
+{
+"text": "Which of the following techniques is particularly useful for exploring unconscious skills?",
+"options": [
+"Workshops",
+"Interviews",
+"Document analysis",
+"Protocol analysis"
+],
+"correctAnswer": "Protocol analysis",
+"explanation": "Protocol analysis involves observing participants as they perform tasks and verbalize their thoughts, revealing tacit knowledge."
+},
+{
+"text": "What investment appraisal technique considers the 'time value of money'?",
+"options": [
+"Payback period",
+"Internal rate of return",
+"Discounted cash flow",
+"Break-even analysis"
+],
+"correctAnswer": "Discounted cash flow",
+"explanation": "Discounted cash flow (DCF) accounts for the fact that money today is worth more than the same amount in the future."
+},
+{
+"text": "What does the acronym PESTLE stand for in the context of feasibility assessment?",
+"options": [
+"Political, Economic, Social, Technological, Legal, Environmental",
+"Project, Estimation, Scope, Timeline, Logistics, Execution",
+"Planning, Evaluation, Strategy, Tactics, Leadership, Efficiency",
+"Profit, Expenses, Sales, Tax, Liabilities, Equity"
+],
+"correctAnswer": "Political, Economic, Social, Technological, Legal, Environmental",
+"explanation": "PESTLE is a strategic tool used to analyze external environmental factors that can affect a project or organization."
+},
+{
+"text": "Why is it important to consider motivation and reward systems in the People dimension of gap analysis?",
+"options": [
+"To determine salary increases",
+"To identify high-performing employees",
+"To ensure alignment with proposed changes",
+"To reduce overall staffing costs"
+],
+"correctAnswer": "To ensure alignment with proposed changes",
+"explanation": "Motivation and reward structures must support the desired behaviors and changes in the new business environment."
+},
+{
+"text": "What is the recommended number of options to include in a shortlist for a feasibility study or business case?",
+"options": [
+"1-2",
+"3-4",
+"5-6",
+"7-8"
+],
+"correctAnswer": "3-4",
+"explanation": "Having 3–4 options allows for meaningful comparison without overwhelming decision-makers."
+},
+{
+"text": "What does NPV stand for in investment appraisal?",
+"options": [
+"New Present Value",
+"Net Profit Valuation",
+"Net Present Value",
+"New Project Valuation"
+],
+"correctAnswer": "Net Present Value",
+"explanation": "Net Present Value (NPV) calculates the difference between present value of cash inflows and outflows over time."
+},
+{
+"text": "Requirements modeling techniques can help to:",
+"options": [
+"Code the software faster",
+"Test the software more thoroughly",
+"Define the scope of the solution",
+"Manage the project budget"
+],
+"correctAnswer": "Define the scope of the solution",
+"explanation": "Modeling techniques visualize system boundaries, processes, and interactions to clarify project scope."
+},
+{
+"text": "What is at the core of the McKinsey 7S model?",
+"options": [
+"Strategy",
+"Structure",
+"Shared values",
+"Systems"
+],
+"correctAnswer": "Shared values",
+"explanation": "Shared values represent the organization's culture and are central to aligning all other elements in the 7S model."
+},
+{
+"text": "What are the two main categories of business continuity requirements?",
+"options": [
+"Prevention and management",
+"Risk assessment and contingency planning",
+"Security and backup",
+"Duplication and recovery"
+],
+"correctAnswer": "Risk assessment and contingency planning",
+"explanation": "Business continuity focuses on identifying risks and creating contingency plans to maintain operations during disruptions."
+},
+{
+"text": "Which of the following is NOT one of the main steps in the gap analysis process?",
+"options": [
+"Assemble representations of existing and target situations",
+"Compare existing and target situations",
+"Implement changes immediately",
+"Identify gaps to be addressed"
+],
+"correctAnswer": "Implement changes immediately",
+"explanation": "Gap analysis identifies areas for improvement; implementation occurs later after planning and approval."
+},
+{
+"text": "Which of the following is NOT typically a stage in the design thinking process?",
+"options": [
+"Empathize",
+"Define",
+"Prototype",
+"Outsource"
+],
+"correctAnswer": "Outsource",
+"explanation": "Design thinking involves empathize, define, ideate, prototype, and test stages—outsourcing is not part of the framework."
+},
+{
+"text": "Which of the following is NOT typically included in a business case?",
+"options": [
+"Options analysis",
+"Cost-benefit analysis",
+"Risk assessment",
+"Detailed project plan"
+],
+"correctAnswer": "Detailed project plan",
+"explanation": "A business case provides justification and analysis for a project but does not include a full project plan."
+},
+{
+"text": "Which of the following is NOT an element typically included in a CARDI log?",
+"options": [
+"Risks",
+"Assumptions",
+"Dependencies",
+"Milestones"
+],
+"correctAnswer": "Milestones",
+"explanation": "CARDI logs record constraints, assumptions, risks, dependencies, and issues—not project scheduling data like milestones."
+},
+{
+"text": "When should a business case typically be produced in a linear project lifecycle?",
+"options": [
+"After major resources are committed",
+"At the very end of the project",
+"After preliminary investigation but before major resource commitment",
+"Only if requested by executives"
+],
+"correctAnswer": "After preliminary investigation but before major resource commitment",
+"explanation": "Business cases should be completed early to justify investment decisions before resources are heavily allocated."
+},
+{
+"text": "Which of these is NOT a typical responsibility of business staff in requirements engineering?",
+"options": [
+"Describing current processes",
+"Highlighting difficulties with current processes",
+"Identifying requirements for new features",
+"Making final decisions on conflicting requirements"
+],
+"correctAnswer": "Making final decisions on conflicting requirements",
+"explanation": "Final decision-making typically rests with project sponsors or governance bodies, not business staff."
+},
+{
+"text": "Why is it important to examine different options in a business case?",
+"options": [
+"To comply with regulations",
+"To impress stakeholders",
+"To pad the document length",
+"To ensure all possibilities are considered, including 'do nothing'"
+],
+"correctAnswer": "To ensure all possibilities are considered, including 'do nothing'",
+"explanation": "Evaluating multiple options ensures balanced decision-making and clarifies the impact of not taking action."
+},
+{
+"text": "What is often overlooked during gap analysis and option development?",
+"options": [
+"Technology requirements",
+"Process improvements",
+"Organizational impact",
+"Skills assessment"
+],
+"correctAnswer": "Organizational impact",
+"explanation": "Organizational and cultural impacts are often underestimated even though they influence project success significantly."
+},
+{
+"text": "Which of these is NOT one of the 'hard' elements in McKinsey's 7S model?",
+"options": [
+"Strategy",
+"Structure",
+"Systems",
+"Style"
+],
+"correctAnswer": "Style",
+"explanation": "‘Style’ is a soft element referring to leadership approach, while strategy, structure, and systems are considered ‘hard’ elements."
+},
+{
+"text": "Environmental considerations for data and information management would most likely fall under which requirements category?",
+"options": [
+"Functional requirements",
+"Technical requirements",
+"General requirements (business policies)",
+"Non-functional requirements"
+],
+"correctAnswer": "General requirements (business policies)",
+"explanation": "Environmental and sustainability policies are organizational-level rules that fall under general requirements."
+},
+{
+"text": "Which of the following is NOT one of the five key usability dimensions identified by Nielsen?",
+"options": [
+"Learnability",
+"Efficiency",
+"Memorability",
+"Flexibility"
+],
+"correctAnswer": "Flexibility",
+"explanation": "Nielsen’s usability dimensions are learnability, efficiency, memorability, errors, and satisfaction—not flexibility."
+},
+{
+"text": "Which of these is NOT one of the four main types of requirements identified in the framework?",
+"options": [
+"General requirements",
+"Technical requirements",
+"Functional requirements",
+"Non-functional requirements"
+],
+"correctAnswer": "Technical requirements",
+"explanation": "Technical requirements describe implementation constraints, not one of the four main requirement categories in business analysis."
+},
+{
+"text": "What is the term for knowledge that stakeholders are unable to easily articulate or explain?",
+"options": [
+"Explicit knowledge",
+"Conceptual knowledge",
+"Tacit knowledge",
+"Assumed knowledge"
+],
+"correctAnswer": "Tacit knowledge",
+"explanation": "Tacit knowledge is personal and experience-based, making it difficult to document or verbalize."
+},
+{
+"text": "Which of these is NOT one of the five dimensions in the POPIT model?",
+"options": [
+"People",
+"Organisation",
+"Processes",
+"Finance"
+],
+"correctAnswer": "Finance",
+"explanation": "The POPIT model focuses on People, Organisation, Processes, Information, and Technology—not Finance."
+},
+{
+"text": "What type of requirements state the technical policies and constraints to be adopted across an organization?",
+"options": [
+"General requirements",
+"Functional requirements",
+"Non-functional requirements",
+"Technical requirements"
+],
+"correctAnswer": "Technical requirements",
+"explanation": "Technical requirements define technology standards, constraints, and interoperability rules across systems."
+},
+{
+"text": "The approach adopted to define requirements should vary according to:",
+"options": [
+"The project manager's preference",
+"The business analyst's experience level",
+"The organizational and project context",
+"The size of the development team"
+],
+"correctAnswer": "The organizational and project context",
+"explanation": "Different contexts—such as Agile vs. Waterfall—require different approaches to requirement definition."
+},
+{
+"text": "In the context of design thinking, what does 'convergent thinking' involve?",
+"options": [
+"Generating multiple ideas",
+"Building prototypes",
+"Understanding customer needs",
+"Evaluating and narrowing down ideas"
+],
+"correctAnswer": "Evaluating and narrowing down ideas",
+"explanation": "Convergent thinking involves analyzing and refining many ideas to focus on the most viable solutions."
+},
+{
+"text": "For a localised change to a particular task or feature, which of these would be LEAST likely to be used to represent the desired state?",
+"options": [
+"Task analysis",
+"Prototype",
+"User story",
+"Enterprise architecture diagram"
+],
+"correctAnswer": "Enterprise architecture diagram",
+"explanation": "Enterprise architecture diagrams describe large-scale system relationships, not specific task-level changes."
+},
+{
+"text": "What is an 'avoided cost' in the context of a business case?",
+"options": [
+"A cost that was accidentally omitted",
+"A previously budgeted expense that can be offset against a new solution",
+"A cost that is intentionally hidden",
+"An expense that is delayed until the next fiscal year"
+],
+"correctAnswer": "A previously budgeted expense that can be offset against a new solution",
+"explanation": "Avoided costs represent expenses that would have been incurred without implementing the new solution."
+},
+{
+"text": "Why is it important to consider the 'do nothing' option when evaluating business changes?",
+"options": [
+"It's always the most cost-effective solution",
+"It helps clarify the risks and consequences of inaction",
+"It's required by most regulatory bodies",
+"It's the easiest option to implement"
+],
+"correctAnswer": "It helps clarify the risks and consequences of inaction",
+"explanation": "Considering the 'do nothing' option reveals what will happen if no change occurs, helping justify the need for action."
+},
+{
+"text": "When analysing the Information and Technology gaps, what important aspect needs to be considered regarding customer and user populations?",
+"options": [
+"Cost",
+"Speed of implementation",
+"Accessibility and usability",
+"Technological sophistication"
+],
+"correctAnswer": "Accessibility and usability",
+"explanation": "Technology should be accessible and usable by all intended users, ensuring inclusivity and efficiency."
+},
+{
+"text": "How many elements are there in McKinsey's model?",
+"options": [
+"5",
+"6",
+"7",
+"8"
+],
+"correctAnswer": "7",
+"explanation": "The McKinsey model includes seven elements: strategy, structure, systems, shared values, skills, staff, and style."
+},
+{
+"text": "What does the term'slicing' refer to in the context of requirements definition?",
+"options": [
+"Breaking requirements into smaller pieces",
+"Defining requirements in outline initially and elaborating later as needed",
+"Cutting unnecessary requirements from the scope",
+"Dividing requirements between different teams"
+],
+"correctAnswer": "Defining requirements in outline initially and elaborating later as needed",
+"explanation": "Slicing allows high-level requirements to be elaborated progressively as more information becomes available."
+},
+{
+"text": "What does the TOM acronym stand for in the context of gap analysis artifacts?",
+"options": [
+"Total Operational Model",
+"Target Operating Model",
+"Technical Optimization Method",
+"Task Oriented Mapping"
+],
+"correctAnswer": "Target Operating Model",
+"explanation": "The Target Operating Model (TOM) describes the future state of an organization after change implementation."
+},
+{
+"text": "Which dimension of POPIT is often at the heart of business process redesign?",
+"options": [
+"People",
+"Organisation",
+"Processes",
+"Technology"
+],
+"correctAnswer": "Processes",
+"explanation": "Business process redesign focuses on improving process efficiency and effectiveness within the POPIT framework."
+},
+{
+"text": "Performance, security, and usability are examples of which type of requirement?",
+"options": [
+"General",
+"Technical",
+"Functional",
+"Non-functional"
+],
+"correctAnswer": "Non-functional",
+"explanation": "Non-functional requirements define system qualities such as performance, security, and usability."
+},
+{
+"text": "What is a common pitfall when dealing with intangible benefits?",
+"options": [
+"Ignoring them completely",
+"Overstating their value",
+"Only considering short-term benefits",
+"Focusing solely on financial aspects"
+],
+"correctAnswer": "Overstating their value",
+"explanation": "Because intangible benefits are harder to quantify, they are often exaggerated, leading to unrealistic expectations."
+},
+{
+"text": "How often should a business case be reviewed during a project's lifecycle?",
+"options": [
+"Only at the beginning",
+"Only at the end",
+"At regular intervals throughout the project",
+"Never, once it's approved"
+],
+"correctAnswer": "At regular intervals throughout the project",
+"explanation": "Regular reviews ensure the business case remains valid as project conditions and assumptions evolve."
+},
+{
+"text": "Which of the following is an example of an intangible benefit?",
+"options": [
+"Reduced staff costs",
+"Lower inventory levels",
+"Increased job satisfaction",
+"Faster customer response times (if measurable)"
+],
+"correctAnswer": "Increased job satisfaction",
+"explanation": "Intangible benefits are non-measurable outcomes, such as morale or satisfaction, that add indirect value."
+},
+{
+"text": "What is the primary purpose of gap analysis?",
+"options": [
+"To identify differences between current and desired states",
+"To implement new technologies",
+"To reduce costs",
+"To increase profits"
+],
+"correctAnswer": "To identify differences between current and desired states",
+"explanation": "Gap analysis identifies discrepancies between where an organization is and where it wants to be, guiding improvement efforts."
+}
+]
+}

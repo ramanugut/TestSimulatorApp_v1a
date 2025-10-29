@@ -1,0 +1,336 @@
+{
+  "testName": "ICT2641 Chapter 6 Quiz: Stakeholder Analysis and Engagement",
+  "questions": [
+    {
+      "text": "How should stakeholders with high power and low interest be managed?",
+      "options": [
+        "Ignore them",
+        "Keep them informed",
+        "Keep them satisfied",
+        "Manage them closely"
+      ],
+      "correctAnswer": "Keep them satisfied",
+      "explanation": "These stakeholders can influence the project significantly, so they should be satisfied without overwhelming them with too much detail."
+    },
+    {
+      "text": "What does the 'Worldview' element in CATWOE help identify?",
+      "options": [
+        "The stakeholder’s job title",
+        "The stakeholder’s level of power",
+        "The stakeholder’s perspective on the problem",
+        "The stakeholder’s communication style"
+      ],
+      "correctAnswer": "The stakeholder’s perspective on the problem",
+      "explanation": "Worldview in CATWOE explores how different stakeholders perceive the problem or situation, which is essential for understanding motivations and expectations."
+    },
+    {
+      "text": "Which of the following best describes a stakeholder?",
+      "options": [
+        "A person who manages the project budget",
+        "A person or group affected by or able to influence a project",
+        "Only the customer of the project",
+        "A member of the project team"
+      ],
+      "correctAnswer": "A person or group affected by or able to influence a project",
+      "explanation": "Stakeholders include anyone impacted by or who can impact the project, not just team members or customers."
+    },
+    {
+      "text": "Which stakeholder engagement technique is best for gathering in-depth individual insights?",
+      "options": [
+        "Surveys",
+        "Focus groups",
+        "Interviews",
+        "Workshops"
+      ],
+      "correctAnswer": "Interviews",
+      "explanation": "Interviews provide a one-on-one setting that allows deep exploration of individual opinions and experiences."
+    },
+    {
+      "text": "What is a key characteristic of stakeholders with high interest but low power?",
+      "options": [
+        "They should be ignored",
+        "They should be kept informed",
+        "They should be managed closely",
+        "They should be given decision-making authority"
+      ],
+      "correctAnswer": "They should be kept informed",
+      "explanation": "Although they may not have decision-making power, their interest means they need regular updates to stay engaged and supportive."
+    },
+    {
+      "text": "What is the role of 'Transformation' in the CATWOE framework?",
+      "options": [
+        "The process of changing inputs into outputs",
+        "The stakeholder’s emotional response",
+        "The funding mechanism for the project",
+        "The communication strategy"
+      ],
+      "correctAnswer": "The process of changing inputs into outputs",
+      "explanation": "Transformation refers to the core activity that converts inputs into useful outputs, addressing the business need."
+    },
+    {
+      "text": "Why is it important to revisit stakeholder analysis throughout the project lifecycle?",
+      "options": [
+        "To reduce project costs",
+        "Stakeholder roles and influence may change",
+        "To avoid unnecessary meetings",
+        "To finalize the project scope"
+      ],
+      "correctAnswer": "Stakeholder roles and influence may change",
+      "explanation": "Stakeholder interests, power, and roles can evolve, making it necessary to update engagement strategies accordingly."
+    },
+    {
+      "text": "Which of the following is a common challenge in stakeholder management?",
+      "options": [
+        "Too many stakeholders with the same opinion",
+        "Stakeholders always agree on project goals",
+        "Conflicting stakeholder interests",
+        "Lack of stakeholders in a project"
+      ],
+      "correctAnswer": "Conflicting stakeholder interests",
+      "explanation": "Stakeholders often have different or competing goals, making alignment and compromise a challenge."
+    },
+    {
+      "text": "What is the main purpose of stakeholder management strategies?",
+      "options": [
+        "To reduce the number of meetings",
+        "To ensure all stakeholders are equally involved",
+        "To manage expectations and influence effectively",
+        "To assign tasks to each stakeholder"
+      ],
+      "correctAnswer": "To manage expectations and influence effectively",
+      "explanation": "Stakeholder strategies aim to build support, address concerns, and ensure smooth collaboration throughout the project."
+    },
+    {
+      "text": "Which stakeholder engagement technique is best for observing real-time behavior?",
+      "options": [
+        "Interviews",
+        "Focus Groups",
+        "Observation",
+        "Surveys"
+      ],
+      "correctAnswer": "Observation",
+      "explanation": "Observation allows analysts to see how stakeholders behave in real scenarios, which reveals actions not always expressed verbally."
+    },
+
+    {
+      "text": "What tool is used to understand stakeholder perspectives in depth?",
+      "options": [
+        "SWOT Analysis",
+        "CATWOE",
+        "MoSCoW",
+        "PESTLE"
+      ],
+      "correctAnswer": "CATWOE",
+      "explanation": "CATWOE is a tool that helps understand different stakeholder perspectives through a structured framework of six elements."
+    },
+    {
+      "text": "Which of the following tools is used to explore stakeholder worldviews and define business perspectives?",
+      "options": [
+        "MOST",
+        "CATWOE",
+        "RACI",
+        "PESTLE"
+      ],
+      "correctAnswer": "CATWOE",
+      "explanation": "CATWOE enables business analysts to explore various stakeholder worldviews and define the overall business problem and perspective."
+    },
+    {
+      "text": "Which of the following is a limitation of using surveys for stakeholder engagement?",
+      "options": [
+        "They are too expensive",
+        "They do not allow for anonymous responses",
+        "They may not capture deep insights or emotions",
+        "They are only suitable for internal stakeholders"
+      ],
+      "correctAnswer": "They may not capture deep insights or emotions",
+      "explanation": "Surveys are good for wide input but may lack depth and the ability to explore stakeholder emotions or complex views."
+    },
+    {
+      "text": "What is the purpose of the Power/Interest Grid in stakeholder analysis?",
+      "options": [
+        "To assign tasks to stakeholders",
+        "To determine the budget for stakeholder engagement",
+        "To assess stakeholders based on their influence and interest",
+        "To identify project risks"
+      ],
+      "correctAnswer": "To assess stakeholders based on their influence and interest",
+      "explanation": "The Power/Interest Grid categorizes stakeholders to guide appropriate engagement strategies."
+    },
+    {
+      "text": "What is the primary benefit of stakeholder engagement throughout a project?",
+      "options": [
+        "It reduces the need for documentation",
+        "It ensures stakeholders do not interfere with the project",
+        "It helps align expectations and improves project success",
+        "It eliminates the need for project governance"
+      ],
+      "correctAnswer": "It helps align expectations and improves project success",
+      "explanation": "Ongoing stakeholder engagement builds trust, ensures support, and increases the likelihood of successful project outcomes."
+    },
+    {
+      "text": "What is the best approach for managing stakeholders with low power and high interest?",
+      "options": [
+        "Keep them satisfied",
+        "Ignore them",
+        "Keep them informed",
+        "Manage them closely"
+      ],
+      "correctAnswer": "Keep them informed",
+      "explanation": "While these stakeholders may not influence decisions, keeping them informed maintains support and avoids misunderstandings."
+    },
+    {
+      "text": "What is the role of 'Owners' in the CATWOE framework?",
+      "options": [
+        "They are responsible for implementing the transformation",
+        "They define the worldview",
+        "They have the power to stop or change the transformation",
+        "They are the end users of the system"
+      ],
+      "correctAnswer": "They have the power to stop or change the transformation",
+      "explanation": "Owners in CATWOE are those with the authority to veto or drive the proposed change."
+    },
+    {
+      "text": "What is a key feature of effective stakeholder communication?",
+      "options": [
+        "Using technical jargon to show expertise",
+        "Sending frequent emails regardless of content",
+        "Tailoring messages to the audience’s needs and interests",
+        "Avoiding feedback to prevent conflict"
+      ],
+      "correctAnswer": "Tailoring messages to the audience’s needs and interests",
+      "explanation": "Effective communication means delivering relevant, understandable, and appropriate messages to each stakeholder group."
+    },
+    {
+      "text": "Which of the following is NOT a stakeholder engagement technique?",
+      "options": [
+        "Interviews",
+        "Surveys",
+        "Brainstorming",
+        "Focus Groups"
+      ],
+      "correctAnswer": "Brainstorming",
+      "explanation": "Brainstorming is a creativity technique, not specifically a method for engaging or gathering input from stakeholders."
+    },
+    {
+      "text": "Which of the following best describes the 'Actors' in the CATWOE framework?",
+      "options": [
+        "Those who benefit from the system",
+        "Those who carry out the transformation",
+        "Those who fund the project",
+        "Those who define the problem"
+      ],
+      "correctAnswer": "Those who carry out the transformation",
+      "explanation": "Actors are responsible for performing the transformation processes in the business system."
+    },
+    {
+      "text": "Which of the following is a benefit of using workshops for stakeholder engagement?",
+      "options": [
+        "They reduce the need for documentation",
+        "They allow for one-way communication",
+        "They encourage collaboration and shared understanding",
+        "They are only useful for technical stakeholders"
+      ],
+      "correctAnswer": "They encourage collaboration and shared understanding",
+      "explanation": "Workshops foster open discussion, idea sharing, and joint decision-making among stakeholders."
+    },
+    {
+      "text": "Which of the following is NOT a typical stakeholder category?",
+      "options": [
+        "Customers",
+        "Suppliers",
+        "Competitors",
+        "Algorithms"
+      ],
+      "correctAnswer": "Algorithms",
+      "explanation": "Algorithms are tools or processes, not people or groups who can influence or be affected by a project."
+    },
+    {
+      "text": "What is the best way to handle stakeholders who are low in both power and interest?",
+      "options": [
+        "Manage them closely",
+        "Keep them satisfied",
+        "Monitor with minimal effort",
+        "Involve them in all decisions"
+      ],
+      "correctAnswer": "Monitor with minimal effort",
+      "explanation": "These stakeholders do not require significant attention but should still be monitored for changes."
+    },
+    {
+      "text": "What is the main goal of using stakeholder analysis tools like the Power/Interest Grid?",
+      "options": [
+        "To assign project roles",
+        "To determine stakeholder salaries",
+        "To prioritize stakeholder engagement strategies",
+        "To eliminate unnecessary stakeholders"
+      ],
+      "correctAnswer": "To prioritize stakeholder engagement strategies",
+      "explanation": "These tools help decide who to engage, how often, and with what level of effort."
+    },
+    {
+      "text": "What is the main purpose of using focus groups in stakeholder engagement?",
+      "options": [
+        "To gather anonymous feedback",
+        "To observe stakeholder behavior in real-time",
+        "To explore stakeholder opinions and attitudes in a group setting",
+        "To assign project roles"
+      ],
+      "correctAnswer": "To explore stakeholder opinions and attitudes in a group setting",
+      "explanation": "Focus groups allow analysts to gather varied insights through group discussion and dynamics."
+    },
+    {
+      "text": "What is a key risk of failing to manage stakeholders effectively?",
+      "options": [
+        "Increased project funding",
+        "Reduced need for communication",
+        "Project delays or failure",
+        "Overachievement of project goals"
+      ],
+      "correctAnswer": "Project delays or failure",
+      "explanation": "Poor stakeholder management can lead to missed expectations, resistance, and eventual failure of the project."
+    },
+    {
+      "text": "What does the acronym CATWOE stand for in stakeholder analysis?",
+      "options": [
+        "Customers, Actors, Transformation, Worldview, Owners, Environment",
+        "Clients, Actions, Tasks, Work, Objectives, Evaluation",
+        "Customers, Activities, Tools, Workflow, Outcomes, Environment",
+        "Clients, Analysis, Transformation, Work, Ownership, Evaluation"
+      ],
+      "correctAnswer": "Customers, Actors, Transformation, Worldview, Owners, Environment",
+      "explanation": "CATWOE outlines six key elements to analyze different perspectives and understand a business situation holistically."
+    },
+    {
+      "text": "Which stakeholder group typically has high power and high interest in a project?",
+      "options": [
+        "Competitors",
+        "Regulators",
+        "Senior Managers",
+        "Customers"
+      ],
+      "correctAnswer": "Senior Managers",
+      "explanation": "Senior managers often have the authority and vested interest to influence and drive project decisions."
+    },
+    {
+      "text": "What is the primary reason for categorizing stakeholders?",
+      "options": [
+        "To assign them specific tasks",
+        "To determine their salaries",
+        "To tailor engagement strategies based on their role and influence",
+        "To reduce the number of stakeholders"
+      ],
+      "correctAnswer": "To tailor engagement strategies based on their role and influence",
+      "explanation": "Categorization helps target communication and involvement efforts effectively."
+    },
+    {
+      "text": "Which of the following is a reason to use stakeholder maps or models?",
+      "options": [
+        "To reduce the number of stakeholders",
+        "To visually represent stakeholder relationships and influence",
+        "To assign technical tasks",
+        "To finalize the project budget"
+      ],
+      "correctAnswer": "To visually represent stakeholder relationships and influence",
+      "explanation": "Maps help identify key stakeholders, their connections, and how best to engage with them throughout the project."
+    }
+  ]
+}

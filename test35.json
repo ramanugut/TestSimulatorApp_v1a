@@ -1,0 +1,604 @@
+{
+  "testName": "ICT2612 2021 EXAM Paper",
+  "questions": [
+    {
+      "text": "What will be the value of str after the following code execute?\n\n```java\nString str = \"7\" + 5 + 10;\n```",
+      "options": [
+        "7510",
+        "22",
+        "25",
+        "10",
+        "None of the above"
+      ],
+      "correctAnswer": "7510",
+      "explanation": "String concatenation occurs left to right: '7' + 5 = '75', then '75' + 10 = '7510'."
+    },
+    {
+      "text": "To prevent any method from overriding, we declare the method as...",
+      "options": [
+        "static",
+        "const",
+        "final",
+        "abstract",
+        "public"
+      ],
+      "correctAnswer": "final",
+      "explanation": "Declaring a method as 'final' prevents it from being overridden in subclasses."
+    },
+    {
+      "text": "After the following code is executed, what are the colors of r1 and r2 (in this order)?\n\n```java\nRectangle r1 = new Rectangle();\nr1.setColor(Color.blue);\nRectangle r2 = r1;\nr2.setColor(Color.red);\n```",
+      "options": [
+        "<code class=\"inline-code\">Color.blue, Color.red</code>",
+        "<code class=\"inline-code\">Color.blue, Color.blue</code>",
+        "<code class=\"inline-code\">Color.red, Color.red</code>",
+        "<code class=\"inline-code\">Color.red, Color.blue</code>",
+        "None of the above."
+      ],
+      "correctAnswer": "Color.red, Color.red",
+      "explanation": "Both variables refer to the same object, so changing one affects the other."
+    },
+    {
+      "text": "What is the type and value of the following expression? (Notice the integer division)\n\n```java\n-4 + 1/2 + 2*-3 + 5.0\n```",
+      "options": [
+        "int -5",
+        "double -4.5",
+        "int -4",
+        "double -5.0",
+        "None of the above"
+      ],
+      "correctAnswer": "double -5.0",
+      "explanation": "1/2 is 0 (integer division). The expression evaluates to -4 + 0 + (-6) + 5.0 = -5.0, a double."
+    },
+    {
+      "text": "What is the value of a and s after compiling the below code?\n\n```java\npublic static int foo(int a, String s) {\n    s = \"Yellow\";\n    a = a + 2;\n    return a;\n}\n\npublic static void bar() {\n    int a = 3;\n    String s = \"Blue\";\n    a = foo(a, s);\n    System.out.println(\"a=\" + a + \" s=\" + s);\n}\n\npublic static void main(String[] args) {\n    bar();\n}\n```",
+      "options": [
+        "<code class=\"inline-code\">a = 3 s = Blue</code>",
+        "<code class=\"inline-code\">a = 5 s = Yellow</code>",
+        "<code class=\"inline-code\">a = 3 s = Yellow</code>",
+        "<code class=\"inline-code\">a = 5 s = Blue</code>",
+        "none of the above."
+      ],
+      "correctAnswer": "a = 5 s = Blue",
+      "explanation": "Java passes objects by reference but Strings are immutable; only 'a' changes and is returned."
+    },
+    {
+      "text": "Which of the following variable declaration would NOT compile in a java program?",
+      "options": [
+        "<code class=\"inline-code\">int var;</code>",
+        "<code class=\"inline-code\">int VAR;</code>",
+        "<code class=\"inline-code\">int var1;</code>",
+        "<code class=\"inline-code\">int var_1;</code>",
+        "<code class=\"inline-code\">int 1_var;</code>"
+      ],
+      "correctAnswer": "int 1_var;",
+      "explanation": "Identifiers cannot start with a number."
+    },
+    {
+      "text": "The method setValue assigns the value of i to the instance field value. What could you write for the implementation of setValue?",
+      "options": [
+        "<code class=\"inline-code\">value = i;</code>",
+        "<code class=\"inline-code\">this.value = i;</code>",
+        "<code class=\"inline-code\">value == i;</code>",
+        "Both (A) and (B) above",
+        "(A), (B) and (C) above"
+      ],
+      "correctAnswer": "Both (A) and (B) above",
+      "explanation": "Both are valid assignments; '==' is comparison, not assignment."
+    },
+    {
+      "text": "Which of the following is TRUE?",
+      "options": [
+        "In java, an instance field declared public generates a compilation error.",
+        "int is the name of a class available in the package java.lang",
+        "Instance variable names may only contain letters and digits.",
+        "A class always has a constructor (possibly automatically supplied by the java compiler).",
+        "The more comments in a program, the faster the program runs."
+      ],
+      "correctAnswer": "A class always has a constructor (possibly automatically supplied by the java compiler).",
+      "explanation": "If no constructor is defined, Java adds a default no-arg constructor."
+    },
+    {
+      "text": "Which of the following is true about the constructor?",
+      "options": [
+        "Must have the same name as the class it is declared within.",
+        "Is used to create objects.",
+        "May be declared private",
+        "Both (A) and (B) above",
+        "(a), (b) and (c) above."
+      ],
+      "correctAnswer": "(a), (b) and (c) above.",
+      "explanation": "Constructors must share the class name, create objects, and can be private."
+    },
+    {
+      "text": "To instantiate MyClass, you would write?\n\n```java\npublic class MyClass { public MyClass(){ } }\n```",
+      "options": [
+        "<code class=\"inline-code\">MyClass mc = new MyClass();</code>",
+        "<code class=\"inline-code\">MyClass mc = MyClass();</code>",
+        "<code class=\"inline-code\">MyClass mc = MyClass;</code>",
+        "<code class=\"inline-code\">MyClass mc = new MyClass;</code>",
+        "The constructor of MyClass should be defined as, <code class=\"inline-code\">public void MyClass(){/code/}</code>."
+      ],
+      "correctAnswer": "MyClass mc = new MyClass();",
+      "explanation": "The correct syntax for creating a new object instance in Java."
+    },
+    {
+      "text": "What is a byte code?",
+      "options": [
+        "The type of code generated by a Java compiler.",
+        "The type of code generated by a Java Virtual Machine.",
+        "It is another name for a Java source file.",
+        "It is the code written within the instance methods of a class.",
+        "It is another name for comments written within a program."
+      ],
+      "correctAnswer": "The type of code generated by a Java compiler.",
+      "explanation": "Java source is compiled into bytecode for the JVM to interpret or JIT compile."
+    },
+    {
+      "text": "Which of the following statements about Java Threads is correct?",
+      "options": [
+        "Java threads don’t allow parts of a program to be executed in parallel",
+        "Java is a single-threaded language",
+        "Java’s garbage collector runs as a high priority thread",
+        "Ready, running and sleeping are three states that a thread can be in during its life cycle",
+        "Every java application is not multithreaded."
+      ],
+      "correctAnswer": "Ready, running and sleeping are three states that a thread can be in during its life cycle",
+      "explanation": "Threads transition between states like ready, running, sleeping during execution."
+    },
+    {
+      "text": "Which of the following will be the output of the program below?\n\n```java\npublic class Computation {\n  public static void main(String args[]) {\n    int result, x;\n    x = 1;\n    result = 0;\n    while (x <= 10) {\n      if (x % 2 == 0) result += x;\n      ++x;\n    }\n    System.out.println(result);\n  }\n}\n```",
+      "options": [
+        "55",
+        "30",
+        "25",
+        "35",
+        "45"
+      ],
+      "correctAnswer": "30",
+      "explanation": "The sum of even numbers from 1 to 10 (2+4+6+8+10) = 30."
+    },
+    {
+      "text": "Which statements about Java are correct?\nI. All white-space characters (blanks) are ignored by the compiler.\nII. Java keywords can be used as variable names.\nIII. An identifier does not begin with a digit and does not contain any spaces.\nIV. The execution of Java applications begins at method main.",
+      "options": [
+        "Both (I) and (III) above",
+        "Both (II) and (IV) above",
+        "Both (I) and (II) above",
+        "(III) and (IV) above",
+        "All (I), (II), (III) and (IV) above."
+      ],
+      "correctAnswer": "(III) and (IV) above",
+      "explanation": "Whitespace is ignored, but keywords cannot be variable names; identifiers follow naming rules and main() is the entry point."
+    },
+    {
+      "text": "In object-oriented programming, the process by which one object acquires the properties of another object is called...",
+      "options": [
+        "Encapsulation",
+        "Polymorphism",
+        "Overloading",
+        "Inheritance",
+        "Overriding"
+      ],
+      "correctAnswer": "Inheritance",
+      "explanation": "Inheritance allows a class to acquire fields and methods of another class."
+    },
+    {
+      "text": "What will be the output of the following program?\n\n```java\npublic class Print {\n  public static void main(String[] args) {\n    int c = 4\n    System.out.println(c = c++);\n  }\n}\n```",
+      "options": [
+        "2",
+        "4",
+        "5",
+        "8",
+        "Syntax error."
+      ],
+      "correctAnswer": "Syntax error.",
+      "explanation": "Missing semicolon after 'int c = 4' causes a syntax error."
+    },
+    {
+      "text": " Study the code below and indicate what the value of i_total will be.\n\n```java\ndouble d_total = 123.5;\nint i_total = (int)d_total;\n```",
+      "options": [
+        "123",
+        "124",
+        "123.0",
+        "123.5",
+        "error message"
+      ],
+      "correctAnswer": "123",
+      "explanation": "Casting from double to int truncates the decimal portion, resulting in 123."
+    },
+    {
+      "text": "Indicate which of the following declarations will render an error?",
+      "options": [
+        "<code class=\"inline-code\">boolean result = true;</code>",
+        "<code class=\"inline-code\">int result = 10.0;</code>",
+        "<code class=\"inline-code\">int result = 'a';</code>",
+        "<code class=\"inline-code\">float result = 1.23;</code>",
+        "<code class=\"inline-code\">long result = 123_456_789;</code>"
+      ],
+      "correctAnswer": "int result = 10.0;",
+      "explanation": "10.0 is a double literal and cannot be directly assigned to an int variable."
+    },
+    {
+      "text": "Study the code below and indicate what the value of answer will be.\n\n```java\nint x = 5, y = 6, z = 0, k = 2;\nint answer = (x + y) * z / k;\n```",
+      "options": [
+        "0",
+        "0.0",
+        "5",
+        "5.0",
+        "Division by zero error message."
+      ],
+      "correctAnswer": "0",
+      "explanation": "Since z = 0, the multiplication makes the whole expression 0 before division."
+    },
+    {
+      "text": " Study the code below and indicate what the values will be for hasMore, total and place.\n\n```java\nboolean hasMore = true;\nint[] numbers = {1,2,4,3,2,1};\nint place = numbers.length - 1, total = 0;\nwhile (hasMore) {\n  total = total + numbers[place];\n  place--;\n  if (place == 0) hasMore = false;\n}\n```",
+      "options": [
+        "total: 12 place: 0 hasMore: false",
+        "total: 11 place: 0 hasMore: false",
+        "total: 11 place: 0 hasMore: true",
+        "total: 12 place: 1 hasMore: false",
+        "total: 12 place: 1 hasMore: true"
+      ],
+      "correctAnswer": "total: 11 place: 0 hasMore: false",
+      "explanation": "Loop sums from the last element to index 1: 1+2+3+4+2 = 11; loop ends when place == 0."
+    },
+    {
+      "text": " Indicate which of the following will correctly link the variables for the first constructor (i) to the instance variables in class Car.",
+      "options": [
+        "<code class=\"inline-code\">this.b = b; this.f = f; this.m = m; this.p = sell_price(p);</code>",
+        "<code class=\"inline-code\">this.b = brand; this.f = fueltype; this.m = manual_auto; this.p = sell_price(p);</code>",
+        "<code class=\"inline-code\">this.brand = b; this.fueltype = f; this.manual_auto = m; this.price = sell_price(p);</code>",
+        "<code class=\"inline-code\">String brand = b; String fueltype = f; String manual_auto = m; float price = sell_price(p);</code>",
+        "<code class=\"inline-code\">String b = b; String f = f; String m = m; float p = sell_price(p);</code>"
+      ],
+      "correctAnswer": "this.brand = b; this.fueltype = f; this.manual_auto = m; this.price = sell_price(p);",
+      "explanation": "The 'this' keyword links parameters to instance variables."
+    },
+    {
+      "text": "Indicate which of the following code (ii) will correctly calculate a discount of 10% and return the new discount price in the sell_price_special() method.",
+      "options": [
+        "<code class=\"inline-code\">float discount, newprice; discount = (float)(p * 0.10); newprice = p / discount; return newprice;</code>",
+        "<code class=\"inline-code\">double discount, newprice; discount = (float)(p * 0.10); newprice = p - discount; return newprice;</code>",
+        "<code class=\"inline-code\">double discount, newprice; discount = p / 1.10; newprice = p - discount; return newprice;</code>",
+        "<code class=\"inline-code\">double discount, newprice; discount = p / 1.10; newprice = discount; return newprice;</code>",
+        "<code class=\"inline-code\">double discount, newprice; discount = p / 1.10; newprice = discount; return double(newprice);</code>"
+      ],
+      "correctAnswer": "double discount, newprice; discount = (float)(p * 0.10); newprice = p - discount; return newprice;",
+      "explanation": "10% discount means subtracting 10% of p from p; option (2) correctly applies that."
+    },
+    {
+      "text": " Indicate which of the following will correctly create two new instances (car1 and car2) of the class Car.",
+      "options": [
+        "<code class=\"inline-code\">Car car1 = new Car(\"mazda\",\"petrol\",150000); Car car2 = new Car(\"nissan\",\"diesel\",\"manual\",250000);</code>",
+        "<code class=\"inline-code\">Car = car(); car1 = new Car(\"mazda\",\"petrol\",150000.00); car2 = new Car(\"nissan\",\"diesel\",\"manual\",250000.00);</code>",
+        "<code class=\"inline-code\">car1 = new Car(\"mazda\",\"petrol\",150000); car2 = new Car(\"nissan\",\"diesel\",\"manual\",250000);</code>",
+        "<code class=\"inline-code\">Car car1 = new Car(brand=\"mazda\",fueltype=\"petrol\",price=150000); Car car2 = new Car(b=\"nissan\",f=\"diesel\",m=\"manual\",p=250000);</code>",
+        "<code class=\"inline-code\">Car car1 = new Car(brand=\"mazda\",fueltype=\"petrol\",price=150000.00); Car car2 = new Car(b=\"nissan\",f=\"diesel\",m=\"manual\",p=250000.00);</code>"
+      ],
+      "correctAnswer": "Car car1 = new Car(\"mazda\",\"petrol\",150000); Car car2 = new Car(\"nissan\",\"diesel\",\"manual\",250000);",
+      "explanation": "Correctly calls both constructors defined in the Car class."
+    },
+    {
+      "text": " Indicate what the value of display will be:\n\n```java\nCar car3 = new Car(\"toyota\",\"diesel\",170000,\"red\");\nString display = car3.display();\n```",
+      "options": [
+        "toyota R 153000.0",
+        "toyota R 187000.0",
+        "toyota R 153000.0 red",
+        "Error message. The actual and formal argument list differ in length.",
+        "Error message. The constructor Car(String,String,int,String) is undefined."
+      ],
+      "correctAnswer": "Error message. The constructor Car(String,String,int,String) is undefined.",
+      "explanation": "No matching constructor exists that accepts four arguments."
+    },
+    {
+      "text": "The purpose of the static variable numCars is to keep track of the number of instances of Car. Which of the following commands will correctly call this variable from the main program?",
+      "options": [
+        "Error message. You cannot call a static variable directly from the main program.",
+        "<code class=\"inline-code\">int numCars = Car.numCars;</code>",
+        "<code class=\"inline-code\">int numCars = Car1.numCars;</code>",
+        "<code class=\"inline-code\">int numCars = Car1.display(numCars);</code>",
+        "<code class=\"inline-code\">int numCars = Car.display(numCars);</code>"
+      ],
+      "correctAnswer": "int numCars = Car.numCars;",
+      "explanation": "Static variables are accessed through the class name, not an instance."
+    },
+    {
+      "text": " Indicate the value of message.\n\n```java\nCar car1 = new Car(\"mazda\",\"petrol\",150000);\nString message = car1.getFuelType();\n```",
+      "options": [
+        "Error message. You cannot call the method getFuelType() from the main program.",
+        "mazda R 135000.0 petrol",
+        "mazda R 150000.0 petrol",
+        "petrol mazda R 135000.0",
+        "Petrol"
+      ],
+      "correctAnswer": "Petrol",
+      "explanation": "Assuming getFuelType() returns the string representing the fuel type."
+    },
+    {
+      "text": " Indicate which of the following statements can replace the array declaration that allocates the values to the array brands.",
+      "options": [
+        "<code class=\"inline-code\">String[] brands = new String[4]; brands[0] = \"Mazda\"; brands[1] = \"Nissan\"; brands[2] = \"BMW\"; brands[3] = \"Toyota\";</code>",
+        "<code class=\"inline-code\">String[4] brands; brands[0] = \"Mazda\"; brands[1] = \"Nissan\"; brands[2] = \"BMW\"; brands[3] = \"Toyota\";</code>",
+        "<code class=\"inline-code\">String[] brands[4]; brands[0] = \"Mazda\"; brands[1] = \"Nissan\"; brands[2] = \"BMW\"; brands[3] = \"Toyota\";</code>",
+        "<code class=\"inline-code\">String[] brands[4]; brands[0] = new brands{\"Mazda\"}; brands[1] = new brands{\"Nissan\"}; brands[2] = new brands{\"BMW\"}; brands[3] = new brands{\"Toyota\"};</code>",
+        "<code class=\"inline-code\">String[] brands; brands[0] = new String{\"Mazda\"}; brands[1] = new String{\"Nissan\"}; brands[2] = new String{\"BMW\"}; brands[3] = new String{\"Toyota\"};</code>"
+      ],
+      "correctAnswer": "String[] brands = new String[4]; brands[0] = \"Mazda\"; brands[1] = \"Nissan\"; brands[2] = \"BMW\"; brands[3] = \"Toyota\";",
+      "explanation": "This correctly declares and assigns elements to a String array."
+    },
+    {
+      "text": "Indicate which of the following code will correctly combine the array brands and fueltypes and initialise the array cars.",
+      "options": [
+        "<code class=\"inline-code\">for (int i = 0; i < brands.length-1; i++){ car[i] = brands[i] + \" : \" + fueltypes[i]; }</code>",
+        "<code class=\"inline-code\">for (int i = 1; i < brands.length-1; i++){ car[i] = brands[i] + \" : \" + fueltypes[i]; }</code>",
+        "<code class=\"inline-code\">for (int i = 0; i < brands.length; i++){ car[i] = brands[i] + \" : \" + fueltypes[i]; }</code>",
+        "<code class=\"inline-code\">for (int i = 0; i < brands.length+1; i++){ car[i] = brands[i] + \" : \" + fueltypes[i]; }</code>",
+        "<code class=\"inline-code\">for (int i = 0; i < brands.length-1; i++){ for (int j = i; j < brands.length; j++) car[i] = brands[i] + \" : \" + fueltypes[j]; }</code>"
+      ],
+      "correctAnswer": "for (int i = 0; i < brands.length; i++){ car[i] = brands[i] + \" : \" + fueltypes[i]; }",
+      "explanation": "Loops correctly across both arrays of equal length."
+    },
+    {
+      "text": " Indicate the value of myDoors.\n\n```java\nchar[] doors = {'2','3','4','5'};\nString myDoors = new String(doors);\n```",
+      "options": [
+        "Error message: incompatible types.",
+        "2345",
+        "2 3 4 5",
+        "<code class=\"inline-code\">['2','3','4','5']</code>",
+        "<code class=\"inline-code\">[2345]</code>"
+      ],
+      "correctAnswer": "2345",
+      "explanation": "The String constructor converts a char array into a concatenated string."
+    },
+    {
+      "text": " Indicate which of the following commands will correctly sort the array drive in ascending order.",
+      "options": [
+        "<code class=\"inline-code\">Arrays.sort(drive,Collections Order());</code>",
+        "<code class=\"inline-code\">Arrays.sort(drive);</code>",
+        "<code class=\"inline-code\">drive.sort();</code>",
+        "<code class=\"inline-code\">drive = drive.sort();</code>",
+        "<code class=\"inline-code\">Arrays(drive).sort();</code>"
+      ],
+      "correctAnswer": "Arrays.sort(drive);",
+      "explanation": "Arrays.sort() sorts an array in ascending order."
+    },
+    {
+      "text": " Indicate which statement will correctly calculate the length of the array drive.",
+      "options": [
+        "<code class=\"inline-code\">int len = drive.length();</code>",
+        "<code class=\"inline-code\">int len = drive.len();</code>",
+        "<code class=\"inline-code\">int len = length(drive);</code>",
+        "<code class=\"inline-code\">int len = drive.length;</code>",
+        "<code class=\"inline-code\">int len = length.drive;</code>"
+      ],
+      "correctAnswer": "int len = drive.length;",
+      "explanation": "Arrays use the 'length' field (no parentheses) to get their size."
+    },
+    {
+      "text": " Study the code and indicate the value of place.\n\n```java\nString id = \"640423\";\nint place = id.indexOf(\"4\");\n```",
+      "options": [
+        "1",
+        "2",
+        "1 3",
+        "2 4",
+        "24"
+      ],
+      "correctAnswer": "1",
+      "explanation": "indexOf returns the first index of '4', which is position 1 (0-based)."
+    },
+    {
+      "text": " Which one of the following is NOT an example of an exception error that can occur in Java?",
+      "options": [
+        "A user entered invalid data.",
+        "A file that needs to be opened cannot be found.",
+        "A network connection has been lost.",
+        "The JVM has run out of memory.",
+        "The programmer entered the incorrect code to create a button."
+      ],
+      "correctAnswer": "The programmer entered the incorrect code to create a button.",
+      "explanation": "Syntax errors occur at compile time, not as runtime exceptions."
+    },
+    {
+      "text": " Which option will intercept the error without crashing the program?\n\n```java\nint[] daysInMonth = {31,28,31,30,31,30};\nint totalDays = 0;\nfor (int i=0; i < 12; i++){\n  totalDays = totalDays + daysInMonth[i];\n}\n```",
+      "options": [
+        "<code class=\"inline-code\">for (int i=0; i < 12; i++){ try{ totalDays += daysInMonth[i]; } catch (Exception e){ boolean error = true; } }</code>",
+        "<code class=\"inline-code\">for (int i=0; i < 12; i++){ try{ totalDays += daysInMonth[i]; } (catch e){ boolean error = true; } }</code>",
+        "<code class=\"inline-code\">for (int i=0; i < 12; i++){ try{ totalDays += daysInMonth[i]; } exception (Catch e){ boolean error = true; } }</code>",
+        "<code class=\"inline-code\">for (int i=0; i < 12; i++){ try{ totalDays += daysInMonth[i]; } catch (Exception e) }</code>",
+        "<code class=\"inline-code\">for (int i=1; i < 12; i++){ try{ totalDays += daysInMonth[i]; } catch e { boolean error = true; } }</code>"
+      ],
+      "correctAnswer": "for (int i=0; i < 12; i++){ try{ totalDays += daysInMonth[i]; } catch (Exception e){ boolean error = true; } }",
+      "explanation": "Proper try-catch syntax ensures safe error handling."
+    },
+    {
+      "text": " Which one of the following is NOT an access modifier in Java?",
+      "options": [
+        "private",
+        "protected",
+        "public",
+        "void"
+      ],
+      "correctAnswer": "void",
+      "explanation": "‘void’ is a return type, not an access modifier."
+    },
+    {
+      "text": " Which of the following is correct regarding this code:\n\n```java\nString s = \"30564.5\";\nchar[] cArray = s.toCharArray();\nint answer = cArray.length;\n```",
+      "options": [
+        "No compiler error and the value of answer is 7.",
+        "Compiler errors in line 1 and line 2.",
+        "No compiler error and the value of answer is 6.",
+        "Compiler error in line 1.",
+        "Syntax error in line 2."
+      ],
+      "correctAnswer": "No compiler error and the value of answer is 7.",
+      "explanation": "The string has 7 characters including the period."
+    },
+    {
+      "text": " Indicate the value of result:\n\n```java\nint val1 = 11;\nint val2 = 2;\ndouble result = val1 % val2;\n```",
+      "options": [
+        "Error message. Reason: There is no such operator as %",
+        "Error message. Reason: you cannot assign the result of % to a double value.",
+        "1.0 Reason: the remainder of 11 divided by 2 is 1.",
+        "5 Reason: 11 divided by 2 is 5.",
+        "5.0 Reason: 11 divided by 2 is 5.0, displayed as type double."
+      ],
+      "correctAnswer": "1.0 Reason: the remainder of 11 divided by 2 is 1.",
+      "explanation": "Modulo gives remainder 1, and is stored as a double."
+    },
+    {
+      "text": "Study the code and indicate the value of place.\n\n```java\nString email = \"john.nell@gmail.com\";\nint place = email.indexOf(\"@\");\n```",
+      "options": [
+        "Error message. You should search for '@'",
+        "8",
+        "9",
+        "10",
+        "@"
+      ],
+      "correctAnswer": "9",
+      "explanation": "The '@' character is found at index 9 (0-based counting)."
+    },
+    {
+      "text": " Which one of the following is correct regarding the Compare class and Main class code?",
+      "options": [
+        "Java does not allow multiple methods with the same name in a class.",
+        "The values for s1,s2,s3 and s4 are: s1: 20 s2: b s3: hope s4: 11.0",
+        "The values for s1,s2,s3 and s4 are: s1: 20 s2: b s3: Hope s4: 11.0",
+        "The values for s1,s2,s3 and s4 are: s1: 20 s2: b s3: Hope s4: 11",
+        "The statement <code class=\"inline-code\">double s4 = c.larger(10.1, 11);</code> gives a compiler error."
+      ],
+      "correctAnswer": "The values for s1,s2,s3 and s4 are: s1: 20 s2: b s3: Hope s4: 11.0",
+      "explanation": "Method overloading selects correct types; results match option (3)."
+    },
+    {
+      "text": "Which one of the following expressions correctly enforces the rules for the car rental agency?",
+      "options": [
+        "<code class=\"inline-code\">valid = ((license==true) && (fines==false) && (((age>=23) && (MF==\"F\")) || ((age>=25) && (MF == \"M\"))));</code>",
+        "<code class=\"inline-code\">valid = ((license) && !(fines) && (((age>=23) && (MF==\"F\")) || ((age>=25) && (MF == \"M\"))));</code>",
+        "<code class=\"inline-code\">valid = ((license==true) && (fines==false) && (((age>=23) && (MF.equals(\"F\"))) || ((age>=25) && (MF.equals(\"M\"))))));</code>",
+        "<code class=\"inline-code\">valid = ((license) && !(fines) && (((age>23) && (MF.equals(\"F\"))) || ((age>=25) && (MF.equals(\"M\"))))));</code>",
+        "<code class=\"inline-code\">valid = ((license=true) && (fines=false) && (((age>=23) && (MF=\"F\")) || ((age>=25) && (MF = \"M\")))));</code>"
+      ],
+      "correctAnswer": "valid = ((license==true) && (fines==false) && (((age>=23) && (MF.equals(\"F\"))) || ((age>=25) && (MF.equals(\"M\"))))));",
+      "explanation": "This expression requires a valid license, no fines, and uses String.equals to enforce the age rules for female (23+) and male (25+) renters. The other expressions either compare strings with ==, loosen the age constraint, or use assignment instead of comparison."
+    },
+    {
+      "text": " Which one of the following statements explains the contents of activity_main.xml in an Android app?",
+      "options": [
+        "It contains information about the sound and image files used in the application.",
+        "It contains information about the default Graphical User Interface of the application.",
+        "It contains the code of the class MainActivity.",
+        "It contains a summary of all the setup information of the application.",
+        "It contains a summary of all the XML files used in the application."
+      ],
+      "correctAnswer": "It contains information about the default Graphical User Interface of the application.",
+      "explanation": "activity_main.xml defines the UI layout components in Android."
+    },
+    {
+      "text": " Choose the correct data types for the variables:\n\n```java\nheight = 165;\nweight = 70.3;\nbmi = weight / height / height * 10000;\n```",
+      "options": [
+        "<code class=\"inline-code\">float height = 165; float weight = 70.3; float bmi = weight / height / height * 10000;</code>",
+        "<code class=\"inline-code\">double height = 165; double weight = 70.3; float bmi = weight / height / height * 10000;</code>",
+        "<code class=\"inline-code\">float height = 165; double weight = 70.3; float bmi = weight / height / height * 10000;</code>",
+        "<code class=\"inline-code\">float height = 165; float weight = 70.3; double bmi = weight / height / height * 10000;</code>",
+        "<code class=\"inline-code\">float height = 165; double weight = 70.3; double bmi = weight / height / height * 10000;</code>"
+      ],
+      "correctAnswer": "float height = 165; float weight = 70.3; float bmi = weight / height / height * 10000;",
+      "explanation": "Using consistent float types ensures correct arithmetic precision for BMI."
+    },
+    {
+      "text": " A _____ variable that is not accessible by any other method, class or program is defined inside a method, constructor or block.",
+      "options": [
+        "local",
+        "instance",
+        "class",
+        "open",
+        "close"
+      ],
+      "correctAnswer": "local",
+      "explanation": "Local variables exist only within the method or block they're declared in."
+    },
+    {
+      "text": " The _____ of a class are instructions that the class uses to manipulate values, generate output or perform actions.",
+      "options": [
+        "attributes",
+        "classes",
+        "overloading",
+        "methods",
+        "objects"
+      ],
+      "correctAnswer": "methods",
+      "explanation": "Methods define behavior or actions of a class."
+    },
+    {
+      "text": " In object-oriented terminology, the characteristics of an object are defined by its ___",
+      "options": [
+        "attributes",
+        "classes",
+        "instances",
+        "triggers",
+        "Variables"
+      ],
+      "correctAnswer": "attributes",
+      "explanation": "Attributes (fields) represent the data or characteristics of an object."
+    },
+    {
+      "text": " Which is the correct keyword that indicates inheritance between two classes in Java?",
+      "options": [
+        "attributes",
+        "enlarge",
+        "extends",
+        "inherits",
+        "super"
+      ],
+      "correctAnswer": "extends",
+      "explanation": "The 'extends' keyword defines subclass–superclass relationships."
+    },
+    {
+      "text": " The ____ package of Java provides classes for performing arithmetic operations.",
+      "options": [
+        "<code class=\"inline-code\">java.io</code>",
+        "<code class=\"inline-code\">java.calc</code>",
+        "<code class=\"inline-code\">java.lang</code>",
+        "<code class=\"inline-code\">java.math</code>",
+        "<code class=\"inline-code\">java.util</code>"
+      ],
+      "correctAnswer": "java.math",
+      "explanation": "java.math includes BigInteger and BigDecimal for arithmetic operations."
+    },
+    {
+      "text": "The data type Boolean can store data up to ___ that store(s) true/false flags.",
+      "options": [
+        "1 bit",
+        "2 bits",
+        "1 byte (8 bits)",
+        "2 bytes",
+        "4 bytes"
+      ],
+      "correctAnswer": "1 byte (8 bits)",
+      "explanation": "In Java, boolean values are stored as 1 byte, representing true or false."
+    },
+    {
+      "text": "Indicate which one of the following best describes a public access modifier:",
+      "options": [
+        "Only allows access from inside the same class.",
+        "Allows access inside the class, subclass or other classes of the same package.",
+        "Allows access from inside the same package.",
+        "Allows access from anywhere, inside and from outside the package.",
+        "None of the above."
+      ],
+      "correctAnswer": "Allows access from anywhere, inside and from outside the package.",
+      "explanation": "The 'public' modifier gives global visibility."
+    },
+    {
+      "text": " Which one of the following statements describes inheritance correctly?",
+      "options": [
+        "It allows generic code to be placed in a superclass and more specialized code in subclasses, thus promoting code reuse.",
+        "It is used when a subclass is more general than a superclass thereby creating a class hierarchy.",
+        "The primary reason for using it is to reduce execution times of programs.",
+        "Using it reduces errors because you can simply copy and paste code from a superclass to new subclasses.",
+        "The primary reason for using it is to make the code more 'human' readable."
+      ],
+      "correctAnswer": "It allows generic code to be placed in a superclass and more specialized code in subclasses, thus promoting code reuse.",
+      "explanation": "Inheritance facilitates code reuse and hierarchical design."
+    }
+  ]
+}

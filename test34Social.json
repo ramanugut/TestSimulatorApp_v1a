@@ -1,0 +1,895 @@
+{
+  "testName": "Lizzy - SCK1502 Social Work Exam (Oct/Nov) 2017",
+  "questions": [
+    {
+      "questionNumber": 1,
+      "text": "Social work in South Africa shifted from the medical model towards the developmental paradigm at the start of the democratic dispensation in 1994.",
+      "type": "true/false",
+      "options": ["True", "False"],
+      "correctAnswer": "True",
+      "explanation": "Social work in South Africa underwent a significant paradigm shift in 1994 with the advent of democracy, moving from a medical model to a developmental approach that focuses on empowerment and social change."
+    },
+    {
+      "questionNumber": 2,
+      "text": "Social work within the developmental paradigm focused only on helping clients to deal with problematic situations.",
+      "type": "true/false",
+      "options": ["True", "False"],
+      "correctAnswer": "False",
+      "explanation": "The developmental paradigm in social work is holistic and focuses on empowerment, capacity building, and addressing root causes of problems, not just dealing with problematic situations."
+    },
+    {
+      "questionNumber": 3,
+      "text": "The paradigm is clarified in the South African Council for Social Service Professions (SACSSP).",
+      "type": "true/false",
+      "options": ["True", "False"],
+      "correctAnswer": "False",
+      "explanation": "The SACSSP is a regulatory body for social work professions, not a paradigm. The developmental paradigm is clarified in policy documents like the White Paper for Social Welfare."
+    },
+    {
+      "questionNumber": 4,
+      "text": "Economic development is another important component that has to be considered when working from the developmental approach.",
+      "type": "true/false",
+      "options": ["True", "False"],
+      "correctAnswer": "True",
+      "explanation": "The developmental approach recognizes that economic development is integral to addressing social problems and improving quality of life."
+    },
+    {
+      "questionNumber": 5,
+      "text": "Empowerment in a social work helping process is geared towards empowering clients.",
+      "type": "true/false",
+      "options": ["True", "False"],
+      "correctAnswer": "True",
+      "explanation": "Empowerment is a core principle of social work that aims to enable clients to gain control over their lives and make informed decisions."
+    },
+    {
+      "questionNumber": 6,
+      "text": "Social work as a profession is aimed at improving the social functioning of individuals, families, groups and communities.",
+      "type": "true/false",
+      "options": ["True", "False"],
+      "correctAnswer": "True",
+      "explanation": "This statement accurately describes the primary goal of social work: to enhance social functioning and well-being at multiple levels."
+    },
+    {
+      "questionNumber": 7,
+      "text": "According to a definition of social work by the International Federation of Social Workers (IFSW), it can be deduced that social work is a profession that regards social justice, human rights, collective responsibility and respect for diversities as the core element of its practice.",
+      "type": "true/false",
+      "options": ["True", "False"],
+      "correctAnswer": "True",
+      "explanation": "The IFSW definition emphasizes social justice, human rights, collective responsibility, and respect for diversity as foundational principles of social work."
+    },
+    {
+      "questionNumber": 8,
+      "text": "Politics have no impact on the social work helping process.",
+      "type": "true/false",
+      "options": ["True", "False"],
+      "correctAnswer": "False",
+      "explanation": "Politics significantly impacts social work through policy development, resource allocation, and the social welfare system."
+    },
+    {
+      "questionNumber": 9,
+      "text": "The SACSSP is a statutory body that was established to regulate social work training and practice.",
+      "type": "true/false",
+      "options": ["True", "False"],
+      "correctAnswer": "True",
+      "explanation": "The South African Council for Social Service Professions is indeed a statutory body mandated to regulate professional standards and practice in social work."
+    },
+    {
+      "questionNumber": 10,
+      "text": "Social work is seen as a profession because social workers have undergone training.",
+      "type": "true/false",
+      "options": ["True", "False"],
+      "correctAnswer": "True",
+      "explanation": "Professional training is one of the key criteria that establishes social work as a recognized profession, along with ethical codes and regulatory bodies."
+    },
+    {
+      "questionNumber": 11,
+      "text": "Social work values and principles are aimed at guiding the social worker as he or she provides counselling and therapy to individuals, families and groups.",
+      "type": "true/false",
+      "options": ["True", "False"],
+      "correctAnswer": "True",
+      "explanation": "Values and principles provide an ethical framework that guides social workers in their professional interactions and interventions."
+    },
+    {
+      "questionNumber": 12,
+      "text": "Social work values and principles are similar to other professions' values and principles.",
+      "type": "true/false",
+      "options": ["True", "False"],
+      "correctAnswer": "False",
+      "explanation": "While there may be some overlap, social work has distinct values such as social justice, dignity, and empowerment that are specific to the profession."
+    },
+    {
+      "questionNumber": 13,
+      "text": "Within the developmental approach the social worker does not have to pay attention to the clients' environment.",
+      "type": "true/false",
+      "options": ["True", "False"],
+      "correctAnswer": "False",
+      "explanation": "The developmental approach emphasizes the importance of understanding and addressing environmental factors that affect clients."
+    },
+    {
+      "questionNumber": 14,
+      "text": "Economic development and empowerment in the developmental approach emphasises that social workers focus on the strengths of clients to encourage them to be self-reliant.",
+      "type": "true/false",
+      "options": ["True", "False"],
+      "correctAnswer": "True",
+      "explanation": "The strengths-based perspective is central to the developmental approach, focusing on building client capacity and self-reliance."
+    },
+    {
+      "questionNumber": 15,
+      "text": "Social auxiliary social workers are part of social work practice in South Africa, as a result, they have to have a broad understanding of the South African welfare sector.",
+      "type": "true/false",
+      "options": ["True", "False"],
+      "correctAnswer": "True",
+      "explanation": "Social auxiliary workers work within the social welfare system and need comprehensive knowledge of the sector to perform their roles effectively."
+    },
+    {
+      "questionNumber": 16,
+      "text": "Social auxiliary workers are trained in terms of their role as team members, working together with and under the supervision of a social worker.",
+      "type": "true/false",
+      "options": ["True", "False"],
+      "correctAnswer": "True",
+      "explanation": "Social auxiliary workers function as part of a team under the supervision of qualified social workers."
+    },
+    {
+      "questionNumber": 17,
+      "text": "Statutory and therapeutic work forms part of the responsibilities of the social auxiliary worker.",
+      "type": "true/false",
+      "options": ["True", "False"],
+      "correctAnswer": "False",
+      "explanation": "Statutory work typically falls within the scope of qualified social workers, not auxiliary workers who have more limited responsibilities."
+    },
+    {
+      "questionNumber": 18,
+      "text": "The social work function of enhancing problem-solving of clients means that social workers should teach clients how to solve their problems.",
+      "type": "true/false",
+      "options": ["True", "False"],
+      "correctAnswer": "True",
+      "explanation": "Enhancing problem-solving capacity involves teaching clients skills and strategies to address their own challenges effectively."
+    },
+    {
+      "questionNumber": 19,
+      "text": "Identifying and activating the inherent spirit of fighting in the clients forms the first step in the process of enhancing problem-solving as one of the functions of social work.",
+      "type": "true/false",
+      "options": ["True", "False"],
+      "correctAnswer": "True",
+      "explanation": "Recognizing and mobilizing clients' internal strengths and resilience is crucial in the problem-solving process."
+    },
+    {
+      "questionNumber": 20,
+      "text": "The problem-solving process in social work demands that the client be involved at all times to ensure ownership of the problem which encourages the client to make efforts to have the problematic situation changed.",
+      "type": "true/false",
+      "options": ["True", "False"],
+      "correctAnswer": "True",
+      "explanation": "Client participation and ownership are essential for effective problem-solving and sustainable change."
+    },
+    {
+      "questionNumber": 21,
+      "text": "The social work function of promoting coordination is aimed at the effective coordination of all the activities the clients are expected to be engaged in during the helping process.",
+      "type": "true/false",
+      "options": ["True", "False"],
+      "correctAnswer": "True",
+      "explanation": "Coordination ensures that various interventions and services work together effectively to support the client."
+    },
+    {
+      "questionNumber": 22,
+      "text": "Promoting social justice through the development of social policy is not one of the goals of social work.",
+      "type": "true/false",
+      "options": ["True", "False"],
+      "correctAnswer": "False",
+      "explanation": "Promoting social justice through policy development is a fundamental goal of social work at the macro level."
+    },
+    {
+      "questionNumber": 23,
+      "text": "In an attempt to enhance people's capacity to resolve their problems, the social worker has to assess the obstacles that hamper their clients' abilities to function appropriately.",
+      "type": "true/false",
+      "options": ["True", "False"],
+      "correctAnswer": "False",
+      "explanation": "While assessing obstacles is important, the statement as written suggests this is the only approach, when in fact social workers should focus on both obstacles and strengths."
+    },
+    {
+      "questionNumber": 24,
+      "text": "The social worker has a responsibility to advocate for policies and services that provide optimal benefits for their clients.",
+      "type": "true/false",
+      "options": ["True", "False"],
+      "correctAnswer": "True",
+      "explanation": "Advocacy is a core social work function that involves promoting policies and services that benefit clients and communities."
+    },
+    {
+      "questionNumber": 25,
+      "text": "In an effort to promote social justice, the social worker has to examine social policies that are discriminatory and then make suggestions for policy changes to ensure that policies are inclusive to all human beings.",
+      "type": "true/false",
+      "options": ["True", "False"],
+      "correctAnswer": "True",
+      "explanation": "Critical analysis of discriminatory policies and advocacy for inclusive policy changes are essential aspects of promoting social justice."
+    },
+    {
+      "questionNumber": 26,
+      "text": "Social workers' values, ethics and principles guide social workers in executing their duties.",
+      "type": "true/false",
+      "options": ["True", "False"],
+      "correctAnswer": "True",
+      "explanation": "Professional values, ethics, and principles provide the ethical framework for social work practice."
+    },
+    {
+      "questionNumber": 27,
+      "text": "Social workers do not need to internalise social work values, ethics and principles.",
+      "type": "true/false",
+      "options": ["True", "False"],
+      "correctAnswer": "False",
+      "explanation": "Internalizing values, ethics, and principles is essential for authentic and effective social work practice."
+    },
+    {
+      "questionNumber": 28,
+      "text": "The social work value of individualisation focuses on the uniqueness of each individual.",
+      "type": "true/false",
+      "options": ["True", "False"],
+      "correctAnswer": "True",
+      "explanation": "Individualization recognizes that each client is unique and should be treated according to their specific circumstances and needs."
+    },
+    {
+      "questionNumber": 29,
+      "text": "The social work value of confidentiality means not disclosing some of the information obtained in a professional relationship.",
+      "type": "true/false",
+      "options": ["True", "False"],
+      "correctAnswer": "False",
+      "explanation": "Confidentiality means not disclosing any information without consent, except in legally mandated circumstances like risk of harm."
+    },
+    {
+      "questionNumber": 30,
+      "text": "Social workers have a responsibility to make ethical decisions when they intervene in their client's problematic situations.",
+      "type": "true/false",
+      "options": ["True", "False"],
+      "correctAnswer": "True",
+      "explanation": "Ethical decision-making is fundamental to social work practice and guides all professional interventions."
+    },
+    {
+      "questionNumber": 31,
+      "text": "Which one of the following is not an objective of the South African Council for Social Service Professions (SACSSP)?",
+      "type": "multiple-choice",
+      "options": [
+        "Promoting the dignity and worth of people",
+        "Protecting and promoting the interest of the professions",
+        "Regulating the practicing of professions",
+        "Determining the standard of professional conduct"
+      ],
+      "correctAnswer": "Promoting the dignity and worth of people",
+      "explanation": "While promoting dignity is a social work value, it is not specifically an objective of SACSSP. The council's objectives focus on regulation, protecting professional interests, and setting standards."
+    },
+    {
+      "questionNumber": 32,
+      "text": "Which one of the following does not represent the definition of social work?",
+      "type": "multiple-choice",
+      "options": [
+        "Social work is aimed at working towards growth and development in the lives of the clients",
+        "Social work is aimed at directing clients to care for one another",
+        "Social work is aimed at promoting social change among its clients",
+        "Social work uses theories, models and approaches in dealing with problematic situations"
+      ],
+      "correctAnswer": "Social work is aimed at directing clients to care for one another",
+      "explanation": "Social work focuses on empowerment and capacity building, not directing clients. This approach would undermine client autonomy and self-determination."
+    },
+    {
+      "questionNumber": 33,
+      "text": "Which of the following is correct? Generalist practitioners in social work need to.",
+      "type": "multiple-choice",
+      "options": [
+        "Be equipped with basic social work knowledge",
+        "Have a variety of skills and techniques to meet their client's needs",
+        "Apply an eclectic knowledge base",
+        "All of the above"
+      ],
+      "correctAnswer": "All of the above",
+      "explanation": "Generalist social workers require comprehensive knowledge, diverse skills, and an eclectic approach to address various client needs effectively."
+    },
+    {
+      "questionNumber": 34,
+      "text": "Which one of the following is correct? The goals of social work are",
+      "type": "multiple-choice",
+      "options": [
+        "To facilitate change and development",
+        "To enhance problem-solving",
+        "To promote coordination",
+        "None of the above"
+      ],
+      "correctAnswer": "None of the above",
+      "explanation": "While the listed items are important functions, they are not comprehensive goals. The broader goals include promoting social justice, human rights, and social functioning."
+    },
+    {
+      "questionNumber": 35,
+      "text": "Which one of the following is correct? The functions of social work are.",
+      "type": "multiple-choice",
+      "options": [
+        "To enhance people's capacities to resolve problems, to cope and to function effectively",
+        "To link clients with the required resources",
+        "To improve the social service delivery network",
+        "None of the above"
+      ],
+      "correctAnswer": "None of the above",
+      "explanation": "All the listed options are functions of social work. The question asks which one is correct, but multiple functions exist, making 'None of the above' the answer when all should be included."
+    },
+    {
+      "questionNumber": 36,
+      "text": "Social work is guided by values and principles such as ___ Identify the incorrect one from the list",
+      "type": "multiple-choice",
+      "options": [
+        "respect for human beings",
+        "accepting people without prejudice",
+        "disregard for client's feelings and environment",
+        "allowing each individual self-determination"
+      ],
+      "correctAnswer": "disregard for client's feelings and environment",
+      "explanation": "Disregarding clients' feelings and environment contradicts fundamental social work values of empathy, respect, and understanding environmental contexts."
+    },
+    {
+      "questionNumber": 37,
+      "text": "The following social work value refers to the social worker perceiving each client as unique",
+      "type": "multiple-choice",
+      "options": [
+        "Respect",
+        "Acceptance",
+        "Confidentiality",
+        "Individualisation"
+      ],
+      "correctAnswer": "Individualisation",
+      "explanation": "Individualization is the principle that recognizes and respects the uniqueness of each client and their circumstances."
+    },
+    {
+      "questionNumber": 38,
+      "text": "The core characteristics of a social worker are . . Which one is incorrect?",
+      "type": "multiple-choice",
+      "options": [
+        "a positive outlook",
+        "trust in people",
+        "open mindedness",
+        "sympathy"
+      ],
+      "correctAnswer": "sympathy",
+      "explanation": "Social workers should practice empathy (understanding and sharing feelings) rather than sympathy (feeling pity), which can create an imbalanced power dynamic."
+    },
+    {
+      "questionNumber": 39,
+      "text": "The duty to care states that social workers have an obligation to",
+      "type": "multiple-choice",
+      "options": [
+        "inform the clients of the services that his or her agency is able to offer",
+        "ensure that their clients are physically protected",
+        "report any action that violates the right of another person",
+        "report crimes against humanity"
+      ],
+      "correctAnswer": "ensure that their clients are physically protected",
+      "explanation": "The duty to care primarily refers to the obligation to ensure client safety and protection from harm."
+    },
+    {
+      "questionNumber": 40,
+      "text": "Social work ethical dilemmas refer to . .",
+      "type": "multiple-choice",
+      "options": [
+        "moral conflict arising from helping clients using values",
+        "individual social worker's conflicting judgements.",
+        "social worker's moral uncertainties in making a decision",
+        "moral problems arising when a social work value has to be applied."
+      ],
+      "correctAnswer": "moral problems arising when a social work value has to be applied.",
+      "explanation": "Ethical dilemmas in social work occur when applying values creates moral conflicts or when values conflict with each other in practice."
+    },
+    {
+      "questionNumber": 41,
+      "text": "The social work levels of intervention are .... Which one is incorrect?",
+      "type": "multiple-choice",
+      "options": [
+        "casework",
+        "micro",
+        "mezzo",
+        "macro"
+      ],
+      "correctAnswer": "casework",
+      "explanation": "While casework is a method, the levels of intervention are typically categorized as micro (individual), mezzo (group/community), and macro (policy/societal)."
+    },
+    {
+      "questionNumber": 42,
+      "text": "The ___ level refers to working with individuals. Which one is correct?",
+      "type": "multiple-choice",
+      "options": [
+        "casework",
+        "micro",
+        "mezzo",
+        "macro"
+      ],
+      "correctAnswer": "micro",
+      "explanation": "The micro level of intervention focuses on working with individuals and families on a one-to-one basis."
+    },
+    {
+      "questionNumber": 43,
+      "text": "Self-awareness as one of the core characteristics that a social worker must have, refers to",
+      "type": "multiple-choice",
+      "options": [
+        "an understanding of own values and assumptions about life",
+        "an understanding of own beliefs.",
+        "an understanding of own strengths and weaknesses",
+        "All of the above"
+      ],
+      "correctAnswer": "All of the above",
+      "explanation": "Self-awareness encompasses understanding one's values, beliefs, assumptions, strengths, and weaknesses to practice effectively and avoid imposing biases on clients."
+    },
+    {
+      "questionNumber": 44,
+      "text": "Respect for diversity as one of the core characteristics that a social worker must possess, means that",
+      "type": "multiple-choice",
+      "options": [
+        "the social worker must be aware of all the cultural groups in his or her community",
+        "the social worker must believe that all people have a potential to change",
+        "the social worker must be aware of diversity in his or her clients and be prepared to intervene",
+        "the social worker must be prepared to learn his or her clients' cultures"
+      ],
+      "correctAnswer": "the social worker must be aware of diversity in his or her clients and be prepared to intervene",
+      "explanation": "Respecting diversity requires awareness of client differences and adapting interventions to be culturally sensitive and appropriate."
+    },
+    {
+      "questionNumber": 45,
+      "text": "According to the Integrated Service Delivery Model, at the ___ level the client displays risky behaviour and the social worker focuses on curbing its further development",
+      "type": "multiple-choice",
+      "options": [
+        "early intervention level",
+        "statutory intervention/residential/alternative care level",
+        "prevention macro level",
+        "reconstruction/reunification and aftercare level"
+      ],
+      "correctAnswer": "early intervention level",
+      "explanation": "Early intervention targets at-risk behaviors before they escalate, focusing on prevention and early support."
+    },
+    {
+      "questionNumber": 46,
+      "text": "At the ... level, the quality of life of the client is compromised calling for the social worker to focus on intervening using the court processes to alleviate the client's problematic situation",
+      "type": "multiple-choice",
+      "options": [
+        "early intervention",
+        "statutory intervention/residential/alternative care",
+        "prevention macro",
+        "reconstruction/reunification and aftercare"
+      ],
+      "correctAnswer": "statutory intervention/residential/alternative care",
+      "explanation": "Statutory intervention involves legal processes and may include alternative care when a client's situation is severely compromised."
+    },
+    {
+      "questionNumber": 47,
+      "text": "Social work has three primary methods of intervention. Which one in the following list is not one of the social work primary methods?",
+      "type": "multiple-choice",
+      "options": [
+        "Social work administration, management and supervision",
+        "Social case work",
+        "Community work",
+        "Social group work"
+      ],
+      "correctAnswer": "Social work administration, management and supervision",
+      "explanation": "Administration, management, and supervision are secondary methods. The primary methods are casework, group work, and community work."
+    },
+    {
+      "questionNumber": 48,
+      "text": "The secondary methods of social work intervention are",
+      "type": "multiple-choice",
+      "options": [
+        "social work administration, management and supervision",
+        "social case work, group work and community work.",
+        "All of the above",
+        "None of the above"
+      ],
+      "correctAnswer": "social work administration, management and supervision",
+      "explanation": "Secondary methods include administration, management, supervision, and research, which support the primary methods of intervention."
+    },
+    {
+      "questionNumber": 49,
+      "text": "This method of social work practice focuses on individuals, families and small groups, and uses techniques skilfully applied to help people manage change more effectively",
+      "type": "multiple-choice",
+      "options": [
+        "Community work",
+        "Group work",
+        "Case work",
+        "Community organisation"
+      ],
+      "correctAnswer": "Case work",
+      "explanation": "Casework is the primary method that focuses on individuals and families, using various techniques to facilitate change and problem-solving."
+    },
+    {
+      "questionNumber": 50,
+      "text": "The ___ phase involves a process of making tentative judgements about how the information given by the client affects him or her.",
+      "type": "multiple-choice",
+      "options": [
+        "social study",
+        "assessment",
+        "goal setting",
+        "contracting"
+      ],
+      "correctAnswer": "assessment",
+      "explanation": "Assessment involves analyzing information gathered during the social study phase to understand the client's situation and needs."
+    },
+    {
+      "questionNumber": 51,
+      "text": "The step of obtaining relevant information about the client system and the perceived needs in the process of social work intervention at the individual level is known as",
+      "type": "multiple-choice",
+      "options": [
+        "assessment",
+        "social study",
+        "goal-setting.",
+        "contracting"
+      ],
+      "correctAnswer": "social study",
+      "explanation": "Social study is the initial phase where information about the client and their situation is gathered systematically."
+    },
+    {
+      "questionNumber": 52,
+      "text": "This step in the social work intervention with individuals involves the social worker and the client agreeing on the problem as well as on how to address it",
+      "type": "multiple-choice",
+      "options": [
+        "Intervention",
+        "Social study",
+        "Goal-setting",
+        "Contracting"
+      ],
+      "correctAnswer": "Contracting",
+      "explanation": "Contracting is the phase where the social worker and client establish a working agreement about the problem and intervention plan."
+    },
+    {
+      "questionNumber": 53,
+      "text": "The social worker assumes different roles when working with individuals. Which one is incorrect?",
+      "type": "multiple-choice",
+      "options": [
+        "Educator",
+        "Broker",
+        "Facilitator",
+        "Spiritual guide"
+      ],
+      "correctAnswer": "Spiritual guide",
+      "explanation": "While social workers respect spirituality, they do not typically assume the role of spiritual guide, which falls outside professional boundaries."
+    },
+    {
+      "questionNumber": 54,
+      "text": "The social worker uses different skills to assist their clients. Which one is correct?",
+      "type": "multiple-choice",
+      "options": [
+        "Listening",
+        "Questioning",
+        "Both 1 and 2.",
+        "None of the above"
+      ],
+      "correctAnswer": "Both 1 and 2.",
+      "explanation": "Both listening and questioning are essential communication skills that social workers use to understand and assist clients effectively."
+    },
+    {
+      "questionNumber": 55,
+      "text": "The purpose of treatment groups in social work intervention is",
+      "type": "multiple-choice",
+      "options": [
+        "Support",
+        "Education",
+        "Therapy",
+        "All of the above"
+      ],
+      "correctAnswer": "All of the above",
+      "explanation": "Treatment groups serve multiple purposes including providing support, education, and therapeutic interventions to members."
+    },
+    {
+      "questionNumber": 56,
+      "text": "Social workers use ... groups to offer members the opportunity to become aware of, explore and change their thoughts, feelings and behaviours regarding themselves and others.",
+      "type": "multiple-choice",
+      "options": [
+        "support",
+        "educational",
+        "therapy",
+        "growth-oriented"
+      ],
+      "correctAnswer": "growth-oriented",
+      "explanation": "Growth-oriented groups focus on personal development, self-awareness, and behavioral change through exploration and insight."
+    },
+    {
+      "questionNumber": 57,
+      "text": "The ___ groups are used by social workers to help group members to change their behaviour, cope with and overcome personal problems",
+      "type": "multiple-choice",
+      "options": [
+        "socialisation",
+        "educational",
+        "therapy",
+        "growth-oriented"
+      ],
+      "correctAnswer": "therapy",
+      "explanation": "Therapy groups specifically target behavioral change and help members cope with and overcome personal challenges."
+    },
+    {
+      "questionNumber": 58,
+      "text": "The purpose of task groups in social work intervention is to",
+      "type": "multiple-choice",
+      "options": [
+        "meet the needs of the clients by engaging in collaborative work on their behalf",
+        "support group members to resolve their problems.",
+        "help group members become aware of their thoughts and feelings",
+        "educate group members regarding their problematic situations."
+      ],
+      "correctAnswer": "meet the needs of the clients by engaging in collaborative work on their behalf",
+      "explanation": "Task groups focus on accomplishing specific goals or tasks to benefit clients, often through collaborative effort and problem-solving."
+    },
+    {
+      "questionNumber": 59,
+      "text": "During the ___ phase, the group engages in discussions and members undertake individual and collective tasks to accomplish their goals",
+      "type": "multiple-choice",
+      "options": [
+        "ending phase",
+        "evaluation phase",
+        "middle phase",
+        "beginning phase"
+      ],
+      "correctAnswer": "middle phase",
+      "explanation": "The middle phase, also called the working phase, is when the group actively works toward goals through discussion and task completion."
+    },
+    {
+      "questionNumber": 60,
+      "text": "The effective practice of social group work is rooted in the effective use of ..",
+      "type": "multiple-choice",
+      "options": [
+        "social work knowledge of group members",
+        "social work skills",
+        "social work's adherence to ethics.",
+        "Both 2 and 3."
+      ],
+      "correctAnswer": "Both 2 and 3.",
+      "explanation": "Effective group work requires both skilled facilitation and ethical practice to ensure positive outcomes for members."
+    },
+    {
+      "questionNumber": 61,
+      "text": "In social work, community work is a method consisting of various processes targeted at",
+      "type": "multiple-choice",
+      "options": [
+        "individuals.",
+        "communities.",
+        "families",
+        "groups"
+      ],
+      "correctAnswer": "communities.",
+      "explanation": "Community work focuses on community-level interventions, mobilization, and development to address collective needs and issues."
+    },
+    {
+      "questionNumber": 62,
+      "text": "The role of ___ in a welfare organisation may be performed by a senior and experienced social worker as a secondary method of social work",
+      "type": "multiple-choice",
+      "options": [
+        "manager",
+        "administrator",
+        "supervisor",
+        "All of the above"
+      ],
+      "correctAnswer": "All of the above",
+      "explanation": "Management, administration, and supervision are all secondary methods that may be performed by experienced social workers in welfare organizations."
+    },
+    {
+      "questionNumber": 63,
+      "text": "Which of the following is incorrect? Supervision as a secondary method of social work may be carried out by",
+      "type": "multiple-choice",
+      "options": [
+        "Ensuring that practitioners keep up-to-date records of services they provide to clients",
+        "Checking practitioner's diaries",
+        "Providing support to practitioners",
+        "Educating practitioners"
+      ],
+      "correctAnswer": "Checking practitioner's diaries",
+      "explanation": "While supervision includes monitoring, education, and support, checking diaries is not a primary supervisory function and may be overly intrusive."
+    },
+    {
+      "questionNumber": 64,
+      "text": "Social work research as a secondary method is undertaken for the purpose of",
+      "type": "multiple-choice",
+      "options": [
+        "helping clients achieve their goals in life",
+        "developing new knowledge or theories",
+        "solving the current problems experienced in the process of service delivery",
+        "Both 2 and 3"
+      ],
+      "correctAnswer": "Both 2 and 3",
+      "explanation": "Social work research aims to develop knowledge and theories while also addressing practical service delivery challenges."
+    },
+    {
+      "questionNumber": 65,
+      "text": "A/an ___ refers to a set of guidelines indicating how interventions should be carried out",
+      "type": "multiple-choice",
+      "options": [
+        "a theory",
+        "a model",
+        "a perspective",
+        "an approach"
+      ],
+      "correctAnswer": "a model",
+      "explanation": "A model provides structured guidelines and frameworks for implementing interventions in practice."
+    },
+    {
+      "questionNumber": 66,
+      "text": "A/an ___ refers to a lens through which we choose to perceive and understand a particular aspect",
+      "type": "multiple-choice",
+      "options": [
+        "a theory",
+        "a model",
+        "a perspective",
+        "an approach"
+      ],
+      "correctAnswer": "a perspective",
+      "explanation": "A perspective is a viewpoint or lens that shapes how we understand and interpret situations and phenomena."
+    },
+    {
+      "questionNumber": 67,
+      "text": "A/an ___ refers to all the actions taken by the social worker in addressing the problematic situation of the client",
+      "type": "multiple-choice",
+      "options": [
+        "a theory",
+        "a model",
+        "a perspective",
+        "an approach"
+      ],
+      "correctAnswer": "an approach",
+      "explanation": "An approach encompasses the practical actions and strategies used by social workers to address client problems."
+    },
+    {
+      "questionNumber": 68,
+      "text": "A/an ___, represents an explanation that is reasonable and valid about the relationship between a set of facts and a framework for change, it is grounded by research.",
+      "type": "multiple-choice",
+      "options": [
+        "a theory",
+        "a model",
+        "a perspective",
+        "an approach"
+      ],
+      "correctAnswer": "a theory",
+      "explanation": "A theory is a research-based explanation that describes relationships between concepts and provides a framework for understanding phenomena."
+    },
+    {
+      "questionNumber": 69,
+      "text": "Which one of the following is a theoretical framework that assists the social worker to understand the client in totality leading to appropriate assessment of the problematic situation?",
+      "type": "multiple-choice",
+      "options": [
+        "Strength perspective and empowerment",
+        "Ecological systems perspective",
+        "Person-centred approach",
+        "Problem-solving approach"
+      ],
+      "correctAnswer": "Ecological systems perspective",
+      "explanation": "The ecological systems perspective examines clients within their environmental context, considering all systems and interactions that affect them."
+    },
+    {
+      "questionNumber": 70,
+      "text": "This theoretical framework represents the notion that every person is born with inner strengths, which are usually suppressed by the difficult situations that people experience in life",
+      "type": "multiple-choice",
+      "options": [
+        "Task-centred approach",
+        "Person-centred approach",
+        "Strength perspective and empowerment",
+        "Problem-solving approach"
+      ],
+      "correctAnswer": "Strength perspective and empowerment",
+      "explanation": "The strengths perspective focuses on identifying and building upon clients' inherent strengths and capacities rather than deficits."
+    },
+    {
+      "questionNumber": 71,
+      "text": "This theoretical framework is aimed at a short-term intervention process where specific tasks have to be accomplished.",
+      "type": "multiple-choice",
+      "options": [
+        "Developmental approach",
+        "Person-centred approach",
+        "Task-centred approach",
+        "Problem-solving approach"
+      ],
+      "correctAnswer": "Task-centred approach",
+      "explanation": "The task-centred approach is a time-limited intervention model that focuses on accomplishing specific, agreed-upon tasks to address problems."
+    },
+    {
+      "questionNumber": 72,
+      "text": "During the .. phase in the problem-solving approach, the social worker together with the client put into action the agreed-upon activities",
+      "type": "multiple-choice",
+      "options": [
+        "beginning",
+        "contact",
+        "contract",
+        "action"
+      ],
+      "correctAnswer": "action",
+      "explanation": "The action phase is when the intervention plan is implemented, and the social worker and client carry out the agreed-upon activities to address the problem."
+    },
+    {
+      "questionNumber": 73,
+      "text": "The task-centred approach has specific characteristics. Which one is not one of them in the following list as defined by Healy (2005)?",
+      "type": "multiple-choice",
+      "options": [
+        "Promoting collaboration between the social worker and the service users",
+        "Building client's capacities for change",
+        "Allowing the client to select own strategies",
+        "Seeking mutual clarity with the service user"
+      ],
+      "correctAnswer": "Allowing the client to select own strategies",
+      "explanation": "While client involvement is important, in the task-centred approach, strategies are typically developed collaboratively rather than solely selected by the client."
+    },
+    {
+      "questionNumber": 74,
+      "text": "Planned brevity refers to.",
+      "type": "multiple-choice",
+      "options": [
+        "How the client is forced to talk about his or her problematic situation now",
+        "How the social worker focuses on what is currently happening in the client' life",
+        "How the social worker focuses on what he or she believes is important in the client's situation",
+        "How the social worker and the client develop a programme consisting of specific tasks to address the situation at hand"
+      ],
+      "correctAnswer": "How the social worker and the client develop a programme consisting of specific tasks to address the situation at hand",
+      "explanation": "Planned brevity in the task-centred approach refers to time-limited intervention with specific, achievable tasks designed to address immediate problems efficiently."
+    },
+    {
+      "questionNumber": 75,
+      "text": "The developmental approach is a",
+      "type": "multiple-choice",
+      "options": [
+        "process of planned social change designed to promote the well-being of the population as a whole",
+        "systematic process of thinking about the client's problematic situation",
+        "process of evaluating what works better for the client in a given situation",
+        "process of establishing the purpose of the client in seeking social work intervention"
+      ],
+      "correctAnswer": "process of planned social change designed to promote the well-being of the population as a whole",
+      "explanation": "The developmental approach focuses on holistic, sustainable change at individual, community, and societal levels to promote overall well-being."
+    },
+    {
+      "questionNumber": 76,
+      "text": "A ___ is used by a social worker when intervening in the client's life during a crisis",
+      "type": "multiple-choice",
+      "options": [
+        "problem-solving approach",
+        "person-centred approach",
+        "psychosocial theory",
+        "crisis intervention"
+      ],
+      "correctAnswer": "crisis intervention",
+      "explanation": "Crisis intervention is a specialized approach designed to provide immediate, short-term support to individuals experiencing acute crises."
+    },
+    {
+      "questionNumber": 77,
+      "text": "Which of the following is not a type of a crisis?",
+      "type": "multiple-choice",
+      "options": [
+        "Developmental crisis",
+        "Existential crisis",
+        "psychological crisis",
+        "Situational crisis"
+      ],
+      "correctAnswer": "psychological crisis",
+      "explanation": "The main types of crises are developmental (related to life stages), existential (related to meaning and identity), and situational (related to unexpected events). 'Psychological crisis' is not a standard classification."
+    },
+    {
+      "questionNumber": 78,
+      "text": "The ___ crisis is experienced when a person is struggling with inner conflict regarding own identity",
+      "type": "multiple-choice",
+      "options": [
+        "developmental",
+        "existential",
+        "psychological",
+        "situational"
+      ],
+      "correctAnswer": "existential",
+      "explanation": "Existential crises involve struggles with identity, meaning, purpose, and values, often involving deep questioning of one's existence and beliefs."
+    },
+    {
+      "questionNumber": 79,
+      "text": "Social work with older persons is also referred to as .",
+      "type": "multiple-choice",
+      "options": [
+        "care for vulnerable persons",
+        "social work with the aged",
+        "clinical social work",
+        "geriatric social work"
+      ],
+      "correctAnswer": "geriatric social work",
+      "explanation": "Geriatric social work is the specialized field that focuses on addressing the unique needs and challenges of older adults."
+    },
+    {
+      "questionNumber": 80,
+      "text": "Social work in mental health care is guided by",
+      "type": "multiple-choice",
+      "options": [
+        "The White Paper for Social Welfare",
+        "The Mental Health Care Act 17 of 104",
+        "The Older Person's Act 13 of 2006",
+        "The National Health Care Act 61 of 2003"
+      ],
+      "correctAnswer": "The Mental Health Care Act 17 of 104",
+      "explanation": "The Mental Health Care Act provides the legislative framework for mental health services in South Africa, guiding social work practice in this field."
+    }
+  ]
+}

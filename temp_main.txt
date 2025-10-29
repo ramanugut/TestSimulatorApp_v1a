@@ -1,0 +1,124 @@
+    <main class="page-wrapper">
+        <div class="page-container">
+            <div class="page-lead">
+                <header class="page-header">
+                    <h1>StudyFlow Test Simulator</h1>
+                    <p class="app-tagline">Plan your session, stay focused, and finish strong.</p>
+                </header>
+                <section class="gamification" aria-label="Progress overview">
+                    <div class="badge">
+                        <h3>?? Streak</h3>
+                        <p id="streak-value">0 days</p>
+                    </div>
+                    <div class="badge">
+                        <h3>? XP</h3>
+                        <p id="xp-value">0</p>
+                    </div>
+                    <div class="badge">
+                        <h3>?? Badges</h3>
+                        <p id="badge-value">0 earned</p>
+                    </div>
+                </section>
+            </div>
+
+            <div class="app-tabs" role="tablist">
+                <button class="tab-button active" data-tab="test-panel" role="tab" aria-selected="true">Test</button>
+                <button class="tab-button" data-tab="flashcard-panel" role="tab" aria-selected="false">Flashcards</button>
+                <button class="tab-button" data-tab="stats-panel" role="tab" aria-selected="false">Stats</button>
+            </div>
+
+            <section id="test-panel" class="tab-panel active" role="tabpanel">
+                <details class="control-drawer" id="control-drawer">
+                    <summary class="control-summary" aria-controls="test-options-panel">
+                        <span class="summary-title">Test options &amp; bookmarks</span>
+                        <span class="summary-hint">Fine-tune settings or manage saved questions</span>
+                    </summary>
+                    <div class="focus-wrapper" id="test-options-panel" aria-label="Test controls">
+                        <div class="focus-toolbar">
+                            <div class="toolbar-group">
+                            <label class="input-label" for="pass-mark-input">Pass Mark (%)</label>
+                            <input type="number" id="pass-mark-input" value="50" min="0" max="100">
+                            </div>
+                            <div class="toolbar-group">
+                            <label class="input-label" for="study-mode-toggle">Study Mode</label>
+                            <p class="assistive-text">Reveal answers instantly to learn as you go.</p>
+                            <input type="checkbox" id="study-mode-toggle">
+                            </div>
+                            <div class="toolbar-group toolbar-actions">
+                            <button id="dark-mode-toggle" class="btn btn-tertiary">Toggle Dark Mode</button>
+                            <label class="file-upload btn btn-secondary" for="upload-test-input">
+                                Upload Test
+                                <input type="file" id="upload-test-input" accept=".json">
+                            </label>
+                            </div>
+                        </div>
+                        <div class="bookmark-bar">
+                            <div class="bookmark-status">
+                                <span class="bookmark-label">Bookmarks</span>
+                                <div id="bookmark-list" class="bookmark-list">No bookmarks yet.</div>
+                            </div>
+                            <button id="cycle-bookmarks" class="btn btn-secondary">Jump to Next Bookmark</button>
+                        </div>
+                    </div>
+                </details>
+
+                <div class="test-content">
+                    <main id="questions-container" aria-live="polite"></main>
+
+                    <div id="pagination-controls" class="pagination hidden">
+                        <button id="prev-page" class="btn btn-secondary">Previous</button>
+                        <span id="page-info"></span>
+                        <button id="next-page" class="btn btn-primary">Next</button>
+                    </div>
+                </div>
+            </section>
+
+            <section id="flashcard-panel" class="tab-panel" role="tabpanel" aria-hidden="true">
+                <div class="card-block">
+                    <h2>Flashcards</h2>
+                    <p class="panel-description">Tap a card to reveal the answer.</p>
+                    <div id="flashcards-grid" class="flashcards-grid"></div>
+                    <div id="flashcards-empty" class="empty-state">Load a test to generate flashcards.</div>
+                </div>
+            </section>
+
+            <section id="stats-panel" class="tab-panel" role="tabpanel" aria-hidden="true">
+                <div class="stats-layout">
+                    <div class="card-block">
+                        <h2>Daily Overview</h2>
+                        <div class="stat-summary">
+                            <div class="stat-row"><span>Tests Completed</span><span id="stats-tests-taken">0</span></div>
+                            <div class="stat-row"><span>Passed</span><span id="stats-tests-passed">0</span></div>
+                            <div class="stat-row"><span>Failed</span><span id="stats-tests-failed">0</span></div>
+                            <div class="stat-row"><span>Abandoned</span><span id="stats-tests-abandoned">0</span></div>
+                        </div>
+                        <button id="stats-reset" class="btn btn-secondary">Reset Today's Stats</button>
+                    </div>
+                    <div id="score-container" class="card-block hidden" style="display: none;">
+                        <h2>Your Score</h2>
+                        <p class="score-value" id="score">0</p>
+                        <p id="result-message"></p>
+                        <button class="btn btn-primary" id="download-report">Download Report</button>
+                    </div>
+                    <div class="card-block">
+                        <h2>Recent Activity</h2>
+                        <div class="stat-history">
+                            <div>
+                                <h3>Passed Tests</h3>
+                                <ul id="stats-passed-list" class="history-list"></ul>
+                            </div>
+                            <div>
+                                <h3>Failed Tests</h3>
+                                <ul id="stats-failed-list" class="history-list"></ul>
+                            </div>
+                            <div>
+                                <h3>Abandoned Tests</h3>
+                                <ul id="stats-abandoned-list" class="history-list"></ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+

@@ -1,0 +1,336 @@
+{
+  "testName": "ICT2641 Chapter 4 Quiz: Business Analysis Service Framework",
+  "questions": [
+    {
+      "text": "What is the primary purpose of the Business Analysis Service Framework (BASF)?",
+      "options": [
+        "To define software development methodologies",
+        "To outline the responsibilities of project managers",
+        "To clarify the services offered by business analysts",
+        "To manage stakeholder expectations"
+      ],
+      "correctAnswer": "To clarify the services offered by business analysts",
+      "explanation": "BASF defines the range of services business analysts provide, offering structure and clarity."
+    },
+    {
+      "text": "Which of the following is NOT one of the six core services in the BASF?",
+      "options": [
+        "Business Process Improvement",
+        "Requirements Definition",
+        "Stakeholder Management",
+        "Business Acceptance Testing"
+      ],
+      "correctAnswer": "Stakeholder Management",
+      "explanation": "Stakeholder Management supports all services but is not a standalone core service in BASF."
+    },
+    {
+      "text": "What is the main value proposition of the 'Situation Investigation and Problem Analysis' service?",
+      "options": [
+        "To define test cases for business solutions",
+        "To identify and define business needs and problems",
+        "To deploy business changes",
+        "To develop training materials"
+      ],
+      "correctAnswer": "To identify and define business needs and problems",
+      "explanation": "This service helps uncover root causes of business issues and clarify opportunities for improvement."
+    },
+    {
+      "text": "Which technique is commonly used in the 'Feasibility Assessment and Business Case Development' service?",
+      "options": [
+        "Rich Pictures",
+        "Use Case Diagrams",
+        "Cost-Benefit Analysis",
+        "User Stories"
+      ],
+      "correctAnswer": "Cost-Benefit Analysis",
+      "explanation": "Cost-benefit analysis helps determine the financial viability of proposed business solutions."
+    },
+    {
+      "text": "What is the focus of the 'Business Process Improvement' service?",
+      "options": [
+        "Testing software functionality",
+        "Redesigning existing processes for improvement",
+        "Managing project budgets",
+        "Writing user manuals"
+      ],
+      "correctAnswer": "Redesigning existing processes for improvement",
+      "explanation": "This service evaluates current processes to suggest enhancements and achieve better outcomes."
+    },
+    {
+      "text": "Which service involves eliciting, analyzing, and documenting requirements?",
+      "options": [
+        "Business Change Deployment",
+        "Requirements Definition",
+        "Business Acceptance Testing",
+        "Stakeholder Engagement"
+      ],
+      "correctAnswer": "Requirements Definition",
+      "explanation": "Requirements Definition focuses on capturing, validating, and managing business and technical needs."
+    },
+    {
+      "text": "What is the goal of the 'Business Acceptance Testing' service?",
+      "options": [
+        "To train users on new systems",
+        "To ensure the solution meets business needs",
+        "To define business strategy",
+        "To manage project risks"
+      ],
+      "correctAnswer": "To ensure the solution meets business needs",
+      "explanation": "Business Acceptance Testing validates that the delivered solution aligns with the defined requirements."
+    },
+    {
+      "text": "Which of the following is a key activity in the 'Business Change Deployment' service?",
+      "options": [
+        "Define test scenarios",
+        "Conduct stakeholder interviews",
+        "Assess business readiness",
+        "Develop use case diagrams"
+      ],
+      "correctAnswer": "Assess business readiness",
+      "explanation": "Assessing readiness helps ensure the organization is prepared for the upcoming business changes."
+    },
+    {
+      "text": "What is the role of stakeholder engagement in the BASF?",
+      "options": [
+        "It is a standalone service",
+        "It is not part of the framework",
+        "It supports all other services",
+        "It is only relevant during testing"
+      ],
+      "correctAnswer": "It supports all other services",
+      "explanation": "Stakeholder engagement is a cross-cutting theme, essential for success across all BASF services."
+    },
+    {
+      "text": "What does the OSCAR acronym help define in the context of BASF?",
+      "options": [
+        "Business process models",
+        "Terms of Reference",
+        "Stakeholder categories",
+        "Requirements traceability"
+      ],
+      "correctAnswer": "Terms of Reference",
+      "explanation": "OSCAR helps frame the scope, context, and responsibilities within a business analysis engagement."
+    },
+    {
+      "text": "Which of the following best describes the purpose of the 'Requirements Definition' service?",
+      "options": [
+        "To test the final solution",
+        "To define and manage stakeholder relationships",
+        "To elicit, analyze, and document business and IT requirements",
+        "To deploy the business change"
+      ],
+      "correctAnswer": "To elicit, analyze, and document business and IT requirements",
+      "explanation": "This service defines the foundation upon which the solution is designed and implemented."
+    },
+    {
+      "text": "What is a key technique used in the 'Business Change Deployment' service?",
+      "options": [
+        "Use case modeling",
+        "Training needs analysis",
+        "Investment appraisal",
+        "Risk analysis"
+      ],
+      "correctAnswer": "Training needs analysis",
+      "explanation": "Training needs analysis identifies skills gaps and informs support for users during change implementation."
+    },
+    {
+      "text": "Which service includes activities such as defining test scenarios and supporting business testing?",
+      "options": [
+        "Requirements Definition",
+        "Business Process Improvement",
+        "Business Acceptance Testing",
+        "Stakeholder Engagement"
+      ],
+      "correctAnswer": "Business Acceptance Testing",
+      "explanation": "This service ensures the business validates that the solution fulfills its requirements."
+    },
+    {
+      "text": "What is the main focus of the 'Feasibility Assessment and Business Case Development' service?",
+      "options": [
+        "Designing training programs",
+        "Evaluating solution options and supporting investment decisions",
+        "Managing stakeholder conflicts",
+        "Modeling business processes"
+      ],
+      "correctAnswer": "Evaluating solution options and supporting investment decisions",
+      "explanation": "This service helps in selecting viable solutions and justifying them with structured business cases."
+    },
+    {
+      "text": "Which of the following is NOT typically a technique used in 'Situation Investigation and Problem Analysis'?",
+      "options": [
+        "Rich pictures",
+        "Fishbone diagrams",
+        "Investment appraisal",
+        "Mind maps"
+      ],
+      "correctAnswer": "Investment appraisal",
+      "explanation": "Investment appraisal is used in business case evaluation, not in problem investigation."
+    },
+        {
+          "text": "What is the purpose of the OSCAR acronym in defining Terms of Reference?",
+          "options": [
+            "To prioritize requirements",
+            "To define stakeholder roles",
+            "To structure the scope and objectives of a business analysis service",
+            "To evaluate business benefits"
+          ],
+          "correctAnswer": "To structure the scope and objectives of a business analysis service",
+          "explanation": "OSCAR helps define what the service entails, its boundaries, and expected outcomes."
+        },
+        {
+          "text": "Which service is most likely to involve the use of BPMN or UML activity diagrams?",
+          "options": [
+            "Business Process Improvement",
+            "Business Acceptance Testing",
+            "Stakeholder Engagement",
+            "Feasibility Assessment"
+          ],
+          "correctAnswer": "Business Process Improvement",
+          "explanation": "BPMN and UML activity diagrams are commonly used to visualize and improve business processes."
+        },
+        {
+          "text": "What is the final stage in the Isaksen and Treffinger problem-solving model?",
+          "options": [
+            "Solution Finding",
+            "Data Finding",
+            "Acceptance Finding",
+            "Idea Finding"
+          ],
+          "correctAnswer": "Acceptance Finding",
+          "explanation": "Acceptance Finding ensures that the selected solution is accepted and implemented effectively."
+        },
+        {
+          "text": "Which of the following is a key activity in the 'Requirements Definition' service?",
+          "options": [
+            "Define business case options",
+            "Conduct user profiling",
+            "Develop training materials",
+            "Perform benefits realization"
+          ],
+          "correctAnswer": "Conduct user profiling",
+          "explanation": "Understanding users is critical to defining relevant and effective requirements."
+        },
+        {
+          "text": "What is the role of the strategic context in the BASF?",
+          "options": [
+            "It defines the testing procedures",
+            "It determines the project budget",
+            "It ensures alignment of services with organizational goals",
+            "It replaces the need for stakeholder engagement"
+          ],
+          "correctAnswer": "It ensures alignment of services with organizational goals",
+          "explanation": "Strategic context ensures that each service in BASF contributes to the organization’s broader objectives."
+        },
+        {
+          "text": "Which of the following best describes the 'Business Acceptance Testing' service?",
+          "options": [
+            "It ensures that the business case is financially viable",
+            "It validates that the solution meets defined business requirements",
+            "It defines the training needs for end users",
+            "It manages stakeholder expectations"
+          ],
+          "correctAnswer": "It validates that the solution meets defined business requirements",
+          "explanation": "Business Acceptance Testing confirms the solution’s alignment with agreed requirements before deployment."
+        },
+        {
+          "text": "What is a key output of the 'Feasibility Assessment and Business Case Development' service?",
+          "options": [
+            "A stakeholder map",
+            "A training manual",
+            "A business case",
+            "A test plan"
+          ],
+          "correctAnswer": "A business case",
+          "explanation": "The main deliverable is a business case that justifies investment and outlines feasible options."
+        },
+        {
+          "text": "Which technique is most appropriate for identifying root causes during situation investigation?",
+          "options": [
+            "Use case modeling",
+            "Fishbone diagram",
+            "Wireframing",
+            "Class diagram"
+          ],
+          "correctAnswer": "Fishbone diagram",
+          "explanation": "Fishbone diagrams are effective tools for identifying underlying causes of problems."
+        },
+        {
+          "text": "What is the purpose of the 'Business Change Deployment' service?",
+          "options": [
+            "To define business rules",
+            "To support the transition and adoption of business changes",
+            "To evaluate software vendors",
+            "To manage project budgets"
+          ],
+          "correctAnswer": "To support the transition and adoption of business changes",
+          "explanation": "This service ensures smooth implementation and organizational adoption of business changes."
+        },
+        {
+          "text": "Which of the following is a typical activity in the 'Requirements Definition' service?",
+          "options": [
+            "Define business KPIs",
+            "Conduct benefits realization",
+            "Build models and prototypes",
+            "Develop training materials"
+          ],
+          "correctAnswer": "Build models and prototypes",
+          "explanation": "Prototyping helps clarify requirements and validate solutions early in the development process."
+        },
+        {
+          "text": "What is the role of the business analyst during 'Business Acceptance Testing'?",
+          "options": [
+            "To write code for the solution",
+            "To define and support test scenarios",
+            "To manage the project team",
+            "To approve the final budget"
+          ],
+          "correctAnswer": "To define and support test scenarios",
+          "explanation": "BAs ensure the solution is tested against the business requirements they helped define."
+        },
+        {
+          "text": "Which of the following is NOT a typical technique used in 'Business Process Improvement'?",
+          "options": [
+            "BPMN",
+            "Value stream analysis",
+            "Entity relationship diagrams",
+            "Gap analysis"
+          ],
+          "correctAnswer": "Entity relationship diagrams",
+          "explanation": "ERDs are used in data modeling, not for analyzing or improving business processes."
+        },
+        {
+          "text": "What does the 'Acceptance Finding' stage in the problem-solving model focus on?",
+          "options": [
+            "Identifying the root cause",
+            "Gaining stakeholder buy-in for the solution",
+            "Generating creative ideas",
+            "Collecting data"
+          ],
+          "correctAnswer": "Gaining stakeholder buy-in for the solution",
+          "explanation": "This stage ensures the solution is accepted and supported by key stakeholders for successful implementation."
+        },
+        {
+          "text": "Which service is most likely to involve training needs analysis and readiness assessment?",
+          "options": [
+            "Requirements Definition",
+            "Business Change Deployment",
+            "Business Acceptance Testing",
+            "Feasibility Assessment"
+          ],
+          "correctAnswer": "Business Change Deployment",
+          "explanation": "Training and readiness assessments are critical for successful change adoption and support."
+        },
+        {
+          "text": "Which of the following best describes the relationship between BASF and strategic context?",
+          "options": [
+            "BASF replaces the need for strategy",
+            "BASF is only used in Agile environments",
+            "BASF services should align with strategic goals and architecture",
+            "BASF is only relevant for IT projects"
+          ],
+          "correctAnswer": "BASF services should align with strategic goals and architecture",
+          "explanation": "For maximum value, BASF services must be grounded in the strategic direction of the organization."
+        }
+      ]
+    }
+

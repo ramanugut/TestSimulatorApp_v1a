@@ -1,0 +1,731 @@
+{
+  "testName": "ICT2612 Java Exam (Sep/Nov) 2015",
+  "questions": [
+    {
+      "text": "Android applications are for mobile devices which can be developed using which environment?",
+      "options": [
+        "Android Studio",
+        "Visual Studio",
+        "Eclipse",
+        "NetBeans"
+      ],
+      "correctAnswer": "Android Studio",
+      "explanation": "Android Studio is the official IDE for Android development, supported by Google. It offers intelligent code editing, debugging, and testing tools. Eclipse was used in the past but is no longer the standard for Android development."
+    },
+    {
+      "text": "Which of the following allows you to test mobile applications without a physical mobile device?",
+      "options": [
+        "SDK",
+        "JDK",
+        "Emulator",
+        "ADB"
+      ],
+      "correctAnswer": "Emulator",
+      "explanation": "An emulator is a virtual device that simulates an Android smartphone or tablet on your computer, allowing developers to test apps on different screen sizes and OS versions without real hardware."
+    },
+    {
+      "text": "What does the AndroidManifest.xml file contain?",
+      "options": [
+        "Source code",
+        "Runtime environment settings",
+        "Default GUI and app info",
+        "Debug logs"
+      ],
+      "correctAnswer": "Default GUI and app info",
+      "explanation": "AndroidManifest.xml contains essential information about your app such as permissions, app components (activities, services), and launch configuration. It acts as a bridge between the app code and the Android OS."
+    },
+    {
+      "text": "Which object-oriented concept allows a class to derive properties from another class?",
+      "options": [
+        "Encapsulation",
+        "Polymorphism",
+        "Abstraction",
+        "Inheritance"
+      ],
+      "correctAnswer": "Inheritance",
+      "explanation": "Inheritance allows a child class to reuse methods and fields from a parent class. It promotes reusability and logical hierarchy in object-oriented programming."
+    },
+    {
+      "text": "What is the smallest data type used to hold numbers in Java?",
+      "options": [
+        "int",
+        "float",
+        "byte",
+        "long"
+      ],
+      "correctAnswer": "byte",
+      "explanation": "A byte consists of 8 bits and is the smallest standard Java numeric data type. It stores whole numbers from -128 to 127 and is useful for conserving memory."
+    },
+    {
+      "text": "Which declaration is correct for a short variable named 'postal_code'?",
+      "options": [
+        "<code class=\"inline-code\">short postal_code;</code>",
+        "<code class=\"inline-code\">short = postal_code;</code>",
+        "<code class=\"inline-code\">postal_code short;</code>",
+        "short: postal_code"
+      ],
+      "correctAnswer": "short postal_code;",
+      "explanation": "In Java, variables are declared as type followed by name. 'short postal_code;' correctly declares a short variable named postal_code."
+    },
+    {
+      "text": "What happens if a line of Java code contains a syntax error?",
+      "options": [
+        "The program runs with warnings",
+        "The code compiles with errors",
+        "The compiler produces an error and stops",
+        "The error is ignored"
+      ],
+      "correctAnswer": "The compiler produces an error and stops",
+      "explanation": "Syntax errors prevent the Java compiler from producing bytecode. They must be corrected before the program can run."
+    },
+    {
+      "text": "Why can a static method be invoked without an object?",
+      "options": [
+        "Because it belongs to the class",
+        "Because it is private",
+        "Because it is final",
+        "Because it is public"
+      ],
+      "correctAnswer": "Because it belongs to the class",
+      "explanation": "Static methods are tied to the class rather than an instance. They can be called using the class name without creating an object."
+    },
+    {
+      "text": "Which Java expression checks if a postal code has 4 digits?",
+      "options": [
+        "<code class=\"inline-code\">postalCode.length == 4</code>",
+        "<code class=\"inline-code\">if(postalCode.equals(4))</code>",
+        "<code class=\"inline-code\">if(String.valueOf(postalCode).length() == 4)</code>",
+        "<code class=\"inline-code\">if(postalCode == 4)</code>"
+      ],
+      "correctAnswer": "if(String.valueOf(postalCode).length() == 4)",
+      "explanation": "The expression converts the integer postalCode to a string to count its digits. Checking the string length ensures it has exactly four digits."
+    },
+    {
+      "text": "Which logical condition evaluates true if the age is under 25 and the average is at least 60?",
+      "options": [
+        "<code class=\"inline-code\">if(age <= 25 || average >= 60)</code>",
+        "<code class=\"inline-code\">if(age < 25 && average >= 60)</code>",
+        "<code class=\"inline-code\">if(age > 25 && average < 60)</code>",
+        "<code class=\"inline-code\">if(age >= 25 && average == 60)</code>"
+      ],
+      "correctAnswer": "if(age < 25 && average >= 60)",
+      "explanation": "The && operator ensures both conditions must be true: age must be below 25 and average must be 60 or higher."
+    },
+    {
+      "text": "Which statement about exception handling is true?",
+      "options": [
+        "Exceptions cannot be caught",
+        "Exception handling prevents program crashes",
+        "Exceptions must always terminate the program",
+        "Java does not support exceptions"
+      ],
+      "correctAnswer": "Exception handling prevents program crashes",
+      "explanation": "Exception handling allows programs to catch and handle unexpected errors without crashing. The try-catch-finally structure manages errors gracefully."
+    },
+    {
+      "text": "Which of the following loops checks the condition after executing the block of code?",
+      "options": [
+        "for loop",
+        "while loop",
+        "do-while loop",
+        "switch statement"
+      ],
+      "correctAnswer": "do-while loop",
+      "explanation": "A do-while loop executes its body once before checking the condition, ensuring the block runs at least once."
+    },
+    {
+      "text": "What is printed by the statement System.out.println(!'kcuL dooG');?",
+      "options": [
+        "Good Luck",
+        "Luck Good",
+        "!kcuL dooG",
+        "Compilation error"
+      ],
+      "correctAnswer": "Compilation error",
+      "explanation": "The exclamation mark is a logical NOT operator, not used with characters. The code causes a compile-time error."
+    },
+    {
+      "text": "Which array declaration is correct in Java?",
+      "options": [
+        "<code class=\"inline-code\">String[] stringArray = {'A', 'B'};</code>",
+        "<code class=\"inline-code\">String stringArray[] = {\"A\", \"B\"};</code>",
+        "<code class=\"inline-code\">String[] stringArray = {\"A\", \"B\"};</code>",
+        "<code class=\"inline-code\">Array stringArray = new Array();</code>"
+      ],
+      "correctAnswer": "String[] stringArray = {\"A\", \"B\"};",
+      "explanation": "Java arrays are declared with a type and initialized using curly braces. Using double quotes indicates a string array."
+    },
+    {
+      "text": "What best describes a class and an object in Java?",
+      "options": [
+        "A class is an instance; an object is a blueprint",
+        "A class is a blueprint; an object is an instance",
+        "They are the same thing",
+        "An object defines methods only"
+      ],
+      "correctAnswer": "A class is a blueprint; an object is an instance",
+      "explanation": "A class defines the structure and behavior (fields and methods), while an object is a real instance of that class created at runtime."
+    },
+    {
+      "text": "Which access modifier allows class members to be visible to all other classes?",
+      "options": [
+        "private",
+        "protected",
+        "default",
+        "public"
+      ],
+      "correctAnswer": "public",
+      "explanation": "Members marked 'public' can be accessed from anywhere. It’s the broadest access level modifier in Java."
+    },
+    {
+      "text": "Which of the following best defines inheritance?",
+      "options": [
+        "Copying all data from one class to another",
+        "Creating a new class from an existing one to reuse code",
+        "Sharing code between unrelated classes",
+        "Overriding private variables"
+      ],
+      "correctAnswer": "Creating a new class from an existing one to reuse code",
+      "explanation": "Inheritance allows a subclass to reuse fields and methods of a superclass, encouraging modularity and reusability."
+    },
+    {
+      "text": "Which exception type must be declared or handled in Java?",
+      "options": [
+        "RuntimeException",
+        "IOException",
+        "ArithmeticException",
+        "NullPointerException"
+      ],
+      "correctAnswer": "IOException",
+      "explanation": "Checked exceptions, like IOException, must be either caught with a try-catch block or declared with a 'throws' clause."
+    },
+    {
+      "text": "Which operator is used to compare two values for equality in Java?",
+      "options": [
+        "<code class=\"inline-code\">=</code>",
+        "<code class=\"inline-code\">==</code>",
+        "equals",
+        "<code class=\"inline-code\">===</code>"
+      ],
+      "correctAnswer": "==",
+      "explanation": "The '==' operator compares primitive values for equality. The '=' operator assigns values."
+    },
+    {
+      "text": "Which keyword prevents a variable’s value from being changed after initialization?",
+      "options": [
+        "static",
+        "final",
+        "const",
+        "var"
+      ],
+      "correctAnswer": "final",
+      "explanation": "Declaring a variable 'final' means it cannot be reassigned after initialization, making it constant."
+    },
+    {
+      "text": "What is the main purpose of the 'super' keyword in Java?",
+      "options": [
+        "To call a method from the superclass",
+        "To declare a superclass",
+        "To inherit multiple classes",
+        "To override methods automatically"
+      ],
+      "correctAnswer": "To call a method from the superclass",
+      "explanation": "The 'super' keyword is used to access a method or constructor in the immediate parent class, helping avoid ambiguity when subclass methods override parent methods."
+    },
+    {
+      "text": "What is method overloading?",
+      "options": [
+        "Using the same method name with different parameters",
+        "Using different class names with the same method",
+        "Overriding a superclass method",
+        "Changing return types only"
+      ],
+      "correctAnswer": "Using the same method name with different parameters",
+      "explanation": "Overloading allows multiple methods in the same class to share the same name as long as their parameter lists differ. It improves code readability and flexibility."
+    },
+    {
+      "text": "What does method overriding mean in Java?",
+      "options": [
+        "Defining multiple methods with the same name but different signatures",
+        "Redefining a method from a superclass in a subclass",
+        "Writing duplicate methods in one class",
+        "Changing the access modifier of a variable"
+      ],
+      "correctAnswer": "Redefining a method from a superclass in a subclass",
+      "explanation": "Method overriding lets a subclass provide its own implementation of a method already defined in its superclass, allowing dynamic behavior at runtime."
+    },
+    {
+      "text": "Which Java keyword is used to inherit a class?",
+      "options": [
+        "this",
+        "extends",
+        "implements",
+        "inherits"
+      ],
+      "correctAnswer": "extends",
+      "explanation": "The 'extends' keyword establishes an inheritance relationship between a subclass and its superclass in Java."
+    },
+    {
+      "text": "Which Java statement can handle multiple exceptions in one block?",
+      "options": [
+        "multi-catch block",
+        "try-catch-finally",
+        "throws block",
+        "catch-all statement"
+      ],
+      "correctAnswer": "multi-catch block",
+      "explanation": "Java allows multiple exceptions to be caught in a single catch block using the '|' operator, simplifying exception handling."
+    },
+    {
+      "text": "Which loop is guaranteed to run at least once?",
+      "options": [
+        "for",
+        "while",
+        "do-while",
+        "enhanced for"
+      ],
+      "correctAnswer": "do-while",
+      "explanation": "The do-while loop executes its code block first and then checks the condition, ensuring it always runs at least once."
+    },
+    {
+      "text": "What will happen if an array index out of bounds is accessed?",
+      "options": [
+        "Program continues silently",
+        "ArrayIndexOutOfBoundsException is thrown",
+        "Compiler error",
+        "The last element is returned instead"
+      ],
+      "correctAnswer": "ArrayIndexOutOfBoundsException is thrown",
+      "explanation": "In Java, accessing an invalid index throws an ArrayIndexOutOfBoundsException at runtime to prevent unsafe memory access."
+    },
+    {
+      "text": "What is encapsulation?",
+      "options": [
+        "Wrapping data and methods together",
+        "Sharing private data across programs",
+        "Allowing global access to all variables",
+        "Using multiple inheritance"
+      ],
+      "correctAnswer": "Wrapping data and methods together",
+      "explanation": "Encapsulation means bundling data (fields) and behavior (methods) in one unit, restricting direct access to internal details and improving security."
+    },
+    {
+      "text": "Which operator is used for logical AND in Java?",
+      "options": [
+        "||",
+        "&",
+        "&&",
+        "|"
+      ],
+      "correctAnswer": "&&",
+      "explanation": "The '&&' operator returns true only if both conditions are true. It’s a short-circuit operator, skipping evaluation if the first condition is false."
+    },
+    {
+      "text": "Which access modifier restricts access to members within the same class only?",
+      "options": [
+        "protected",
+        "public",
+        "private",
+        "default"
+      ],
+      "correctAnswer": "private",
+      "explanation": "Private members can only be accessed within the same class. They are hidden from other classes, ensuring data integrity."
+    },
+    {
+      "text": "What happens when a subclass constructor calls super()?",
+      "options": [
+        "It calls the parent class constructor",
+        "It calls itself recursively",
+        "It calls the <code class=\"inline-code\">main()</code> method",
+        "It initializes static variables"
+      ],
+      "correctAnswer": "It calls the parent class constructor",
+      "explanation": "Calling super() from a subclass constructor ensures that the parent’s constructor logic runs before the subclass adds its own initialization."
+    },
+    {
+      "text": "Which concept allows a single interface to represent different data types?",
+      "options": [
+        "Encapsulation",
+        "Abstraction",
+        "Polymorphism",
+        "Composition"
+      ],
+      "correctAnswer": "Polymorphism",
+      "explanation": "Polymorphism lets different classes be treated as instances of a common superclass, allowing dynamic method behavior at runtime."
+    },
+    {
+      "text": "What is the purpose of the 'finally' block in Java?",
+      "options": [
+        "To handle exceptions",
+        "To execute code only if no exception occurs",
+        "To execute code regardless of exceptions",
+        "To close the program"
+      ],
+      "correctAnswer": "To execute code regardless of exceptions",
+      "explanation": "The finally block runs after try-catch regardless of whether an exception occurred, commonly used for cleanup tasks like closing files."
+    },
+    {
+      "text": "Which keyword is used to implement an interface?",
+      "options": [
+        "extends",
+        "implements",
+        "import",
+        "inherit"
+      ],
+      "correctAnswer": "implements",
+      "explanation": "In Java, 'implements' is used when a class provides functionality defined in an interface, ensuring that all abstract methods are implemented."
+    },
+    {
+      "text": "Which of the following best defines abstraction?",
+      "options": [
+        "Showing only essential details and hiding background information",
+        "Combining multiple classes into one",
+        "Restricting access using private variables",
+        "Using loops to simplify code"
+      ],
+      "correctAnswer": "Showing only essential details and hiding background information",
+      "explanation": "Abstraction hides unnecessary details from the user and shows only essential features, simplifying system complexity."
+    },
+    {
+      "text": "Which type of variable is shared by all instances of a class?",
+      "options": [
+        "instance variable",
+        "static variable",
+        "local variable",
+        "final variable"
+      ],
+      "correctAnswer": "static variable",
+      "explanation": "Static variables belong to the class, not instances. All objects of that class share the same copy of a static variable."
+    },
+    {
+      "text": "Which of the following correctly handles a file not found situation?",
+      "options": [
+        "<code class=\"inline-code\">catch(FileNotFoundException e)</code>",
+        "<code class=\"inline-code\">catch(IOException e)</code>",
+        "<code class=\"inline-code\">catch(Exception e)</code>",
+        "All of the above"
+      ],
+      "correctAnswer": "catch(FileNotFoundException e)",
+      "explanation": "FileNotFoundException is a specific checked exception that occurs when attempting to open a file that does not exist."
+    },
+    {
+      "text": "Which method in Java is the entry point of any standalone application?",
+      "options": [
+        "<code class=\"inline-code\">start()</code>",
+        "<code class=\"inline-code\">run()</code>",
+        "<code class=\"inline-code\">main()</code>",
+        "<code class=\"inline-code\">init()</code>"
+      ],
+      "correctAnswer": "main()",
+      "explanation": "The 'public static void main(String[] args)' method serves as the entry point for all Java standalone applications."
+    },
+    {
+      "text": "What does 'this' keyword refer to in Java?",
+      "options": [
+        "The parent class",
+        "The current object",
+        "A static member",
+        "A global variable"
+      ],
+      "correctAnswer": "The current object",
+      "explanation": "'this' refers to the current instance of the class. It’s useful to differentiate between instance variables and parameters with the same name."
+    },
+    {
+      "text": "Which keyword is used to prevent a class from being subclassed?",
+      "options": [
+        "final",
+        "static",
+        "const",
+        "protected"
+      ],
+      "correctAnswer": "final",
+      "explanation": "Declaring a class as 'final' means no other class can extend it. This is often used for security or design reasons."
+    },
+    {
+      "text": "Which collection class in Java does not allow duplicate elements?",
+      "options": [
+        "List",
+        "ArrayList",
+        "Set",
+        "Map"
+      ],
+      "correctAnswer": "Set",
+      "explanation": "A Set stores unique elements only. Duplicate values are automatically ignored."
+    },
+    {
+      "text": "What happens if an exception is not handled in Java?",
+      "options": [
+        "The program terminates abnormally",
+        "The compiler automatically fixes it",
+        "The JVM restarts",
+        "Nothing happens"
+      ],
+      "correctAnswer": "The program terminates abnormally",
+      "explanation": "Uncaught exceptions cause the Java Virtual Machine to terminate execution, printing the stack trace to the console."
+    },
+    {
+      "text": "Which method is used to start a thread in Java?",
+      "options": [
+        "<code class=\"inline-code\">run()</code>",
+        "<code class=\"inline-code\">execute()</code>",
+        "<code class=\"inline-code\">start()</code>",
+        "<code class=\"inline-code\">launch()</code>"
+      ],
+      "correctAnswer": "start()",
+      "explanation": "Calling start() on a Thread object initiates a new thread and internally invokes its run() method."
+    },
+    {
+      "text": "Which keyword is used to handle exceptions in Java?",
+      "options": [
+        "catch",
+        "try",
+        "throw",
+        "throws"
+      ],
+      "correctAnswer": "try",
+      "explanation": "The try block encloses code that might throw an exception, allowing subsequent catch or finally blocks to handle it."
+    },
+    {
+      "text": "Which data structure uses key-value pairs?",
+      "options": [
+        "List",
+        "Set",
+        "Map",
+        "Queue"
+      ],
+      "correctAnswer": "Map",
+      "explanation": "A Map stores data as key-value pairs, allowing quick lookup by key. HashMap and TreeMap are common implementations."
+    },
+    {
+      "text": "Which concept describes the ability of different classes to be treated as one type?",
+      "options": [
+        "Polymorphism",
+        "Encapsulation",
+        "Abstraction",
+        "Overloading"
+      ],
+      "correctAnswer": "Polymorphism",
+      "explanation": "Polymorphism allows objects of different subclasses to be used interchangeably through a superclass reference."
+    },
+    {
+      "text": "Which operator is used to create an object in Java?",
+      "options": [
+        "new",
+        "create",
+        "alloc",
+        "init"
+      ],
+      "correctAnswer": "new",
+      "explanation": "The 'new' operator allocates memory and initializes a new object instance of a class."
+    },
+    {
+      "text": "Which Java collection allows indexed access and duplicate elements?",
+      "options": [
+        "Set",
+        "Queue",
+        "Map",
+        "List"
+      ],
+      "correctAnswer": "List",
+      "explanation": "A List maintains order and allows duplicate elements, making it ideal for ordered collections like ArrayList."
+    },
+    {
+      "text": "Which of the following best describes Java interfaces?",
+      "options": [
+        "Classes with constructors only",
+        "Blueprints defining abstract methods",
+        "Classes with final methods only",
+        "Structures that hold variables only"
+      ],
+      "correctAnswer": "Blueprints defining abstract methods",
+      "explanation": "Interfaces define methods without implementation, specifying a contract that classes must follow."
+    },
+    {
+      "text": "Which keyword is used to handle multiple exceptions in one block?",
+      "options": [
+        "catch",
+        "throws",
+        "try",
+        "multi-catch"
+      ],
+      "correctAnswer": "catch",
+      "explanation": "The catch block handles exceptions. Multiple types can be caught using the pipe '|' syntax since Java 7."
+    },
+    {
+      "text": "Which file format is created after Java compilation?",
+      "options": [
+        "<code class=\"inline-code\">.java</code>",
+        "<code class=\"inline-code\">.exe</code>",
+        "<code class=\"inline-code\">.class</code>",
+        "<code class=\"inline-code\">.jar</code>"
+      ],
+      "correctAnswer": ".class",
+      "explanation": "The Java compiler converts source code (.java) into bytecode files (.class), which the JVM executes."
+    },
+    {
+      "text": "Which class is at the top of the Java class hierarchy?",
+      "options": [
+        "Object",
+        "Main",
+        "System",
+        "Base"
+      ],
+      "correctAnswer": "Object",
+      "explanation": "All Java classes implicitly extend the Object class, which provides core methods like toString() and equals()."
+    },
+    {
+      "text": "Which keyword allows handling of multiple potential exceptions?",
+      "options": [
+        "catch",
+        "throw",
+        "throws",
+        "multi-catch"
+      ],
+      "correctAnswer": "multi-catch",
+      "explanation": "A multi-catch block can handle multiple exception types using a single catch statement separated by the '|' operator."
+    },
+    {
+      "text": "Which Java feature allows memory to be reclaimed automatically?",
+      "options": [
+        "Garbage Collection",
+        "Memory Manager",
+        "Pointer Deallocation",
+        "Destructor"
+      ],
+      "correctAnswer": "Garbage Collection",
+      "explanation": "Garbage Collection automatically frees up memory occupied by objects no longer in use, preventing leaks."
+    },
+    {
+      "text": "Which Java keyword defines a constant value?",
+      "options": [
+        "final",
+        "static",
+        "var",
+        "constant"
+      ],
+      "correctAnswer": "final",
+      "explanation": "Declaring a variable as final ensures its value cannot change after initialization, making it constant."
+    },
+    {
+      "text": "Which of the following describes multithreading?",
+      "options": [
+        "Executing multiple tasks sequentially",
+        "Executing multiple threads concurrently",
+        "Using a single thread for all tasks",
+        "Running programs on multiple CPUs only"
+      ],
+      "correctAnswer": "Executing multiple threads concurrently",
+      "explanation": "Multithreading allows concurrent execution of independent tasks, improving efficiency and responsiveness in applications."
+    },
+    {
+      "text": "Which method stops a running thread?",
+      "options": [
+        "<code class=\"inline-code\">halt()</code>",
+        "<code class=\"inline-code\">stop()</code>",
+        "<code class=\"inline-code\">interrupt()</code>",
+        "<code class=\"inline-code\">end()</code>"
+      ],
+      "correctAnswer": "interrupt()",
+      "explanation": "The interrupt() method signals a thread to stop gracefully by setting its interrupted flag."
+    },
+    {
+      "text": "Which keyword declares a class as a subclass of another?",
+      "options": [
+        "extends",
+        "implements",
+        "inherits",
+        "uses"
+      ],
+      "correctAnswer": "extends",
+      "explanation": "The extends keyword establishes inheritance, allowing one class to derive from another."
+    },
+    {
+      "text": "Which principle of OOP restricts direct access to data fields?",
+      "options": [
+        "Encapsulation",
+        "Inheritance",
+        "Polymorphism",
+        "Abstraction"
+      ],
+      "correctAnswer": "Encapsulation",
+      "explanation": "Encapsulation protects data by making fields private and providing public methods for controlled access."
+    },
+    {
+      "text": "Which of these defines a reusable class in Java?",
+      "options": [
+        "public class",
+        "final class",
+        "static class",
+        "abstract class"
+      ],
+      "correctAnswer": "public class",
+      "explanation": "Declaring a class as public allows it to be accessed from other packages and reused across projects."
+    },
+    {
+      "text": "What is the main benefit of using inheritance?",
+      "options": [
+        "Code reuse and maintainability",
+        "Faster execution",
+        "Smaller file size",
+        "More memory usage"
+      ],
+      "correctAnswer": "Code reuse and maintainability",
+      "explanation": "Inheritance allows developers to reuse existing code in new classes, reducing redundancy and improving maintainability."
+    },
+    {
+      "text": "What happens when a Java program throws an exception and it's not caught?",
+      "options": [
+        "Program continues normally",
+        "Program terminates and prints stack trace",
+        "The JVM restarts automatically",
+        "The error is ignored"
+      ],
+      "correctAnswer": "Program terminates and prints stack trace",
+      "explanation": "Uncaught exceptions cause the program to stop, displaying a stack trace showing where the error occurred."
+    },
+    {
+      "text": "What is the purpose of an abstract class?",
+      "options": [
+        "To provide base functionality for subclasses",
+        "To prevent inheritance",
+        "To define constants only",
+        "To replace interfaces"
+      ],
+      "correctAnswer": "To provide base functionality for subclasses",
+      "explanation": "Abstract classes act as templates with partial implementations that can be extended by subclasses to define specific behavior."
+    },
+    {
+      "text": "Which Java collection ensures elements are stored in a key-value structure with no duplicate keys?",
+      "options": [
+        "Set",
+        "List",
+        "Map",
+        "Queue"
+      ],
+      "correctAnswer": "Map",
+      "explanation": "Maps associate keys with values, ensuring each key is unique. Duplicate keys overwrite existing entries."
+    },
+    {
+      "text": "Which Java keyword is used to explicitly throw an exception?",
+      "options": [
+        "throw",
+        "throws",
+        "catch",
+        "try"
+      ],
+      "correctAnswer": "throw",
+      "explanation": "The 'throw' keyword is used to explicitly generate an exception at runtime, often for custom validation."
+    },
+    {
+      "text": "Which Java method is used to read a line of input from the console?",
+      "options": [
+        "<code class=\"inline-code\">next()</code>",
+        "<code class=\"inline-code\">readLine()</code>",
+        "<code class=\"inline-code\">nextLine()</code>",
+        "<code class=\"inline-code\">scan()</code>"
+      ],
+      "correctAnswer": "nextLine()",
+      "explanation": "The nextLine() method from Scanner reads an entire line of user input, including spaces."
+    }
+  ]
+}

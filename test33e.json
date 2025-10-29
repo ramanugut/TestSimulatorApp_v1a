@@ -1,0 +1,336 @@
+{
+  "testName": "ICT2641 Chapter 7 Quiz: Improving Business Services and Processes",
+  "questions": [
+    {
+      "text": "What is a value stream?",
+      "options": [
+        "A financial report",
+        "A sequence of tasks in a project",
+        "The end-to-end flow of activities that deliver value to a customer",
+        "A list of company assets"
+      ],
+      "correctAnswer": "The end-to-end flow of activities that deliver value to a customer",
+      "explanation": "A value stream represents the complete lifecycle of creating and delivering value to a customer."
+    },
+    {
+      "text": "Which of the following is NOT a level in the business process hierarchy?",
+      "options": [
+        "Enterprise-level",
+        "Task-level",
+        "Department-level",
+        "Process-level"
+      ],
+      "correctAnswer": "Department-level",
+      "explanation": "Department-level is not a formal layer in the process hierarchy; typical levels include enterprise, process, and task."
+    },
+    {
+      "text": "What does BPMN stand for?",
+      "options": [
+        "Business Process Management Network",
+        "Business Process Model and Notation",
+        "Business Planning and Management Notation",
+        "Business Process Mapping Notation"
+      ],
+      "correctAnswer": "Business Process Model and Notation",
+      "explanation": "BPMN is a standardized graphical notation that depicts business processes in a workflow."
+    },
+    {
+      "text": "What is the purpose of a swimlane diagram?",
+      "options": [
+        "To show financial flows",
+        "To assign project budgets",
+        "To show responsibilities across roles or departments",
+        "To track customer satisfaction"
+      ],
+      "correctAnswer": "To show responsibilities across roles or departments",
+      "explanation": "Swimlane diagrams visually divide process steps by actor or department, clarifying responsibilities."
+    },
+    {
+      "text": "Which tool is used to identify the root cause of a problem?",
+      "options": [
+        "SWOT Analysis",
+        "Fishbone Diagram",
+        "PESTLE",
+        "RACI Matrix"
+      ],
+      "correctAnswer": "Fishbone Diagram",
+      "explanation": "The Fishbone (Ishikawa) Diagram is commonly used for root cause analysis by categorizing potential causes."
+    },
+    {
+      "text": "What is the '5 Whys' technique used for?",
+      "options": [
+        "Prioritizing tasks",
+        "Identifying stakeholders",
+        "Root cause analysis",
+        "Budget estimation"
+      ],
+      "correctAnswer": "Root cause analysis",
+      "explanation": "The '5 Whys' helps discover underlying causes by asking 'why' multiple times until the root is found."
+    },
+    {
+      "text": "What is the main goal of Lean principles?",
+      "options": [
+        "Increasing product variety",
+        "Eliminating waste",
+        "Enhancing marketing strategies",
+        "Improving employee satisfaction"
+      ],
+      "correctAnswer": "Eliminating waste",
+      "explanation": "Lean focuses on maximizing value by removing activities that do not add value to the customer."
+    },
+    {
+      "text": "What does Six Sigma aim to reduce?",
+      "options": [
+        "Employee turnover",
+        "Process variation",
+        "Marketing costs",
+        "Product features"
+      ],
+      "correctAnswer": "Process variation",
+      "explanation": "Six Sigma aims to reduce variation and improve quality through data-driven decision-making."
+    },
+    {
+      "text": "What is re-sequencing in process improvement?",
+      "options": [
+        "Changing the team structure",
+        "Reordering tasks to improve flow",
+        "Rewriting business rules",
+        "Replacing old software"
+      ],
+      "correctAnswer": "Reordering tasks to improve flow",
+      "explanation": "Re-sequencing adjusts the order of steps to enhance process efficiency and effectiveness."
+    },
+    {
+      "text": "Why is stakeholder involvement important in change management?",
+      "options": [
+        "To reduce project costs",
+        "To avoid legal issues",
+        "To ensure buy-in and reduce resistance",
+        "To increase product prices"
+      ],
+      "correctAnswer": "To ensure buy-in and reduce resistance",
+      "explanation": "Involving stakeholders builds trust, addresses concerns early, and improves acceptance of change."
+    },
+
+    {
+      "text": "What is the primary purpose of process modeling?",
+      "options": [
+        "To create marketing strategies",
+        "To visualize and understand how a process works",
+        "To assign employee salaries",
+        "To design user interfaces"
+      ],
+      "correctAnswer": "To visualize and understand how a process works",
+      "explanation": "Process modeling helps illustrate the steps, flows, and roles within a business process for analysis and improvement."
+    },
+    {
+      "text": "Which of the following is a benefit of using BPMN?",
+      "options": [
+        "It simplifies financial reporting",
+        "It standardizes process documentation across teams",
+        "It eliminates the need for stakeholder input",
+        "It replaces all other modeling tools"
+      ],
+      "correctAnswer": "It standardizes process documentation across teams",
+      "explanation": "BPMN provides a consistent visual language that improves communication and understanding across teams."
+    },
+    {
+      "text": "What is the main focus of Six Sigma?",
+      "options": [
+        "Increasing employee engagement",
+        "Reducing process variation and improving quality",
+        "Enhancing customer service scripts",
+        "Automating all manual tasks"
+      ],
+      "correctAnswer": "Reducing process variation and improving quality",
+      "explanation": "Six Sigma uses statistical methods to identify and reduce defects, ensuring high process quality."
+    },
+    {
+      "text": "What does the 'Control' phase in DMAIC focus on?",
+      "options": [
+        "Identifying customer needs",
+        "Measuring current performance",
+        "Sustaining improvements over time",
+        "Analyzing root causes"
+      ],
+      "correctAnswer": "Sustaining improvements over time",
+      "explanation": "The Control phase ensures that improvements made are maintained and monitored for long-term success."
+    },
+    {
+      "text": "Which of the following is an example of a non-value-adding activity?",
+      "options": [
+        "Delivering a product to a customer",
+        "Waiting for approval from a manager",
+        "Assembling a product",
+        "Responding to a customer inquiry"
+      ],
+      "correctAnswer": "Waiting for approval from a manager",
+      "explanation": "Waiting adds no value to the product or service and is typically considered a form of process waste."
+    },
+    {
+      "text": "What is the main goal of process simplification?",
+      "options": [
+        "To increase the number of steps",
+        "To reduce complexity and improve efficiency",
+        "To add more documentation",
+        "To increase employee workload"
+      ],
+      "correctAnswer": "To reduce complexity and improve efficiency",
+      "explanation": "Simplifying processes makes them faster, easier to manage, and less prone to errors."
+    },
+    {
+      "text": "Which of the following is a key principle of Lean methodology?",
+      "options": [
+        "Maximize inventory",
+        "Increase process variation",
+        "Eliminate waste",
+        "Focus only on automation"
+      ],
+      "correctAnswer": "Eliminate waste",
+      "explanation": "Lean aims to remove any step that does not add value to the customer."
+    },
+    {
+      "text": "What does the 'Analyze' phase in DMAIC involve?",
+      "options": [
+        "Implementing solutions",
+        "Identifying the root causes of problems",
+        "Controlling the process",
+        "Measuring customer satisfaction"
+      ],
+      "correctAnswer": "Identifying the root causes of problems",
+      "explanation": "This phase focuses on uncovering what causes issues in the process so they can be addressed."
+    },
+    {
+      "text": "Which of the following is an example of a value-adding activity?",
+      "options": [
+        "Waiting for system updates",
+        "Re-entering data",
+        "Assembling a product for delivery",
+        "Filing internal reports"
+      ],
+      "correctAnswer": "Assembling a product for delivery",
+      "explanation": "Activities that directly contribute to the final product or service are value-adding."
+    },
+    {
+      "text": "Why is process automation beneficial?",
+      "options": [
+        "It increases manual labor",
+        "It reduces process transparency",
+        "It improves speed and accuracy",
+        "It eliminates the need for process analysis"
+      ],
+      "correctAnswer": "It improves speed and accuracy",
+      "explanation": "Automation helps perform repetitive tasks more quickly and consistently, reducing errors."
+    },
+    {
+      "text": "What is the purpose of using a Fishbone Diagram in process analysis?",
+      "options": [
+        "To track financial performance",
+        "To visualize the sequence of tasks",
+        "To identify potential causes of a problem",
+        "To assign roles and responsibilities"
+      ],
+      "correctAnswer": "To identify potential causes of a problem",
+      "explanation": "A Fishbone Diagram (cause-and-effect diagram) helps organize possible causes of a problem to find the root."
+    },
+    {
+      "text": "What does the 'Define' phase in DMAIC focus on?",
+      "options": [
+        "Measuring process performance",
+        "Identifying the problem and project goals",
+        "Implementing solutions",
+        "Controlling future changes"
+      ],
+      "correctAnswer": "Identifying the problem and project goals",
+      "explanation": "This phase sets the direction by clearly defining what needs to be improved and the objectives."
+    },
+    {
+      "text": "Which of the following is a characteristic of a well-modeled business process?",
+      "options": [
+        "It includes as many steps as possible",
+        "It is vague to allow flexibility",
+        "It is clear, logical, and easy to follow",
+        "It avoids using standard notation"
+      ],
+      "correctAnswer": "It is clear, logical, and easy to follow",
+      "explanation": "A good model should communicate process flow clearly to all stakeholders involved."
+    },
+    {
+      "text": "What is the main benefit of re-sequencing tasks in a process?",
+      "options": [
+        "It increases documentation",
+        "It improves process flow and efficiency",
+        "It adds more steps to the process",
+        "It reduces the need for stakeholder input"
+      ],
+      "correctAnswer": "It improves process flow and efficiency",
+      "explanation": "Re-sequencing aligns tasks for optimal workflow, removing delays and unnecessary steps."
+    },
+    {
+      "text": "Why is leadership support critical in process improvement initiatives?",
+      "options": [
+        "Leaders handle all technical tasks",
+        "Leaders ensure compliance with tax laws",
+        "Leaders provide direction, resources, and motivation",
+        "Leaders replace the need for stakeholder engagement"
+      ],
+      "correctAnswer": "Leaders provide direction, resources, and motivation",
+      "explanation": "Leadership is essential for authorizing changes and motivating teams to support process improvements."
+    },
+    {
+      "text": "What is a common outcome of identifying non-value-adding activities in a process?",
+      "options": [
+        "Increasing the number of approvals",
+        "Adding more documentation",
+        "Streamlining or eliminating unnecessary steps",
+        "Expanding the process scope"
+      ],
+      "correctAnswer": "Streamlining or eliminating unnecessary steps",
+      "explanation": "Removing these steps reduces waste and improves efficiency and speed."
+    },
+    {
+      "text": "Which of the following best describes the purpose of the 'Measure' phase in DMAIC?",
+      "options": [
+        "To implement solutions",
+        "To define the problem",
+        "To collect data on current performance",
+        "To control future changes"
+      ],
+      "correctAnswer": "To collect data on current performance",
+      "explanation": "Measurement establishes a baseline for evaluating the impact of process improvements."
+    },
+    {
+      "text": "What is a key benefit of using process automation?",
+      "options": [
+        "It increases manual oversight",
+        "It improves consistency and reduces human error",
+        "It reduces the need for training",
+        "It eliminates the need for process modeling"
+      ],
+      "correctAnswer": "It improves consistency and reduces human error",
+      "explanation": "Automation executes tasks the same way every time, reducing variability and errors."
+    },
+    {
+      "text": "Which of the following is a Lean tool used to visualize workflow and identify bottlenecks?",
+      "options": [
+        "Gantt Chart",
+        "Kanban Board",
+        "SWOT Matrix",
+        "RACI Chart"
+      ],
+      "correctAnswer": "Kanban Board",
+      "explanation": "Kanban Boards show tasks across stages, helping teams spot and address workflow delays."
+    },
+    {
+      "text": "What is the role of stakeholder communication in process improvement?",
+      "options": [
+        "To reduce the number of meetings",
+        "To ensure stakeholders are unaware of changes",
+        "To align expectations and gain support",
+        "To finalize technical specifications"
+      ],
+      "correctAnswer": "To align expectations and gain support",
+      "explanation": "Clear communication ensures stakeholders understand and support process improvements."
+    }
+  ]
+}

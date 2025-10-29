@@ -1,0 +1,467 @@
+{
+  "testName": "ICT2641 Quiz: Chapter 9 – Making the Business Case",
+  "questions": [
+    {
+      "text": "What is the primary purpose of a business case",
+      "options": [
+        "A) To document stakeholder feedback",
+        "B) To justify investment in a proposed change",
+        "C) To outline project risks",
+        "D) To define technical specifications"
+      ],
+      "correctAnswer": "B) To justify investment in a proposed change",
+      "explanation": "The business case provides the justification for why the investment is necessary and what value it will deliver."
+    },
+    {
+      "text": "Which section of the business case outlines the strategic context?",
+      "options": [
+        "Executive Summary",
+        "Background",
+        "Implementation Plan",
+        "Risks"
+      ],
+      "correctAnswer": "Background",
+      "explanation": "The Background section typically explains the strategic environment, drivers and context for the change."
+    },
+    {
+      "text": "What does the “do nothing” option represent?",
+      "options": [
+        "A fallback plan",
+        "A baseline for comparison",
+        "A rejected alternative",
+        "A contingency strategy"
+      ],
+      "correctAnswer": "A baseline for comparison",
+      "explanation": "The “do nothing” (or status quo) option serves as a baseline to compare other options in the business case."
+    },
+    {
+      "text": "Which technique adjusts future cash flows for time value of money?",
+      "options": [
+        "Payback Period",
+        "IRR",
+        "NPV",
+        "SWOT"
+      ],
+      "correctAnswer": "NPV",
+      "explanation": "Net Present Value (NPV) discounts future cash flows to today’s value to account for time value of money. :contentReference[oaicite:0]{index=0}"
+    },
+    {
+      "text": "What does IRR stand for?",
+      "options": [
+        "Internal Revenue Ratio",
+        "Internal Rate of Return",
+        "Investment Risk Rating",
+        "Indexed Return Rate"
+      ],
+      "correctAnswer": "Internal Rate of Return",
+      "explanation": "IRR is the discount rate that makes the NPV of a project zero, representing the expected rate of return. :contentReference[oaicite:1]{index=1}"
+    },
+    {
+      "text": "Which section assesses effects on people, processes, and technology?",
+      "options": [
+        "Risks",
+        "Costs",
+        "Impact Assessment",
+        "Options Considered"
+      ],
+      "correctAnswer": "Impact Assessment",
+      "explanation": "An Impact Assessment section examines how the change will affect people, processes, and technology."
+    },
+    {
+      "text": "What is a key benefit of using DCF techniques?",
+      "options": [
+        "Simplicity",
+        "Time value consideration",
+        "Ignoring future cash flows",
+        "Quick decision‑making"
+      ],
+      "correctAnswer": "Time value consideration",
+      "explanation": "Discounted Cash Flow (DCF) techniques such as NPV and IRR incorporate the time value of money."
+    },
+    {
+      "text": "In Agile environments, business cases are:",
+      "options": [
+        "Static and detailed",
+        "Iterative and lightweight",
+        "Ignored completely",
+        "Only used post‑implementation"
+      ],
+      "correctAnswer": "Iterative and lightweight",
+      "explanation": "In Agile settings business cases may evolve and are less formal/traditional, adapting as the project progresses."
+    },
+    {
+      "text": "Which section outlines financial, resource, and time investments?",
+      "options": [
+        "Costs",
+        "Benefits",
+        "Risks",
+        "Implementation plan"
+      ],
+      "correctAnswer": "Costs",
+      "explanation": "The Costs section details the investments required (financial, resource, time) for the project."
+    },
+    {
+      "text": "What does a positive NPV indicate?",
+      "options": [
+        "Project is risky",
+        "Project is not viable",
+        "Project is financially attractive",
+        "Project has no return"
+      ],
+      "correctAnswer": "Project is financially attractive",
+      "explanation": "A positive NPV means the project is expected to generate more value than its cost, so it’s financially viable. :contentReference[oaicite:2]{index=2}"
+    },
+    {
+      "text": "Which of the following is not typically included in a business case?",
+      "options": [
+        "Strategic alignment",
+        "Technical architecture",
+        "Cost‑benefit analysis",
+        "Risk assessment"
+      ],
+      "correctAnswer": "Technical architecture",
+      "explanation": "While technical architecture may be referenced, business cases focus more on business justification rather than detailed technical design."
+    },
+    {
+      "text": "What is the role of sensitivity analysis in a business case?",
+      "options": [
+        "To test stakeholder reactions",
+        "To evaluate alternative options",
+        "To assess how changes in assumptions affect outcomes",
+        "To validate implementation timelines"
+      ],
+      "correctAnswer": "To assess how changes in assumptions affect outcomes",
+      "explanation": "Sensitivity analysis tests how changes in key assumptions (costs, benefits, discount rate) affect project outcomes such as NPV. :contentReference[oaicite:3]{index=3}"
+    },
+    {
+      "text": "Which stakeholder is most likely to approve the business case?",
+      "options": [
+        "Project Manager",
+        "Business Analyst",
+        "Sponsor",
+        "Developer"
+      ],
+      "correctAnswer": "Sponsor",
+      "explanation": "The Sponsor is typically the person with authority to approve the business case and allocate funding."
+    },
+    {
+      "text": "What does the acronym DCF stand for?",
+      "options": [
+        "Direct Cost Forecast",
+        "Discounted Cash Flow",
+        "Deferred Capital Funding",
+        "Defined Cost Framework"
+      ],
+      "correctAnswer": "Discounted Cash Flow",
+      "explanation": "DCF represents the method of discounting future cash flows in financial appraisal."
+    },
+    {
+      "text": "What is a key limitation of the Payback Period method?",
+      "options": [
+        "It ignores cash flow",
+        "It doesn’t consider time value of money",
+        "It’s too complex",
+        "It requires stakeholder approval"
+      ],
+      "correctAnswer": "It doesn’t consider time value of money",
+      "explanation": "Payback period is simple but ignores the time value of money and cash flows beyond payback."
+    },
+    {
+      "text": "What is the purpose of the “Options Considered” section?",
+      "options": [
+        "To list rejected ideas",
+        "To show all possible solutions",
+        "To demonstrate due diligence",
+        "To justify the preferred option"
+      ],
+      "correctAnswer": "To demonstrate due diligence",
+      "explanation": "The Options Considered section shows that multiple alternatives were evaluated, supporting sound decision making."
+    },
+    {
+      "text": "Which of the following is a qualitative benefit?",
+      "options": [
+        "Increased revenue",
+        "Reduced operating costs",
+        "Improved customer satisfaction",
+        "Higher ROI"
+      ],
+      "correctAnswer": "Improved customer satisfaction",
+      "explanation": "Qualitative benefits are non‑financial, such as improved customer satisfaction, whereas others are quantitative."
+    },
+    {
+      "text": "What does a negative NPV suggest?",
+      "options": [
+        "Project is profitable",
+        "Project is not financially viable",
+        "Project has high IRR",
+        "Project has low risk"
+      ],
+      "correctAnswer": "Project is not financially viable",
+      "explanation": "A negative NPV means the project is expected to reduce value rather than add it, so it’s not financially viable. :contentReference[oaicite:4]{index=4}"
+    },
+    {
+      "text": "What is the first step in developing a business case?",
+      "options": [
+        "Financial appraisal",
+        "Stakeholder engagement",
+        "Define strategic context",
+        "Draft implementation plan"
+      ],
+      "correctAnswer": "Define strategic context",
+      "explanation": "Understanding the strategic context sets the foundation for aligning the business case with organisational goals."
+    },
+    {
+      "text": "Which of the following is a financial appraisal technique?",
+      "options": [
+        "SWOT analysis",
+        "Cost‑benefit analysis",
+        "Stakeholder mapping",
+        "MoSCoW prioritization"
+      ],
+      "correctAnswer": "Cost‑benefit analysis",
+      "explanation": "Cost‐benefit analysis evaluates the monetary costs and benefits of options and is a key technique in business cases."
+    },
+    {
+      "text": "What does the implementation plan include?",
+      "options": [
+        "Strategic goals",
+        "Technical specifications",
+        "Timeline, resources, and milestones",
+        "Risk mitigation strategies"
+      ],
+      "correctAnswer": "Timeline, resources, and milestones",
+      "explanation": "The Implementation Plan details how the proposed change will be delivered, including key timelines, resources and milestones."
+    },
+    {
+      "text": "What is the role of the business analyst in business case development?",
+      "options": [
+        "Approve funding",
+        "Define technical architecture",
+        "Facilitate stakeholder input and analysis",
+        "Execute the project"
+      ],
+      "correctAnswer": "Facilitate stakeholder input and analysis",
+      "explanation": "The business analyst leads gathering requirements, analysing options, and presenting the case rather than approving funding or executing the project."
+    },
+    {
+      "text": "Which of the following is a key input to the business case?",
+      "options": [
+        "Project charter",
+        "Feasibility study",
+        "Risk register",
+        "Procurement plan"
+      ],
+      "correctAnswer": "Feasibility study",
+      "explanation": "A feasibility study examines the viability of options and supplies important input data for the business case."
+    },
+    {
+      "text": "What does the “Benefits” section describe?",
+      "options": [
+        "Project risks",
+        "Financial costs",
+        "Expected outcomes and value",
+        "Implementation steps"
+      ],
+      "correctAnswer": "Expected outcomes and value",
+      "explanation": "The Benefits section outlines what value the organisation expects to receive if the proposal is implemented."
+    },
+    {
+      "text": "What is the purpose of the “Executive Summary”?",
+      "options": [
+        "To provide detailed financials",
+        "To summarise key points for decision‑makers",
+        "To list all stakeholders",
+        "To outline technical requirements"
+      ],
+      "correctAnswer": "To summarise key points for decision‑makers",
+      "explanation": "The Executive Summary gives decision‑makers a concise overview of the case—purpose, investment, benefits, risks."
+    },
+    {
+      "text": "Which of the following is a strategic driver for a business case?",
+      "options": [
+        "Budget constraints",
+        "Compliance requirements",
+        "Staff availability",
+        "Project manager preference"
+      ],
+      "correctAnswer": "Compliance requirements",
+      "explanation": "Strategic drivers might include compliance, regulation, market position, sustainability—these drive the need for change."
+    },
+    {
+      "text": "What is the difference between IRR and NPV?",
+      "options": [
+        "IRR is qualitative; NPV is quantitative",
+        "IRR is a percentage; NPV is a currency value",
+        "IRR is used for Agile; NPV for Waterfall",
+        "IRR ignores time value; NPV includes it"
+      ],
+      "correctAnswer": "IRR is a percentage; NPV is a currency value",
+      "explanation": "NPV yields a dollar difference in present value; IRR yields a percentage rate of return. :contentReference[oaicite:5]{index=5}"
+    },
+    {
+      "text": "What does “do minimum” option represent?",
+      "options": [
+        "The most expensive solution",
+        "The legally required baseline",
+        "A minimal change alternative",
+        "The preferred option"
+      ],
+      "correctAnswer": "A minimal change alternative",
+      "explanation": "The “do minimum” option represents the least‑cost/least‑change alternative that still addresses the issue, used for comparison."
+    },
+    {
+      "text": "What is the role of assumptions in a business case?",
+      "options": [
+        "To justify stakeholder decisions",
+        "To simplify financial calculations",
+        "To clarify the basis of projections",
+        "To eliminate uncertainty"
+      ],
+      "correctAnswer": "To clarify the basis of projections",
+      "explanation": "Assumptions document the basis of the business case’s financial and non‑financial forecasts, making them transparent."
+    },
+    {
+      "text": "Which financial appraisal method is most sensitive to changes in discount rate assumptions?",
+      "options": [
+        "Payback Period",
+        "IRR",
+        "NPV",
+        "Cost‑Benefit Ratio"
+      ],
+      "correctAnswer": "NPV",
+      "explanation": "NPV is sensitive to the discount rate because it directly affects the present value of future cash flows. :contentReference[oaicite:6]{index=6}"
+    },
+    {
+      "text": "In a business case, what does the term “non‑financial disbenefit” refer to?",
+      "options": [
+        "A cost not captured in the budget",
+        "A qualitative negative impact",
+        "A stakeholder objection",
+        "A regulatory penalty"
+      ],
+      "correctAnswer": "A qualitative negative impact",
+      "explanation": "A non‑financial disbenefit is a disadvantage or negative outcome that cannot easily be quantified financially—e.g., reduced flexibility."
+    },
+    {
+      "text": "What is the strategic risk of excluding the “do nothing” option?",
+      "options": [
+        "Overestimating benefits",
+        "Ignoring baseline comparison",
+        "Misaligning stakeholder expectations",
+        "Underreporting costs"
+      ],
+      "correctAnswer": "Ignoring baseline comparison",
+      "explanation": "Without the status quo option, it’s hard to compare alternatives fairly and understand incremental value."
+    },
+    {
+      "text": "Which of the following is a valid reason to reject a project with a positive NPV?",
+      "options": [
+        "High IRR",
+        "Lack of strategic alignment",
+        "Short payback period",
+        "Strong stakeholder support"
+      ],
+      "correctAnswer": "Lack of strategic alignment",
+      "explanation": "Even with good financials, if the project does not align with organisational strategy, it may be rejected."
+    },
+    {
+      "text": "Which stakeholder is most likely to challenge assumptions in the financial model?",
+      "options": [
+        "Sponsor",
+        "Finance Analyst",
+        "Project Manager",
+        "Business Analyst"
+      ],
+      "correctAnswer": "Finance Analyst",
+      "explanation": "A finance analyst often scrutinises assumptions, discount rates and cash flows to validate financial credibility."
+    },
+    {
+      "text": "Which of the following is a key ethical consideration in business case development?",
+      "options": [
+        "Maximising ROI",
+        "Transparency of assumptions",
+        "Minimising costs",
+        "Accelerating approval"
+      ],
+      "correctAnswer": "Transparency of assumptions",
+      "explanation": "Ethics requires that assumptions and data are presented clearly and honestly, not manipulated for undue advantage."
+    },
+    {
+      "text": "What is the role of scenario planning in business case analysis?",
+      "options": [
+        "To validate stakeholder feedback",
+        "To explore alternative futures",
+        "To finalise implementation timelines",
+        "To confirm preferred option"
+      ],
+      "correctAnswer": "To explore alternative futures",
+      "explanation": "Scenario planning allows the business case to assess how outcomes might vary under different conditions and risks."
+    },
+    {
+      "text": "Which metric best captures the efficiency of capital investment?",
+      "options": [
+        "Payback Period",
+        "IRR",
+        "NPV",
+        "Benefit‑Cost Ratio"
+      ],
+      "correctAnswer": "IRR",
+      "explanation": "IRR captures the rate of return on an investment and thus reflects efficiency of capital employed. :contentReference[oaicite:7]{index=7}"
+    },
+    {
+      "text": "What does a high sensitivity to cost assumptions indicate?",
+      "options": [
+        "Strong stakeholder support",
+        "High financial risk",
+        "Low strategic value",
+        "Short implementation timeline"
+      ],
+      "correctAnswer": "High financial risk",
+      "explanation": "If the outcome changes dramatically when cost assumptions shift, the project is risky and requires careful review."
+    },
+    {
+      "text": "What is the purpose of a post‑implementation review?",
+      "options": [
+        "To revalidate the business case",
+        "To assess actual vs projected benefits",
+        "To update stakeholder maps",
+        "To revise the strategic context"
+      ],
+      "correctAnswer": "To assess actual vs projected benefits",
+      "explanation": "A post‑implementation review compares what was delivered and what benefit realised against the business case."
+    },
+    {
+      "text": "Which of the following undermines the credibility of a business case?",
+      "options": [
+        "Use of NPV",
+        "Lack of stakeholder engagement",
+        "Inclusion of qualitative benefits",
+        "Use of Agile methodology"
+      ],
+      "correctAnswer": "Lack of stakeholder engagement",
+      "explanation": "If stakeholders were not involved, assumptions and outcomes may be viewed as ungrounded and reduce trust."
+    },
+    {
+      "text": "What is the role of governance frameworks in business case approval?",
+      "options": [
+        "To define technical architecture",
+        "To ensure compliance and accountability",
+        "To manage project delivery",
+        "To allocate resources"
+      ],
+      "correctAnswer": "To ensure compliance and accountability",
+      "explanation": "Governance provides structure around how business cases are reviewed, approved and monitored."
+    },
+    {
+      "text": "Which of the following best describes the “do minimum” option?",
+      "options": [
+        "A legally required baseline",
+        "A fallback strategy",
+        "A minimal viable change",
+        "A rejected alternative"
+      ],
+      "correctAnswer": "A minimal viable change",
+      "explanation": "The “do minimum” represents the minimum viable change option that still addresses the problem but at lowest cost/risk."
+    }
+  ]
+}

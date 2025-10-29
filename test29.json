@@ -1,0 +1,555 @@
+{
+"testName": "ICT2641 Assignment 1",
+"questions": [
+{
+"text": "What is the essential difference between business analysis and IT systems analysis?",
+"options": [
+"A. Business analysis requires more technical skills",
+"B. IT systems analysis has a broader organizational scope",
+"C. Business analysis has a business outcome focus while systems analysis has a software focus",
+"D. There is no significant difference between the two"
+],
+"correctAnswer": "C. Business analysis has a business outcome focus while systems analysis has a software focus",
+"explanation": "Business analysts concentrate on achieving business outcomes and value, while systems analysts focus on the software and technical solution that supports those outcomes."
+},
+{
+"text": "What competency involves evaluating a portfolio of business change projects?",
+"options": [
+"A. Project management",
+"B. Portfolio management",
+"C. Program management",
+"D. Change management"
+],
+"correctAnswer": "B. Portfolio management",
+"explanation": "Portfolio management looks across multiple initiatives to ensure the overall mix aligns with strategy, risk appetite, and resource constraints."
+},
+{
+"text": "How does the skill of 'political awareness' intersect with ethical considerations in business analysis?",
+"options": [
+"A. Political awareness is unrelated to ethics in business analysis",
+"B. It helps in navigating organizational dynamics while maintaining ethical standards",
+"C. Political awareness always trumps ethical considerations",
+"D. Ethical considerations are only relevant in government projects"
+],
+"correctAnswer": "B. It helps in navigating organizational dynamics while maintaining ethical standards",
+"explanation": "Political awareness lets analysts manage stakeholders and power dynamics effectively, but decisions must still respect professional ethics."
+},
+{
+"text": "In Porter's Five Forces model, which of these is NOT one of the five forces?",
+"options": [
+"A. Threat of new entrants",
+"B. Bargaining power of suppliers",
+"C. Intensity of competitive rivalry",
+"D. Government regulations"
+],
+"correctAnswer": "D. Government regulations",
+"explanation": "The five forces are competitive rivalry, threat of new entrants, threat of substitutes, bargaining power of suppliers, and bargaining power of buyers; government regulation is an external factor but not one of the five."
+},
+{
+"text": "What does SFIA define at levels 1-7 for each skill?",
+"options": [
+"A. Salary ranges",
+"B. Years of experience required",
+"C. Competency levels",
+"D. Training requirements"
+],
+"correctAnswer": "C. Competency levels",
+"explanation": "SFIA (Skills Framework for the Information Age) defines seven levels describing the autonomy, influence, complexity, and knowledge expected for each skill."
+},
+{
+"text": "Which area of competence involves understanding financial statements, budgeting, and costing principles?",
+"options": [
+"A. Commercial awareness",
+"B. Digital technology",
+"C. Domain knowledge",
+"D. Subject matter expertise"
+],
+"correctAnswer": "A. Commercial awareness",
+"explanation": "Commercial awareness includes knowing how money flows through a business, enabling better value-based decisions and prioritization."
+},
+{
+"text": "Which of Porter's generic strategies involves providing a product or service with distinctive qualities valued by customers?",
+"options": [
+"A. Cost leadership",
+"B. Differentiation",
+"C. Focus",
+"D. Diversification"
+],
+"correctAnswer": "B. Differentiation",
+"explanation": "Differentiation aims to offer unique features or experiences so customers prefer your offering over competitors, even at a premium price."
+},
+{
+"text": "Which of these is NOT one of the four quadrants in the Growth Share Matrix?",
+"options": [
+"A. Star",
+"B. Cash Cow",
+"C. Question Mark",
+"D. Rising Star"
+],
+"correctAnswer": "D. Rising Star",
+"explanation": "The BCG matrix quadrants are Stars, Cash Cows, Question Marks, and Dogs; “Rising Star” isn’t one of them."
+},
+{
+"text": "What type of awareness involves understanding trends like AI, big data, and cloud computing?",
+"options": [
+"A. Commercial awareness",
+"B. Digital technology awareness",
+"C. Domain knowledge",
+"D. Subject matter expertise"
+],
+"correctAnswer": "B. Digital technology awareness",
+"explanation": "Digital technology awareness helps analysts recognize how emerging tech can enable or constrain business change."
+},
+{
+"text": "Which of these is NOT one of the characteristics of capabilities in a Business Capability Model?",
+"options": [
+"A. Stable",
+"B. Unique",
+"C. Abstract",
+"D. Temporary"
+],
+"correctAnswer": "D. Temporary",
+"explanation": "Capabilities describe what the business does and are relatively stable and abstract; they are not temporary activities."
+},
+{
+"text": "What is the main argument for having business analysts on Agile projects?",
+"options": [
+"A. They are required by Agile methodologies",
+"B. They bring investigative, analytical and modelling skills",
+"C. They replace the product owner role",
+"D. They are needed to manage the development team"
+],
+"correctAnswer": "B. They bring investigative, analytical and modelling skills",
+"explanation": "BAs add value in Agile by clarifying needs, modeling processes/data, and facilitating shared understanding among stakeholders."
+},
+{
+"text": "Which of the following is NOT one of the four perspectives in the Balanced Scorecard?",
+"options": [
+"A. Financial",
+"B. Customer",
+"C. Internal Business Processes",
+"D. Shareholders"
+],
+"correctAnswer": "D. Shareholders",
+"explanation": "The Balanced Scorecard perspectives are Financial, Customer, Internal Process, and Learning & Growth."
+},
+{
+"text": "In what way does commercial awareness contribute to a business analyst's ability to prioritize requirements?",
+"options": [
+"A. It doesn't; prioritization is based solely on technical feasibility",
+"B. It helps in understanding the financial implications of different requirements",
+"C. It only matters when dealing with external clients",
+"D. It's relevant only for senior business analysts"
+],
+"correctAnswer": "B. It helps in understanding the financial implications of different requirements",
+"explanation": "Commercial awareness lets analysts weigh ROI, cost, and revenue impact to prioritize what delivers most value."
+},
+{
+"text": "What has been a growing issue regarding technology in businesses for many years?",
+"options": [
+"A. Dissatisfaction with the support provided by technology",
+"B. Technology becoming too advanced for employees to use",
+"C. Rising costs of implementing new technology",
+"D. Difficulty finding qualified IT staff"
+],
+"correctAnswer": "A. Dissatisfaction with the support provided by technology",
+"explanation": "Many organizations feel tech investments don’t fully meet business needs, driving focus on better alignment and BA involvement."
+},
+{
+"text": "Which of these is NOT one of the strata typically used in Business Capability Models?",
+"options": [
+"A. Strategic",
+"B. Primary/Core",
+"C. Support",
+"D. Operational"
+],
+"correctAnswer": "D. Operational",
+"explanation": "A common layering is Strategic, Core (or Primary), and Support capabilities; ‘Operational’ is not a typical separate stratum."
+},
+{
+"text": "Which of these is NOT one of the elements in the Business Model Canvas?",
+"options": [
+"A. Key Partners",
+"B. Value Propositions",
+"C. Customer Segments",
+"D. Operational Processes"
+],
+"correctAnswer": "D. Operational Processes",
+"explanation": "The BMC focuses on business model building blocks (e.g., channels, revenue streams), not detailed operational processes."
+},
+{
+"text": "What does POPIT stand for in relation to Target Operating Models?",
+"options": [
+"A. People, Organization, Processes, Information, Technology",
+"B. Planning, Operations, Performance, Innovation, Transformation",
+"C. Policies, Objectives, Procedures, Initiatives, Targets",
+"D. Products, Offerings, Pricing, Infrastructure, Training"
+],
+"correctAnswer": "A. People, Organization, Processes, Information, Technology",
+"explanation": "POPIT is a holistic lens for designing or assessing a Target Operating Model across key dimensions."
+},
+{
+"text": "How might a business analyst's competencies need to evolve in response to the increasing adoption of agile methodologies?",
+"options": [
+"A. Focus more on documentation and less on communication",
+"B. Develop stronger facilitation skills and adaptability",
+"C. Specialize in one specific business domain",
+"D. Prioritize technical skills over business knowledge"
+],
+"correctAnswer": "B. Develop stronger facilitation skills and adaptability",
+"explanation": "Agile emphasizes collaboration, facilitation, and iterative learning, so BAs must excel at those competencies."
+},
+{
+"text": "According to the POPIT model, which is NOT one of the key aspects to consider when analysing a business system?",
+"options": [
+"A. Processes",
+"B. People",
+"C. Products",
+"D. Information"
+],
+"correctAnswer": "C. Products",
+"explanation": "POPIT focuses on People, Organization, Processes, Information, and Technology, rather than specific product lines."
+},
+{
+"text": "In the context of business system modelling, how might the integration of sustainability concerns impact a business analyst's approach?",
+"options": [
+"A. Sustainability is irrelevant to business system modelling",
+"B. It would require considering environmental and social impacts alongside traditional business metrics",
+"C. It would focus exclusively on reducing energy consumption",
+"D. It would only be relevant for companies in the environmental sector"
+],
+"correctAnswer": "B. It would require considering environmental and social impacts alongside traditional business metrics",
+"explanation": "Modern analysis includes triple-bottom-line thinking: financial, environmental, and social outcomes."
+},
+{
+"text": "What does KPI stand for?",
+"options": [
+"A. Key Performance Indicator",
+"B. Knowledge Process Integration",
+"C. Key Product Innovation",
+"D. Known Profitable Investment"
+],
+"correctAnswer": "A. Key Performance Indicator",
+"explanation": "KPIs are measurable indicators used to assess how effectively objectives are being achieved."
+},
+{
+"text": "According to the text, why is understanding Agile principles beneficial even for analysts working in linear approaches?",
+"options": [
+"A. It allows them to ignore linear approaches completely",
+"B. It has no benefit for linear projects",
+"C. It aids flexibility and adaptability in business analysis work",
+"D. It is required for all projects regardless of approach"
+],
+"correctAnswer": "C. It aids flexibility and adaptability in business analysis work",
+"explanation": "Agile principles (e.g., iterating, valuing feedback) improve adaptability, even when projects use more linear governance."
+},
+{
+"text": "Which of these is NOT one of the key elements in defining a service?",
+"options": [
+"A. Why - The rationale for the service",
+"B. What - The activities needed to perform the service",
+"C. How - The techniques and standards applied",
+"D. Who - The specific individuals performing the service"
+],
+"correctAnswer": "D. Who - The specific individuals performing the service",
+"explanation": "Service definitions describe purpose, scope, and delivery approach—not the particular people, which can change."
+},
+{
+"text": "Which of these is NOT one of the three analysis disciplines in the business analysis landscape?",
+"options": [
+"A. Strategic analysis and definition",
+"B. IT systems analysis",
+"C. Financial analysis",
+"D. Business analysis"
+],
+"correctAnswer": "C. Financial analysis",
+"explanation": "The landscape typically spans strategic analysis, business analysis, and IT systems analysis; financial analysis is a supporting skill, not a separate discipline here."
+},
+{
+"text": "Which of the following best describes the relationship between Agile methods and organizational adaptation?",
+"options": [
+"A. Agile methods must be followed strictly without any adaptation",
+"B. Organizations tend to adapt Agile methods based on context variables",
+"C. Agile methods can only be used in software development projects",
+"D. Organizational adaptation is discouraged when using Agile methods"
+],
+"correctAnswer": "B. Organizations tend to adapt Agile methods based on context variables",
+"explanation": "Most organizations tailor Agile practices to fit culture, regulation, team size, and product risk."
+},
+{
+"text": "At what SFIA level is a business analyst expected to 'Set strategy'?",
+"options": [
+"A. Level 3",
+"B. Level 5",
+"C. Level 6",
+"D. Level 7"
+],
+"correctAnswer": "D. Level 7",
+"explanation": "SFIA Level 7 is about setting strategy, inspiring, and mobilizing at the highest organizational level."
+},
+{
+"text": "In the context of business analysis, how might 'resilience' manifest differently in a startup environment compared to a large corporation?",
+"options": [
+"A. It's more important in a startup due to frequent pivots and uncertainties",
+"B. It's equally important in both environments but manifests in different ways",
+"C. It's less relevant in a large corporation due to established processes",
+"D. It's only necessary for senior management in both environments"
+],
+"correctAnswer": "B. It's equally important in both environments but manifests in different ways",
+"explanation": "Both contexts demand resilience; startups face rapid change, while large firms require persistence through complex governance."
+},
+{
+"text": "How might a business analyst's approach to stakeholder management differ when dealing with external clients versus internal departments?",
+"options": [
+"A. External clients require more formal communication, while internal stakeholders can be approached casually",
+"B. Internal stakeholders always have more influence on project outcomes",
+"C. The approach should be tailored based on the stakeholder's power and interest, regardless of whether they are internal or external",
+"D. External clients should always be given priority over internal stakeholders"
+],
+"correctAnswer": "C. The approach should be tailored based on the stakeholder's power and interest, regardless of whether they are internal or external",
+"explanation": "Effective stakeholder management uses power–interest analysis to tailor engagement strategies for all parties."
+},
+{
+"text": "Which of the following is NOT one of Porter's definitions of strategy?",
+"options": [
+"A. An integrated set of actions aimed at increasing long-term wellbeing and strength",
+"B. The determination of basic long-term goals and allocation of resources",
+"C. The long-term direction of an organization",
+"D. A plan for achieving competitive advantage over rivals"
+],
+"correctAnswer": "D. A plan for achieving competitive advantage over rivals",
+"explanation": "While strategy concerns competitive advantage, Porter’s core definitions focus on positioning, trade-offs, and fit rather than a simple “plan to beat rivals.”"
+},
+{
+"text": "What framework defines IT industry skills and competency levels?",
+"options": [
+"A. BABOK",
+"B. SFIA",
+"C. PMI",
+"D. CCBA"
+],
+"correctAnswer": "B. SFIA",
+"explanation": "SFIA provides a common language to describe skills, responsibilities, and competency levels in the digital and IT professions."
+},
+{
+"text": "What factor is NOT mentioned as necessary for IT systems to deliver a competitive advantage?",
+"options": [
+"A. Business needs driving IT development",
+"B. Implementation of necessary business changes",
+"C. Requirements being defined and understood",
+"D. Maximizing the number of system features"
+],
+"correctAnswer": "D. Maximizing the number of system features",
+"explanation": "More features do not guarantee value; alignment to business needs, clear requirements, and enabling change are what matter."
+},
+{
+"text": "Which of these is NOT one of the 'business knowledge' competencies listed?",
+"options": [
+"A. Organisation structures",
+"B. Supplier management",
+"C. Requirements engineering",
+"D. Enterprise architecture"
+],
+"correctAnswer": "C. Requirements engineering",
+"explanation": "Requirements engineering is a professional technique area, not a business knowledge domain like organization structures or EA."
+},
+{
+"text": "What does 'resilience' refer to in the context of business analyst competencies?",
+"options": [
+"A. Physical stamina",
+"B. Ability to work long hours",
+"C. Self-confidence to withstand pressure and challenges",
+"D. Recovering quickly from setbacks"
+],
+"correctAnswer": "C. Self-confidence to withstand pressure and challenges",
+"explanation": "In BA competency terms, resilience means inner confidence and perseverance when facing pushback or ambiguity."
+},
+{
+"text": "Which of these is NOT listed as a typical organizational model for business analysts in Agile projects?",
+"options": [
+"A. BA works closely with the product owner and the development team",
+"B. BA performs the product owner role",
+"C. BA role is subsumed within the development team",
+"D. BA manages the entire Agile project independently"
+],
+"correctAnswer": "D. BA manages the entire Agile project independently",
+"explanation": "Agile projects are team-based; BAs contribute but do not single-handedly manage the whole project."
+},
+{
+"text": "What has technology enabled in terms of business models?",
+"options": [
+"A. More rigid communication structures",
+"B. Less direct customer engagement",
+"C. More flexible communication mechanisms",
+"D. Reduced global operations capabilities"
+],
+"correctAnswer": "C. More flexible communication mechanisms",
+"explanation": "Digital platforms enable multi-channel, real-time communication and new forms of customer engagement."
+},
+{
+"text": "What is often lacking in many organisations' approaches to business change?",
+"options": [
+"A. Involvement of business analysts",
+"B. Focus on technical solutions",
+"C. Change management plans",
+"D. Project governance structures"
+],
+"correctAnswer": "A. Involvement of business analysts",
+"explanation": "Organizations sometimes jump to solutions without sufficient BA involvement to uncover real needs and impacts."
+},
+{
+"text": "What does VMOST stand for?",
+"options": [
+"A. Vision, Mission, Objectives, Strategy, Tactics",
+"B. Value, Management, Operations, Systems, Technology",
+"C. Verification, Measurement, Optimization, Standardization, Testing",
+"D. Viability, Marketing, Opportunities, Strengths, Threats"
+],
+"correctAnswer": "A. Vision, Mission, Objectives, Strategy, Tactics",
+"explanation": "VMOST aligns daily tactics and strategy to mission and vision, ensuring coherent direction."
+},
+{
+"text": "What type of modelling represents an entire business system, typically in overview?",
+"options": [
+"A. Data modelling",
+"B. Requirements modelling",
+"C. Business system modelling",
+"D. Process modelling"
+],
+"correctAnswer": "C. Business system modelling",
+"explanation": "Business system models provide a high-level view of how processes, data, people, and technology interact."
+},
+{
+"text": "What does the Business Analysis Service Framework (BASF) propose?",
+"options": [
+"A. A rigid set of rules for business analysts",
+"B. An outline service catalogue for business analysis",
+"C. Elimination of the business analyst role",
+"D. Outsourcing of all business analysis functions"
+],
+"correctAnswer": "B. An outline service catalogue for business analysis",
+"explanation": "BASF describes a service-based view of BA offerings, clarifying scope and value delivered."
+},
+{
+"text": "What is the primary role of early engagement business analysis?",
+"options": [
+"A. To code the software solution",
+"B. To manage the Agile development team",
+"C. To uncover root causes of business problems and define requirements",
+"D. To replace the product owner"
+],
+"correctAnswer": "C. To uncover root causes of business problems and define requirements",
+"explanation": "Early BA work clarifies the true problems, expected benefits, and high-level requirements before solutioning."
+},
+{
+"text": "What does TOM stand for?",
+"options": [
+"A. Total Operational Management",
+"B. Target Operating Model",
+"C. Technical Optimization Method",
+"D. Tactical Organizational Mapping"
+],
+"correctAnswer": "B. Target Operating Model",
+"explanation": "A TOM describes the desired future-state arrangement of people, processes, information, and technology."
+},
+{
+"text": "Which of the following best describes the interrelationship between personal qualities, business knowledge, and professional techniques for a business analyst?",
+"options": [
+"A. They are independent skill sets that can be developed separately",
+"B. Personal qualities form the foundation for developing business knowledge and professional techniques",
+"C. Professional techniques are the most crucial, with personal qualities and business knowledge being secondary",
+"D. They form an interdependent triad where each area enhances and supports the others"
+],
+"correctAnswer": "D. They form an interdependent triad where each area enhances and supports the others",
+"explanation": "Strong BAs combine suitable personal qualities with domain knowledge and techniques, each reinforcing the others."
+},
+{
+"text": "What are the three levels of maturity shown in the BAMM?",
+"options": [
+"A. Beginner, intermediate, expert",
+"B. Requirements, processes, strategy",
+"C. System improvement, process improvement, business improvement",
+"D. Analysis, design, implementation"
+],
+"correctAnswer": "C. System improvement, process improvement, business improvement",
+"explanation": "BAMM (Business Analysis Maturity Model) shows increasing scope and impact from system-level to business-level improvement."
+},
+{
+"text": "Which of these is NOT one of the elements typically included in a PESTLE analysis?",
+"options": [
+"A. Political",
+"B. Economic",
+"C. Social",
+"D. Motivational"
+],
+"correctAnswer": "D. Motivational",
+"explanation": "PESTLE covers Political, Economic, Social, Technological, Legal, and Environmental factors."
+},
+{
+"text": "Which of these is NOT listed as one of the ways business analysts can develop their competencies?",
+"options": [
+"A. Training",
+"B. Personal study",
+"C. Work experience",
+"D. Formal academic degrees"
+],
+"correctAnswer": "D. Formal academic degrees",
+"explanation": "Competence often grows through targeted training, self-study, and hands-on practice—degrees are helpful but not essential."
+},
+{
+"text": "What does the term 'strategy' originally come from?",
+"options": [
+"A. Business planning",
+"B. Military tactics",
+"C. Economic theory",
+"D. Political science"
+],
+"correctAnswer": "B. Military tactics",
+"explanation": "The term has roots in the military, later adopted into business to describe long-term direction and positioning."
+},
+{
+"text": "What does the 'T' shape represent in the T-shaped professional concept?",
+"options": [
+"A. Technical skills only",
+"B. Deep specialist skills and broad generic skills",
+"C. Teamwork and collaboration",
+"D. Time management skills"
+],
+"correctAnswer": "B. Deep specialist skills and broad generic skills",
+"explanation": "The vertical bar represents deep expertise; the horizontal bar represents breadth across disciplines and collaboration."
+},
+{
+"text": "What has been a factor in the development of the business analyst role?",
+"options": [
+"A. Decreasing need for business-IT alignment",
+"B. Increasing success rates of IT projects",
+"C. Recognition that a holistic view is needed when addressing business problems",
+"D. Reduced importance of technology in business operations"
+],
+"correctAnswer": "C. Recognition that a holistic view is needed when addressing business problems",
+"explanation": "Complex change requires integrating people, process, information, and technology—core to the BA role."
+},
+{
+"text": "What is a common reason organisations outsource their IT services?",
+"options": [
+"A. To gain more control over IT systems",
+"B. To reduce costs",
+"C. To increase internal IT expertise",
+"D. To slow down the pace of technological change"
+],
+"correctAnswer": "B. To reduce costs",
+"explanation": "Cost reduction and access to economies of scale are typical drivers for outsourcing."
+},
+{
+"text": "How does the BAMM relate to the Capability Maturity Model Integration (CMMI)?",
+"options": [
+"A. They are completely unrelated models",
+"B. BAMM replaces CMMI for business analysis",
+"C. The CMMI levels can apply at each level of the BAMM",
+"D. BAMM is a subset of CMMI"
+],
+"correctAnswer": "C. The CMMI levels can apply at each level of the BAMM",
+"explanation": "CMMI’s maturity levels can be applied within each BAMM stage to assess and improve process capability."
+}
+]
+}

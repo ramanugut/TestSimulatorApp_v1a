@@ -1,0 +1,174 @@
+{
+  "testName": "ICT2641 Assignment 2",
+  "questions": [
+    {
+      "text": "Which of the following roles and responsibilities should be represented within the review group?",
+      "options": [
+        "Business sponsor – ensures requirements align with business objectives",
+        "Business owners – ensure requirements clearly express business needs",
+        "Subject Matter Expert (SME) – validates business practice accuracy",
+        "Solution architect – ensures alignment with organizational architecture",
+        "Developers – confirm technical feasibility",
+        "Testers – verify testability of requirements",
+        "Project office representatives – ensure compliance with governance",
+        "Marketing manager – reviews promotional materials",
+        "Finance controller – checks project budget accuracy"
+      ],
+      "correctAnswer": [
+        "Business sponsor – ensures requirements align with business objectives",
+        "Business owners – ensure requirements clearly express business needs",
+        "Subject Matter Expert (SME) – validates business practice accuracy",
+        "Solution architect – ensures alignment with organizational architecture",
+        "Developers – confirm technical feasibility",
+        "Testers – verify testability of requirements",
+        "Project office representatives – ensure compliance with governance"
+      ],
+      "explanation": "An effective review group includes all stakeholders involved in validating business, technical, and compliance aspects. Roles like marketing and finance are not typically part of a BRD review."
+    },
+    {
+      "text": "Which of the following correctly describe the three stages of change control?",
+      "options": [
+        "Documenting the proposed change",
+        "Analysing the proposed change",
+        "Deciding on the change",
+        "Implementing changes immediately",
+        "Approving budget increases only",
+        "Archiving all previous versions",
+        "Testing changes after release"
+      ],
+      "correctAnswer": [
+        "Documenting the proposed change",
+        "Analysing the proposed change",
+        "Deciding on the change"
+      ],
+      "explanation": "Change control involves documenting, analysing, and deciding on proposed changes before implementation. This ensures controlled and traceable adjustments."
+    },
+    {
+      "text": "Which of the following key features do automated support tools provide for managing BRDs or product backlogs?",
+      "options": [
+        "Documentation creation and centralized storage",
+        "Secure access and version control",
+        "Cross-referencing between Configuration Items (CIs)",
+        "Automated test case execution",
+        "Traceability between requirements and code",
+        "Random deletion of older versions",
+        "Requirement prioritization dashboards"
+      ],
+      "correctAnswer": [
+        "Documentation creation and centralized storage",
+        "Secure access and version control",
+        "Cross-referencing between Configuration Items (CIs)",
+        "Traceability between requirements and code"
+      ],
+      "explanation": "Automated tools enhance efficiency and governance by providing traceability, secure storage, versioning, and linkages between related artifacts."
+    },
+    {
+      "text": "Which of the following statements about business requirement documents (BRDs) is TRUE?",
+      "options": [
+        "A BRD defines business needs and high-level requirements",
+        "A BRD replaces detailed system specifications",
+        "A BRD is primarily a technical design document",
+        "A BRD should only be prepared by software developers"
+      ],
+      "correctAnswer": "A BRD defines business needs and high-level requirements",
+      "explanation": "The BRD captures business objectives and high-level requirements; detailed technical design is covered in later documentation."
+    },
+    {
+      "text": "Which of the following are examples of poor requirements that could lead to project issues?",
+      "options": [
+        "Ambiguous statements",
+        "Unverifiable requirements",
+        "Clearly measurable outcomes",
+        "Conflicting stakeholder needs",
+        "Requirements written in user-friendly language"
+      ],
+      "correctAnswer": [
+        "Ambiguous statements",
+        "Unverifiable requirements",
+        "Conflicting stakeholder needs"
+      ],
+      "explanation": "Requirements should be clear, measurable, and testable. Ambiguity and conflict create confusion and increase project risk."
+    },
+    {
+      "text": "What are the main benefits of conducting a structured review of requirements documents?",
+      "options": [
+        "Improves requirement quality",
+        "Identifies issues early in the lifecycle",
+        "Reduces rework and cost",
+        "Increases developer autonomy",
+        "Eliminates the need for testing"
+      ],
+      "correctAnswer": [
+        "Improves requirement quality",
+        "Identifies issues early in the lifecycle",
+        "Reduces rework and cost"
+      ],
+      "explanation": "Structured reviews enhance quality and catch defects early, preventing expensive fixes later in development."
+    },
+    {
+      "text": "Which of the following are valid reasons for using configuration management in requirements engineering?",
+      "options": [
+        "To track versions and changes to requirements",
+        "To prevent unauthorized modifications",
+        "To improve communication between team members",
+        "To enforce strict access control",
+        "To eliminate change requests entirely"
+      ],
+      "correctAnswer": [
+        "To track versions and changes to requirements",
+        "To prevent unauthorized modifications",
+        "To improve communication between team members",
+        "To enforce strict access control"
+      ],
+      "explanation": "Configuration management ensures that requirements are versioned, traceable, and controlled, preventing unauthorized or conflicting updates."
+    },
+    {
+      "text": "Which of the following are examples of effective change control practices?",
+      "options": [
+        "Maintaining a change log",
+        "Requiring impact analysis for each change request",
+        "Approving changes before implementation",
+        "Allowing developers to change requirements at will",
+        "Tracking rejected change requests"
+      ],
+      "correctAnswer": [
+        "Maintaining a change log",
+        "Requiring impact analysis for each change request",
+        "Approving changes before implementation",
+        "Tracking rejected change requests"
+      ],
+      "explanation": "Proper change control ensures that changes are justified, reviewed, approved, and documented. Uncontrolled changes increase risk."
+    },
+    {
+      "text": "Which of the following benefits can automated requirements tools provide during a review process?",
+      "options": [
+        "Highlighting unlinked requirements",
+        "Flagging incomplete fields or missing data",
+        "Auto-generating code from requirements",
+        "Providing review comments and feedback tracking",
+        "Deleting outdated requirements automatically"
+      ],
+      "correctAnswer": [
+        "Highlighting unlinked requirements",
+        "Flagging incomplete fields or missing data",
+        "Providing review comments and feedback tracking"
+      ],
+      "explanation": "Automation aids quality assurance by identifying gaps, tracking review comments, and ensuring completeness and consistency."
+    },
+    {
+      "text": "Why is it important for review group members to represent diverse perspectives within the organization?",
+      "options": [
+        "To ensure all business, technical, and user needs are addressed",
+        "To make the meeting longer",
+        "To improve collaboration and reduce bias",
+        "To ensure every department signs off on every document",
+        "To satisfy external auditors"
+      ],
+      "correctAnswer": [
+        "To ensure all business, technical, and user needs are addressed",
+        "To improve collaboration and reduce bias"
+      ],
+      "explanation": "A diverse review group ensures that requirements are complete, practical, and unbiased by representing multiple stakeholder viewpoints."
+    }
+  ]
+}

@@ -1,0 +1,676 @@
+{
+  "testName": "ICT2612 Java Exam Lecturer Moc",
+  "questions": [
+    {
+      "text": "How can we stop the services in android?",
+      "options": [
+        "By using the <code class=\"inline-code\">stopSelf()</code> and <code class=\"inline-code\">stopService()</code> method",
+        "By using the <code class=\"inline-code\">finish()</code> method",
+        "By using <code class=\"inline-code\">System.exit()</code> method",
+        "None of the options"
+      ],
+      "correctAnswer": "By using the stopSelf() and stopService() method",
+      "explanation": "Services are stopped via stopSelf() (inside the Service) or stopService() (from a Context)."
+    },
+    {
+      "text": "What is an activity in android?",
+      "options": [
+        "android class",
+        "android package",
+        "A single screen in an application with supporting java code",
+        "Android method"
+      ],
+      "correctAnswer": "A single screen in an application with supporting java code",
+      "explanation": "An Activity represents a UI screen that the user can interact with."
+    },
+    {
+      "text": "Which term best describes \"a program that duplicates the look and feel of a particular device\"?",
+      "options": [
+        "mobile application",
+        "emulator",
+        "operating system",
+        "smartphone"
+      ],
+      "correctAnswer": "emulator",
+      "explanation": "An emulator simulates a real device’s hardware and software."
+    },
+    {
+      "text": "Which of the following is the first callback method that is invoked by the system during an activity life-cycle?",
+      "options": [
+        "<code class=\"inline-code\">onClick()</code> method",
+        "<code class=\"inline-code\">onCreate()</code> method",
+        "<code class=\"inline-code\">onStart()</code> method",
+        "<code class=\"inline-code\">onRestart()</code> method"
+      ],
+      "correctAnswer": "onCreate() method",
+      "explanation": "onCreate() is called when the activity is first created."
+    },
+    {
+      "text": "What is the use of content provider in Android?",
+      "options": [
+        "For storing the data in the database",
+        "For sharing the data between applications",
+        "For sending the data from an application to another application",
+        "None of the option"
+      ],
+      "correctAnswer": "For sharing the data between applications",
+      "explanation": "Content providers expose data to other apps with a standard interface."
+    },
+    {
+      "text": "Which of the following is contained in the src folder?",
+      "options": [
+        "XML",
+        "Java source code",
+        "Manifest",
+        "Main_activity"
+      ],
+      "correctAnswer": "Java source code",
+      "explanation": "The src (or java) folder hosts your Java/Kotlin source files."
+    },
+    {
+      "text": "Which of the following method is used to handle what happens after clicking a button?",
+      "options": [
+        "onClick",
+        "onCreate",
+        "onSelect",
+        "onStart"
+      ],
+      "correctAnswer": "onClick",
+      "explanation": "onClick is the click handler for buttons and other clickable views."
+    },
+    {
+      "text": "Which of the following android component displays the part of an activity on screen?",
+      "options": [
+        "View",
+        "Manifest",
+        "Intent",
+        "Fragment"
+      ],
+      "correctAnswer": "Fragment",
+      "explanation": "A Fragment represents a reusable portion of UI within an Activity."
+    },
+    {
+      "text": "Which of the following is the parent class of service?",
+      "options": [
+        "context",
+        "object",
+        "contextThemeWrapper",
+        "contextWrapper"
+      ],
+      "correctAnswer": "contextWrapper",
+      "explanation": "android.app.Service extends android.content.ContextWrapper."
+    },
+    {
+      "text": "What is contained in manifest.xml?",
+      "options": [
+        "Source code",
+        "List of strings used in the app",
+        "Permission that the application requires",
+        "None of the options"
+      ],
+      "correctAnswer": "Permission that the application requires",
+      "explanation": "AndroidManifest.xml declares app components, permissions, features, etc."
+    },
+    {
+      "text": "In Android studio, which of the following callbacks is called when an activity starts interacting with the user?",
+      "options": [
+        "onDestroy",
+        "onCreate",
+        "onResume",
+        "onStop"
+      ],
+      "correctAnswer": "onResume",
+      "explanation": "onResume() is called right before the activity comes to the foreground to interact."
+    },
+    {
+      "text": "All layout classes are the subclasses of:",
+      "options": [
+        "<code class=\"inline-code\">android.view.View</code>",
+        "<code class=\"inline-code\">android.view.ViewGroup</code>",
+        "<code class=\"inline-code\">android.widget</code>",
+        "<code class=\"inline-code\">android.method</code>"
+      ],
+      "correctAnswer": "android.view.ViewGroup",
+      "explanation": "Layouts are ViewGroups that contain and position child Views."
+    },
+    {
+      "text": "The following image shows part of the content inside activity_main.xml. Which of the following options is correct about a RadioGroup of RadioButtons?",
+      "options": [
+        "The app user can select one radio button only at a time.",
+        "The app user can select two radio buttons at the same time.",
+        "The only purpose of RadioGroup tag is adding a group of colors to the inside of the radio buttons.",
+        "This is not XML code; it is a Kotlin code."
+      ],
+      "correctAnswer": "The app user can select one radio button only at a time.",
+      "explanation": "A RadioGroup enforces single selection among its RadioButtons."
+    },
+    {
+      "text": "In AndroidManifest.xml, what is the role of adding attributes “android:icon” and “android:roundIcon”?",
+      "options": [
+        "Set an app icon image on a phone, on any smart device, or in Google Play Store.",
+        "Show the app icon in Android Studio title bar only.",
+        "Show the app icon in Android Studio emulator only.",
+        "Show this icon if this app is installed on iPhone devices only."
+      ],
+      "correctAnswer": "Set an app icon image on a phone, on any smart device, or in Google Play Store.",
+      "explanation": "These attributes define the launcher icons used by the system and Play Store."
+    },
+    {
+      "text": "The following Android code displays a Toast message: Toast.makeText(this, \"Message saved as draft\", Toast.xyz).show(). Which parameter correctly replaces Toast.xyz?",
+      "options": [
+        "<code class=\"inline-code\">Toast.LENGTH_LONG</code>",
+        "<code class=\"inline-code\">Toast.shortTime</code>",
+        "<code class=\"inline-code\">Toast.sec.4</code>",
+        "<code class=\"inline-code\">Toast.Time.4s</code>"
+      ],
+      "correctAnswer": "Toast.LENGTH_LONG",
+      "explanation": "Valid duration constants are Toast.LENGTH_SHORT and Toast.LENGTH_LONG."
+    },
+    {
+      "text": "This image displays part of Android Studio toolbar (red rectangle button). What does that button represent?",
+      "options": [
+        "AVD Manager",
+        "Gradle Console",
+        "Save App",
+        "Save As App"
+      ],
+      "correctAnswer": "AVD Manager",
+      "explanation": "The phone-with-Android icon opens the Android Virtual Device (AVD) Manager."
+    },
+    {
+      "text": "Which of the following files has the correct name for a layout design file of an activity in an Android app?",
+      "options": [
+        "<code class=\"inline-code\">MainActivity.java</code> or <code class=\"inline-code\">MainActivity.kt</code>",
+        "<code class=\"inline-code\">activity_main.xml</code>",
+        "<code class=\"inline-code\">Sample.class</code>",
+        "<code class=\"inline-code\">Gradle.sql</code>"
+      ],
+      "correctAnswer": "activity_main.xml",
+      "explanation": "Layout XML files follow snake_case convention like activity_main.xml."
+    },
+    {
+      "text": "Which of the following is true about the line of code: button.setOnClickListener({ })?",
+      "options": [
+        "It only saves changes in a text field.",
+        "It sets the number of clicks the user presses to run the application.",
+        "The system executes the code you write in <code class=\"inline-code\">setOnClickListener({ })</code> after the user presses the button.",
+        "It sets the time and date of run process."
+      ],
+      "correctAnswer": "The system executes the code you write in setOnClickListener({ }) after the user presses the button.",
+      "explanation": "The click listener handles the button’s click event."
+    },
+    {
+      "text": "Which of the following layouts is fully integrated with Android Studio’s layout editor so you can build the full layout without editing XML manually?",
+      "options": [
+        "Constraint Layout",
+        "Linear Layout",
+        "Relative Layout",
+        "Table Layout"
+      ],
+      "correctAnswer": "Constraint Layout",
+      "explanation": "ConstraintLayout is the primary, fully-supported visual layout system."
+    },
+    {
+      "text": "An AndroidManifest.xml image shows multiple activities. Which statement is correct about launcher activity and activity count?",
+      "options": [
+        "This app consists of three activities and MainActivity is the launcher activity.",
+        "This app consists of two activities and Second is the launcher activity.",
+        "This app consists of one activity and MainActivity is the launcher activity.",
+        "This app consists of two activities and MainActivity is the launcher activity."
+      ],
+      "correctAnswer": "This app consists of two activities and MainActivity is the launcher activity.",
+      "explanation": "The launcher activity is the one having the MAIN action and LAUNCHER category; typical sample shows MainActivity plus another."
+    },
+    {
+      "text": "If you have an Android application having 10 activities, and you want to specify one of them as launcher (startup) activity, which file configures it?",
+      "options": [
+        "<code class=\"inline-code\">MainActivity.java</code> or <code class=\"inline-code\">MainActivity.kt</code>",
+        "<code class=\"inline-code\">AndroidManifest.xml</code>",
+        "<code class=\"inline-code\">activity_main.xml</code>",
+        "<code class=\"inline-code\">strings.xml</code>"
+      ],
+      "correctAnswer": "AndroidManifest.xml",
+      "explanation": "The launcher is declared via intent filters in AndroidManifest.xml."
+    },
+    {
+      "text": "There are three action buttons you can add to Android AlertDialog. Which choice is NOT correct?",
+      "options": [
+        "You can add more than one positive button to the same AlertDialog class.",
+        "Positive action button is used to accept and continue with the “OK” action.",
+        "Negative action button is used to cancel the action.",
+        "Neutral action button is used when the user does not want to proceed with the action."
+      ],
+      "correctAnswer": "You can add more than one positive button to the same AlertDialog class.",
+      "explanation": "AlertDialog supports at most one positive, one negative, and one neutral."
+    },
+    {
+      "text": "A manifest snippet shows <uses-permission android:name=\"android.permission.INTERNET\"/>. Which description is correct?",
+      "options": [
+        "This permission tag allows this app to connect to the Internet.",
+        "This permission tag allows other apps to make remote connection to this app.",
+        "This permission tag allows this app to connect to its SQLite database.",
+        "This permission tag has been written in the wrong location; it must be written inside the <code class=\"inline-code\"><application></code> tag."
+      ],
+      "correctAnswer": "This permission tag allows this app to connect to the Internet.",
+      "explanation": "INTERNET permission is declared at manifest root and enables network access."
+    },
+    {
+      "text": "What does an Android app need to include Google Map and access Google Maps servers?",
+      "options": [
+        "Free Space about 25 MB in local storage.",
+        "Google API key.",
+        "API level 26 and higher.",
+        "Add a class called Google to Android app."
+      ],
+      "correctAnswer": "Google API key.",
+      "explanation": "A Maps API key authorizes map requests from your app."
+    },
+    {
+      "text": "To capture a user’s location, what two main objects are utilized from Android SDK?",
+      "options": [
+        "LocationManager and LocationListener",
+        "<code class=\"inline-code\">Google.java</code> and <code class=\"inline-code\">Maps.class</code>",
+        "<code class=\"inline-code\">Link.object</code> and <code class=\"inline-code\">map.object</code>",
+        "<code class=\"inline-code\">Maps.Google.class</code> and <code class=\"inline-code\">SQLMaps.object</code>"
+      ],
+      "correctAnswer": "LocationManager and LocationListener",
+      "explanation": "Use LocationManager to request updates delivered to a LocationListener."
+    },
+    {
+      "text": "A MainActivity.kt code builds a list and shows an emulator result. Which is correct?",
+      "options": [
+        "This code builds Android ListView using ListView with id “listview7”.",
+        "This code builds Android Recycler View and “listview7” is the id of the Recycler view.",
+        "This code builds a normal array.",
+        "This code builds Adapter array Recycler list and “listview7” is the id of this array list."
+      ],
+      "correctAnswer": "This code builds Android ListView using ListView with id “listview7”.",
+      "explanation": "Typical introductory examples use ArrayAdapter with a ListView id."
+    },
+    {
+      "text": "Which method sets the Android notification title?",
+      "options": [
+        "<code class=\"inline-code\">setContentTitle()</code>",
+        "<code class=\"inline-code\">NotificationTitle()</code>",
+        "<code class=\"inline-code\">setTitle()</code>",
+        "<code class=\"inline-code\">Notification_setTitle()</code>"
+      ],
+      "correctAnswer": "setContentTitle()",
+      "explanation": "NotificationCompat.Builder#setContentTitle sets the title."
+    },
+    {
+      "text": "How do you determine the number of elements in an array?\n\nint buses[] = new int[5];",
+      "options": [
+        "<code class=\"inline-code\">buses.length</code>",
+        "<code class=\"inline-code\">buses.length()</code>",
+        "<code class=\"inline-code\">buses.size</code>",
+        "<code class=\"inline-code\">buses.size()</code>"
+      ],
+      "correctAnswer": "buses.length",
+      "explanation": "In Java, arrays use the length field (no parentheses)."
+    },
+    {
+      "text": "What will be the output?\n\nString[] nums = new String[] { \"1\", \"9\", \"10\" };\nArrays.sort(nums);\nSystem.out.println(Arrays.toString(nums));",
+      "options": [
+        "<code class=\"inline-code\">[1, 9, 10]</code>",
+        "<code class=\"inline-code\">[1, 10, 9]</code>",
+        "<code class=\"inline-code\">[10, 1, 9]</code>",
+        "None of the above"
+      ],
+      "correctAnswer": "[1, 10, 9]",
+      "explanation": "Lexicographic sort puts \"10\" before \"9\" since both are strings."
+    },
+    {
+      "text": "How many of the following are legal declarations?\nString lion [] = new String[] {\"lion\"};\nString tiger [] = new String[1] {\"tiger\"};\nString bear [] = new String[] {};\nString cat [] = new String[0] {};",
+      "options": [
+        "None",
+        "One",
+        "Two",
+        "Three"
+      ],
+      "correctAnswer": "Two",
+      "explanation": "Legal: new String[]{...} and new String[]{}; the forms mixing size with initializer list are illegal."
+    },
+    {
+      "text": "Which is NOT a true statement about an array?",
+      "options": [
+        "An array expands automatically when it is full.",
+        "An array is allowed to contain duplicate values.",
+        "An array understands the concept of ordered elements.",
+        "An array uses a zero index to reference the first element."
+      ],
+      "correctAnswer": "An array expands automatically when it is full.",
+      "explanation": "Java arrays are fixed-size; they don’t auto-expand."
+    },
+    {
+      "text": "What will be the output?\nString[] os = new String[] { \"Mac\", \"Linux\", \"Windows\" };\nArrays.sort(os);\nSystem.out.println(Arrays.binarySearch(os, \"Mac\"));",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "The output is not defined."
+      ],
+      "correctAnswer": "1",
+      "explanation": "Sorted order is [Linux, Mac, Windows]; \"Mac\" is at index 1."
+    },
+    {
+      "text": "What is the result of the following code?\nString s1 = \"Java\";\nString s2 = \"Java\";\nStringBuilder sb1 = new StringBuilder();\nsb1.append(\"Ja\").append(\"va\");\nSystem.out.println(s1 == s2);\nSystem.out.println(s1.equals(s2));\nSystem.out.println(sb1.toString() == s1);\nSystem.out.println(sb1.toString().equals(s1));",
+      "options": [
+        "true is printed out exactly once.",
+        "true is printed out exactly twice.",
+        "true is printed out exactly three times.",
+        "true is printed out exactly four times."
+      ],
+      "correctAnswer": "true is printed out exactly three times.",
+      "explanation": "s1==s2 true (interned), equals true, toString()==s1 false, toString().equals(s1) true."
+    },
+    {
+      "text": "Consider the program:\nString s1 = \"hello\";\nString s2 = new String(\"hello\");\nString s3 = \"hello\";\n... compare s1==s2 and s1==s3 ... What is the output?",
+      "options": [
+        "s1 and s2 equal\ns1 and s3 equal",
+        "s1 and s2 equal\ns1 and s3 not equal",
+        "s1 and s2 not equal\ns1 and s3 equal",
+        "s1 and s2 not equal\ns1 and s3 not equal"
+      ],
+      "correctAnswer": "s1 and s2 not equal\ns1 and s3 equal",
+      "explanation": "Object from new is different reference; pooled literals refer to same reference."
+    },
+    {
+      "text": "Predict the output:\nString s = new String(\"5\");\nSystem.out.println(1 + 10 + s + 1 + 10);",
+      "options": [
+        "11511",
+        "1105110",
+        "115110",
+        "27"
+      ],
+      "correctAnswer": "115110",
+      "explanation": "1+10=11, then string concatenation: \"11\"+\"5\"+\"1\"+\"10\" → \"115110\"."
+    },
+    {
+      "text": "What is the output of this code?\nint i = 0;\nfor(i = 0 ; i < 5; i++) { }\nSystem.out.println(i);",
+      "options": [
+        "5",
+        "0",
+        "4",
+        "Compilation Error"
+      ],
+      "correctAnswer": "5",
+      "explanation": "After the loop, i has been incremented to 5."
+    },
+    {
+      "text": "What is the output?\nclass Automobile { private String drive(){ return \"Driving vehicle\"; } }\nclass Car extends Automobile { protected String drive(){ return \"Driving car\"; } }\npublic class ElectricCar extends Car { @Override public final String drive(){ return \"Driving electric car\"; }\npublic static void main(String[] w){ final Car car = new ElectricCar(); System.out.print(car.drive()); } }",
+      "options": [
+        "Driving vehicle",
+        "Driving electric car",
+        "Driving car",
+        "The code does not compile"
+      ],
+      "correctAnswer": "Driving electric car",
+      "explanation": "Dynamic dispatch calls ElectricCar.drive() via the Car reference."
+    },
+    {
+      "text": "What will be printed?\nclass Base { public Base(){ System.out.println(\"Base\"); } }\nclass Derived extends Base { public Derived(){ System.out.println(\"Derived\"); } }\nclass DeriDerived extends Derived { public DeriDerived(){ System.out.println(\"DeriDerived\"); } }\npublic class Test { public static void main(String[] args){ Derived b = new DeriDerived(); } }",
+      "options": [
+        "Base\nDerived\nDeriDerived",
+        "Derived\nDeriDerived",
+        "DeriDerived\nDerived\nBase",
+        "DeriDerived\nDerived"
+      ],
+      "correctAnswer": "Base\nDerived\nDeriDerived",
+      "explanation": "Constructors run from top of the hierarchy down."
+    },
+    {
+      "text": "What is the output?\nabstract class Car { static { System.out.print(\"1\"); } public Car(String name){ super(); System.out.print(\"2\"); } { System.out.print(\"3\"); } }\npublic class BlueCar extends Car { { System.out.print(\"4\"); } public BlueCar(){ super(\"blue\"); System.out.print(\"5\"); }\npublic static void main(String[] g){ new BlueCar(); } }",
+      "options": [
+        "23451",
+        "12354",
+        "13245",
+        "The code does not compile."
+      ],
+      "correctAnswer": "13245",
+      "explanation": "Order: static of Car (1), Car instance init (3), Car ctor (2), BlueCar instance init (4), BlueCar ctor (5)."
+    },
+    {
+      "text": "What should a beginner typically use to change the contents of the strings.xml file?",
+      "options": [
+        "Emulator Editor",
+        "Text Viewer",
+        "Resource Viewer",
+        "Translations Editor"
+      ],
+      "correctAnswer": "Translations Editor",
+      "explanation": "Android Studio’s Translations Editor provides a UI to edit string resources."
+    },
+    {
+      "text": "What folder keeps resources such as images and music?",
+      "options": [
+        "assets",
+        "gen",
+        "res",
+        "src"
+      ],
+      "correctAnswer": "res",
+      "explanation": "Resources like drawables, layouts, and values reside under res/."
+    },
+    {
+      "text": "After the Android emulator is loaded, what must you do before you can run your app in it?",
+      "options": [
+        "Close Android Studio",
+        "Unlock the virtual device",
+        "Compile the app",
+        "Run the debugger"
+      ],
+      "correctAnswer": "Unlock the virtual device",
+      "explanation": "You must unlock the emulator screen to interact with the app."
+    },
+    {
+      "text": "What happens when you click the Run 'app' button in Android Studio?",
+      "options": [
+        "The Android debugger opens",
+        "The Choose Device dialog box is displayed",
+        "The app runs in a browser window",
+        "The app runs on the device connected to the USB port"
+      ],
+      "correctAnswer": "The Choose Device dialog box is displayed",
+      "explanation": "Android Studio prompts for a target device/emulator if more than one option is available."
+    },
+    {
+      "text": "Which term describes a single element such as a TextView, Button, or CheckBox control?",
+      "options": [
+        "app",
+        "layout",
+        "modality",
+        "widget"
+      ],
+      "correctAnswer": "widget",
+      "explanation": "Individual UI elements are widgets (Views)."
+    },
+    {
+      "text": "Which method creates an intent to start another Activity?",
+      "options": [
+        "beginActivity method",
+        "createActivity method",
+        "prepareActivity method",
+        "startActivity method"
+      ],
+      "correctAnswer": "startActivity method",
+      "explanation": "Call startActivity(intent) to launch another activity."
+    },
+    {
+      "text": "Which method displays the content of a specific screen?",
+      "options": [
+        "drawContents method",
+        "getDisplay method",
+        "makeDisplay method",
+        "setContentView method"
+      ],
+      "correctAnswer": "setContentView method",
+      "explanation": "setContentView() binds the layout resource to the Activity."
+    },
+    {
+      "text": "Which control is similar to a drop-down list for selecting a single item from a fixed listing?",
+      "options": [
+        "EditText control",
+        "Message control",
+        "Spinner control",
+        "TextView control"
+      ],
+      "correctAnswer": "Spinner control",
+      "explanation": "Spinner is the Android equivalent to a dropdown for single selection."
+    },
+    {
+      "text": "Which kind of variable can be initialized only once?",
+      "options": [
+        "final variable",
+        "local variable",
+        "static variable",
+        "temporary variable"
+      ],
+      "correctAnswer": "final variable",
+      "explanation": "A final variable cannot be reassigned after initialization."
+    },
+    {
+      "text": "What does the R in findViewById(R.id.txtTickets) refer to?",
+      "options": [
+        "the resource folder for the app",
+        "the resources available to the app",
+        "a static property of the txtTickets variable",
+        "a variable named 'R'"
+      ],
+      "correctAnswer": "the resources available to the app",
+      "explanation": "R is the generated class mapping all resources (ids, layouts, etc.)."
+    },
+    {
+      "text": "You have a variable that will only assume values between 0 and 100. What would be the most compact primitive type to use?",
+      "options": [
+        "byte",
+        "float",
+        "int",
+        "long"
+      ],
+      "correctAnswer": "byte",
+      "explanation": "byte (−128..127) is sufficient for 0..100."
+    },
+    {
+      "text": "Which class/method should you use if you want to convert the string \"123\" to the number 123?",
+      "options": [
+        "<code class=\"inline-code\">parseInt()</code>",
+        "<code class=\"inline-code\">strInt()</code>",
+        "<code class=\"inline-code\">convertStr()</code>",
+        "<code class=\"inline-code\">convertNum()</code>"
+      ],
+      "correctAnswer": "parseInt()",
+      "explanation": "Use Integer.parseInt(\"123\") to get 123."
+    },
+    {
+      "text": "What method returns the text label from a selected Spinner item?",
+      "options": [
+        "<code class=\"inline-code\">getItem()</code>",
+        "<code class=\"inline-code\">getSelectedItem()</code>",
+        "<code class=\"inline-code\">getSpinnerItem()</code>",
+        "<code class=\"inline-code\">selectedItem()</code>"
+      ],
+      "correctAnswer": "getSelectedItem()",
+      "explanation": "Spinner#getSelectedItem() returns the selected item object."
+    },
+    {
+      "text": "Choose the option that completes the code so that the text is displayed in a TextView named displayText.\n\nString sports = \"Football\";\nString fall = sports + \" season begins in the Fall.\";\n---- code goes here ----",
+      "options": [
+        "<code class=\"inline-code\">displayText.getText(sports+fall);</code>",
+        "<code class=\"inline-code\">displayText = fall.getText();</code>",
+        "<code class=\"inline-code\">setText(fall).displayText;</code>",
+        "<code class=\"inline-code\">displayText.setText(fall);</code>"
+      ],
+      "correctAnswer": "displayText.setText(fall);",
+      "explanation": "Use setText() on the TextView instance."
+    },
+    {
+      "text": "Which control always operates independently (selecting it will never deselect others)?",
+      "options": [
+        "CheckBox control",
+        "EachButton control",
+        "SingleSelect control",
+        "TextView control"
+      ],
+      "correctAnswer": "CheckBox control",
+      "explanation": "Checkboxes are independent booleans; RadioButtons enforce single selection in a group."
+    },
+    {
+      "text": "What is used so apps can talk to each other in a very simple way?",
+      "options": [
+        "activities",
+        "classes",
+        "intents",
+        "values"
+      ],
+      "correctAnswer": "intents",
+      "explanation": "Intents enable messaging across app components and even across apps."
+    },
+    {
+      "text": "Where should you place an image file that will be used as a background image for a TextView control?",
+      "options": [
+        "<code class=\"inline-code\">res\\images</code> folder",
+        "manifests folder",
+        "<code class=\"inline-code\">res\\drawable</code> folder",
+        "<code class=\"inline-code\">values\\backgrounds</code> folder"
+      ],
+      "correctAnswer": "res\\drawable folder",
+      "explanation": "Drawable resources belong in res/drawable."
+    },
+    {
+      "text": "Which is the correct statement to make a button named btnStart visible?",
+      "options": [
+        "<code class=\"inline-code\">btnStart.setVisibility(Show.VIEW);</code>",
+        "<code class=\"inline-code\">btnStart.setVisibility(Show.VISIBLE);</code>",
+        "<code class=\"inline-code\">btnStart.setVisibility(View.SHOW);</code>",
+        "<code class=\"inline-code\">btnStart.setVisibility(View.VISIBLE);</code>"
+      ],
+      "correctAnswer": "btnStart.setVisibility(View.VISIBLE);",
+      "explanation": "Use View.VISIBLE to show a View."
+    },
+    {
+      "text": "What type of control is usually used to select a wallpaper image for the Android device background?",
+      "options": [
+        "GridView",
+        "ImageViewer",
+        "MediaPlayer",
+        "TextView"
+      ],
+      "correctAnswer": "GridView",
+      "explanation": "A GridView can present a grid of images for selection."
+    },
+    {
+      "text": "What field manipulation method accesses the system date or time?",
+      "options": [
+        "get",
+        "set",
+        "static",
+        "void"
+      ],
+      "correctAnswer": "get",
+      "explanation": "APIs like Calendar use get(...) to retrieve fields like DATE or HOUR."
+    },
+    {
+      "text": "Which is an approach to designing apps/websites for optimal viewing across many devices?",
+      "options": [
+        "Single pane design",
+        "Application templates",
+        "Responsive design",
+        "Multipane apps"
+      ],
+      "correctAnswer": "Responsive design",
+      "explanation": "Responsive design adapts UI to different devices and screen sizes."
+    },
+    {
+      "text": "Which statement completes the code to instantiate the ImageView control named imgTween?\n\nImageView imgRotate = (ImageView) ...",
+      "options": [
+        "<code class=\"inline-code\">findViewById(R.id.imgTween);</code>",
+        "<code class=\"inline-code\">findViewById(id.imgTween);</code>",
+        "<code class=\"inline-code\">findViewById(imgTween);</code>",
+        "<code class=\"inline-code\">findViewById(R.imgTween.id);</code>"
+      ],
+      "correctAnswer": "findViewById(R.id.imgTween);",
+      "explanation": "Resource IDs are referenced as R.id.someId."
+    }
+  ]
+}
