@@ -12,14 +12,48 @@
       "correctAnswer": "R27 953"
     },
     {
-      "text": "Study the cashflow of Project Y in the table below. Calculate the payback period.\n\nYear\n\nProject Y\n\nProject Z\n\n0\n\n-R200 000,00\n\n-R275 000,00\n\n1\n\nR85 000,00\n\nR70 000,00\n\n2\n\nR70 000,00\n\nR75 000,00\n\n3\n\nR78 000,00\n\nR80 000,00\n\n4\n\nR33 000,00\n\nR85 000,00",
+      "text": "Study the cashflow of Project Y in the table below. Calculate the payback period.",
       "options": [
         "2.6 years",
         "2.2 years",
         "2.4 years",
         "1.4 years"
       ],
-      "correctAnswer": "2.6 years"
+      "correctAnswer": "2.6 years",
+      "table": {
+        "headers": [
+          "Year",
+          "Project Y",
+          "Project Z"
+        ],
+        "rows": [
+          [
+            "0",
+            "-R200 000,00",
+            "-R275 000,00"
+          ],
+          [
+            "1",
+            "R85 000,00",
+            "R70 000,00"
+          ],
+          [
+            "2",
+            "R70 000,00",
+            "R75 000,00"
+          ],
+          [
+            "3",
+            "R78 000,00",
+            "R80 000,00"
+          ],
+          [
+            "4",
+            "R33 000,00",
+            "R85 000,00"
+          ]
+        ]
+      }
     },
     {
       "text": "You launched Project X, which is based on the pre-investor’s model. Pre-investors denote non-professional or non-institutional investors such as friends, family, and strangers who help to fund the project. However, they expect to see a return on their investment. Nonetheless, Project X involves a new social media platform that seeks to generate revenue from user subscriptions. To launch the project, the pre-investors need to invest an accumulative amount of R75 000,00 (year 0). As subscribers and pre-investors join your venture, you expect the initial investment of R75000 to grow, increasing with R15 550,00 annually for four years (years 1-4). In the first year, you expect the new social media platform to generate R110 000,00, increasing annually by R25 000,00. Calculate the annual discounted cost based on a discount rate of 10%.",
@@ -32,14 +66,72 @@
       "correctAnswer": "y0 = R75 000,00; y1 = R82 400,5; y2 = R88 063; y3 = R91 237,5; y4 = 93 296"
     },
     {
-      "text": "The table below lists each activity, its duration, and its predecessor(s) for illustration on an Activity-on-Arrow (AoA) diagram. What is the start time, finish time, and slack of Activity H?\n\nActivity\n\nDescription\n\nDuration (days)\n\nPredecessor\n\nA\n\nRequirement Gathering & Analysis: Identify user needs, features (e.g., booking form, location tracking), and e-waste facility integration.\n\n3\n\n-\n\nB\n\nDesign: Create wireframes and user interface (UI) design for the app, ensuring user-friendly navigation.\n\n3\n\nA\n\nC\n\nBackend development: Set up server, database, and APIs to handle user bookings, authentication, and scheduling.\n\n5\n\nA\n\nD\n\nFrontend development: Code the user interface, booking system, and integration with backend services.\n\n4\n\nA\n\nE\n\nIntegration and testing: Test the app for functionality, security, and usability. Integrate with external services like location tracking.\n\n1\n\nB\n\nF\n\nDeployment and launch: Deploy the app-to-app stores or web and ensure scalability for handling user requests.\n\n2\n\nC\n\nG\n\nMaintenance and updates: Address user feedback, fix bugs, and release new features or updates.\n\n5\n\nD\n\nH\n\nLive: Make app available for download and use.\n\n1\n\nE, F, G",
+      "text": "The table below lists each activity, its duration, and its predecessor(s) for illustration on an Activity-on-Arrow (AoA) diagram. What is the start time, finish time, and slack of Activity H?",
       "options": [
         "start time = 13; finish time = 13; slack = 0",
         "start time = 13; finish time = 13; slack = 1",
         "start time = 12; finish time = 13; slack = 1",
         "start time = 15; finish time = 17; slack = 2"
       ],
-      "correctAnswer": "start time = 13; finish time = 13; slack = 0"
+      "correctAnswer": "start time = 13; finish time = 13; slack = 0",
+      "table": {
+        "headers": [
+          "Activity",
+          "Description",
+          "Duration (days)",
+          "Predecessor"
+        ],
+        "rows": [
+          [
+            "A",
+            "Requirement Gathering & Analysis: Identify user needs, features (e.g., booking form, location tracking), and e-waste facility integration.",
+            "3",
+            "-"
+          ],
+          [
+            "B",
+            "Design: Create wireframes and user interface (UI) design for the app, ensuring user-friendly navigation.",
+            "3",
+            "A"
+          ],
+          [
+            "C",
+            "Backend development: Set up server, database, and APIs to handle user bookings, authentication, and scheduling.",
+            "5",
+            "A"
+          ],
+          [
+            "D",
+            "Frontend development: Code the user interface, booking system, and integration with backend services.",
+            "4",
+            "A"
+          ],
+          [
+            "E",
+            "Integration and testing: Test the app for functionality, security, and usability. Integrate with external services like location tracking.",
+            "1",
+            "B"
+          ],
+          [
+            "F",
+            "Deployment and launch: Deploy the app to app stores or web and ensure scalability for handling user requests.",
+            "2",
+            "C"
+          ],
+          [
+            "G",
+            "Maintenance and updates: Address user feedback, fix bugs, and release new features or updates.",
+            "5",
+            "D"
+          ],
+          [
+            "H",
+            "Live: Make app available for download and use.",
+            "1",
+            "E, F, G"
+          ]
+        ]
+      }
     },
     {
       "text": "A project’s net profit is calculated by:",
@@ -52,14 +144,90 @@
       "correctAnswer": "Deducting total expenses from total income"
     },
     {
-      "text": "The project team deployed a weighed scoring model as a systematic selection process to select the best project that support the desired deliverables. Study the different criteria and their assigned weights in the table below. Note the numerical scores for each Project that has been assigned to each criteria. Calculate the weighted score for Project 1.\n\nNB! Consider rounding off to the nearest whole number to reach the correct answer — consult or keep https://www.cuemath.com/numbers/round-to-the-nearest-whole-number/\n\nCriteria\tWeight\tProject 1\tProject 2\tProject 3\tProject 4\nSupports key business objectives\t28%\t85\t90\t70\t75\nHas strong internal sponsor\t14%\t70\t85\t75\t80\nHas strong customer support\t10%\t80\t85\t65\t60\nUses realistic level of technology\t5%\t95\t95\t95\t95\nCan be implemented in one year or less\t15%\t25\t30\t25\t20\nProvides positive NPV\t18%\t70\t75\t85\t80\nHas low risk in meeting scope, time, and cost goals\t10%\t30\t40\t65\t35\nWeighted project scores\t100%\t \t72,35\t \t63,85",
+      "text": "The project team deployed a weighed scoring model as a systematic selection process to select the best project that support the desired deliverables. Study the different criteria and their assigned weights in the table below. Note the numerical scores for each Project that has been assigned to each criteria. Calculate the weighted score for Project 1.\\n\\nNB! Consider rounding off to the nearest whole number to reach the correct answer.",
       "options": [
         "66",
         "65",
         "65.4",
         "66.7"
       ],
-      "correctAnswer": "66"
+      "correctAnswer": "66",
+      "table": {
+        "headers": [
+          "Criteria",
+          "Weight",
+          "Project 1",
+          "Project 2",
+          "Project 3",
+          "Project 4"
+        ],
+        "rows": [
+          [
+            "Supports key business objectives",
+            "28%",
+            "85",
+            "90",
+            "70",
+            "75"
+          ],
+          [
+            "Has strong internal sponsor",
+            "14%",
+            "70",
+            "85",
+            "75",
+            "80"
+          ],
+          [
+            "Has strong customer support",
+            "10%",
+            "80",
+            "85",
+            "65",
+            "60"
+          ],
+          [
+            "Uses realistic level of technology",
+            "5%",
+            "95",
+            "95",
+            "95",
+            "95"
+          ],
+          [
+            "Can be implemented in one year or less",
+            "15%",
+            "25",
+            "30",
+            "25",
+            "20"
+          ],
+          [
+            "Provides positive NPV",
+            "18%",
+            "70",
+            "75",
+            "85",
+            "80"
+          ],
+          [
+            "Has low risk in meeting scope, time, and cost goals",
+            "10%",
+            "30",
+            "40",
+            "65",
+            "35"
+          ],
+          [
+            "Weighted project scores",
+            "100%",
+            "",
+            "72,35",
+            "",
+            "63,85"
+          ]
+        ]
+      }
     },
     {
       "text": "Project integration management involves the following phases:\n\ndeveloping the project charter.\ndeveloping the project management plan.\ndirecting and managing project work.\n\nMonitoring and controlling.\nperforming integrated change control.\nclosing the project or phase.\nWhich phase must be indicated at number 4?",
@@ -89,7 +257,12 @@
         "ES = 3, EF = 5, LS = 10, LF = 8",
         "ES = 2, EF = 5, LS = 8, LF = 10"
       ],
-      "correctAnswer": "ES = 3, EF = 5, LS = 8, LF = 10"
+      "correctAnswer": "ES = 3, EF = 5, LS = 8, LF = 10",
+      "image": {
+        "src": "assets/inf3708/network-main.svg",
+        "alt": "Activity on Node network diagram for activities A to L. Tap to enlarge.",
+        "caption": "Tap the diagram to enlarge it."
+      }
     },
     {
       "text": "You launched Project X that is based on the pre-investor’s model. Pre-investors denote non-professional or non-institutional investors such as friends, family and strangers who help to fund the project. However, they expect to see a return on their investment. Nonetheless, Project X involves a new social media platform that seeks to generate revenue from user subscriptions. To launch the project, the pre-investors need to invest an accumulative amount of R75 000,00 (year 0). As subscribers and pre-investors join your venture, you expect the initial investment of R75000 to grow, increasing with R15 550,00 annually for four years (years 1-4). In the first year, you expect the new social media platform will generate R110 000,00, increasing annually with R25 000,00. Calculate the annual discount factor based on a discount rate of 10%.",
@@ -102,14 +275,90 @@
       "correctAnswer": "1; 0.91; 0.83; 0.75; 0.68"
     },
     {
-      "text": "The project team deployed a weighed scoring model as a systematic selection process to select the best project that support the desired deliverables. Study the different criteria and their assigned weights in the table below. Note the numerical scores for each Project that has been assigned to each criteria. Calculate the weighted score for Project 3.\n\nNB! Consider rounding off to the nearest whole number to reach the correct answer — consult https://www.cuemath.com/numbers/round-to-the-nearest-whole-number/\n\nCriteria\tWeight\tProject 1\tProject 2\tProject 3\tProject 4\nSupports key business objectives\t28%\t85\t90\t70\t75\nHas strong internal sponsor\t14%\t70\t85\t75\t80\nHas strong customer support\t10%\t80\t85\t65\t60\nUses realistic level of technology\t5%\t95\t95\t95\t95\nCan be implemented in one year or less\t15%\t25\t30\t25\t20\nProvides positive NPV\t18%\t70\t75\t85\t80\nHas low risk in meeting scope, time, and cost goals\t10%\t30\t40\t65\t35\nWeighted project scores\t100%\t \t72,35\t \t63,85",
+      "text": "The project team deployed a weighed scoring model as a systematic selection process to select the best project that support the desired deliverables. Study the different criteria and their assigned weights in the table below. Note the numerical scores for each Project that has been assigned to each criteria. Calculate the weighted score for Project 3.\\n\\nNB! Consider rounding off to the nearest whole number to reach the correct answer.",
       "options": [
         "67",
         "66",
         "66",
         "67.9"
       ],
-      "correctAnswer": "67"
+      "correctAnswer": "67",
+      "table": {
+        "headers": [
+          "Criteria",
+          "Weight",
+          "Project 1",
+          "Project 2",
+          "Project 3",
+          "Project 4"
+        ],
+        "rows": [
+          [
+            "Supports key business objectives",
+            "28%",
+            "85",
+            "90",
+            "70",
+            "75"
+          ],
+          [
+            "Has strong internal sponsor",
+            "14%",
+            "70",
+            "85",
+            "75",
+            "80"
+          ],
+          [
+            "Has strong customer support",
+            "10%",
+            "80",
+            "85",
+            "65",
+            "60"
+          ],
+          [
+            "Uses realistic level of technology",
+            "5%",
+            "95",
+            "95",
+            "95",
+            "95"
+          ],
+          [
+            "Can be implemented in one year or less",
+            "15%",
+            "25",
+            "30",
+            "25",
+            "20"
+          ],
+          [
+            "Provides positive NPV",
+            "18%",
+            "70",
+            "75",
+            "85",
+            "80"
+          ],
+          [
+            "Has low risk in meeting scope, time, and cost goals",
+            "10%",
+            "30",
+            "40",
+            "65",
+            "35"
+          ],
+          [
+            "Weighted project scores",
+            "100%",
+            "",
+            "72,35",
+            "",
+            "63,85"
+          ]
+        ]
+      }
     },
     {
       "text": "Read the section on the Activity on Node diagram in your textbook, then study the activity list and its network diagram as illustrated in the figure below. Study the activity list and its network diagram. Calculate the early start, early finish, late start, and late finish of activity K.",
@@ -119,17 +368,56 @@
         "ES = 7, EF = 12, LS = 7, LF = 22",
         "ES = 12, EF = 7, LS = 12, LF = 7"
       ],
-      "correctAnswer": "ES = 7, EF = 12, LS = 17, LF = 22"
+      "correctAnswer": "ES = 7, EF = 12, LS = 17, LF = 22",
+      "image": {
+        "src": "assets/inf3708/network-main.svg",
+        "alt": "Activity on Node network diagram for activities A to L. Tap to enlarge.",
+        "caption": "Tap the diagram to enlarge it."
+      }
     },
     {
-      "text": "You must choose between embarking on Project Y or Project Z. Return of investment (ROI) is one of the factors you are taking into account to inform your decision. Apply the annualised ROI formula to calculate the ROI of project Z.\n\nYear\n\nProject Y\n\nProject Z\n\n0\n\n-R200 000,00\n\n-R275 000,00\n\n1\n\nR85 000,00\n\nR70 000,00\n\n2\n\nR70 000,00\n\nR75 000,00\n\n3\n\nR78 000,00\n\nR80 000,00\n\n4\n\nR33 000,00\n\nR85 000,00",
+      "text": "You must choose between embarking on Project Y or Project Z. Return on investment (ROI) is one of the factors you are taking into account to inform your decision. Apply the annualised ROI formula to calculate the ROI of Project Z.",
       "options": [
         "8.25%",
         "3.18%",
         "8%",
         "3%"
       ],
-      "correctAnswer": "3.18%"
+      "correctAnswer": "3.18%",
+      "table": {
+        "headers": [
+          "Year",
+          "Project Y",
+          "Project Z"
+        ],
+        "rows": [
+          [
+            "0",
+            "-R200 000,00",
+            "-R275 000,00"
+          ],
+          [
+            "1",
+            "R85 000,00",
+            "R70 000,00"
+          ],
+          [
+            "2",
+            "R70 000,00",
+            "R75 000,00"
+          ],
+          [
+            "3",
+            "R78 000,00",
+            "R80 000,00"
+          ],
+          [
+            "4",
+            "R33 000,00",
+            "R85 000,00"
+          ]
+        ]
+      }
     },
     {
       "text": "What term is used for the minimum acceptable rate of return on an investment?",
@@ -172,14 +460,91 @@
       "correctAnswer": "R59 500"
     },
     {
-      "text": "Year\n\nProject 1\n\n \n\nProject 2\n\nProject 3\n\n \n\n \n\nBenefit\n\nCost\n\nBenefit\n\nCost\n\nBenefit\n\nCost\n\n1\n\n0\n\n30000\n\n0\n\n17 000\n\n0\n\n50000\n\n2\n\n30 000\n\n10 000\n\n15 000\n\n10 000\n\n30 000\n\n12 000\n\n3\n\n20 000\n\n15 000\n\n26 000\n\n25 000\n\n40 000\n\n30 000\n\n4\n\n40 000\n\n25 000\n\n40 000\n\n39 000\n\n50 000\n\n48 000\n\n5\n\n75 000\n\n20 000\n\n60 000\n\n35 000\n\n20 000\n\n20 000\n\n\nUsing the information depicted in Table 1, perform the following financial analyses for three possible projects (Project 1, Project 2, and Project 3). See Figure 4.5 of your text on page 164 for guidelines. At a 6% discount rate, what is the NPV for the three projects?",
+      "text": "Using the information in the table, perform the following financial analyses for three possible projects (Project 1, Project 2, and Project 3). At a 6% discount rate, what is the NPV for the three projects?",
       "options": [
         "Project 1: 46900; Project 2: 8850; Project 3: -21000",
         "Project 1: 84450; Project 2: 102940; Project 3: 135800",
         "Project 1: 131350; Project 2: 111790; Project 3: -114800",
         "Project 1: 46900; Project 2: 111790; Project 3: -21000"
       ],
-      "correctAnswer": "Project 1: 46900; Project 2: 8850; Project 3: -21000"
+      "correctAnswer": "Project 1: 46900; Project 2: 8850; Project 3: -21000",
+      "table": {
+        "headerRows": [
+          [
+            {
+              "text": "Year",
+              "rowspan": 2
+            },
+            {
+              "text": "Project 1",
+              "colspan": 2
+            },
+            {
+              "text": "Project 2",
+              "colspan": 2
+            },
+            {
+              "text": "Project 3",
+              "colspan": 2
+            }
+          ],
+          [
+            "Benefit",
+            "Cost",
+            "Benefit",
+            "Cost",
+            "Benefit",
+            "Cost"
+          ]
+        ],
+        "rows": [
+          [
+            "1",
+            "0",
+            "30 000",
+            "0",
+            "17 000",
+            "0",
+            "50 000"
+          ],
+          [
+            "2",
+            "30 000",
+            "10 000",
+            "15 000",
+            "10 000",
+            "30 000",
+            "12 000"
+          ],
+          [
+            "3",
+            "20 000",
+            "15 000",
+            "26 000",
+            "25 000",
+            "40 000",
+            "30 000"
+          ],
+          [
+            "4",
+            "40 000",
+            "25 000",
+            "40 000",
+            "39 000",
+            "50 000",
+            "48 000"
+          ],
+          [
+            "5",
+            "75 000",
+            "20 000",
+            "60 000",
+            "35 000",
+            "20 000",
+            "20 000"
+          ]
+        ]
+      }
     },
     {
       "text": "You launched Project X that is based on the pre-investor’s model. Pre-investors denote non-professional or non-institutional investors such as friends, family and strangers who help to fund the project. However, they expect to see a return on their investment. Nonetheless, Project X involves a new social media platform that seeks to generate revenue from user subscriptions. To launch the project, the pre-investors need to invest an accumulative amount of R75 000,00 (year 0). As subscribers and pre-investors join your venture, you expect the initial investment of R75000 to grow, increasing with R15 550,00 annually for four years (years 1-4). In the first year, you expect the new social media platform will generate R110 000,00, increasing annually with R25 000,00. Calculate the total project revenue.",
@@ -202,24 +567,111 @@
       "correctAnswer": "It is the minimum acceptable rate of return on an investment"
     },
     {
-      "text": "Study the information in Table 2. Calculate the weighted score for Project 1.\n\nTable_2",
+      "text": "Study the information in Table 2. Calculate the weighted score for Project 1.",
       "options": [
         "36.5",
         "27.5",
         "32.5",
         "26.5"
       ],
-      "correctAnswer": "36.5"
+      "correctAnswer": "36.5",
+      "table": {
+        "caption": "Table 2",
+        "headers": [
+          "Criteria",
+          "Weight",
+          "Project 1",
+          "Project 2",
+          "Project 3"
+        ],
+        "rows": [
+          [
+            "A",
+            "40%",
+            "30",
+            "70",
+            "35"
+          ],
+          [
+            "B",
+            "15%",
+            "70",
+            "30",
+            "50"
+          ],
+          [
+            "C",
+            "25%",
+            "40",
+            "50",
+            "30"
+          ],
+          [
+            "D",
+            "20%",
+            "20",
+            "60",
+            "40"
+          ],
+          [
+            "Weighted project score",
+            "",
+            "",
+            "",
+            ""
+          ]
+        ]
+      }
     },
     {
-      "text": "Study the cash flow of Project Y and Project Z in the table below. What is the total discounted cash inflow of Project Y and Project Z? (Assume a discount rate of 8%).\n\n\n\nYear\n\nProject Y\n\nProject Z\n\n8% discounted factor\n\n0\n\n-R200 000,00\n\n-R275 000,00\n\n1\n\n1\n\nR85 000,00\n\nR70 000,00\n\n0,93\n\n2\n\nR70 000,00\n\nR75 000,00\n\n0,86\n\n3\n\nR78 000,00\n\nR80 000,00\n\n0,79\n\n4\n\nR33 000,00\n\nR85 000,00\n\n0,74",
+      "text": "Study the cash flow of Project Y and Project Z in the table below. What is the total discounted cash inflow of Project Y and Project Z? (Assume a discount rate of 8%).",
       "options": [
         "R200 000,00 and R275 000,00",
         "R275 000,00 and R200 000,00",
         "R24 892,62 and -R19 900,66",
         "R224 590 and R255 700"
       ],
-      "correctAnswer": "R224 590 and R255 700"
+      "correctAnswer": "R224 590 and R255 700",
+      "table": {
+        "headers": [
+          "Year",
+          "Project Y",
+          "Project Z",
+          "8% discounted factor"
+        ],
+        "rows": [
+          [
+            "0",
+            "-R200 000,00",
+            "-R275 000,00",
+            "1"
+          ],
+          [
+            "1",
+            "R85 000,00",
+            "R70 000,00",
+            "0,93"
+          ],
+          [
+            "2",
+            "R70 000,00",
+            "R75 000,00",
+            "0,86"
+          ],
+          [
+            "3",
+            "R78 000,00",
+            "R80 000,00",
+            "0,79"
+          ],
+          [
+            "4",
+            "R33 000,00",
+            "R85 000,00",
+            "0,74"
+          ]
+        ]
+      }
     },
     {
       "text": "You launched Project X that is based on the pre-investor’s model. Pre-investors denote non-professional or non-institutional investors such as friends, family and strangers who help to fund the project. However, they expect to see a return on their investment. Nonetheless, Project X involves a new social media platform that seeks to generate revenue from user subscriptions. To launch the project, the pre-investors need to invest an accumulative amount of R75 000,00 (year 0). As subscribers and pre-investors join your venture, you expect the initial investment of R75000 to grow, increasing with R15 550,00 annually for four years (years 1-4). In the first year, you expect the new social media platform will generate R110 000,00, increasing annually with R25 000,00. Calculate the annual discounted project benefits (assume a discount rate of 10%).\n\nKeep your discount factor value to 2 decimal places to ensure you get the same answer as in the options.",
@@ -232,14 +684,48 @@
       "correctAnswer": "Y0 = R0,00; Y1 = R100 100; Y2 = R112 050; Y3 = R120 000; Y4 = R125 800"
     },
     {
-      "text": "You must choose between embarking on Project Y or Project Z. Return on investment (ROI) is one of the factors you must take into account to inform your decision. Apply the annualized ROI formula to calculate the ROI of project Y.\n\nYear\n\nProject Y\n\nProject Z\n\n0\n\n-R200 000,00\n\n-R275 000,00\n\n1\n\nR85 000,00\n\nR70 000,00\n\n2\n\nR70 000,00\n\nR75 000,00\n\n3\n\nR78 000,00\n\nR80 000,00\n\n4\n\nR33 000,00\n\nR85 000,00",
+      "text": "You must choose between embarking on Project Y or Project Z. Return on investment (ROI) is one of the factors you must take into account to inform your decision. Apply the annualized ROI formula to calculate the ROI of Project Y.",
       "options": [
         "8.25%",
         "3.18%",
         "8%",
         "3%"
       ],
-      "correctAnswer": "8.25%"
+      "correctAnswer": "8.25%",
+      "table": {
+        "headers": [
+          "Year",
+          "Project Y",
+          "Project Z"
+        ],
+        "rows": [
+          [
+            "0",
+            "-R200 000,00",
+            "-R275 000,00"
+          ],
+          [
+            "1",
+            "R85 000,00",
+            "R70 000,00"
+          ],
+          [
+            "2",
+            "R70 000,00",
+            "R75 000,00"
+          ],
+          [
+            "3",
+            "R78 000,00",
+            "R80 000,00"
+          ],
+          [
+            "4",
+            "R33 000,00",
+            "R85 000,00"
+          ]
+        ]
+      }
     },
     {
       "text": "Read the section on the Node diagram in your textbook, then study the activity list and its network diagram as illustrated in the figure below. Calculate the early start, early finish, late start, and late finish of activity A.",
@@ -249,7 +735,12 @@
         "ES = 0, EF = 0, LS = 1, LF = 1",
         "ES = 0, EF = 1, LS = 1, LF = 1"
       ],
-      "correctAnswer": "ES = 0, EF = 1, LS = 0, LF = 1"
+      "correctAnswer": "ES = 0, EF = 1, LS = 0, LF = 1",
+      "image": {
+        "src": "assets/inf3708/network-main.svg",
+        "alt": "Activity on Node network diagram for activities A to L. Tap to enlarge.",
+        "caption": "Tap the diagram to enlarge it."
+      }
     },
     {
       "text": "Examine the graphic below illustrating an activity on node (AoN) diagram. Activity F's slack is 10 — how is an activity's slack determined?",
@@ -259,7 +750,12 @@
         "Slack is calculated by adding the early start to the early finish. For Activity F, adding the early start of 3 to the early finish of 7 results in a slack of 10.",
         "All three options provide valid explanations for determining an activity's slack."
       ],
-      "correctAnswer": "Slack is calculated by subtracting the early finish from the late finish. For Activity F, subtracting its early finish of 7 from its late finish of 17 results in a slack of 10."
+      "correctAnswer": "Slack is calculated by subtracting the early finish from the late finish. For Activity F, subtracting its early finish of 7 from its late finish of 17 results in a slack of 10.",
+      "image": {
+        "src": "assets/inf3708/aon-filled.svg",
+        "alt": "Activity on Node timing diagram showing early start, early finish, late start, slack and late finish. Tap to enlarge.",
+        "caption": "Tap the diagram to enlarge it."
+      }
     },
     {
       "text": "Examine the graphic below illustrating an Activity on Arrow (AoA) diagram. A node's start time is calculated by adding the preceding node's start time to its duration. In the graphic, the predecessor with the latest start time determines the node's start time. For example, the start time of the node following Activities E, F, and G is 12, derived from the start time and duration of Activity G.\n\nWhy is the latest start time, produced by Activity G, indicated as the start time for the node that succeeds Activities E, F, and G?",
@@ -269,7 +765,12 @@
         "The latest start time is selected for node E, F, G because the activity cannot start until all its preceding activities start.",
         "None of the other options explain why the start time of the prededing node and activity that produced the latest start time is indicated"
       ],
-      "correctAnswer": "The latest start time produced by Activity G is selected for node E, F, G because the activity cannot start until all its preceding activities finish."
+      "correctAnswer": "The latest start time produced by Activity G is selected for node E, F, G because the activity cannot start until all its preceding activities finish.",
+      "image": {
+        "src": "assets/inf3708/aoa-q27.svg",
+        "alt": "Activity on Arrow diagram showing paths B, C and D followed by E, F and G. Tap to enlarge.",
+        "caption": "Tap the diagram to enlarge it."
+      }
     },
     {
       "text": "You launched Project X that is based on the pre-investor’s model. Pre-investors denote non-professional or non-institutional investors such as friends, family and strangers who help to fund the project. However, they expect to see a return on their investment. Nonetheless, Project X involves a new social media platform that seeks to generate revenue from user subscriptions. To launch the project, the pre-investors need to invest an accumulative amount of R75 000,00 (year 0). As subscribers and pre-investors join your venture, you expect the initial investment of R75000 to grow, increasing with R15 550,00 annually for four years (years 1-4). In the first year, you expect the new social media platform will generate R110 000,00, increasing annually with R25 000,00. Calculate the ROI (NB! Use the ROI for multi-year projects formula on Page 165 in Schwalbe (2019) — assume a discount rate of 10%).",
@@ -292,14 +793,48 @@
       "correctAnswer": "The amount of time it would take for a project to recover its initial cost."
     },
     {
-      "text": "A project team must choose whether to launch Project A or Project B. The table below shows the amounts to be invested for each project, followed by the expected annual revenue. Calculate the net profit for Project A.\n\nYear\tProject A\tProject B\n0\t-R250 000,00\t-R300 000,00\n1\tR95 000,00\tR150 000,00\n2\tR110 000,00\tR210 000,00\n3\tR132 000,00\tR120 000,00\n4\tR166 000,00\tR140 000,00",
+      "text": "A project team must choose whether to launch Project A or Project B. The table below shows the amounts to be invested for each project, followed by the expected annual revenue. Calculate the net profit for Project A.",
       "options": [
         "R253 000,00",
         "R253 050,00",
         "R253 010,00",
         "R250 000,00"
       ],
-      "correctAnswer": "R253 000,00"
+      "correctAnswer": "R253 000,00",
+      "table": {
+        "headers": [
+          "Year",
+          "Project A",
+          "Project B"
+        ],
+        "rows": [
+          [
+            "0",
+            "-R250 000,00",
+            "-R300 000,00"
+          ],
+          [
+            "1",
+            "R95 000,00",
+            "R150 000,00"
+          ],
+          [
+            "2",
+            "R110 000,00",
+            "R210 000,00"
+          ],
+          [
+            "3",
+            "R132 000,00",
+            "R120 000,00"
+          ],
+          [
+            "4",
+            "R166 000,00",
+            "R140 000,00"
+          ]
+        ]
+      }
     },
     {
       "text": "What is slack time in project scheduling?",
@@ -322,14 +857,54 @@
       "correctAnswer": "milestone"
     },
     {
-      "text": "Study the cash flow of Project Y and Project Z in the table below. What is the net present value (NPV) of Project Y and Project Z? (Assume a discount rate of 8%).\n\nYear\n\nProject Y\n\nProject Z\n\n8% discounted factor\n\n0\n\n-R200 000,00\n\n-R275 000,00\n\n1\n\n1\n\nR85 000,00\n\nR70 000,00\n\n0,93\n\n2\n\nR70 000,00\n\nR75 000,00\n\n0,86\n\n3\n\nR78 000,00\n\nR80 000,00\n\n0,79\n\n4\n\nR33 000,00\n\nR85 000,00\n\n0,74",
+      "text": "Study the cash flow of Project Y and Project Z in the table below. What is the net present value (NPV) of Project Y and Project Z? (Assume a discount rate of 8%).",
       "options": [
         "R200 000 and R275 000",
         "R275 000 and R200 000",
         "R24 590 and -R19 300",
         "R24 982 and R13 300"
       ],
-      "correctAnswer": "R24 590 and -R19 300"
+      "correctAnswer": "R24 590 and -R19 300",
+      "table": {
+        "headers": [
+          "Year",
+          "Project Y",
+          "Project Z",
+          "8% discounted factor"
+        ],
+        "rows": [
+          [
+            "0",
+            "-R200 000,00",
+            "-R275 000,00",
+            "1"
+          ],
+          [
+            "1",
+            "R85 000,00",
+            "R70 000,00",
+            "0,93"
+          ],
+          [
+            "2",
+            "R70 000,00",
+            "R75 000,00",
+            "0,86"
+          ],
+          [
+            "3",
+            "R78 000,00",
+            "R80 000,00",
+            "0,79"
+          ],
+          [
+            "4",
+            "R33 000,00",
+            "R85 000,00",
+            "0,74"
+          ]
+        ]
+      }
     },
     {
       "text": "Project integration management includes ________________, which involves identifying and managing the points of interaction among the various elements of a project. Its primary tools are communication and relationships.",
@@ -372,27 +947,124 @@
       "correctAnswer": [
         "11",
         "0"
-      ]
+      ],
+      "image": {
+        "src": "assets/inf3708/network-main.svg",
+        "alt": "Activity on Node network diagram for activities A to L. Tap to enlarge.",
+        "caption": "Tap the diagram to enlarge it."
+      }
     },
     {
-      "text": "The table below lists each activity, its duration, and its predecessor(s) for illustration on an Activity-on-Arrow (AoA) diagram. What is the start time, finish time, and slack of Activity C?\n\nActivity\n\nDescription\n\nDuration (days)\n\nPredecessor\n\nA\n\nRequirement Gathering & Analysis: Identify user needs, features (e.g., booking form, location tracking), and e-waste facility integration.\n\n3\n\n-\n\nB\n\nDesign: Create wireframes and user interface (UI) design for the app, ensuring user-friendly navigation.\n\n3\n\nA\n\nC\n\nBackend development: Set up server, database, and APIs to handle user bookings, authentication, and scheduling.\n\n5\n\nA\n\nD\n\nFrontend development: Code the user interface, booking system, and integration with backend services.\n\n4\n\nA\n\nE\n\nIntegration and testing: Test the app for functionality, security, and usability. Integrate with external services like location tracking.\n\n1\n\nB\n\nF\n\nDeployment and launch: Deploy the app-to-app stores or web and ensure scalability for handling user requests.\n\n2\n\nC\n\nG\n\nMaintenance and updates: Address user feedback, fix bugs, and release new features or updates.\n\n5\n\nD\n\nH\n\nLive: Make app available for download and use.\n\n1\n\nE, F, G",
+      "text": "The table below lists each activity, its duration, and its predecessor(s) for illustration on an Activity-on-Arrow (AoA) diagram. What is the start time, finish time, and slack of Activity C?",
       "options": [
         "start time = 8; finish time = 10; slack = 2",
         "start time = 8; finish time = 10; slack = 0",
         "start time = 10; finish time = 8; slack = 2",
         "start time = 10; finish time = 8; slack = 0"
       ],
-      "correctAnswer": "start time = 8; finish time = 10; slack = 2"
+      "correctAnswer": "start time = 8; finish time = 10; slack = 2",
+      "table": {
+        "headers": [
+          "Activity",
+          "Description",
+          "Duration (days)",
+          "Predecessor"
+        ],
+        "rows": [
+          [
+            "A",
+            "Requirement Gathering & Analysis: Identify user needs, features (e.g., booking form, location tracking), and e-waste facility integration.",
+            "3",
+            "-"
+          ],
+          [
+            "B",
+            "Design: Create wireframes and user interface (UI) design for the app, ensuring user-friendly navigation.",
+            "3",
+            "A"
+          ],
+          [
+            "C",
+            "Backend development: Set up server, database, and APIs to handle user bookings, authentication, and scheduling.",
+            "5",
+            "A"
+          ],
+          [
+            "D",
+            "Frontend development: Code the user interface, booking system, and integration with backend services.",
+            "4",
+            "A"
+          ],
+          [
+            "E",
+            "Integration and testing: Test the app for functionality, security, and usability. Integrate with external services like location tracking.",
+            "1",
+            "B"
+          ],
+          [
+            "F",
+            "Deployment and launch: Deploy the app to app stores or web and ensure scalability for handling user requests.",
+            "2",
+            "C"
+          ],
+          [
+            "G",
+            "Maintenance and updates: Address user feedback, fix bugs, and release new features or updates.",
+            "5",
+            "D"
+          ],
+          [
+            "H",
+            "Live: Make app available for download and use.",
+            "1",
+            "E, F, G"
+          ]
+        ]
+      }
     },
     {
-      "text": "A project team must choose whether to launch Project A or Project B. The table below illustrates the respective amount that will be invested for each project, followed by the expected annual revenue. Calculate the net profit for Project B.\n\nYear\tProject A\tProject B\n0\t-R250 000,00\t-R300 000,00\n1\tR95 000,00\tR150 000,00\n2\tR110 000,00\tR210 000,00\n3\tR132 000,00\tR120 000,00\n4\tR166 000,00\tR140 000,00",
+      "text": "A project team must choose whether to launch Project A or Project B. The table below illustrates the respective amount that will be invested for each project, followed by the expected annual revenue. Calculate the net profit for Project B.",
       "options": [
         "R320 000,00",
         "R300 000,00",
         "R310 000,00",
         "R320 010,00"
       ],
-      "correctAnswer": "R320 000,00"
+      "correctAnswer": "R320 000,00",
+      "table": {
+        "headers": [
+          "Year",
+          "Project A",
+          "Project B"
+        ],
+        "rows": [
+          [
+            "0",
+            "-R250 000,00",
+            "-R300 000,00"
+          ],
+          [
+            "1",
+            "R95 000,00",
+            "R150 000,00"
+          ],
+          [
+            "2",
+            "R110 000,00",
+            "R210 000,00"
+          ],
+          [
+            "3",
+            "R132 000,00",
+            "R120 000,00"
+          ],
+          [
+            "4",
+            "R166 000,00",
+            "R140 000,00"
+          ]
+        ]
+      }
     },
     {
       "text": "Examine the graphic below illustrating an activity on node (AoN) diagram. Activity B's late finish is 3 — how is an activity's late finish determined?",
@@ -402,7 +1074,12 @@
         "An activity's late finish is determined by setting it equal to the early start of the succeeding activity. Activity B's late finish is set equal to the early start of Activity F because the late start times of Activities G and F can only begin after Activity G has commenced.",
         "An activity's late finish is determined by setting it equal to the late start of the succeeding activity. Activity B's late finish is set equal to the late start of Activity G because the late finish times of Activities C and F can only begin after Activity G has commenced."
       ],
-      "correctAnswer": "An activity's late finish is determined by setting it equal to the late start of the succeeding activity. Activity B's late finish is set equal to the late start of Activity G because the late start times of Activities C and F can only begin after Activity G has commenced."
+      "correctAnswer": "An activity's late finish is determined by setting it equal to the late start of the succeeding activity. Activity B's late finish is set equal to the late start of Activity G because the late start times of Activities C and F can only begin after Activity G has commenced.",
+      "image": {
+        "src": "assets/inf3708/aon-filled.svg",
+        "alt": "Activity on Node timing diagram showing early start, early finish, late start, slack and late finish. Tap to enlarge.",
+        "caption": "Tap the diagram to enlarge it."
+      }
     },
     {
       "text": "You launched Project X that is based on the pre-investor’s model. Pre-investors denote non-professional or non-institutional investors such as friends, family and strangers who help to fund the project. However, they expect to see a return on their investment. Nonetheless, Project X involves a new social media platform that seeks to generate revenue from user subscriptions. To launch the project, the pre-investors need to invest an accumulative amount of R75 000,00 (year 0). As subscribers and pre-investors join your venture, you expect the initial investment of R75000 to grow, increasing with R15 550,00 annually for four years (years 1-4). In the first year, you expect the new social media platform will generate R110 000,00, increasing annually with R25 000,00. Calculate the annual discount factor based on a discount rate of 8%.",
@@ -462,7 +1139,12 @@
         "A-B-C-I-L",
         "A-B-G-H"
       ],
-      "correctAnswer": "A-B-G-J-L"
+      "correctAnswer": "A-B-G-J-L",
+      "image": {
+        "src": "assets/inf3708/network-main.svg",
+        "alt": "Activity on Node network diagram for activities A to L. Tap to enlarge.",
+        "caption": "Tap the diagram to enlarge it."
+      }
     },
     {
       "text": "Fill in the missing words:\n\nIn most financial analysis and net present value (NPV) calculations, the term discounted benefits can be treated as synonymous with the term__________________.",
@@ -482,17 +1164,56 @@
         "C, D, E, H, I, J",
         "None of the activities have slack"
       ],
-      "correctAnswer": "C, D, E, F, H, I"
+      "correctAnswer": "C, D, E, F, H, I",
+      "image": {
+        "src": "assets/inf3708/network-main.svg",
+        "alt": "Activity on Node network diagram for activities A to L. Tap to enlarge.",
+        "caption": "Tap the diagram to enlarge it."
+      }
     },
     {
-      "text": "Study the cashflow of Project Z in the table below. Calculate the payback period for Project Z.\n\nYear\n\nProject Y\n\nProject Z\n\n0\n\n-R200 000,00\n\n-R275 000,00\n\n1\n\nR85 000,00\n\nR70 000,00\n\n2\n\nR70 000,00\n\nR75 000,00\n\n3\n\nR78 000,00\n\nR80 000,00\n\n4\n\nR33 000,00\n\nR85 000,00",
+      "text": "Study the cashflow of Project Z in the table below. Calculate the payback period for Project Z.",
       "options": [
         "3.6 years",
         "1.4 years",
         "3.2 years",
         "3.5 years"
       ],
-      "correctAnswer": "3.6 years"
+      "correctAnswer": "3.6 years",
+      "table": {
+        "headers": [
+          "Year",
+          "Project Y",
+          "Project Z"
+        ],
+        "rows": [
+          [
+            "0",
+            "-R200 000,00",
+            "-R275 000,00"
+          ],
+          [
+            "1",
+            "R85 000,00",
+            "R70 000,00"
+          ],
+          [
+            "2",
+            "R70 000,00",
+            "R75 000,00"
+          ],
+          [
+            "3",
+            "R78 000,00",
+            "R80 000,00"
+          ],
+          [
+            "4",
+            "R33 000,00",
+            "R85 000,00"
+          ]
+        ]
+      }
     },
     {
       "text": "A payback period (PP) calculation for a project results in a PP of 2.8136 years. To convert the payback period into months, the fractional part of the year, 0.8136, is multiplied by 12. Why is the fractional part of the payback year multiplied by 12?",
