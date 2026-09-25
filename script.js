@@ -1226,6 +1226,174 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
 
+  function normalizeTableCell(cell) {
+    if (cell && typeof cell === "object" && !Array.isArray(cell)) {
+      return {
+        text: cell.text ?? "",
+        colspan: Math.max(1, parseInt(cell.colspan || 1, 10)),
+        rowspan: Math.max(1, parseInt(cell.rowspan || 1, 10)),
+        align: cell.align || "",
+      };
+    }
+    return { text: cell ?? "", colspan: 1, rowspan: 1, align: "" };
+  }
+
+  function createStructuredQuestionTable(tableData) {
+    if (!tableData || typeof tableData !== "object") {
+      return null;
+    }
+
+    const wrapper = document.createElement("div");
+    wrapper.className = "question-table-wrapper";
+
+    const table = document.createElement("table");
+    table.className = "question-data-table";
+
+    if (tableData.caption) {
+      const caption = document.createElement("caption");
+      caption.textContent = tableData.caption;
+      table.appendChild(caption);
+    }
+
+    const headerRows = Array.isArray(tableData.headerRows)
+      ? tableData.headerRows
+      : Array.isArray(tableData.headers)
+        ? [tableData.headers]
+        : [];
+
+    if (headerRows.length) {
+      const thead = document.createElement("thead");
+      headerRows.forEach((row) => {
+        const tr = document.createElement("tr");
+        (row || []).forEach((rawCell) => {
+          const cell = normalizeTableCell(rawCell);
+          const th = document.createElement("th");
+          th.textContent = cell.text;
+          th.colSpan = cell.colspan;
+          th.rowSpan = cell.rowspan;
+          th.scope = "col";
+          if (cell.align) th.style.textAlign = cell.align;
+          tr.appendChild(th);
+        });
+        thead.appendChild(tr);
+      });
+      table.appendChild(thead);
+    }
+
+    if (Array.isArray(tableData.rows)) {
+      const tbody = document.createElement("tbody");
+      tableData.rows.forEach((row) => {
+        const tr = document.createElement("tr");
+        (row || []).forEach((rawCell) => {
+          const cell = normalizeTableCell(rawCell);
+          const td = document.createElement("td");
+          td.textContent = cell.text;
+          td.colSpan = cell.colspan;
+          td.rowSpan = cell.rowspan;
+          if (cell.align) td.style.textAlign = cell.align;
+          tr.appendChild(td);
+        });
+        tbody.appendChild(tr);
+      });
+      table.appendChild(tbody);
+    }
+
+    wrapper.appendChild(table);
+    return wrapper;
+  }
+
+  function openQuestionImageViewer(src, altText) {
+    const existing = document.querySelector(".question-image-lightbox");
+    if (existing) existing.remove();
+
+    const overlay = document.createElement("div");
+    overlay.className = "question-image-lightbox";
+    overlay.setAttribute("role", "dialog");
+    overlay.setAttribute("aria-modal", "true");
+    overlay.setAttribute("aria-label", altText || "Question diagram");
+
+    const closeButton = document.createElement("button");
+    closeButton.type = "button";
+    closeButton.className = "question-image-lightbox-close";
+    closeButton.textContent = "×";
+    closeButton.setAttribute("aria-label", "Close enlarged diagram");
+
+    const image = document.createElement("img");
+    image.src = src;
+    image.alt = altText || "Question diagram";
+
+    const close = () => overlay.remove();
+    closeButton.addEventListener("click", close);
+    overlay.addEventListener("click", (event) => {
+      if (event.target === overlay) close();
+    });
+    document.addEventListener(
+      "keydown",
+      (event) => {
+        if (event.key === "Escape" && document.body.contains(overlay)) {
+          close();
+        }
+      },
+      { once: true }
+    );
+
+    overlay.appendChild(closeButton);
+    overlay.appendChild(image);
+    document.body.appendChild(overlay);
+    closeButton.focus();
+  }
+
+  function createQuestionImage(imageData) {
+    if (!imageData) return null;
+
+    const data =
+      typeof imageData === "string" ? { src: imageData } : imageData;
+    if (!data.src) return null;
+
+    const figure = document.createElement("figure");
+    figure.className = "question-figure";
+
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "question-image-button";
+    button.setAttribute("aria-label", "Enlarge question diagram");
+
+    const image = document.createElement("img");
+    image.src = data.src;
+    image.alt = data.alt || "Question diagram";
+    image.loading = "lazy";
+    image.className = "question-diagram";
+
+    button.appendChild(image);
+    button.addEventListener("click", () =>
+      openQuestionImageViewer(data.src, image.alt)
+    );
+    figure.appendChild(button);
+
+    if (data.caption) {
+      const caption = document.createElement("figcaption");
+      caption.textContent = data.caption;
+      figure.appendChild(caption);
+    }
+
+    return figure;
+  }
+
+  function appendStructuredQuestionContent(questionElement, question) {
+    if (!questionElement || !question) return;
+
+    if (question.table) {
+      const table = createStructuredQuestionTable(question.table);
+      if (table) questionElement.appendChild(table);
+    }
+
+    if (question.image) {
+      const figure = createQuestionImage(question.image);
+      if (figure) questionElement.appendChild(figure);
+    }
+  }
+
+
   function resetStats() {
     // Reset the stats object
     testStats = {
@@ -2275,6 +2443,8 @@ const testFiles = [
         questionMetaElement.appendChild(sourceBadge);
         questionElement.appendChild(questionMetaElement);
       }
+
+      appendStructuredQuestionContent(questionElement, question);
 
       // Determine if the question has multiple correct answers
       const isMultipleCorrect = Array.isArray(question.correctAnswer);
