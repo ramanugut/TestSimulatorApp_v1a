@@ -1,0 +1,175 @@
+{
+  "testName": "INF3708 Software Project Management - Assessment Review (14 June 2026)",
+  "questions": [
+    {
+      "text": "You launched Project X that is based on the pre-investor’s model. Pre-investors denote non-professional or non-institutional investors such as friends, family and strangers who help to fund the project. However, they expect to see a return on their investment. Nonetheless, Project X involves a new social media platform that seeks to generate revenue from user subscriptions. To launch the project, the pre-investors need to invest an accumulative amount of R75 000,00 (year 0). As subscribers and pre-investors join your venture, you expect the initial investment of R75000 to grow, increasing with R15 550,00 annually for four years (years 1-4). In the first year, you expect the new social media platform will generate R110 000,00, increasing annually with R25 000,00. Calculate the net present value (NPV) (assume a discount rate of 10%)",
+      "options": [
+        "R27 953",
+        "R590 500,00",
+        "R47 800,50",
+        "R470 800,00"
+      ],
+      "correctAnswer": "R27 953"
+    },
+    {
+      "text": "Study the cashflow of Project Y in the table below. Calculate the payback period.\n\nYear\n\nProject Y\n\nProject Z\n\n0\n\n-R200 000,00\n\n-R275 000,00\n\n1\n\nR85 000,00\n\nR70 000,00\n\n2\n\nR70 000,00\n\nR75 000,00\n\n3\n\nR78 000,00\n\nR80 000,00\n\n4\n\nR33 000,00\n\nR85 000,00",
+      "options": [
+        "2.6 years",
+        "2.2 years",
+        "2.4 years",
+        "1.4 years"
+      ],
+      "correctAnswer": "2.6 years"
+    },
+    {
+      "text": "You launched Project X, which is based on the pre-investor’s model. Pre-investors denote non-professional or non-institutional investors such as friends, family, and strangers who help to fund the project. However, they expect to see a return on their investment. Nonetheless, Project X involves a new social media platform that seeks to generate revenue from user subscriptions. To launch the project, the pre-investors need to invest an accumulative amount of R75 000,00 (year 0). As subscribers and pre-investors join your venture, you expect the initial investment of R75000 to grow, increasing with R15 550,00 annually for four years (years 1-4). In the first year, you expect the new social media platform to generate R110 000,00, increasing annually by R25 000,00. Calculate the annual discounted cost based on a discount rate of 10%.",
+      "options": [
+        "y0 = R75 000,00; y1 = R90 550,00; y2 = R106 100,00; y3 = R121 650,00; y4 = R137 200,00",
+        "y0 = R75 000,00; y1 = R82 400,5; y2 = R88 063; y3 = R91 237,5; y4 = 93 296",
+        "y0 = R75 000,00; y1 = R82 318,18; y2 = R87 685,95; y3 = R91 397,45; y4 = 90 709,45",
+        "y0 = R75 000,00; y1 = R90 500,00; y2 = R106 100,00; y3 = R121 650,00; y4 = R137 200,00"
+      ],
+      "correctAnswer": "y0 = R75 000,00; y1 = R82 400,5; y2 = R88 063; y3 = R91 237,5; y4 = 93 296"
+    },
+    {
+      "text": "The table below lists each activity, its duration, and its predecessor(s) for illustration on an Activity-on-Arrow (AoA) diagram. What is the start time, finish time, and slack of Activity H?\n\nActivity\n\nDescription\n\nDuration (days)\n\nPredecessor\n\nA\n\nRequirement Gathering & Analysis: Identify user needs, features (e.g., booking form, location tracking), and e-waste facility integration.\n\n3\n\n-\n\nB\n\nDesign: Create wireframes and user interface (UI) design for the app, ensuring user-friendly navigation.\n\n3\n\nA\n\nC\n\nBackend development: Set up server, database, and APIs to handle user bookings, authentication, and scheduling.\n\n5\n\nA\n\nD\n\nFrontend development: Code the user interface, booking system, and integration with backend services.\n\n4\n\nA\n\nE\n\nIntegration and testing: Test the app for functionality, security, and usability. Integrate with external services like location tracking.\n\n1\n\nB\n\nF\n\nDeployment and launch: Deploy the app-to-app stores or web and ensure scalability for handling user requests.\n\n2\n\nC\n\nG\n\nMaintenance and updates: Address user feedback, fix bugs, and release new features or updates.\n\n5\n\nD\n\nH\n\nLive: Make app available for download and use.\n\n1\n\nE, F, G",
+      "options": [
+        "start time = 13; finish time = 13; slack = 0",
+        "start time = 13; finish time = 13; slack = 1",
+        "start time = 12; finish time = 13; slack = 1",
+        "start time = 15; finish time = 17; slack = 2"
+      ],
+      "correctAnswer": "start time = 13; finish time = 13; slack = 0"
+    },
+    {
+      "text": "A project’s net profit is calculated by:",
+      "options": [
+        "Adding total cash inflows to the initial investment",
+        "Deducting total expenses from total income",
+        "Adding total expenses to the initial investment",
+        "Deducting total cash inflows from total cash outflows"
+      ],
+      "correctAnswer": "Deducting total expenses from total income"
+    },
+    {
+      "text": "The project team deployed a weighed scoring model as a systematic selection process to select the best project that support the desired deliverables. Study the different criteria and their assigned weights in the table below. Note the numerical scores for each Project that has been assigned to each criteria. Calculate the weighted score for Project 1.\n\nNB! Consider rounding off to the nearest whole number to reach the correct answer — consult or keep https://www.cuemath.com/numbers/round-to-the-nearest-whole-number/\n\nCriteria\tWeight\tProject 1\tProject 2\tProject 3\tProject 4\nSupports key business objectives\t28%\t85\t90\t70\t75\nHas strong internal sponsor\t14%\t70\t85\t75\t80\nHas strong customer support\t10%\t80\t85\t65\t60\nUses realistic level of technology\t5%\t95\t95\t95\t95\nCan be implemented in one year or less\t15%\t25\t30\t25\t20\nProvides positive NPV\t18%\t70\t75\t85\t80\nHas low risk in meeting scope, time, and cost goals\t10%\t30\t40\t65\t35\nWeighted project scores\t100%\t \t72,35\t \t63,85",
+      "options": [
+        "66",
+        "65",
+        "65.4",
+        "66.7"
+      ],
+      "correctAnswer": "66"
+    },
+    {
+      "text": "Project integration management involves the following phases:\n\ndeveloping the project charter.\ndeveloping the project management plan.\ndirecting and managing project work.\n\nMonitoring and controlling.\nperforming integrated change control.\nclosing the project or phase.\nWhich phase must be indicated at number 4?",
+      "options": [
+        "managing project knowledge",
+        "managing product knowledge",
+        "creating new knowledge",
+        "monitoring and controlling project work"
+      ],
+      "correctAnswer": "managing project knowledge"
+    },
+    {
+      "text": "Examine the following return on investment (ROI) formula:\n\nROI (total discounted benefits - total discounted costs)/discounted costs\nROI = (516,000 - 243,200) / 243,200 = 1.121710526\n\nSelect the correct ROI in percentage format from the given options.",
+      "options": [
+        "112%",
+        "1.12%",
+        "11.2%",
+        "1.121%"
+      ],
+      "correctAnswer": "112%"
+    },
+    {
+      "text": "Read the section on the Activity on Node diagram in your textbook, study the activity list and its network diagram as illustrated in the figure below. Calculate the early start, early finish, late start, and late finish of activity C.",
+      "options": [
+        "ES = 3, EF = 5, LS = 8, LF = 10",
+        "ES = 5, EF = 3, LS = 8, LF = 10",
+        "ES = 3, EF = 5, LS = 10, LF = 8",
+        "ES = 2, EF = 5, LS = 8, LF = 10"
+      ],
+      "correctAnswer": "ES = 3, EF = 5, LS = 8, LF = 10"
+    },
+    {
+      "text": "You launched Project X that is based on the pre-investor’s model. Pre-investors denote non-professional or non-institutional investors such as friends, family and strangers who help to fund the project. However, they expect to see a return on their investment. Nonetheless, Project X involves a new social media platform that seeks to generate revenue from user subscriptions. To launch the project, the pre-investors need to invest an accumulative amount of R75 000,00 (year 0). As subscribers and pre-investors join your venture, you expect the initial investment of R75000 to grow, increasing with R15 550,00 annually for four years (years 1-4). In the first year, you expect the new social media platform will generate R110 000,00, increasing annually with R25 000,00. Calculate the annual discount factor based on a discount rate of 10%.",
+      "options": [
+        "1; 0.91; 0.83; 0.75; 0.68",
+        "1; 0.91; 0.86; 0.79; 0.66",
+        "1; 0.92; 0.87; 0.8; 0.74",
+        "1; 0.93; 0.86; 0.79; 0.75"
+      ],
+      "correctAnswer": "1; 0.91; 0.83; 0.75; 0.68"
+    },
+    {
+      "text": "The project team deployed a weighed scoring model as a systematic selection process to select the best project that support the desired deliverables. Study the different criteria and their assigned weights in the table below. Note the numerical scores for each Project that has been assigned to each criteria. Calculate the weighted score for Project 3.\n\nNB! Consider rounding off to the nearest whole number to reach the correct answer — consult https://www.cuemath.com/numbers/round-to-the-nearest-whole-number/\n\nCriteria\tWeight\tProject 1\tProject 2\tProject 3\tProject 4\nSupports key business objectives\t28%\t85\t90\t70\t75\nHas strong internal sponsor\t14%\t70\t85\t75\t80\nHas strong customer support\t10%\t80\t85\t65\t60\nUses realistic level of technology\t5%\t95\t95\t95\t95\nCan be implemented in one year or less\t15%\t25\t30\t25\t20\nProvides positive NPV\t18%\t70\t75\t85\t80\nHas low risk in meeting scope, time, and cost goals\t10%\t30\t40\t65\t35\nWeighted project scores\t100%\t \t72,35\t \t63,85",
+      "options": [
+        "67",
+        "66",
+        "66",
+        "67.9"
+      ],
+      "correctAnswer": "67"
+    },
+    {
+      "text": "Read the section on the Activity on Node diagram in your textbook, then study the activity list and its network diagram as illustrated in the figure below. Study the activity list and its network diagram. Calculate the early start, early finish, late start, and late finish of activity K.",
+      "options": [
+        "ES = 7, EF = 12, LS = 17, LF = 22",
+        "ES = 7, EF = 12, LS = 22, LF = 17",
+        "ES = 7, EF = 12, LS = 7, LF = 22",
+        "ES = 12, EF = 7, LS = 12, LF = 7"
+      ],
+      "correctAnswer": "ES = 7, EF = 12, LS = 17, LF = 22"
+    },
+    {
+      "text": "You must choose between embarking on Project Y or Project Z. Return of investment (ROI) is one of the factors you are taking into account to inform your decision. Apply the annualised ROI formula to calculate the ROI of project Z.\n\nYear\n\nProject Y\n\nProject Z\n\n0\n\n-R200 000,00\n\n-R275 000,00\n\n1\n\nR85 000,00\n\nR70 000,00\n\n2\n\nR70 000,00\n\nR75 000,00\n\n3\n\nR78 000,00\n\nR80 000,00\n\n4\n\nR33 000,00\n\nR85 000,00",
+      "options": [
+        "8.25%",
+        "3.18%",
+        "8%",
+        "3%"
+      ],
+      "correctAnswer": "3.18%"
+    },
+    {
+      "text": "What term is used for the minimum acceptable rate of return on an investment?",
+      "options": [
+        "Capitalisation rate",
+        "Internal rate of return",
+        "Discount rate",
+        "Required rate of return"
+      ],
+      "correctAnswer": "Required rate of return"
+    },
+    {
+      "text": "A payback period (PP) calculation for a project produces a PP of 2.8 years. Select the option that provides the correct PP formula",
+      "options": [
+        "PP = the last year with negative cash flow - (CCF at the end of that year / cash flow during the year after that year).\nPP = 2 – (-48000 / 59000)",
+        "PP = the last year with negative cash flow + (CCF at the end of that year / cash flow during the year after that year).\nPP = 2 + (-48000 / 59000)",
+        "PP = the last year with negative cash flow - (CCF at the end of that year / cash flow during the year after that year).\nPP = 2 - (48000 / 59000)",
+        "PP = the last year with negative cash flow - (CCF at the end of that year / cash flow during the year after that year).\nPP = 2 - (-48000 / -59000)"
+      ],
+      "correctAnswer": "PP = the last year with negative cash flow - (CCF at the end of that year / cash flow during the year after that year).\nPP = 2 – (-48000 / 59000)"
+    },
+    {
+      "text": "______________________ is a dependency in schedule management that is also referred to as hard logic. For example, you cannot test code until after the code is written.",
+      "options": [
+        "Mandatory",
+        "Discretionary",
+        "External",
+        "Internal"
+      ],
+      "correctAnswer": "Mandatory"
+    },
+    {
+      "text": "You launched Project X that is based on the pre-investor’s model. Pre-investors denote non-professional or non-institutional investors such as friends, family and strangers who help to fund the project. However, they expect to see a return on their investment. Nonetheless, Project X involves a new social media platform that seeks to generate revenue from user subscriptions. To launch the project, the pre-investors need to invest an accumulative amount of R75 000,00 (year 0). As subscribers and pre-investors join your venture, you expect the initial investment of R75000 to grow, increasing with R15 550,00 annually for four years (years 1-4). In the first year, you expect the new social media platform will generate R110 000,00, increasing annually with R25 000,00. Calculate the net profit.",
+      "options": [
+        "R59 000",
+        "R59 500",
+        "R590 000",
+        "R530 500"
+      ],
+      "correctAnswer": "R59 500"
+    }
+  ]
+}
