@@ -2345,3 +2345,131 @@ body.dark-mode .study-guide-remember {
     font-size: 0.85rem;
   }
 }
+
+
+/* AI written-answer grading */
+.ai-answer-note {
+  margin-top: 0.55rem;
+  color: var(--muted-text);
+  font-size: 0.86rem;
+  line-height: 1.45;
+}
+
+.ai-grade-feedback {
+  margin-top: 0.85rem;
+  padding: 1rem;
+  border: 1px solid #cbd5e1;
+  border-left: 4px solid var(--accent-secondary);
+  border-radius: var(--radius-md);
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+.ai-grade-heading {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.65rem;
+}
+
+.ai-grade-verdict {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.ai-grade-verdict--correct {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.ai-grade-verdict--mostly_correct {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.ai-grade-verdict--partially_correct {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.ai-grade-verdict--incorrect {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.ai-grade-summary,
+.ai-grade-book-alignment {
+  margin: 0.5rem 0;
+  color: #334155;
+  line-height: 1.55;
+}
+
+.ai-grade-list-title {
+  margin-top: 0.7rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.ai-grade-list {
+  margin: 0.35rem 0 0.7rem 1.3rem;
+  color: #334155;
+}
+
+.ai-grade-list li {
+  margin: 0.25rem 0;
+  line-height: 1.45;
+}
+
+.ai-grade-book-alignment {
+  padding-top: 0.6rem;
+  border-top: 1px solid #e2e8f0;
+  font-size: 0.88rem;
+}
+
+body.dark-mode .ai-grade-feedback {
+  border-color: #475569;
+  border-left-color: #38bdf8;
+  background: #162033;
+  color: #f8fafc;
+}
+
+body.dark-mode .ai-grade-summary,
+body.dark-mode .ai-grade-book-alignment,
+body.dark-mode .ai-grade-list {
+  color: #e2e8f0;
+}
+
+body.dark-mode .ai-grade-list-title {
+  color: #f8fafc;
+}
+
+body.dark-mode .ai-grade-book-alignment {
+  border-top-color: #334155;
+}
+
+body.dark-mode .ai-grade-verdict--correct {
+  background: #0f3a31;
+  color: #bbf7d0;
+}
+
+body.dark-mode .ai-grade-verdict--mostly_correct {
+  background: #172554;
+  color: #bfdbfe;
+}
+
+body.dark-mode .ai-grade-verdict--partially_correct {
+  background: #422006;
+  color: #fde68a;
+}
+
+body.dark-mode .ai-grade-verdict--incorrect {
+  background: #450a0a;
+  color: #fecaca;
+}
