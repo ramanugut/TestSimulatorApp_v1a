@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 360" role="img" aria-labelledby="title desc">
+<title id="title">Activity on Arrow diagram</title><desc id="desc">Three parallel activity paths lead to a final node at time 12.</desc>
+<style>text{font-family:Arial,sans-serif;fill:#111;font-size:20px}.edge{stroke:#222;stroke-width:2;fill:none;marker-end:url(#arrow)}.node{fill:#fff;stroke:#222;stroke-width:2}</style>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#222"/></marker></defs>
+<rect width="420" height="360" fill="#fff"/>
+<path class="edge" d="M25 180L120 70"/><path class="edge" d="M25 180L120 180"/><path class="edge" d="M25 180L120 290"/>
+<path class="edge" d="M200 70L335 180"/><path class="edge" d="M200 180L335 180"/><path class="edge" d="M200 290L335 180"/>
+<text x="35" y="110">B=3</text><text x="35" y="172">C=5</text><text x="35" y="265">D=4</text><text x="235" y="100">E=1</text><text x="235" y="170">F=2</text><text x="235" y="260">G=5</text>
+<g><circle class="node" cx="160" cy="70" r="42"/><line x1="160" y1="28" x2="160" y2="70" stroke="#222"/><line x1="118" y1="70" x2="202" y2="70" stroke="#222"/><text x="147" y="60">6</text></g><g><circle class="node" cx="160" cy="180" r="42"/><line x1="160" y1="138" x2="160" y2="180" stroke="#222"/><line x1="118" y1="180" x2="202" y2="180" stroke="#222"/><text x="147" y="170">8</text></g><g><circle class="node" cx="160" cy="290" r="42"/><line x1="160" y1="248" x2="160" y2="290" stroke="#222"/><line x1="118" y1="290" x2="202" y2="290" stroke="#222"/><text x="147" y="280">7</text></g><g><circle class="node" cx="360" cy="180" r="42"/><line x1="360" y1="138" x2="360" y2="180" stroke="#222"/><line x1="318" y1="180" x2="402" y2="180" stroke="#222"/><text x="347" y="170">12</text></g>
+</svg>
