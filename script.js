@@ -23,6 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let lastMotivationIndex = null;
   let currentMode = "test";
   let questionResults = [];
+  let aiGrades = {};
   let reviewFilter = "all";
   let showAllQuestions = false;
   let activeSourceFilter = "all";
@@ -1464,6 +1465,308 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
 
+  function isAiGradedQuestion(question) {
+    return Boolean(
+      question &&
+        (question.grading === "ai" ||
+          question.answerType === "ai-text" ||
+          question.aiGrading === true)
+    );
+  }
+
+  function getAiGraderEndpoint() {
+    const configured =
+      window.APP_CONFIG &&
+      typeof window.APP_CONFIG.aiGraderEndpoint === "string"
+        ? window.APP_CONFIG.aiGraderEndpoint.trim()
+        : "";
+
+    if (configured) {
+      return configured;
+    }
+
+    if (
+      window.location.hostname === "localhost" ||
+      window.location.hostname === "127.0.0.1"
+    ) {
+      return "http://localhost:8888/api/grade-answer";
+    }
+
+    return "";
+  }
+
+  function normalizeAiGrade(rawGrade, question) {
+    if (!rawGrade || typeof rawGrade !== "object") {
+      throw new Error("The AI marking service returned an invalid response.");
+    }
+
+    const score = Math.max(
+      0,
+      Math.min(100, Number.isFinite(Number(rawGrade.score)) ? Number(rawGrade.score) : 0)
+    );
+    const passScore = Math.max(
+      0,
+      Math.min(
+        100,
+        Number.isFinite(Number(question.aiPassScore))
+          ? Number(question.aiPassScore)
+          : 70
+      )
+    );
+
+    return {
+      score,
+      accepted:
+        typeof rawGrade.accepted === "boolean"
+          ? rawGrade.accepted
+          : score >= passScore,
+      verdict:
+        typeof rawGrade.verdict === "string"
+          ? rawGrade.verdict
+          : score >= 85
+            ? "correct"
+            : score >= passScore
+              ? "mostly_correct"
+              : score >= 40
+                ? "partially_correct"
+                : "incorrect",
+      feedback:
+        typeof rawGrade.feedback === "string" ? rawGrade.feedback : "",
+      strengths: Array.isArray(rawGrade.strengths)
+        ? rawGrade.strengths.filter((item) => typeof item === "string").slice(0, 5)
+        : [],
+      missingPoints: Array.isArray(rawGrade.missingPoints)
+        ? rawGrade.missingPoints
+            .filter((item) => typeof item === "string")
+            .slice(0, 5)
+        : [],
+      bookAlignment:
+        typeof rawGrade.bookAlignment === "string"
+          ? rawGrade.bookAlignment
+          : "",
+      passScore,
+    };
+  }
+
+  async function requestAiGrade(question, studentAnswer) {
+    const endpoint = getAiGraderEndpoint();
+    if (!endpoint) {
+      throw new Error(
+        "AI marking is not connected yet. A secure server endpoint is required before this question can be marked."
+      );
+    }
+
+    const response = await fetch(endpoint, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        question: question.text || "",
+        studentAnswer:
+          typeof studentAnswer === "string"
+            ? studentAnswer.trim()
+            : String(studentAnswer || "").trim(),
+        modelAnswer: formatAnswerForDisplay(question.correctAnswer),
+        rubric: question.aiRubric || [],
+        referenceNotes:
+          question.aiReferenceNotes ||
+          (question.study && question.study.simple) ||
+          question.explanation ||
+          "",
+        chapter:
+          question.study && question.study.chapter
+            ? question.study.chapter
+            : question.chapter || "",
+        section:
+          question.study && question.study.section
+            ? question.study.section
+            : question.section || "",
+        minimumScore: Number.isFinite(Number(question.aiPassScore))
+          ? Number(question.aiPassScore)
+          : 70,
+      }),
+    });
+
+    let payload = null;
+    try {
+      payload = await response.json();
+    } catch (error) {
+      payload = null;
+    }
+
+    if (!response.ok) {
+      const message =
+        payload && typeof payload.error === "string"
+          ? payload.error
+          : `AI marking failed (HTTP ${response.status}).`;
+      throw new Error(message);
+    }
+
+    return normalizeAiGrade(payload, question);
+  }
+
+  async function gradeAiQuestions() {
+    const pending = [];
+
+    questions.forEach((question, index) => {
+      if (!isAiGradedQuestion(question)) {
+        return;
+      }
+
+      const answer = userAnswers[index];
+      if (!hasProvidedAnswer(answer)) {
+        return;
+      }
+
+      pending.push({ question, index, answer });
+    });
+
+    if (!pending.length) {
+      return;
+    }
+
+    const originalText = submitButton ? submitButton.textContent : "";
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.textContent =
+        pending.length === 1
+          ? "AI is marking your answer..."
+          : `AI is marking ${pending.length} answers...`;
+    }
+
+    try {
+      for (const item of pending) {
+        aiGrades[item.index] = await requestAiGrade(
+          item.question,
+          item.answer
+        );
+      }
+    } finally {
+      if (submitButton) {
+        submitButton.textContent = originalText || "Submit Test";
+      }
+    }
+  }
+
+  function getQuestionGrade(question, index, userAnswer) {
+    const hasAnswer = hasProvidedAnswer(userAnswer);
+
+    if (!hasAnswer) {
+      return {
+        hasAnswer: false,
+        isCorrect: false,
+        scoreValue: 0,
+      };
+    }
+
+    if (isAiGradedQuestion(question)) {
+      const aiGrade = aiGrades[index];
+      if (!aiGrade) {
+        return {
+          hasAnswer: true,
+          isCorrect: false,
+          scoreValue: 0,
+        };
+      }
+
+      return {
+        hasAnswer: true,
+        isCorrect: Boolean(aiGrade.accepted),
+        scoreValue: Math.max(0, Math.min(1, aiGrade.score / 100)),
+        aiGrade,
+      };
+    }
+
+    const isCorrect = answersMatch(userAnswer, question.correctAnswer);
+    return {
+      hasAnswer: true,
+      isCorrect,
+      scoreValue: isCorrect ? 1 : 0,
+    };
+  }
+
+  function formatAiVerdict(verdict) {
+    const labels = {
+      correct: "Correct",
+      mostly_correct: "Mostly correct",
+      partially_correct: "Partly correct",
+      incorrect: "Incorrect",
+    };
+    return labels[verdict] || "AI marked";
+  }
+
+  function createAiFeedbackElement(aiGrade) {
+    if (!aiGrade) {
+      return null;
+    }
+
+    const card = document.createElement("div");
+    card.className = "ai-grade-feedback";
+
+    const heading = document.createElement("div");
+    heading.className = "ai-grade-heading";
+
+    const score = document.createElement("strong");
+    score.textContent = `AI mark: ${Math.round(aiGrade.score)}%`;
+    heading.appendChild(score);
+
+    const verdict = document.createElement("span");
+    verdict.className = `ai-grade-verdict ai-grade-verdict--${aiGrade.verdict}`;
+    verdict.textContent = formatAiVerdict(aiGrade.verdict);
+    heading.appendChild(verdict);
+    card.appendChild(heading);
+
+    if (aiGrade.feedback) {
+      const feedback = document.createElement("p");
+      feedback.className = "ai-grade-summary";
+      feedback.textContent = aiGrade.feedback;
+      card.appendChild(feedback);
+    }
+
+    if (aiGrade.strengths && aiGrade.strengths.length) {
+      const title = document.createElement("div");
+      title.className = "ai-grade-list-title";
+      title.textContent = "What you understood correctly";
+      card.appendChild(title);
+
+      const list = document.createElement("ul");
+      list.className = "ai-grade-list";
+      aiGrade.strengths.forEach((item) => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        list.appendChild(li);
+      });
+      card.appendChild(list);
+    }
+
+    if (aiGrade.missingPoints && aiGrade.missingPoints.length) {
+      const title = document.createElement("div");
+      title.className = "ai-grade-list-title";
+      title.textContent = "What to improve";
+      card.appendChild(title);
+
+      const list = document.createElement("ul");
+      list.className = "ai-grade-list";
+      aiGrade.missingPoints.forEach((item) => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        list.appendChild(li);
+      });
+      card.appendChild(list);
+    }
+
+    if (aiGrade.bookAlignment) {
+      const alignment = document.createElement("p");
+      alignment.className = "ai-grade-book-alignment";
+      alignment.textContent = aiGrade.bookAlignment;
+      card.appendChild(alignment);
+    }
+
+    return card;
+  }
+
+
   function resetStats() {
     // Reset the stats object
     testStats = {
@@ -2674,6 +2977,14 @@ const testFiles = [
         }
 
         questionElement.appendChild(textareaElement);
+
+        if (isAiGradedQuestion(question)) {
+          const aiNote = document.createElement("div");
+          aiNote.classList.add("ai-answer-note");
+          aiNote.textContent =
+            "AI-marked written answer: explain it in your own words. Meaning and accuracy matter more than matching the reference wording.";
+          questionElement.appendChild(aiNote);
+        }
       }
 
       // Apply feedback if the test has been submitted
@@ -2688,7 +2999,10 @@ const testFiles = [
         const studyAnswerMarkup =
           formatRichText(formattedCorrectAnswer) ||
           escapeHTML(formattedCorrectAnswer);
-        correctAnswerElement.innerHTML = `<strong>Correct Answer:</strong> ${studyAnswerMarkup}`;
+        const answerLabel = isAiGradedQuestion(question)
+          ? "Reference Answer"
+          : "Correct Answer";
+        correctAnswerElement.innerHTML = `<strong>${answerLabel}:</strong> ${studyAnswerMarkup}`;
         correctAnswerElement.classList.add("study-correct-answer");
         questionElement.appendChild(correctAnswerElement);
 
@@ -3152,7 +3466,7 @@ const testFiles = [
 
   //************************ SECTION 9: TEST SUBMISSION ************************//
 
-  function submitTest() {
+  async function submitTest() {
     console.log("submitTest function called");
     try {
       let unansweredQuestions = [];
@@ -3184,6 +3498,22 @@ const testFiles = [
       }
 
       console.log("Proceeding with test grading...");
+
+      try {
+        await gradeAiQuestions();
+      } catch (aiError) {
+        console.error("AI marking failed:", aiError);
+        if (submitButton) {
+          submitButton.disabled = false;
+        }
+        alert(
+          aiError && aiError.message
+            ? aiError.message
+            : "AI marking could not be completed. Please try again."
+        );
+        return;
+      }
+
       clearInterval(timer);
       isTimerPaused = false;
       timerStarted = false;
@@ -3209,19 +3539,14 @@ const testFiles = [
       // Calculate the score without relying on DOM elements
       questions.forEach((question, index) => {
         const userAnswer = userAnswers[index];
-        const hasAnswer = hasProvidedAnswer(userAnswer);
-        const isCorrect = hasAnswer
-          ? answersMatch(userAnswer, question.correctAnswer)
-          : false;
+        const grade = getQuestionGrade(question, index, userAnswer);
 
-        if (isCorrect) {
-          score++;
-        }
-        questionResults[index] = isCorrect
+        score += grade.scoreValue;
+        questionResults[index] = grade.isCorrect
           ? "correct"
-          : hasAnswer
-          ? "incorrect"
-          : "unanswered";
+          : grade.hasAnswer
+            ? "incorrect"
+            : "unanswered";
       });
 
       // Update the score display
@@ -3241,7 +3566,10 @@ const testFiles = [
 
       testStats.testsTaken++;
 
-      const scoreBreakdown = `${score}/${questions.length}`;
+      const scoreForDisplay = Number.isInteger(score)
+        ? score
+        : Number(score.toFixed(1));
+      const scoreBreakdown = `${scoreForDisplay}/${questions.length}`;
       const didPass = scorePercent >= passMark;
 
       if (didPass) {
@@ -3300,10 +3628,9 @@ const testFiles = [
 
   function applyFeedback(questionElement, question, index) {
     const userAnswer = userAnswers[index];
-    const hasAnswer = hasProvidedAnswer(userAnswer);
-    const isCorrect = hasAnswer
-      ? answersMatch(userAnswer, question.correctAnswer)
-      : false;
+    const grade = getQuestionGrade(question, index, userAnswer);
+    const hasAnswer = grade.hasAnswer;
+    const isCorrect = grade.isCorrect;
 
     // Apply feedback to the question element
     let feedbackElement = document.createElement("p");
@@ -3329,9 +3656,19 @@ const testFiles = [
     const submissionAnswerMarkup =
       formatRichText(formattedCorrectAnswer) ||
       escapeHTML(formattedCorrectAnswer);
-    correctAnswerElement.innerHTML = `<strong>Correct Answer:</strong> ${submissionAnswerMarkup}`;
+    const submissionLabelText = isAiGradedQuestion(question)
+      ? "Reference Answer"
+      : "Correct Answer";
+    correctAnswerElement.innerHTML = `<strong>${submissionLabelText}:</strong> ${submissionAnswerMarkup}`;
     correctAnswerElement.classList.add("correct-answer");
     questionElement.appendChild(correctAnswerElement);
+
+    if (grade.aiGrade) {
+      const aiFeedbackElement = createAiFeedbackElement(grade.aiGrade);
+      if (aiFeedbackElement) {
+        questionElement.appendChild(aiFeedbackElement);
+      }
+    }
 
     if (question.explanation) {
       const explanationElement = document.createElement("p");
@@ -3404,6 +3741,7 @@ const testFiles = [
     }
     clearInterval(timer);
     timer = null;
+    aiGrades = {};
 
     if (wasCustomSession) {
       regenerateCustomSessionQuestions();
