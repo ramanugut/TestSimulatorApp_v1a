@@ -2112,3 +2112,138 @@ body.study-mode-active .question {
     padding: 56px 10px 14px;
   }
 }
+
+
+/* Global structured-question display fix */
+.question-table-wrapper {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  margin: 1.25rem 0 1.5rem;
+  padding: 0 0 0.2rem;
+  border-radius: 10px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.question-data-table {
+  width: 100%;
+  min-width: 640px;
+  max-width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  table-layout: auto;
+  background: var(--surface-color);
+  color: var(--text-color);
+  font-family: var(--font-family);
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+.question-data-table caption {
+  caption-side: bottom;
+  padding: 0.55rem 0.25rem 0;
+  color: var(--muted-text);
+  font-family: var(--font-family);
+  font-size: 0.82rem;
+  text-align: left;
+}
+
+.question-data-table th,
+.question-data-table td {
+  border: 1px solid #cbd5e1;
+  padding: 0.65rem 0.75rem;
+  vertical-align: top;
+  text-align: left;
+  color: var(--text-color);
+  background: var(--surface-color);
+  white-space: normal;
+  word-break: normal;
+  overflow-wrap: break-word;
+}
+
+.question-data-table th {
+  font-weight: 700;
+  background: #eef4fb;
+  color: #0f172a;
+}
+
+.question-data-table thead tr:nth-child(2) th {
+  background: #f6f8fb;
+}
+
+.question-data-table tbody tr:nth-child(even) td {
+  background: #f8fafc;
+}
+
+.question-data-table th:first-child,
+.question-data-table td:first-child {
+  min-width: 72px;
+}
+
+body.dark-mode .question-data-table {
+  background: #162033;
+  color: #f8fafc;
+}
+
+body.dark-mode .question-data-table th,
+body.dark-mode .question-data-table td {
+  border-color: #526076;
+  color: #f8fafc;
+  background: #162033;
+}
+
+body.dark-mode .question-data-table th {
+  background: #2a3850;
+  color: #ffffff;
+}
+
+body.dark-mode .question-data-table thead tr:nth-child(2) th {
+  background: #223047;
+  color: #f8fafc;
+}
+
+body.dark-mode .question-data-table tbody tr:nth-child(even) td {
+  background: #1a263b;
+}
+
+body.dark-mode .question-data-table tbody tr:hover td {
+  background: #223047;
+}
+
+body.dark-mode .question-data-table caption {
+  color: #cbd5e1;
+}
+
+body.dark-mode .question-table-wrapper {
+  scrollbar-color: #64748b #172033;
+}
+
+/* Plain answer choices should use the app font; code choices keep the mono font. */
+.option-text {
+  font-family: var(--font-family);
+  color: var(--text-color);
+}
+
+.option-inline-code,
+.option-code,
+.option-code-block {
+  font-family: var(--font-mono);
+}
+
+@media (max-width: 768px) {
+  .question-table-wrapper {
+    margin: 1rem 0 1.25rem;
+    border-radius: 8px;
+  }
+
+  .question-data-table {
+    min-width: 680px;
+    font-size: 0.88rem;
+  }
+
+  .question-data-table th,
+  .question-data-table td {
+    padding: 0.55rem 0.6rem;
+  }
+}
