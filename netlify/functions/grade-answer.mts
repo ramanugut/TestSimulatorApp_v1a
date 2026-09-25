@@ -1,3 +1,4 @@
+// Redeploy after Netlify environment configuration
 const ALLOWED_ORIGINS = new Set([
   "https://ramanugut.github.io",
   "http://localhost:8888",
