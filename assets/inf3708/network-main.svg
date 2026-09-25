@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 470" role="img" aria-labelledby="title desc">
+<title id="title">Activity on Node project network</title>
+<desc id="desc">Network for activities A to L showing durations and dependencies.</desc>
+<style>
+text{font-family:Arial,sans-serif;fill:#18212b}.small{font-size:12px}.label{font-size:14px;font-weight:600}.tiny{font-size:10px}.node rect,.legend rect,.tbl rect{fill:#fff;stroke:#28323c;stroke-width:1.4}.link{fill:none;stroke:#28323c;stroke-width:1.7}
+</style>
+<rect width="1120" height="470" fill="#fff"/>
+<g class="legend" transform="translate(35 40)">
+<rect x="0" y="0" width="250" height="62"/>
+<line x1="0" y1="22" x2="250" y2="22" stroke="#28323c"/><line x1="0" y1="43" x2="250" y2="43" stroke="#28323c"/>
+<line x1="75" y1="22" x2="75" y2="62" stroke="#28323c"/><line x1="175" y1="22" x2="175" y2="62" stroke="#28323c"/>
+<text x="8" y="16" class="small">Early start</text><text x="185" y="16" class="small">Early finish</text>
+<text x="102" y="37" class="small">Activity</text><text x="181" y="37" class="small">Duration</text>
+<text x="8" y="57" class="small">Late start</text><text x="92" y="57" class="small">Float/slack</text><text x="186" y="57" class="small">Late finish</text>
+</g>
+<defs>
+<g id="blankNode" class="node">
+<rect x="0" y="0" width="100" height="62"/>
+<line x1="0" y1="20" x2="100" y2="20" stroke="#28323c"/><line x1="0" y1="42" x2="100" y2="42" stroke="#28323c"/>
+<line x1="28" y1="0" x2="28" y2="20" stroke="#28323c"/><line x1="72" y1="0" x2="72" y2="20" stroke="#28323c"/>
+<line x1="28" y1="42" x2="28" y2="62" stroke="#28323c"/><line x1="72" y1="42" x2="72" y2="62" stroke="#28323c"/>
+</g>
+</defs>
+<g class="link">
+<path d="M105 215H170"/><path d="M270 215H340"/><path d="M220 246V365H390"/>
+<path d="M440 215H505"/><path d="M440 215V100H545"/><path d="M440 215V215H545"/>
+<path d="M440 215V285H545"/><path d="M490 396H545"/>
+<path d="M645 100H735"/><path d="M645 100V45H735"/>
+<path d="M645 215H735"/><path d="M645 285V360H735"/><path d="M645 396V360H735"/>
+<path d="M835 100V250H900"/><path d="M835 215V250H900"/>
+<path d="M835 45H1045V205"/><path d="M835 360H1045V205"/><path d="M1000 250H1045V205"/>
+</g>
+<g transform="translate(5 184)"><use href="#blankNode"/><text x="36" y="36" class="small">Start</text></g>
+<g transform="translate(170 184)"><use href="#blankNode"/><text x="44" y="36" class="label">A</text><text x="76" y="36" class="label">1</text></g>
+<g transform="translate(340 184)"><use href="#blankNode"/><text x="44" y="36" class="label">B</text><text x="76" y="36" class="label">2</text></g>
+<g transform="translate(390 365)"><use href="#blankNode"/><text x="44" y="36" class="label">D</text><text x="76" y="36" class="label">2</text></g>
+<g transform="translate(545 69)"><use href="#blankNode"/><text x="44" y="36" class="label">G</text><text x="76" y="36" class="label">5</text></g>
+<g transform="translate(545 184)"><use href="#blankNode"/><text x="44" y="36" class="label">C</text><text x="76" y="36" class="label">2</text></g>
+<g transform="translate(545 254)"><use href="#blankNode"/><text x="44" y="36" class="label">F</text><text x="76" y="36" class="label">4</text></g>
+<g transform="translate(545 365)"><use href="#blankNode"/><text x="44" y="36" class="label">E</text><text x="76" y="36" class="label">3</text></g>
+<g transform="translate(735 14)"><use href="#blankNode"/><text x="44" y="36" class="label">H</text><text x="76" y="36" class="label">6</text></g>
+<g transform="translate(735 69)"><use href="#blankNode"/><text x="44" y="36" class="label">J</text><text x="76" y="36" class="label">8</text></g>
+<g transform="translate(735 184)"><use href="#blankNode"/><text x="44" y="36" class="label">I</text><text x="76" y="36" class="label">6</text></g>
+<g transform="translate(735 329)"><use href="#blankNode"/><text x="44" y="36" class="label">K</text><text x="76" y="36" class="label">5</text></g>
+<g transform="translate(900 219)"><use href="#blankNode"/><text x="44" y="36" class="label">L</text><text x="76" y="36" class="label">6</text></g>
+<g transform="translate(1045 174)"><use href="#blankNode"/><text x="36" y="36" class="small">End</text></g>
+<g class="tbl" transform="translate(20 300)">
+<rect x="0" y="0" width="280" height="160"/>
+<line x1="0" y1="22" x2="280" y2="22" stroke="#28323c"/><line x1="56" y1="0" x2="56" y2="160" stroke="#28323c"/><line x1="158" y1="0" x2="158" y2="160" stroke="#28323c"/>
+<text x="5" y="15" class="tiny" font-weight="700">Activity</text><text x="61" y="15" class="tiny" font-weight="700">Duration (days)</text><text x="164" y="15" class="tiny" font-weight="700">Predecessor</text>
+<text x="20" y="36" class="tiny">A</text><text x="90" y="36" class="tiny">1</text><text x="200" y="36" class="tiny">-</text><text x="20" y="46" class="tiny">B</text><text x="90" y="46" class="tiny">2</text><text x="200" y="46" class="tiny">A</text><text x="20" y="56" class="tiny">C</text><text x="90" y="56" class="tiny">2</text><text x="200" y="56" class="tiny">B</text><text x="20" y="66" class="tiny">D</text><text x="90" y="66" class="tiny">2</text><text x="200" y="66" class="tiny">A</text><text x="20" y="76" class="tiny">E</text><text x="90" y="76" class="tiny">3</text><text x="200" y="76" class="tiny">D</text><text x="20" y="86" class="tiny">F</text><text x="90" y="86" class="tiny">4</text><text x="200" y="86" class="tiny">B</text><text x="20" y="96" class="tiny">G</text><text x="90" y="96" class="tiny">5</text><text x="200" y="96" class="tiny">B</text><text x="20" y="106" class="tiny">H</text><text x="90" y="106" class="tiny">6</text><text x="200" y="106" class="tiny">G</text><text x="20" y="116" class="tiny">I</text><text x="90" y="116" class="tiny">6</text><text x="200" y="116" class="tiny">C</text><text x="20" y="126" class="tiny">J</text><text x="90" y="126" class="tiny">8</text><text x="200" y="126" class="tiny">G</text><text x="20" y="136" class="tiny">K</text><text x="90" y="136" class="tiny">5</text><text x="200" y="136" class="tiny">E,F</text><text x="20" y="146" class="tiny">L</text><text x="90" y="146" class="tiny">6</text><text x="200" y="146" class="tiny">I,J</text>
+</g>
+</svg>
