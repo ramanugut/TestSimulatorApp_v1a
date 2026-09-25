@@ -2247,3 +2247,101 @@ body.dark-mode .question-table-wrapper {
     padding: 0.55rem 0.6rem;
   }
 }
+
+
+/* Study mode learning guide */
+.study-guide-card {
+  margin-top: 0.9rem;
+  padding: 1rem 1.05rem;
+  border: 1px solid #bfdbfe;
+  border-left: 4px solid var(--accent-secondary);
+  border-radius: var(--radius-md);
+  background: #f8fbff;
+  color: var(--text-color);
+}
+
+.study-guide-title {
+  margin: 0 0 0.65rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.study-book-reference {
+  margin-bottom: 0.8rem;
+  padding: 0.65rem 0.75rem;
+  border-radius: 8px;
+  background: #e0f2fe;
+  color: #0c4a6e;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.study-guide-simple {
+  margin: 0 0 0.8rem;
+  color: #334155;
+  line-height: 1.6;
+}
+
+.study-guide-subtitle {
+  margin: 0.25rem 0 0.45rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.study-guide-steps {
+  margin: 0 0 0.85rem 1.35rem;
+  padding: 0;
+  color: #334155;
+}
+
+.study-guide-steps li {
+  margin: 0.35rem 0;
+  padding-left: 0.15rem;
+  line-height: 1.5;
+}
+
+.study-guide-remember {
+  padding: 0.7rem 0.8rem;
+  border-radius: 8px;
+  background: #ecfdf5;
+  color: #065f46;
+  line-height: 1.5;
+}
+
+body.dark-mode .study-guide-card {
+  border-color: #31547a;
+  border-left-color: #38bdf8;
+  background: #162033;
+  color: #f8fafc;
+}
+
+body.dark-mode .study-guide-title,
+body.dark-mode .study-guide-subtitle {
+  color: #f8fafc;
+}
+
+body.dark-mode .study-book-reference {
+  background: #0c2d45;
+  color: #bae6fd;
+}
+
+body.dark-mode .study-guide-simple,
+body.dark-mode .study-guide-steps {
+  color: #e2e8f0;
+}
+
+body.dark-mode .study-guide-remember {
+  background: #0f3a31;
+  color: #bbf7d0;
+}
+
+@media (max-width: 768px) {
+  .study-guide-card {
+    padding: 0.9rem;
+  }
+
+  .study-book-reference {
+    font-size: 0.85rem;
+  }
+}
