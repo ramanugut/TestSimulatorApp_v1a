@@ -1978,3 +1978,137 @@ body.study-mode-active .question {
 
 
 
+
+
+/* Structured tables and diagrams used by assessment questions */
+.question-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  margin: 18px 0 22px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.question-data-table {
+  width: auto;
+  max-width: 100%;
+  min-width: 520px;
+  border-collapse: collapse;
+  background: var(--surface, #fff);
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.question-data-table caption {
+  caption-side: bottom;
+  padding-top: 8px;
+  color: var(--text-muted, #667085);
+  font-size: 0.85rem;
+}
+
+.question-data-table th,
+.question-data-table td {
+  border: 1px solid var(--border-color, #cfd7df);
+  padding: 9px 12px;
+  vertical-align: top;
+  text-align: left;
+  white-space: normal;
+}
+
+.question-data-table th {
+  font-weight: 700;
+  background: rgba(74, 144, 226, 0.08);
+}
+
+.question-figure {
+  margin: 18px 0 24px;
+  width: 100%;
+}
+
+.question-image-button {
+  display: block;
+  width: 100%;
+  max-width: 1000px;
+  padding: 0;
+  border: 1px solid var(--border-color, #d4dbe3);
+  border-radius: 10px;
+  background: #fff;
+  overflow: hidden;
+  cursor: zoom-in;
+}
+
+.question-image-button:hover,
+.question-image-button:focus-visible {
+  border-color: #6b8afd;
+  box-shadow: 0 0 0 3px rgba(107, 138, 253, 0.14);
+}
+
+.question-diagram {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 560px;
+  object-fit: contain;
+  background: #fff;
+}
+
+.question-figure figcaption {
+  margin-top: 8px;
+  color: var(--text-muted, #667085);
+  font-size: 0.85rem;
+}
+
+.question-image-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px 24px;
+  background: rgba(5, 12, 24, 0.86);
+}
+
+.question-image-lightbox img {
+  display: block;
+  max-width: 96vw;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  background: #fff;
+  border-radius: 8px;
+}
+
+.question-image-lightbox-close {
+  position: fixed;
+  top: 12px;
+  right: 18px;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 50%;
+  background: #fff;
+  color: #111827;
+  font-size: 30px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .question-data-table {
+    min-width: 620px;
+    font-size: 0.9rem;
+  }
+
+  .question-data-table th,
+  .question-data-table td {
+    padding: 8px 9px;
+  }
+
+  .question-image-button {
+    border-radius: 8px;
+  }
+
+  .question-image-lightbox {
+    padding: 56px 10px 14px;
+  }
+}
