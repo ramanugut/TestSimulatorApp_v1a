@@ -340,6 +340,179 @@
         "integrational management"
       ],
       "correctAnswer": "interface management"
+    },
+    {
+      "text": "When does payback usually occur?",
+      "options": [
+        "When the net cumulative benefits minus cost equal one",
+        "When the net cumulative benefits equal the net cumulative costs",
+        "When the net costs are lower than the cumulative benefits",
+        "When the cumulative benefits are double the cumulative costs"
+      ],
+      "correctAnswer": "When the net cumulative benefits equal the net cumulative costs"
+    },
+    {
+      "text": "You launched Project X that is based on the pre-investor’s model. Pre-investors denote non-professional or non-institutional investors such as friends, family and strangers who help to fund the project. However, they expect to see a return on their investment. Nonetheless, Project X involves a new social media platform that seeks to generate revenue from user subscriptions. To launch the project, the pre-investors need to invest an accumulative amount of R75 000,00 (year 0). As subscribers and pre-investors join your venture, you expect the initial investment of R75000 to grow, increasing with R15 550,00 annually for four years (years 1-4). In the first year, you expect the new social media platform will generate R110 000,00, increasing annually with R25 000,00. Calculate the total discounted costs (assume a discount rate of 10%)",
+      "options": [
+        "R429 997",
+        "R530 000",
+        "R560 000",
+        "R430 000"
+      ],
+      "correctAnswer": "R429 997"
+    },
+    {
+      "text": "Read the section on the Activity on Node diagram in your textbook, then study the activity list and its network diagram as illustrated in the figure below. Calculate the slack of Activity E.",
+      "options": [
+        "11",
+        "2",
+        "0",
+        "6"
+      ],
+      "correctAnswer": [
+        "11",
+        "0"
+      ]
+    },
+    {
+      "text": "The table below lists each activity, its duration, and its predecessor(s) for illustration on an Activity-on-Arrow (AoA) diagram. What is the start time, finish time, and slack of Activity C?\n\nActivity\n\nDescription\n\nDuration (days)\n\nPredecessor\n\nA\n\nRequirement Gathering & Analysis: Identify user needs, features (e.g., booking form, location tracking), and e-waste facility integration.\n\n3\n\n-\n\nB\n\nDesign: Create wireframes and user interface (UI) design for the app, ensuring user-friendly navigation.\n\n3\n\nA\n\nC\n\nBackend development: Set up server, database, and APIs to handle user bookings, authentication, and scheduling.\n\n5\n\nA\n\nD\n\nFrontend development: Code the user interface, booking system, and integration with backend services.\n\n4\n\nA\n\nE\n\nIntegration and testing: Test the app for functionality, security, and usability. Integrate with external services like location tracking.\n\n1\n\nB\n\nF\n\nDeployment and launch: Deploy the app-to-app stores or web and ensure scalability for handling user requests.\n\n2\n\nC\n\nG\n\nMaintenance and updates: Address user feedback, fix bugs, and release new features or updates.\n\n5\n\nD\n\nH\n\nLive: Make app available for download and use.\n\n1\n\nE, F, G",
+      "options": [
+        "start time = 8; finish time = 10; slack = 2",
+        "start time = 8; finish time = 10; slack = 0",
+        "start time = 10; finish time = 8; slack = 2",
+        "start time = 10; finish time = 8; slack = 0"
+      ],
+      "correctAnswer": "start time = 8; finish time = 10; slack = 2"
+    },
+    {
+      "text": "A project team must choose whether to launch Project A or Project B. The table below illustrates the respective amount that will be invested for each project, followed by the expected annual revenue. Calculate the net profit for Project B.\n\nYear\tProject A\tProject B\n0\t-R250 000,00\t-R300 000,00\n1\tR95 000,00\tR150 000,00\n2\tR110 000,00\tR210 000,00\n3\tR132 000,00\tR120 000,00\n4\tR166 000,00\tR140 000,00",
+      "options": [
+        "R320 000,00",
+        "R300 000,00",
+        "R310 000,00",
+        "R320 010,00"
+      ],
+      "correctAnswer": "R320 000,00"
+    },
+    {
+      "text": "Examine the graphic below illustrating an activity on node (AoN) diagram. Activity B's late finish is 3 — how is an activity's late finish determined?",
+      "options": [
+        "An activity's late finish is determined by setting it equal to the late start of the succeeding activity. Activity B's late finish is set equal to the late start of Activity G because the late start times of Activities C and F can only begin after Activity G has commenced.",
+        "An activity's late finish is determined by setting it equal to the early start of the succeeding activity. Activity B's late finish is set equal to the early start of Activity C because the late start times of Activities C and F can only begin after Activity G has commenced.",
+        "An activity's late finish is determined by setting it equal to the early start of the succeeding activity. Activity B's late finish is set equal to the early start of Activity F because the late start times of Activities G and F can only begin after Activity G has commenced.",
+        "An activity's late finish is determined by setting it equal to the late start of the succeeding activity. Activity B's late finish is set equal to the late start of Activity G because the late finish times of Activities C and F can only begin after Activity G has commenced."
+      ],
+      "correctAnswer": "An activity's late finish is determined by setting it equal to the late start of the succeeding activity. Activity B's late finish is set equal to the late start of Activity G because the late start times of Activities C and F can only begin after Activity G has commenced."
+    },
+    {
+      "text": "You launched Project X that is based on the pre-investor’s model. Pre-investors denote non-professional or non-institutional investors such as friends, family and strangers who help to fund the project. However, they expect to see a return on their investment. Nonetheless, Project X involves a new social media platform that seeks to generate revenue from user subscriptions. To launch the project, the pre-investors need to invest an accumulative amount of R75 000,00 (year 0). As subscribers and pre-investors join your venture, you expect the initial investment of R75000 to grow, increasing with R15 550,00 annually for four years (years 1-4). In the first year, you expect the new social media platform will generate R110 000,00, increasing annually with R25 000,00. Calculate the annual discount factor based on a discount rate of 8%.",
+      "options": [
+        "1; 0.93; 0.86; 0.79; 0.74",
+        "1; 0.91; 0.83; 0.75; 0.68",
+        "1; 0.92; 0.87; 0.8; 0.74",
+        "1; 0.93; 0.86; 0.79; 0.75"
+      ],
+      "correctAnswer": "1; 0.93; 0.86; 0.79; 0.74"
+    },
+    {
+      "text": "Which project selection technique takes into account both the profitability of a project and the timing of cash flow?",
+      "options": [
+        "Net Present Value (NPV)",
+        "Critical Path Method (CPM)",
+        "Payback period",
+        "Return on Investment (ROI)"
+      ],
+      "correctAnswer": "Net Present Value (NPV)"
+    },
+    {
+      "text": "Fill in the missing word:\n\nAn activity or __________ is an element of work normally found on the work breakdown structure (WBS) that has expected duration, cost, and resource requirements.",
+      "options": [
+        "task",
+        "product",
+        "deliverable",
+        "milestone"
+      ],
+      "correctAnswer": "task"
+    },
+    {
+      "text": "You launched Project X that is based on the pre-investor’s model. Pre-investors denote non-professional or non-institutional investors such as friends, family and strangers who help to fund the project. However, they expect to see a return on their investment. Nonetheless, Project X involves a new social media platform that seeks to generate revenue from user subscriptions. To launch the project, the pre-investors need to invest an accumulative amount of R75 000,00 (year 0). As subscribers and pre-investors join your venture, you expect the initial investment of R75000 to grow, increasing with R15 550,00 annually for four years (years 1-4). In the first year, you expect the new social media platform will generate R110 000,00, increasing annually with R25 000,00. Calculate the total discounted project benefits (assume a discount rate of 10%)",
+      "options": [
+        "R457 950",
+        "R430 000",
+        "R500 000",
+        "R400 000"
+      ],
+      "correctAnswer": "R457 950"
+    },
+    {
+      "text": "Fill in the missing word:\n\n______________________dependencies, in the context of schedule management, involves relationships between project activities that are generally inside the project team's control. For example, if software is developed by the team, they can create dependencies such as performance unit testing before system testing.",
+      "options": [
+        "Mandatory",
+        "Discretionary",
+        "External",
+        "Internal"
+      ],
+      "correctAnswer": "Internal"
+    },
+    {
+      "text": "Study the activity list and its network diagram. Identify the critical path(s).",
+      "options": [
+        "A-B-C-F-L",
+        "A-B-G-J-L",
+        "A-B-C-I-L",
+        "A-B-G-H"
+      ],
+      "correctAnswer": "A-B-G-J-L"
+    },
+    {
+      "text": "Fill in the missing words:\n\nIn most financial analysis and net present value (NPV) calculations, the term discounted benefits can be treated as synonymous with the term__________________.",
+      "options": [
+        "discounted cash inflows",
+        "discounted cash outflows",
+        "discounted cash flows",
+        "None of the terms in the other options can be considered synonymous with the term discounted benefits."
+      ],
+      "correctAnswer": "discounted cash inflows"
+    },
+    {
+      "text": "Study the activity list and its network diagram. Which activities have slack?",
+      "options": [
+        "C, D, E, F, H, I",
+        "C, D, E, G, J",
+        "C, D, E, H, I, J",
+        "None of the activities have slack"
+      ],
+      "correctAnswer": "C, D, E, F, H, I"
+    },
+    {
+      "text": "Study the cashflow of Project Z in the table below. Calculate the payback period for Project Z.\n\nYear\n\nProject Y\n\nProject Z\n\n0\n\n-R200 000,00\n\n-R275 000,00\n\n1\n\nR85 000,00\n\nR70 000,00\n\n2\n\nR70 000,00\n\nR75 000,00\n\n3\n\nR78 000,00\n\nR80 000,00\n\n4\n\nR33 000,00\n\nR85 000,00",
+      "options": [
+        "3.6 years",
+        "1.4 years",
+        "3.2 years",
+        "3.5 years"
+      ],
+      "correctAnswer": "3.6 years"
+    },
+    {
+      "text": "A payback period (PP) calculation for a project results in a PP of 2.8136 years. To convert the payback period into months, the fractional part of the year, 0.8136, is multiplied by 12. Why is the fractional part of the payback year multiplied by 12?",
+      "options": [
+        "This is because a year consists of twelve months.",
+        "Because the the current payback rate is 12%",
+        "Because the payback period converted into months is 8 months.",
+        "Because the payback period converted into days is 12 days."
+      ],
+      "correctAnswer": "This is because a year consists of twelve months."
+    },
+    {
+      "text": "You launched Project X that is based on the pre-investor’s model. Pre-investors denote non-professional or non-institutional investors such as friends, family and strangers who help to fund the project. However, they expect to see a return on their investment. Nonetheless, Project X involves a new social media platform that seeks to generate revenue from user subscriptions. To launch the project, the pre-investors need to invest an accumulative amount of R75 000,00 (year 0). As subscribers and pre-investors join your venture, you expect the initial investment of R75000 to grow, increasing with R15 550,00 annually for four years (years 1-4). In the first year, you expect the new social media platform will generate R110 000,00, increasing annually with R25 000,00. Calculate the total project expenses.",
+      "options": [
+        "R530 500",
+        "R90 550",
+        "R75 000",
+        "R137 200"
+      ],
+      "correctAnswer": "R530 500"
     }
   ]
 }
