@@ -1394,6 +1394,76 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
 
+  function createStudyGuideElement(study) {
+    if (!study || typeof study !== "object") {
+      return null;
+    }
+
+    const card = document.createElement("section");
+    card.className = "study-guide-card";
+    card.setAttribute("aria-label", "Study notes");
+
+    const heading = document.createElement("h4");
+    heading.className = "study-guide-title";
+    heading.textContent = study.title || "Understand the concept";
+    card.appendChild(heading);
+
+    if (study.chapter) {
+      const reference = document.createElement("div");
+      reference.className = "study-book-reference";
+
+      const chapter = document.createElement("strong");
+      chapter.textContent = "Study in the book: ";
+      reference.appendChild(chapter);
+      reference.appendChild(document.createTextNode(study.chapter));
+
+      if (study.section) {
+        reference.appendChild(document.createTextNode(` • ${study.section}`));
+      }
+      if (study.pages) {
+        reference.appendChild(document.createTextNode(` • ${study.pages}`));
+      }
+
+      card.appendChild(reference);
+    }
+
+    if (study.simple) {
+      const simple = document.createElement("p");
+      simple.className = "study-guide-simple";
+      simple.textContent = study.simple;
+      card.appendChild(simple);
+    }
+
+    if (Array.isArray(study.steps) && study.steps.length) {
+      const stepsHeading = document.createElement("div");
+      stepsHeading.className = "study-guide-subtitle";
+      stepsHeading.textContent = study.stepsTitle || "How to work it out";
+      card.appendChild(stepsHeading);
+
+      const list = document.createElement("ol");
+      list.className = "study-guide-steps";
+      study.steps.forEach((step) => {
+        const item = document.createElement("li");
+        item.textContent = step;
+        list.appendChild(item);
+      });
+      card.appendChild(list);
+    }
+
+    if (study.remember) {
+      const remember = document.createElement("div");
+      remember.className = "study-guide-remember";
+      const strong = document.createElement("strong");
+      strong.textContent = "Remember: ";
+      remember.appendChild(strong);
+      remember.appendChild(document.createTextNode(study.remember));
+      card.appendChild(remember);
+    }
+
+    return card;
+  }
+
+
   function resetStats() {
     // Reset the stats object
     testStats = {
@@ -2630,6 +2700,13 @@ const testFiles = [
           explanationElement.innerHTML = `<strong>Explanation:</strong> ${studyExplanationMarkup}`;
           explanationElement.classList.add("study-explanation");
           questionElement.appendChild(explanationElement);
+        }
+
+        if (question.study) {
+          const studyGuideElement = createStudyGuideElement(question.study);
+          if (studyGuideElement) {
+            questionElement.appendChild(studyGuideElement);
+          }
         }
       }
 
