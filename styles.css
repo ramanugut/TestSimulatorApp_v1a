@@ -2411,6 +2411,37 @@ body.dark-mode .study-voice-reading {
   background: rgba(56, 189, 248, 0.17);
 }
 
+/* Start-position choice appears only after pressing Start at…, not all the time. */
+.study-voice-pickable {
+  cursor: pointer;
+  outline: 1px dashed var(--accent-secondary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+.study-voice-pickable:hover,
+.study-voice-pickable:focus-visible {
+  outline: 2px solid var(--accent-secondary);
+  background: rgba(14, 165, 233, 0.13);
+}
+.study-voice-toolbar [data-voice-action="pick"][aria-pressed="true"] {
+  border-color: var(--accent-secondary);
+  color: var(--accent-secondary);
+}
+.study-voice-toolbar .study-voice-status:not(.sr-only) {
+  flex: 1 1 100%;
+  line-height: 1.4;
+  font-size: 0.78rem;
+}
+.study-voice-toolbar .study-voice-status:not(.sr-only):not(.study-voice-error) {
+  color: var(--muted-text);
+}
+@media (max-width: 600px) {
+  .study-voice-toolbar .btn,
+  .study-voice-toolbar .study-voice-speed {
+    min-height: 44px;
+  }
+}
+
 /* AI written-answer grading */
 .ai-answer-note {
   margin-top: 0.55rem;
