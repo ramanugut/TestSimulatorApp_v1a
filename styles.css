@@ -3211,6 +3211,10 @@ body.dark-mode .ai-grade-verdict--incorrect {
 body.dark-mode .app-header {
   box-shadow: 0 5px 18px rgba(4, 11, 18, 0.22);
 }
+body.dark-mode.study-mode-active .question {
+  border-color: #4b6477;
+  box-shadow: 0 5px 18px rgba(4, 11, 18, 0.17);
+}
 body.dark-mode .btn-primary,
 body.dark-mode .mode-tab-button.active {
   color: #10291f;
