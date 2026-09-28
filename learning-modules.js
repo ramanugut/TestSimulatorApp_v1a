@@ -91,7 +91,7 @@
           [term("Stakeholder", "A person or group that affects, or is affected by, the project."), term("Systems approach", "Considering interacting parts together rather than in isolation.")],
           ["Consult the people who will actually use the solution before adopting a new technology."],
           [quiz("c2a", "A college IT director plans mandatory tablets without asking lecturers or students. What is missing?", ["A systems view and stakeholder engagement.", "More programming languages.", "A final invoice."], 0,
-            "The proposed technology affects learning, finances and people. Their needs must be understood.", "Technical suitability alone does not mean people will accept a project.")]),
+            "The proposed technology affects learning, finances and people. Their needs must be understood.", "Technical suitability alone does not mean people will accept a project.", {caseStudy:"A college wants to introduce tablets for every student. The IT director checked the devices, but never asked faculty, students or finance about their needs."})]),
         topic("c2-life-cycle", "Predictive, adaptive and Scrum",
           "Predictive work defines scope, schedule and cost early. Adaptive approaches refine detailed scope by iteration. Scrum uses a product backlog, sprint backlog, short sprints, reviews and retrospectives.",
           "PDF pp. 15–18",
@@ -145,7 +145,7 @@
               "Higher-scoring projects meet the chosen weighted criteria more strongly.", "A weighted model only supports decisions when the selected criteria and weights make sense.",
               "Check that all weights add up to one before multiplying.",0.01),
            quiz("c4d", "A late feature request could change scope, budget and schedule. What is the appropriate process?", ["Integrated change control", "Delete the original plan without review", "Ignore the sponsor"], 0,
-             "An authorised change process evaluates the impact and records the decision.", "A change can be valuable, but it still needs coordinated approval.")])
+             "An authorised change process evaluates the impact and records the decision.", "A change can be valuable, but it still needs coordinated approval.", {caseStudy:"A customer asks for a new login method halfway through development. The change affects three teams and may add two weeks to the schedule."})])
       ]),
       chapter("5 · Project Scope Management", [
         topic("c5-wbs", "Work breakdown structures",
@@ -164,7 +164,7 @@
           [term("RTM", "Requirements Traceability Matrix: a table linking each requirement to its source, delivery and validation.")],
           ["Validate scope through formal acceptance of completed deliverables; control scope by managing proposed changes."],
           [quiz("c5c", "Extra features are added repeatedly without approved change requests. This is an example of:", ["Scope creep", "Project closing", "Quality audit"], 0,
-            "Work has expanded without proper scope control.", "A useful feature can still cause scope creep if the change is not managed.")])
+            "Work has expanded without proper scope control.", "A useful feature can still cause scope creep if the change is not managed.", {caseStudy:"A customer keeps asking developers directly for small extra features. Team members implement them without updating the agreed scope or budget."})])
       ]),
       chapter("6 · Project Schedule Management", [
         topic("c6-critical", "Critical path and slack",
@@ -275,7 +275,7 @@
           ["Leveling can use available slack but may extend the project finish date.", "Tuckman's team stages are forming, storming, norming, performing and adjourning."],
           [quiz("c9b", "One analyst is booked for 70 hours of work in a 40-hour week. Which technique helps resolve this?", ["Resource leveling", "Scope validation", "Cost of quality"], 0,
              "Resource leveling changes work timing so resource demand becomes more manageable.",
-             "Simply adding all the hours to a schedule does not make the analyst available."),
+             "Simply adding all the hours to a schedule does not make the analyst available.", {caseStudy:"Two dependent subprojects need the same analyst next week. One booking requests 30 hours and the other requests 40 hours, but the analyst only has 40 available."}),
            sequence("c9c", "Order the five Tuckman team stages.",
              ["Performing","Norming","Adjourning","Forming","Storming"],
              ["Forming","Storming","Norming","Performing","Adjourning"],
@@ -322,7 +322,7 @@
           [term("Contingency plan", "An agreed action if a known risk happens."),term("Residual risk", "Risk left after a response is applied."),term("Secondary risk", "A new risk created by a risk response.")],
           ["Contingency reserves cover known uncertainties; management reserves cover unknown uncertainties."],
           [quiz("c11b", "The team buys insurance for a potential equipment loss. Which threat response is this?", ["Transfer", "Exploit", "Ignore"], 0,
-            "Insurance transfers some financial consequences to a third party.", "Transfer does not remove the event's probability; it changes who bears the consequences.")])
+            "Insurance transfers some financial consequences to a third party.", "Transfer does not remove the event's probability; it changes who bears the consequences.", {caseStudy:"An organisation faces a chance of losing expensive project equipment in transit. The team chooses insurance to limit the financial impact if it happens."})])
       ]),
       chapter("12 · Project Procurement Management", [
         topic("c12-contracts", "Contract types and make-or-buy",
@@ -361,7 +361,7 @@
           ["Engagement levels can include unaware, resistant, neutral, supportive and leading.", "Sensitive stakeholder assessments should be handled separately from widely shared project documents."],
           [quiz("c13b", "A senior sponsor is unaware of the project. Which action directly addresses this problem?", ["Brief the sponsor and plan appropriate engagement.", "Remove the sponsor from the register.", "Wait until project closing."], 0,
             "Stakeholder engagement starts by identifying, understanding and communicating with people who can affect the work.",
-            "Monitoring stakeholder engagement is ongoing; stakeholder positions can change."),
+            "Monitoring stakeholder engagement is ongoing; stakeholder positions can change.", {caseStudy:"A newly appointed senior sponsor has decision-making power but has received no information about the project and has missed its planning meetings."}),
            quiz("c13c", "Where should the team track an unresolved requirements disagreement with an owner and priority?", ["Issue log", "WBS dictionary", "Final archive only"], 0,
             "An issue log tracks matters requiring action and resolution.",
             "A risk concerns an uncertain future event. An issue is something that already needs attention.")])
