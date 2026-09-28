@@ -2204,6 +2204,7 @@ const testFiles = [
   // Approved INF3708 assessments only. Other legacy ICT test*.json files remain
   // in the repository but are hidden from the exam picker and custom-test builder.
   "inf3708-oct-nov-2021.json",
+  "inf3708-assessment-1-2026.json",
   "test36.json", // INF3708 Assessment 2 (14 June 2026)
 ];
 
@@ -3015,8 +3016,9 @@ const testFiles = [
 
       const questionNumberElement = document.createElement("span");
       questionNumberElement.classList.add("question-number");
+      const displayMarks = getQuestionMarks(question);
       questionNumberElement.textContent = question.number
-        ? question.number + ". (" + getQuestionMarks(question) + " marks) "
+        ? question.number + ". (" + displayMarks + (displayMarks === 1 ? " mark) " : " marks) ")
         : (actualIndex + 1) + ".";
       questionTextElement.appendChild(questionNumberElement);
 
