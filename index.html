@@ -227,11 +227,33 @@
                 aria-labelledby="mode-tab-flashcards"
                 aria-hidden="true"
             >
-                <div class="card-block">
-                    <h2>Flashcards</h2>
-                    <p class="panel-description">Tap a card to reveal the answer.</p>
-                    <div id="flashcards-grid" class="flashcards-grid"></div>
-                    <div id="flashcards-empty" class="empty-state">Load a test to generate flashcards.</div>
+                <div class="flashcard-workspace">
+                    <div class="flashcard-heading">
+                        <div>
+                            <h2>Flashcards</h2>
+                            <p>Think of the answer first, then reveal it.</p>
+                        </div>
+                        <button id="flashcard-restart" type="button" class="btn btn-tertiary hidden">Start over</button>
+                    </div>
+                    <div id="flashcard-status" class="flashcard-status hidden">
+                        <div class="flashcard-status-labels">
+                            <strong id="flashcard-count">Card 1 of 1</strong>
+                            <span id="flashcard-tally">Known 0 · Study again 0</span>
+                        </div>
+                        <div id="flashcard-progress-track" class="flashcard-progress-track" role="progressbar"
+                             aria-label="Flashcard position" aria-valuemin="0" aria-valuenow="0" aria-valuemax="1">
+                            <span id="flashcard-progress-fill"></span>
+                        </div>
+                    </div>
+                    <div id="flashcards-grid" class="flashcards-stage hidden" aria-live="polite" aria-atomic="true"></div>
+                    <nav id="flashcard-controls" class="flashcard-controls hidden" aria-label="Flashcard navigation">
+                        <button id="flashcard-prev" type="button" class="btn btn-secondary">← Previous</button>
+                        <button id="flashcard-reveal" type="button" class="btn btn-primary" aria-expanded="false" aria-controls="flashcards-grid">Show answer</button>
+                        <button id="flashcard-again" type="button" class="btn btn-secondary hidden">Study again</button>
+                        <button id="flashcard-known" type="button" class="btn btn-primary hidden">Got it ✓</button>
+                        <button id="flashcard-next" type="button" class="btn btn-tertiary">Next →</button>
+                    </nav>
+                    <p id="flashcards-empty" class="flashcards-empty">Choose a test above to start revising with flashcards.</p>
                 </div>
             </section>
         </div>
@@ -309,12 +331,12 @@
     >
         <div class="modal-content tools-modal-content">
             <header class="modal-header">
-                <h2 id="options-modal-title">StudyFlow Tools</h2>
+                <h2 id="options-modal-title">Test settings</h2>
                 <button id="close-options" class="modal-close" type="button" aria-label="Close tools">&times;</button>
             </header>
 
             <section class="modal-quick-settings" aria-labelledby="modal-quick-settings-title">
-                <h3 id="modal-quick-settings-title">Test settings</h3>
+                <h3 id="modal-quick-settings-title" class="sr-only">Test settings</h3>
                 <div class="quick-settings-grid">
                     <div class="quick-item">
                         <span class="input-label">Appearance</span>
@@ -336,13 +358,10 @@
                 </div>
             </section>
 
-            <section class="tools-bookmarks" aria-labelledby="modal-bookmark-tools-title">
-                <div class="tools-bookmarks-heading">
-                    <h3 id="modal-bookmark-tools-title">Bookmarked questions</h3>
-                    <p>Tap a question to jump to it.</p>
-                </div>
+            <details class="tools-bookmarks">
+                <summary id="modal-bookmark-tools-title">Bookmarked questions</summary>
                 <div id="bookmark-list" class="bookmark-list" aria-live="polite">No bookmarked questions yet.</div>
-            </section>
+            </details>
         </div>
     </div>
 

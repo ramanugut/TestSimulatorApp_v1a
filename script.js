@@ -66,6 +66,25 @@ document.addEventListener("DOMContentLoaded", function () {
   const achievementToast = document.getElementById("achievement-toast");
   const flashcardsGrid = document.getElementById("flashcards-grid");
   const flashcardsEmptyState = document.getElementById("flashcards-empty");
+  const flashcardStatus = document.getElementById("flashcard-status");
+  const flashcardCount = document.getElementById("flashcard-count");
+  const flashcardTally = document.getElementById("flashcard-tally");
+  const flashcardProgressTrack = document.getElementById("flashcard-progress-track");
+  const flashcardProgressFill = document.getElementById("flashcard-progress-fill");
+  const flashcardControls = document.getElementById("flashcard-controls");
+  const flashcardPrevButton = document.getElementById("flashcard-prev");
+  const flashcardRevealButton = document.getElementById("flashcard-reveal");
+  const flashcardAgainButton = document.getElementById("flashcard-again");
+  const flashcardKnownButton = document.getElementById("flashcard-known");
+  const flashcardNextButton = document.getElementById("flashcard-next");
+  const flashcardRestartButton = document.getElementById("flashcard-restart");
+
+  // A flashcard rating never changes a student's test answers or mark.
+  let flashcardDeckSource = null;
+  let flashcardOrder = [];
+  let flashcardPosition = 0;
+  let flashcardRevealed = false;
+  let flashcardRatings = new Map();
   const reviewFilterSelect = document.getElementById("review-filter");
   const reviewSourceFilterContainer = document.getElementById(
     "review-source-filter-container"
@@ -3293,109 +3312,238 @@ const testFiles = [
     updateBookmarkPanel();
   }
 
+  // Flashcards show one question at a time. Switching tabs preserves the revision position.
+  function resetFlashcardDeck() {
+    flashcardDeckSource = questions;
+    flashcardOrder = questions.map((_, index) => index);
+    flashcardPosition = 0;
+    flashcardRevealed = false;
+    flashcardRatings = new Map();
+  }
+
+  function nextFlashcard() {
+    if (flashcardPosition >= flashcardOrder.length) return;
+    flashcardPosition += 1;
+    flashcardRevealed = false;
+    renderFlashcards();
+  }
+
+  function previousFlashcard() {
+    if (flashcardPosition <= 0) return;
+    flashcardPosition -= 1;
+    flashcardRevealed = false;
+    renderFlashcards();
+  }
+
+  function rateFlashcard(rating) {
+    if (!flashcardRevealed || flashcardPosition >= flashcardOrder.length) return;
+    if (rating !== "known" && rating !== "again") return;
+    flashcardRatings.set(flashcardOrder[flashcardPosition], rating);
+    nextFlashcard();
+  }
+
   function renderFlashcards() {
     if (!flashcardsGrid || !flashcardsEmptyState) return;
+    if (flashcardDeckSource !== questions ||
+        (questions.length && flashcardOrder.length === 0)) {
+      resetFlashcardDeck();
+    }
+    flashcardsGrid.replaceChildren();
+    const total = flashcardOrder.length;
+    const hasCards = total > 0;
+    flashcardsGrid.classList.toggle("hidden", !hasCards);
+    flashcardsEmptyState.classList.toggle("hidden", hasCards);
+    if (flashcardStatus) flashcardStatus.classList.toggle("hidden", !hasCards);
+    if (flashcardRestartButton) flashcardRestartButton.classList.toggle("hidden", !hasCards);
+    const complete = flashcardPosition >= total;
+    if (flashcardControls) flashcardControls.classList.toggle("hidden", !hasCards || complete);
+    if (!hasCards) return;
 
-    flashcardsGrid.innerHTML = "";
-    if (!questions.length) {
-      flashcardsGrid.classList.add("hidden");
-      flashcardsEmptyState.classList.remove("hidden");
+    const known = flashcardOrder.filter(index => flashcardRatings.get(index) === "known").length;
+    const again = flashcardOrder.filter(index => flashcardRatings.get(index) === "again").length;
+    if (flashcardCount) flashcardCount.textContent =
+      complete ? "Round complete" : "Card " + (flashcardPosition + 1) + " of " + total;
+    if (flashcardTally) flashcardTally.textContent =
+      "Known " + known + " · Study again " + again;
+    const progress = complete ? total : flashcardPosition + 1;
+    if (flashcardProgressFill) flashcardProgressFill.style.width =
+      (progress / total * 100) + "%";
+    if (flashcardProgressTrack) {
+      flashcardProgressTrack.setAttribute("aria-valuenow", String(progress));
+      flashcardProgressTrack.setAttribute("aria-valuemax", String(total));
+    }
+
+    if (complete) {
+      // Skipped cards are included in the next round; none are silently lost.
+      const repeatIndexes = flashcardOrder.filter(index => flashcardRatings.get(index) !== "known");
+      const summary = document.createElement("section");
+      summary.className = "flashcard-complete";
+      const heading = document.createElement("h3");
+      heading.textContent = "Revision round complete";
+      const message = document.createElement("p");
+      message.textContent = "Known: " + known + " of " + total + ". " +
+        (repeatIndexes.length
+          ? repeatIndexes.length + " card(s) can use another look."
+          : "You marked every card as known.");
+      summary.append(heading, message);
+      if (repeatIndexes.length) {
+        const repeat = document.createElement("button");
+        repeat.type = "button";
+        repeat.className = "btn btn-primary";
+        repeat.textContent = "Review " + repeatIndexes.length +
+          (repeatIndexes.length === 1 ? " card" : " cards");
+        repeat.addEventListener("click", () => {
+          flashcardOrder = repeatIndexes;
+          repeatIndexes.forEach(index => flashcardRatings.delete(index));
+          flashcardPosition = 0;
+          flashcardRevealed = false;
+          renderFlashcards();
+        });
+        summary.appendChild(repeat);
+      }
+      flashcardsGrid.appendChild(summary);
       return;
     }
 
-    flashcardsGrid.classList.remove("hidden");
-    flashcardsEmptyState.classList.add("hidden");
+    const questionIndex = flashcardOrder[flashcardPosition];
+    const question = questions[questionIndex];
+    const card = document.createElement("article");
+    card.className = "flashcard-surface";
+    card.setAttribute("aria-label", "Flashcard " + (flashcardPosition + 1));
 
-    questions.forEach((question, cardIndex) => {
-      const card = document.createElement("div");
-      card.className = "flashcard";
+    const eyebrow = document.createElement("div");
+    eyebrow.className = "flashcard-eyebrow";
+    const number = document.createElement("span");
+    number.textContent = "QUESTION " + (question.number || (questionIndex + 1));
+    eyebrow.appendChild(number);
+    if (question.sourceTestName) {
+      const source = document.createElement("span");
+      source.className = "flashcard-source";
+      source.textContent = question.sourceTestName;
+      eyebrow.appendChild(source);
+    }
+    card.appendChild(eyebrow);
 
-      const questionText = document.createElement("p");
-      questionText.className = "flashcard-question";
-      const flashcardQuestionMarkup =
-        formatRichText(question.text) || escapeHTML(question.text);
-      questionText.innerHTML = flashcardQuestionMarkup;
-
-      const answerText = document.createElement("p");
-      answerText.className = "flashcard-answer";
-      const formattedAnswer = formatAnswerForDisplay(question.correctAnswer);
-      const fallbackAnswer =
-        formattedAnswer && formattedAnswer.trim().length > 0
-          ? formattedAnswer
-          : "Check the explanation";
-      const flashcardAnswerMarkup =
-        formatRichText(fallbackAnswer) || escapeHTML(fallbackAnswer);
-      answerText.innerHTML = flashcardAnswerMarkup;
-
-      const hintText = document.createElement("span");
-      hintText.className = "flashcard-hint";
-      hintText.textContent = "Tap or press Enter to reveal the answer";
-      hintText.setAttribute("aria-hidden", "true");
-
-      card.setAttribute("role", "button");
-      card.setAttribute("tabindex", "0");
-      card.setAttribute("aria-expanded", "false");
-      const accessibleQuestionSummary = questionText.textContent
-        .replace(/\s+/g, " ")
-        .trim();
-      const trimmedSummary =
-        accessibleQuestionSummary.length > 120
-          ? `${accessibleQuestionSummary.slice(0, 117)}...`
-          : accessibleQuestionSummary;
-
-      card.setAttribute(
-        "aria-label",
-        `Flashcard ${cardIndex + 1}: ${trimmedSummary}`
-      );
-
-      if (question.sourceTestName) {
-        const sourceTag = document.createElement("span");
-        sourceTag.className = "flashcard-source";
-        sourceTag.textContent = question.sourceTestName;
-        card.appendChild(sourceTag);
-      }
-
-      card.appendChild(questionText);
-      card.appendChild(answerText);
-      card.appendChild(hintText);
-
-      const plainQuestionLength = questionText.textContent.trim().length;
-      const plainAnswerLength = answerText.textContent.trim().length;
-      const longestLength = Math.max(plainQuestionLength, plainAnswerLength);
-      const codeBlocks = Array.from(card.querySelectorAll("pre"));
-      const codeLineCount = codeBlocks.reduce((max, block) => {
-        const lines = block.textContent.split("\n").length;
-        return Math.max(max, lines);
-      }, 0);
-      const containsCodeBlock = codeBlocks.length > 0;
-
-      if (containsCodeBlock || longestLength > 220) {
-        card.classList.add("flashcard--wide");
-      }
-
-      if (longestLength > 420 || codeLineCount > 10) {
-        card.classList.add("flashcard--full");
-      }
-
-      const toggleFlashcard = () => {
-        const flipped = card.classList.toggle("flashcard--flipped");
-        card.setAttribute("aria-expanded", flipped.toString());
-        hintText.textContent = flipped
-          ? "Tap again to hide the answer"
-          : "Tap or press Enter to reveal the answer";
-      };
-
-      card.addEventListener("click", toggleFlashcard);
-      card.addEventListener("keydown", (event) => {
-        if (event.key === "Enter" || event.key === " ") {
-          event.preventDefault();
-          toggleFlashcard();
-        }
+    const front = document.createElement("div");
+    front.className = "flashcard-front";
+    const prompt = document.createElement("div");
+    prompt.className = "flashcard-prompt";
+    prompt.innerHTML = formatRichText(question.text || "") || escapeHTML(question.text || "");
+    front.appendChild(prompt);
+    // Case studies, reference tables and question images are needed for some exams.
+    appendStructuredQuestionContent(front, question);
+    if (Array.isArray(question.options) && question.options.length) {
+      const choices = document.createElement("ol");
+      choices.className = "flashcard-choices";
+      choices.type = "A";
+      question.options.forEach(option => {
+        const item = document.createElement("li");
+        item.innerHTML = createOptionMarkup(option).markup;
+        choices.appendChild(item);
       });
+      front.appendChild(choices);
+    }
+    card.appendChild(front);
 
-      flashcardsGrid.appendChild(card);
-    });
+    if (flashcardRevealed) {
+      const answerPanel = document.createElement("section");
+      answerPanel.className = "flashcard-answer-panel";
+      answerPanel.id = "flashcard-answer-panel";
+      const title = document.createElement("h3");
+      title.textContent = isAiGradedQuestion(question) ? "Reference answer" : "Correct answer";
+      const answer = document.createElement("div");
+      answer.className = "flashcard-answer-content";
+      const formatted = formatAnswerForDisplay(question.correctAnswer);
+      const value = formatted && formatted.trim() ? formatted : "See the explanation below.";
+      answer.innerHTML = formatRichText(value) || escapeHTML(value);
+      answerPanel.append(title, answer);
+
+      if (question.correctAnswer && typeof question.correctAnswer === "object" &&
+          question.correctAnswer.image) {
+        const image = createQuestionImage(question.correctAnswer.image);
+        if (image) answerPanel.appendChild(image);
+      }
+
+      if (question.explanation) {
+        const explanation = document.createElement("div");
+        explanation.className = "flashcard-explanation";
+        const label = document.createElement("strong");
+        label.textContent = "Why this answer?";
+        const content = document.createElement("div");
+        content.innerHTML = formatRichText(question.explanation) || escapeHTML(question.explanation);
+        explanation.append(label, content);
+        answerPanel.appendChild(explanation);
+      }
+
+      const guide = createStudyGuideElement(question.study);
+      if (guide) {
+        const details = document.createElement("details");
+        details.className = "flashcard-study-details";
+        const summary = document.createElement("summary");
+        summary.textContent = "Extra study notes";
+        details.append(summary, guide);
+        answerPanel.appendChild(details);
+      }
+      if (isAiGradedQuestion(question)) {
+        const reminder = document.createElement("p");
+        reminder.className = "flashcard-study-tip";
+        reminder.textContent = "This is a guide answer. Different correct wording may also earn marks.";
+        answerPanel.appendChild(reminder);
+      }
+      card.appendChild(answerPanel);
+    } else {
+      const cue = document.createElement("p");
+      cue.className = "flashcard-reveal-hint";
+      cue.textContent = "Try to recall the answer before showing it.";
+      card.appendChild(cue);
+    }
+    flashcardsGrid.appendChild(card);
+
+    if (flashcardPrevButton) flashcardPrevButton.disabled = flashcardPosition === 0;
+    if (flashcardNextButton) flashcardNextButton.textContent =
+      flashcardPosition === total - 1 ? "Finish →" : "Next →";
+    if (flashcardRevealButton) {
+      flashcardRevealButton.textContent = flashcardRevealed ? "Hide answer" : "Show answer";
+      flashcardRevealButton.setAttribute("aria-expanded", String(flashcardRevealed));
+      flashcardRevealButton.setAttribute("aria-controls",
+        flashcardRevealed ? "flashcard-answer-panel" : "flashcards-grid");
+    }
+    if (flashcardAgainButton) flashcardAgainButton.classList.toggle("hidden", !flashcardRevealed);
+    if (flashcardKnownButton) flashcardKnownButton.classList.toggle("hidden", !flashcardRevealed);
   }
+
+  if (flashcardPrevButton) flashcardPrevButton.addEventListener("click", previousFlashcard);
+  if (flashcardNextButton) flashcardNextButton.addEventListener("click", nextFlashcard);
+  if (flashcardRevealButton) flashcardRevealButton.addEventListener("click", () => {
+    if (flashcardPosition >= flashcardOrder.length) return;
+    flashcardRevealed = !flashcardRevealed;
+    renderFlashcards();
+  });
+  if (flashcardAgainButton) flashcardAgainButton.addEventListener("click", () => rateFlashcard("again"));
+  if (flashcardKnownButton) flashcardKnownButton.addEventListener("click", () => rateFlashcard("known"));
+  if (flashcardRestartButton) flashcardRestartButton.addEventListener("click", () => {
+    if (!questions.length) return;
+    resetFlashcardDeck();
+    renderFlashcards();
+  });
+
+  document.addEventListener("keydown", event => {
+    if (currentMode !== "flashcards" || isOptionsModalOpen() ||
+        isDefineTestModalOpen() || event.altKey || event.ctrlKey || event.metaKey) return;
+    const focused = document.activeElement;
+    if (focused && (focused.isContentEditable || /^(INPUT|TEXTAREA|SELECT|BUTTON|SUMMARY|A)$/.test(focused.tagName))) return;
+    if (event.key === "ArrowRight") {
+      event.preventDefault();
+      nextFlashcard();
+    } else if (event.key === "ArrowLeft") {
+      event.preventDefault();
+      previousFlashcard();
+    } else if (event.code === "Space" && flashcardPosition < flashcardOrder.length) {
+      event.preventDefault();
+      flashcardRevealed = !flashcardRevealed;
+      renderFlashcards();
+    }
+  });
 
   //************************ SECTION 7: PAGINATION CONTROLS ************************//
 
