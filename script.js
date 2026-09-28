@@ -3607,6 +3607,10 @@ const testFiles = [
       button.textContent = `Q${bookmark + 1}`;
       button.addEventListener("click", () => {
         closeOptionsModal();
+        // Bookmarks always open the question view, even when called from Flashcards.
+        if (currentMode === "flashcards") {
+          setMode(isStudyMode ? "study" : "test");
+        }
         jumpToQuestion(bookmark);
       });
       bookmarkListElement.appendChild(button);
