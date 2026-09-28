@@ -11,6 +11,7 @@
         rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
     >
+    <link rel="stylesheet" href="learning-engine.css?v=20260928-mastery1">
 </head>
 <body>
     <header id="floating-header" class="app-header">
@@ -149,6 +150,10 @@
             </section>
 
             <section id="mode-panel-test" class="mode-panel active" role="tabpanel" aria-labelledby="mode-tab-test">
+                <details id="mastery-panel" class="mastery-panel" hidden>
+                    <summary>Topic mastery <span id="mastery-module-label"></span></summary>
+                    <div id="mastery-root" aria-live="polite"></div>
+                </details>
                 <div class="test-content">
                     <div
                         id="result-banner"
@@ -375,7 +380,9 @@
     <footer class="app-footer">Test Simulator © 2026 · Developed by Marven Ramanugu.</footer>
 
     <script src="app-config.js"></script>
-    <script src="script.js?v=20260928-muted-dark-accents-v7"></script>
+    <script src="learning-modules.js?v=20260928-mastery1"></script>
+    <script src="learning-engine.js?v=20260928-mastery1"></script>
+    <script src="script.js?v=20260928-mastery1"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
 </body>
 </html>
