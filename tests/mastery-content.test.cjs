@@ -6,6 +6,7 @@ const vm = require("node:vm");
 
 const context = { window: {} };
 vm.runInNewContext(fs.readFileSync("learning-modules.js", "utf8"), context);
+vm.runInNewContext(fs.readFileSync("modules/inf3708-mastery.js", "utf8"), context);
 const modules = context.window.MasteryModules;
 assert.ok(Array.isArray(modules) && modules.length > 0, "Expected a learning-module registry");
 const moduleIds = new Set();
