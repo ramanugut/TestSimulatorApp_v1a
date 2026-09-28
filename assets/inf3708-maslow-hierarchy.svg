@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 420" role="img" aria-labelledby="title desc">
+<title id="title">Figure 1: Maslow's hierarchy of needs</title>
+<desc id="desc">A five-level pyramid rising from physiological needs, safety, social needs, esteem, and self-actualisation. Lower needs support higher needs.</desc>
+<rect width="760" height="420" rx="8" fill="#d2e3e7"/>
+<path d="M380 39 L600 342 H160 Z" fill="#fafaf2" stroke="#34444b" stroke-width="3"/>
+<g stroke="#9baeb1" stroke-width="2" stroke-dasharray="5 4">
+<line x1="326" y1="114" x2="434" y2="114"/>
+<line x1="271" y1="190" x2="489" y2="190"/>
+<line x1="215" y1="267" x2="545" y2="267"/>
+<line x1="270" y1="190" x2="490" y2="190" opacity="0"/>
+<line x1="188" y1="303" x2="572" y2="303"/>
+</g>
+<g fill="#243842" font-size="18" font-family="Arial, sans-serif" text-anchor="middle">
+<text x="380" y="83" font-size="16">5. Self-</text><text x="380" y="102" font-size="16">actualisation</text>
+<text x="380" y="156">4. Esteem</text>
+<text x="380" y="234">3. Social</text>
+<text x="380" y="291">2. Safety</text>
+<text x="380" y="331">1. Physiological</text>
+</g>
+<g fill="#21343b" font-family="Arial, sans-serif" font-size="15">
+<text x="16" y="55">Creativity, innovation</text><text x="16" y="74">and achieving potential</text>
+<text x="575" y="150">Recognition</text><text x="575" y="169">and status</text>
+<text x="16" y="214">Acceptance, love,</text><text x="16" y="233">belonging</text>
+<text x="575" y="250">Physical and</text><text x="575" y="269">economic security</text>
+<text x="16" y="322">Food, water, rest</text>
+<text x="380" y="385" text-anchor="middle" font-size="16" font-weight="bold">A satisfied need is no longer a motivator</text>
+</g>
+</svg>

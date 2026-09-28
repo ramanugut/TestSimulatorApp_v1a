@@ -93,6 +93,13 @@ export default async (req: Request) => {
   }
   const diagramImage = validImage ? rawDiagramImage : "";
   const diagramRequired = body.diagramRequired === true;
+  // Keep the 2021 default deduction, but allow other papers to set a different rule.
+  const rawNoDrawingCap = body.diagramNoDrawingCapPercent;
+  const diagramNoDrawingCapPercent =
+    typeof rawNoDrawingCap === 'number' && Number.isFinite(rawNoDrawingCap)
+      ? Math.max(0, Math.min(100, rawNoDrawingCap))
+      : 50;
+  const diagramNoDrawingNote = cleanText(body.diagramNoDrawingNote, 800);
   const question = cleanText(body.question, 8000);
   const studentAnswer = cleanText(body.studentAnswer, 10000) ||
     (diagramImage ? "See attached Activity-on-Arrow network drawing." : "");
@@ -133,7 +140,7 @@ export default async (req: Request) => {
     "Use only the supplied question, reference answer, rubric, and reference notes. Do not introduce unrelated requirements.",
     "The reference answer is a marking guide, not a phrase-matching template.",
     "For network diagrams, inspect actual image labels, arrows, precedences and node dates. Do not assume unclear or absent details are correct.",
-    "For the INF3708 2021 Q5.1 network question, an actual network diagram is required. No drawing means a 7-mark deduction out of 14, enforced as a 50% score cap.",
+    "Apply each paper's own missing-diagram rule. The INF3708 2021 Q5.1 penalty of 7/14 must NOT be applied to other papers.",
     "If a drawing is supplied, award partial marks fairly for diagram structure and any correct readable calculations.",
     "Return concise, helpful feedback that teaches the learner what they understood and what they should improve.",
     "Return JSON with score (0-100 number), verdict (correct, mostly_correct, partially_correct, incorrect), feedback, strengths (string array), missingPoints (string array), and bookAlignment (string).",
@@ -257,10 +264,10 @@ export default async (req: Request) => {
 
     const grade = JSON.parse(content);
     const withoutDrawing = diagramRequired && !diagramImage;
-    const cap = withoutDrawing ? 50 : 100;
+    const cap = withoutDrawing ? diagramNoDrawingCapPercent : 100;
     const score = Math.max(0, Math.min(cap, Number(grade.score) || 0));
     const deductionMessage = withoutDrawing
-      ? "No drawn network was supplied: the original paper deducts 7 of 14 marks, so this answer is capped at 50%."
+      ? (diagramNoDrawingNote || "No drawn network was supplied: the original paper deducts 7 of 14 marks, so this answer is capped at 50%.")
       : "";
     const verdict = score >= 85 ? "correct"
       : score >= minimumScore ? "mostly_correct"
@@ -276,7 +283,7 @@ export default async (req: Request) => {
         strengths: Array.isArray(grade.strengths) ? grade.strengths.slice(0, 5) : [],
         missingPoints: [
           ...(Array.isArray(grade.missingPoints) ? grade.missingPoints.slice(0, 4) : []),
-          ...(withoutDrawing ? ["Draw or upload the Activity-on-Arrow network to avoid the 7-mark deduction."] : []),
+          ...(withoutDrawing ? [diagramNoDrawingNote || "Draw or upload the Activity-on-Arrow network to avoid the 7-mark deduction."] : []),
         ],
         bookAlignment: typeof grade.bookAlignment === "string" ? grade.bookAlignment : "",
       },

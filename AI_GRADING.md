@@ -81,3 +81,31 @@ is unavailable the app asks the learner to retry, without treating a failed
 request as an incorrect answer. After merging, redeploy the Netlify site
 containing netlify/functions/grade-answer.mts and keep GROQ_API_KEY
 in Netlify's secure environment variables.
+
+
+## INF3708 Jan/Feb 2025 supplementary paper (80 marks)
+
+`inf3708-jan-feb-2025-supplementary.json` contains all supplied questions,
+divided into 16 separately answerable parts. Question groups carry 20, 30 and
+30 marks respectively, with `preserveOrder: true`. The user-supplied case study,
+Maslow figure, original cost-estimate tables, cash-flow table and activity data
+are included in the exam. No unverified timer duration has been added.
+
+The assessment uses written/calculation AI rubrics with partial credit. The
+reference checks are: hardware R325,000; labour estimate R499,200; function
+point estimate R1,863,000; software R1,913,000; testing R223,800; subtotal
+R2,898,200; reserves R579,640; final estimate R3,477,840; payback
+approximately four years, five months and 21 days (30-day-month convention).
+The AoN critical path is A–E–F–G–H–I–J, 19 weeks. Total slack B/C/D is five
+weeks each, but free slack is B=0, C=5 and D=5, as illustrated by the paper's
+node legend.
+
+Q3.1 uses the existing diagram canvas/upload input for a **24-mark**
+Activity-on-Node (AoN) drawing. Its grading guide explicitly uses AoN node
+fields ES/EF/LS/FREE SLACK/LF and the activity durations. The Oct/Nov 2021
+paper's missing-diagram deduction **must not** be applied to this paper:
+`diagramNoDrawingCapPercent: 100` overrides that legacy cap. Without an
+actual diagram the marker should only award demonstrable calculations/method
+credit, not visual layout marks. The frontend can send
+`diagramNoDrawingCapPercent` and `diagramNoDrawingNote` for individual papers;
+when the fields are absent the existing 2021 default cap is retained.
