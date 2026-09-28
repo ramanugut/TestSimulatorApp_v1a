@@ -1,0 +1,616 @@
+{
+  "testName": "INF3708 – 2026 Assessment 1: Project Management Concepts (46 supplied questions; 17–20 pending)",
+  "module": "INF3708",
+  "assessment": "2026 Assignment 1",
+  "totalMarks": 46,
+  "originalQuestionCount": 50,
+  "missingQuestionNumbers": [
+    17,
+    18,
+    19,
+    20
+  ],
+  "preserveOrder": true,
+  "marking": "automatic-multiple-choice",
+  "questions": [
+    {
+      "number": "1",
+      "marks": 1,
+      "text": "Which type of person achieves a balance between risk and payoff?",
+      "options": [
+        "risk-neutral",
+        "risk-averse",
+        "risk-seeking",
+        "risk-fearing"
+      ],
+      "correctAnswer": "risk-neutral",
+      "explanation": "A risk-neutral decision maker considers expected payoff rather than systematically avoiding or seeking risk."
+    },
+    {
+      "number": "2",
+      "marks": 1,
+      "text": "Which highly respected psychologist rejected the dehumanizing negativism of psychology and proposed the hierarchy of needs theory?",
+      "options": [
+        "Abraham Maslow",
+        "Carl Jung",
+        "Philip Zimbardo",
+        "Sigmund Freud"
+      ],
+      "correctAnswer": "Abraham Maslow",
+      "explanation": "Abraham Maslow developed the hierarchy of needs."
+    },
+    {
+      "number": "3",
+      "marks": 1,
+      "text": "The probability of missing or meeting a target date is calculated using the following methods EXCEPT?",
+      "options": [
+        "Calculate the standard deviation of each project event.",
+        "Convert the z values to a probability.",
+        "Calculate the z value for each event with a target date.",
+        "Calculate the backward pass for each project event."
+      ],
+      "correctAnswer": "Calculate the backward pass for each project event.",
+      "explanation": "A PERT target-date probability calculation uses variance or standard deviation and a z-score/probability conversion. A backward pass is a schedule calculation, not the probability-conversion step.",
+      "transcriptionNote": "Option c is lightly paraphrased because a floating toolbar obscures the end of the text in the supplied screenshot."
+    },
+    {
+      "number": "4",
+      "marks": 1,
+      "text": "Which activity, aimed at cultivating a positive organisational culture, refers to promoting an employee to a higher position with increased salary within the organisational structure?",
+      "options": [
+        "penalty",
+        "expertise",
+        "assignment",
+        "promotion"
+      ],
+      "correctAnswer": "promotion",
+      "explanation": "Promotion moves an employee into a higher organisational position, often with increased pay."
+    },
+    {
+      "number": "5",
+      "marks": 1,
+      "text": "Which type of tool is usually recommended for small projects and single users?",
+      "options": [
+        "Upper range",
+        "Low-end",
+        "Midrange",
+        "High-end"
+      ],
+      "correctAnswer": "Low-end",
+      "explanation": "Low-end project management tools generally suit individuals and small projects."
+    },
+    {
+      "number": "6",
+      "marks": 1,
+      "text": "Which approach for constructing a WBS uses a similar project's WBS as a starting point?",
+      "options": [
+        "top-down",
+        "bottom-up",
+        "analogy",
+        "mind-mapping"
+      ],
+      "correctAnswer": "analogy",
+      "explanation": "The analogy approach adapts a WBS from a comparable past project."
+    },
+    {
+      "number": "7",
+      "marks": 1,
+      "text": "Which statement is true of tangible costs?",
+      "options": [
+        "Their examples include goodwill and prestige.",
+        "They cannot be calculated in monetary terms.",
+        "They are difficult to quantify.",
+        "They can be easily measured."
+      ],
+      "correctAnswer": "They can be easily measured.",
+      "explanation": "Tangible costs can normally be measured in monetary terms."
+    },
+    {
+      "number": "8",
+      "marks": 1,
+      "text": "What is scope creep?",
+      "options": [
+        "a task at the lowest level of the WBS",
+        "the tendency for project scope to keep getting bigger and bigger",
+        "the approved project scope statement and its associated WBS",
+        "subdividing project deliverables into smaller pieces"
+      ],
+      "correctAnswer": "the tendency for project scope to keep getting bigger and bigger",
+      "explanation": "Scope creep is uncontrolled growth in project scope."
+    },
+    {
+      "number": "9",
+      "marks": 1,
+      "text": "What document is used to coordinate all project planning documents and help guide a project's execution and control?",
+      "options": [
+        "business case",
+        "statement of work",
+        "project management plan",
+        "scope statement"
+      ],
+      "correctAnswer": "project management plan",
+      "explanation": "The project management plan brings together planning components and guides execution and control."
+    },
+    {
+      "number": "10",
+      "marks": 1,
+      "text": "In which type of organisational structure do project managers have the most authority?",
+      "options": [
+        "Functional",
+        "Matrix",
+        "Circular",
+        "Project"
+      ],
+      "correctAnswer": "Project",
+      "explanation": "In a projectised structure, project managers generally have the most direct authority."
+    },
+    {
+      "number": "11",
+      "marks": 1,
+      "text": "Which observation is true of the agile approach to software development?",
+      "options": [
+        "In the agile method, requirements and solutions evolve through collaboration.",
+        "Agile is a predictive model of software development.",
+        "In the agile approach, requirements must be clearly expressed early in the life cycle.",
+        "An agile approach sets scope goals, but leaves time and cost goals flexible."
+      ],
+      "correctAnswer": "In the agile method, requirements and solutions evolve through collaboration.",
+      "explanation": "Agile uses collaboration and feedback so requirements and solutions can evolve."
+    },
+    {
+      "number": "12",
+      "marks": 1,
+      "text": "What are new requirements imposed by management, government, or some external influence referred to as?",
+      "options": [
+        "Problems",
+        "Charters",
+        "Opportunities",
+        "Directives"
+      ],
+      "correctAnswer": "Directives",
+      "explanation": "Directives are externally or managerially imposed requirements."
+    },
+    {
+      "number": "13",
+      "marks": 1,
+      "text": "Which description fits the incremental life cycle of the systems development life cycle (SDLC)?",
+      "options": [
+        "Deliverables are produced through a series of iterations that add functionality within a set time frame. The deliverable is not complete until after the final iteration. This approach works best when there is a low degree of change and a high frequency of delivery.",
+        "The scope, schedule, and cost are determined early, and changes to scope are carefully managed. PMI also refers to predictive life cycles as waterfall.",
+        "Stakeholders define and approve the detailed scope before the start of an iteration, producing a usable product at the end of each iteration. PMI also refers to adaptive life cycles as agile or change-driven. This approach works best when there is a high degree of change and a high frequency of delivery.",
+        "A combination of approaches is used based on the nature of the work. For example, some deliverables may have a low degree of change and low frequency of delivery, whereas other deliverables have a high degree of change and high frequency of delivery."
+      ],
+      "correctAnswer": "Deliverables are produced through a series of iterations that add functionality within a set time frame. The deliverable is not complete until after the final iteration. This approach works best when there is a low degree of change and a high frequency of delivery.",
+      "explanation": "An incremental life cycle adds functionality through a succession of increments until the deliverable is complete."
+    },
+    {
+      "number": "14",
+      "marks": 1,
+      "text": "Which is the new knowledge area identified by the Project Management Institute?",
+      "options": [
+        "project risk management",
+        "project procurement management",
+        "project stakeholder management",
+        "project communication management"
+      ],
+      "correctAnswer": "project stakeholder management",
+      "explanation": "Project stakeholder management was added as a separate knowledge area in the PMBOK framework."
+    },
+    {
+      "number": "15",
+      "marks": 1,
+      "text": "The project steering committee is responsible for:",
+      "options": [
+        "running the project on a daily basis",
+        "defining the project ownership",
+        "reporting to the project management board",
+        "setting, monitoring and modifying project objectives"
+      ],
+      "correctAnswer": "setting, monitoring and modifying project objectives",
+      "explanation": "The steering committee provides strategic direction and oversees project objectives rather than carrying out daily management."
+    },
+    {
+      "number": "16",
+      "marks": 1,
+      "text": "What term is used for the amount of time an activity can be delayed without delaying the early start date of any immediately following activities?",
+      "options": [
+        "backward pass",
+        "free slack",
+        "forward pass",
+        "fast tracking"
+      ],
+      "correctAnswer": "free slack",
+      "explanation": "Free slack (free float) is delay that does not push the early start of a successor."
+    },
+    {
+      "number": "21",
+      "marks": 1,
+      "text": "Which process involves generating ideas by comparing specific project practices or product characteristics to those of other projects or products inside or outside the performing organization?",
+      "options": [
+        "prototyping",
+        "benchmarking",
+        "decomposition",
+        "variance"
+      ],
+      "correctAnswer": "benchmarking",
+      "explanation": "Benchmarking compares practices or features with other projects or organisations."
+    },
+    {
+      "number": "22",
+      "marks": 1,
+      "text": "Which term refers to the amount of individual resources an existing schedule requires during specific time periods?",
+      "options": [
+        "resource logs",
+        "resource leveling",
+        "resource loading",
+        "resource histogram"
+      ],
+      "correctAnswer": "resource loading",
+      "explanation": "Resource loading states the resource demand for scheduled periods."
+    },
+    {
+      "number": "23",
+      "marks": 1,
+      "text": "In the project management process groups, which processes include devising and maintaining a workable scheme to ensure that the project addresses the organization's needs?",
+      "options": [
+        "Executing processes",
+        "Planning processes",
+        "Monitoring and controlling processes",
+        "Initiating processes"
+      ],
+      "correctAnswer": "Planning processes",
+      "explanation": "Planning processes establish the workable approach to meet project needs."
+    },
+    {
+      "number": "24",
+      "marks": 1,
+      "text": "When allocating individuals to software development tasks, several factors need to be considered. They include:",
+      "options": [
+        "Team building, training and risk",
+        "Criticality, training and experience",
+        "Availability, criticality and prioritization",
+        "Training, risk and time"
+      ],
+      "correctAnswer": "Availability, criticality and prioritization",
+      "explanation": "Resource assignments should account for people's availability, the criticality of the work, and task priorities."
+    },
+    {
+      "number": "25",
+      "marks": 1,
+      "text": "The table that lists requirements, their various attributes, and the status of the requirements to ensure that all are addressed is referred to as ______.",
+      "options": [
+        "requirements traceability matrix",
+        "entity-attribute-value model",
+        "state transition table",
+        "Gantt chart"
+      ],
+      "correctAnswer": "requirements traceability matrix",
+      "explanation": "A requirements traceability matrix tracks requirements and their attributes throughout delivery."
+    },
+    {
+      "number": "26",
+      "marks": 1,
+      "text": "Which action involves reviewing the project charter, requirement documents, and organizational process assets to create a scope statement, adding more information as requirements are developed and change requests are approved?",
+      "options": [
+        "Validating scope",
+        "Creating scope",
+        "Defining scope",
+        "Controlling scope"
+      ],
+      "correctAnswer": "Defining scope",
+      "explanation": "Define Scope develops and progressively elaborates the scope statement from the relevant inputs."
+    },
+    {
+      "number": "27",
+      "marks": 1,
+      "text": "What is the latest possible time an activity might begin without delaying the project finish date?",
+      "options": [
+        "late finish date",
+        "early start date",
+        "late start date",
+        "early finish date"
+      ],
+      "correctAnswer": "late start date",
+      "explanation": "Late start is the latest activity start that does not delay completion."
+    },
+    {
+      "number": "28",
+      "marks": 1,
+      "text": "Which conflict management approach employs a give-and-take approach to resolving conflict?",
+      "options": [
+        "forcing",
+        "confrontation",
+        "smoothing",
+        "compromise"
+      ],
+      "correctAnswer": "compromise",
+      "explanation": "Compromising requires both sides to give something to reach an agreement."
+    },
+    {
+      "number": "29",
+      "marks": 1,
+      "text": "Which test presents subjects with a series of ambiguous pictures and asks them to develop a spontaneous story for each picture, assuming they will project their own needs into the story?",
+      "options": [
+        "MBTI",
+        "TAT",
+        "RAM",
+        "RACI"
+      ],
+      "correctAnswer": "TAT",
+      "explanation": "The Thematic Apperception Test (TAT) uses stories about ambiguous images."
+    },
+    {
+      "number": "30",
+      "marks": 1,
+      "text": "Which model uses an approach in which developers work with an evolving prototype, using tools such as computer-aided software engineering, joint requirements planning, and joint application design to facilitate rapid prototyping and code generation?",
+      "options": [
+        "spiral life cycle",
+        "prototyping life cycle",
+        "RAD life cycle",
+        "waterfall life cycle"
+      ],
+      "correctAnswer": "RAD life cycle",
+      "explanation": "Rapid Application Development (RAD) combines prototypes with techniques and tools for accelerated development."
+    },
+    {
+      "number": "31",
+      "marks": 1,
+      "text": "What term is used for the amount of time an activity can be delayed from its early start without delaying the planned project finish date?",
+      "options": [
+        "forward pass",
+        "backward pass",
+        "total slack",
+        "free float"
+      ],
+      "correctAnswer": "total slack",
+      "explanation": "Total slack is the amount of allowable delay before the overall planned finish is affected."
+    },
+    {
+      "number": "32",
+      "marks": 1,
+      "text": "Which approach for constructing a WBS starts with the largest items of the project and breaks them into subordinate items?",
+      "options": [
+        "bottom-up",
+        "analogy",
+        "top-down",
+        "mind mapping"
+      ],
+      "correctAnswer": "top-down",
+      "explanation": "Top-down decomposition begins with large deliverables and divides them into smaller parts."
+    },
+    {
+      "number": "33",
+      "marks": 1,
+      "text": "Which technique is used for resolving resource conflicts by delaying tasks?",
+      "options": [
+        "resource histogram",
+        "resource loading",
+        "resource allocation",
+        "resource leveling"
+      ],
+      "correctAnswer": "resource leveling",
+      "explanation": "Resource leveling may delay tasks to resolve resource over-allocation."
+    },
+    {
+      "number": "34",
+      "marks": 1,
+      "text": "When does payback occur?",
+      "options": [
+        "When the cumulative benefits are double the cumulative costs",
+        "When the net cumulative benefits equal the net cumulative costs",
+        "When the net cumulative benefits minus costs equal one",
+        "When the net costs are lower than the cumulative benefits"
+      ],
+      "correctAnswer": "When the net cumulative benefits equal the net cumulative costs",
+      "explanation": "The payback point is reached when cumulative benefits recover cumulative costs (net cumulative benefit is zero). The source option is worded awkwardly; equality is the intended concept."
+    },
+    {
+      "number": "35",
+      "marks": 1,
+      "text": "In project schedule management, which process generates the main outputs of an activity list, activity attributes, and a milestone list?",
+      "options": [
+        "resource estimating activities",
+        "sequencing activities",
+        "estimating activity durations",
+        "defining activities"
+      ],
+      "correctAnswer": "defining activities",
+      "explanation": "Define Activities creates the activity list, activity attributes and milestone list."
+    },
+    {
+      "number": "36",
+      "marks": 1,
+      "text": "Which knowledge area involves defining and managing all the work required to complete the project successfully?",
+      "options": [
+        "Project resource management",
+        "Project time management",
+        "Project cost management",
+        "Project scope management"
+      ],
+      "correctAnswer": "Project scope management",
+      "explanation": "Project scope management includes defining and controlling the required project work."
+    },
+    {
+      "number": "37",
+      "marks": 1,
+      "text": "In project schedule management, what is the next step after defining project activities?",
+      "options": [
+        "determining dependencies",
+        "controlling the schedule",
+        "planning schedule management",
+        "estimating activity duration"
+      ],
+      "correctAnswer": "determining dependencies",
+      "explanation": "Sequence Activities identifies and documents dependencies after activities are defined."
+    },
+    {
+      "number": "38",
+      "marks": 1,
+      "text": "What need is at the highest level in Maslow's structure?",
+      "options": [
+        "growth",
+        "safety",
+        "deficiency",
+        "physiological"
+      ],
+      "correctAnswer": "growth",
+      "explanation": "Self-actualisation, a growth need, is at the top of the familiar hierarchy."
+    },
+    {
+      "number": "39",
+      "marks": 1,
+      "text": "Enterprise project management software, due to its sophisticated and complex project management features, is categorised as ______ project management tools.",
+      "options": [
+        "baseline",
+        "midrange",
+        "low-end",
+        "high-end"
+      ],
+      "correctAnswer": "high-end",
+      "explanation": "High-end project management tools are designed for complex enterprise-level needs."
+    },
+    {
+      "number": "40",
+      "marks": 1,
+      "text": "Which action involves shifting the consequence of a risk and responsibility for its management to a third party?",
+      "options": [
+        "risk avoidance",
+        "risk acceptance",
+        "risk mitigation",
+        "risk transference"
+      ],
+      "correctAnswer": "risk transference",
+      "explanation": "Risk transfer shifts the financial consequence or responsibility to a third party, such as an insurer."
+    },
+    {
+      "number": "41",
+      "marks": 1,
+      "text": "Which option is an advantage of off-the-shelf software?",
+      "options": [
+        "Often tested extensively by a wide user base, ensuring stability and reducing the risk of critical bugs",
+        "Licensing fees, subscription costs, and additional modules can increase the total cost over time.",
+        "Organisations rely on the vendor for updates, bug fixes, and ongoing support, which may be discontinued.",
+        "Widely used software is a common target for cyberattacks, making it potentially vulnerable if not regularly patched."
+      ],
+      "correctAnswer": "Often tested extensively by a wide user base, ensuring stability and reducing the risk of critical bugs",
+      "explanation": "Off-the-shelf software may benefit from extensive testing across a larger user base."
+    },
+    {
+      "number": "42",
+      "marks": 1,
+      "text": "The main outputs of which process include a risk register, risk report, and project documents updates?",
+      "options": [
+        "monitoring risk",
+        "identifying risks",
+        "planning risk management",
+        "planning risk response"
+      ],
+      "correctAnswer": "identifying risks",
+      "explanation": "Identify Risks creates or updates the risk register and risk report."
+    },
+    {
+      "number": "43",
+      "marks": 1,
+      "text": "What type of estimate is used for making many purchasing decisions for which accurate estimates are required and for estimating final project costs?",
+      "options": [
+        "final",
+        "rough order of magnitude",
+        "budgetary",
+        "definitive"
+      ],
+      "correctAnswer": "definitive",
+      "explanation": "Definitive estimates are the detailed estimates typically used for purchasing and final cost planning."
+    },
+    {
+      "number": "44",
+      "marks": 1,
+      "text": "Who is best known for developing Theory X and Theory Y?",
+      "options": [
+        "David McClelland",
+        "Douglas McGregor",
+        "Abraham Maslow",
+        "Frederick Herzberg"
+      ],
+      "correctAnswer": "Douglas McGregor",
+      "explanation": "Douglas McGregor formulated Theory X and Theory Y."
+    },
+    {
+      "number": "45",
+      "marks": 1,
+      "text": "What processes include defining and authorizing a project or project phase?",
+      "options": [
+        "Planning",
+        "Monitoring and controlling",
+        "Initiating",
+        "Executing"
+      ],
+      "correctAnswer": "Initiating",
+      "explanation": "Initiating processes formally define and authorise projects or phases."
+    },
+    {
+      "number": "46",
+      "marks": 1,
+      "text": "Which information is included in a business case?",
+      "options": [
+        "project objective, high-level requirements, and time and cost goals",
+        "relevant government or industry standards",
+        "policies, procedures, guidelines, and systems that influence a project's success",
+        "business need for the project"
+      ],
+      "correctAnswer": "business need for the project",
+      "explanation": "The business case explains the underlying business need and rationale for doing the project."
+    },
+    {
+      "number": "47",
+      "marks": 1,
+      "text": "The main output of which process is the stakeholder register?",
+      "options": [
+        "controlling stakeholder engagement",
+        "managing stakeholder engagement",
+        "planning stakeholder management",
+        "identifying stakeholders"
+      ],
+      "correctAnswer": "identifying stakeholders",
+      "explanation": "Identify Stakeholders creates the stakeholder register."
+    },
+    {
+      "number": "48",
+      "marks": 1,
+      "text": "What type of project management document consolidates the benefits, costs, risks, and disadvantages of the current situation and future vision to help executive management decide whether the proposed project should proceed?",
+      "options": [
+        "Project charter",
+        "Project management plan",
+        "Business case",
+        "Execution and monitoring plan"
+      ],
+      "correctAnswer": "Business case",
+      "explanation": "The business case compares the proposed change with alternatives so managers can decide whether to proceed."
+    },
+    {
+      "number": "49",
+      "marks": 1,
+      "text": "Which tool is most likely to be used in project schedule management?",
+      "options": [
+        "Impact matrices",
+        "Gantt charts",
+        "Fishbone diagrams",
+        "Payback analysis"
+      ],
+      "correctAnswer": "Gantt charts",
+      "explanation": "Gantt charts display scheduled project activities along a time axis."
+    },
+    {
+      "number": "50",
+      "marks": 1,
+      "text": "Which stage of information technology planning outlines business processes that are central to achieving strategic goals and helps determine which ones could most benefit from information technology?",
+      "options": [
+        "project planning",
+        "information technology strategy planning",
+        "business area analysis",
+        "resource allocation"
+      ],
+      "correctAnswer": "business area analysis",
+      "explanation": "Business area analysis identifies key business processes and opportunities for IT support."
+    }
+  ]
+}
