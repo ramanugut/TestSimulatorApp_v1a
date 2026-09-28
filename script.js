@@ -3863,7 +3863,14 @@ const testFiles = [
     let feedbackElement = document.createElement("p");
     feedbackElement.classList.add("feedback");
 
-    if (isCorrect) {
+    if (grade.aiGrade) {
+      const earned = Number(grade.scoreValue.toFixed(2));
+      feedbackElement.textContent = "AI mark: " + earned + "/" +
+        getQuestionMarks(question) + " marks (" +
+        Math.round(grade.aiGrade.score) + "%).";
+      feedbackElement.classList.add(isCorrect ? "correct" : "ai-partial-feedback");
+      questionElement.classList.add(isCorrect ? "correct" : "incorrect");
+    } else if (isCorrect) {
       questionElement.classList.add("correct");
       feedbackElement.textContent = "Correct!";
       feedbackElement.classList.add("correct");
@@ -4113,9 +4120,10 @@ const testFiles = [
     doc.setFontSize(bodyFontSize);
     doc.setTextColor(defaultTextColor.r, defaultTextColor.g, defaultTextColor.b);
 
-    let correctAnswersCount = 0;
-
-    const totalQuestions = questions.length;
+    let earnedMarks = 0;
+    const totalMarks = questions.reduce(
+      (total, question) => total + getQuestionMarks(question), 0
+    );
 
     const resultsData = questions.map((question, index) => {
       const questionText = `Question ${index + 1}: ${question.text}`;
@@ -4125,12 +4133,9 @@ const testFiles = [
         ? formatAnswerForDisplay(rawUserAnswer)
         : "No Answer Provided";
       const correctAnswer = formatAnswerForDisplay(question.correctAnswer);
-      const isCorrect =
-        hasUserAnswer && answersMatch(rawUserAnswer, question.correctAnswer);
-
-      if (isCorrect) {
-        correctAnswersCount++;
-      }
+      const grade = getQuestionGrade(question, index, rawUserAnswer);
+      const isCorrect = grade.isCorrect;
+      earnedMarks += grade.scoreValue;
 
       doc.setFont("helvetica", "bold");
       const questionLines = doc.splitTextToSize(questionText, maxLineWidth);
@@ -4139,13 +4144,18 @@ const testFiles = [
       });
       doc.setFont("helvetica", "normal");
 
-      const userAnswerText = `Your Answer: ${userAnswer}`;
+      const userAnswerText = "Your Answer: " + userAnswer +
+        (grade.aiGrade ? " | AI mark: " +
+          Number(grade.scoreValue.toFixed(2)) + "/" +
+          getQuestionMarks(question) + " marks (" +
+          Math.round(grade.aiGrade.score) + "%)" : "");
       const userAnswerLines = doc.splitTextToSize(userAnswerText, maxLineWidth);
       const userAnswerDimensions = doc.getTextDimensions(userAnswerLines, {
         maxWidth: maxLineWidth,
       });
 
-      const correctAnswerText = `Correct Answer: ${correctAnswer}`;
+      const correctAnswerText = (isAiGradedQuestion(question) ? "Reference Answer: " : "Correct Answer: ") +
+        correctAnswer;
       const correctAnswerLines = doc.splitTextToSize(
         correctAnswerText,
         maxLineWidth
@@ -4159,9 +4169,14 @@ const testFiles = [
 
       let explanationLines = [];
       let explanationDimensions = { h: 0 };
-      if (!isCorrect && question.explanation) {
-        const explanationText = `Explanation: ${question.explanation}`;
-        explanationLines = doc.splitTextToSize(explanationText, maxLineWidth);
+      const feedbackText = grade.aiGrade && grade.aiGrade.feedback
+        ? "AI feedback: " + grade.aiGrade.feedback +
+          (grade.aiGrade.missingPoints && grade.aiGrade.missingPoints.length
+            ? " Improve: " + grade.aiGrade.missingPoints.join("; ") : "")
+        : !isCorrect && question.explanation
+          ? "Explanation: " + question.explanation : "";
+      if (feedbackText) {
+        explanationLines = doc.splitTextToSize(feedbackText, maxLineWidth);
         explanationDimensions = doc.getTextDimensions(explanationLines, {
           maxWidth: maxLineWidth,
         });
@@ -4178,14 +4193,19 @@ const testFiles = [
         explanationHeight: explanationDimensions.h,
         isCorrect,
         hasUserAnswer,
+        diagramImage: rawUserAnswer && typeof rawUserAnswer === "object" &&
+          typeof rawUserAnswer.image === "string" &&
+          /^data:image\/jpeg;base64,/.test(rawUserAnswer.image)
+            ? rawUserAnswer.image : "",
       };
     });
 
-    const percentageScore = totalQuestions
-      ? Math.round((correctAnswersCount / totalQuestions) * 100)
+    const percentageScore = totalMarks
+      ? Math.round((earnedMarks / totalMarks) * 100)
       : 0;
-    const scoreBadgeText = totalQuestions
-      ? `${correctAnswersCount}/${totalQuestions} correct (${percentageScore}%)`
+    const displayEarnedMarks = Number(earnedMarks.toFixed(2));
+    const scoreBadgeText = totalMarks
+      ? displayEarnedMarks + "/" + totalMarks + " marks (" + percentageScore + "%)"
       : "No questions answered";
 
     const headerHeight = 34;
@@ -4395,6 +4415,13 @@ const testFiles = [
         });
       }
 
+      if (entry.diagramImage) {
+        const imageHeight = 84;
+        ensureSpace(imageHeight + 8);
+        doc.addImage(entry.diagramImage, "JPEG", blockX, yPosition, blockWidth, imageHeight);
+        yPosition += imageHeight + 8;
+      }
+
       drawBlock(entry.correctAnswerLines, entry.correctAnswerHeight, {
         fillColor: { r: 224, g: 242, b: 254 },
         textColor: { r: 13, g: 60, b: 97 },
@@ -4410,7 +4437,8 @@ const testFiles = [
       }
     });
 
-    const summaryText = `Summary: You answered ${correctAnswersCount} of ${totalQuestions} questions correctly (${percentageScore}%).`;
+    const summaryText = "Summary: You earned " + displayEarnedMarks +
+      " of " + totalMarks + " marks (" + percentageScore + "%).";
     doc.setFont("helvetica", "bold");
     const summaryLines = doc.splitTextToSize(summaryText, maxLineWidth);
     const summaryDimensions = doc.getTextDimensions(summaryLines, {
