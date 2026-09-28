@@ -1733,6 +1733,7 @@ document.addEventListener("DOMContentLoaded", function () {
     utterance.lang = session.voice ? session.voice.lang : "en";
     if (session.voice) utterance.voice = session.voice;
     session.currentUtterance = utterance;
+    session.currentPartTarget = part.element;
 
     utterance.onstart = function () {
       if (activeStudyVoice !== session) return;
@@ -1763,6 +1764,10 @@ document.addEventListener("DOMContentLoaded", function () {
     if (activeStudyVoice !== session) return;
     session.paused = false;
     window.speechSynthesis.resume();
+    if (session.currentUtterance && session.currentPartTarget) {
+      session.activeTarget = session.currentPartTarget;
+      session.activeTarget.classList.add("study-voice-reading");
+    }
     setStudyVoiceButtonState(session, "playing");
     session.status.textContent = "Reading " +
       (session.kind === "explain" ? "the saved explanation" : "the notes") + "...";
@@ -1800,7 +1805,7 @@ document.addEventListener("DOMContentLoaded", function () {
       '  </label>',
       '</div>',
       '<p class="study-voice-status" role="status" aria-live="polite">',
-      '  Explain to me reads the detailed notes already saved for this question.',
+      '  Explain to me reads existing notes where available, otherwise the reference answer.',
       '</p>'
     ].join("");
 
@@ -1834,7 +1839,8 @@ document.addEventListener("DOMContentLoaded", function () {
       }
       const session = {
         root: card, kind: kindSelect.value, rate: Number(speedSelect.value),
-        parts: parts, nextIndex: 0, currentUtterance: null, activeTarget: null,
+        parts: parts, nextIndex: 0, currentUtterance: null,
+        currentPartTarget: null, activeTarget: null,
         paused: false, voice: preferredStudyVoice(),
         playButton: playButton, pauseButton: pauseButton,
         stopButton: stopButton, status: status
