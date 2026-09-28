@@ -1735,6 +1735,30 @@ document.addEventListener("DOMContentLoaded", function () {
     picker.status.classList.remove("study-voice-error");
   }
 
+
+  // Restore original text interaction as soon as this voice session ends.
+  function clearLiveStudyVoiceTargets(session) {
+    if (session.questionElement) session.questionElement.classList.remove("study-voice-active");
+    (session.seekTargets || []).forEach(function (element) {
+      element.classList.remove("study-voice-seekable");
+    });
+    session.seekTargets = [];
+  }
+
+  function markLiveStudyVoiceTargets(session) {
+    const targets = Array.from(new Set(session.parts.map(function (part) {
+      return part.element;
+    }).filter(function (element) {
+      return element && element.nodeType === 1 &&
+        session.questionElement.contains(element);
+    })));
+    session.seekTargets = targets;
+    session.questionElement.classList.add("study-voice-active");
+    targets.forEach(function (element) {
+      element.classList.add("study-voice-seekable");
+    });
+  }
+
   function stopStudyVoice() {
     closeStudyVoicePicker();
     const session = activeStudyVoice;
@@ -1742,6 +1766,7 @@ document.addEventListener("DOMContentLoaded", function () {
     activeStudyVoice = null;
     session.token += 1; // Ignore late end/error events caused by cancellation.
     clearStudyVoiceHighlight(session);
+    clearLiveStudyVoiceTargets(session);
     setStudyVoiceButtonState(session, "idle");
     studyVoiceStatus(session, "Stopped.", false);
     if (studyVoiceAvailable) window.speechSynthesis.cancel();
@@ -1751,6 +1776,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (activeStudyVoice !== session) return;
     activeStudyVoice = null;
     clearStudyVoiceHighlight(session);
+    clearLiveStudyVoiceTargets(session);
     setStudyVoiceButtonState(session, "idle");
     studyVoiceStatus(session, message, isError);
   }
@@ -1897,7 +1923,8 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
     const session = {
-      root: toolbar, questionNumber: questionNumber,
+      root: toolbar, questionElement: questionElement, questionNumber: questionNumber,
+      seekTargets: [],
       rate: Number(toolbar.querySelector(".study-voice-speed").value),
       voice: preferredStudyVoice(), parts: parts,
       nextIndex: Math.max(0, Math.min(startIndex, parts.length - 1)),
@@ -1907,6 +1934,7 @@ document.addEventListener("DOMContentLoaded", function () {
       status: toolbar.querySelector(".study-voice-status")
     };
     activeStudyVoice = session;
+    markLiveStudyVoiceTargets(session);
     setStudyVoiceButtonState(session, "playing");
     studyVoiceStatus(session, "Reading.", false);
     speakNextStudyVoicePart(session);
@@ -2080,6 +2108,99 @@ document.addEventListener("DOMContentLoaded", function () {
     return toolbar;
   }
 
+
+  // The narration text itself acts as the seek surface while audio is playing.
+  // This is delegated per question: it never changes or wraps the note markup.
+  function attachLiveStudyVoiceSeeking(questionElement, toolbar, questionNumber) {
+    let touchPress = null;
+    let suppressClickUntil = 0;
+
+    function currentSession() {
+      const session = activeStudyVoice;
+      return session && session.root === toolbar && !activeStudyVoicePicker
+        ? session : null;
+    }
+
+    function tappedPartElement(session, origin) {
+      const target = origin && origin.nodeType === 3 ? origin.parentElement : origin;
+      if (!target || typeof target.closest !== "function") return null;
+      // Preserve real controls, links, inputs, case-study disclosure and diagram actions.
+      if (target.closest(
+        "a, button, input, textarea, select, summary, label, [contenteditable], " +
+        "[role='button'], .study-voice-toolbar, .question-case-study, .question-image-button"
+      )) return null;
+      let current = target;
+      while (current && current !== questionElement) {
+        if (session.seekTargets.includes(current)) return current;
+        current = current.parentElement;
+      }
+      return null;
+    }
+
+    function seekToTouchOrTap(session, element, event) {
+      if (currentSession() !== session || !element) return;
+      const index = pickedStudyVoicePart(session.parts, element, {
+        type: "click", clientX: event.clientX, clientY: event.clientY
+      });
+      startStudyVoice(questionElement, toolbar, questionNumber, session.parts, index);
+    }
+
+    questionElement.addEventListener("click", function (event) {
+      if (Date.now() < suppressClickUntil || event.defaultPrevented) return;
+      const session = currentSession();
+      if (!session) return;
+      const element = tappedPartElement(session, event.target);
+      if (element) seekToTouchOrTap(session, element, event);
+    });
+
+    // A short finger tap uses click above. A deliberate hold seeks on pointerup,
+    // which remains a direct user interaction for mobile browser audio policies.
+    // Cancel on movement so normal vertical scrolling is never interpreted as seek.
+    questionElement.addEventListener("pointerdown", function (event) {
+      touchPress = null;
+      if (event.pointerType !== "touch" && event.pointerType !== "pen") return;
+      const session = currentSession();
+      if (!session) return;
+      const element = tappedPartElement(session, event.target);
+      if (!element) return;
+      touchPress = {
+        pointerId: event.pointerId, session: session, element: element,
+        x: event.clientX, y: event.clientY, since: Date.now()
+      };
+    });
+    questionElement.addEventListener("pointermove", function (event) {
+      if (!touchPress || event.pointerId !== touchPress.pointerId) return;
+      if (Math.hypot(event.clientX - touchPress.x,
+        event.clientY - touchPress.y) > 12) touchPress = null;
+    });
+    questionElement.addEventListener("pointercancel", function () {
+      touchPress = null;
+    });
+    questionElement.addEventListener("pointerup", function (event) {
+      if (!touchPress || event.pointerId !== touchPress.pointerId) return;
+      const press = touchPress;
+      touchPress = null;
+      if (Date.now() - press.since < 450 ||
+          Math.hypot(event.clientX - press.x, event.clientY - press.y) > 12) return;
+      if (currentSession() !== press.session) return;
+      suppressClickUntil = Date.now() + 400; // Prevent the follow-up synthetic click.
+      if (event.cancelable) event.preventDefault();
+      seekToTouchOrTap(press.session, press.element, event);
+    });
+    questionElement.addEventListener("contextmenu", function (event) {
+      // On some phones the text-selection menu opens before pointerup.
+      if (!touchPress || Date.now() - touchPress.since < 450) return;
+      const press = touchPress;
+      touchPress = null;
+      if (currentSession() !== press.session) return;
+      event.preventDefault();
+      suppressClickUntil = Date.now() + 400;
+      seekToTouchOrTap(press.session, press.element, {
+        clientX: press.x, clientY: press.y
+      });
+    });
+  }
+
   function addStudyVoiceToHeading(questionElement, panel, questionNumber) {
     const heading = panel.querySelector(".study-guide-title, .readable-panel-heading");
     const header = document.createElement("div");
@@ -2090,7 +2211,9 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
       panel.insertBefore(header, panel.firstChild);
     }
-    header.appendChild(createStudyVoiceControls(questionElement, questionNumber));
+    const toolbar = createStudyVoiceControls(questionElement, questionNumber);
+    header.appendChild(toolbar);
+    attachLiveStudyVoiceSeeking(questionElement, toolbar, questionNumber);
   }
 
   window.addEventListener("pagehide", function () { stopStudyVoice(); });
