@@ -1875,7 +1875,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const range = document.createRange();
       range.selectNodeContents(element);
       range.setEnd(node, offset);
-      const chars = range.toString().replace(/\s+/g, " ").trim().length;
+      const chars = range.toString().replace(/\s+/g, " ").length;
       let position = 0;
       for (const index of indexes) {
         const length = parts[index].text.length;
