@@ -3766,3 +3766,8 @@ body.dark-mode:is(.theme-slate,.theme-deep,.theme-black) :is(
 .theme-swatch-slate { background: #101318; }
 .theme-swatch-deep { background: #050608; }
 .theme-swatch-black { background: #000; border-color: #757575; }
+
+@media (max-width: 520px) {
+  #options-modal .theme-choices { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  #options-modal .theme-choice { min-height: 44px; }
+}
