@@ -2201,9 +2201,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Test file references
 const testFiles = [
-  // Approved exams only. Other ICT test*.json files remain in the repository,
-  // but are hidden from both the exam picker and custom-test builder.
+  // Approved INF3708 assessments only. Other legacy ICT test*.json files remain
+  // in the repository but are hidden from the exam picker and custom-test builder.
   "inf3708-oct-nov-2021.json",
+  "test36.json", // INF3708 Assessment 2 (14 June 2026)
 ];
 
 
