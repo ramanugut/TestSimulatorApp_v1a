@@ -892,15 +892,15 @@ document.addEventListener("DOMContentLoaded", function () {
       headerCollapsed = false;
       headerElement.classList.remove("collapsed");
       headerToggleButton.setAttribute("aria-expanded", "true");
-      headerToggleButton.setAttribute("aria-label", "Hide header tools");
-      headerToggleButton.setAttribute("title", "Hide header tools");
+      headerToggleButton.setAttribute("aria-label", "Hide exam controls");
+      headerToggleButton.setAttribute("title", "Hide exam controls");
       return;
     }
 
     headerElement.classList.toggle("collapsed", headerCollapsed);
     const headerToggleLabel = headerCollapsed
-      ? "Show header tools"
-      : "Hide header tools";
+      ? "Show exam controls"
+      : "Hide exam controls";
     headerToggleButton.setAttribute(
       "aria-expanded",
       headerCollapsed ? "false" : "true"
