@@ -24,7 +24,18 @@
         "risk-fearing"
       ],
       "correctAnswer": "risk-neutral",
-      "explanation": "A risk-neutral decision maker considers expected payoff rather than systematically avoiding or seeking risk."
+      "explanation": "Risk is uncertainty about what may happen. A risk-neutral person makes a choice mainly from the expected payoff (the possible outcomes multiplied by their chances), rather than choosing just because an option feels safer or more exciting.\n\nRisk-neutral fits because the person weighs possible gain against possible loss without an automatic preference for or against risk.\n\nFor example: If a fair coin offers a 50% chance to win R100 and a 50% chance to lose R100, its expected payoff is R0; a risk-neutral person focuses on that calculation.\n\nStudent note: Risk-averse means preferring greater certainty; risk-seeking means being drawn to a gamble. Neither means balancing choices using expected payoff.",
+      "study": {
+        "title": "Risk-neutral decisions",
+        "simple": "Risk is uncertainty about what may happen. A risk-neutral person makes a choice mainly from the expected payoff (the possible outcomes multiplied by their chances), rather than choosing just because an option feels safer or more exciting.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "Risk-neutral fits because the person weighs possible gain against possible loss without an automatic preference for or against risk."
+        ],
+        "example": "If a fair coin offers a 50% chance to win R100 and a 50% chance to lose R100, its expected payoff is R0; a risk-neutral person focuses on that calculation.",
+        "pitfall": "Risk-averse means preferring greater certainty; risk-seeking means being drawn to a gamble. Neither means balancing choices using expected payoff.",
+        "remember": "Learn the three attitudes to risk together."
+      }
     },
     {
       "number": "2",
@@ -37,7 +48,18 @@
         "Sigmund Freud"
       ],
       "correctAnswer": "Abraham Maslow",
-      "explanation": "Abraham Maslow developed the hierarchy of needs."
+      "explanation": "Abraham Maslow was a psychologist who studied human motivation. His hierarchy of needs suggests that people have different types of needs, from basic survival and safety to belonging, esteem and personal growth.\n\nThe named theory is Maslow's hierarchy of needs, so Abraham Maslow is the correct person.\n\nFor example: A worker needs safe working conditions and a sense of belonging, but may also want recognition and opportunities to develop.\n\nStudent note: Freud and Jung are linked to other theories of psychology, not authorship of this needs hierarchy.",
+      "study": {
+        "title": "Maslow and human needs",
+        "simple": "Abraham Maslow was a psychologist who studied human motivation. His hierarchy of needs suggests that people have different types of needs, from basic survival and safety to belonging, esteem and personal growth.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "The named theory is Maslow's hierarchy of needs, so Abraham Maslow is the correct person."
+        ],
+        "example": "A worker needs safe working conditions and a sense of belonging, but may also want recognition and opportunities to develop.",
+        "pitfall": "Freud and Jung are linked to other theories of psychology, not authorship of this needs hierarchy.",
+        "remember": "Know the theory's name and what its levels describe."
+      }
     },
     {
       "number": "3",
@@ -50,8 +72,19 @@
         "Calculate the backward pass for each project event."
       ],
       "correctAnswer": "Calculate the backward pass for each project event.",
-      "explanation": "A PERT target-date probability calculation uses variance or standard deviation and a z-score/probability conversion. A backward pass is a schedule calculation, not the probability-conversion step.",
-      "transcriptionNote": "Option c is lightly paraphrased because a floating toolbar obscures the end of the text in the supplied screenshot."
+      "explanation": "PERT means Program Evaluation and Review Technique. It helps estimate uncertain activity times. To estimate the chance of meeting a date, use an expected completion time, uncertainty measured by standard deviation, and a z-score showing how far the target is from the expected time.\n\nA backward pass finds late start and finish times in a network; it is a scheduling step, not the probability calculation being asked about by this EXCEPT question.\n\nFor example: If expected completion is 20 days, the target is 23 days and standard deviation is 3 days, z = (23 - 20) / 3 = 1; then look up its probability.\n\nStudent note: Forward/backward passes calculate schedule times. A z-score and probability table answer 'how likely is a target date?'.",
+      "transcriptionNote": "Option c is lightly paraphrased because a floating toolbar obscures the end of the text in the supplied screenshot.",
+      "study": {
+        "title": "Target-date probability with PERT",
+        "simple": "PERT means Program Evaluation and Review Technique. It helps estimate uncertain activity times. To estimate the chance of meeting a date, use an expected completion time, uncertainty measured by standard deviation, and a z-score showing how far the target is from the expected time.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "A backward pass finds late start and finish times in a network; it is a scheduling step, not the probability calculation being asked about by this EXCEPT question."
+        ],
+        "example": "If expected completion is 20 days, the target is 23 days and standard deviation is 3 days, z = (23 - 20) / 3 = 1; then look up its probability.",
+        "pitfall": "Forward/backward passes calculate schedule times. A z-score and probability table answer 'how likely is a target date?'.",
+        "remember": "When a question says EXCEPT, find the option that does not belong."
+      }
     },
     {
       "number": "4",
@@ -64,7 +97,18 @@
         "promotion"
       ],
       "correctAnswer": "promotion",
-      "explanation": "Promotion moves an employee into a higher organisational position, often with increased pay."
+      "explanation": "A promotion means moving an employee to a higher position, usually with more responsibility, a higher grade and often greater pay. It is one way an organisation can recognise good performance and create career growth.\n\nThe question describes a move up in the organisation with increased salary, which is a promotion.\n\nFor example: A technician becomes team leader, takes on leadership duties and receives an adjusted salary.\n\nStudent note: An assignment gives someone work; expertise is skill; a penalty is a negative consequence. None by itself means moving to a higher role.",
+      "study": {
+        "title": "Employee promotion",
+        "simple": "A promotion means moving an employee to a higher position, usually with more responsibility, a higher grade and often greater pay. It is one way an organisation can recognise good performance and create career growth.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "The question describes a move up in the organisation with increased salary, which is a promotion."
+        ],
+        "example": "A technician becomes team leader, takes on leadership duties and receives an adjusted salary.",
+        "pitfall": "An assignment gives someone work; expertise is skill; a penalty is a negative consequence. None by itself means moving to a higher role.",
+        "remember": "Link 'higher position' and 'higher salary' to promotion."
+      }
     },
     {
       "number": "5",
@@ -77,7 +121,18 @@
         "High-end"
       ],
       "correctAnswer": "Low-end",
-      "explanation": "Low-end project management tools generally suit individuals and small projects."
+      "explanation": "Project management software helps people plan tasks, dates, resources and progress. Low-end tools are simpler products with fewer complex features, often suited to one person or a small team.\n\nA single user managing a small project generally needs basic task planning, not a large enterprise platform.\n\nFor example: A student can use a simple task tracker to list assignments and deadlines.\n\nStudent note: High-end tools usually support many users, linked projects, complex reporting and resource controls; they can be unnecessary for a small task.",
+      "study": {
+        "title": "Low-end project software",
+        "simple": "Project management software helps people plan tasks, dates, resources and progress. Low-end tools are simpler products with fewer complex features, often suited to one person or a small team.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "A single user managing a small project generally needs basic task planning, not a large enterprise platform."
+        ],
+        "example": "A student can use a simple task tracker to list assignments and deadlines.",
+        "pitfall": "High-end tools usually support many users, linked projects, complex reporting and resource controls; they can be unnecessary for a small task.",
+        "remember": "Match the tool to the scale and complexity of the project."
+      }
     },
     {
       "number": "6",
@@ -90,7 +145,28 @@
         "mind-mapping"
       ],
       "correctAnswer": "analogy",
-      "explanation": "The analogy approach adapts a WBS from a comparable past project."
+      "explanation": "WBS stands for Work Breakdown Structure. It is a way of dividing a project into smaller deliverables and manageable pieces of work, often displayed as a hierarchy. An analogy approach starts with the WBS of a similar previous project and adapts it.\n\nThe key phrase is 'uses a similar project's WBS as a starting point': this is analogy, not creating a structure from scratch.\n\nFor example: If a team built a school website last year, it can copy that project's outline (design, content, testing, launch) and change it for a new school website.\n\nStudent note: Top-down starts with the new project's big deliverables; bottom-up groups smaller work items; mind mapping draws connected ideas.",
+      "study": {
+        "title": "Analogy approach to building a WBS",
+        "simple": "WBS stands for Work Breakdown Structure. It is a way of dividing a project into smaller deliverables and manageable pieces of work, often displayed as a hierarchy. An analogy approach starts with the WBS of a similar previous project and adapts it.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "The key phrase is 'uses a similar project's WBS as a starting point': this is analogy, not creating a structure from scratch."
+        ],
+        "example": "If a team built a school website last year, it can copy that project's outline (design, content, testing, launch) and change it for a new school website.",
+        "pitfall": "Top-down starts with the new project's big deliverables; bottom-up groups smaller work items; mind mapping draws connected ideas.",
+        "remember": "Analogy means learn from a comparable past project's structure.",
+        "keyTerms": [
+          {
+            "term": "WBS",
+            "meaning": "Work Breakdown Structure: the project broken into smaller deliverables or work packages."
+          },
+          {
+            "term": "Work package",
+            "meaning": "A manageable piece of work at the lowest planned WBS level."
+          }
+        ]
+      }
     },
     {
       "number": "7",
@@ -103,7 +179,18 @@
         "They can be easily measured."
       ],
       "correctAnswer": "They can be easily measured.",
-      "explanation": "Tangible costs can normally be measured in monetary terms."
+      "explanation": "A tangible cost is a project cost that can be identified and reasonably measured in money. Examples include salaries, purchased equipment, software licences and office rent.\n\n'They can be easily measured' is the intended property because a tangible cost has a monetary amount that can be estimated or recorded.\n\nFor example: If a server costs R20 000, the team can enter that cost directly into the project budget.\n\nStudent note: Goodwill, prestige and public confidence are examples of intangible factors: they can be valuable but are harder to price accurately.",
+      "study": {
+        "title": "Tangible project costs",
+        "simple": "A tangible cost is a project cost that can be identified and reasonably measured in money. Examples include salaries, purchased equipment, software licences and office rent.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "'They can be easily measured' is the intended property because a tangible cost has a monetary amount that can be estimated or recorded."
+        ],
+        "example": "If a server costs R20 000, the team can enter that cost directly into the project budget.",
+        "pitfall": "Goodwill, prestige and public confidence are examples of intangible factors: they can be valuable but are harder to price accurately.",
+        "remember": "Tangible = measurable in money; intangible = less directly measurable."
+      }
     },
     {
       "number": "8",
@@ -116,7 +203,28 @@
         "subdividing project deliverables into smaller pieces"
       ],
       "correctAnswer": "the tendency for project scope to keep getting bigger and bigger",
-      "explanation": "Scope creep is uncontrolled growth in project scope."
+      "explanation": "Project scope describes the work and deliverables the project is expected to produce. Scope creep means extra features or work keep being added without proper review of their effect on time, cost and resources.\n\nThe option about the scope 'getting bigger and bigger' describes uncontrolled expansion.\n\nFor example: A booking app originally needs a booking form; later people add chat, video calling and loyalty rewards without approving extra time or budget.\n\nStudent note: A WBS work package is a small unit of planned work; decomposition is the act of breaking work down. They are not scope creep.",
+      "study": {
+        "title": "Scope creep",
+        "simple": "Project scope describes the work and deliverables the project is expected to produce. Scope creep means extra features or work keep being added without proper review of their effect on time, cost and resources.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "The option about the scope 'getting bigger and bigger' describes uncontrolled expansion."
+        ],
+        "example": "A booking app originally needs a booking form; later people add chat, video calling and loyalty rewards without approving extra time or budget.",
+        "pitfall": "A WBS work package is a small unit of planned work; decomposition is the act of breaking work down. They are not scope creep.",
+        "remember": "Use a formal change process before accepting extra scope.",
+        "keyTerms": [
+          {
+            "term": "Scope",
+            "meaning": "The agreed work and deliverables included in the project."
+          },
+          {
+            "term": "WBS",
+            "meaning": "Work Breakdown Structure: a breakdown of agreed project work."
+          }
+        ]
+      }
     },
     {
       "number": "9",
@@ -129,7 +237,18 @@
         "scope statement"
       ],
       "correctAnswer": "project management plan",
-      "explanation": "The project management plan brings together planning components and guides execution and control."
+      "explanation": "The project management plan is the main document that brings planning together. It explains how the project will be carried out, monitored, controlled and closed, often linking detailed plans for schedule, cost, scope, quality and risk.\n\nBecause the question asks for the document coordinating planning and guiding execution/control, the answer is the project management plan.\n\nFor example: A project manager checks the plan to see the approved schedule, risk approach and procedure for dealing with changes.\n\nStudent note: A business case justifies why to invest; a scope statement describes what is included; a statement of work outlines requested work.",
+      "study": {
+        "title": "The project management plan",
+        "simple": "The project management plan is the main document that brings planning together. It explains how the project will be carried out, monitored, controlled and closed, often linking detailed plans for schedule, cost, scope, quality and risk.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "Because the question asks for the document coordinating planning and guiding execution/control, the answer is the project management plan."
+        ],
+        "example": "A project manager checks the plan to see the approved schedule, risk approach and procedure for dealing with changes.",
+        "pitfall": "A business case justifies why to invest; a scope statement describes what is included; a statement of work outlines requested work.",
+        "remember": "Think 'how we will manage the whole project' = project management plan."
+      }
     },
     {
       "number": "10",
@@ -142,7 +261,18 @@
         "Project"
       ],
       "correctAnswer": "Project",
-      "explanation": "In a projectised structure, project managers generally have the most direct authority."
+      "explanation": "An organisational structure describes how authority and staff are arranged. In a projectised (project-based) structure, people are mainly organised around projects and the project manager normally controls priorities, work and resources directly.\n\nThat gives the project manager more authority than in a functional structure, where department managers generally control staff and budgets.\n\nFor example: In a project company, a dedicated app team reports to its project manager rather than being borrowed part-time from several departments.\n\nStudent note: A matrix structure shares authority between project and functional managers; 'circular' is not the standard answer in this comparison.",
+      "study": {
+        "title": "Projectised organisational structure",
+        "simple": "An organisational structure describes how authority and staff are arranged. In a projectised (project-based) structure, people are mainly organised around projects and the project manager normally controls priorities, work and resources directly.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "That gives the project manager more authority than in a functional structure, where department managers generally control staff and budgets."
+        ],
+        "example": "In a project company, a dedicated app team reports to its project manager rather than being borrowed part-time from several departments.",
+        "pitfall": "A matrix structure shares authority between project and functional managers; 'circular' is not the standard answer in this comparison.",
+        "remember": "Projectised = strongest direct project-manager authority."
+      }
     },
     {
       "number": "11",
@@ -155,7 +285,18 @@
         "An agile approach sets scope goals, but leaves time and cost goals flexible."
       ],
       "correctAnswer": "In the agile method, requirements and solutions evolve through collaboration.",
-      "explanation": "Agile uses collaboration and feedback so requirements and solutions can evolve."
+      "explanation": "Agile is an approach that develops a solution in small cycles using regular feedback. A team works with users, checks what is useful and can revise its understanding of the requirements as the work continues.\n\nThe true statement is that requirements and solutions evolve through collaboration.\n\nFor example: An app team demonstrates an early working booking screen, hears user feedback and changes the next version.\n\nStudent note: A predictive/waterfall approach plans more in advance. Agile does not require every detailed requirement to be frozen at the beginning.",
+      "study": {
+        "title": "How Agile software development works",
+        "simple": "Agile is an approach that develops a solution in small cycles using regular feedback. A team works with users, checks what is useful and can revise its understanding of the requirements as the work continues.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "The true statement is that requirements and solutions evolve through collaboration."
+        ],
+        "example": "An app team demonstrates an early working booking screen, hears user feedback and changes the next version.",
+        "pitfall": "A predictive/waterfall approach plans more in advance. Agile does not require every detailed requirement to be frozen at the beginning.",
+        "remember": "Agile values feedback, collaboration and adapting to change."
+      }
     },
     {
       "number": "12",
@@ -168,7 +309,18 @@
         "Directives"
       ],
       "correctAnswer": "Directives",
-      "explanation": "Directives are externally or managerially imposed requirements."
+      "explanation": "A directive is an instruction or requirement imposed by someone with authority, such as management, a government body or an external regulator. It may cause an organisation to start or change a project.\n\nThe question points to a new requirement that an organisation must respond to, so 'directives' is the intended term.\n\nFor example: A new regulation requiring stronger data protection may direct a company to update its software.\n\nStudent note: A problem is something to fix; an opportunity is a possible benefit; a charter formally authorises a specific project.",
+      "study": {
+        "title": "Project directives",
+        "simple": "A directive is an instruction or requirement imposed by someone with authority, such as management, a government body or an external regulator. It may cause an organisation to start or change a project.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "The question points to a new requirement that an organisation must respond to, so 'directives' is the intended term."
+        ],
+        "example": "A new regulation requiring stronger data protection may direct a company to update its software.",
+        "pitfall": "A problem is something to fix; an opportunity is a possible benefit; a charter formally authorises a specific project.",
+        "remember": "Directive = an instruction or requirement coming from authority."
+      }
     },
     {
       "number": "13",
@@ -181,7 +333,28 @@
         "A combination of approaches is used based on the nature of the work. For example, some deliverables may have a low degree of change and low frequency of delivery, whereas other deliverables have a high degree of change and high frequency of delivery."
       ],
       "correctAnswer": "Deliverables are produced through a series of iterations that add functionality within a set time frame. The deliverable is not complete until after the final iteration. This approach works best when there is a low degree of change and a high frequency of delivery.",
-      "explanation": "An incremental life cycle adds functionality through a succession of increments until the deliverable is complete."
+      "explanation": "SDLC stands for Systems Development Life Cycle: the stages used to create or change a system. In an incremental life cycle, the team delivers functionality in separate additions called increments; each one builds on what came before.\n\nThe correct description says features are added across a series of increments until the full deliverable is complete.\n\nFor example: A student portal might gain login first, course registration next and marks viewing afterwards.\n\nStudent note: Predictive life cycles plan scope early; adaptive/agile life cycles allow more change between cycles; hybrid combines approaches. The supplied answer describes incremental delivery.",
+      "study": {
+        "title": "Incremental system-development life cycle",
+        "simple": "SDLC stands for Systems Development Life Cycle: the stages used to create or change a system. In an incremental life cycle, the team delivers functionality in separate additions called increments; each one builds on what came before.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "The correct description says features are added across a series of increments until the full deliverable is complete."
+        ],
+        "example": "A student portal might gain login first, course registration next and marks viewing afterwards.",
+        "pitfall": "Predictive life cycles plan scope early; adaptive/agile life cycles allow more change between cycles; hybrid combines approaches. The supplied answer describes incremental delivery.",
+        "remember": "Incremental means build the product piece by piece.",
+        "keyTerms": [
+          {
+            "term": "SDLC",
+            "meaning": "Systems Development Life Cycle: the process of planning, building, testing and delivering a system."
+          },
+          {
+            "term": "Increment",
+            "meaning": "An added piece of useful functionality that contributes to the complete product."
+          }
+        ]
+      }
     },
     {
       "number": "14",
@@ -194,7 +367,28 @@
         "project communication management"
       ],
       "correctAnswer": "project stakeholder management",
-      "explanation": "Project stakeholder management was added as a separate knowledge area in the PMBOK framework."
+      "explanation": "A stakeholder is any person or group that can affect, be affected by, or care about a project. Project stakeholder management covers identifying stakeholders, planning their engagement and working with them throughout the project.\n\nIn the PMBOK framework version reflected in this assessment, stakeholder management was identified as an additional separate project-management knowledge area.\n\nFor example: For a new school system, students, lecturers, administrators and management are stakeholders with different needs.\n\nStudent note: Risk, procurement and communication management are other knowledge areas, but they were not the 'new' one in the source's historical question.",
+      "study": {
+        "title": "Stakeholder management as a knowledge area",
+        "simple": "A stakeholder is any person or group that can affect, be affected by, or care about a project. Project stakeholder management covers identifying stakeholders, planning their engagement and working with them throughout the project.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "In the PMBOK framework version reflected in this assessment, stakeholder management was identified as an additional separate project-management knowledge area."
+        ],
+        "example": "For a new school system, students, lecturers, administrators and management are stakeholders with different needs.",
+        "pitfall": "Risk, procurement and communication management are other knowledge areas, but they were not the 'new' one in the source's historical question.",
+        "remember": "Check which edition a textbook refers to when it calls a knowledge area 'new'.",
+        "keyTerms": [
+          {
+            "term": "PMI",
+            "meaning": "Project Management Institute, a professional project-management organisation."
+          },
+          {
+            "term": "PMBOK",
+            "meaning": "Project Management Body of Knowledge, PMI's project-management reference."
+          }
+        ]
+      }
     },
     {
       "number": "15",
@@ -207,7 +401,18 @@
         "setting, monitoring and modifying project objectives"
       ],
       "correctAnswer": "setting, monitoring and modifying project objectives",
-      "explanation": "The steering committee provides strategic direction and oversees project objectives rather than carrying out daily management."
+      "explanation": "A steering committee is a group of senior stakeholders that gives a project strategic direction and oversight. It helps align the work to organisational goals and makes or reviews important decisions.\n\nSetting, monitoring and changing high-level project objectives is an oversight responsibility, so that option fits.\n\nFor example: A committee may decide whether a delayed project should change its objectives or receive further support.\n\nStudent note: The project manager and team handle day-to-day tasks; the committee does not personally run every activity.",
+      "study": {
+        "title": "Project steering committee",
+        "simple": "A steering committee is a group of senior stakeholders that gives a project strategic direction and oversight. It helps align the work to organisational goals and makes or reviews important decisions.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "Setting, monitoring and changing high-level project objectives is an oversight responsibility, so that option fits."
+        ],
+        "example": "A committee may decide whether a delayed project should change its objectives or receive further support.",
+        "pitfall": "The project manager and team handle day-to-day tasks; the committee does not personally run every activity.",
+        "remember": "Steering committee = direction and oversight, not daily administration."
+      }
     },
     {
       "number": "16",
@@ -220,7 +425,18 @@
         "fast tracking"
       ],
       "correctAnswer": "free slack",
-      "explanation": "Free slack (free float) is delay that does not push the early start of a successor."
+      "explanation": "Slack, also called float, is spare time in a project schedule. Free slack is the amount an activity can be delayed without moving the earliest start of any directly following activity.\n\nThe question specifically mentions 'without delaying the early start' of immediate successors, which defines free slack.\n\nFor example: If a task finishes on Day 4 but its next task cannot start until Day 6, it may have 2 days of free slack.\n\nStudent note: Total slack is different: it measures delay allowed without moving the overall project finish. A backward pass is a calculation method, not slack itself.",
+      "study": {
+        "title": "Free slack (free float)",
+        "simple": "Slack, also called float, is spare time in a project schedule. Free slack is the amount an activity can be delayed without moving the earliest start of any directly following activity.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "The question specifically mentions 'without delaying the early start' of immediate successors, which defines free slack."
+        ],
+        "example": "If a task finishes on Day 4 but its next task cannot start until Day 6, it may have 2 days of free slack.",
+        "pitfall": "Total slack is different: it measures delay allowed without moving the overall project finish. A backward pass is a calculation method, not slack itself.",
+        "remember": "Free slack protects the next task; total slack protects the project finish."
+      }
     },
     {
       "number": "21",
@@ -233,7 +449,18 @@
         "variance"
       ],
       "correctAnswer": "benchmarking",
-      "explanation": "Benchmarking compares practices or features with other projects or organisations."
+      "explanation": "Benchmarking is comparing a project's methods or results with those of other projects, products or organisations to find ideas for improvement. It can use internal or external examples.\n\nThe question says practices or characteristics are compared with another project/product, which is benchmarking.\n\nFor example: A university compares its online application process with another university's process to identify quicker steps.\n\nStudent note: A prototype is an early model; decomposition divides work into smaller parts; variance is a difference between planned and actual values.",
+      "study": {
+        "title": "Benchmarking",
+        "simple": "Benchmarking is comparing a project's methods or results with those of other projects, products or organisations to find ideas for improvement. It can use internal or external examples.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "The question says practices or characteristics are compared with another project/product, which is benchmarking."
+        ],
+        "example": "A university compares its online application process with another university's process to identify quicker steps.",
+        "pitfall": "A prototype is an early model; decomposition divides work into smaller parts; variance is a difference between planned and actual values.",
+        "remember": "Benchmarking = compare with another example and learn from it."
+      }
     },
     {
       "number": "22",
@@ -246,7 +473,18 @@
         "resource histogram"
       ],
       "correctAnswer": "resource loading",
-      "explanation": "Resource loading states the resource demand for scheduled periods."
+      "explanation": "A resource is a person, machine or other item needed for project work. Resource loading shows how much of each resource the current schedule needs during particular time periods.\n\nThe question asks for the amount required by an existing schedule, so 'resource loading' is the term.\n\nFor example: A schedule may require two developers in Week 1 and four developers in Week 2; that is resource loading.\n\nStudent note: Resource levelling changes the schedule to resolve overload; a resource histogram is a chart that displays the loading.",
+      "study": {
+        "title": "Resource loading",
+        "simple": "A resource is a person, machine or other item needed for project work. Resource loading shows how much of each resource the current schedule needs during particular time periods.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "The question asks for the amount required by an existing schedule, so 'resource loading' is the term."
+        ],
+        "example": "A schedule may require two developers in Week 1 and four developers in Week 2; that is resource loading.",
+        "pitfall": "Resource levelling changes the schedule to resolve overload; a resource histogram is a chart that displays the loading.",
+        "remember": "Loading tells you demand; levelling tries to fix demand conflicts."
+      }
     },
     {
       "number": "23",
@@ -259,7 +497,18 @@
         "Initiating processes"
       ],
       "correctAnswer": "Planning processes",
-      "explanation": "Planning processes establish the workable approach to meet project needs."
+      "explanation": "Project management is often described in process groups such as initiating, planning, executing, monitoring/controlling and closing. Planning decides the workable way to achieve project goals and address organisational needs.\n\nThe phrase 'devising and maintaining a workable scheme' describes planning processes.\n\nFor example: Before building an app, the team plans deliverables, deadlines, staffing, cost and risks.\n\nStudent note: Initiating authorises the work; executing does it; monitoring and controlling checks progress and deals with differences.",
+      "study": {
+        "title": "Planning process group",
+        "simple": "Project management is often described in process groups such as initiating, planning, executing, monitoring/controlling and closing. Planning decides the workable way to achieve project goals and address organisational needs.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "The phrase 'devising and maintaining a workable scheme' describes planning processes."
+        ],
+        "example": "Before building an app, the team plans deliverables, deadlines, staffing, cost and risks.",
+        "pitfall": "Initiating authorises the work; executing does it; monitoring and controlling checks progress and deals with differences.",
+        "remember": "Planning answers 'what will we do, how, when and with what resources?'"
+      }
     },
     {
       "number": "24",
@@ -272,7 +521,18 @@
         "Training, risk and time"
       ],
       "correctAnswer": "Availability, criticality and prioritization",
-      "explanation": "Resource assignments should account for people's availability, the criticality of the work, and task priorities."
+      "explanation": "Task assignment should take account of availability (who has time), criticality (how much a task matters) and prioritisation (what needs attention first). Together these help the project manager put people where they are needed.\n\nThese three factors appear together in the correct option and directly concern allocation decisions.\n\nFor example: If a payment-integration task is urgent and critical, assign someone available with suitable skills before a less urgent cosmetic change.\n\nStudent note: Training and team building are useful resource-management activities, but they do not replace checking availability, criticality and priorities for each task.",
+      "study": {
+        "title": "Assigning people to project tasks",
+        "simple": "Task assignment should take account of availability (who has time), criticality (how much a task matters) and prioritisation (what needs attention first). Together these help the project manager put people where they are needed.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "These three factors appear together in the correct option and directly concern allocation decisions."
+        ],
+        "example": "If a payment-integration task is urgent and critical, assign someone available with suitable skills before a less urgent cosmetic change.",
+        "pitfall": "Training and team building are useful resource-management activities, but they do not replace checking availability, criticality and priorities for each task.",
+        "remember": "Always check time available and task importance before assigning work."
+      }
     },
     {
       "number": "25",
@@ -285,7 +545,24 @@
         "Gantt chart"
       ],
       "correctAnswer": "requirements traceability matrix",
-      "explanation": "A requirements traceability matrix tracks requirements and their attributes throughout delivery."
+      "explanation": "A requirement is a need that a project solution must satisfy. A requirements traceability matrix (RTM) is a table that records each requirement and tracks it from its source through design, testing and delivery.\n\nA table listing requirements, attributes and their status so none is forgotten is an RTM.\n\nFor example: An entry could show requirement R01 'users can reset passwords', its owner, related test and whether it has passed.\n\nStudent note: A Gantt chart shows dates; a state-transition table shows system behaviour; neither tracks all requirements end to end.",
+      "study": {
+        "title": "Requirements traceability matrix",
+        "simple": "A requirement is a need that a project solution must satisfy. A requirements traceability matrix (RTM) is a table that records each requirement and tracks it from its source through design, testing and delivery.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "A table listing requirements, attributes and their status so none is forgotten is an RTM."
+        ],
+        "example": "An entry could show requirement R01 'users can reset passwords', its owner, related test and whether it has passed.",
+        "pitfall": "A Gantt chart shows dates; a state-transition table shows system behaviour; neither tracks all requirements end to end.",
+        "remember": "Traceability means being able to follow a requirement from start to finish.",
+        "keyTerms": [
+          {
+            "term": "RTM",
+            "meaning": "Requirements Traceability Matrix: a table linking each requirement to its source, status and evidence it has been addressed."
+          }
+        ]
+      }
     },
     {
       "number": "26",
@@ -298,7 +575,28 @@
         "Controlling scope"
       ],
       "correctAnswer": "Defining scope",
-      "explanation": "Define Scope develops and progressively elaborates the scope statement from the relevant inputs."
+      "explanation": "To define scope is to write a clearer description of the deliverables, boundaries and work that the project will include. The team uses the charter and requirements, then updates the scope statement as appropriate changes are approved.\n\nReviewing project information to create and refine a scope statement describes the Define Scope process.\n\nFor example: For a booking app, the statement might include user registration and appointment booking, and exclude payments in its first release.\n\nStudent note: Validate Scope is accepting completed deliverables; Control Scope handles changes; Create WBS breaks agreed scope into smaller parts.",
+      "study": {
+        "title": "Defining project scope",
+        "simple": "To define scope is to write a clearer description of the deliverables, boundaries and work that the project will include. The team uses the charter and requirements, then updates the scope statement as appropriate changes are approved.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "Reviewing project information to create and refine a scope statement describes the Define Scope process."
+        ],
+        "example": "For a booking app, the statement might include user registration and appointment booking, and exclude payments in its first release.",
+        "pitfall": "Validate Scope is accepting completed deliverables; Control Scope handles changes; Create WBS breaks agreed scope into smaller parts.",
+        "remember": "Define Scope states what the project will and will not deliver.",
+        "keyTerms": [
+          {
+            "term": "Project charter",
+            "meaning": "The document that formally authorises a project at a high level."
+          },
+          {
+            "term": "WBS",
+            "meaning": "Work Breakdown Structure: a breakdown of the project's deliverables."
+          }
+        ]
+      }
     },
     {
       "number": "27",
@@ -311,7 +609,28 @@
         "early finish date"
       ],
       "correctAnswer": "late start date",
-      "explanation": "Late start is the latest activity start that does not delay completion."
+      "explanation": "Late start (LS) is the latest point at which an activity may begin without delaying the planned project completion. It comes from working backwards through the activity network.\n\nThe question explicitly asks for the latest possible start, so the answer is late start date.\n\nFor example: If a 3-day task must be finished by Day 10, its late start is Day 7 under the usual continuous time convention.\n\nStudent note: Early start means the soonest a task can begin; late finish is the latest it can end.",
+      "study": {
+        "title": "Late start in a schedule",
+        "simple": "Late start (LS) is the latest point at which an activity may begin without delaying the planned project completion. It comes from working backwards through the activity network.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "The question explicitly asks for the latest possible start, so the answer is late start date."
+        ],
+        "example": "If a 3-day task must be finished by Day 10, its late start is Day 7 under the usual continuous time convention.",
+        "pitfall": "Early start means the soonest a task can begin; late finish is the latest it can end.",
+        "remember": "Remember LS = LF minus activity duration.",
+        "keyTerms": [
+          {
+            "term": "LS",
+            "meaning": "Late Start."
+          },
+          {
+            "term": "LF",
+            "meaning": "Late Finish."
+          }
+        ]
+      }
     },
     {
       "number": "28",
@@ -324,7 +643,18 @@
         "compromise"
       ],
       "correctAnswer": "compromise",
-      "explanation": "Compromising requires both sides to give something to reach an agreement."
+      "explanation": "A compromise is a give-and-take way of resolving disagreement: each side accepts less than everything it first wanted so they can reach an acceptable agreement.\n\n'Give-and-take' is the direct clue for compromise.\n\nFor example: One team asks for five days of testing, another wants one day, and they agree on three days with a narrower test plan.\n\nStudent note: Forcing imposes one side's view; smoothing focuses on shared interests; confrontation/problem-solving investigates the issue together.",
+      "study": {
+        "title": "Compromising in conflict",
+        "simple": "A compromise is a give-and-take way of resolving disagreement: each side accepts less than everything it first wanted so they can reach an acceptable agreement.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "'Give-and-take' is the direct clue for compromise."
+        ],
+        "example": "One team asks for five days of testing, another wants one day, and they agree on three days with a narrower test plan.",
+        "pitfall": "Forcing imposes one side's view; smoothing focuses on shared interests; confrontation/problem-solving investigates the issue together.",
+        "remember": "Compromise means each party gives something up."
+      }
     },
     {
       "number": "29",
@@ -337,7 +667,32 @@
         "RACI"
       ],
       "correctAnswer": "TAT",
-      "explanation": "The Thematic Apperception Test (TAT) uses stories about ambiguous images."
+      "explanation": "TAT means Thematic Apperception Test. It is a psychological technique where a person is shown an unclear picture and asked to invent a story; the story may be used to explore their themes or motivations.\n\nThe test described in the question—telling spontaneous stories about ambiguous pictures—is TAT.\n\nFor example: Someone sees a picture of a person at a desk and describes what happened before, what the character feels and what comes next.\n\nStudent note: MBTI is a personality-type questionnaire; RACI is a responsibility chart, not a picture-story test.",
+      "study": {
+        "title": "Thematic Apperception Test (TAT)",
+        "simple": "TAT means Thematic Apperception Test. It is a psychological technique where a person is shown an unclear picture and asked to invent a story; the story may be used to explore their themes or motivations.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "The test described in the question—telling spontaneous stories about ambiguous pictures—is TAT."
+        ],
+        "example": "Someone sees a picture of a person at a desk and describes what happened before, what the character feels and what comes next.",
+        "pitfall": "MBTI is a personality-type questionnaire; RACI is a responsibility chart, not a picture-story test.",
+        "remember": "Remember 'TAT = tell a story about a picture'.",
+        "keyTerms": [
+          {
+            "term": "TAT",
+            "meaning": "Thematic Apperception Test: a picture-based story task."
+          },
+          {
+            "term": "MBTI",
+            "meaning": "Myers–Briggs Type Indicator, a personality questionnaire."
+          },
+          {
+            "term": "RACI",
+            "meaning": "Responsible, Accountable, Consulted and Informed: a roles chart."
+          }
+        ]
+      }
     },
     {
       "number": "30",
@@ -350,7 +705,28 @@
         "waterfall life cycle"
       ],
       "correctAnswer": "RAD life cycle",
-      "explanation": "Rapid Application Development (RAD) combines prototypes with techniques and tools for accelerated development."
+      "explanation": "RAD means Rapid Application Development. It speeds up system building using quick prototypes, frequent user involvement and tools that help teams generate or refine software.\n\nThe question names evolving prototypes, joint planning/design and computer-aided tools, a combination associated with RAD.\n\nFor example: A team creates a working registration-screen prototype, reviews it with users and quickly revises it rather than waiting for an entire system to be finished.\n\nStudent note: Waterfall follows a more planned sequence; a spiral approach puts repeated attention on risk; 'prototyping' alone is only part of this detailed RAD description.",
+      "study": {
+        "title": "Rapid Application Development (RAD)",
+        "simple": "RAD means Rapid Application Development. It speeds up system building using quick prototypes, frequent user involvement and tools that help teams generate or refine software.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "The question names evolving prototypes, joint planning/design and computer-aided tools, a combination associated with RAD."
+        ],
+        "example": "A team creates a working registration-screen prototype, reviews it with users and quickly revises it rather than waiting for an entire system to be finished.",
+        "pitfall": "Waterfall follows a more planned sequence; a spiral approach puts repeated attention on risk; 'prototyping' alone is only part of this detailed RAD description.",
+        "remember": "In RAD, rapid prototypes and close user input drive development.",
+        "keyTerms": [
+          {
+            "term": "RAD",
+            "meaning": "Rapid Application Development."
+          },
+          {
+            "term": "Prototype",
+            "meaning": "An early working model used to test ideas and gather feedback."
+          }
+        ]
+      }
     },
     {
       "number": "31",
@@ -363,7 +739,28 @@
         "free float"
       ],
       "correctAnswer": "total slack",
-      "explanation": "Total slack is the amount of allowable delay before the overall planned finish is affected."
+      "explanation": "Total slack is the amount an activity can be delayed from its earliest schedule position without changing the planned finish of the whole project.\n\nBecause the question is about protecting the project finish—not only the immediate next activity—the answer is total slack.\n\nFor example: If a task's early start is Day 2 and its late start is Day 5, total slack is 3 days.\n\nStudent note: Free float protects the early start of successor tasks; total float protects final project completion.",
+      "study": {
+        "title": "Total slack (total float)",
+        "simple": "Total slack is the amount an activity can be delayed from its earliest schedule position without changing the planned finish of the whole project.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "Because the question is about protecting the project finish—not only the immediate next activity—the answer is total slack."
+        ],
+        "example": "If a task's early start is Day 2 and its late start is Day 5, total slack is 3 days.",
+        "pitfall": "Free float protects the early start of successor tasks; total float protects final project completion.",
+        "remember": "Total slack = LS - ES, or LF - EF.",
+        "keyTerms": [
+          {
+            "term": "ES / EF",
+            "meaning": "Early Start / Early Finish."
+          },
+          {
+            "term": "LS / LF",
+            "meaning": "Late Start / Late Finish."
+          }
+        ]
+      }
     },
     {
       "number": "32",
@@ -376,7 +773,28 @@
         "mind mapping"
       ],
       "correctAnswer": "top-down",
-      "explanation": "Top-down decomposition begins with large deliverables and divides them into smaller parts."
+      "explanation": "A Work Breakdown Structure (WBS) divides a project into smaller deliverables or work packages. The top-down method begins with the whole project or large deliverables and repeatedly splits them into more detailed pieces.\n\nStarting with the largest items and breaking them into subordinate items is the definition of top-down.\n\nFor example: For a website: website → design and development → pages and features → individual work packages.\n\nStudent note: Bottom-up begins with detailed items and groups them; analogy adapts a previous project's WBS; mind mapping starts from linked ideas.",
+      "study": {
+        "title": "Top-down WBS construction",
+        "simple": "A Work Breakdown Structure (WBS) divides a project into smaller deliverables or work packages. The top-down method begins with the whole project or large deliverables and repeatedly splits them into more detailed pieces.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "Starting with the largest items and breaking them into subordinate items is the definition of top-down."
+        ],
+        "example": "For a website: website → design and development → pages and features → individual work packages.",
+        "pitfall": "Bottom-up begins with detailed items and groups them; analogy adapts a previous project's WBS; mind mapping starts from linked ideas.",
+        "remember": "Top-down goes from big to small.",
+        "keyTerms": [
+          {
+            "term": "WBS",
+            "meaning": "Work Breakdown Structure: a hierarchy of project deliverables."
+          },
+          {
+            "term": "Work package",
+            "meaning": "A manageable lower-level unit in the WBS."
+          }
+        ]
+      }
     },
     {
       "number": "33",
@@ -389,7 +807,18 @@
         "resource leveling"
       ],
       "correctAnswer": "resource leveling",
-      "explanation": "Resource leveling may delay tasks to resolve resource over-allocation."
+      "explanation": "Resource levelling is a scheduling technique used when a person or other resource is required by too many activities at the same time. The manager moves the timing of tasks to make demand realistic.\n\nThe clue 'resolving resource conflicts by delaying tasks' describes resource levelling.\n\nFor example: If one tester is assigned two full-time tasks in the same week, one task may be shifted into the following week.\n\nStudent note: Resource loading shows required resources; allocation assigns them; a histogram displays demand. Levelling changes dates to remove overload.",
+      "study": {
+        "title": "Resource levelling",
+        "simple": "Resource levelling is a scheduling technique used when a person or other resource is required by too many activities at the same time. The manager moves the timing of tasks to make demand realistic.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "The clue 'resolving resource conflicts by delaying tasks' describes resource levelling."
+        ],
+        "example": "If one tester is assigned two full-time tasks in the same week, one task may be shifted into the following week.",
+        "pitfall": "Resource loading shows required resources; allocation assigns them; a histogram displays demand. Levelling changes dates to remove overload.",
+        "remember": "Levelling can increase the project duration, so recheck the finish date."
+      }
     },
     {
       "number": "34",
@@ -402,7 +831,18 @@
         "When the net costs are lower than the cumulative benefits"
       ],
       "correctAnswer": "When the net cumulative benefits equal the net cumulative costs",
-      "explanation": "The payback point is reached when cumulative benefits recover cumulative costs (net cumulative benefit is zero). The source option is worded awkwardly; equality is the intended concept."
+      "explanation": "Payback is reached when a project's accumulated cash benefits have recovered its accumulated costs. At that point the remaining unrecovered balance is zero.\n\nThe correct option describes cumulative benefits becoming equal to cumulative costs.\n\nFor example: If an investment costs R100 000 and accumulated benefits reach R100 000 in Year 3, payback has occurred by then.\n\nStudent note: Payback is not when benefits double costs or when profit equals one rand. It is the recovery/break-even point.",
+      "study": {
+        "title": "The payback point",
+        "simple": "Payback is reached when a project's accumulated cash benefits have recovered its accumulated costs. At that point the remaining unrecovered balance is zero.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "The correct option describes cumulative benefits becoming equal to cumulative costs."
+        ],
+        "example": "If an investment costs R100 000 and accumulated benefits reach R100 000 in Year 3, payback has occurred by then.",
+        "pitfall": "Payback is not when benefits double costs or when profit equals one rand. It is the recovery/break-even point.",
+        "remember": "'When do we get the initial money back?' is the payback question."
+      }
     },
     {
       "number": "35",
@@ -415,7 +855,28 @@
         "defining activities"
       ],
       "correctAnswer": "defining activities",
-      "explanation": "Define Activities creates the activity list, activity attributes and milestone list."
+      "explanation": "In schedule management, an activity is a specific piece of work that takes time. Define Activities turns the planned project deliverables into a practical list of tasks with details and important checkpoints called milestones.\n\nThe named outputs—activity list, activity attributes and milestone list—come from Define Activities.\n\nFor example: For a mobile app, activities include designing login, building the API and testing registration; 'app approved for release' can be a milestone.\n\nStudent note: Sequencing activities orders the tasks; estimating duration decides how long they may take; defining activities lists what must happen.",
+      "study": {
+        "title": "Define Activities process",
+        "simple": "In schedule management, an activity is a specific piece of work that takes time. Define Activities turns the planned project deliverables into a practical list of tasks with details and important checkpoints called milestones.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "The named outputs—activity list, activity attributes and milestone list—come from Define Activities."
+        ],
+        "example": "For a mobile app, activities include designing login, building the API and testing registration; 'app approved for release' can be a milestone.",
+        "pitfall": "Sequencing activities orders the tasks; estimating duration decides how long they may take; defining activities lists what must happen.",
+        "remember": "Define first, then sequence and estimate.",
+        "keyTerms": [
+          {
+            "term": "Activity attributes",
+            "meaning": "Extra information about tasks, such as identifiers, assumptions and dependencies."
+          },
+          {
+            "term": "Milestone",
+            "meaning": "An important project event, typically with zero duration."
+          }
+        ]
+      }
     },
     {
       "number": "36",
@@ -428,7 +889,18 @@
         "Project scope management"
       ],
       "correctAnswer": "Project scope management",
-      "explanation": "Project scope management includes defining and controlling the required project work."
+      "explanation": "Project scope management is the work of deciding and controlling everything a project must deliver, while also making clear what is outside the project. It aims to complete all required work and avoid unapproved extras.\n\nDefining and managing all work needed for successful completion is the role of scope management.\n\nFor example: A course-registration app may include registration and marks viewing but exclude hostel bookings from its agreed scope.\n\nStudent note: Cost management focuses on money, resource management on people/materials and time management on the schedule.",
+      "study": {
+        "title": "Project scope management",
+        "simple": "Project scope management is the work of deciding and controlling everything a project must deliver, while also making clear what is outside the project. It aims to complete all required work and avoid unapproved extras.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "Defining and managing all work needed for successful completion is the role of scope management."
+        ],
+        "example": "A course-registration app may include registration and marks viewing but exclude hostel bookings from its agreed scope.",
+        "pitfall": "Cost management focuses on money, resource management on people/materials and time management on the schedule.",
+        "remember": "Scope answers 'what work belongs in this project?'"
+      }
     },
     {
       "number": "37",
@@ -441,7 +913,18 @@
         "estimating activity duration"
       ],
       "correctAnswer": "determining dependencies",
-      "explanation": "Sequence Activities identifies and documents dependencies after activities are defined."
+      "explanation": "A dependency means one task relies on another task or event. After identifying the activities, the project team establishes their relationships so the order of work is realistic.\n\nThe next step is determining dependencies through the Sequence Activities process.\n\nFor example: The 'test login' task depends on login code being ready; those tasks must appear in the right order on the network.\n\nStudent note: Planning schedule management happens earlier; estimating durations is related but does not replace finding the order of tasks.",
+      "study": {
+        "title": "Sequence activities and dependencies",
+        "simple": "A dependency means one task relies on another task or event. After identifying the activities, the project team establishes their relationships so the order of work is realistic.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "The next step is determining dependencies through the Sequence Activities process."
+        ],
+        "example": "The 'test login' task depends on login code being ready; those tasks must appear in the right order on the network.",
+        "pitfall": "Planning schedule management happens earlier; estimating durations is related but does not replace finding the order of tasks.",
+        "remember": "Define activities → find dependencies/sequence them → estimate durations."
+      }
     },
     {
       "number": "38",
@@ -454,7 +937,18 @@
         "physiological"
       ],
       "correctAnswer": "growth",
-      "explanation": "Self-actualisation, a growth need, is at the top of the familiar hierarchy."
+      "explanation": "Maslow's hierarchy groups human needs from basic survival and safety through relationships and esteem to self-actualisation. Self-actualisation concerns developing one's potential and is often described as a growth need.\n\nAmong the options, 'growth' points to the top of the traditional hierarchy.\n\nFor example: A person may seek opportunities to master a craft or create something meaningful after important basic needs are met.\n\nStudent note: Physiological and safety needs are lower-level needs. 'Deficiency' describes a class of needs, not the top level.",
+      "study": {
+        "title": "Growth needs in Maslow's hierarchy",
+        "simple": "Maslow's hierarchy groups human needs from basic survival and safety through relationships and esteem to self-actualisation. Self-actualisation concerns developing one's potential and is often described as a growth need.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "Among the options, 'growth' points to the top of the traditional hierarchy."
+        ],
+        "example": "A person may seek opportunities to master a craft or create something meaningful after important basic needs are met.",
+        "pitfall": "Physiological and safety needs are lower-level needs. 'Deficiency' describes a class of needs, not the top level.",
+        "remember": "Top of the familiar hierarchy = self-actualisation, a growth need."
+      }
     },
     {
       "number": "39",
@@ -467,7 +961,18 @@
         "high-end"
       ],
       "correctAnswer": "high-end",
-      "explanation": "High-end project management tools are designed for complex enterprise-level needs."
+      "explanation": "High-end project-management software supports large organisations with multiple linked projects, advanced scheduling, resource use, permissions and reporting. Enterprise means organisation-wide.\n\nSophisticated and complex enterprise features point to the high-end category.\n\nFor example: A company coordinating many departments and dozens of projects may need central portfolio reports and shared resource planning.\n\nStudent note: Low-end tools fit smaller individual projects; midrange tools generally sit between basic and enterprise-level features.",
+      "study": {
+        "title": "High-end project software",
+        "simple": "High-end project-management software supports large organisations with multiple linked projects, advanced scheduling, resource use, permissions and reporting. Enterprise means organisation-wide.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "Sophisticated and complex enterprise features point to the high-end category."
+        ],
+        "example": "A company coordinating many departments and dozens of projects may need central portfolio reports and shared resource planning.",
+        "pitfall": "Low-end tools fit smaller individual projects; midrange tools generally sit between basic and enterprise-level features.",
+        "remember": "Choose software based on the project portfolio's scale, not just its price."
+      }
     },
     {
       "number": "40",
@@ -480,7 +985,18 @@
         "risk transference"
       ],
       "correctAnswer": "risk transference",
-      "explanation": "Risk transfer shifts the financial consequence or responsibility to a third party, such as an insurer."
+      "explanation": "A project risk is an uncertain event that could affect objectives. Risk transference means arranging for a third party to bear some financial consequences or management responsibility, often through insurance or a contract.\n\nThe wording 'shifting consequence and responsibility to a third party' directly defines risk transfer.\n\nFor example: A contractor takes responsibility under a warranty, or a company buys insurance against specified losses.\n\nStudent note: Avoidance changes plans to remove a threat; mitigation reduces likelihood/impact; acceptance acknowledges it without transferring it.",
+      "study": {
+        "title": "Risk transference",
+        "simple": "A project risk is an uncertain event that could affect objectives. Risk transference means arranging for a third party to bear some financial consequences or management responsibility, often through insurance or a contract.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "The wording 'shifting consequence and responsibility to a third party' directly defines risk transfer."
+        ],
+        "example": "A contractor takes responsibility under a warranty, or a company buys insurance against specified losses.",
+        "pitfall": "Avoidance changes plans to remove a threat; mitigation reduces likelihood/impact; acceptance acknowledges it without transferring it.",
+        "remember": "Transfer does not mean the risk magically disappears; responsibilities change."
+      }
     },
     {
       "number": "41",
@@ -493,7 +1009,18 @@
         "Widely used software is a common target for cyberattacks, making it potentially vulnerable if not regularly patched."
       ],
       "correctAnswer": "Often tested extensively by a wide user base, ensuring stability and reducing the risk of critical bugs",
-      "explanation": "Off-the-shelf software may benefit from extensive testing across a larger user base."
+      "explanation": "Off-the-shelf software is a ready-made product sold to many customers instead of being built only for one organisation. Broad use can mean bugs have been found and corrected through extensive testing and real-world feedback.\n\nThe option about large-user-base testing and greater stability is an advantage; the other listed answers describe costs, supplier dependence or security risks.\n\nFor example: A widely used payroll package may have already dealt with common calculation and reporting problems that a new custom solution must discover.\n\nStudent note: Ready-made software is not automatically bug-free or secure; organisations still need updates, configuration and checks.",
+      "study": {
+        "title": "Off-the-shelf software benefits",
+        "simple": "Off-the-shelf software is a ready-made product sold to many customers instead of being built only for one organisation. Broad use can mean bugs have been found and corrected through extensive testing and real-world feedback.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "The option about large-user-base testing and greater stability is an advantage; the other listed answers describe costs, supplier dependence or security risks."
+        ],
+        "example": "A widely used payroll package may have already dealt with common calculation and reporting problems that a new custom solution must discover.",
+        "pitfall": "Ready-made software is not automatically bug-free or secure; organisations still need updates, configuration and checks.",
+        "remember": "In this question, separate a benefit from the risks and ongoing costs."
+      }
     },
     {
       "number": "42",
@@ -506,7 +1033,28 @@
         "planning risk response"
       ],
       "correctAnswer": "identifying risks",
-      "explanation": "Identify Risks creates or updates the risk register and risk report."
+      "explanation": "A risk is something uncertain that might affect the project positively or negatively. Identifying risks means gathering and documenting what might happen, where it may come from and what consequences may follow.\n\nThis process produces the risk register and risk report, and may update other project documents.\n\nFor example: A team records 'third-party API may become unavailable', its possible effect and the person watching it.\n\nStudent note: Planning risk management decides how to handle risk work; planning responses selects actions; monitoring risks tracks them over time.",
+      "study": {
+        "title": "Identify Risks process",
+        "simple": "A risk is something uncertain that might affect the project positively or negatively. Identifying risks means gathering and documenting what might happen, where it may come from and what consequences may follow.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "This process produces the risk register and risk report, and may update other project documents."
+        ],
+        "example": "A team records 'third-party API may become unavailable', its possible effect and the person watching it.",
+        "pitfall": "Planning risk management decides how to handle risk work; planning responses selects actions; monitoring risks tracks them over time.",
+        "remember": "Risk register = organised record of identified risks.",
+        "keyTerms": [
+          {
+            "term": "Risk register",
+            "meaning": "A list of identified risks and useful details about each one."
+          },
+          {
+            "term": "Risk report",
+            "meaning": "A wider view of the project's overall risk exposure."
+          }
+        ]
+      }
     },
     {
       "number": "43",
@@ -519,7 +1067,18 @@
         "definitive"
       ],
       "correctAnswer": "definitive",
-      "explanation": "Definitive estimates are the detailed estimates typically used for purchasing and final cost planning."
+      "explanation": "A definitive estimate is a detailed project cost estimate made when enough information is known to support more accurate budgeting and purchasing decisions.\n\nThe clue is needing accurate figures for purchases and final project costs, which fits a definitive estimate.\n\nFor example: After design and supplier quotes are available, the team estimates the actual equipment, labour and service costs before ordering.\n\nStudent note: A rough order of magnitude is an early broad estimate; a budgetary estimate is used for initial funding rather than final detail.",
+      "study": {
+        "title": "Definitive cost estimates",
+        "simple": "A definitive estimate is a detailed project cost estimate made when enough information is known to support more accurate budgeting and purchasing decisions.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "The clue is needing accurate figures for purchases and final project costs, which fits a definitive estimate."
+        ],
+        "example": "After design and supplier quotes are available, the team estimates the actual equipment, labour and service costs before ordering.",
+        "pitfall": "A rough order of magnitude is an early broad estimate; a budgetary estimate is used for initial funding rather than final detail.",
+        "remember": "Estimates get more precise as project information improves."
+      }
     },
     {
       "number": "44",
@@ -532,7 +1091,18 @@
         "Frederick Herzberg"
       ],
       "correctAnswer": "Douglas McGregor",
-      "explanation": "Douglas McGregor formulated Theory X and Theory Y."
+      "explanation": "Douglas McGregor proposed Theory X and Theory Y as contrasting assumptions managers may hold about workers. Theory X assumes people need close control; Theory Y assumes people can be self-directed and take responsibility under the right conditions.\n\nMcGregor is the theorist named in this question.\n\nFor example: A Theory X manager may closely supervise every task; a Theory Y manager may give staff ownership of agreed goals.\n\nStudent note: Maslow is linked to the hierarchy of needs; Herzberg to motivation/hygiene factors; McClelland to acquired needs.",
+      "study": {
+        "title": "Douglas McGregor: Theory X and Theory Y",
+        "simple": "Douglas McGregor proposed Theory X and Theory Y as contrasting assumptions managers may hold about workers. Theory X assumes people need close control; Theory Y assumes people can be self-directed and take responsibility under the right conditions.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "McGregor is the theorist named in this question."
+        ],
+        "example": "A Theory X manager may closely supervise every task; a Theory Y manager may give staff ownership of agreed goals.",
+        "pitfall": "Maslow is linked to the hierarchy of needs; Herzberg to motivation/hygiene factors; McClelland to acquired needs.",
+        "remember": "McGregor = X and Y; Maslow = hierarchy."
+      }
     },
     {
       "number": "45",
@@ -545,7 +1115,18 @@
         "Executing"
       ],
       "correctAnswer": "Initiating",
-      "explanation": "Initiating processes formally define and authorise projects or phases."
+      "explanation": "Initiating is the project-management process group that formally starts a new project or phase. It clarifies the broad purpose, gains authority to proceed and identifies important stakeholders.\n\n'Defining and authorizing a project or project phase' is the wording used for initiating.\n\nFor example: Management approves a project charter before detailed design and implementation begin.\n\nStudent note: Planning works out how to deliver; executing carries out work; monitoring and controlling checks results against the plan.",
+      "study": {
+        "title": "Initiating process group",
+        "simple": "Initiating is the project-management process group that formally starts a new project or phase. It clarifies the broad purpose, gains authority to proceed and identifies important stakeholders.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "'Defining and authorizing a project or project phase' is the wording used for initiating."
+        ],
+        "example": "Management approves a project charter before detailed design and implementation begin.",
+        "pitfall": "Planning works out how to deliver; executing carries out work; monitoring and controlling checks results against the plan.",
+        "remember": "Initiating asks whether the work is formally approved to start."
+      }
     },
     {
       "number": "46",
@@ -558,7 +1139,18 @@
         "business need for the project"
       ],
       "correctAnswer": "business need for the project",
-      "explanation": "The business case explains the underlying business need and rationale for doing the project."
+      "explanation": "A business case explains why an organisation should invest in a proposed project. It describes the problem or opportunity (business need), likely benefits, costs, risks and possible alternatives to help decision makers.\n\nThe business need is an essential part of the business case because it explains the reason for starting the project.\n\nFor example: If appointment bookings are taking too long, the business case explains that problem and why an online booking system may be useful.\n\nStudent note: The charter authorises the project and can record high-level goals; organisational process assets are existing policies or guidelines, not the business need itself.",
+      "study": {
+        "title": "Business case and business need",
+        "simple": "A business case explains why an organisation should invest in a proposed project. It describes the problem or opportunity (business need), likely benefits, costs, risks and possible alternatives to help decision makers.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "The business need is an essential part of the business case because it explains the reason for starting the project."
+        ],
+        "example": "If appointment bookings are taking too long, the business case explains that problem and why an online booking system may be useful.",
+        "pitfall": "The charter authorises the project and can record high-level goals; organisational process assets are existing policies or guidelines, not the business need itself.",
+        "remember": "Business case = why the project is worth considering."
+      }
     },
     {
       "number": "47",
@@ -571,7 +1163,18 @@
         "identifying stakeholders"
       ],
       "correctAnswer": "identifying stakeholders",
-      "explanation": "Identify Stakeholders creates the stakeholder register."
+      "explanation": "A stakeholder is a person or group that can affect or be affected by a project. A stakeholder register records who these people are, their roles, interests and other information useful for engaging with them.\n\nThe Identify Stakeholders process produces the stakeholder register.\n\nFor example: For a campus-app project, entries could include students, lecturers, the IT team and administrators.\n\nStudent note: Managing engagement means working with stakeholders after they are identified; it is not the process that first creates the register.",
+      "study": {
+        "title": "Stakeholder register",
+        "simple": "A stakeholder is a person or group that can affect or be affected by a project. A stakeholder register records who these people are, their roles, interests and other information useful for engaging with them.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "The Identify Stakeholders process produces the stakeholder register."
+        ],
+        "example": "For a campus-app project, entries could include students, lecturers, the IT team and administrators.",
+        "pitfall": "Managing engagement means working with stakeholders after they are identified; it is not the process that first creates the register.",
+        "remember": "Identify the people first, then plan and manage their engagement."
+      }
     },
     {
       "number": "48",
@@ -584,7 +1187,18 @@
         "Execution and monitoring plan"
       ],
       "correctAnswer": "Business case",
-      "explanation": "The business case compares the proposed change with alternatives so managers can decide whether to proceed."
+      "explanation": "A business case is the document that puts together a proposal's expected benefits, costs, risks, disadvantages and comparison with the present situation so leadership can decide whether it is justified.\n\nThat matches the document described in the question, so the correct answer is Business case.\n\nFor example: A university compares keeping a manual registration process with buying or building a digital one, including cost and expected service improvements.\n\nStudent note: The charter gives formal authority after a decision; the project management plan explains how approved work will be managed.",
+      "study": {
+        "title": "Business case for a decision",
+        "simple": "A business case is the document that puts together a proposal's expected benefits, costs, risks, disadvantages and comparison with the present situation so leadership can decide whether it is justified.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "That matches the document described in the question, so the correct answer is Business case."
+        ],
+        "example": "A university compares keeping a manual registration process with buying or building a digital one, including cost and expected service improvements.",
+        "pitfall": "The charter gives formal authority after a decision; the project management plan explains how approved work will be managed.",
+        "remember": "A business case supports the go/no-go investment decision."
+      }
     },
     {
       "number": "49",
@@ -597,7 +1211,24 @@
         "Payback analysis"
       ],
       "correctAnswer": "Gantt charts",
-      "explanation": "Gantt charts display scheduled project activities along a time axis."
+      "explanation": "A Gantt chart is a project schedule displayed as horizontal bars against a time line. Each bar shows when a task is planned to start and finish, making overlaps and progress easier to see.\n\nBecause this is a schedule-management question, a Gantt chart is the matching tool.\n\nFor example: A chart may show design during Weeks 1–2, coding during Weeks 3–5 and testing during Week 6.\n\nStudent note: An impact matrix compares effects or priorities; a fishbone diagram explores causes; payback analysis is financial.",
+      "study": {
+        "title": "Gantt chart",
+        "simple": "A Gantt chart is a project schedule displayed as horizontal bars against a time line. Each bar shows when a task is planned to start and finish, making overlaps and progress easier to see.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "Because this is a schedule-management question, a Gantt chart is the matching tool."
+        ],
+        "example": "A chart may show design during Weeks 1–2, coding during Weeks 3–5 and testing during Week 6.",
+        "pitfall": "An impact matrix compares effects or priorities; a fishbone diagram explores causes; payback analysis is financial.",
+        "remember": "Gantt chart = activities plotted over time.",
+        "keyTerms": [
+          {
+            "term": "Gantt chart",
+            "meaning": "A bar chart of project tasks along a calendar or time axis."
+          }
+        ]
+      }
     },
     {
       "number": "50",
@@ -610,7 +1241,18 @@
         "resource allocation"
       ],
       "correctAnswer": "business area analysis",
-      "explanation": "Business area analysis identifies key business processes and opportunities for IT support."
+      "explanation": "Business area analysis studies an organisation's important business processes and where information technology could support or improve them. A process is a repeated set of activities that helps the organisation deliver a result.\n\nThe question describes identifying processes central to strategy and checking which might benefit most from IT, which is business area analysis.\n\nFor example: A hospital reviews patient booking, billing and records handling before deciding which process to digitise first.\n\nStudent note: IT strategy planning sets broad technology direction; business area analysis examines particular areas and processes in more detail.",
+      "study": {
+        "title": "Business area analysis in IT planning",
+        "simple": "Business area analysis studies an organisation's important business processes and where information technology could support or improve them. A process is a repeated set of activities that helps the organisation deliver a result.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "The question describes identifying processes central to strategy and checking which might benefit most from IT, which is business area analysis."
+        ],
+        "example": "A hospital reviews patient booking, billing and records handling before deciding which process to digitise first.",
+        "pitfall": "IT strategy planning sets broad technology direction; business area analysis examines particular areas and processes in more detail.",
+        "remember": "Start with a business need or process, then decide how technology can help."
+      }
     }
   ]
 }
