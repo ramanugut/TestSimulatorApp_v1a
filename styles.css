@@ -3388,3 +3388,163 @@ body.dark-mode .study-voice-pickable:focus-visible {
 @media (max-width: 390px) {
   #options-modal .theme-choices { grid-template-columns: repeat(2,minmax(0,1fr)); }
 }
+
+
+/* Three deliberately different dark levels: Slate (soft), Deep (balanced),
+   and Black (near-OLED). The same contrast-focused components follow each. */
+body.dark-mode.theme-deep {
+  --bg-color: #0c121b;
+  --surface-color: #182432;
+  --subtle-surface: #233243;
+  --text-color: #eaf2f9;
+  --muted-text: #b9cbdc;
+  --border-color: #3b5267;
+  --accent-color: #70deb6;
+  --accent-strong: #60cda7;
+  --accent-secondary: #84d1f0;
+  --selected-option-color: #70deb6;
+  --shadow: 0 12px 32px rgba(0,0,0,.3);
+  --dark-hover: #30485c;
+  --dark-hover-subtle: #283d4e;
+  --dark-guide: #1d2b3a;
+  --dark-question-border: #3b5267;
+  --dark-choice: #22404a;
+  --dark-correct: #1e3b31;
+  --dark-book: #223b4c;
+  --dark-remember: #1c392f;
+  --dark-answer: #1a382e;
+  --dark-explanation: #1d3546;
+  --dark-input: #273d50;
+  --dark-reading: #2c5060;
+  --dark-table: #182837;
+  --dark-table-head: #2a4256;
+  --dark-table-alt: #1e3040;
+  --dark-table-hover: #2e475b;
+  --dark-table-border: #4d677b;
+}
+body.dark-mode.theme-black {
+  --bg-color: #000000;
+  --surface-color: #10141b;
+  --subtle-surface: #1b222b;
+  --text-color: #f0f3f8;
+  --muted-text: #becbd8;
+  --border-color: #344252;
+  --accent-color: #74e5b9;
+  --accent-strong: #60d5aa;
+  --accent-secondary: #8dd8f7;
+  --selected-option-color: #74e5b9;
+  --shadow: 0 12px 32px rgba(0,0,0,.48);
+  --dark-hover: #2b3d4b;
+  --dark-hover-subtle: #22333f;
+  --dark-guide: #141c26;
+  --dark-question-border: #344252;
+  --dark-choice: #19373b;
+  --dark-correct: #153226;
+  --dark-book: #192d3b;
+  --dark-remember: #142d24;
+  --dark-answer: #142d24;
+  --dark-explanation: #192c3b;
+  --dark-input: #1e2e3c;
+  --dark-reading: #294b58;
+  --dark-table: #141c25;
+  --dark-table-head: #253646;
+  --dark-table-alt: #19232e;
+  --dark-table-hover: #293f50;
+  --dark-table-border: #40576a;
+}
+body.dark-mode:is(.theme-deep,.theme-black) .app-header {
+  background: var(--surface-color); border-bottom-color: var(--border-color);
+}
+body.dark-mode:is(.theme-deep,.theme-black).study-mode-active .question {
+  border-color: var(--dark-question-border); box-shadow: var(--shadow);
+}
+body.dark-mode:is(.theme-deep,.theme-black) .btn-secondary:hover {
+  background: var(--dark-hover); color: var(--text-color);
+}
+body.dark-mode:is(.theme-deep,.theme-black) .btn-tertiary:hover,
+body.dark-mode:is(.theme-deep,.theme-black) .header-options-btn:hover,
+body.dark-mode:is(.theme-deep,.theme-black) .mode-tab-button:not(.active):hover {
+  background: var(--dark-hover-subtle);
+}
+body.dark-mode:is(.theme-deep,.theme-black) .options li.selected {
+  border-color: var(--accent-secondary); background: var(--dark-choice);
+  box-shadow: inset 0 0 0 1px rgba(141,216,247,.1);
+}
+body.dark-mode:is(.theme-deep,.theme-black) .options li.selected label {
+  color: var(--text-color);
+}
+body.dark-mode:is(.theme-deep,.theme-black) .options li.option-correct:not(.selected) {
+  border-color: var(--accent-color); background: var(--dark-correct); box-shadow: none;
+}
+body.dark-mode:is(.theme-deep,.theme-black) .study-guide-card {
+  background: var(--dark-guide); border-color: var(--border-color);
+  border-left-color: var(--accent-secondary); color: var(--text-color);
+}
+body.dark-mode:is(.theme-deep,.theme-black) .study-guide-title,
+body.dark-mode:is(.theme-deep,.theme-black) .study-guide-subtitle,
+body.dark-mode:is(.theme-deep,.theme-black) .study-guide-simple,
+body.dark-mode:is(.theme-deep,.theme-black) .study-guide-steps,
+body.dark-mode:is(.theme-deep,.theme-black) .study-guide-steps li { color: var(--text-color); }
+body.dark-mode:is(.theme-deep,.theme-black) .study-book-reference {
+  background: var(--dark-book); color: #d3edfc;
+}
+body.dark-mode:is(.theme-deep,.theme-black) .study-guide-remember {
+  background: var(--dark-remember); color: #d7f6e6;
+}
+body.dark-mode:is(.theme-deep,.theme-black) .study-correct-answer,
+body.dark-mode:is(.theme-deep,.theme-black) .correct-answer {
+  background: var(--dark-answer); color: #d7f8e7;
+  border-left-color: var(--accent-color);
+}
+body.dark-mode:is(.theme-deep,.theme-black) .study-explanation,
+body.dark-mode:is(.theme-deep,.theme-black) .explanation {
+  background: var(--dark-explanation); color: var(--text-color);
+  border-left-color: var(--accent-secondary);
+}
+body.dark-mode:is(.theme-deep,.theme-black) .readable-panel .rich-content {
+  color: var(--text-color);
+}
+body.dark-mode:is(.theme-deep,.theme-black) .study-voice-toolbar .study-voice-voice,
+body.dark-mode:is(.theme-deep,.theme-black) .study-voice-toolbar .study-voice-speed {
+  background: var(--dark-input); color: var(--text-color); border-color: var(--border-color);
+}
+body.dark-mode:is(.theme-deep,.theme-black) .study-voice-reading,
+body.dark-mode:is(.theme-deep,.theme-black) .study-voice-pickable:hover,
+body.dark-mode:is(.theme-deep,.theme-black) .study-voice-pickable:focus-visible {
+  background: var(--dark-reading); color: var(--text-color); outline-color: var(--accent-secondary);
+}
+body.dark-mode:is(.theme-deep,.theme-black) .question-data-table,
+body.dark-mode:is(.theme-deep,.theme-black) .question-data-table td {
+  background: var(--dark-table); color: var(--text-color);
+}
+body.dark-mode:is(.theme-deep,.theme-black) .question-data-table th {
+  background: var(--dark-table-head); color: var(--text-color);
+}
+body.dark-mode:is(.theme-deep,.theme-black) .question-data-table thead tr:nth-child(2) th {
+  background: var(--dark-guide); color: var(--text-color);
+}
+body.dark-mode:is(.theme-deep,.theme-black) .question-data-table tbody tr:nth-child(even) td {
+  background: var(--dark-table-alt);
+}
+body.dark-mode:is(.theme-deep,.theme-black) .question-data-table tbody tr:hover td {
+  background: var(--dark-table-hover);
+}
+body.dark-mode:is(.theme-deep,.theme-black) .question-data-table th,
+body.dark-mode:is(.theme-deep,.theme-black) .question-data-table td {
+  border-color: var(--dark-table-border);
+}
+body.dark-mode:is(.theme-deep,.theme-black) .code-block,
+body.dark-mode:is(.theme-deep,.theme-black) .inline-code {
+  background: var(--subtle-surface); color: var(--text-color);
+  border-color: var(--border-color);
+}
+body.dark-mode:is(.theme-deep,.theme-black) .flashcard,
+body.dark-mode:is(.theme-deep,.theme-black) .ai-grade-feedback {
+  background: var(--surface-color); color: var(--text-color); border-color: var(--border-color);
+}
+body.dark-mode:is(.theme-deep,.theme-black) .ai-grade-summary,
+body.dark-mode:is(.theme-deep,.theme-black) .ai-grade-list,
+body.dark-mode:is(.theme-deep,.theme-black) .ai-grade-book-alignment,
+body.dark-mode:is(.theme-deep,.theme-black) .ai-grade-list-title {
+  color: var(--text-color);
+}
