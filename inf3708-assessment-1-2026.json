@@ -34,7 +34,17 @@
         ],
         "example": "If a fair coin offers a 50% chance to win R100 and a 50% chance to lose R100, its expected payoff is R0; a risk-neutral person focuses on that calculation.",
         "pitfall": "Risk-averse means preferring greater certainty; risk-seeking means being drawn to a gamble. Neither means balancing choices using expected payoff.",
-        "remember": "Learn the three attitudes to risk together."
+        "remember": "Learn the three attitudes to risk together.",
+        "keyTerms": [
+          {
+            "term": "Risk-neutral",
+            "meaning": "A decision style based on expected outcomes without a built-in preference for taking or avoiding risk."
+          },
+          {
+            "term": "Expected payoff",
+            "meaning": "The sum of possible payoffs after weighting each by its probability."
+          }
+        ]
       }
     },
     {
@@ -58,7 +68,13 @@
         ],
         "example": "A worker needs safe working conditions and a sense of belonging, but may also want recognition and opportunities to develop.",
         "pitfall": "Freud and Jung are linked to other theories of psychology, not authorship of this needs hierarchy.",
-        "remember": "Know the theory's name and what its levels describe."
+        "remember": "Know the theory's name and what its levels describe.",
+        "keyTerms": [
+          {
+            "term": "Hierarchy of needs",
+            "meaning": "Maslow's suggested levels of human motivation, from basic needs to personal growth."
+          }
+        ]
       }
     },
     {
@@ -83,7 +99,17 @@
         ],
         "example": "If expected completion is 20 days, the target is 23 days and standard deviation is 3 days, z = (23 - 20) / 3 = 1; then look up its probability.",
         "pitfall": "Forward/backward passes calculate schedule times. A z-score and probability table answer 'how likely is a target date?'.",
-        "remember": "When a question says EXCEPT, find the option that does not belong."
+        "remember": "When a question says EXCEPT, find the option that does not belong.",
+        "keyTerms": [
+          {
+            "term": "PERT",
+            "meaning": "Program Evaluation and Review Technique; a method for estimating uncertain project activity times."
+          },
+          {
+            "term": "Backward pass",
+            "meaning": "A schedule calculation that works from the planned project end to find activities' latest allowed times."
+          }
+        ]
       }
     },
     {
@@ -107,7 +133,13 @@
         ],
         "example": "A technician becomes team leader, takes on leadership duties and receives an adjusted salary.",
         "pitfall": "An assignment gives someone work; expertise is skill; a penalty is a negative consequence. None by itself means moving to a higher role.",
-        "remember": "Link 'higher position' and 'higher salary' to promotion."
+        "remember": "Link 'higher position' and 'higher salary' to promotion.",
+        "keyTerms": [
+          {
+            "term": "Promotion",
+            "meaning": "Advancement to a higher job position, generally bringing greater responsibility and often increased pay."
+          }
+        ]
       }
     },
     {
@@ -131,7 +163,13 @@
         ],
         "example": "A student can use a simple task tracker to list assignments and deadlines.",
         "pitfall": "High-end tools usually support many users, linked projects, complex reporting and resource controls; they can be unnecessary for a small task.",
-        "remember": "Match the tool to the scale and complexity of the project."
+        "remember": "Match the tool to the scale and complexity of the project.",
+        "keyTerms": [
+          {
+            "term": "Low-end tools",
+            "meaning": "Basic software for tracking small projects and individual task lists without complex enterprise controls."
+          }
+        ]
       }
     },
     {
@@ -189,7 +227,13 @@
         ],
         "example": "If a server costs R20 000, the team can enter that cost directly into the project budget.",
         "pitfall": "Goodwill, prestige and public confidence are examples of intangible factors: they can be valuable but are harder to price accurately.",
-        "remember": "Tangible = measurable in money; intangible = less directly measurable."
+        "remember": "Tangible = measurable in money; intangible = less directly measurable.",
+        "keyTerms": [
+          {
+            "term": "Tangible cost",
+            "meaning": "A project expense that can normally be expressed as a measurable amount of money."
+          }
+        ]
       }
     },
     {
@@ -247,7 +291,13 @@
         ],
         "example": "A project manager checks the plan to see the approved schedule, risk approach and procedure for dealing with changes.",
         "pitfall": "A business case justifies why to invest; a scope statement describes what is included; a statement of work outlines requested work.",
-        "remember": "Think 'how we will manage the whole project' = project management plan."
+        "remember": "Think 'how we will manage the whole project' = project management plan.",
+        "keyTerms": [
+          {
+            "term": "Project management plan",
+            "meaning": "The central plan that joins the different ways a project will be executed, monitored and controlled."
+          }
+        ]
       }
     },
     {
@@ -271,7 +321,13 @@
         ],
         "example": "In a project company, a dedicated app team reports to its project manager rather than being borrowed part-time from several departments.",
         "pitfall": "A matrix structure shares authority between project and functional managers; 'circular' is not the standard answer in this comparison.",
-        "remember": "Projectised = strongest direct project-manager authority."
+        "remember": "Projectised = strongest direct project-manager authority.",
+        "keyTerms": [
+          {
+            "term": "Projectised structure",
+            "meaning": "An organisation arranged around projects, with project managers normally holding direct authority over assigned teams."
+          }
+        ]
       }
     },
     {
@@ -295,7 +351,13 @@
         ],
         "example": "An app team demonstrates an early working booking screen, hears user feedback and changes the next version.",
         "pitfall": "A predictive/waterfall approach plans more in advance. Agile does not require every detailed requirement to be frozen at the beginning.",
-        "remember": "Agile values feedback, collaboration and adapting to change."
+        "remember": "Agile values feedback, collaboration and adapting to change.",
+        "keyTerms": [
+          {
+            "term": "Agile",
+            "meaning": "An approach that builds and reviews a product in short cycles and responds to feedback and change."
+          }
+        ]
       }
     },
     {
@@ -319,7 +381,13 @@
         ],
         "example": "A new regulation requiring stronger data protection may direct a company to update its software.",
         "pitfall": "A problem is something to fix; an opportunity is a possible benefit; a charter formally authorises a specific project.",
-        "remember": "Directive = an instruction or requirement coming from authority."
+        "remember": "Directive = an instruction or requirement coming from authority.",
+        "keyTerms": [
+          {
+            "term": "Directive",
+            "meaning": "An instruction or new requirement imposed by someone with authority."
+          }
+        ]
       }
     },
     {
@@ -411,7 +479,13 @@
         ],
         "example": "A committee may decide whether a delayed project should change its objectives or receive further support.",
         "pitfall": "The project manager and team handle day-to-day tasks; the committee does not personally run every activity.",
-        "remember": "Steering committee = direction and oversight, not daily administration."
+        "remember": "Steering committee = direction and oversight, not daily administration.",
+        "keyTerms": [
+          {
+            "term": "Steering committee",
+            "meaning": "Senior representatives who oversee project direction and high-level decisions."
+          }
+        ]
       }
     },
     {
@@ -435,7 +509,13 @@
         ],
         "example": "If a task finishes on Day 4 but its next task cannot start until Day 6, it may have 2 days of free slack.",
         "pitfall": "Total slack is different: it measures delay allowed without moving the overall project finish. A backward pass is a calculation method, not slack itself.",
-        "remember": "Free slack protects the next task; total slack protects the project finish."
+        "remember": "Free slack protects the next task; total slack protects the project finish.",
+        "keyTerms": [
+          {
+            "term": "Free slack / free float",
+            "meaning": "Time an activity can be delayed without delaying the early start of any immediately following activity."
+          }
+        ]
       }
     },
     {
@@ -459,7 +539,13 @@
         ],
         "example": "A university compares its online application process with another university's process to identify quicker steps.",
         "pitfall": "A prototype is an early model; decomposition divides work into smaller parts; variance is a difference between planned and actual values.",
-        "remember": "Benchmarking = compare with another example and learn from it."
+        "remember": "Benchmarking = compare with another example and learn from it.",
+        "keyTerms": [
+          {
+            "term": "Benchmarking",
+            "meaning": "Comparing practices or results with other examples to find ways to improve."
+          }
+        ]
       }
     },
     {
@@ -483,7 +569,17 @@
         ],
         "example": "A schedule may require two developers in Week 1 and four developers in Week 2; that is resource loading.",
         "pitfall": "Resource levelling changes the schedule to resolve overload; a resource histogram is a chart that displays the loading.",
-        "remember": "Loading tells you demand; levelling tries to fix demand conflicts."
+        "remember": "Loading tells you demand; levelling tries to fix demand conflicts.",
+        "keyTerms": [
+          {
+            "term": "Resource loading",
+            "meaning": "The amount of people or equipment the project schedule requires in each period."
+          },
+          {
+            "term": "Resource levelling",
+            "meaning": "Changing activity timing to reduce clashes or resource overload."
+          }
+        ]
       }
     },
     {
@@ -507,7 +603,13 @@
         ],
         "example": "Before building an app, the team plans deliverables, deadlines, staffing, cost and risks.",
         "pitfall": "Initiating authorises the work; executing does it; monitoring and controlling checks progress and deals with differences.",
-        "remember": "Planning answers 'what will we do, how, when and with what resources?'"
+        "remember": "Planning answers 'what will we do, how, when and with what resources?'",
+        "keyTerms": [
+          {
+            "term": "Planning process group",
+            "meaning": "Project processes used to decide how the project should meet its objectives."
+          }
+        ]
       }
     },
     {
@@ -531,7 +633,21 @@
         ],
         "example": "If a payment-integration task is urgent and critical, assign someone available with suitable skills before a less urgent cosmetic change.",
         "pitfall": "Training and team building are useful resource-management activities, but they do not replace checking availability, criticality and priorities for each task.",
-        "remember": "Always check time available and task importance before assigning work."
+        "remember": "Always check time available and task importance before assigning work.",
+        "keyTerms": [
+          {
+            "term": "Availability",
+            "meaning": "Whether the person has time to work on a task."
+          },
+          {
+            "term": "Criticality",
+            "meaning": "How important a task is to project success."
+          },
+          {
+            "term": "Prioritisation",
+            "meaning": "The order in which tasks should receive attention."
+          }
+        ]
       }
     },
     {
@@ -653,7 +769,13 @@
         ],
         "example": "One team asks for five days of testing, another wants one day, and they agree on three days with a narrower test plan.",
         "pitfall": "Forcing imposes one side's view; smoothing focuses on shared interests; confrontation/problem-solving investigates the issue together.",
-        "remember": "Compromise means each party gives something up."
+        "remember": "Compromise means each party gives something up.",
+        "keyTerms": [
+          {
+            "term": "Compromise",
+            "meaning": "Conflict resolution where both sides give up something to reach an agreement."
+          }
+        ]
       }
     },
     {
@@ -817,7 +939,13 @@
         ],
         "example": "If one tester is assigned two full-time tasks in the same week, one task may be shifted into the following week.",
         "pitfall": "Resource loading shows required resources; allocation assigns them; a histogram displays demand. Levelling changes dates to remove overload.",
-        "remember": "Levelling can increase the project duration, so recheck the finish date."
+        "remember": "Levelling can increase the project duration, so recheck the finish date.",
+        "keyTerms": [
+          {
+            "term": "Resource levelling",
+            "meaning": "Rescheduling work to resolve periods when demand for a person or resource exceeds what is available."
+          }
+        ]
       }
     },
     {
@@ -841,7 +969,13 @@
         ],
         "example": "If an investment costs R100 000 and accumulated benefits reach R100 000 in Year 3, payback has occurred by then.",
         "pitfall": "Payback is not when benefits double costs or when profit equals one rand. It is the recovery/break-even point.",
-        "remember": "'When do we get the initial money back?' is the payback question."
+        "remember": "'When do we get the initial money back?' is the payback question.",
+        "keyTerms": [
+          {
+            "term": "Payback point",
+            "meaning": "The time when cumulative cash benefits have recovered cumulative costs."
+          }
+        ]
       }
     },
     {
@@ -899,7 +1033,13 @@
         ],
         "example": "A course-registration app may include registration and marks viewing but exclude hostel bookings from its agreed scope.",
         "pitfall": "Cost management focuses on money, resource management on people/materials and time management on the schedule.",
-        "remember": "Scope answers 'what work belongs in this project?'"
+        "remember": "Scope answers 'what work belongs in this project?'",
+        "keyTerms": [
+          {
+            "term": "Scope management",
+            "meaning": "Deciding and controlling the agreed project work and deliverables."
+          }
+        ]
       }
     },
     {
@@ -923,7 +1063,13 @@
         ],
         "example": "The 'test login' task depends on login code being ready; those tasks must appear in the right order on the network.",
         "pitfall": "Planning schedule management happens earlier; estimating durations is related but does not replace finding the order of tasks.",
-        "remember": "Define activities → find dependencies/sequence them → estimate durations."
+        "remember": "Define activities → find dependencies/sequence them → estimate durations.",
+        "keyTerms": [
+          {
+            "term": "Dependency",
+            "meaning": "A relationship that requires or influences one activity to occur before or after another."
+          }
+        ]
       }
     },
     {
@@ -947,7 +1093,13 @@
         ],
         "example": "A person may seek opportunities to master a craft or create something meaningful after important basic needs are met.",
         "pitfall": "Physiological and safety needs are lower-level needs. 'Deficiency' describes a class of needs, not the top level.",
-        "remember": "Top of the familiar hierarchy = self-actualisation, a growth need."
+        "remember": "Top of the familiar hierarchy = self-actualisation, a growth need.",
+        "keyTerms": [
+          {
+            "term": "Growth need",
+            "meaning": "A need linked to developing one's abilities and potential, especially self-actualisation."
+          }
+        ]
       }
     },
     {
@@ -971,7 +1123,13 @@
         ],
         "example": "A company coordinating many departments and dozens of projects may need central portfolio reports and shared resource planning.",
         "pitfall": "Low-end tools fit smaller individual projects; midrange tools generally sit between basic and enterprise-level features.",
-        "remember": "Choose software based on the project portfolio's scale, not just its price."
+        "remember": "Choose software based on the project portfolio's scale, not just its price.",
+        "keyTerms": [
+          {
+            "term": "High-end project tools",
+            "meaning": "Complex software for coordinating many people, resources, projects and reporting needs."
+          }
+        ]
       }
     },
     {
@@ -995,7 +1153,13 @@
         ],
         "example": "A contractor takes responsibility under a warranty, or a company buys insurance against specified losses.",
         "pitfall": "Avoidance changes plans to remove a threat; mitigation reduces likelihood/impact; acceptance acknowledges it without transferring it.",
-        "remember": "Transfer does not mean the risk magically disappears; responsibilities change."
+        "remember": "Transfer does not mean the risk magically disappears; responsibilities change.",
+        "keyTerms": [
+          {
+            "term": "Risk transference",
+            "meaning": "Shifting part of a risk's financial consequences or handling to a third party."
+          }
+        ]
       }
     },
     {
@@ -1019,7 +1183,13 @@
         ],
         "example": "A widely used payroll package may have already dealt with common calculation and reporting problems that a new custom solution must discover.",
         "pitfall": "Ready-made software is not automatically bug-free or secure; organisations still need updates, configuration and checks.",
-        "remember": "In this question, separate a benefit from the risks and ongoing costs."
+        "remember": "In this question, separate a benefit from the risks and ongoing costs.",
+        "keyTerms": [
+          {
+            "term": "Off-the-shelf software",
+            "meaning": "A ready-made software product offered to many customers rather than built for one organisation only."
+          }
+        ]
       }
     },
     {
@@ -1077,7 +1247,13 @@
         ],
         "example": "After design and supplier quotes are available, the team estimates the actual equipment, labour and service costs before ordering.",
         "pitfall": "A rough order of magnitude is an early broad estimate; a budgetary estimate is used for initial funding rather than final detail.",
-        "remember": "Estimates get more precise as project information improves."
+        "remember": "Estimates get more precise as project information improves.",
+        "keyTerms": [
+          {
+            "term": "Definitive estimate",
+            "meaning": "A detailed cost estimate made with enough project information to support more accurate decisions."
+          }
+        ]
       }
     },
     {
@@ -1101,7 +1277,17 @@
         ],
         "example": "A Theory X manager may closely supervise every task; a Theory Y manager may give staff ownership of agreed goals.",
         "pitfall": "Maslow is linked to the hierarchy of needs; Herzberg to motivation/hygiene factors; McClelland to acquired needs.",
-        "remember": "McGregor = X and Y; Maslow = hierarchy."
+        "remember": "McGregor = X and Y; Maslow = hierarchy.",
+        "keyTerms": [
+          {
+            "term": "Theory X",
+            "meaning": "McGregor's view of management assumptions that workers may need closer direction and control."
+          },
+          {
+            "term": "Theory Y",
+            "meaning": "McGregor's alternative assumption that workers can be responsible and self-directed with suitable conditions."
+          }
+        ]
       }
     },
     {
@@ -1125,7 +1311,13 @@
         ],
         "example": "Management approves a project charter before detailed design and implementation begin.",
         "pitfall": "Planning works out how to deliver; executing carries out work; monitoring and controlling checks results against the plan.",
-        "remember": "Initiating asks whether the work is formally approved to start."
+        "remember": "Initiating asks whether the work is formally approved to start.",
+        "keyTerms": [
+          {
+            "term": "Initiating",
+            "meaning": "The project processes used to define and formally authorise a project or phase."
+          }
+        ]
       }
     },
     {
@@ -1149,7 +1341,13 @@
         ],
         "example": "If appointment bookings are taking too long, the business case explains that problem and why an online booking system may be useful.",
         "pitfall": "The charter authorises the project and can record high-level goals; organisational process assets are existing policies or guidelines, not the business need itself.",
-        "remember": "Business case = why the project is worth considering."
+        "remember": "Business case = why the project is worth considering.",
+        "keyTerms": [
+          {
+            "term": "Business case",
+            "meaning": "A document explaining why a proposed project or investment is justified."
+          }
+        ]
       }
     },
     {
@@ -1173,7 +1371,13 @@
         ],
         "example": "For a campus-app project, entries could include students, lecturers, the IT team and administrators.",
         "pitfall": "Managing engagement means working with stakeholders after they are identified; it is not the process that first creates the register.",
-        "remember": "Identify the people first, then plan and manage their engagement."
+        "remember": "Identify the people first, then plan and manage their engagement.",
+        "keyTerms": [
+          {
+            "term": "Stakeholder register",
+            "meaning": "A list of relevant people or groups and information useful for communicating and engaging with them."
+          }
+        ]
       }
     },
     {
@@ -1197,7 +1401,13 @@
         ],
         "example": "A university compares keeping a manual registration process with buying or building a digital one, including cost and expected service improvements.",
         "pitfall": "The charter gives formal authority after a decision; the project management plan explains how approved work will be managed.",
-        "remember": "A business case supports the go/no-go investment decision."
+        "remember": "A business case supports the go/no-go investment decision.",
+        "keyTerms": [
+          {
+            "term": "Business case",
+            "meaning": "A comparison of a proposed change's expected costs, benefits, risks and alternatives, prepared for decision-makers."
+          }
+        ]
       }
     },
     {
@@ -1251,7 +1461,13 @@
         ],
         "example": "A hospital reviews patient booking, billing and records handling before deciding which process to digitise first.",
         "pitfall": "IT strategy planning sets broad technology direction; business area analysis examines particular areas and processes in more detail.",
-        "remember": "Start with a business need or process, then decide how technology can help."
+        "remember": "Start with a business need or process, then decide how technology can help.",
+        "keyTerms": [
+          {
+            "term": "Business area analysis",
+            "meaning": "Studying important business processes to identify where technology could add value."
+          }
+        ]
       }
     }
   ]
