@@ -1907,7 +1907,7 @@ document.addEventListener("DOMContentLoaded", function () {
     activeStudyVoicePicker = picker;
     button.textContent = "Cancel";
     button.setAttribute("aria-pressed", "true");
-    status.textContent = "Tap the sentence or paragraph you want to hear.";
+    status.textContent = "Tap where you want reading to start.";
     status.classList.remove("sr-only", "study-voice-error");
     starts.forEach(function (index, element) {
       const before = {};
