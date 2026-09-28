@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>StudyFlow - Test Simulator</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=20260928-reading-flip">
     <link
         rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
@@ -231,7 +231,7 @@
                     <div class="flashcard-heading">
                         <div>
                             <h2>Flashcards</h2>
-                            <p>Think of the answer first, then reveal it.</p>
+                            <p>Think of an answer, then tap the card to flip it.</p>
                         </div>
                         <button id="flashcard-restart" type="button" class="btn btn-tertiary hidden">Start over</button>
                     </div>
@@ -248,7 +248,7 @@
                     <div id="flashcards-grid" class="flashcards-stage hidden" aria-live="polite" aria-atomic="true"></div>
                     <nav id="flashcard-controls" class="flashcard-controls hidden" aria-label="Flashcard navigation">
                         <button id="flashcard-prev" type="button" class="btn btn-secondary">← Previous</button>
-                        <button id="flashcard-reveal" type="button" class="btn btn-primary" aria-expanded="false" aria-controls="flashcards-grid">Show answer</button>
+                        <button id="flashcard-reveal" type="button" class="btn btn-primary" aria-pressed="false" aria-controls="flashcards-grid">Flip to answer ↻</button>
                         <button id="flashcard-again" type="button" class="btn btn-secondary hidden">Study again</button>
                         <button id="flashcard-known" type="button" class="btn btn-primary hidden">Got it ✓</button>
                         <button id="flashcard-next" type="button" class="btn btn-tertiary">Next →</button>
@@ -372,7 +372,7 @@
     <footer class="app-footer">StudyFlow © 2025 — Developed by Marven Ramanugu, keep learning.</footer>
 
     <script src="app-config.js"></script>
-    <script src="script.js"></script>
+    <script src="script.js?v=20260928-reading-flip"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
 </body>
 </html>

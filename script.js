@@ -85,6 +85,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let flashcardPosition = 0;
   let flashcardRevealed = false;
   let flashcardRatings = new Map();
+  let flashcardResizeObserver = null;
   const reviewFilterSelect = document.getElementById("review-filter");
   const reviewSourceFilterContainer = document.getElementById(
     "review-source-filter-container"
@@ -3402,11 +3403,56 @@ const testFiles = [
     nextFlashcard();
   }
 
+  function updateFlashcardControls() {
+    if (flashcardRevealButton) {
+      flashcardRevealButton.textContent = flashcardRevealed ? "Flip to question ↻" : "Flip to answer ↻";
+      flashcardRevealButton.setAttribute("aria-pressed", String(flashcardRevealed));
+      flashcardRevealButton.setAttribute("aria-controls", "flashcards-grid");
+    }
+    if (flashcardAgainButton) flashcardAgainButton.classList.toggle("hidden", !flashcardRevealed);
+    if (flashcardKnownButton) flashcardKnownButton.classList.toggle("hidden", !flashcardRevealed);
+  }
+
+  function sizeFlashcard(card) {
+    if (!card || !card.isConnected) return;
+    const visibleFace = card.querySelector(flashcardRevealed ? ".flashcard-back" : ".flashcard-front");
+    if (visibleFace) card.style.height = Math.max(250, Math.ceil(visibleFace.scrollHeight) + 2) + "px";
+  }
+
+  function syncFlashcardFace(card) {
+    if (!card) return;
+    const front = card.querySelector(".flashcard-front");
+    const back = card.querySelector(".flashcard-back");
+    if (!front || !back) return;
+    front.inert = flashcardRevealed;
+    back.inert = !flashcardRevealed;
+    front.setAttribute("aria-hidden", String(flashcardRevealed));
+    back.setAttribute("aria-hidden", String(!flashcardRevealed));
+    card.classList.toggle("is-flipped", flashcardRevealed);
+    card.setAttribute("aria-label", "Flashcard " + (flashcardPosition + 1) +
+      (flashcardRevealed ? ". Answer side. Tap or press Enter to show question." :
+                           ". Question side. Tap or press Enter to show answer."));
+    sizeFlashcard(card);
+    updateFlashcardControls();
+  }
+
+  function flipCurrentFlashcard() {
+    if (flashcardPosition >= flashcardOrder.length || currentMode !== "flashcards") return;
+    const card = flashcardsGrid && flashcardsGrid.querySelector(".flashcard-surface");
+    if (!card) return;
+    flashcardRevealed = !flashcardRevealed;
+    syncFlashcardFace(card); // Change the same card: do not re-render or expand it.
+  }
+
   function renderFlashcards() {
     if (!flashcardsGrid || !flashcardsEmptyState) return;
     if (flashcardDeckSource !== questions ||
         (questions.length && flashcardOrder.length === 0)) {
       resetFlashcardDeck();
+    }
+    if (flashcardResizeObserver) {
+      flashcardResizeObserver.disconnect();
+      flashcardResizeObserver = null;
     }
     flashcardsGrid.replaceChildren();
     const total = flashcardOrder.length;
@@ -3469,8 +3515,12 @@ const testFiles = [
     const question = questions[questionIndex];
     const card = document.createElement("article");
     card.className = "flashcard-surface";
-    card.setAttribute("aria-label", "Flashcard " + (flashcardPosition + 1));
+    card.tabIndex = 0;
 
+    const inner = document.createElement("div");
+    inner.className = "flashcard-inner";
+    const front = document.createElement("section");
+    front.className = "flashcard-face flashcard-front";
     const eyebrow = document.createElement("div");
     eyebrow.className = "flashcard-eyebrow";
     const number = document.createElement("span");
@@ -3482,15 +3532,12 @@ const testFiles = [
       source.textContent = question.sourceTestName;
       eyebrow.appendChild(source);
     }
-    card.appendChild(eyebrow);
-
-    const front = document.createElement("div");
-    front.className = "flashcard-front";
+    front.appendChild(eyebrow);
     const prompt = document.createElement("div");
-    prompt.className = "flashcard-prompt";
+    prompt.className = "flashcard-prompt rich-content";
     prompt.innerHTML = formatRichText(question.text || "") || escapeHTML(question.text || "");
     front.appendChild(prompt);
-    // Case studies, reference tables and question images are needed for some exams.
+    // Required case study, table and diagram stay on the question side.
     appendStructuredQuestionContent(front, question);
     if (Array.isArray(question.options) && question.options.length) {
       const choices = document.createElement("ol");
@@ -3503,82 +3550,80 @@ const testFiles = [
       });
       front.appendChild(choices);
     }
-    card.appendChild(front);
+    const cue = document.createElement("p");
+    cue.className = "flashcard-reveal-hint";
+    cue.textContent = "Think of your answer, then tap this card to flip it.";
+    front.appendChild(cue);
 
-    if (flashcardRevealed) {
-      const answerPanel = document.createElement("section");
-      answerPanel.className = "flashcard-answer-panel";
-      answerPanel.id = "flashcard-answer-panel";
-      const title = document.createElement("h3");
-      title.textContent = isAiGradedQuestion(question) ? "Reference answer" : "Correct answer";
-      const answer = document.createElement("div");
-      answer.className = "flashcard-answer-content";
-      const formatted = formatAnswerForDisplay(question.correctAnswer);
-      const value = formatted && formatted.trim() ? formatted : "See the explanation below.";
-      answer.innerHTML = formatRichText(value) || escapeHTML(value);
-      answerPanel.append(title, answer);
+    const back = document.createElement("section");
+    back.className = "flashcard-face flashcard-back";
+    const backEyebrow = document.createElement("div");
+    backEyebrow.className = "flashcard-eyebrow";
+    backEyebrow.textContent = "ANSWER · QUESTION " + (question.number || (questionIndex + 1));
+    back.appendChild(backEyebrow);
 
-      if (question.correctAnswer && typeof question.correctAnswer === "object" &&
-          question.correctAnswer.image) {
-        const image = createQuestionImage(question.correctAnswer.image);
-        if (image) answerPanel.appendChild(image);
-      }
-
-      if (question.explanation) {
-        const explanation = document.createElement("div");
-        explanation.className = "flashcard-explanation";
-        const label = document.createElement("strong");
-        label.textContent = "Why this answer?";
-        const content = document.createElement("div");
-        content.innerHTML = formatRichText(question.explanation) || escapeHTML(question.explanation);
-        explanation.append(label, content);
-        answerPanel.appendChild(explanation);
-      }
-
-      const guide = createStudyGuideElement(question.study);
-      if (guide) {
-        const details = document.createElement("details");
-        details.className = "flashcard-study-details";
-        const summary = document.createElement("summary");
-        summary.textContent = "Extra study notes";
-        details.append(summary, guide);
-        answerPanel.appendChild(details);
-      }
-      if (isAiGradedQuestion(question)) {
-        const reminder = document.createElement("p");
-        reminder.className = "flashcard-study-tip";
-        reminder.textContent = "This is a guide answer. Different correct wording may also earn marks.";
-        answerPanel.appendChild(reminder);
-      }
-      card.appendChild(answerPanel);
-    } else {
-      const cue = document.createElement("p");
-      cue.className = "flashcard-reveal-hint";
-      cue.textContent = "Try to recall the answer before showing it.";
-      card.appendChild(cue);
+    const answerPanel = createReadablePanel(
+      isAiGradedQuestion(question) ? "Reference answer" : "Correct answer",
+      formatAnswerForDisplay(question.correctAnswer), "flashcard-answer-panel"
+    );
+    answerPanel.id = "flashcard-answer-panel";
+    if (question.correctAnswer && typeof question.correctAnswer === "object" &&
+        question.correctAnswer.image) {
+      const image = createQuestionImage(question.correctAnswer.image);
+      if (image) answerPanel.appendChild(image);
     }
+    if (question.explanation && !question.study) {
+      const explanation = createReadablePanel("Why this answer?", question.explanation,
+        "flashcard-explanation");
+      answerPanel.appendChild(explanation);
+    }
+    // A flashcard's back is its study side. Notes are immediately visible, not an accordion.
+    const guide = createStudyGuideElement(question.study);
+    if (guide) answerPanel.appendChild(guide);
+    if (isAiGradedQuestion(question)) {
+      const reminder = document.createElement("p");
+      reminder.className = "flashcard-study-tip";
+      reminder.textContent = "This is a guide answer. Different correct wording may also earn marks.";
+      answerPanel.appendChild(reminder);
+    }
+    back.appendChild(answerPanel);
+    const backHint = document.createElement("p");
+    backHint.className = "flashcard-reveal-hint";
+    backHint.textContent = "Tap the card to return to the question.";
+    back.appendChild(backHint);
+
+    inner.append(front, back);
+    card.appendChild(inner);
+    card.addEventListener("click", event => {
+      // Do not steal taps from diagrams, case-study details or other controls.
+      if (event.target.closest("button, a, input, textarea, select, summary, details")) return;
+      flipCurrentFlashcard();
+    });
+    card.addEventListener("keydown", event => {
+      if (event.target !== card || (event.code !== "Space" && event.key !== "Enter")) return;
+      event.preventDefault();
+      event.stopPropagation();
+      flipCurrentFlashcard();
+    });
     flashcardsGrid.appendChild(card);
+    syncFlashcardFace(card);
+    if (typeof ResizeObserver !== "undefined") {
+      flashcardResizeObserver = new ResizeObserver(() => {
+        if (flashcardsGrid.contains(card)) sizeFlashcard(card);
+      });
+      flashcardResizeObserver.observe(front);
+      flashcardResizeObserver.observe(back);
+    }
 
     if (flashcardPrevButton) flashcardPrevButton.disabled = flashcardPosition === 0;
     if (flashcardNextButton) flashcardNextButton.textContent =
       flashcardPosition === total - 1 ? "Finish →" : "Next →";
-    if (flashcardRevealButton) {
-      flashcardRevealButton.textContent = flashcardRevealed ? "Hide answer" : "Show answer";
-      flashcardRevealButton.setAttribute("aria-expanded", String(flashcardRevealed));
-      flashcardRevealButton.setAttribute("aria-controls",
-        flashcardRevealed ? "flashcard-answer-panel" : "flashcards-grid");
-    }
-    if (flashcardAgainButton) flashcardAgainButton.classList.toggle("hidden", !flashcardRevealed);
-    if (flashcardKnownButton) flashcardKnownButton.classList.toggle("hidden", !flashcardRevealed);
+    updateFlashcardControls();
   }
 
   if (flashcardPrevButton) flashcardPrevButton.addEventListener("click", previousFlashcard);
   if (flashcardNextButton) flashcardNextButton.addEventListener("click", nextFlashcard);
-  if (flashcardRevealButton) flashcardRevealButton.addEventListener("click", () => {
-    if (flashcardPosition >= flashcardOrder.length) return;
-    flashcardRevealed = !flashcardRevealed;
-    renderFlashcards();
-  });
+  if (flashcardRevealButton) flashcardRevealButton.addEventListener("click", flipCurrentFlashcard);
   if (flashcardAgainButton) flashcardAgainButton.addEventListener("click", () => rateFlashcard("again"));
   if (flashcardKnownButton) flashcardKnownButton.addEventListener("click", () => rateFlashcard("known"));
   if (flashcardRestartButton) flashcardRestartButton.addEventListener("click", () => {
@@ -3600,8 +3645,7 @@ const testFiles = [
       previousFlashcard();
     } else if (event.code === "Space" && flashcardPosition < flashcardOrder.length) {
       event.preventDefault();
-      flashcardRevealed = !flashcardRevealed;
-      renderFlashcards();
+      flipCurrentFlashcard();
     }
   });
 
