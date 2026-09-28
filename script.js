@@ -2201,28 +2201,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Test file references
 const testFiles = [
- /* "test23.json",
-  "test24.json",
-  "test25.json",
-  "test26.json", 
-  "test27.json",
-  "test28.json",
-  "test28b.json",
-  "test29.json",**/
-  "test30.json",
-  "test31.json",
-  "test32.json",
-   "test33a.json",
-  "test33b.json",
-  "test33c.json",
-  "test33d.json",
-  "test33e.json",
-  "test33f.json",
-  "test34Social.json",
-   "test35.json",
-   "test36.json",
-   "test37.json",
-   "inf3708-oct-nov-2021.json"
+  // Approved exams only. Other ICT test*.json files remain in the repository,
+  // but are hidden from both the exam picker and custom-test builder.
+  "inf3708-oct-nov-2021.json",
 ];
 
 
@@ -2247,6 +2228,14 @@ const testFiles = [
       }
     } catch (error) {
       console.warn("Unable to read saved progress metadata:", error);
+    }
+
+    // An older saved exam must not reopen a module that is currently hidden.
+    if (savedProgressFile !== CUSTOM_TEST_VALUE && !testFiles.includes(savedProgressFile)) {
+      savedProgressFile = null;
+    }
+    if (!testFiles.includes(lastRegularTestValue)) {
+      lastRegularTestValue = null;
     }
 
     const fetchPromises = testFiles.map((filename) =>
@@ -2586,6 +2575,11 @@ const testFiles = [
 
     const sources = Array.isArray(session.sources) ? session.sources : [];
 
+    // Do not restore a previously saved custom mix containing hidden modules.
+    if (!sources.length || sources.some((source) => !source || !testFiles.includes(source.file))) {
+      return false;
+    }
+
     currentCustomSession = {
       id: session.id || `custom-${Date.now()}`,
       sources,
@@ -2651,7 +2645,7 @@ const testFiles = [
     }
 
     let fallbackValue =
-      lastRegularTestValue && lastRegularTestValue !== CUSTOM_TEST_VALUE
+      testFiles.includes(lastRegularTestValue)
         ? lastRegularTestValue
         : null;
 
