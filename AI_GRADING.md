@@ -49,3 +49,35 @@ The included Netlify function is at:
 and exposes:
 
 `/api/grade-answer`
+
+## Full written examination: INF3708 Oct/Nov 2021
+
+The exam file inf3708-oct-nov-2021.json contains 16 answer parts belonging to Questions 1–6,
+with the original **100 marks** (marks per question), durationMinutes: 150 and
+preserveOrder: true, the case study and the original calculation tables.
+Written and calculation answers use grading: ai with separate reference answers and
+point-by-point aiRubric fields. Show working: the AI awards partial credit
+for correct methods and reasonable rounding.
+
+Scoring uses each question's marks as its weight. Older tests without marks
+still count one point per question. PDF results use the same weights and show AI feedback.
+
+### Q5.1: Activity-on-Arrow network diagram
+
+Set answerType: diagram and diagramRequired: true. The simulator offers a drawing
+canvas and a PNG/JPEG/WebP upload with an optional written explanation.
+Drawn images are retained in the learner's local saved progress, then sent
+to the secure grader on submission. They are compressed to a 960 × 480 JPEG
+and are not stored in the repository.
+
+For images, the grader uses Groq's image-capable qwen/qwen3.8-27b in JSON mode
+to inspect arrows, durations, dependencies and event labels. Text-only answers
+still use openai/gpt-oss-120b. The original paper deducts **7 of 14 marks**
+when no network is drawn, so the backend caps text-only Q5.1 at 50%.
+Accept equivalent valid event numbering and network representations.
+
+AI marks are for study practice, not official UNISA grading. If the AI service
+is unavailable the app asks the learner to retry, without treating a failed
+request as an incorrect answer. After merging, redeploy the Netlify site
+containing netlify/functions/grade-answer.mts and keep GROQ_API_KEY
+in Netlify's secure environment variables.
