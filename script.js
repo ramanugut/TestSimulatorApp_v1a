@@ -1440,6 +1440,27 @@ document.addEventListener("DOMContentLoaded", function () {
       card.appendChild(simple);
     }
 
+    // Explain abbreviations and specialist terms before asking students to follow a method.
+    if (Array.isArray(study.keyTerms) && study.keyTerms.length) {
+      const termsHeading = document.createElement("div");
+      termsHeading.className = "study-guide-subtitle";
+      termsHeading.textContent = "Key words explained";
+      card.appendChild(termsHeading);
+
+      const termsList = document.createElement("ul");
+      termsList.className = "study-guide-steps";
+      study.keyTerms.forEach((entry) => {
+        if (!entry || !entry.term || !entry.meaning) return;
+        const item = document.createElement("li");
+        const term = document.createElement("strong");
+        term.textContent = entry.term + ": ";
+        item.appendChild(term);
+        item.appendChild(document.createTextNode(entry.meaning));
+        termsList.appendChild(item);
+      });
+      if (termsList.childElementCount) card.appendChild(termsList);
+    }
+
     if (Array.isArray(study.steps) && study.steps.length) {
       const stepsHeading = document.createElement("div");
       stepsHeading.className = "study-guide-subtitle";
@@ -1454,6 +1475,26 @@ document.addEventListener("DOMContentLoaded", function () {
         list.appendChild(item);
       });
       card.appendChild(list);
+    }
+
+    if (study.example) {
+      const example = document.createElement("p");
+      example.className = "study-guide-simple";
+      const label = document.createElement("strong");
+      label.textContent = "Example: ";
+      example.appendChild(label);
+      example.appendChild(document.createTextNode(study.example));
+      card.appendChild(example);
+    }
+
+    if (study.pitfall) {
+      const pitfall = document.createElement("div");
+      pitfall.className = "study-guide-remember";
+      const label = document.createElement("strong");
+      label.textContent = "Student note: ";
+      pitfall.appendChild(label);
+      pitfall.appendChild(document.createTextNode(study.pitfall));
+      card.appendChild(pitfall);
     }
 
     if (study.remember) {
