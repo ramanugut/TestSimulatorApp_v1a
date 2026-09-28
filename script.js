@@ -1102,21 +1102,78 @@ document.addEventListener("DOMContentLoaded", function () {
     return canonicalizeAnswerValue(answer) !== "";
   }
 
+  // Always escape imported assessment text before creating learning markup.
   function formatInlineRichText(segment) {
-    if (!segment) {
-      return "";
+    if (!segment) return "";
+    const parts = String(segment).split(/\x60([^\x60]+)\x60/g);
+    return parts.map((part, index) => index % 2 === 0
+      ? escapeHTML(part).replace(/\*\*([^*\n]+)\*\*/g, "<strong>$1</strong>")
+      : '<code class="inline-code">' + escapeHTML(part) + "</code>"
+    ).join("");
+  }
+
+  // Older assessment answers sometimes contain "1. First ... 2. Second ..." in one line.
+  // Only split an ordered sequence beginning 1, 2; leave decimals and question IDs intact.
+  function expandCompactNumberedList(value) {
+    const matches = [];
+    const matcher = /(^|\s)([1-9]\d?)[.)]\s+(?=[A-Z])/g;
+    let match;
+    while ((match = matcher.exec(value)) !== null) {
+      matches.push({ position: match.index + match[1].length, number: Number(match[2]) });
     }
-    const safeSegment =
-      typeof segment === "string" ? segment : String(segment);
-    const parts = safeSegment.split(/`([^`]+)`/g);
-    return parts
-      .map((part, index) => {
-        if (index % 2 === 0) {
-          return escapeHTML(part).replace(/\n/g, "<br>");
+    if (matches.length < 2 || matches[0].number !== 1 || matches[1].number !== 2) return value;
+    const ordered = [];
+    for (let i = 0; i < matches.length; i++) {
+      if (matches[i].number !== i + 1) break;
+      ordered.push(matches[i]);
+    }
+    let result = value;
+    ordered.reverse().forEach(item => {
+      const prefix = result.slice(0, item.position);
+      result = prefix.trimEnd() + (prefix.trim() ? "\n" : "") + result.slice(item.position);
+    });
+    return result;
+  }
+
+  function formatProseBlocks(value) {
+    if (!value.trim()) return "";
+    return value.replace(/\r\n?/g, "\n").trim().split(/\n\s*\n/).map(paragraph => {
+      const lines = expandCompactNumberedList(paragraph).split("\n");
+      const output = [];
+      let prose = [], listItems = [], listType = "", listStart = 1;
+      const flushProse = () => {
+        if (prose.length) output.push('<p class="rich-paragraph">' +
+          prose.map(formatInlineRichText).join("<br>") + "</p>");
+        prose = [];
+      };
+      const flushList = () => {
+        if (listItems.length) {
+          const tag = listType === "ol" ? "ol" : "ul";
+          const start = tag === "ol" && listStart !== 1 ? ' start="' + listStart + '"' : "";
+          output.push("<" + tag + ' class="rich-list"' + start + ">" +
+            listItems.map(item => "<li>" + formatInlineRichText(item) + "</li>").join("") +
+            "</" + tag + ">");
         }
-        return `<code class="inline-code">${escapeHTML(part)}</code>`;
-      })
-      .join("");
+        listItems = []; listType = "";
+      };
+      lines.forEach(rawLine => {
+        const line = rawLine.trim();
+        if (!line) return;
+        const number = /^(\d{1,2})[.)]\s+(.+)$/.exec(line);
+        const bullet = /^[-*•]\s+(.+)$/.exec(line);
+        if (number || bullet) {
+          const type = number ? "ol" : "ul";
+          if (listType && listType !== type) flushList();
+          if (!listType) { flushProse(); listType = type; listStart = number ? Number(number[1]) : 1; }
+          listItems.push(number ? number[2] : bullet[1]);
+        } else {
+          flushList();
+          prose.push(line);
+        }
+      });
+      flushList(); flushProse();
+      return output.join("");
+    }).join("");
   }
 
   function formatRichText(text) {
@@ -1163,10 +1220,23 @@ document.addEventListener("DOMContentLoaded", function () {
             trimmedCode
           )}</code></pre>`;
         }
-        return formatInlineRichText(segment.value);
+        return formatProseBlocks(segment.value);
       })
       .join("")
       .trim();
+  }
+
+  function createReadablePanel(label, value, className) {
+    const panel = document.createElement("section");
+    panel.className = className + " readable-panel";
+    const title = document.createElement("h3");
+    title.className = "readable-panel-heading";
+    title.textContent = label;
+    const content = document.createElement("div");
+    content.className = "rich-content";
+    content.innerHTML = formatRichText(value) || '<p class="rich-paragraph">No answer supplied.</p>';
+    panel.append(title, content);
+    return panel;
   }
 
   function createOptionMarkup(optionValue) {
@@ -1395,6 +1465,7 @@ document.addEventListener("DOMContentLoaded", function () {
           : "Read the Tomorrow's Future case study";
       details.appendChild(summary);
       const content = document.createElement("div");
+      content.className = "rich-content";
       content.innerHTML = formatRichText(question.context);
       details.appendChild(content);
       questionElement.appendChild(details);
@@ -3075,7 +3146,7 @@ const testFiles = [
       questionTextElement.appendChild(questionNumberElement);
 
       const questionBodyElement = document.createElement("div");
-      questionBodyElement.classList.add("question-body");
+      questionBodyElement.classList.add("question-body", "rich-content");
       const questionBodyMarkup =
         formatRichText(question.text) || escapeHTML(question.text);
       questionBodyElement.innerHTML = questionBodyMarkup;
@@ -3274,30 +3345,17 @@ const testFiles = [
         applyFeedback(questionElement, question, actualIndex);
       } else if (isStudyMode) {
         // Handle study mode
-        const correctAnswerElement = document.createElement("p");
-        const formattedCorrectAnswer = formatAnswerForDisplay(
-          question.correctAnswer
-        );
-        const studyAnswerMarkup =
-          formatRichText(formattedCorrectAnswer) ||
-          escapeHTML(formattedCorrectAnswer);
-        const answerLabel = isAiGradedQuestion(question)
-          ? "Reference Answer"
-          : "Correct Answer";
-        correctAnswerElement.innerHTML = `<strong>${answerLabel}:</strong> ${studyAnswerMarkup}`;
-        correctAnswerElement.classList.add("study-correct-answer");
-        questionElement.appendChild(correctAnswerElement);
+        questionElement.appendChild(createReadablePanel(
+          isAiGradedQuestion(question) ? "Reference answer" : "Correct answer",
+          formatAnswerForDisplay(question.correctAnswer), "study-correct-answer"
+        ));
 
         // Detailed study cards already include the explanation, definitions and example.
         // Keep the short explanation only as a fallback to avoid repeating a long block.
         if (question.explanation && !question.study) {
-          const explanationElement = document.createElement("p");
-          const studyExplanationMarkup =
-            formatRichText(question.explanation) ||
-            escapeHTML(question.explanation);
-          explanationElement.innerHTML = `<strong>Explanation:</strong> ${studyExplanationMarkup}`;
-          explanationElement.classList.add("study-explanation");
-          questionElement.appendChild(explanationElement);
+          questionElement.appendChild(createReadablePanel(
+            "Why this answer?", question.explanation, "study-explanation"
+          ));
         }
 
         if (question.study) {
@@ -4083,19 +4141,10 @@ const testFiles = [
     questionElement.appendChild(feedbackElement);
 
     // Display correct answer and explanation for all questions
-    const correctAnswerElement = document.createElement("p");
-    const formattedCorrectAnswer = formatAnswerForDisplay(
-      question.correctAnswer
-    );
-    const submissionAnswerMarkup =
-      formatRichText(formattedCorrectAnswer) ||
-      escapeHTML(formattedCorrectAnswer);
-    const submissionLabelText = isAiGradedQuestion(question)
-      ? "Reference Answer"
-      : "Correct Answer";
-    correctAnswerElement.innerHTML = `<strong>${submissionLabelText}:</strong> ${submissionAnswerMarkup}`;
-    correctAnswerElement.classList.add("correct-answer");
-    questionElement.appendChild(correctAnswerElement);
+    questionElement.appendChild(createReadablePanel(
+      isAiGradedQuestion(question) ? "Reference answer" : "Correct answer",
+      formatAnswerForDisplay(question.correctAnswer), "correct-answer"
+    ));
 
     if (grade.aiGrade) {
       const aiFeedbackElement = createAiFeedbackElement(grade.aiGrade);
@@ -4105,13 +4154,9 @@ const testFiles = [
     }
 
     if (question.explanation) {
-      const explanationElement = document.createElement("p");
-      const submissionExplanationMarkup =
-        formatRichText(question.explanation) ||
-        escapeHTML(question.explanation);
-      explanationElement.innerHTML = `<strong>Explanation:</strong> ${submissionExplanationMarkup}`;
-      explanationElement.classList.add("explanation");
-      questionElement.appendChild(explanationElement);
+      questionElement.appendChild(createReadablePanel(
+        "Why this answer?", question.explanation, "explanation"
+      ));
     }
 
     // Ensure user selections are preserved and highlighted correctly
