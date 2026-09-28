@@ -2383,7 +2383,8 @@ body.dark-mode .study-guide-remember {
   cursor: not-allowed;
   opacity: 0.5;
 }
-.study-voice-toolbar .study-voice-speed {
+.study-voice-toolbar .study-voice-speed,
+.study-voice-toolbar .study-voice-voice {
   appearance: auto;
   min-height: 2.1rem;
   max-width: 4.8rem;
@@ -2394,6 +2395,13 @@ body.dark-mode .study-guide-remember {
   color: var(--text-color);
   font: inherit;
   font-size: 0.8rem;
+}
+.study-voice-toolbar .study-voice-voice {
+  width: 6.8rem;
+  max-width: 6.8rem;
+  min-width: 0;
+  text-overflow: ellipsis;
+  cursor: pointer;
 }
 .study-voice-toolbar .study-voice-error {
   flex: 1 1 100%;
@@ -2437,7 +2445,8 @@ body.dark-mode .study-voice-reading {
 }
 @media (max-width: 600px) {
   .study-voice-toolbar .btn,
-  .study-voice-toolbar .study-voice-speed {
+  .study-voice-toolbar .study-voice-speed,
+  .study-voice-toolbar .study-voice-voice {
     min-height: 44px;
   }
 }
