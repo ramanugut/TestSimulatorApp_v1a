@@ -1370,7 +1370,10 @@ document.addEventListener("DOMContentLoaded", function () {
       const details = document.createElement("details");
       details.className = "question-case-study";
       const summary = document.createElement("summary");
-      summary.textContent = "Read the Tomorrow's Future case study";
+      summary.textContent =
+        typeof question.contextTitle === "string" && question.contextTitle.trim()
+          ? question.contextTitle.trim()
+          : "Read the Tomorrow's Future case study";
       details.appendChild(summary);
       const content = document.createElement("div");
       content.innerHTML = formatRichText(question.context);
@@ -1581,6 +1584,16 @@ document.addEventListener("DOMContentLoaded", function () {
         studentAnswer: answerText || (diagramImage ? "Answer supplied as a drawn network diagram." : ""),
         diagramImage,
         diagramRequired: question.diagramRequired === true,
+        // A paper may prescribe its own rule for a missing diagram. Older
+        // questions retain the existing default when no override is set.
+        diagramNoDrawingCapPercent:
+          Number.isFinite(question.diagramNoDrawingCapPercent)
+            ? Math.max(0, Math.min(100, question.diagramNoDrawingCapPercent))
+            : null,
+        diagramNoDrawingNote:
+          typeof question.diagramNoDrawingNote === "string"
+            ? question.diagramNoDrawingNote
+            : "",
         modelAnswer: formatAnswerForDisplay(question.correctAnswer),
         rubric: question.aiRubric || [],
         referenceNotes:
@@ -2182,6 +2195,7 @@ const testFiles = [
   // Approved INF3708 assessments only. Other legacy ICT test*.json files remain
   // in the repository but are hidden from the exam picker and custom-test builder.
   "inf3708-oct-nov-2021.json",
+  "inf3708-jan-feb-2025-supplementary.json",
   "inf3708-assessment-1-2026.json",
   "test36.json", // INF3708 Assessment 2 (14 June 2026)
 ];
