@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const studyVoiceAvailable = "speechSynthesis" in window &&
     typeof window.SpeechSynthesisUtterance === "function";
   let activeStudyVoice = null;
+  let activeStudyVoicePicker = null;
   let questionResults = [];
   let aiGrades = {};
   let reviewFilter = "all";
@@ -1608,24 +1609,46 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-  // One compact listen control. The browser reads existing written explanations, no AI.
-  function appendStudyVoiceText(parts, text, element) {
-    let remaining = String(text || "").replace(/\s+/g, " ").trim();
-    while (remaining.length > 220) {
-      const candidate = remaining.slice(0, 220);
-      let cut = Math.max(candidate.lastIndexOf(". "), candidate.lastIndexOf("! "),
-        candidate.lastIndexOf("? "));
-      if (cut >= 80) cut += 1;
-      else cut = candidate.lastIndexOf(" ");
-      if (cut < 50) cut = 220;
-      parts.push({ text: remaining.slice(0, cut).trim(), element: element });
-      remaining = remaining.slice(cut).trim();
-    }
-    if (remaining) parts.push({ text: remaining, element: element });
+  // Device speech only. Short sentence-sized parts make pause/resume predictable.
+  function appendStudyVoiceText(parts, source, element) {
+    const text = String(source || "").replace(/\s+/g, " ").trim();
+    if (!text) return;
+    const sentences = text.match(/[^.!?]+(?:[.!?]+(?=\s|$)|$)/g) || [text];
+    sentences.forEach(function (sentence) {
+      let remaining = sentence.trim();
+      while (remaining) {
+        let cut = Math.min(190, remaining.length);
+        if (remaining.length > 190) {
+          const space = remaining.lastIndexOf(" ", 190);
+          if (space > 60) cut = space;
+        }
+        const part = remaining.slice(0, cut).trim();
+        if (part) parts.push({ text: part, element: element });
+        remaining = remaining.slice(cut).trim();
+      }
+    });
   }
 
   function visibleStudyVoiceText(element) {
     return element ? (element.innerText || element.textContent || "") : "";
+  }
+
+  // Keep the written markup and formatting unchanged. Split rich answers into
+  // paragraphs/list items so readers can choose a useful starting point.
+  function appendRichStudyVoiceParts(parts, root) {
+    if (!root) return;
+    const candidates = Array.from(root.querySelectorAll(
+      "p, li, pre, blockquote, h2, h3, h4, h5, h6"
+    ));
+    const blocks = candidates.filter(function (element) {
+      // Read a whole list item, not both its wrapper and nested paragraph.
+      return !candidates.some(function (other) {
+        return other !== element && other.contains(element);
+      });
+    });
+    (blocks.length ? blocks : [root]).forEach(function (element) {
+      appendStudyVoiceText(parts, visibleStudyVoiceText(element), element);
+    });
   }
 
   function buildStudyVoiceParts(questionElement) {
@@ -1637,30 +1660,31 @@ document.addEventListener("DOMContentLoaded", function () {
     const fallback = questionElement.querySelector(
       ".study-explanation .rich-content, .explanation .rich-content"
     );
-
     if (answer) {
-      appendStudyVoiceText(parts, "Correct answer. " + visibleStudyVoiceText(answer),
-        answer.parentElement);
+      appendStudyVoiceText(parts, "Correct answer.", null);
+      appendRichStudyVoiceParts(parts, answer);
     }
     if (guide) {
       const title = guide.querySelector(".study-guide-title");
       if (title) appendStudyVoiceText(parts, visibleStudyVoiceText(title), title);
       Array.from(guide.children).forEach(function (element) {
-        // The reader toolbar and book reference are not part of the spoken explanation.
+        // The toolbar and chapter reference are not study narration.
         if (element.classList.contains("study-guide-header") ||
             element.classList.contains("study-guide-title") ||
             element.classList.contains("study-book-reference")) return;
         if (element.tagName === "OL" || element.tagName === "UL") {
           Array.from(element.children).forEach(function (item, index) {
-            const lead = element.tagName === "OL" ? "Step " + (index + 1) + ". " : "";
-            appendStudyVoiceText(parts, lead + visibleStudyVoiceText(item), item);
+            if (element.tagName === "OL") {
+              appendStudyVoiceText(parts, "Step " + (index + 1) + ".", null);
+            }
+            appendStudyVoiceText(parts, visibleStudyVoiceText(item), item);
           });
         } else {
           appendStudyVoiceText(parts, visibleStudyVoiceText(element), element);
         }
       });
-    } else if (fallback) {
-      appendStudyVoiceText(parts, visibleStudyVoiceText(fallback), fallback.parentElement);
+    } else {
+      appendRichStudyVoiceParts(parts, fallback);
     }
     return parts;
   }
@@ -1687,14 +1711,35 @@ document.addEventListener("DOMContentLoaded", function () {
     session.status.classList.toggle("study-voice-error", Boolean(isError));
   }
 
+  function closeStudyVoicePicker() {
+    const picker = activeStudyVoicePicker;
+    activeStudyVoicePicker = null;
+    if (!picker) return;
+    picker.targets.forEach(function (entry) {
+      entry.element.classList.remove("study-voice-pickable");
+      entry.element.removeEventListener("click", entry.select);
+      entry.element.removeEventListener("keydown", entry.select);
+      ["tabindex", "role", "aria-label"].forEach(function (attr) {
+        if (entry.before[attr] === null) entry.element.removeAttribute(attr);
+        else entry.element.setAttribute(attr, entry.before[attr]);
+      });
+    });
+    picker.button.textContent = "Start at…";
+    picker.button.setAttribute("aria-pressed", "false");
+    picker.status.textContent = "";
+    picker.status.classList.add("sr-only");
+    picker.status.classList.remove("study-voice-error");
+  }
+
   function stopStudyVoice() {
+    closeStudyVoicePicker();
     const session = activeStudyVoice;
-    activeStudyVoice = null; // Ignore late events from a cancelled utterance.
-    if (session) {
-      clearStudyVoiceHighlight(session);
-      setStudyVoiceButtonState(session, "idle");
-      studyVoiceStatus(session, "Stopped.", false);
-    }
+    if (!session) return; // Do not cancel an idle speech engine just before Play.
+    activeStudyVoice = null;
+    session.token += 1; // Ignore late end/error events caused by cancellation.
+    clearStudyVoiceHighlight(session);
+    setStudyVoiceButtonState(session, "idle");
+    studyVoiceStatus(session, "Stopped.", false);
     if (studyVoiceAvailable) window.speechSynthesis.cancel();
   }
 
@@ -1720,49 +1765,176 @@ document.addEventListener("DOMContentLoaded", function () {
       finishStudyVoice(session, "Finished reading.", false);
       return;
     }
-    const part = session.parts[session.nextIndex++];
+    const partIndex = session.nextIndex++;
+    const part = session.parts[partIndex];
     const utterance = new window.SpeechSynthesisUtterance(part.text);
     utterance.rate = session.rate;
     utterance.lang = session.voice ? session.voice.lang : "en";
     if (session.voice) utterance.voice = session.voice;
-    session.currentUtterance = utterance;
-    session.currentPartTarget = part.element;
-
+    session.currentIndex = partIndex;
+    const token = ++session.token;
     utterance.onstart = function () {
-      if (activeStudyVoice !== session || session.paused) return;
+      if (activeStudyVoice !== session || session.token !== token || session.paused) return;
       session.activeTarget = part.element;
       if (part.element) part.element.classList.add("study-voice-reading");
     };
     utterance.onend = function () {
-      if (activeStudyVoice !== session) return;
+      if (activeStudyVoice !== session || session.token !== token) return;
       clearStudyVoiceHighlight(session);
-      session.currentUtterance = null;
-      if (!session.paused) speakNextStudyVoicePart(session);
+      session.currentIndex = null;
+      speakNextStudyVoicePart(session);
     };
     utterance.onerror = function (event) {
-      if (activeStudyVoice !== session) return;
+      if (activeStudyVoice !== session || session.token !== token) return;
       finishStudyVoice(session, event.error === "not-allowed"
-        ? "Audio blocked by the browser. Try Listen again."
+        ? "Your browser blocked voice playback. Tap Listen again."
         : "Voice is unavailable. Please try another browser or device.", true);
     };
     try {
+      // Recover from a browser speech engine left in its paused state.
+      if (window.speechSynthesis.paused) window.speechSynthesis.resume();
       window.speechSynthesis.speak(utterance);
     } catch (error) {
       finishStudyVoice(session, "Voice could not start on this device.", true);
     }
   }
 
-  function resumeStudyVoice(session) {
-    if (activeStudyVoice !== session) return;
-    session.paused = false;
-    window.speechSynthesis.resume();
-    if (session.currentUtterance && session.currentPartTarget) {
-      session.activeTarget = session.currentPartTarget;
-      session.activeTarget.classList.add("study-voice-reading");
+  // Native speechSynthesis.pause()/resume() is unreliable on some mobile browsers.
+  // Cancel at a short sentence boundary and replay that sentence on Resume.
+  function pauseStudyVoice(session) {
+    if (activeStudyVoice !== session || session.paused) return;
+    session.paused = true;
+    if (session.currentIndex !== null) {
+      session.nextIndex = session.currentIndex;
+      session.currentIndex = null;
+      session.token += 1;
+      clearStudyVoiceHighlight(session);
+      window.speechSynthesis.cancel();
     }
+    setStudyVoiceButtonState(session, "paused");
+    studyVoiceStatus(session, "Paused.", false);
+  }
+
+  function resumeStudyVoice(session) {
+    if (activeStudyVoice !== session || !session.paused) return;
+    session.paused = false;
     setStudyVoiceButtonState(session, "playing");
     studyVoiceStatus(session, "Reading.", false);
-    if (!session.currentUtterance) speakNextStudyVoicePart(session);
+    speakNextStudyVoicePart(session);
+  }
+
+  function startStudyVoice(questionElement, toolbar, questionNumber, parts, startIndex) {
+    stopStudyVoice();
+    if (!parts.length) {
+      const message = toolbar.querySelector(".study-voice-status");
+      message.textContent = "No text available to read.";
+      message.classList.remove("sr-only");
+      message.classList.add("study-voice-error");
+      return;
+    }
+    const session = {
+      root: toolbar, questionNumber: questionNumber,
+      rate: Number(toolbar.querySelector(".study-voice-speed").value),
+      voice: preferredStudyVoice(), parts: parts,
+      nextIndex: Math.max(0, Math.min(startIndex, parts.length - 1)),
+      currentIndex: null, activeTarget: null, paused: false, token: 0,
+      toggleButton: toolbar.querySelector('[data-voice-action="toggle"]'),
+      stopButton: toolbar.querySelector('[data-voice-action="stop"]'),
+      status: toolbar.querySelector(".study-voice-status")
+    };
+    activeStudyVoice = session;
+    setStudyVoiceButtonState(session, "playing");
+    studyVoiceStatus(session, "Reading.", false);
+    speakNextStudyVoicePart(session);
+  }
+
+  // A tap starts at the sentence nearest the tapped word where the browser
+  // exposes caret coordinates. Keyboard use (and older browsers) starts at
+  // the selected paragraph. Original note markup is never rewritten.
+  function pickedStudyVoicePart(parts, element, event) {
+    const indexes = [];
+    parts.forEach(function (part, index) {
+      if (part.element === element) indexes.push(index);
+    });
+    if (!indexes.length || event.type !== "click" ||
+        !Number.isFinite(event.clientX) || !Number.isFinite(event.clientY) ||
+        typeof document.createRange !== "function") return indexes[0] || 0;
+
+    let node = null;
+    let offset = 0;
+    if (typeof document.caretPositionFromPoint === "function") {
+      const caret = document.caretPositionFromPoint(event.clientX, event.clientY);
+      if (caret) { node = caret.offsetNode; offset = caret.offset; }
+    } else if (typeof document.caretRangeFromPoint === "function") {
+      const caret = document.caretRangeFromPoint(event.clientX, event.clientY);
+      if (caret) { node = caret.startContainer; offset = caret.startOffset; }
+    }
+    if (!node || !element.contains(node)) return indexes[0];
+
+    try {
+      const range = document.createRange();
+      range.selectNodeContents(element);
+      range.setEnd(node, offset);
+      const chars = range.toString().replace(/\s+/g, " ").length;
+      let position = 0;
+      for (const index of indexes) {
+        const length = parts[index].text.length;
+        if (chars <= position + length) return index;
+        position += length + 1; // The space between spoken sentences.
+      }
+      return indexes[indexes.length - 1];
+    } catch (error) {
+      return indexes[0];
+    }
+  }
+
+  function beginStudyVoicePicker(questionElement, toolbar, questionNumber) {
+    stopStudyVoice();
+    const parts = buildStudyVoiceParts(questionElement);
+    const starts = new Map();
+    parts.forEach(function (part, index) {
+      if (part.element && !starts.has(part.element)) starts.set(part.element, index);
+    });
+    const button = toolbar.querySelector('[data-voice-action="pick"]');
+    const status = toolbar.querySelector(".study-voice-status");
+    if (!starts.size) {
+      status.textContent = "No section available to select.";
+      status.classList.remove("sr-only");
+      status.classList.add("study-voice-error");
+      return;
+    }
+    const picker = { root: toolbar, button: button, status: status, targets: [] };
+    activeStudyVoicePicker = picker;
+    button.textContent = "Cancel";
+    button.setAttribute("aria-pressed", "true");
+    status.textContent = "Tap where you want reading to start.";
+    status.classList.remove("sr-only", "study-voice-error");
+    starts.forEach(function (index, element) {
+      const before = {};
+      ["tabindex", "role", "aria-label"].forEach(function (attr) {
+        before[attr] = element.getAttribute(attr);
+      });
+      const select = function (event) {
+        if (activeStudyVoicePicker !== picker) return;
+        if (event.type === "keydown" && event.key !== "Enter" && event.key !== " ") return;
+        event.preventDefault();
+        event.stopPropagation();
+        closeStudyVoicePicker();
+        startStudyVoice(questionElement, toolbar, questionNumber, parts,
+          pickedStudyVoicePart(parts, element, event));
+        if (event.type === "keydown") {
+          toolbar.querySelector('[data-voice-action="toggle"]').focus();
+        }
+      };
+      element.classList.add("study-voice-pickable");
+      element.setAttribute("tabindex", "0");
+      element.setAttribute("role", "button");
+      element.setAttribute("aria-label",
+        "Start listening from: " + visibleStudyVoiceText(element).slice(0, 110));
+      element.addEventListener("click", select);
+      element.addEventListener("keydown", select);
+      picker.targets.push({ element: element, select: select, before: before });
+    });
   }
 
   function createStudyVoiceControls(questionElement, questionNumber) {
@@ -1771,11 +1943,12 @@ document.addEventListener("DOMContentLoaded", function () {
     toolbar.setAttribute("role", "group");
     toolbar.setAttribute("aria-label", "Voice reader for question " + questionNumber);
     toolbar.innerHTML = [
-      '<button type="button" class="btn btn-secondary" data-voice-action="toggle" ',
-      '  aria-label="Listen to study notes for question ', String(questionNumber), '">▶ Listen</button>',
+      '<button type="button" class="btn btn-secondary" data-voice-action="toggle">▶ Listen</button>',
+      '<button type="button" class="btn btn-tertiary" data-voice-action="pick" ',
+      '  aria-pressed="false" aria-label="Choose where to start reading">Start at…</button>',
       '<button type="button" class="btn btn-tertiary" data-voice-action="stop" disabled ',
-      '  aria-label="Stop voice reader for question ', String(questionNumber), '">Stop</button>',
-      '<select class="study-voice-speed" aria-label="Reading speed for question ', String(questionNumber), '">',
+      '  aria-label="Stop reading">Stop</button>',
+      '<select class="study-voice-speed" aria-label="Reading speed">',
       '  <option value="0.75">0.75×</option>',
       '  <option value="1" selected>1×</option>',
       '  <option value="1.25">1.25×</option>',
@@ -1786,13 +1959,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const speedSelect = toolbar.querySelector(".study-voice-speed");
     const toggleButton = toolbar.querySelector('[data-voice-action="toggle"]');
+    const pickButton = toolbar.querySelector('[data-voice-action="pick"]');
     const stopButton = toolbar.querySelector('[data-voice-action="stop"]');
     const status = toolbar.querySelector(".study-voice-status");
+    toggleButton.setAttribute("aria-label", "Listen to study notes for question " + questionNumber);
 
     if (!studyVoiceAvailable) {
-      toggleButton.disabled = true;
-      stopButton.disabled = true;
-      speedSelect.disabled = true;
+      toolbar.querySelectorAll("button, select").forEach(function (control) {
+        control.disabled = true;
+      });
       status.classList.remove("sr-only");
       status.classList.add("study-voice-error");
       status.textContent = "Voice reader unavailable in this browser.";
@@ -1800,43 +1975,30 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     toggleButton.addEventListener("click", function () {
-      const playing = activeStudyVoice;
-      if (playing && playing.root === toolbar) {
-        if (playing.paused) resumeStudyVoice(playing);
-        else {
-          playing.paused = true;
-          window.speechSynthesis.pause();
-          clearStudyVoiceHighlight(playing);
-          setStudyVoiceButtonState(playing, "paused");
-          studyVoiceStatus(playing, "Paused.", false);
-        }
+      const session = activeStudyVoice;
+      if (session && session.root === toolbar) {
+        if (session.paused) resumeStudyVoice(session);
+        else pauseStudyVoice(session);
         return;
       }
-      stopStudyVoice();
-      const parts = buildStudyVoiceParts(questionElement);
-      if (!parts.length) {
-        status.textContent = "No text available to read.";
-        status.classList.remove("sr-only");
-        status.classList.add("study-voice-error");
-        return;
+      startStudyVoice(questionElement, toolbar, questionNumber, buildStudyVoiceParts(questionElement), 0);
+    });
+    pickButton.addEventListener("click", function () {
+      if (activeStudyVoicePicker && activeStudyVoicePicker.root === toolbar) {
+        closeStudyVoicePicker();
+      } else {
+        beginStudyVoicePicker(questionElement, toolbar, questionNumber);
       }
-      const session = {
-        root: toolbar, questionNumber: questionNumber, rate: Number(speedSelect.value),
-        parts: parts, nextIndex: 0, currentUtterance: null,
-        currentPartTarget: null, activeTarget: null,
-        paused: false, voice: preferredStudyVoice(),
-        toggleButton: toggleButton, stopButton: stopButton, status: status
-      };
-      activeStudyVoice = session;
-      setStudyVoiceButtonState(session, "playing");
-      studyVoiceStatus(session, "Reading.", false);
-      speakNextStudyVoicePart(session);
     });
     stopButton.addEventListener("click", function () {
-      if (activeStudyVoice && activeStudyVoice.root === toolbar) stopStudyVoice();
+      if ((activeStudyVoice && activeStudyVoice.root === toolbar) ||
+          (activeStudyVoicePicker && activeStudyVoicePicker.root === toolbar)) stopStudyVoice();
     });
     speedSelect.addEventListener("change", function () {
-      if (activeStudyVoice && activeStudyVoice.root === toolbar) stopStudyVoice();
+      // New speed applies on the next short sentence. Never stop playback unexpectedly.
+      if (activeStudyVoice && activeStudyVoice.root === toolbar) {
+        activeStudyVoice.rate = Number(speedSelect.value);
+      }
     });
     return toolbar;
   }
