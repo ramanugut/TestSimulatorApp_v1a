@@ -1,0 +1,784 @@
+{
+  "testName": "INF3708 – Software Project Management – OCT/NOV 2021 (100 marks, AI marked)",
+  "module": "INF3708",
+  "examSession": "OCT/NOV 2021",
+  "totalMarks": 100,
+  "durationMinutes": 150,
+  "preserveOrder": true,
+  "marking": "ai-rubric-weighted",
+  "questions": [
+    {
+      "number": "1.1",
+      "marks": 6,
+      "text": "QUESTION 1.1 (6 marks): Write a comprehensive paragraph to Tomorrow’s Future's board explaining why projects should be selected according to the organisation’s CURRENT and FUTURE needs. Indicate how the selected project relates to those needs.",
+      "grading": "ai",
+      "aiPassScore": 70,
+      "correctAnswer": "Projects should support an organisation's strategy and solve real present and future needs, not be started merely because technology is available. Tomorrow’s Future has become independent but still pays St John University for student and payroll services. Bringing the systems in-house could improve control, reduce dependence on the former university and meet its ongoing student, HR, reporting and payroll needs. Selection must consider urgency, benefits, risk, budget and available skills: the institution has never developed an IT project internally. Student administration or payroll could be prioritised when the institution shows how its chosen system serves both today's operations and longer-term growth.",
+      "aiRubric": [
+        "Explain that project selection follows organisational strategy and current business needs.",
+        "Link future growth, flexibility and sustainability to the choice.",
+        "Identify dependence on St John University and service/billing costs.",
+        "Identify the student-system and payroll needs of the institution.",
+        "Explain how the chosen project addresses at least one of these needs.",
+        "Acknowledge feasibility: budget, risk, expertise and stakeholder input."
+      ],
+      "aiReferenceNotes": "Award partial marks for valid method, clear supporting working and correct concepts. Accept equivalent explanations, alternative valid representations and minor rounding differences; never require exact memorised wording.",
+      "context": "Tomorrow’s Future is a School of Graduate Leadership that used to be part of St John University. It is now independent, but St John University's computer centre still manages its staff payroll, payslips and student system, and bills Tomorrow’s Future for these services.\nManagement wants to take over its student system and staff salary/payroll processing in-house. It is undecided whether to buy off-the-shelf software or develop the systems itself. Some managers believe buying a package is cheaper; others disagree.\nIf the institution develops software in-house, these will be its first IT projects. Its IT team wants to work closely with the relevant departments, show parts of the system as they are developed, and allow changes to requirements when needed."
+    },
+    {
+      "number": "1.2",
+      "marks": 6,
+      "text": "QUESTION 1.2 (6 marks): Discuss ANY SIX techniques Tomorrow’s Future's project management team could use to identify potential risks for the project chosen in Question 1.1.",
+      "grading": "ai",
+      "aiPassScore": 70,
+      "correctAnswer": "Six valid risk-identification techniques include: (1) brainstorming with the IT team and users; (2) interviewing subject experts and stakeholders; (3) the Delphi technique for independent expert input; (4) checklists or review of risks on similar projects; (5) SWOT analysis of strengths, weaknesses, opportunities and threats; (6) assumption and constraint analysis. Other valid methods include document review, cause-and-effect diagrams, flowcharts and lessons learned. For this case, example risks include limited in-house experience, integration, data migration, security, cost and requirement changes.",
+      "aiRubric": [
+        "Credit up to six distinct recognised risk-identification techniques, ideally with brief explanation.",
+        "Brainstorming.",
+        "Interviews / expert judgement.",
+        "Delphi technique.",
+        "Checklist / historical project review.",
+        "SWOT analysis.",
+        "Assumption analysis, document review or diagramming may substitute.",
+        "Do not require these exact six or count repeated techniques twice."
+      ],
+      "aiReferenceNotes": "Award partial marks for valid method, clear supporting working and correct concepts. Accept equivalent explanations, alternative valid representations and minor rounding differences; never require exact memorised wording.",
+      "context": "Tomorrow’s Future is a School of Graduate Leadership that used to be part of St John University. It is now independent, but St John University's computer centre still manages its staff payroll, payslips and student system, and bills Tomorrow’s Future for these services.\nManagement wants to take over its student system and staff salary/payroll processing in-house. It is undecided whether to buy off-the-shelf software or develop the systems itself. Some managers believe buying a package is cheaper; others disagree.\nIf the institution develops software in-house, these will be its first IT projects. Its IT team wants to work closely with the relevant departments, show parts of the system as they are developed, and allow changes to requirements when needed."
+    },
+    {
+      "number": "2.1",
+      "marks": 6,
+      "text": "QUESTION 2.1 (6 marks): Identify stakeholders in the Tomorrow’s Future project selected in Question 1.1, and explain their needs.",
+      "grading": "ai",
+      "aiPassScore": 70,
+      "correctAnswer": "Stakeholders and their needs include: the board/sponsor (strategic fit, affordability, benefits); project manager and IT developers (clear scope, resources, feedback and workable delivery); student administration and students for a student system (accurate, accessible student records and service); HR/payroll staff and employees for a payroll system (correct, timely, confidential pay and payslips); finance/accounts (budget control, reconciliation and reporting); St John University computer centre (orderly data migration and transition); software suppliers or external advisers if used (clear requirements and contracts); and compliance/security officers (data protection, audit and legal requirements). Tailor at least six relevant stakeholder/need links to the chosen system.",
+      "aiRubric": [
+        "Identify relevant internal sponsor or board and their need.",
+        "Identify delivery team and their need.",
+        "Identify direct system users and their need.",
+        "Identify administrative and/or finance stakeholders and their needs.",
+        "Identify staff or students affected and their needs.",
+        "Identify St John University, supplier or regulator and relevant need.",
+        "Award credit for relevant stakeholder-and-need pairs; do not demand all examples."
+      ],
+      "aiReferenceNotes": "Award partial marks for valid method, clear supporting working and correct concepts. Accept equivalent explanations, alternative valid representations and minor rounding differences; never require exact memorised wording.",
+      "context": "Tomorrow’s Future is a School of Graduate Leadership that used to be part of St John University. It is now independent, but St John University's computer centre still manages its staff payroll, payslips and student system, and bills Tomorrow’s Future for these services.\nManagement wants to take over its student system and staff salary/payroll processing in-house. It is undecided whether to buy off-the-shelf software or develop the systems itself. Some managers believe buying a package is cheaper; others disagree.\nIf the institution develops software in-house, these will be its first IT projects. Its IT team wants to work closely with the relevant departments, show parts of the system as they are developed, and allow changes to requirements when needed."
+    },
+    {
+      "number": "2.2",
+      "marks": 5,
+      "text": "QUESTION 2.2 (5 marks): Recommend and discuss an appropriate software product-development life cycle for Tomorrow’s Future if it builds one of these systems in-house. Justify your answer using the case study.",
+      "grading": "ai",
+      "aiPassScore": 70,
+      "correctAnswer": "An iterative/incremental or Agile development life cycle, such as Scrum supported by prototyping, suits the case. The IT team can build small working parts of the student or payroll system, demonstrate them to the relevant department, receive ongoing feedback and change requirements in later iterations. The organisation has uncertain requirements and no previous in-house IT projects, so early feedback and risk reduction are valuable. Plan releases, testing, security and integration carefully, especially for sensitive payroll/student data. A well-justified alternative may receive credit where it addresses changing requirements and close user participation.",
+      "aiRubric": [
+        "Identify an appropriate iterative, incremental, Agile or prototyping approach.",
+        "Explain early delivery of working portions of the product.",
+        "Explain frequent participation of relevant users/departments.",
+        "Explain how changes to requirements are accommodated.",
+        "Link justification to lack of prior experience and risks; accept justified alternatives."
+      ],
+      "aiReferenceNotes": "Award partial marks for valid method, clear supporting working and correct concepts. Accept equivalent explanations, alternative valid representations and minor rounding differences; never require exact memorised wording.",
+      "context": "Tomorrow’s Future is a School of Graduate Leadership that used to be part of St John University. It is now independent, but St John University's computer centre still manages its staff payroll, payslips and student system, and bills Tomorrow’s Future for these services.\nManagement wants to take over its student system and staff salary/payroll processing in-house. It is undecided whether to buy off-the-shelf software or develop the systems itself. Some managers believe buying a package is cheaper; others disagree.\nIf the institution develops software in-house, these will be its first IT projects. Its IT team wants to work closely with the relevant departments, show parts of the system as they are developed, and allow changes to requirements when needed."
+    },
+    {
+      "number": "3.1",
+      "marks": 6,
+      "text": "QUESTION 3.1 (6 marks): Using Table 1, calculate the NET PROFIT for Project 1 (Student System) and Project 2 (Salary/Payroll System). Show calculations.",
+      "grading": "ai",
+      "aiPassScore": 70,
+      "correctAnswer": "Project 1: (R55 000 + R20 000 + R60 000 + R88 000) − R198 000 = R223 000 − R198 000 = R25 000 net profit. Project 2: (R65 000 + R15 000 + R80 000 + R65 000) − R197 000 = R225 000 − R197 000 = R28 000 net profit.",
+      "aiRubric": [
+        "Correctly total Project 1 inflows: R223 000.",
+        "Subtract its initial outflow: R198 000.",
+        "Project 1 net profit: R25 000.",
+        "Correctly total Project 2 inflows: R225 000.",
+        "Subtract its initial outflow: R197 000.",
+        "Project 2 net profit: R28 000."
+      ],
+      "aiReferenceNotes": "Award partial marks for valid method, clear supporting working and correct concepts. Accept equivalent explanations, alternative valid representations and minor rounding differences; never require exact memorised wording.",
+      "table": {
+        "caption": "Table 1: Projects Cash Flow (South African Rand)",
+        "headers": [
+          "Year",
+          "Project 1 – Student system",
+          "Project 2 – Salary/Payroll system"
+        ],
+        "rows": [
+          [
+            "0",
+            "−R198 000",
+            "−R197 000"
+          ],
+          [
+            "1",
+            "+R55 000",
+            "+R65 000"
+          ],
+          [
+            "2",
+            "+R20 000",
+            "+R15 000"
+          ],
+          [
+            "3",
+            "+R60 000",
+            "+R80 000"
+          ],
+          [
+            "4",
+            "+R88 000",
+            "+R65 000"
+          ]
+        ]
+      }
+    },
+    {
+      "number": "3.2",
+      "marks": 6,
+      "text": "QUESTION 3.2 (6 marks): Calculate RETURN ON INVESTMENT (ROI) for BOTH projects using Table 1. Show your working.",
+      "grading": "ai",
+      "aiPassScore": 70,
+      "correctAnswer": "ROI = net profit ÷ initial investment × 100%. Project 1 = R25 000 ÷ R198 000 × 100 = 12.63%. Project 2 = R28 000 ÷ R197 000 × 100 = 14.21% (to two decimal places).",
+      "aiRubric": [
+        "State or correctly apply ROI = net profit / initial investment × 100%.",
+        "Use Project 1 profit R25 000.",
+        "Use Project 1 investment R198 000 and calculate 12.63%.",
+        "Use Project 2 profit R28 000.",
+        "Use Project 2 investment R197 000 and calculate 14.21%.",
+        "Give each result as a percentage and allow sensible rounding."
+      ],
+      "aiReferenceNotes": "Award partial marks for valid method, clear supporting working and correct concepts. Accept equivalent explanations, alternative valid representations and minor rounding differences; never require exact memorised wording.",
+      "table": {
+        "caption": "Table 1: Projects Cash Flow (South African Rand)",
+        "headers": [
+          "Year",
+          "Project 1 – Student system",
+          "Project 2 – Salary/Payroll system"
+        ],
+        "rows": [
+          [
+            "0",
+            "−R198 000",
+            "−R197 000"
+          ],
+          [
+            "1",
+            "+R55 000",
+            "+R65 000"
+          ],
+          [
+            "2",
+            "+R20 000",
+            "+R15 000"
+          ],
+          [
+            "3",
+            "+R60 000",
+            "+R80 000"
+          ],
+          [
+            "4",
+            "+R88 000",
+            "+R65 000"
+          ]
+        ]
+      }
+    },
+    {
+      "number": "3.3",
+      "marks": 6,
+      "text": "QUESTION 3.3 (6 marks): In which year does EACH project pay back its initial capital investment? Calculate the payback periods using Table 1, with working.",
+      "grading": "ai",
+      "aiPassScore": 70,
+      "correctAnswer": "Project 1 cumulative unrecovered balance after years 1–3: −198 000+55 000+20 000+60 000 = −R63 000; year 4 brings R88 000. Payback = 3 + 63 000/88 000 = 3.72 years (during year 4). Project 2 balance after years 1–3: −197 000+65 000+15 000+80 000 = −R37 000; year 4 brings R65 000. Payback = 3 + 37 000/65 000 = 3.57 years (during year 4). Both pay back during year 4.",
+      "aiRubric": [
+        "Use cumulative rather than only one year's cash flow.",
+        "Project 1 unrecovered balance after year 3: R63 000.",
+        "Project 1 reaches payback in year 4, around 3.72 years.",
+        "Project 2 unrecovered balance after year 3: R37 000.",
+        "Project 2 reaches payback in year 4, around 3.57 years.",
+        "Include calculations and accept 'year 4' with appropriate justification."
+      ],
+      "aiReferenceNotes": "Award partial marks for valid method, clear supporting working and correct concepts. Accept equivalent explanations, alternative valid representations and minor rounding differences; never require exact memorised wording.",
+      "table": {
+        "caption": "Table 1: Projects Cash Flow (South African Rand)",
+        "headers": [
+          "Year",
+          "Project 1 – Student system",
+          "Project 2 – Salary/Payroll system"
+        ],
+        "rows": [
+          [
+            "0",
+            "−R198 000",
+            "−R197 000"
+          ],
+          [
+            "1",
+            "+R55 000",
+            "+R65 000"
+          ],
+          [
+            "2",
+            "+R20 000",
+            "+R15 000"
+          ],
+          [
+            "3",
+            "+R60 000",
+            "+R80 000"
+          ],
+          [
+            "4",
+            "+R88 000",
+            "+R65 000"
+          ]
+        ]
+      }
+    },
+    {
+      "number": "3.4",
+      "marks": 4,
+      "text": "QUESTION 3.4 (4 marks): Based on the results of 3.1–3.3, would you STILL recommend the project you selected in Question 1.1 for Tomorrow’s Future? Justify with the organisation’s CURRENT and FUTURE needs.",
+      "grading": "ai",
+      "aiPassScore": 70,
+      "correctAnswer": "At the undiscounted level the payroll project has the greater net profit (R28 000 compared with R25 000), higher ROI (14.21% versus 12.63%), and marginally faster payback (3.57 versus 3.72 years). However, either the student or payroll system can be justified if the answer explains its urgency and strategic importance to Tomorrow’s Future, including the present dependence on St John University and long-term independence. Clearly state whether the original choice is retained and support the decision with both financial evidence and organisational needs.",
+      "aiRubric": [
+        "Clearly state whether the earlier recommendation is retained or changed.",
+        "Use relevant, correct net profit/ROI/payback comparison.",
+        "Link the chosen system to current operational priorities.",
+        "Link the choice to future organisational independence, growth or value.",
+        "Do not penalise selecting either project if the reasoning is supported."
+      ],
+      "aiReferenceNotes": "Award partial marks for valid method, clear supporting working and correct concepts. Accept equivalent explanations, alternative valid representations and minor rounding differences; never require exact memorised wording.",
+      "table": {
+        "caption": "Table 1: Projects Cash Flow (South African Rand)",
+        "headers": [
+          "Year",
+          "Project 1 – Student system",
+          "Project 2 – Salary/Payroll system"
+        ],
+        "rows": [
+          [
+            "0",
+            "−R198 000",
+            "−R197 000"
+          ],
+          [
+            "1",
+            "+R55 000",
+            "+R65 000"
+          ],
+          [
+            "2",
+            "+R20 000",
+            "+R15 000"
+          ],
+          [
+            "3",
+            "+R60 000",
+            "+R80 000"
+          ],
+          [
+            "4",
+            "+R88 000",
+            "+R65 000"
+          ]
+        ]
+      },
+      "context": "Tomorrow’s Future is a School of Graduate Leadership that used to be part of St John University. It is now independent, but St John University's computer centre still manages its staff payroll, payslips and student system, and bills Tomorrow’s Future for these services.\nManagement wants to take over its student system and staff salary/payroll processing in-house. It is undecided whether to buy off-the-shelf software or develop the systems itself. Some managers believe buying a package is cheaper; others disagree.\nIf the institution develops software in-house, these will be its first IT projects. Its IT team wants to work closely with the relevant departments, show parts of the system as they are developed, and allow changes to requirements when needed."
+    },
+    {
+      "number": "4.1",
+      "marks": 10,
+      "text": "QUESTION 4.1 (10 marks): Assuming a 10% discount rate and using Tables 1 and 2, calculate the NET PRESENT VALUE (NPV) for Project 1 and Project 2. Show ALL calculations. Keep final amounts to two decimal places.",
+      "grading": "ai",
+      "aiPassScore": 70,
+      "correctAnswer": "NPV = initial year-0 cost plus discounted future cash inflows, using the GIVEN rounded factors. Project 1: −198 000 + 55 000(0.9091) + 20 000(0.8264) + 60 000(0.7513) + 88 000(0.6830) = −198 000 + 50 000.50 + 16 528 + 45 078 + 60 104 = −R26 289.50. Project 2: −197 000 + 65 000(0.9091) + 15 000(0.8264) + 80 000(0.7513) + 65 000(0.6830) = −197 000 + 59 091.50 + 12 396 + 60 104 + 44 395 = −R21 013.50. Accept slightly different amounts from unrounded 1/(1.10)^t factors if the method is correct.",
+      "aiRubric": [
+        "Apply NPV = year-0 outflow plus four discounted cash inflows.",
+        "Do not discount year 0.",
+        "Correct Year 1 and Year 2 factor/application for Project 1.",
+        "Correct Year 3 and Year 4 factor/application for Project 1.",
+        "Project 1 NPV approximately negative R26 289.50 with supplied factors.",
+        "Correct Year 1 and Year 2 factor/application for Project 2.",
+        "Correct Year 3 and Year 4 factor/application for Project 2.",
+        "Project 2 NPV approximately negative R21 013.50 with supplied factors.",
+        "Show calculations and final figures clearly.",
+        "Credit consistent full-precision discounting and minor rounding variations."
+      ],
+      "aiReferenceNotes": "Award partial marks for valid method, clear supporting working and correct concepts. Accept equivalent explanations, alternative valid representations and minor rounding differences; never require exact memorised wording.",
+      "tables": [
+        {
+          "caption": "Table 1: Projects Cash Flow (South African Rand)",
+          "headers": [
+            "Year",
+            "Project 1 – Student system",
+            "Project 2 – Salary/Payroll system"
+          ],
+          "rows": [
+            [
+              "0",
+              "−R198 000",
+              "−R197 000"
+            ],
+            [
+              "1",
+              "+R55 000",
+              "+R65 000"
+            ],
+            [
+              "2",
+              "+R20 000",
+              "+R15 000"
+            ],
+            [
+              "3",
+              "+R60 000",
+              "+R80 000"
+            ],
+            [
+              "4",
+              "+R88 000",
+              "+R65 000"
+            ]
+          ]
+        },
+        {
+          "caption": "Table 2: 10% discount rate (use these supplied factors)",
+          "headers": [
+            "Year",
+            "10% discount factor"
+          ],
+          "rows": [
+            [
+              "1",
+              "0.9091"
+            ],
+            [
+              "2",
+              "0.8264"
+            ],
+            [
+              "3",
+              "0.7513"
+            ],
+            [
+              "4",
+              "0.6830"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "number": "4.2",
+      "marks": 4,
+      "text": "QUESTION 4.2 (4 marks): Based on your NPV calculations, advise Tomorrow’s Future which of the TWO projects to develop. Justify your answer.",
+      "grading": "ai",
+      "aiPassScore": 70,
+      "correctAnswer": "At 10%, Project 2 (Salary/Payroll System) has the higher / less-negative NPV (about −R21 013.50 versus Project 1's −R26 289.50). Based strictly on the relative NPV comparison it is financially preferable if one must be chosen. Both NPVs are negative, however, so neither passes a stand-alone positive-NPV investment test; management should review the assumptions and consider essential strategic/operational benefits before committing. Credit a clear alternative recommendation that correctly explains the negative NPVs and organisational constraints.",
+      "aiRubric": [
+        "Compare the two NPV figures correctly.",
+        "Identify Project 2 as the less-negative NPV on the supplied forecasts, if selecting strictly by relative NPV.",
+        "Recognise that BOTH NPVs are negative and flag the investment concern.",
+        "Provide a reasoned recommendation tied to the case and funding limit; allow prudent deferral or re-evaluation."
+      ],
+      "aiReferenceNotes": "Award partial marks for valid method, clear supporting working and correct concepts. Accept equivalent explanations, alternative valid representations and minor rounding differences; never require exact memorised wording.",
+      "tables": [
+        {
+          "caption": "Table 1: Projects Cash Flow (South African Rand)",
+          "headers": [
+            "Year",
+            "Project 1 – Student system",
+            "Project 2 – Salary/Payroll system"
+          ],
+          "rows": [
+            [
+              "0",
+              "−R198 000",
+              "−R197 000"
+            ],
+            [
+              "1",
+              "+R55 000",
+              "+R65 000"
+            ],
+            [
+              "2",
+              "+R20 000",
+              "+R15 000"
+            ],
+            [
+              "3",
+              "+R60 000",
+              "+R80 000"
+            ],
+            [
+              "4",
+              "+R88 000",
+              "+R65 000"
+            ]
+          ]
+        },
+        {
+          "caption": "Table 2: 10% discount rate (use these supplied factors)",
+          "headers": [
+            "Year",
+            "10% discount factor"
+          ],
+          "rows": [
+            [
+              "1",
+              "0.9091"
+            ],
+            [
+              "2",
+              "0.8264"
+            ],
+            [
+              "3",
+              "0.7513"
+            ],
+            [
+              "4",
+              "0.6830"
+            ]
+          ]
+        }
+      ],
+      "context": "Tomorrow’s Future is a School of Graduate Leadership that used to be part of St John University. It is now independent, but St John University's computer centre still manages its staff payroll, payslips and student system, and bills Tomorrow’s Future for these services.\nManagement wants to take over its student system and staff salary/payroll processing in-house. It is undecided whether to buy off-the-shelf software or develop the systems itself. Some managers believe buying a package is cheaper; others disagree.\nIf the institution develops software in-house, these will be its first IT projects. Its IT team wants to work closely with the relevant departments, show parts of the system as they are developed, and allow changes to requirements when needed."
+    },
+    {
+      "number": "5.1",
+      "marks": 14,
+      "text": "QUESTION 5.1 (14 marks): Draw an ACTIVITY-ON-ARROW (AOA) network for Table 3. Indicate the activity and duration on each arrow, and event number, earliest date, latest date and float on each node. Complete the forward and backward pass. IMPORTANT: The original paper deducts 7 of these 14 marks if there is no drawn network diagram. Draw in the box or upload a clear picture; optional text can explain your calculations.",
+      "grading": "ai",
+      "aiPassScore": 70,
+      "correctAnswer": "A valid AOA solution (equivalent event numbering is accepted): node 1 is start (earliest/latest 0/0); arrows 1→2 A(7), 1→3 B(5), 1→5 F(11), 2→4 C(4), 3→4 D(5), 3→5 E(4), 4→6 H(3), 5→6 G(4). Node earliest/latest event dates: 1=0/0, 2=7/8, 3=5/7, 4=11/12, 5=11/11, 6=15/15. Event slack (latest−earliest): 0,1,2,1,0,0 respectively. Activity total floats: A=1, B=2, C=1, D=2, E=2, F=0, G=0, H=1. Project duration = 15 days. No dummy is required for this valid representation. Other correct event numbering and proper dummy arrangements also earn credit.",
+      "aiRubric": [
+        "Assess the ACTUAL DRAWN DIAGRAM if present, not merely the accompanying text.",
+        "Include A(7), B(5), F(11) at the start and all eight activities on arrows.",
+        "Correct dependency: C after A; D and E after B; G after BOTH E and F; H after BOTH C and D.",
+        "Valid arrow directions and event numbering; equivalent layouts are accepted.",
+        "Forward pass: earliest events 0, 7, 5, 11, 11, 15 for the example network.",
+        "Backward pass: latest events 0, 8, 7, 12, 11, 15 for that network.",
+        "Node float = latest minus earliest, e.g. 0,1,2,1,0,0.",
+        "Activities' durations and nodes correctly labelled; critical chain F–G.",
+        "If NO actual network diagram is uploaded/drawn, cap award at 7/14 even if written notation is correct."
+      ],
+      "aiReferenceNotes": "This is a visual-marking question (14 marks). Inspect the uploaded or drawn network diagram as primary evidence. Accept any topologically equivalent AOA with the correct precedence relations and valid node times; activity event numbers can differ. A submitted written AOA representation alone is NOT an actual drawing: the original exam deducts 7 marks. If no image is provided, cap the score at 50% (7/14) even if the written calculations are perfect. If an image is illegible or unrelated, do not assume it is correct. Node times for example numbering: 1 0/0, 2 7/8, 3 5/7, 4 11/12, 5 11/11, 6 15/15. Total floats A1 B2 C1 D2 E2 F0 G0 H1.",
+      "table": {
+        "caption": "Table 3: Activity precedents and durations",
+        "headers": [
+          "Activity",
+          "Estimated duration (days)",
+          "Predecessor(s)"
+        ],
+        "rows": [
+          [
+            "A",
+            "7",
+            "—"
+          ],
+          [
+            "B",
+            "5",
+            "—"
+          ],
+          [
+            "C",
+            "4",
+            "A"
+          ],
+          [
+            "D",
+            "5",
+            "B"
+          ],
+          [
+            "E",
+            "4",
+            "B"
+          ],
+          [
+            "F",
+            "11",
+            "—"
+          ],
+          [
+            "G",
+            "4",
+            "E, F"
+          ],
+          [
+            "H",
+            "3",
+            "C, D"
+          ]
+        ]
+      },
+      "answerType": "diagram",
+      "diagramRequired": true
+    },
+    {
+      "number": "5.2",
+      "marks": 8,
+      "text": "QUESTION 5.2 (8 marks): Identify ALL paths on the Table 3 network and indicate their durations (days).",
+      "grading": "ai",
+      "aiPassScore": 70,
+      "correctAnswer": "All start-to-finish paths: A–C–H = 7+4+3 = 14 days; B–D–H = 5+5+3 = 13 days; B–E–G = 5+4+4 = 13 days; F–G = 11+4 = 15 days. The precedence merges for H and G are respected in the network.",
+      "aiRubric": [
+        "Name A–C–H and total 14 days.",
+        "Name B–D–H and total 13 days.",
+        "Name B–E–G and total 13 days.",
+        "Name F–G and total 15 days.",
+        "Give two marks per correctly identified path with duration; permit alternate spacing/arrow notation."
+      ],
+      "aiReferenceNotes": "Award partial marks for valid method, clear supporting working and correct concepts. Accept equivalent explanations, alternative valid representations and minor rounding differences; never require exact memorised wording.",
+      "table": {
+        "caption": "Table 3: Activity precedents and durations",
+        "headers": [
+          "Activity",
+          "Estimated duration (days)",
+          "Predecessor(s)"
+        ],
+        "rows": [
+          [
+            "A",
+            "7",
+            "—"
+          ],
+          [
+            "B",
+            "5",
+            "—"
+          ],
+          [
+            "C",
+            "4",
+            "A"
+          ],
+          [
+            "D",
+            "5",
+            "B"
+          ],
+          [
+            "E",
+            "4",
+            "B"
+          ],
+          [
+            "F",
+            "11",
+            "—"
+          ],
+          [
+            "G",
+            "4",
+            "E, F"
+          ],
+          [
+            "H",
+            "3",
+            "C, D"
+          ]
+        ]
+      }
+    },
+    {
+      "number": "5.3",
+      "marks": 3,
+      "text": "QUESTION 5.3 (3 marks): What is the LONGEST time the project will take? Indicate the CRITICAL PATH. What does the longest path tell you?",
+      "grading": "ai",
+      "aiPassScore": 70,
+      "correctAnswer": "The critical/longest path is F–G = 11+4 = 15 days. It gives the minimum overall completion time (under the given durations and dependencies); delays to critical activities with zero float delay the entire project unless the schedule is changed.",
+      "aiRubric": [
+        "Correct longest project duration: 15 days.",
+        "Correct critical path: F–G.",
+        "Explain the critical path determines the project finish time and has zero float."
+      ],
+      "aiReferenceNotes": "Award partial marks for valid method, clear supporting working and correct concepts. Accept equivalent explanations, alternative valid representations and minor rounding differences; never require exact memorised wording.",
+      "table": {
+        "caption": "Table 3: Activity precedents and durations",
+        "headers": [
+          "Activity",
+          "Estimated duration (days)",
+          "Predecessor(s)"
+        ],
+        "rows": [
+          [
+            "A",
+            "7",
+            "—"
+          ],
+          [
+            "B",
+            "5",
+            "—"
+          ],
+          [
+            "C",
+            "4",
+            "A"
+          ],
+          [
+            "D",
+            "5",
+            "B"
+          ],
+          [
+            "E",
+            "4",
+            "B"
+          ],
+          [
+            "F",
+            "11",
+            "—"
+          ],
+          [
+            "G",
+            "4",
+            "E, F"
+          ],
+          [
+            "H",
+            "3",
+            "C, D"
+          ]
+        ]
+      }
+    },
+    {
+      "number": "6.1a",
+      "marks": 3,
+      "text": "QUESTION 6.1 (part 1; 3 marks): Calculate the range of ACTUAL COST for the STUDENT SYSTEM if its Rough Order of Magnitude (ROM) estimate is R120 000.",
+      "grading": "ai",
+      "aiPassScore": 70,
+      "correctAnswer": "Using the standard ROM range of −50% to +100%: lower bound = R120 000 × 0.50 = R60 000; upper bound = R120 000 × 2.00 = R240 000. Range: R60 000 to R240 000.",
+      "aiRubric": [
+        "State or apply ROM estimate accuracy −50% to +100%.",
+        "Correct lower bound R60 000.",
+        "Correct upper bound R240 000."
+      ],
+      "aiReferenceNotes": "For this INF3708 question use rough order of magnitude estimate range −50% to +100%. Award method marks. Do not confuse with a later budget/definitive estimate."
+    },
+    {
+      "number": "6.1b",
+      "marks": 3,
+      "text": "QUESTION 6.1 (part 2; 3 marks): Calculate the range of ACTUAL COST for the SALARY/PAYROLL SYSTEM if its ROM estimate is R200 000.",
+      "grading": "ai",
+      "aiPassScore": 70,
+      "correctAnswer": "Using a ROM range of −50% to +100%: lower bound = R200 000 × 0.50 = R100 000; upper bound = R200 000 × 2.00 = R400 000. Range: R100 000 to R400 000.",
+      "aiRubric": [
+        "State or apply ROM estimate accuracy −50% to +100%.",
+        "Correct lower bound R100 000.",
+        "Correct upper bound R400 000."
+      ],
+      "aiReferenceNotes": "For this INF3708 question use rough order of magnitude estimate range −50% to +100%. Award method marks."
+    },
+    {
+      "number": "6.2",
+      "marks": 10,
+      "text": "QUESTION 6.2 (10 marks): Use THREE-POINT (PERT) estimation to calculate the expected duration (tₑ) of EACH of the FIRST FOUR activities (A, B, C and D). Table 4 gives optimistic (a) and pessimistic (b) durations. Use MOST-LIKELY durations from Table 3. Show the formula and all calculations, rounding to TWO decimal places.",
+      "grading": "ai",
+      "aiPassScore": 70,
+      "correctAnswer": "PERT expected duration = (a + 4m + b)/6. Most likely m from Table 3: A=7, B=5, C=4, D=5. A=(4+4×7+8)/6=40/6=6.67 days. B=(1+4×5+5)/6=26/6=4.33 days. C=(2+4×4+5)/6=23/6=3.83 days. D=(2+4×5+6)/6=28/6=4.67 days.",
+      "aiRubric": [
+        "State the PERT formula (a + 4m + b)/6.",
+        "Correctly source most likely durations from Table 3.",
+        "Correct substitution for A and expected 6.67.",
+        "Correct substitution for B and expected 4.33.",
+        "Correct substitution for C and expected 3.83.",
+        "Correct substitution for D and expected 4.67.",
+        "Allow correct unrounded intermediate values and round final durations to two decimal places."
+      ],
+      "aiReferenceNotes": "Award partial marks for valid method, clear supporting working and correct concepts. Accept equivalent explanations, alternative valid representations and minor rounding differences; never require exact memorised wording.",
+      "tables": [
+        {
+          "caption": "Table 3: Activity precedents and durations",
+          "headers": [
+            "Activity",
+            "Estimated duration (days)",
+            "Predecessor(s)"
+          ],
+          "rows": [
+            [
+              "A",
+              "7",
+              "—"
+            ],
+            [
+              "B",
+              "5",
+              "—"
+            ],
+            [
+              "C",
+              "4",
+              "A"
+            ],
+            [
+              "D",
+              "5",
+              "B"
+            ],
+            [
+              "E",
+              "4",
+              "B"
+            ],
+            [
+              "F",
+              "11",
+              "—"
+            ],
+            [
+              "G",
+              "4",
+              "E, F"
+            ],
+            [
+              "H",
+              "3",
+              "C, D"
+            ]
+          ]
+        },
+        {
+          "caption": "Table 4: Optimistic and pessimistic durations (Table 3 supplies the most-likely values)",
+          "headers": [
+            "Activity",
+            "Optimistic (a)",
+            "Pessimistic (b)"
+          ],
+          "rows": [
+            [
+              "A",
+              "4",
+              "8"
+            ],
+            [
+              "B",
+              "1",
+              "5"
+            ],
+            [
+              "C",
+              "2",
+              "5"
+            ],
+            [
+              "D",
+              "2",
+              "6"
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let testInProgress = false;
   let testSubmitted = false;
   let currentTestFile = "";
+  let currentTestPreserveOrder = false;
   let bookmarkedQuestions = new Set();
   let initialTimerSeconds = null;
   let bookmarkCycleIndex = 0;
@@ -1094,6 +1095,12 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function hasProvidedAnswer(answer) {
+    if (answer && typeof answer === "object" && !Array.isArray(answer)) {
+      return Boolean(
+        (typeof answer.text === "string" && answer.text.trim()) ||
+        (typeof answer.image === "string" && /^data:image\/(jpeg|png|webp);base64,/.test(answer.image))
+      );
+    }
     if (Array.isArray(answer)) {
       return answer.some((value) => canonicalizeAnswerValue(value) !== "");
     }
@@ -1383,9 +1390,28 @@ document.addEventListener("DOMContentLoaded", function () {
   function appendStructuredQuestionContent(questionElement, question) {
     if (!questionElement || !question) return;
 
+    if (question.context) {
+      const details = document.createElement("details");
+      details.className = "question-case-study";
+      const summary = document.createElement("summary");
+      summary.textContent = "Read the Tomorrow's Future case study";
+      details.appendChild(summary);
+      const content = document.createElement("div");
+      content.innerHTML = formatRichText(question.context);
+      details.appendChild(content);
+      questionElement.appendChild(details);
+    }
+
     if (question.table) {
       const table = createStructuredQuestionTable(question.table);
       if (table) questionElement.appendChild(table);
+    }
+
+    if (Array.isArray(question.tables)) {
+      question.tables.forEach((tableData) => {
+        const table = createStructuredQuestionTable(tableData);
+        if (table) questionElement.appendChild(table);
+      });
     }
 
     if (question.image) {
@@ -1556,6 +1582,19 @@ document.addEventListener("DOMContentLoaded", function () {
       );
     }
 
+    const diagramImage =
+      studentAnswer && typeof studentAnswer === "object" &&
+      typeof studentAnswer.image === "string" &&
+      question.answerType === "diagram"
+        ? studentAnswer.image
+        : "";
+    const answerText =
+      studentAnswer && typeof studentAnswer === "object"
+        ? (typeof studentAnswer.text === "string" ? studentAnswer.text.trim() : "")
+        : typeof studentAnswer === "string"
+          ? studentAnswer.trim()
+          : String(studentAnswer || "").trim();
+
     const response = await fetch(endpoint, {
       method: "POST",
       headers: {
@@ -1563,10 +1602,9 @@ document.addEventListener("DOMContentLoaded", function () {
       },
       body: JSON.stringify({
         question: question.text || "",
-        studentAnswer:
-          typeof studentAnswer === "string"
-            ? studentAnswer.trim()
-            : String(studentAnswer || "").trim(),
+        studentAnswer: answerText || (diagramImage ? "Answer supplied as a drawn network diagram." : ""),
+        diagramImage,
+        diagramRequired: question.diagramRequired === true,
         modelAnswer: formatAnswerForDisplay(question.correctAnswer),
         rubric: question.aiRubric || [],
         referenceNotes:
@@ -1649,6 +1687,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  function getQuestionMarks(question) {
+    const marks = Number(question && question.marks);
+    return Number.isFinite(marks) && marks > 0 ? marks : 1;
+  }
+
   function getQuestionGrade(question, index, userAnswer) {
     const hasAnswer = hasProvidedAnswer(userAnswer);
 
@@ -1673,7 +1716,7 @@ document.addEventListener("DOMContentLoaded", function () {
       return {
         hasAnswer: true,
         isCorrect: Boolean(aiGrade.accepted),
-        scoreValue: Math.max(0, Math.min(1, aiGrade.score / 100)),
+        scoreValue: getQuestionMarks(question) * Math.max(0, Math.min(1, aiGrade.score / 100)),
         aiGrade,
       };
     }
@@ -1682,7 +1725,7 @@ document.addEventListener("DOMContentLoaded", function () {
     return {
       hasAnswer: true,
       isCorrect,
-      scoreValue: isCorrect ? 1 : 0,
+      scoreValue: isCorrect ? getQuestionMarks(question) : 0,
     };
   }
 
@@ -2107,7 +2150,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     unlockAchievement("first-test");
 
-    if (score === questions.length) {
+    const availableMarks = questions.reduce(
+      (total, question) => total + getQuestionMarks(question), 0
+    );
+    if (availableMarks > 0 && score >= availableMarks - 0.0001) {
       unlockAchievement("perfect-score");
     }
 
@@ -2175,7 +2221,8 @@ const testFiles = [
   "test34Social.json",
    "test35.json",
    "test36.json",
-   "test37.json"
+   "test37.json",
+   "inf3708-oct-nov-2021.json"
 ];
 
 
@@ -2306,20 +2353,22 @@ const testFiles = [
     return rawQuestions.map((question) => cloneQuestionData(question));
   }
 
-  function prepareQuestionsForSession(baseQuestions) {
+  function prepareQuestionsForSession(baseQuestions, preserveOrder = false) {
     if (!Array.isArray(baseQuestions)) {
       return [];
     }
 
     const questionsWithShuffledOptions = baseQuestions.map((question) => {
       const clonedQuestion = cloneQuestionData(question);
-      if (Array.isArray(clonedQuestion.options)) {
+      if (!preserveOrder && Array.isArray(clonedQuestion.options)) {
         clonedQuestion.options = shuffleArray([...clonedQuestion.options]);
       }
       return clonedQuestion;
     });
 
-    return shuffleArray(questionsWithShuffledOptions);
+    return preserveOrder
+      ? questionsWithShuffledOptions
+      : shuffleArray(questionsWithShuffledOptions);
   }
 
   function loadQuestions(filename, customData = null) {
@@ -2328,9 +2377,10 @@ const testFiles = [
       lastRegularTestValue = filename;
     }
 
-    const initializeFromQuestions = (rawQuestions) => {
+    const initializeFromQuestions = (rawQuestions, preserveOrder = false) => {
       originalQuestions = cloneQuestionsData(rawQuestions || []);
-      questions = prepareQuestionsForSession(originalQuestions);
+      currentTestPreserveOrder = preserveOrder;
+      questions = prepareQuestionsForSession(originalQuestions, preserveOrder);
       initializeTest();
     };
 
@@ -2345,7 +2395,11 @@ const testFiles = [
           return response.json();
         })
         .then((data) => {
-          initializeFromQuestions(data.questions);
+          if (Number.isFinite(Number(data.durationMinutes)) &&
+              Number(data.durationMinutes) > 0 && timerInput) {
+            timerInput.value = String(data.durationMinutes);
+          }
+          initializeFromQuestions(data.questions, data.preserveOrder === true);
         })
         .catch((error) => {
           console.error("Error loading questions:", error);
@@ -2644,6 +2698,7 @@ const testFiles = [
   // Initialize test variables and UI
   function initializeTest() {
     resetReviewState();
+    aiGrades = {};
     if (questions.length === 0) {
       questionsContainer.innerHTML = `<p>No questions available in the selected file.</p>`;
       paginationControls.classList.add("hidden");
@@ -2723,6 +2778,175 @@ const testFiles = [
 
   //************************ SECTION 6: RENDERING QUESTIONS ************************//
 
+  function createDiagramAnswerInput(actualIndex) {
+    const previous = userAnswers[actualIndex];
+    const answer = previous && typeof previous === "object" && !Array.isArray(previous)
+      ? previous
+      : { text: "", image: "" };
+    userAnswers[actualIndex] = answer;
+
+    const wrapper = document.createElement("div");
+    wrapper.className = "diagram-answer";
+    const instructions = document.createElement("p");
+    instructions.textContent =
+      "Draw the AOA network here using a mouse, touch or pen, or upload a clear drawing. " +
+      "Add event numbers and earliest/latest dates on nodes, and activities/durations on arrows. " +
+      "Text alone is capped at 7/14 marks, as in the original exam.";
+    wrapper.appendChild(instructions);
+
+    const canvas = document.createElement("canvas");
+    canvas.width = 960;
+    canvas.height = 480;
+    canvas.className = "diagram-canvas";
+    canvas.setAttribute("aria-label", "Draw the Activity-on-Arrow network diagram");
+    const ctx = canvas.getContext("2d");
+    ctx.fillStyle = "#ffffff";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.strokeStyle = "#172b4d";
+    ctx.lineWidth = 2.8;
+    ctx.lineCap = "round";
+    ctx.lineJoin = "round";
+    wrapper.appendChild(canvas);
+
+    let drawing = false;
+    let edited = false;
+    const positions = (event) => {
+      const rect = canvas.getBoundingClientRect();
+      return {
+        x: (event.clientX - rect.left) * canvas.width / rect.width,
+        y: (event.clientY - rect.top) * canvas.height / rect.height,
+      };
+    };
+    const saveChange = () => {
+      updateProgress();
+      if (!isStudyMode && !timerStarted && !testSubmitted) {
+        startTimer();
+        if (startTestButton) startTestButton.disabled = true;
+        if (submitButton) submitButton.disabled = false;
+        testInProgress = true;
+      }
+      saveProgress();
+    };
+    const commitDrawing = () => {
+      if (!edited) return;
+      answer.image = canvas.toDataURL("image/jpeg", 0.84);
+      edited = false;
+      saveChange();
+    };
+    if (answer.image && /^data:image\//.test(answer.image)) {
+      const existing = new Image();
+      existing.onload = () => {
+        if (!edited && answer.image === existing.src) {
+          ctx.drawImage(existing, 0, 0, canvas.width, canvas.height);
+        }
+      };
+      existing.src = answer.image;
+    }
+    canvas.addEventListener("pointerdown", (event) => {
+      if (testSubmitted) return;
+      event.preventDefault();
+      const point = positions(event);
+      drawing = true;
+      edited = true;
+      canvas.setPointerCapture(event.pointerId);
+      ctx.beginPath();
+      ctx.moveTo(point.x, point.y);
+      ctx.lineTo(point.x + 0.01, point.y + 0.01);
+      ctx.stroke();
+    });
+    canvas.addEventListener("pointermove", (event) => {
+      if (!drawing || testSubmitted) return;
+      event.preventDefault();
+      const point = positions(event);
+      ctx.lineTo(point.x, point.y);
+      ctx.stroke();
+    });
+    const finishStroke = () => {
+      if (!drawing) return;
+      drawing = false;
+      commitDrawing();
+    };
+    canvas.addEventListener("pointerup", finishStroke);
+    canvas.addEventListener("pointercancel", finishStroke);
+    canvas.addEventListener("lostpointercapture", finishStroke);
+    if (testSubmitted) canvas.style.pointerEvents = "none";
+
+    const controls = document.createElement("div");
+    controls.className = "diagram-controls";
+    const clear = document.createElement("button");
+    clear.type = "button";
+    clear.className = "btn btn-secondary";
+    clear.textContent = "Clear drawing";
+    clear.disabled = testSubmitted;
+    clear.addEventListener("click", () => {
+      ctx.fillStyle = "#ffffff";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#172b4d";
+      answer.image = "";
+      edited = false;
+      saveChange();
+    });
+    controls.appendChild(clear);
+
+    const uploadLabel = document.createElement("label");
+    uploadLabel.className = "diagram-upload-label";
+    uploadLabel.textContent = "Or upload your drawing: ";
+    const upload = document.createElement("input");
+    upload.type = "file";
+    upload.accept = "image/png,image/jpeg,image/webp";
+    upload.disabled = testSubmitted;
+    upload.setAttribute("aria-label", "Upload a network diagram image");
+    upload.addEventListener("change", () => {
+      const file = upload.files && upload.files[0];
+      if (!file) return;
+      if (!/^image\/(png|jpeg|webp)$/.test(file.type) || file.size > 8 * 1024 * 1024) {
+        alert("Choose a PNG, JPEG or WebP image no larger than 8 MB.");
+        upload.value = "";
+        return;
+      }
+      const url = URL.createObjectURL(file);
+      const img = new Image();
+      img.onload = () => {
+        ctx.fillStyle = "#ffffff";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        const ratio = Math.min(canvas.width / img.width, canvas.height / img.height);
+        const width = img.width * ratio;
+        const height = img.height * ratio;
+        ctx.drawImage(img, (canvas.width - width) / 2, (canvas.height - height) / 2, width, height);
+        URL.revokeObjectURL(url);
+        edited = true;
+        commitDrawing();
+        upload.value = "";
+      };
+      img.onerror = () => {
+        URL.revokeObjectURL(url);
+        alert("Could not read that picture. Try another image.");
+        upload.value = "";
+      };
+      img.src = url;
+    });
+    uploadLabel.appendChild(upload);
+    controls.appendChild(uploadLabel);
+    wrapper.appendChild(controls);
+
+    const textLabel = document.createElement("label");
+    textLabel.textContent = "Optional explanation / calculations";
+    const textarea = document.createElement("textarea");
+    textarea.name = "question-" + actualIndex;
+    textarea.className = "text-area-input";
+    textarea.placeholder = "For example: node 1 to node 2 = A(7); earliest/latest times ...";
+    textarea.rows = 5;
+    textarea.value = answer.text || "";
+    textarea.disabled = testSubmitted;
+    textarea.addEventListener("input", () => {
+      answer.text = textarea.value;
+      saveChange();
+    });
+    textLabel.appendChild(textarea);
+    wrapper.appendChild(textLabel);
+    return wrapper;
+  }
+
   function renderQuestions() {
     if (!questionsContainer) {
       return;
@@ -2796,7 +3020,9 @@ const testFiles = [
 
       const questionNumberElement = document.createElement("span");
       questionNumberElement.classList.add("question-number");
-      questionNumberElement.textContent = `${actualIndex + 1}.`;
+      questionNumberElement.textContent = question.number
+        ? question.number + ". (" + getQuestionMarks(question) + " marks) "
+        : (actualIndex + 1) + ".";
       questionTextElement.appendChild(questionNumberElement);
 
       const questionBodyElement = document.createElement("div");
@@ -2945,6 +3171,12 @@ const testFiles = [
           optionsList.appendChild(optionElement);
         });
         questionElement.appendChild(optionsList);
+      } else if (question.answerType === "diagram") {
+        questionElement.appendChild(createDiagramAnswerInput(actualIndex));
+        const note = document.createElement("div");
+        note.className = "ai-answer-note";
+        note.textContent = "AI will inspect the submitted drawing and your optional calculations.";
+        questionElement.appendChild(note);
       } else {
         // Handle questions without options (e.g., short answer questions)
         const textareaElement = document.createElement("textarea");
@@ -3479,8 +3711,7 @@ const testFiles = [
         console.log(`Question ${index + 1}, User Answer:`, userAnswer);
 
         if (
-          userAnswer === undefined ||
-          (typeof userAnswer === "string" && userAnswer.trim() === "")
+          !hasProvidedAnswer(userAnswer)
         ) {
           unansweredQuestions.push(index + 1);
         }
@@ -3551,10 +3782,11 @@ const testFiles = [
       });
 
       // Update the score display
+      const totalMarks = questions.reduce(
+        (total, question) => total + getQuestionMarks(question), 0
+      );
       const scorePercent =
-        questions.length === 0
-          ? 0
-          : Math.round((score / questions.length) * 100);
+        totalMarks === 0 ? 0 : Math.round((score / totalMarks) * 100);
       scoreElement.textContent = `${scorePercent}%`;
       scoreContainer.style.display = "block";
       scoreContainer.classList.remove("hidden");
@@ -3570,7 +3802,7 @@ const testFiles = [
       const scoreForDisplay = Number.isInteger(score)
         ? score
         : Number(score.toFixed(1));
-      const scoreBreakdown = `${scoreForDisplay}/${questions.length}`;
+      const scoreBreakdown = `${scoreForDisplay}/${totalMarks} marks`;
       const didPass = scorePercent >= passMark;
 
       if (didPass) {
@@ -3637,7 +3869,14 @@ const testFiles = [
     let feedbackElement = document.createElement("p");
     feedbackElement.classList.add("feedback");
 
-    if (isCorrect) {
+    if (grade.aiGrade) {
+      const earned = Number(grade.scoreValue.toFixed(2));
+      feedbackElement.textContent = "AI mark: " + earned + "/" +
+        getQuestionMarks(question) + " marks (" +
+        Math.round(grade.aiGrade.score) + "%).";
+      feedbackElement.classList.add(isCorrect ? "correct" : "ai-partial-feedback");
+      questionElement.classList.add(isCorrect ? "correct" : "incorrect");
+    } else if (isCorrect) {
       questionElement.classList.add("correct");
       feedbackElement.textContent = "Correct!";
       feedbackElement.classList.add("correct");
@@ -3778,7 +4017,7 @@ const testFiles = [
     bookmarkedQuestions = new Set();
     bookmarkCycleIndex = 0;
     if (originalQuestions.length > 0) {
-      questions = prepareQuestionsForSession(originalQuestions);
+      questions = prepareQuestionsForSession(originalQuestions, currentTestPreserveOrder);
     }
     currentPage = 1;
     renderQuestions();
@@ -3817,6 +4056,10 @@ const testFiles = [
   //************************ SECTION 13: DOWNLOAD RESULTS ************************//
 
   function formatAnswerForDisplay(answer) {
+    if (answer && typeof answer === "object" && !Array.isArray(answer)) {
+      return (answer.image ? "[Network diagram attached] " : "") +
+        (typeof answer.text === "string" ? answer.text : "");
+    }
     if (Array.isArray(answer)) {
       return answer
         .map((value) => canonicalizeAnswerValue(value))
@@ -3883,9 +4126,10 @@ const testFiles = [
     doc.setFontSize(bodyFontSize);
     doc.setTextColor(defaultTextColor.r, defaultTextColor.g, defaultTextColor.b);
 
-    let correctAnswersCount = 0;
-
-    const totalQuestions = questions.length;
+    let earnedMarks = 0;
+    const totalMarks = questions.reduce(
+      (total, question) => total + getQuestionMarks(question), 0
+    );
 
     const resultsData = questions.map((question, index) => {
       const questionText = `Question ${index + 1}: ${question.text}`;
@@ -3895,12 +4139,9 @@ const testFiles = [
         ? formatAnswerForDisplay(rawUserAnswer)
         : "No Answer Provided";
       const correctAnswer = formatAnswerForDisplay(question.correctAnswer);
-      const isCorrect =
-        hasUserAnswer && answersMatch(rawUserAnswer, question.correctAnswer);
-
-      if (isCorrect) {
-        correctAnswersCount++;
-      }
+      const grade = getQuestionGrade(question, index, rawUserAnswer);
+      const isCorrect = grade.isCorrect;
+      earnedMarks += grade.scoreValue;
 
       doc.setFont("helvetica", "bold");
       const questionLines = doc.splitTextToSize(questionText, maxLineWidth);
@@ -3909,13 +4150,18 @@ const testFiles = [
       });
       doc.setFont("helvetica", "normal");
 
-      const userAnswerText = `Your Answer: ${userAnswer}`;
+      const userAnswerText = "Your Answer: " + userAnswer +
+        (grade.aiGrade ? " | AI mark: " +
+          Number(grade.scoreValue.toFixed(2)) + "/" +
+          getQuestionMarks(question) + " marks (" +
+          Math.round(grade.aiGrade.score) + "%)" : "");
       const userAnswerLines = doc.splitTextToSize(userAnswerText, maxLineWidth);
       const userAnswerDimensions = doc.getTextDimensions(userAnswerLines, {
         maxWidth: maxLineWidth,
       });
 
-      const correctAnswerText = `Correct Answer: ${correctAnswer}`;
+      const correctAnswerText = (isAiGradedQuestion(question) ? "Reference Answer: " : "Correct Answer: ") +
+        correctAnswer;
       const correctAnswerLines = doc.splitTextToSize(
         correctAnswerText,
         maxLineWidth
@@ -3929,9 +4175,14 @@ const testFiles = [
 
       let explanationLines = [];
       let explanationDimensions = { h: 0 };
-      if (!isCorrect && question.explanation) {
-        const explanationText = `Explanation: ${question.explanation}`;
-        explanationLines = doc.splitTextToSize(explanationText, maxLineWidth);
+      const feedbackText = grade.aiGrade && grade.aiGrade.feedback
+        ? "AI feedback: " + grade.aiGrade.feedback +
+          (grade.aiGrade.missingPoints && grade.aiGrade.missingPoints.length
+            ? " Improve: " + grade.aiGrade.missingPoints.join("; ") : "")
+        : !isCorrect && question.explanation
+          ? "Explanation: " + question.explanation : "";
+      if (feedbackText) {
+        explanationLines = doc.splitTextToSize(feedbackText, maxLineWidth);
         explanationDimensions = doc.getTextDimensions(explanationLines, {
           maxWidth: maxLineWidth,
         });
@@ -3948,14 +4199,20 @@ const testFiles = [
         explanationHeight: explanationDimensions.h,
         isCorrect,
         hasUserAnswer,
+        aiGrade: grade.aiGrade || null,
+        diagramImage: rawUserAnswer && typeof rawUserAnswer === "object" &&
+          typeof rawUserAnswer.image === "string" &&
+          /^data:image\/jpeg;base64,/.test(rawUserAnswer.image)
+            ? rawUserAnswer.image : "",
       };
     });
 
-    const percentageScore = totalQuestions
-      ? Math.round((correctAnswersCount / totalQuestions) * 100)
+    const percentageScore = totalMarks
+      ? Math.round((earnedMarks / totalMarks) * 100)
       : 0;
-    const scoreBadgeText = totalQuestions
-      ? `${correctAnswersCount}/${totalQuestions} correct (${percentageScore}%)`
+    const displayEarnedMarks = Number(earnedMarks.toFixed(2));
+    const scoreBadgeText = totalMarks
+      ? displayEarnedMarks + "/" + totalMarks + " marks (" + percentageScore + "%)"
       : "No questions answered";
 
     const headerHeight = 34;
@@ -4147,7 +4404,9 @@ const testFiles = [
           textColor: entry.isCorrect ? correctTextColor : incorrectTextColor,
           spacingAfter: 4,
           badge: {
-            label: entry.isCorrect ? "Correct" : "Incorrect",
+            label: entry.aiGrade
+              ? "AI " + Math.round(entry.aiGrade.score) + "%"
+              : entry.isCorrect ? "Correct" : "Incorrect",
             fillColor: entry.isCorrect ? correctTextColor : incorrectTextColor,
             textColor: { r: 255, g: 255, b: 255 },
           },
@@ -4165,6 +4424,13 @@ const testFiles = [
         });
       }
 
+      if (entry.diagramImage) {
+        const imageHeight = 84;
+        ensureSpace(imageHeight + 8);
+        doc.addImage(entry.diagramImage, "JPEG", blockX, yPosition, blockWidth, imageHeight);
+        yPosition += imageHeight + 8;
+      }
+
       drawBlock(entry.correctAnswerLines, entry.correctAnswerHeight, {
         fillColor: { r: 224, g: 242, b: 254 },
         textColor: { r: 13, g: 60, b: 97 },
@@ -4180,7 +4446,8 @@ const testFiles = [
       }
     });
 
-    const summaryText = `Summary: You answered ${correctAnswersCount} of ${totalQuestions} questions correctly (${percentageScore}%).`;
+    const summaryText = "Summary: You earned " + displayEarnedMarks +
+      " of " + totalMarks + " marks (" + percentageScore + "%).";
     doc.setFont("helvetica", "bold");
     const summaryLines = doc.splitTextToSize(summaryText, maxLineWidth);
     const summaryDimensions = doc.getTextDimensions(summaryLines, {
