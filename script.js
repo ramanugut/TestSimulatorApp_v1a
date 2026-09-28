@@ -1848,6 +1848,46 @@ document.addEventListener("DOMContentLoaded", function () {
     speakNextStudyVoicePart(session);
   }
 
+  // A tap starts at the sentence nearest the tapped word where the browser
+  // exposes caret coordinates. Keyboard use (and older browsers) starts at
+  // the selected paragraph. Original note markup is never rewritten.
+  function pickedStudyVoicePart(parts, element, event) {
+    const indexes = [];
+    parts.forEach(function (part, index) {
+      if (part.element === element) indexes.push(index);
+    });
+    if (!indexes.length || event.type !== "click" ||
+        !Number.isFinite(event.clientX) || !Number.isFinite(event.clientY) ||
+        typeof document.createRange !== "function") return indexes[0] || 0;
+
+    let node = null;
+    let offset = 0;
+    if (typeof document.caretPositionFromPoint === "function") {
+      const caret = document.caretPositionFromPoint(event.clientX, event.clientY);
+      if (caret) { node = caret.offsetNode; offset = caret.offset; }
+    } else if (typeof document.caretRangeFromPoint === "function") {
+      const caret = document.caretRangeFromPoint(event.clientX, event.clientY);
+      if (caret) { node = caret.startContainer; offset = caret.startOffset; }
+    }
+    if (!node || !element.contains(node)) return indexes[0];
+
+    try {
+      const range = document.createRange();
+      range.selectNodeContents(element);
+      range.setEnd(node, offset);
+      const chars = range.toString().replace(/\s+/g, " ").trim().length;
+      let position = 0;
+      for (const index of indexes) {
+        const length = parts[index].text.length;
+        if (chars <= position + length) return index;
+        position += length + 1; // The space between spoken sentences.
+      }
+      return indexes[indexes.length - 1];
+    } catch (error) {
+      return indexes[0];
+    }
+  }
+
   function beginStudyVoicePicker(questionElement, toolbar, questionNumber) {
     stopStudyVoice();
     const parts = buildStudyVoiceParts(questionElement);
@@ -1867,7 +1907,7 @@ document.addEventListener("DOMContentLoaded", function () {
     activeStudyVoicePicker = picker;
     button.textContent = "Cancel";
     button.setAttribute("aria-pressed", "true");
-    status.textContent = "Tap a paragraph or step to start listening there.";
+    status.textContent = "Tap the sentence or paragraph you want to hear.";
     status.classList.remove("sr-only", "study-voice-error");
     starts.forEach(function (index, element) {
       const before = {};
@@ -1880,7 +1920,8 @@ document.addEventListener("DOMContentLoaded", function () {
         event.preventDefault();
         event.stopPropagation();
         closeStudyVoicePicker();
-        startStudyVoice(questionElement, toolbar, questionNumber, parts, index);
+        startStudyVoice(questionElement, toolbar, questionNumber, parts,
+          pickedStudyVoicePart(parts, element, event));
         if (event.type === "keydown") {
           toolbar.querySelector('[data-voice-action="toggle"]').focus();
         }
