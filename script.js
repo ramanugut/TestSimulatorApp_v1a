@@ -2183,7 +2183,7 @@ document.addEventListener("DOMContentLoaded", function () {
       if (Date.now() - press.since < 450 ||
           Math.hypot(event.clientX - press.x, event.clientY - press.y) > 12) return;
       if (currentSession() !== press.session) return;
-      suppressClickUntil = Date.now() + 750; // Prevent the follow-up synthetic click.
+      suppressClickUntil = Date.now() + 400; // Prevent the follow-up synthetic click.
       if (event.cancelable) event.preventDefault();
       seekToTouchOrTap(press.session, press.element, event);
     });
@@ -2194,7 +2194,7 @@ document.addEventListener("DOMContentLoaded", function () {
       touchPress = null;
       if (currentSession() !== press.session) return;
       event.preventDefault();
-      suppressClickUntil = Date.now() + 750;
+      suppressClickUntil = Date.now() + 400;
       seekToTouchOrTap(press.session, press.element, {
         clientX: press.x, clientY: press.y
       });
