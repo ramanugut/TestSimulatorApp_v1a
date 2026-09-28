@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let testInProgress = false;
   let testSubmitted = false;
   let currentTestFile = "";
+  let currentTestPreserveOrder = false;
   let bookmarkedQuestions = new Set();
   let initialTimerSeconds = null;
   let bookmarkCycleIndex = 0;
@@ -1094,6 +1095,12 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function hasProvidedAnswer(answer) {
+    if (answer && typeof answer === "object" && !Array.isArray(answer)) {
+      return Boolean(
+        (typeof answer.text === "string" && answer.text.trim()) ||
+        (typeof answer.image === "string" && /^data:image\/(jpeg|png|webp);base64,/.test(answer.image))
+      );
+    }
     if (Array.isArray(answer)) {
       return answer.some((value) => canonicalizeAnswerValue(value) !== "");
     }
@@ -1383,9 +1390,28 @@ document.addEventListener("DOMContentLoaded", function () {
   function appendStructuredQuestionContent(questionElement, question) {
     if (!questionElement || !question) return;
 
+    if (question.context) {
+      const details = document.createElement("details");
+      details.className = "question-case-study";
+      const summary = document.createElement("summary");
+      summary.textContent = "Read the Tomorrow's Future case study";
+      details.appendChild(summary);
+      const content = document.createElement("div");
+      content.innerHTML = formatRichText(question.context);
+      details.appendChild(content);
+      questionElement.appendChild(details);
+    }
+
     if (question.table) {
       const table = createStructuredQuestionTable(question.table);
       if (table) questionElement.appendChild(table);
+    }
+
+    if (Array.isArray(question.tables)) {
+      question.tables.forEach((tableData) => {
+        const table = createStructuredQuestionTable(tableData);
+        if (table) questionElement.appendChild(table);
+      });
     }
 
     if (question.image) {
@@ -1649,6 +1675,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  function getQuestionMarks(question) {
+    const marks = Number(question && question.marks);
+    return Number.isFinite(marks) && marks > 0 ? marks : 1;
+  }
+
   function getQuestionGrade(question, index, userAnswer) {
     const hasAnswer = hasProvidedAnswer(userAnswer);
 
@@ -1673,7 +1704,7 @@ document.addEventListener("DOMContentLoaded", function () {
       return {
         hasAnswer: true,
         isCorrect: Boolean(aiGrade.accepted),
-        scoreValue: Math.max(0, Math.min(1, aiGrade.score / 100)),
+        scoreValue: getQuestionMarks(question) * Math.max(0, Math.min(1, aiGrade.score / 100)),
         aiGrade,
       };
     }
@@ -1682,7 +1713,7 @@ document.addEventListener("DOMContentLoaded", function () {
     return {
       hasAnswer: true,
       isCorrect,
-      scoreValue: isCorrect ? 1 : 0,
+      scoreValue: isCorrect ? getQuestionMarks(question) : 0,
     };
   }
 
@@ -2175,7 +2206,8 @@ const testFiles = [
   "test34Social.json",
    "test35.json",
    "test36.json",
-   "test37.json"
+   "test37.json",
+   "inf3708-oct-nov-2021.json"
 ];
 
 
@@ -2306,20 +2338,22 @@ const testFiles = [
     return rawQuestions.map((question) => cloneQuestionData(question));
   }
 
-  function prepareQuestionsForSession(baseQuestions) {
+  function prepareQuestionsForSession(baseQuestions, preserveOrder = false) {
     if (!Array.isArray(baseQuestions)) {
       return [];
     }
 
     const questionsWithShuffledOptions = baseQuestions.map((question) => {
       const clonedQuestion = cloneQuestionData(question);
-      if (Array.isArray(clonedQuestion.options)) {
+      if (!preserveOrder && Array.isArray(clonedQuestion.options)) {
         clonedQuestion.options = shuffleArray([...clonedQuestion.options]);
       }
       return clonedQuestion;
     });
 
-    return shuffleArray(questionsWithShuffledOptions);
+    return preserveOrder
+      ? questionsWithShuffledOptions
+      : shuffleArray(questionsWithShuffledOptions);
   }
 
   function loadQuestions(filename, customData = null) {
@@ -2328,9 +2362,10 @@ const testFiles = [
       lastRegularTestValue = filename;
     }
 
-    const initializeFromQuestions = (rawQuestions) => {
+    const initializeFromQuestions = (rawQuestions, preserveOrder = false) => {
       originalQuestions = cloneQuestionsData(rawQuestions || []);
-      questions = prepareQuestionsForSession(originalQuestions);
+      currentTestPreserveOrder = preserveOrder;
+      questions = prepareQuestionsForSession(originalQuestions, preserveOrder);
       initializeTest();
     };
 
@@ -2345,7 +2380,11 @@ const testFiles = [
           return response.json();
         })
         .then((data) => {
-          initializeFromQuestions(data.questions);
+          if (Number.isFinite(Number(data.durationMinutes)) &&
+              Number(data.durationMinutes) > 0 && timerInput) {
+            timerInput.value = String(data.durationMinutes);
+          }
+          initializeFromQuestions(data.questions, data.preserveOrder === true);
         })
         .catch((error) => {
           console.error("Error loading questions:", error);
@@ -2796,7 +2835,9 @@ const testFiles = [
 
       const questionNumberElement = document.createElement("span");
       questionNumberElement.classList.add("question-number");
-      questionNumberElement.textContent = `${actualIndex + 1}.`;
+      questionNumberElement.textContent = question.number
+        ? question.number + ". (" + getQuestionMarks(question) + " marks) "
+        : (actualIndex + 1) + ".";
       questionTextElement.appendChild(questionNumberElement);
 
       const questionBodyElement = document.createElement("div");
@@ -3479,8 +3520,7 @@ const testFiles = [
         console.log(`Question ${index + 1}, User Answer:`, userAnswer);
 
         if (
-          userAnswer === undefined ||
-          (typeof userAnswer === "string" && userAnswer.trim() === "")
+          !hasProvidedAnswer(userAnswer)
         ) {
           unansweredQuestions.push(index + 1);
         }
@@ -3551,10 +3591,11 @@ const testFiles = [
       });
 
       // Update the score display
+      const totalMarks = questions.reduce(
+        (total, question) => total + getQuestionMarks(question), 0
+      );
       const scorePercent =
-        questions.length === 0
-          ? 0
-          : Math.round((score / questions.length) * 100);
+        totalMarks === 0 ? 0 : Math.round((score / totalMarks) * 100);
       scoreElement.textContent = `${scorePercent}%`;
       scoreContainer.style.display = "block";
       scoreContainer.classList.remove("hidden");
@@ -3570,7 +3611,7 @@ const testFiles = [
       const scoreForDisplay = Number.isInteger(score)
         ? score
         : Number(score.toFixed(1));
-      const scoreBreakdown = `${scoreForDisplay}/${questions.length}`;
+      const scoreBreakdown = `${scoreForDisplay}/${totalMarks} marks`;
       const didPass = scorePercent >= passMark;
 
       if (didPass) {
@@ -3778,7 +3819,7 @@ const testFiles = [
     bookmarkedQuestions = new Set();
     bookmarkCycleIndex = 0;
     if (originalQuestions.length > 0) {
-      questions = prepareQuestionsForSession(originalQuestions);
+      questions = prepareQuestionsForSession(originalQuestions, currentTestPreserveOrder);
     }
     currentPage = 1;
     renderQuestions();
@@ -3817,6 +3858,10 @@ const testFiles = [
   //************************ SECTION 13: DOWNLOAD RESULTS ************************//
 
   function formatAnswerForDisplay(answer) {
+    if (answer && typeof answer === "object" && !Array.isArray(answer)) {
+      return (answer.image ? "[Network diagram attached] " : "") +
+        (typeof answer.text === "string" ? answer.text : "");
+    }
     if (Array.isArray(answer)) {
       return answer
         .map((value) => canonicalizeAnswerValue(value))
