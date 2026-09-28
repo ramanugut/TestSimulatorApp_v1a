@@ -82,8 +82,20 @@ export default async (req: Request) => {
     return jsonResponse({ error: "Invalid JSON request." }, 400, origin);
   }
 
+  const rawDiagramImage = typeof body.diagramImage === "string"
+    ? body.diagramImage.trim()
+    : "";
+  const validImage =
+    /^data:image\/(?:jpeg|png|webp);base64,[A-Za-z0-9+/=]+$/.test(rawDiagramImage) &&
+    rawDiagramImage.length <= 3_000_000;
+  if (rawDiagramImage && !validImage) {
+    return jsonResponse({ error: "Invalid or oversized diagram image." }, 400, origin);
+  }
+  const diagramImage = validImage ? rawDiagramImage : "";
+  const diagramRequired = body.diagramRequired === true;
   const question = cleanText(body.question, 8000);
-  const studentAnswer = cleanText(body.studentAnswer, 10000);
+  const studentAnswer = cleanText(body.studentAnswer, 10000) ||
+    (diagramImage ? "See attached Activity-on-Arrow network drawing." : "");
   const modelAnswer = cleanText(body.modelAnswer, 12000);
   const referenceNotes = cleanText(body.referenceNotes, 12000);
   const chapter = cleanText(body.chapter, 300);
@@ -120,7 +132,11 @@ export default async (req: Request) => {
     "If the learner contradicts a core principle, reduce the score even if other keywords are present.",
     "Use only the supplied question, reference answer, rubric, and reference notes. Do not introduce unrelated requirements.",
     "The reference answer is a marking guide, not a phrase-matching template.",
+    "For network diagrams, inspect actual image labels, arrows, precedences and node dates. Do not assume unclear or absent details are correct.",
+    "For the INF3708 2021 Q5.1 network question, an actual network diagram is required. No drawing means a 7-mark deduction out of 14, enforced as a 50% score cap.",
+    "If a drawing is supplied, award partial marks fairly for diagram structure and any correct readable calculations.",
     "Return concise, helpful feedback that teaches the learner what they understood and what they should improve.",
+    "Return JSON with score (0-100 number), verdict (correct, mostly_correct, partially_correct, incorrect), feedback, strengths (string array), missingPoints (string array), and bookAlignment (string).",
   ].join("\n");
 
   const userPrompt = JSON.stringify(
@@ -135,6 +151,8 @@ export default async (req: Request) => {
         notes: referenceNotes,
       },
       passThreshold: minimumScore,
+      diagramRequired,
+      diagramProvided: Boolean(diagramImage),
       markingInstruction:
         "Score semantic accuracy and coverage from 0 to 100. A learner can earn full marks using different valid wording. Base the verdict on the score and the supplied material.",
     },
@@ -143,6 +161,13 @@ export default async (req: Request) => {
   );
 
   try {
+    const model = diagramImage ? "qwen/qwen3.8-27b" : "openai/gpt-oss-120b";
+    const userContent = diagramImage
+      ? [
+          { type: "text", text: userPrompt },
+          { type: "image_url", image_url: { url: diagramImage } },
+        ]
+      : userPrompt;
     const groqResponse = await fetch(
       "https://api.groq.com/openai/v1/chat/completions",
       {
@@ -152,14 +177,14 @@ export default async (req: Request) => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          model: "openai/gpt-oss-120b",
-          reasoning_effort: "low",
+          model,
+          ...(diagramImage ? { max_completion_tokens: 1600 } : { reasoning_effort: "low" }),
           temperature: 0,
           messages: [
             { role: "system", content: systemPrompt },
-            { role: "user", content: userPrompt },
+            { role: "user", content: userContent },
           ],
-          response_format: {
+          response_format: diagramImage ? { type: "json_object" } : {
             type: "json_schema",
             json_schema: {
               name: "answer_grade",
@@ -231,17 +256,29 @@ export default async (req: Request) => {
     }
 
     const grade = JSON.parse(content);
-    const score = Math.max(0, Math.min(100, Number(grade.score) || 0));
+    const withoutDrawing = diagramRequired && !diagramImage;
+    const cap = withoutDrawing ? 50 : 100;
+    const score = Math.max(0, Math.min(cap, Number(grade.score) || 0));
+    const deductionMessage = withoutDrawing
+      ? "No drawn network was supplied: the original paper deducts 7 of 14 marks, so this answer is capped at 50%."
+      : "";
+    const verdict = score >= 85 ? "correct"
+      : score >= minimumScore ? "mostly_correct"
+      : score >= 35 ? "partially_correct" : "incorrect";
 
     return jsonResponse(
       {
         score,
         accepted: score >= minimumScore,
-        verdict: grade.verdict,
-        feedback: grade.feedback,
-        strengths: grade.strengths,
-        missingPoints: grade.missingPoints,
-        bookAlignment: grade.bookAlignment,
+        verdict,
+        feedback: [typeof grade.feedback === "string" ? grade.feedback : "", deductionMessage]
+          .filter(Boolean).join(" "),
+        strengths: Array.isArray(grade.strengths) ? grade.strengths.slice(0, 5) : [],
+        missingPoints: [
+          ...(Array.isArray(grade.missingPoints) ? grade.missingPoints.slice(0, 4) : []),
+          ...(withoutDrawing ? ["Draw or upload the Activity-on-Arrow network to avoid the 7-mark deduction."] : []),
+        ],
+        bookAlignment: typeof grade.bookAlignment === "string" ? grade.bookAlignment : "",
       },
       200,
       origin
