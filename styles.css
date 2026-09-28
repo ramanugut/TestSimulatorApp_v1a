@@ -3554,3 +3554,215 @@ body.dark-mode:is(.theme-deep,.theme-black) .ai-grade-book-alignment,
 body.dark-mode:is(.theme-deep,.theme-black) .ai-grade-list-title {
   color: var(--text-color);
 }
+
+
+/* Dark intensity correction: Slate is dark, Deep is almost black, Black is
+   true OLED black throughout. Old blue-toned panel overrides are reset below. */
+body.dark-mode.theme-slate {
+  --bg-color: #101318;
+  --surface-color: #1a2027;
+  --subtle-surface: #232b34;
+  --text-color: #e9eef4;
+  --muted-text: #b9c5d1;
+  --border-color: #36414d;
+  --accent-color: #79dcb1;
+  --accent-strong: #66cba1;
+  --accent-secondary: #87c9e5;
+  --selected-option-color: #79dcb1;
+  --shadow: 0 6px 20px rgba(0,0,0,.22);
+  --dark-guide: #1b232b;
+  --dark-answer: #1b2b25;
+  --dark-explanation: #1d2933;
+  --dark-book: #26323b;
+  --dark-remember: #1b3028;
+  --dark-choice: #24343b;
+  --dark-correct: #20332b;
+  --dark-hover: #303a45;
+  --dark-hover-subtle: #29343e;
+  --dark-input: #222d37;
+  --dark-reading: #2a434c;
+  --dark-table: #1a222a;
+  --dark-table-head: #2b3742;
+  --dark-table-alt: #202a33;
+  --dark-table-hover: #303e49;
+  --dark-table-border: #455564;
+  --dark-question-border: #35424e;
+}
+body.dark-mode.theme-deep {
+  --bg-color: #050608;
+  --surface-color: #0e1116;
+  --subtle-surface: #181d24;
+  --text-color: #e9edf2;
+  --muted-text: #b7c2cd;
+  --border-color: #303944;
+  --accent-color: #7edab1;
+  --accent-strong: #69c59d;
+  --accent-secondary: #85c5e0;
+  --selected-option-color: #7edab1;
+  --shadow: 0 6px 18px rgba(0,0,0,.37);
+  --dark-guide: #111820;
+  --dark-answer: #13231d;
+  --dark-explanation: #141e27;
+  --dark-book: #1b2933;
+  --dark-remember: #14271d;
+  --dark-choice: #1b2b31;
+  --dark-correct: #193026;
+  --dark-hover: #222e37;
+  --dark-hover-subtle: #1d2831;
+  --dark-input: #1a2731;
+  --dark-reading: #233b46;
+  --dark-table: #101820;
+  --dark-table-head: #202e39;
+  --dark-table-alt: #151e26;
+  --dark-table-hover: #263640;
+  --dark-table-border: #354653;
+  --dark-question-border: #303944;
+}
+body.dark-mode.theme-black {
+  --bg-color: #000000;
+  --surface-color: #050505;
+  --subtle-surface: #0c0c0d;
+  --text-color: #eaeaea;
+  --muted-text: #bdbdbd;
+  --border-color: #272729;
+  --accent-color: #85d9b1;
+  --accent-strong: #71c7a0;
+  --accent-secondary: #91c9e3;
+  --selected-option-color: #85d9b1;
+  --shadow: 0 4px 16px rgba(0,0,0,.48);
+  --dark-guide: #08090a;
+  --dark-answer: #101a15;
+  --dark-explanation: #0e1418;
+  --dark-book: #11191d;
+  --dark-remember: #101d15;
+  --dark-choice: #102027;
+  --dark-correct: #13281d;
+  --dark-hover: #181c20;
+  --dark-hover-subtle: #111518;
+  --dark-input: #10171b;
+  --dark-reading: #1c343b;
+  --dark-table: #080a0c;
+  --dark-table-head: #171c20;
+  --dark-table-alt: #0d1013;
+  --dark-table-hover: #18252c;
+  --dark-table-border: #2d383e;
+  --dark-question-border: #252527;
+}
+
+/* Use each mode's actual surface palette on every large reading area, not
+   the old fixed blue panels which made even OLED mode appear light. */
+body.dark-mode:is(.theme-slate,.theme-deep,.theme-black) {
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+body.dark-mode:is(.theme-slate,.theme-deep,.theme-black) :is(
+  .app-header, .header-sections, .test-settings-panel, .modal-content,
+  .modal-card, .modal-quick-settings, .card-block, .review-tools, .question,
+  .result-banner, .flashcard-workspace, .flashcard-face, .flashcard,
+  .ai-grade-feedback
+) {
+  background: var(--surface-color);
+  color: var(--text-color);
+  border-color: var(--border-color);
+}
+body.dark-mode:is(.theme-slate,.theme-deep,.theme-black) :is(
+  .question-case-study, .status-chip, .bookmark-list, .define-test-item,
+  .test-settings-menu summary, #options-modal .tools-bookmarks
+) {
+  background: var(--subtle-surface);
+  border-color: var(--border-color);
+  color: var(--text-color);
+}
+body.dark-mode:is(.theme-slate,.theme-deep,.theme-black) .study-guide-card {
+  background: var(--dark-guide);
+  border-color: var(--border-color);
+  border-left-color: var(--accent-secondary);
+  color: var(--text-color);
+}
+body.dark-mode:is(.theme-slate,.theme-deep,.theme-black) :is(
+  .study-guide-title, .study-guide-subtitle, .study-guide-simple,
+  .study-guide-steps, .study-guide-steps li,
+  .readable-panel .rich-content
+) { color: var(--text-color); }
+body.dark-mode:is(.theme-slate,.theme-deep,.theme-black) .study-book-reference {
+  background: var(--dark-book); color: #d0e4ef;
+}
+body.dark-mode:is(.theme-slate,.theme-deep,.theme-black) .study-guide-remember {
+  background: var(--dark-remember); color: #d3eedd;
+}
+body.dark-mode:is(.theme-slate,.theme-deep,.theme-black) :is(
+  .study-correct-answer, .correct-answer
+) {
+  background: var(--dark-answer); color: #d5f2e2;
+  border-left-color: var(--accent-color);
+}
+body.dark-mode:is(.theme-slate,.theme-deep,.theme-black) :is(
+  .study-explanation, .explanation
+) {
+  background: var(--dark-explanation); color: var(--text-color);
+  border-left-color: var(--accent-secondary);
+}
+body.dark-mode:is(.theme-slate,.theme-deep,.theme-black) .options li.selected {
+  background: var(--dark-choice); border-color: var(--accent-secondary);
+  box-shadow: inset 0 0 0 1px rgba(150,190,200,.07);
+}
+body.dark-mode:is(.theme-slate,.theme-deep,.theme-black) .options li.selected label {
+  color: var(--text-color);
+}
+body.dark-mode:is(.theme-slate,.theme-deep,.theme-black) .options li.option-correct:not(.selected) {
+  background: var(--dark-correct); border-color: var(--accent-color); box-shadow: none;
+}
+body.dark-mode:is(.theme-slate,.theme-deep,.theme-black) :is(
+  .btn-secondary:hover, .mode-tab-button:not(.active):hover
+) { background: var(--dark-hover); color: var(--text-color); }
+body.dark-mode:is(.theme-slate,.theme-deep,.theme-black) :is(
+  .btn-tertiary:hover, .header-options-btn:hover
+) { background: var(--dark-hover-subtle); }
+body.dark-mode:is(.theme-slate,.theme-deep,.theme-black) :is(
+  input[type="number"], input[type="text"], select, textarea,
+  .study-voice-toolbar .study-voice-voice,
+  .study-voice-toolbar .study-voice-speed
+) {
+  background: var(--dark-input); color: var(--text-color);
+  border-color: var(--border-color);
+}
+body.dark-mode:is(.theme-slate,.theme-deep,.theme-black) :is(
+  .study-voice-reading, .study-voice-pickable:hover, .study-voice-pickable:focus-visible
+) {
+  background: var(--dark-reading); color: var(--text-color);
+  outline-color: var(--accent-secondary);
+}
+body.dark-mode:is(.theme-slate,.theme-deep,.theme-black) .question-data-table,
+body.dark-mode:is(.theme-slate,.theme-deep,.theme-black) .question-data-table td {
+  background: var(--dark-table); color: var(--text-color);
+}
+body.dark-mode:is(.theme-slate,.theme-deep,.theme-black) .question-data-table th {
+  background: var(--dark-table-head); color: var(--text-color);
+}
+body.dark-mode:is(.theme-slate,.theme-deep,.theme-black) .question-data-table tbody tr:nth-child(even) td {
+  background: var(--dark-table-alt);
+}
+body.dark-mode:is(.theme-slate,.theme-deep,.theme-black) .question-data-table tbody tr:hover td {
+  background: var(--dark-table-hover);
+}
+body.dark-mode:is(.theme-slate,.theme-deep,.theme-black) .question-data-table th,
+body.dark-mode:is(.theme-slate,.theme-deep,.theme-black) .question-data-table td {
+  border-color: var(--dark-table-border);
+}
+body.dark-mode:is(.theme-slate,.theme-deep,.theme-black) :is(
+  .code-block, .inline-code, .option-inline-code, .option-code-block
+) {
+  background: var(--subtle-surface); color: var(--text-color);
+  border-color: var(--border-color);
+}
+body.dark-mode:is(.theme-slate,.theme-deep,.theme-black).study-mode-active .question {
+  border-color: var(--dark-question-border);
+  box-shadow: var(--shadow);
+}
+body.dark-mode:is(.theme-slate,.theme-deep,.theme-black) :is(
+  .ai-grade-summary, .ai-grade-list, .ai-grade-book-alignment, .ai-grade-list-title
+) { color: var(--text-color); }
+/* Honest preview swatches: show each mode's page and card contrast. */
+.theme-swatch-slate { background: #101318; }
+.theme-swatch-deep { background: #050608; }
+.theme-swatch-black { background: #000; border-color: #757575; }
