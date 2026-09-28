@@ -27,6 +27,10 @@ document.addEventListener("DOMContentLoaded", function () {
     typeof window.SpeechSynthesisUtterance === "function";
   let activeStudyVoice = null;
   let activeStudyVoicePicker = null;
+  let studyVoicePreference = "auto";
+  try {
+    studyVoicePreference = localStorage.getItem("studyVoicePreference") || "auto";
+  } catch (error) { /* Browsers with blocked storage still have voice playback. */ }
   let questionResults = [];
   let aiGrades = {};
   let reviewFilter = "all";
@@ -1751,11 +1755,71 @@ document.addEventListener("DOMContentLoaded", function () {
     studyVoiceStatus(session, message, isError);
   }
 
+  function availableStudyVoices() {
+    return window.speechSynthesis.getVoices().filter(function (voice) {
+      return /^en(?:[-_]|$)/i.test(voice.lang);
+    });
+  }
+
+  function studyVoiceId(voice) {
+    return JSON.stringify([voice.voiceURI || "", voice.lang, voice.name]);
+  }
+
+  // Prefer enhanced/natural voices over a basic voice just because it has en-ZA.
+  // The browser supplies the voices: there is no app-owned TTS API or API key.
+  function studyVoiceQuality(voice) {
+    const name = String(voice.name || "") + " " + String(voice.voiceURI || "");
+    const quality = /natural|neural/i.test(name) ? 1000
+      : /enhanced|premium/i.test(name) ? 700 : 0;
+    const online = /online/i.test(name) ? 50 : 0;
+    const locale = /^en-ZA$/i.test(voice.lang) ? 30
+      : /^en-GB$/i.test(voice.lang) ? 20
+      : /^en-US$/i.test(voice.lang) ? 10 : 0;
+    return quality + online + locale + (voice.default ? 1 : 0);
+  }
+
   function preferredStudyVoice() {
-    const voices = window.speechSynthesis.getVoices();
-    return voices.find(function (voice) { return /^en-ZA$/i.test(voice.lang); }) ||
-      voices.find(function (voice) { return /^en-GB$/i.test(voice.lang); }) ||
-      voices.find(function (voice) { return /^en/i.test(voice.lang); }) || null;
+    const voices = availableStudyVoices();
+    if (!voices.length) return null;
+    const chosen = studyVoicePreference !== "auto"
+      ? voices.find(function (voice) { return studyVoiceId(voice) === studyVoicePreference; })
+      : null;
+    return chosen || voices.reduce(function (best, voice) {
+      return studyVoiceQuality(voice) > studyVoiceQuality(best) ? voice : best;
+    }, voices[0]);
+  }
+
+  function populateStudyVoiceSelect(select) {
+    if (!select) return;
+    const voices = availableStudyVoices();
+    select.replaceChildren();
+    const auto = document.createElement("option");
+    auto.value = "auto";
+    auto.textContent = "Voice: Auto";
+    select.appendChild(auto);
+    voices.forEach(function (voice) {
+      const option = document.createElement("option");
+      option.value = studyVoiceId(voice);
+      option.textContent = voice.name + " (" + voice.lang + ")";
+      select.appendChild(option);
+    });
+    const availableChoice = voices.some(function (voice) {
+      return studyVoiceId(voice) === studyVoicePreference;
+    });
+    select.value = availableChoice ? studyVoicePreference : "auto";
+    const preferred = preferredStudyVoice();
+    select.title = select.value === "auto"
+      ? "Auto voice" + (preferred ? ": " + preferred.name : "")
+      : (preferred ? preferred.name + " (" + preferred.lang + ")" : "Choose voice");
+  }
+
+  function refreshStudyVoiceSelectors() {
+    document.querySelectorAll(".study-voice-voice").forEach(populateStudyVoiceSelect);
+    if (activeStudyVoice) activeStudyVoice.voice = preferredStudyVoice();
+  }
+
+  if (studyVoiceAvailable) {
+    window.speechSynthesis.addEventListener("voiceschanged", refreshStudyVoiceSelectors);
   }
 
   function speakNextStudyVoicePart(session) {
@@ -1954,10 +2018,15 @@ document.addEventListener("DOMContentLoaded", function () {
       '  <option value="1.25">1.25×</option>',
       '  <option value="1.5">1.5×</option>',
       '</select>',
+      '<select class="study-voice-voice" aria-label="Choose narrator voice" title="Choose voice">',
+      '  <option value="auto">Voice: Auto</option>',
+      '</select>',
       '<span class="study-voice-status sr-only" role="status" aria-live="polite"></span>'
     ].join("");
 
     const speedSelect = toolbar.querySelector(".study-voice-speed");
+    const voiceSelect = toolbar.querySelector(".study-voice-voice");
+    if (studyVoiceAvailable) populateStudyVoiceSelect(voiceSelect);
     const toggleButton = toolbar.querySelector('[data-voice-action="toggle"]');
     const pickButton = toolbar.querySelector('[data-voice-action="pick"]');
     const stopButton = toolbar.querySelector('[data-voice-action="stop"]');
@@ -1999,6 +2068,14 @@ document.addEventListener("DOMContentLoaded", function () {
       if (activeStudyVoice && activeStudyVoice.root === toolbar) {
         activeStudyVoice.rate = Number(speedSelect.value);
       }
+    });
+    voiceSelect.addEventListener("change", function () {
+      studyVoicePreference = voiceSelect.value;
+      try {
+        localStorage.setItem("studyVoicePreference", studyVoicePreference);
+      } catch (error) { /* The choice works for this session without storage. */ }
+      // Voice changes take effect on the next sentence; playback stays uninterrupted.
+      refreshStudyVoiceSelectors();
     });
     return toolbar;
   }
