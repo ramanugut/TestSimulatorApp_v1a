@@ -4,6 +4,7 @@
 <head>
 
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>StudyFlow - Test Simulator</title>
     <link rel="stylesheet" href="styles.css">
     <link
@@ -15,6 +16,7 @@
     <header id="floating-header" class="app-header">
         <div class="header-top">
             <div class="logo">dY"s StudyFlow</div>
+            <div class="mobile-timer" aria-label="Time remaining">⏱️ <span id="mobile-time">00:00</span></div>
             <div class="header-top-actions">
                 <button
                     id="open-options"
@@ -51,7 +53,7 @@
         <div id="header-sections" class="header-sections">
             <div class="header-main">
                 <div class="test-select-group">
-                    <label class="input-label" for="test-select">Choose a Test</label>
+                    <label class="input-label sr-only" for="test-select">Choose a Test</label>
                     <select id="test-select"></select>
                     <div
                         id="custom-session-chip"
@@ -71,7 +73,7 @@
                     </div>
                 </div>
                 <div class="header-progress">
-                    <span class="progress-label">Progress</span>
+                    <span class="progress-label sr-only">Progress</span>
                     <div id="floating-progress" class="progress-group">
                         <div class="progress-bar-container">
                             <div id="progress-bar"></div>
@@ -81,35 +83,35 @@
                 </div>
             </div>
             <div class="header-controls">
-                <div class="timer-settings">
-                    <label class="input-label" for="timer-input">Timer</label>
-                    <div class="timer-input-group">
-                        <input type="number" id="timer-input" value="30" min="0" aria-describedby="timer-help">
-                        <span class="timer-unit">min</span>
-                    </div>
-                    <p id="timer-help" class="assistive-text">Adjust anytime during a test.</p>
-                </div>
-                <div class="timer-display">⏱️ <span id="floating-time">00:00</span></div>
+                <div class="timer-display" aria-label="Time remaining">⏱️ <span id="floating-time">00:00</span></div>
                 <div class="header-actions">
-                    <button
-                        id="define-test"
-                        class="btn btn-tertiary"
-                        type="button"
-                        aria-haspopup="dialog"
-                        aria-expanded="false"
-                    >
-                        Define Test
-                    </button>
-                    <button id="start-test" class="btn btn-primary">Start Test</button>
-                    <button id="pause-timer" class="btn btn-secondary">Pause Timer</button>
+                    <button id="start-test" class="btn btn-primary" type="button">Start Test</button>
+                    <button id="pause-timer" class="btn btn-secondary" type="button">Pause Timer</button>
+                    <button id="submit-test" class="btn btn-primary" type="button">Submit Test</button>
                 </div>
+                <details id="test-settings-menu" class="test-settings-menu">
+                    <summary title="Timer and test settings">More <span aria-hidden="true">⌄</span></summary>
+                    <div class="test-settings-panel">
+                        <div class="timer-settings">
+                            <label class="input-label" for="timer-input">Timer (minutes)</label>
+                            <div class="timer-input-group">
+                                <input type="number" id="timer-input" value="30" min="0" aria-describedby="timer-help">
+                                <span class="timer-unit">min</span>
+                            </div>
+                            <p id="timer-help" class="assistive-text">Adjust anytime during a test.</p>
+                        </div>
+                        <button id="define-test" class="btn btn-tertiary" type="button" aria-haspopup="dialog" aria-expanded="false">Define Custom Test</button>
+                        <button id="reset-test" class="btn btn-secondary" type="button">Reset Test</button>
+                        <button id="download-results" class="btn btn-tertiary" type="button">Download Results as PDF</button>
+                    </div>
+                </details>
             </div>
         </div>
     </header>
 
     <main class="page-wrapper">
         <div class="page-container">
-            <h1 class="page-title">StudyFlow Test Simulator</h1>
+            <h1 class="page-title sr-only">StudyFlow Test Simulator</h1>
             <section class="mode-tabs" role="tablist" aria-label="StudyFlow views">
                 <button
                     id="mode-tab-test"
@@ -445,28 +447,6 @@
                     </div>
                 </section>
             </div>
-        </div>
-    </div>
-
-    <div id="floating-actions" class="floating-actions">
-        <button
-            id="floating-actions-toggle"
-            class="floating-actions-toggle"
-            type="button"
-            aria-expanded="false"
-            aria-controls="floating-actions-panel"
-        >
-            <span class="sr-only">Toggle quick actions</span>
-            <span aria-hidden="true" class="icon icon-gear">
-                <svg viewBox="0 0 24 24" role="presentation">
-                    <path d="M19.14 12.94a7.979 7.979 0 0 0 .06-.94 7.979 7.979 0 0 0-.06-.94l2.03-1.58a.5.5 0 0 0 .12-.64l-1.92-3.32a.5.5 0 0 0-.61-.22l-2.39.96a7.05 7.05 0 0 0-1.63-.94l-.36-2.54A.5.5 0 0 0 14.88 2h-3.76a.5.5 0 0 0-.5.42l-.36 2.54a7.05 7.05 0 0 0-1.63.94l-2.39-.96a.5.5 0 0 0-.61.22L3.71 8.48a.5.5 0 0 0 .12.64l2.03 1.58c-.04.31-.06.63-.06.94s.02.63.06.94l-2.03 1.58a.5.5 0 0 0-.12.64l1.92 3.32c.13.23.4.32.61.22l2.39-.96c.5.39 1.05.71 1.63.94l.36 2.54a.5.5 0 0 0 .5.42h3.76a.5.5 0 0 0 .5-.42l.36-2.54c.58-.23 1.13-.55 1.63-.94l2.39.96c.22.1.48 0 .61-.22l1.92-3.32a.5.5 0 0 0-.12-.64l-2.03-1.58ZM12 15.25A3.25 3.25 0 1 1 12 8.75a3.25 3.25 0 0 1 0 6.5Z" fill="currentColor"/>
-                </svg>
-            </span>
-        </button>
-        <div id="floating-actions-panel" class="floating-actions-panel">
-            <button id="submit-test" class="btn btn-primary">Submit Test</button>
-            <button id="reset-test" class="btn btn-secondary">Reset Test</button>
-            <button id="download-results" class="btn btn-tertiary">Download Results as PDF</button>
         </div>
     </div>
 

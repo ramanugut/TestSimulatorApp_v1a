@@ -42,6 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const startTestButton = document.getElementById("start-test");
   const pauseTimerButton = document.getElementById("pause-timer");
   const floatingTimeDisplay = document.getElementById("floating-time");
+  const mobileTimeDisplay = document.getElementById("mobile-time");
   const submitButton = document.getElementById("submit-test");
   const resetButton = document.getElementById("reset-test");
   const downloadButton = document.getElementById("download-results");
@@ -130,15 +131,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const progressTextElement = document.getElementById("progress-text");
   const headerElement = document.getElementById("floating-header");
   const headerToggleButton = document.getElementById("header-toggle");
-  const floatingActionsContainer = document.getElementById("floating-actions");
-  const floatingActionsToggle = document.getElementById(
-    "floating-actions-toggle"
-  );
-
   const MOBILE_BREAKPOINT = 768;
   let lastViewportIsMobile = window.innerWidth <= MOBILE_BREAKPOINT;
   let headerCollapsed = window.innerWidth <= MOBILE_BREAKPOINT;
-  let actionsCollapsed = window.innerWidth <= MOBILE_BREAKPOINT;
 
   if (flashcardsGrid) {
     flashcardsGrid.classList.add("hidden");
@@ -886,23 +881,6 @@ document.addEventListener("DOMContentLoaded", function () {
     headerToggleButton.setAttribute("title", headerToggleLabel);
   }
 
-  function syncFloatingActionsState() {
-    if (!floatingActionsContainer || !floatingActionsToggle) {
-      return;
-    }
-
-    floatingActionsContainer.classList.toggle("collapsed", actionsCollapsed);
-    const toggleLabel = actionsCollapsed
-      ? "Show quick actions"
-      : "Hide quick actions";
-    floatingActionsToggle.setAttribute(
-      "aria-expanded",
-      actionsCollapsed ? "false" : "true"
-    );
-    floatingActionsToggle.setAttribute("aria-label", toggleLabel);
-    floatingActionsToggle.setAttribute("title", toggleLabel);
-  }
-
   function updateModeButtons(activeMode) {
     if (!modeButtons.length) {
       return;
@@ -1045,7 +1023,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (isMobile && !lastViewportIsMobile) {
       headerCollapsed = true;
-      actionsCollapsed = true;
       if (isOptionsModalOpen()) {
         closeOptionsModal();
       }
@@ -1054,7 +1031,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     syncHeaderToggleState();
-    syncFloatingActionsState();
 
     lastViewportIsMobile = isMobile;
   }
@@ -2052,13 +2028,15 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  if (floatingActionsToggle) {
-    floatingActionsToggle.addEventListener("click", () => {
-      actionsCollapsed = !actionsCollapsed;
-      syncFloatingActionsState();
+  const testSettingsMenu = document.getElementById("test-settings-menu");
+  if (testSettingsMenu) {
+    testSettingsMenu.addEventListener("click", (event) => {
+      if (event.target.closest("button")) testSettingsMenu.open = false;
+    });
+    document.addEventListener("click", (event) => {
+      if (!testSettingsMenu.contains(event.target)) testSettingsMenu.open = false;
     });
   }
-
 
   window.addEventListener("resize", handleResponsiveState);
 
@@ -3664,6 +3642,9 @@ const testFiles = [
     if (floatingTimeDisplay) {
       floatingTimeDisplay.textContent = timeString;
     }
+    if (mobileTimeDisplay) {
+      mobileTimeDisplay.textContent = timeString;
+    }
   }
 
   function pauseOrContinueTimer() {
@@ -3691,6 +3672,10 @@ const testFiles = [
       }
       testInProgress = true;
       saveProgress();
+      if (isMobileViewport()) {
+        headerCollapsed = true;
+        syncHeaderToggleState();
+      }
     });
   }
 
