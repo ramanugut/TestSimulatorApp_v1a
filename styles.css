@@ -48,15 +48,20 @@ body.light-mode {
 }
 
 body.dark-mode {
-    --bg-color: #0f172a;
-    --surface-color: #1e293b;
-    --subtle-surface: #111827;
-    --text-color: #f8fafc;
-    --muted-text: #cbd5f5;
-    --border-color: #1f2937;
-    --shadow: 0 12px 40px rgba(8, 15, 30, 0.45);
-    /* --selected-option-color: #fb923c; */
-    --selected-option-color: #2dd4bf;
+    /* Softer slate surfaces and clear, warm text instead of near-black and glare-white. */
+    --bg-color: #151e28;
+    --surface-color: #22303e;
+    --subtle-surface: #2c3b4b;
+    --text-color: #ebf2f9;
+    --muted-text: #bed0df;
+    --border-color: #486074;
+    --accent-color: #6cdbb2;
+    --accent-strong: #58cda2;
+    --accent-secondary: #8dd4f5;
+    --selected-option-color: #6cdbb2;
+    --danger-color: #ffaaa7;
+    --warning-color: #ffd48b;
+    --shadow: 0 12px 32px rgba(5, 11, 18, 0.22);
 }
 
 body.dark-mode .btn-tertiary {
@@ -2419,6 +2424,28 @@ body.dark-mode .study-voice-reading {
   background: rgba(56, 189, 248, 0.17);
 }
 
+
+/* Direct seek: only spoken text becomes tappable while this question is playing. */
+.question.study-voice-active .study-voice-seekable {
+  cursor: pointer;
+  touch-action: manipulation; /* Keep vertical scrolling and pinch zoom available. */
+  -webkit-tap-highlight-color: rgba(93, 183, 218, 0.16);
+}
+@media (hover: hover) {
+  .question.study-voice-active .study-voice-seekable:hover:not(.study-voice-reading) {
+    border-radius: 4px;
+    background: rgba(76, 169, 196, 0.08);
+  }
+}
+@media (pointer: coarse) {
+  /* An intentional mobile hold jumps playback instead of opening text callouts. */
+  .question.study-voice-active .study-voice-seekable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+}
+
 /* Start-position choice appears only after pressing Start at…, not all the time. */
 .study-voice-pickable {
   cursor: pointer;
@@ -3177,4 +3204,117 @@ body.dark-mode .ai-grade-verdict--incorrect {
 }
 @media (prefers-reduced-motion: reduce) {
     .flashcard-inner, .flashcard-surface { transition: none; }
+}
+
+
+/* StudyFlow dark mode: low-glare panels, readable notes, calm interactive states. */
+body.dark-mode .app-header {
+  box-shadow: 0 5px 18px rgba(4, 11, 18, 0.22);
+}
+body.dark-mode .btn-primary,
+body.dark-mode .mode-tab-button.active {
+  color: #10291f;
+}
+body.dark-mode .btn-secondary:hover {
+  background: #3b5063;
+  color: var(--text-color);
+}
+body.dark-mode .btn-tertiary:hover,
+body.dark-mode .header-options-btn:hover,
+body.dark-mode .mode-tab-button:not(.active):hover {
+  background: #31485a;
+}
+body.dark-mode .mode-tab-button:not(.active) {
+  color: var(--text-color);
+}
+body.dark-mode .options li.selected {
+  border-color: #80c8e5;
+  background: #304b58;
+  box-shadow: inset 0 0 0 1px rgba(141, 212, 245, .17);
+}
+body.dark-mode .options li.selected label {
+  color: var(--text-color);
+}
+body.dark-mode .options li.option-correct:not(.selected) {
+  border-color: #569b84;
+  background: #2b473e;
+  box-shadow: none;
+}
+body.dark-mode .study-guide-card {
+  border-color: #4c667b;
+  border-left-color: var(--accent-secondary);
+  background: #263848;
+  color: var(--text-color);
+}
+body.dark-mode .study-guide-title,
+body.dark-mode .study-guide-subtitle,
+body.dark-mode .study-guide-simple,
+body.dark-mode .study-guide-steps,
+body.dark-mode .study-guide-steps li {
+  color: #e7eff7;
+}
+body.dark-mode .study-book-reference {
+  background: #30495c;
+  color: #d4edff;
+}
+body.dark-mode .study-guide-remember {
+  background: #2c493f;
+  color: #d8f6e5;
+}
+body.dark-mode .study-correct-answer,
+body.dark-mode .correct-answer {
+  background: #24443a;
+  color: #d7f8e7;
+  border-left-color: var(--accent-color);
+}
+body.dark-mode .study-explanation,
+body.dark-mode .explanation {
+  background: #293f52;
+  color: #edf4fb;
+  border-left-color: var(--accent-secondary);
+}
+body.dark-mode .readable-panel .rich-content {
+  color: #edf4fb;
+}
+body.dark-mode .study-voice-toolbar .study-voice-voice,
+body.dark-mode .study-voice-toolbar .study-voice-speed {
+  background: #32485a;
+  border-color: #668096;
+  color: #f1f7fd;
+}
+body.dark-mode .study-voice-reading {
+  background: #365666;
+  outline-color: #94dbf7;
+  color: #f4fbff;
+}
+body.dark-mode .question-data-table,
+body.dark-mode .question-data-table td {
+  background: #263646;
+  color: var(--text-color);
+}
+body.dark-mode .question-data-table th {
+  background: #354b60;
+  color: #f5f9fe;
+}
+body.dark-mode .question-data-table tbody tr:nth-child(even) td {
+  background: #2b3d4e;
+}
+body.dark-mode .question-data-table tbody tr:hover td {
+  background: #365063;
+}
+body.dark-mode .question-data-table th,
+body.dark-mode .question-data-table td {
+  border-color: #5c7387;
+}
+body.dark-mode .question-data-table caption {
+  color: var(--muted-text);
+}
+body.dark-mode input::placeholder,
+body.dark-mode textarea::placeholder {
+  color: #bbcad8;
+  opacity: 1;
+}
+body.dark-mode .study-voice-pickable:hover,
+body.dark-mode .study-voice-pickable:focus-visible {
+  background: #365666;
 }
