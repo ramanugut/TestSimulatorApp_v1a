@@ -1608,19 +1608,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-  // Study Mode voice reader uses only saved notes and the browser's built-in voice.
-  // Each reading section is a short utterance so playback remains responsive.
+  // One compact listen control. The browser reads existing written explanations, no AI.
   function appendStudyVoiceText(parts, text, element) {
     let remaining = String(text || "").replace(/\s+/g, " ").trim();
     while (remaining.length > 220) {
       const candidate = remaining.slice(0, 220);
       let cut = Math.max(candidate.lastIndexOf(". "), candidate.lastIndexOf("! "),
         candidate.lastIndexOf("? "));
-      if (cut >= 80) {
-        cut += 1;
-      } else {
-        cut = candidate.lastIndexOf(" ");
-      }
+      if (cut >= 80) cut += 1;
+      else cut = candidate.lastIndexOf(" ");
       if (cut < 50) cut = 220;
       parts.push({ text: remaining.slice(0, cut).trim(), element: element });
       remaining = remaining.slice(cut).trim();
@@ -1632,7 +1628,7 @@ document.addEventListener("DOMContentLoaded", function () {
     return element ? (element.innerText || element.textContent || "") : "";
   }
 
-  function buildStudyVoiceParts(questionElement, kind) {
+  function buildStudyVoiceParts(questionElement) {
     const parts = [];
     const answer = questionElement.querySelector(
       ".study-correct-answer .rich-content, .correct-answer .rich-content"
@@ -1642,24 +1638,18 @@ document.addEventListener("DOMContentLoaded", function () {
       ".study-explanation .rich-content, .explanation .rich-content"
     );
 
-    if (kind === "explain") {
-      appendStudyVoiceText(parts, "Let us understand this question.", answer);
-    }
     if (answer) {
       appendStudyVoiceText(parts, "Correct answer. " + visibleStudyVoiceText(answer),
         answer.parentElement);
     }
-
     if (guide) {
       const title = guide.querySelector(".study-guide-title");
-      if (kind === "explain" && title) {
-        appendStudyVoiceText(parts, visibleStudyVoiceText(title), title);
-      }
+      if (title) appendStudyVoiceText(parts, visibleStudyVoiceText(title), title);
       Array.from(guide.children).forEach(function (element) {
-        if (kind === "explain" &&
-          (element.classList.contains("study-guide-title") ||
-           element.classList.contains("study-book-reference"))) return;
-
+        // The reader toolbar and book reference are not part of the spoken explanation.
+        if (element.classList.contains("study-guide-header") ||
+            element.classList.contains("study-guide-title") ||
+            element.classList.contains("study-book-reference")) return;
         if (element.tagName === "OL" || element.tagName === "UL") {
           Array.from(element.children).forEach(function (item, index) {
             const lead = element.tagName === "OL" ? "Step " + (index + 1) + ". " : "";
@@ -1670,11 +1660,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       });
     } else if (fallback) {
-      appendStudyVoiceText(parts, "Why this answer? " + visibleStudyVoiceText(fallback),
-        fallback.parentElement);
-    } else {
-      appendStudyVoiceText(parts, "No further study notes have been provided for this question.",
-        answer);
+      appendStudyVoiceText(parts, visibleStudyVoiceText(fallback), fallback.parentElement);
     }
     return parts;
   }
@@ -1687,29 +1673,37 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function setStudyVoiceButtonState(session, state) {
-    session.playButton.textContent = state === "playing" ? "Restart" : "Play";
-    session.pauseButton.textContent = state === "paused" ? "Resume" : "Pause";
-    session.pauseButton.disabled = state === "idle";
+    session.toggleButton.textContent =
+      state === "playing" ? "Pause" : state === "paused" ? "Resume" : "▶ Listen";
+    session.toggleButton.setAttribute("aria-label",
+      (state === "playing" ? "Pause" : state === "paused" ? "Resume" : "Listen to") +
+      " study notes for question " + session.questionNumber);
     session.stopButton.disabled = state === "idle";
   }
 
-  function stopStudyVoice(message) {
+  function studyVoiceStatus(session, message, isError) {
+    session.status.textContent = message;
+    session.status.classList.toggle("sr-only", !isError);
+    session.status.classList.toggle("study-voice-error", Boolean(isError));
+  }
+
+  function stopStudyVoice() {
     const session = activeStudyVoice;
-    activeStudyVoice = null; // Ignore late end/error callbacks from cancelled speech.
+    activeStudyVoice = null; // Ignore late events from a cancelled utterance.
     if (session) {
       clearStudyVoiceHighlight(session);
       setStudyVoiceButtonState(session, "idle");
-      session.status.textContent = message || "Stopped.";
+      studyVoiceStatus(session, "Stopped.", false);
     }
     if (studyVoiceAvailable) window.speechSynthesis.cancel();
   }
 
-  function finishStudyVoice(session, message) {
+  function finishStudyVoice(session, message, isError) {
     if (activeStudyVoice !== session) return;
     activeStudyVoice = null;
     clearStudyVoiceHighlight(session);
     setStudyVoiceButtonState(session, "idle");
-    session.status.textContent = message;
+    studyVoiceStatus(session, message, isError);
   }
 
   function preferredStudyVoice() {
@@ -1723,10 +1717,9 @@ document.addEventListener("DOMContentLoaded", function () {
     if (activeStudyVoice !== session || session.paused) return;
     clearStudyVoiceHighlight(session);
     if (session.nextIndex >= session.parts.length) {
-      finishStudyVoice(session, "Finished reading.");
+      finishStudyVoice(session, "Finished reading.", false);
       return;
     }
-
     const part = session.parts[session.nextIndex++];
     const utterance = new window.SpeechSynthesisUtterance(part.text);
     utterance.rate = session.rate;
@@ -1748,15 +1741,14 @@ document.addEventListener("DOMContentLoaded", function () {
     };
     utterance.onerror = function (event) {
       if (activeStudyVoice !== session) return;
-      finishStudyVoice(session,
-        event.error === "not-allowed"
-          ? "Your browser blocked audio. Tap Play again or check audio permissions."
-          : "Speech stopped. Check that a device voice is available, then try again.");
+      finishStudyVoice(session, event.error === "not-allowed"
+        ? "Audio blocked by the browser. Try Listen again."
+        : "Voice is unavailable. Please try another browser or device.", true);
     };
     try {
       window.speechSynthesis.speak(utterance);
     } catch (error) {
-      finishStudyVoice(session, "Unable to start the device voice. Try another browser.");
+      finishStudyVoice(session, "Voice could not start on this device.", true);
     }
   }
 
@@ -1769,116 +1761,97 @@ document.addEventListener("DOMContentLoaded", function () {
       session.activeTarget.classList.add("study-voice-reading");
     }
     setStudyVoiceButtonState(session, "playing");
-    session.status.textContent = "Reading " +
-      (session.kind === "explain" ? "the saved explanation" : "the notes") + "...";
+    studyVoiceStatus(session, "Reading.", false);
     if (!session.currentUtterance) speakNextStudyVoicePart(session);
   }
 
   function createStudyVoiceControls(questionElement, questionNumber) {
-    const card = document.createElement("section");
-    card.className = "study-voice-card";
-    card.setAttribute("aria-label", "Voice reader for question " + questionNumber);
-    card.innerHTML = [
-      '<div class="study-voice-heading">',
-      '  <div><h4>Listen to study notes</h4>',
-      '  <p>Uses your device voice. No AI or paid voice service.</p></div>',
-      '  <label class="study-voice-field">Listen to',
-      '    <select class="study-voice-kind" aria-label="Choose what to listen to">',
-      '      <option value="notes">Read notes</option>',
-      '      <option value="explain">Explain to me</option>',
-      '    </select>',
-      '  </label>',
-      '</div>',
-      '<div class="study-voice-controls">',
-      '  <div class="study-voice-buttons">',
-      '    <button type="button" class="btn btn-primary" data-voice-action="play">Play</button>',
-      '    <button type="button" class="btn btn-secondary" data-voice-action="pause" disabled>Pause</button>',
-      '    <button type="button" class="btn btn-tertiary" data-voice-action="stop" disabled>Stop</button>',
-      '  </div>',
-      '  <label class="study-voice-field">Speed',
-      '    <select class="study-voice-speed" aria-label="Reading speed">',
-      '      <option value="0.75">0.75×</option>',
-      '      <option value="1" selected>1×</option>',
-      '      <option value="1.25">1.25×</option>',
-      '      <option value="1.5">1.5×</option>',
-      '    </select>',
-      '  </label>',
-      '</div>',
-      '<p class="study-voice-status" role="status" aria-live="polite">',
-      '  Explain to me reads existing notes where available, otherwise the reference answer.',
-      '</p>'
+    const toolbar = document.createElement("div");
+    toolbar.className = "study-voice-toolbar";
+    toolbar.setAttribute("role", "group");
+    toolbar.setAttribute("aria-label", "Voice reader for question " + questionNumber);
+    toolbar.innerHTML = [
+      '<button type="button" class="btn btn-secondary" data-voice-action="toggle" ',
+      '  aria-label="Listen to study notes for question ', String(questionNumber), '">▶ Listen</button>',
+      '<button type="button" class="btn btn-tertiary" data-voice-action="stop" disabled ',
+      '  aria-label="Stop voice reader for question ', String(questionNumber), '">Stop</button>',
+      '<select class="study-voice-speed" aria-label="Reading speed for question ', String(questionNumber), '">',
+      '  <option value="0.75">0.75×</option>',
+      '  <option value="1" selected>1×</option>',
+      '  <option value="1.25">1.25×</option>',
+      '  <option value="1.5">1.5×</option>',
+      '</select>',
+      '<span class="study-voice-status sr-only" role="status" aria-live="polite"></span>'
     ].join("");
 
-    const kindSelect = card.querySelector(".study-voice-kind");
-    const speedSelect = card.querySelector(".study-voice-speed");
-    const playButton = card.querySelector('[data-voice-action="play"]');
-    const pauseButton = card.querySelector('[data-voice-action="pause"]');
-    const stopButton = card.querySelector('[data-voice-action="stop"]');
-    const status = card.querySelector(".study-voice-status");
+    const speedSelect = toolbar.querySelector(".study-voice-speed");
+    const toggleButton = toolbar.querySelector('[data-voice-action="toggle"]');
+    const stopButton = toolbar.querySelector('[data-voice-action="stop"]');
+    const status = toolbar.querySelector(".study-voice-status");
 
     if (!studyVoiceAvailable) {
-      card.querySelectorAll("button, select").forEach(function (element) {
-        element.disabled = true;
-      });
-      status.textContent = "Voice reading is not supported in this browser. The written notes remain available.";
-      return card;
+      toggleButton.disabled = true;
+      stopButton.disabled = true;
+      speedSelect.disabled = true;
+      status.classList.remove("sr-only");
+      status.classList.add("study-voice-error");
+      status.textContent = "Voice reader unavailable in this browser.";
+      return toolbar;
     }
 
-    playButton.addEventListener("click", function () {
-      if (activeStudyVoice && activeStudyVoice.root === card &&
-          activeStudyVoice.paused && activeStudyVoice.kind === kindSelect.value &&
-          activeStudyVoice.rate === Number(speedSelect.value)) {
-        resumeStudyVoice(activeStudyVoice);
+    toggleButton.addEventListener("click", function () {
+      const playing = activeStudyVoice;
+      if (playing && playing.root === toolbar) {
+        if (playing.paused) resumeStudyVoice(playing);
+        else {
+          playing.paused = true;
+          window.speechSynthesis.pause();
+          clearStudyVoiceHighlight(playing);
+          setStudyVoiceButtonState(playing, "paused");
+          studyVoiceStatus(playing, "Paused.", false);
+        }
         return;
       }
       stopStudyVoice();
-      const parts = buildStudyVoiceParts(questionElement, kindSelect.value);
+      const parts = buildStudyVoiceParts(questionElement);
       if (!parts.length) {
-        status.textContent = "There is no readable text for this question.";
+        status.textContent = "No text available to read.";
+        status.classList.remove("sr-only");
+        status.classList.add("study-voice-error");
         return;
       }
       const session = {
-        root: card, kind: kindSelect.value, rate: Number(speedSelect.value),
+        root: toolbar, questionNumber: questionNumber, rate: Number(speedSelect.value),
         parts: parts, nextIndex: 0, currentUtterance: null,
         currentPartTarget: null, activeTarget: null,
         paused: false, voice: preferredStudyVoice(),
-        playButton: playButton, pauseButton: pauseButton,
-        stopButton: stopButton, status: status
+        toggleButton: toggleButton, stopButton: stopButton, status: status
       };
       activeStudyVoice = session;
       setStudyVoiceButtonState(session, "playing");
-      status.textContent = "Reading " +
-        (session.kind === "explain" ? "the saved explanation" : "the notes") + "...";
+      studyVoiceStatus(session, "Reading.", false);
       speakNextStudyVoicePart(session);
     });
-
-    pauseButton.addEventListener("click", function () {
-      const session = activeStudyVoice;
-      if (!session || session.root !== card) return;
-      if (session.paused) {
-        resumeStudyVoice(session);
-      } else {
-        session.paused = true;
-        window.speechSynthesis.pause();
-        clearStudyVoiceHighlight(session);
-        setStudyVoiceButtonState(session, "paused");
-        status.textContent = "Paused.";
-      }
-    });
     stopButton.addEventListener("click", function () {
-      if (activeStudyVoice && activeStudyVoice.root === card) stopStudyVoice();
-    });
-    kindSelect.addEventListener("change", function () {
-      if (activeStudyVoice && activeStudyVoice.root === card) {
-        stopStudyVoice("Selection changed. Press Play to listen.");
-      }
+      if (activeStudyVoice && activeStudyVoice.root === toolbar) stopStudyVoice();
     });
     speedSelect.addEventListener("change", function () {
-      if (activeStudyVoice && activeStudyVoice.root === card) {
-        stopStudyVoice("Speed changed. Press Play to restart at the new speed.");
-      }
+      if (activeStudyVoice && activeStudyVoice.root === toolbar) stopStudyVoice();
     });
-    return card;
+    return toolbar;
+  }
+
+  function addStudyVoiceToHeading(questionElement, panel, questionNumber) {
+    const heading = panel.querySelector(".study-guide-title, .readable-panel-heading");
+    const header = document.createElement("div");
+    header.className = "study-guide-header";
+    if (heading) {
+      heading.parentNode.insertBefore(header, heading);
+      header.appendChild(heading);
+    } else {
+      panel.insertBefore(header, panel.firstChild);
+    }
+    header.appendChild(createStudyVoiceControls(questionElement, questionNumber));
   }
 
   window.addEventListener("pagehide", function () { stopStudyVoice(); });
@@ -3635,18 +3608,31 @@ const testFiles = [
       }
 
       if (isStudyMode) {
-        questionElement.appendChild(
-          createStudyVoiceControls(questionElement, question.number || actualIndex + 1)
-        );
-
-        // The saved study guide takes the place of the short explanation when available.
+        let voiceHost = null;
+        // Keep the reader in the existing heading instead of adding another card.
         if (question.study) {
-          const studyGuideElement = createStudyGuideElement(question.study);
-          if (studyGuideElement) questionElement.appendChild(studyGuideElement);
+          const guide = createStudyGuideElement(question.study);
+          if (guide) {
+            questionElement.appendChild(guide);
+            voiceHost = guide;
+          }
         } else if (!testSubmitted && question.explanation) {
-          questionElement.appendChild(createReadablePanel(
+          const explanation = createReadablePanel(
             "Why this answer?", question.explanation, "study-explanation"
-          ));
+          );
+          questionElement.appendChild(explanation);
+          voiceHost = explanation;
+        } else if (testSubmitted && question.explanation) {
+          voiceHost = questionElement.querySelector(".explanation");
+        }
+        if (!voiceHost) {
+          voiceHost = questionElement.querySelector(
+            ".study-correct-answer, .correct-answer"
+          );
+        }
+        if (voiceHost) {
+          addStudyVoiceToHeading(questionElement, voiceHost,
+            question.number || actualIndex + 1);
         }
       }
 
