@@ -1,0 +1,2183 @@
+{
+  "testName": "INF3708 – Software Project Management – JAN/FEB 2025 Supplementary Examination (80 marks, AI marked)",
+  "module": "INF3708",
+  "examSession": "JAN/FEB 2025 SUPPLEMENTARY",
+  "examCode": "INF3708-24-Y",
+  "totalMarks": 80,
+  "preserveOrder": true,
+  "marking": "ai-rubric-weighted",
+  "sourceNote": "Transcribed from supplied exam screenshots; the original paper did not show an exam duration in those screenshots.",
+  "questions": [
+    {
+      "number": "1.1",
+      "marks": 20,
+      "text": "QUESTION 1 (20 marks): In the Project Vision business case, correlate the needs of Project Vision's end-users (students with visual impairments) with ALL FIVE levels of Maslow's hierarchy of needs. Give a specific Project Vision example for each level. (5 × 4 marks.)",
+      "grading": "ai",
+      "aiPassScore": 70,
+      "correctAnswer": "1. Physiological (4): reliable access to transport and facilities enables Noma and other students to attend teaching, obtain basic necessities (including food/water/rest) and sustain everyday living. 2. Safety (4): certified drivers, safe door-to-door assistance, real-time ride updates, TWO EYES obstacle recognition and corridor/stairway navigation increase physical security and predictability. 3. Social/belonging (4): attending face-to-face/hybrid classes lets visually impaired students interact with classmates and teachers and participate in the campus community rather than being isolated by transport barriers. 4. Esteem (4): independence in travelling, studying and navigating campus builds confidence, self-respect, achievement and recognition, and lets students be treated as capable participants. 5. Self-actualisation (4): full engagement with Honours or other educational goals, learning, innovation and personal potential becomes possible when accessibility barriers are reduced. Accept other clear, case-linked examples at each of the correct five Maslow levels.",
+      "aiRubric": [
+        "4 marks for an accurate, specific Project Vision link to PHYSIOLOGICAL needs, not simply naming a level.",
+        "4 marks for SAFETY: trained drivers, safe travel, TWO EYES obstacle detection, safe navigation or equivalent.",
+        "4 marks for SOCIAL/BELONGING: attendance, inclusion, interaction, friendship/community.",
+        "4 marks for ESTEEM: autonomy, confidence, recognition, competence or achievement.",
+        "4 marks for SELF-ACTUALISATION: personal growth, studying to full potential, creativity and achievement.",
+        "Give partial credit per level for correct definition and a relevant case-study explanation. Do not confuse disability itself with the physiological-needs level."
+      ],
+      "aiReferenceNotes": "Award partial marks for clearly demonstrated method, valid working, sound case-study application and equivalent mathematically correct forms. Do not demand verbatim wording; allow reasonable rounding. Never award full marks when the key reasoning or calculation is missing.",
+      "context": "PROJECT VISION CASE STUDY (INF3708 January/February 2025 supplementary examination)\n\nNoma Nkosi, a 20-year-old visually impaired second-year BSc Computing student at the University of South Africa (Unisa), participated in Project Six Spoken Breaths until the end of 2024. The School of Computing initiative developed an AI tool to assist visually impaired students. The tool, TWO AUDIRE, is housed in purpose-built air pods with a powerful microprocessor.\n\nTWO AUDIRE facilitates interaction with coursework and assessments using automatic speech recognition and natural language processing. It connects to module sites, the Internet and a virtual word-processing application that converts spoken responses to text. Noma can ask TWO AUDIRE to read assessment instructions, dictate answers, convert the result to a PDF and submit it via the assessment portal. The machine-learning system is not designed to provide verbatim answers to assessment questions, supporting academic honesty.\n\nNoma wants an immersive experience of hybrid classes, including Dr Emil Van Der Poll's face-to-face classes on Mondays and Wednesdays, 18:30–20:30 at Florida Campus. Sessions are streamed and recorded using three cameras, but unreliable transportation prevents her from attending on campus.\n\nInspired by Bolt for Women, she conceptualised Bolt Vision, a ride-hailing service for visually impaired students. With assistance from TWO AUDIRE, riders could travel between home and campus. Noma and School of Computing academics drafted a business case for Project Vision: integrating TWO AUDIRE into the Bolt e-hailing app. Features include (1) natural conversations to request rides exclusively from certified Bolt Vision drivers; (2) communicating driver ratings; (3) payments; (4) live updates on pickup and drop-off times and distances; and (5) in-app calls between rider and driver.\n\nBolt Vision drivers, who may also serve regular customers, are trained and certified to assist visually impaired students. They guide the student from home to the car and escort the student to a campus-building entrance. Corridors and stairs remain a safety challenge because students can bump into staff and other students. Lead programmer Khushi Singh proposed TWO EYES: a camera and motion-detection feature to recognise obstacles and guide safe navigation. Its camera technology would be installed in smart glasses.\n\nAt the beginning of this academic year, you enrolled for Honours Information Systems. For the Software Project Management (INF4825) module you are Project Vision's PART-TIME project manager, only working hours allocated to the module.",
+      "contextTitle": "Read the Project Vision case study",
+      "image": {
+        "src": "assets/inf3708-maslow-hierarchy.svg",
+        "alt": "Figure 1: Maslow's five-level pyramid: physiological, safety, social, esteem and self-actualisation",
+        "caption": "Figure 1 – Maslow's hierarchy of needs (accessible recreation of the paper's reference diagram)."
+      }
+    },
+    {
+      "number": "2.1",
+      "marks": 2,
+      "text": "QUESTION 2.1 (2 marks): Your Project Vision labour rate is R120/hour. Full-time work would average 160 hours per month. Explain WHY the Project Manager's hours in Table 1 are divided by 2 in the calculation (160 ÷ 2) × 10 months = 800 hours.",
+      "grading": "ai",
+      "aiPassScore": 70,
+      "correctAnswer": "The project manager only works PART-TIME on Project Vision, as described in the case study. Assuming half of a full-time monthly workload, 160/2 = 80 hours/month; across 10 months this is 80 × 10 = 800 hours. This is not 800 per month.",
+      "aiRubric": [
+        "1 mark: identify that the manager is assigned PART-TIME, not full-time.",
+        "1 mark: explain half of 160 = 80 hours per month; multiply by 10 = 800 total hours."
+      ],
+      "aiReferenceNotes": "Award partial marks for clearly demonstrated method, valid working, sound case-study application and equivalent mathematically correct forms. Do not demand verbatim wording; allow reasonable rounding. Never award full marks when the key reasoning or calculation is missing.",
+      "context": "PROJECT VISION CASE STUDY (INF3708 January/February 2025 supplementary examination)\n\nNoma Nkosi, a 20-year-old visually impaired second-year BSc Computing student at the University of South Africa (Unisa), participated in Project Six Spoken Breaths until the end of 2024. The School of Computing initiative developed an AI tool to assist visually impaired students. The tool, TWO AUDIRE, is housed in purpose-built air pods with a powerful microprocessor.\n\nTWO AUDIRE facilitates interaction with coursework and assessments using automatic speech recognition and natural language processing. It connects to module sites, the Internet and a virtual word-processing application that converts spoken responses to text. Noma can ask TWO AUDIRE to read assessment instructions, dictate answers, convert the result to a PDF and submit it via the assessment portal. The machine-learning system is not designed to provide verbatim answers to assessment questions, supporting academic honesty.\n\nNoma wants an immersive experience of hybrid classes, including Dr Emil Van Der Poll's face-to-face classes on Mondays and Wednesdays, 18:30–20:30 at Florida Campus. Sessions are streamed and recorded using three cameras, but unreliable transportation prevents her from attending on campus.\n\nInspired by Bolt for Women, she conceptualised Bolt Vision, a ride-hailing service for visually impaired students. With assistance from TWO AUDIRE, riders could travel between home and campus. Noma and School of Computing academics drafted a business case for Project Vision: integrating TWO AUDIRE into the Bolt e-hailing app. Features include (1) natural conversations to request rides exclusively from certified Bolt Vision drivers; (2) communicating driver ratings; (3) payments; (4) live updates on pickup and drop-off times and distances; and (5) in-app calls between rider and driver.\n\nBolt Vision drivers, who may also serve regular customers, are trained and certified to assist visually impaired students. They guide the student from home to the car and escort the student to a campus-building entrance. Corridors and stairs remain a safety challenge because students can bump into staff and other students. Lead programmer Khushi Singh proposed TWO EYES: a camera and motion-detection feature to recognise obstacles and guide safe navigation. Its camera technology would be installed in smart glasses.\n\nAt the beginning of this academic year, you enrolled for Honours Information Systems. For the Software Project Management (INF4825) module you are Project Vision's PART-TIME project manager, only working hours allocated to the module.",
+      "contextTitle": "Read the Project Vision case study",
+      "table": {
+        "caption": "Table 1 – Project Vision cost estimate (blank cells are questions; all amounts in rand)",
+        "headers": [
+          "Cost item / WBS level 2",
+          "Units / hours",
+          "Cost / unit or hour",
+          "Subtotal",
+          "WBS level 2 total",
+          "% of total"
+        ],
+        "rows": [
+          [
+            "1. Project management",
+            "",
+            "",
+            "",
+            "R326 400",
+            "Q2.6.1"
+          ],
+          [
+            "Project Manager",
+            "800",
+            "R120",
+            "R96 000",
+            "",
+            ""
+          ],
+          [
+            "Project Team Members",
+            "1 920",
+            "R120",
+            "R230 400",
+            "",
+            ""
+          ],
+          [
+            "2. Hardware",
+            "",
+            "",
+            "",
+            "Calculate: Q2.2",
+            "9%"
+          ],
+          [
+            "Air pods",
+            "50",
+            "R2 500",
+            "Calculate",
+            "",
+            ""
+          ],
+          [
+            "Smart glasses",
+            "50",
+            "R4 000",
+            "Calculate",
+            "",
+            ""
+          ],
+          [
+            "3. Software",
+            "",
+            "",
+            "",
+            "R1 913 000",
+            "Q2.6.2"
+          ],
+          [
+            "TWO AUDIRE AI licence",
+            "50",
+            "R500",
+            "R25 000",
+            "",
+            ""
+          ],
+          [
+            "TWO EYES AI licence",
+            "50",
+            "R500",
+            "R25 000",
+            "",
+            ""
+          ],
+          [
+            "Software development*",
+            "",
+            "",
+            "Calculate: Q2.3.3",
+            "",
+            ""
+          ],
+          [
+            "4. Testing (10% of hardware + software)",
+            "",
+            "",
+            "Calculate: Q2.4",
+            "Calculate: Q2.4",
+            "Q2.6.3"
+          ],
+          [
+            "5. Training and support",
+            "",
+            "",
+            "",
+            "R110 000",
+            "3%"
+          ],
+          [
+            "Trainee cost",
+            "5",
+            "R2 000",
+            "R10 000",
+            "",
+            ""
+          ],
+          [
+            "Travel cost (units in days)",
+            "50",
+            "R2 000",
+            "R100 000",
+            "",
+            ""
+          ],
+          [
+            "Subtotal",
+            "",
+            "",
+            "R2 898 200",
+            "",
+            ""
+          ],
+          [
+            "6. Reserves (20% of subtotal)",
+            "",
+            "",
+            "R579 640",
+            "R579 640",
+            "Q2.6.4"
+          ],
+          [
+            "Total project cost estimate",
+            "",
+            "",
+            "",
+            "Calculate: Q2.5",
+            ""
+          ]
+        ]
+      }
+    },
+    {
+      "number": "2.2",
+      "marks": 4,
+      "text": "QUESTION 2.2 (4 marks): Calculate the WBS Level 2 TOTAL of hardware to be procured in Table 1 (air pods and smart glasses). Show both component costs and the total.",
+      "grading": "ai",
+      "aiPassScore": 70,
+      "correctAnswer": "Air pods: 50 × R2 500 = R125 000. Smart glasses: 50 × R4 000 = R200 000. Total hardware = R125 000 + R200 000 = R325 000.",
+      "aiRubric": [
+        "1 mark: identify 50 air pods and R2 500 each.",
+        "1 mark: correctly calculate air pods R125 000.",
+        "1 mark: correctly calculate smart glasses 50 × R4 000 = R200 000.",
+        "1 mark: add to obtain hardware total R325 000."
+      ],
+      "aiReferenceNotes": "Award partial marks for clearly demonstrated method, valid working, sound case-study application and equivalent mathematically correct forms. Do not demand verbatim wording; allow reasonable rounding. Never award full marks when the key reasoning or calculation is missing.",
+      "table": {
+        "caption": "Table 1 – Project Vision cost estimate (blank cells are questions; all amounts in rand)",
+        "headers": [
+          "Cost item / WBS level 2",
+          "Units / hours",
+          "Cost / unit or hour",
+          "Subtotal",
+          "WBS level 2 total",
+          "% of total"
+        ],
+        "rows": [
+          [
+            "1. Project management",
+            "",
+            "",
+            "",
+            "R326 400",
+            "Q2.6.1"
+          ],
+          [
+            "Project Manager",
+            "800",
+            "R120",
+            "R96 000",
+            "",
+            ""
+          ],
+          [
+            "Project Team Members",
+            "1 920",
+            "R120",
+            "R230 400",
+            "",
+            ""
+          ],
+          [
+            "2. Hardware",
+            "",
+            "",
+            "",
+            "Calculate: Q2.2",
+            "9%"
+          ],
+          [
+            "Air pods",
+            "50",
+            "R2 500",
+            "Calculate",
+            "",
+            ""
+          ],
+          [
+            "Smart glasses",
+            "50",
+            "R4 000",
+            "Calculate",
+            "",
+            ""
+          ],
+          [
+            "3. Software",
+            "",
+            "",
+            "",
+            "R1 913 000",
+            "Q2.6.2"
+          ],
+          [
+            "TWO AUDIRE AI licence",
+            "50",
+            "R500",
+            "R25 000",
+            "",
+            ""
+          ],
+          [
+            "TWO EYES AI licence",
+            "50",
+            "R500",
+            "R25 000",
+            "",
+            ""
+          ],
+          [
+            "Software development*",
+            "",
+            "",
+            "Calculate: Q2.3.3",
+            "",
+            ""
+          ],
+          [
+            "4. Testing (10% of hardware + software)",
+            "",
+            "",
+            "Calculate: Q2.4",
+            "Calculate: Q2.4",
+            "Q2.6.3"
+          ],
+          [
+            "5. Training and support",
+            "",
+            "",
+            "",
+            "R110 000",
+            "3%"
+          ],
+          [
+            "Trainee cost",
+            "5",
+            "R2 000",
+            "R10 000",
+            "",
+            ""
+          ],
+          [
+            "Travel cost (units in days)",
+            "50",
+            "R2 000",
+            "R100 000",
+            "",
+            ""
+          ],
+          [
+            "Subtotal",
+            "",
+            "",
+            "R2 898 200",
+            "",
+            ""
+          ],
+          [
+            "6. Reserves (20% of subtotal)",
+            "",
+            "",
+            "R579 640",
+            "R579 640",
+            "Q2.6.4"
+          ],
+          [
+            "Total project cost estimate",
+            "",
+            "",
+            "",
+            "Calculate: Q2.5",
+            ""
+          ]
+        ]
+      }
+    },
+    {
+      "number": "2.3.1",
+      "marks": 2,
+      "text": "QUESTION 2.3.1 (2 marks): Using Table 2, calculate the TOTAL LABOUR cost estimate for TWO AUDIRE and TWO EYES software development.",
+      "grading": "ai",
+      "aiPassScore": 70,
+      "correctAnswer": "AI developers: 1 920 hours × R160 = R307 200. Project team: 1 600 hours × R120 = R192 000. Total labour cost estimate = R499 200.",
+      "aiRubric": [
+        "1 mark: correct AI contractor and project team multiplications (partial credit if one is right).",
+        "1 mark: add the two amounts for R499 200."
+      ],
+      "aiReferenceNotes": "Award partial marks for clearly demonstrated method, valid working, sound case-study application and equivalent mathematically correct forms. Do not demand verbatim wording; allow reasonable rounding. Never award full marks when the key reasoning or calculation is missing.",
+      "table": {
+        "caption": "Table 2 – TWO AUDIRE / TWO EYES software-development estimate (use the HIGHER of the labour and function-point estimates)",
+        "headers": [
+          "Input",
+          "Units / hours or quantity",
+          "Cost / unit, hours or conversion factor",
+          "Subtotal / function points"
+        ],
+        "rows": [
+          [
+            "1. Labour estimate",
+            "",
+            "",
+            ""
+          ],
+          [
+            "AI developers (contractors)",
+            "1 920",
+            "R160 per hour",
+            "Calculate"
+          ],
+          [
+            "Project team",
+            "1 600",
+            "R120 per hour",
+            "Calculate"
+          ],
+          [
+            "Total labour estimate",
+            "",
+            "",
+            "Calculate: Q2.3.1"
+          ],
+          [
+            "2. Function point estimate",
+            "Quantity",
+            "Conversion factor (3–6)",
+            "Function points"
+          ],
+          [
+            "External inputs",
+            "30",
+            "6",
+            "180"
+          ],
+          [
+            "External interface files",
+            "20",
+            "3",
+            "60"
+          ],
+          [
+            "External outputs",
+            "15",
+            "3",
+            "45"
+          ],
+          [
+            "External queries",
+            "15",
+            "3",
+            "45"
+          ],
+          [
+            "Logical internal tables",
+            "5",
+            "3",
+            "15"
+          ],
+          [
+            "Total function points",
+            "",
+            "",
+            "345"
+          ],
+          [
+            "Python equivalency value",
+            "",
+            "",
+            "200"
+          ],
+          [
+            "Source lines of code (SLOC) estimate",
+            "",
+            "",
+            "80 000"
+          ],
+          [
+            "Productivity × SLOC penalty (5 × 10²)",
+            "",
+            "",
+            "500"
+          ],
+          [
+            "Labour hours (45 hours per function point)",
+            "",
+            "",
+            "15 525"
+          ],
+          [
+            "Cost per labour hour",
+            "",
+            "",
+            "R120"
+          ],
+          [
+            "Total function point estimate",
+            "",
+            "",
+            "Calculate: Q2.3.2"
+          ]
+        ]
+      }
+    },
+    {
+      "number": "2.3.2",
+      "marks": 2,
+      "text": "QUESTION 2.3.2 (2 marks): Calculate the TOTAL FUNCTION POINT software-development cost estimate from Table 2. The table gives 345 function points, 45 labour hours per function point and R120 per labour hour.",
+      "grading": "ai",
+      "aiPassScore": 70,
+      "correctAnswer": "30×6 + 20×3 + 15×3 + 15×3 + 5×3 = 345 function points. Labour hours = 345 × 45 = 15 525 hours. Total function point cost estimate = 15 525 × R120 = R1 863 000.",
+      "aiRubric": [
+        "1 mark: calculate or correctly use 345 × 45 = 15 525 labour hours.",
+        "1 mark: multiply by R120 to obtain R1 863 000. Credit a correct equivalent single formula."
+      ],
+      "aiReferenceNotes": "Award partial marks for clearly demonstrated method, valid working, sound case-study application and equivalent mathematically correct forms. Do not demand verbatim wording; allow reasonable rounding. Never award full marks when the key reasoning or calculation is missing.",
+      "table": {
+        "caption": "Table 2 – TWO AUDIRE / TWO EYES software-development estimate (use the HIGHER of the labour and function-point estimates)",
+        "headers": [
+          "Input",
+          "Units / hours or quantity",
+          "Cost / unit, hours or conversion factor",
+          "Subtotal / function points"
+        ],
+        "rows": [
+          [
+            "1. Labour estimate",
+            "",
+            "",
+            ""
+          ],
+          [
+            "AI developers (contractors)",
+            "1 920",
+            "R160 per hour",
+            "Calculate"
+          ],
+          [
+            "Project team",
+            "1 600",
+            "R120 per hour",
+            "Calculate"
+          ],
+          [
+            "Total labour estimate",
+            "",
+            "",
+            "Calculate: Q2.3.1"
+          ],
+          [
+            "2. Function point estimate",
+            "Quantity",
+            "Conversion factor (3–6)",
+            "Function points"
+          ],
+          [
+            "External inputs",
+            "30",
+            "6",
+            "180"
+          ],
+          [
+            "External interface files",
+            "20",
+            "3",
+            "60"
+          ],
+          [
+            "External outputs",
+            "15",
+            "3",
+            "45"
+          ],
+          [
+            "External queries",
+            "15",
+            "3",
+            "45"
+          ],
+          [
+            "Logical internal tables",
+            "5",
+            "3",
+            "15"
+          ],
+          [
+            "Total function points",
+            "",
+            "",
+            "345"
+          ],
+          [
+            "Python equivalency value",
+            "",
+            "",
+            "200"
+          ],
+          [
+            "Source lines of code (SLOC) estimate",
+            "",
+            "",
+            "80 000"
+          ],
+          [
+            "Productivity × SLOC penalty (5 × 10²)",
+            "",
+            "",
+            "500"
+          ],
+          [
+            "Labour hours (45 hours per function point)",
+            "",
+            "",
+            "15 525"
+          ],
+          [
+            "Cost per labour hour",
+            "",
+            "",
+            "R120"
+          ],
+          [
+            "Total function point estimate",
+            "",
+            "",
+            "Calculate: Q2.3.2"
+          ]
+        ]
+      }
+    },
+    {
+      "number": "2.3.3",
+      "marks": 2,
+      "text": "QUESTION 2.3.3 (2 marks): The HIGHER of the labour-based and function-point software-development estimates must be used in Table 1. Determine the software-development cost to enter in the blank cell.",
+      "grading": "ai",
+      "aiPassScore": 70,
+      "correctAnswer": "Labour cost R499 200; function-point cost R1 863 000. The higher is R1 863 000, so the software-development subtotal in Table 1 is R1 863 000. Along with two R25 000 licences, this yields the provided software WBS total of R1 913 000.",
+      "aiRubric": [
+        "1 mark: compare both estimates, recognising the function-point estimate is higher.",
+        "1 mark: choose R1 863 000 and reconcile it with the software total if explained."
+      ],
+      "aiReferenceNotes": "Award partial marks for clearly demonstrated method, valid working, sound case-study application and equivalent mathematically correct forms. Do not demand verbatim wording; allow reasonable rounding. Never award full marks when the key reasoning or calculation is missing.",
+      "tables": [
+        {
+          "caption": "Table 1 – Project Vision cost estimate (blank cells are questions; all amounts in rand)",
+          "headers": [
+            "Cost item / WBS level 2",
+            "Units / hours",
+            "Cost / unit or hour",
+            "Subtotal",
+            "WBS level 2 total",
+            "% of total"
+          ],
+          "rows": [
+            [
+              "1. Project management",
+              "",
+              "",
+              "",
+              "R326 400",
+              "Q2.6.1"
+            ],
+            [
+              "Project Manager",
+              "800",
+              "R120",
+              "R96 000",
+              "",
+              ""
+            ],
+            [
+              "Project Team Members",
+              "1 920",
+              "R120",
+              "R230 400",
+              "",
+              ""
+            ],
+            [
+              "2. Hardware",
+              "",
+              "",
+              "",
+              "Calculate: Q2.2",
+              "9%"
+            ],
+            [
+              "Air pods",
+              "50",
+              "R2 500",
+              "Calculate",
+              "",
+              ""
+            ],
+            [
+              "Smart glasses",
+              "50",
+              "R4 000",
+              "Calculate",
+              "",
+              ""
+            ],
+            [
+              "3. Software",
+              "",
+              "",
+              "",
+              "R1 913 000",
+              "Q2.6.2"
+            ],
+            [
+              "TWO AUDIRE AI licence",
+              "50",
+              "R500",
+              "R25 000",
+              "",
+              ""
+            ],
+            [
+              "TWO EYES AI licence",
+              "50",
+              "R500",
+              "R25 000",
+              "",
+              ""
+            ],
+            [
+              "Software development*",
+              "",
+              "",
+              "Calculate: Q2.3.3",
+              "",
+              ""
+            ],
+            [
+              "4. Testing (10% of hardware + software)",
+              "",
+              "",
+              "Calculate: Q2.4",
+              "Calculate: Q2.4",
+              "Q2.6.3"
+            ],
+            [
+              "5. Training and support",
+              "",
+              "",
+              "",
+              "R110 000",
+              "3%"
+            ],
+            [
+              "Trainee cost",
+              "5",
+              "R2 000",
+              "R10 000",
+              "",
+              ""
+            ],
+            [
+              "Travel cost (units in days)",
+              "50",
+              "R2 000",
+              "R100 000",
+              "",
+              ""
+            ],
+            [
+              "Subtotal",
+              "",
+              "",
+              "R2 898 200",
+              "",
+              ""
+            ],
+            [
+              "6. Reserves (20% of subtotal)",
+              "",
+              "",
+              "R579 640",
+              "R579 640",
+              "Q2.6.4"
+            ],
+            [
+              "Total project cost estimate",
+              "",
+              "",
+              "",
+              "Calculate: Q2.5",
+              ""
+            ]
+          ]
+        },
+        {
+          "caption": "Table 2 – TWO AUDIRE / TWO EYES software-development estimate (use the HIGHER of the labour and function-point estimates)",
+          "headers": [
+            "Input",
+            "Units / hours or quantity",
+            "Cost / unit, hours or conversion factor",
+            "Subtotal / function points"
+          ],
+          "rows": [
+            [
+              "1. Labour estimate",
+              "",
+              "",
+              ""
+            ],
+            [
+              "AI developers (contractors)",
+              "1 920",
+              "R160 per hour",
+              "Calculate"
+            ],
+            [
+              "Project team",
+              "1 600",
+              "R120 per hour",
+              "Calculate"
+            ],
+            [
+              "Total labour estimate",
+              "",
+              "",
+              "Calculate: Q2.3.1"
+            ],
+            [
+              "2. Function point estimate",
+              "Quantity",
+              "Conversion factor (3–6)",
+              "Function points"
+            ],
+            [
+              "External inputs",
+              "30",
+              "6",
+              "180"
+            ],
+            [
+              "External interface files",
+              "20",
+              "3",
+              "60"
+            ],
+            [
+              "External outputs",
+              "15",
+              "3",
+              "45"
+            ],
+            [
+              "External queries",
+              "15",
+              "3",
+              "45"
+            ],
+            [
+              "Logical internal tables",
+              "5",
+              "3",
+              "15"
+            ],
+            [
+              "Total function points",
+              "",
+              "",
+              "345"
+            ],
+            [
+              "Python equivalency value",
+              "",
+              "",
+              "200"
+            ],
+            [
+              "Source lines of code (SLOC) estimate",
+              "",
+              "",
+              "80 000"
+            ],
+            [
+              "Productivity × SLOC penalty (5 × 10²)",
+              "",
+              "",
+              "500"
+            ],
+            [
+              "Labour hours (45 hours per function point)",
+              "",
+              "",
+              "15 525"
+            ],
+            [
+              "Cost per labour hour",
+              "",
+              "",
+              "R120"
+            ],
+            [
+              "Total function point estimate",
+              "",
+              "",
+              "Calculate: Q2.3.2"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "number": "2.4",
+      "marks": 2,
+      "text": "QUESTION 2.4 (2 marks): Based on previous projects, testing (item 4 in Table 1) is estimated at 10% of the COMBINED hardware and software cost. Calculate testing cost.",
+      "grading": "ai",
+      "aiPassScore": 70,
+      "correctAnswer": "Hardware = R325 000 and software = R1 913 000. Testing = 10% × (R325 000 + R1 913 000) = 0.10 × R2 238 000 = R223 800.",
+      "aiRubric": [
+        "1 mark: add correct hardware and software WBS totals, R2 238 000.",
+        "1 mark: apply 10% to get R223 800."
+      ],
+      "aiReferenceNotes": "Award partial marks for clearly demonstrated method, valid working, sound case-study application and equivalent mathematically correct forms. Do not demand verbatim wording; allow reasonable rounding. Never award full marks when the key reasoning or calculation is missing.",
+      "table": {
+        "caption": "Table 1 – Project Vision cost estimate (blank cells are questions; all amounts in rand)",
+        "headers": [
+          "Cost item / WBS level 2",
+          "Units / hours",
+          "Cost / unit or hour",
+          "Subtotal",
+          "WBS level 2 total",
+          "% of total"
+        ],
+        "rows": [
+          [
+            "1. Project management",
+            "",
+            "",
+            "",
+            "R326 400",
+            "Q2.6.1"
+          ],
+          [
+            "Project Manager",
+            "800",
+            "R120",
+            "R96 000",
+            "",
+            ""
+          ],
+          [
+            "Project Team Members",
+            "1 920",
+            "R120",
+            "R230 400",
+            "",
+            ""
+          ],
+          [
+            "2. Hardware",
+            "",
+            "",
+            "",
+            "Calculate: Q2.2",
+            "9%"
+          ],
+          [
+            "Air pods",
+            "50",
+            "R2 500",
+            "Calculate",
+            "",
+            ""
+          ],
+          [
+            "Smart glasses",
+            "50",
+            "R4 000",
+            "Calculate",
+            "",
+            ""
+          ],
+          [
+            "3. Software",
+            "",
+            "",
+            "",
+            "R1 913 000",
+            "Q2.6.2"
+          ],
+          [
+            "TWO AUDIRE AI licence",
+            "50",
+            "R500",
+            "R25 000",
+            "",
+            ""
+          ],
+          [
+            "TWO EYES AI licence",
+            "50",
+            "R500",
+            "R25 000",
+            "",
+            ""
+          ],
+          [
+            "Software development*",
+            "",
+            "",
+            "Calculate: Q2.3.3",
+            "",
+            ""
+          ],
+          [
+            "4. Testing (10% of hardware + software)",
+            "",
+            "",
+            "Calculate: Q2.4",
+            "Calculate: Q2.4",
+            "Q2.6.3"
+          ],
+          [
+            "5. Training and support",
+            "",
+            "",
+            "",
+            "R110 000",
+            "3%"
+          ],
+          [
+            "Trainee cost",
+            "5",
+            "R2 000",
+            "R10 000",
+            "",
+            ""
+          ],
+          [
+            "Travel cost (units in days)",
+            "50",
+            "R2 000",
+            "R100 000",
+            "",
+            ""
+          ],
+          [
+            "Subtotal",
+            "",
+            "",
+            "R2 898 200",
+            "",
+            ""
+          ],
+          [
+            "6. Reserves (20% of subtotal)",
+            "",
+            "",
+            "R579 640",
+            "R579 640",
+            "Q2.6.4"
+          ],
+          [
+            "Total project cost estimate",
+            "",
+            "",
+            "",
+            "Calculate: Q2.5",
+            ""
+          ]
+        ]
+      }
+    },
+    {
+      "number": "2.5",
+      "marks": 2,
+      "text": "QUESTION 2.5 (2 marks): Calculate the TOTAL PROJECT COST estimate in Table 1, including reserves. Show the subtotal and addition of reserves.",
+      "grading": "ai",
+      "aiPassScore": 70,
+      "correctAnswer": "Subtotal for project management, hardware, software, testing and training = R326 400 + R325 000 + R1 913 000 + R223 800 + R110 000 = R2 898 200. Reserves = 20% × R2 898 200 = R579 640. Total project cost = R2 898 200 + R579 640 = R3 477 840.",
+      "aiRubric": [
+        "1 mark: use subtotal R2 898 200 with reserves R579 640 (or calculate them).",
+        "1 mark: correctly add to get R3 477 840."
+      ],
+      "aiReferenceNotes": "Award partial marks for clearly demonstrated method, valid working, sound case-study application and equivalent mathematically correct forms. Do not demand verbatim wording; allow reasonable rounding. Never award full marks when the key reasoning or calculation is missing.",
+      "table": {
+        "caption": "Table 1 – Project Vision cost estimate (blank cells are questions; all amounts in rand)",
+        "headers": [
+          "Cost item / WBS level 2",
+          "Units / hours",
+          "Cost / unit or hour",
+          "Subtotal",
+          "WBS level 2 total",
+          "% of total"
+        ],
+        "rows": [
+          [
+            "1. Project management",
+            "",
+            "",
+            "",
+            "R326 400",
+            "Q2.6.1"
+          ],
+          [
+            "Project Manager",
+            "800",
+            "R120",
+            "R96 000",
+            "",
+            ""
+          ],
+          [
+            "Project Team Members",
+            "1 920",
+            "R120",
+            "R230 400",
+            "",
+            ""
+          ],
+          [
+            "2. Hardware",
+            "",
+            "",
+            "",
+            "Calculate: Q2.2",
+            "9%"
+          ],
+          [
+            "Air pods",
+            "50",
+            "R2 500",
+            "Calculate",
+            "",
+            ""
+          ],
+          [
+            "Smart glasses",
+            "50",
+            "R4 000",
+            "Calculate",
+            "",
+            ""
+          ],
+          [
+            "3. Software",
+            "",
+            "",
+            "",
+            "R1 913 000",
+            "Q2.6.2"
+          ],
+          [
+            "TWO AUDIRE AI licence",
+            "50",
+            "R500",
+            "R25 000",
+            "",
+            ""
+          ],
+          [
+            "TWO EYES AI licence",
+            "50",
+            "R500",
+            "R25 000",
+            "",
+            ""
+          ],
+          [
+            "Software development*",
+            "",
+            "",
+            "Calculate: Q2.3.3",
+            "",
+            ""
+          ],
+          [
+            "4. Testing (10% of hardware + software)",
+            "",
+            "",
+            "Calculate: Q2.4",
+            "Calculate: Q2.4",
+            "Q2.6.3"
+          ],
+          [
+            "5. Training and support",
+            "",
+            "",
+            "",
+            "R110 000",
+            "3%"
+          ],
+          [
+            "Trainee cost",
+            "5",
+            "R2 000",
+            "R10 000",
+            "",
+            ""
+          ],
+          [
+            "Travel cost (units in days)",
+            "50",
+            "R2 000",
+            "R100 000",
+            "",
+            ""
+          ],
+          [
+            "Subtotal",
+            "",
+            "",
+            "R2 898 200",
+            "",
+            ""
+          ],
+          [
+            "6. Reserves (20% of subtotal)",
+            "",
+            "",
+            "R579 640",
+            "R579 640",
+            "Q2.6.4"
+          ],
+          [
+            "Total project cost estimate",
+            "",
+            "",
+            "",
+            "Calculate: Q2.5",
+            ""
+          ]
+        ]
+      }
+    },
+    {
+      "number": "2.6.1",
+      "marks": 1,
+      "text": "QUESTION 2.6.1 (1 mark): Calculate what percentage of the TOTAL project cost estimate is contributed by PROJECT MANAGEMENT (R326 400).",
+      "grading": "ai",
+      "aiPassScore": 70,
+      "correctAnswer": "(R326 400 ÷ R3 477 840) × 100 = 9.385...% ≈ 9.39%, or 9% rounded to the nearest whole percentage.",
+      "aiRubric": [
+        "1 mark: percentage using total project cost as denominator; accept 9%, 9.4% or 9.39%."
+      ],
+      "aiReferenceNotes": "Award partial marks for clearly demonstrated method, valid working, sound case-study application and equivalent mathematically correct forms. Do not demand verbatim wording; allow reasonable rounding. Never award full marks when the key reasoning or calculation is missing.",
+      "table": {
+        "caption": "Table 1 – Project Vision cost estimate (blank cells are questions; all amounts in rand)",
+        "headers": [
+          "Cost item / WBS level 2",
+          "Units / hours",
+          "Cost / unit or hour",
+          "Subtotal",
+          "WBS level 2 total",
+          "% of total"
+        ],
+        "rows": [
+          [
+            "1. Project management",
+            "",
+            "",
+            "",
+            "R326 400",
+            "Q2.6.1"
+          ],
+          [
+            "Project Manager",
+            "800",
+            "R120",
+            "R96 000",
+            "",
+            ""
+          ],
+          [
+            "Project Team Members",
+            "1 920",
+            "R120",
+            "R230 400",
+            "",
+            ""
+          ],
+          [
+            "2. Hardware",
+            "",
+            "",
+            "",
+            "Calculate: Q2.2",
+            "9%"
+          ],
+          [
+            "Air pods",
+            "50",
+            "R2 500",
+            "Calculate",
+            "",
+            ""
+          ],
+          [
+            "Smart glasses",
+            "50",
+            "R4 000",
+            "Calculate",
+            "",
+            ""
+          ],
+          [
+            "3. Software",
+            "",
+            "",
+            "",
+            "R1 913 000",
+            "Q2.6.2"
+          ],
+          [
+            "TWO AUDIRE AI licence",
+            "50",
+            "R500",
+            "R25 000",
+            "",
+            ""
+          ],
+          [
+            "TWO EYES AI licence",
+            "50",
+            "R500",
+            "R25 000",
+            "",
+            ""
+          ],
+          [
+            "Software development*",
+            "",
+            "",
+            "Calculate: Q2.3.3",
+            "",
+            ""
+          ],
+          [
+            "4. Testing (10% of hardware + software)",
+            "",
+            "",
+            "Calculate: Q2.4",
+            "Calculate: Q2.4",
+            "Q2.6.3"
+          ],
+          [
+            "5. Training and support",
+            "",
+            "",
+            "",
+            "R110 000",
+            "3%"
+          ],
+          [
+            "Trainee cost",
+            "5",
+            "R2 000",
+            "R10 000",
+            "",
+            ""
+          ],
+          [
+            "Travel cost (units in days)",
+            "50",
+            "R2 000",
+            "R100 000",
+            "",
+            ""
+          ],
+          [
+            "Subtotal",
+            "",
+            "",
+            "R2 898 200",
+            "",
+            ""
+          ],
+          [
+            "6. Reserves (20% of subtotal)",
+            "",
+            "",
+            "R579 640",
+            "R579 640",
+            "Q2.6.4"
+          ],
+          [
+            "Total project cost estimate",
+            "",
+            "",
+            "",
+            "Calculate: Q2.5",
+            ""
+          ]
+        ]
+      }
+    },
+    {
+      "number": "2.6.2",
+      "marks": 1,
+      "text": "QUESTION 2.6.2 (1 mark): Calculate what percentage of TOTAL project cost is contributed by SOFTWARE (R1 913 000).",
+      "grading": "ai",
+      "aiPassScore": 70,
+      "correctAnswer": "(R1 913 000 ÷ R3 477 840) × 100 = 55.005...% ≈ 55%.",
+      "aiRubric": [
+        "1 mark: 55% (or an equivalent properly rounded figure) using the correct total."
+      ],
+      "aiReferenceNotes": "Award partial marks for clearly demonstrated method, valid working, sound case-study application and equivalent mathematically correct forms. Do not demand verbatim wording; allow reasonable rounding. Never award full marks when the key reasoning or calculation is missing.",
+      "table": {
+        "caption": "Table 1 – Project Vision cost estimate (blank cells are questions; all amounts in rand)",
+        "headers": [
+          "Cost item / WBS level 2",
+          "Units / hours",
+          "Cost / unit or hour",
+          "Subtotal",
+          "WBS level 2 total",
+          "% of total"
+        ],
+        "rows": [
+          [
+            "1. Project management",
+            "",
+            "",
+            "",
+            "R326 400",
+            "Q2.6.1"
+          ],
+          [
+            "Project Manager",
+            "800",
+            "R120",
+            "R96 000",
+            "",
+            ""
+          ],
+          [
+            "Project Team Members",
+            "1 920",
+            "R120",
+            "R230 400",
+            "",
+            ""
+          ],
+          [
+            "2. Hardware",
+            "",
+            "",
+            "",
+            "Calculate: Q2.2",
+            "9%"
+          ],
+          [
+            "Air pods",
+            "50",
+            "R2 500",
+            "Calculate",
+            "",
+            ""
+          ],
+          [
+            "Smart glasses",
+            "50",
+            "R4 000",
+            "Calculate",
+            "",
+            ""
+          ],
+          [
+            "3. Software",
+            "",
+            "",
+            "",
+            "R1 913 000",
+            "Q2.6.2"
+          ],
+          [
+            "TWO AUDIRE AI licence",
+            "50",
+            "R500",
+            "R25 000",
+            "",
+            ""
+          ],
+          [
+            "TWO EYES AI licence",
+            "50",
+            "R500",
+            "R25 000",
+            "",
+            ""
+          ],
+          [
+            "Software development*",
+            "",
+            "",
+            "Calculate: Q2.3.3",
+            "",
+            ""
+          ],
+          [
+            "4. Testing (10% of hardware + software)",
+            "",
+            "",
+            "Calculate: Q2.4",
+            "Calculate: Q2.4",
+            "Q2.6.3"
+          ],
+          [
+            "5. Training and support",
+            "",
+            "",
+            "",
+            "R110 000",
+            "3%"
+          ],
+          [
+            "Trainee cost",
+            "5",
+            "R2 000",
+            "R10 000",
+            "",
+            ""
+          ],
+          [
+            "Travel cost (units in days)",
+            "50",
+            "R2 000",
+            "R100 000",
+            "",
+            ""
+          ],
+          [
+            "Subtotal",
+            "",
+            "",
+            "R2 898 200",
+            "",
+            ""
+          ],
+          [
+            "6. Reserves (20% of subtotal)",
+            "",
+            "",
+            "R579 640",
+            "R579 640",
+            "Q2.6.4"
+          ],
+          [
+            "Total project cost estimate",
+            "",
+            "",
+            "",
+            "Calculate: Q2.5",
+            ""
+          ]
+        ]
+      }
+    },
+    {
+      "number": "2.6.3",
+      "marks": 1,
+      "text": "QUESTION 2.6.3 (1 mark): Calculate what percentage of TOTAL project cost is contributed by TESTING (R223 800).",
+      "grading": "ai",
+      "aiPassScore": 70,
+      "correctAnswer": "(R223 800 ÷ R3 477 840) × 100 ≈ 6.435% ≈ 6.44%, or 6% to nearest whole percentage.",
+      "aiRubric": [
+        "1 mark: about 6.4%, or 6% rounded to the nearest whole percentage."
+      ],
+      "aiReferenceNotes": "Award partial marks for clearly demonstrated method, valid working, sound case-study application and equivalent mathematically correct forms. Do not demand verbatim wording; allow reasonable rounding. Never award full marks when the key reasoning or calculation is missing.",
+      "table": {
+        "caption": "Table 1 – Project Vision cost estimate (blank cells are questions; all amounts in rand)",
+        "headers": [
+          "Cost item / WBS level 2",
+          "Units / hours",
+          "Cost / unit or hour",
+          "Subtotal",
+          "WBS level 2 total",
+          "% of total"
+        ],
+        "rows": [
+          [
+            "1. Project management",
+            "",
+            "",
+            "",
+            "R326 400",
+            "Q2.6.1"
+          ],
+          [
+            "Project Manager",
+            "800",
+            "R120",
+            "R96 000",
+            "",
+            ""
+          ],
+          [
+            "Project Team Members",
+            "1 920",
+            "R120",
+            "R230 400",
+            "",
+            ""
+          ],
+          [
+            "2. Hardware",
+            "",
+            "",
+            "",
+            "Calculate: Q2.2",
+            "9%"
+          ],
+          [
+            "Air pods",
+            "50",
+            "R2 500",
+            "Calculate",
+            "",
+            ""
+          ],
+          [
+            "Smart glasses",
+            "50",
+            "R4 000",
+            "Calculate",
+            "",
+            ""
+          ],
+          [
+            "3. Software",
+            "",
+            "",
+            "",
+            "R1 913 000",
+            "Q2.6.2"
+          ],
+          [
+            "TWO AUDIRE AI licence",
+            "50",
+            "R500",
+            "R25 000",
+            "",
+            ""
+          ],
+          [
+            "TWO EYES AI licence",
+            "50",
+            "R500",
+            "R25 000",
+            "",
+            ""
+          ],
+          [
+            "Software development*",
+            "",
+            "",
+            "Calculate: Q2.3.3",
+            "",
+            ""
+          ],
+          [
+            "4. Testing (10% of hardware + software)",
+            "",
+            "",
+            "Calculate: Q2.4",
+            "Calculate: Q2.4",
+            "Q2.6.3"
+          ],
+          [
+            "5. Training and support",
+            "",
+            "",
+            "",
+            "R110 000",
+            "3%"
+          ],
+          [
+            "Trainee cost",
+            "5",
+            "R2 000",
+            "R10 000",
+            "",
+            ""
+          ],
+          [
+            "Travel cost (units in days)",
+            "50",
+            "R2 000",
+            "R100 000",
+            "",
+            ""
+          ],
+          [
+            "Subtotal",
+            "",
+            "",
+            "R2 898 200",
+            "",
+            ""
+          ],
+          [
+            "6. Reserves (20% of subtotal)",
+            "",
+            "",
+            "R579 640",
+            "R579 640",
+            "Q2.6.4"
+          ],
+          [
+            "Total project cost estimate",
+            "",
+            "",
+            "",
+            "Calculate: Q2.5",
+            ""
+          ]
+        ]
+      }
+    },
+    {
+      "number": "2.6.4",
+      "marks": 1,
+      "text": "QUESTION 2.6.4 (1 mark): Calculate what percentage of TOTAL project cost is contributed by RESERVES (R579 640).",
+      "grading": "ai",
+      "aiPassScore": 70,
+      "correctAnswer": "(R579 640 ÷ R3 477 840) × 100 = 16.666...% ≈ 16.67%, or 17% rounded to the nearest whole percentage. It is 20% of the PRE-RESERVE subtotal but 16.67% of the final cost.",
+      "aiRubric": [
+        "1 mark: approx. 16.67% / 17% of the final project total, NOT 20%."
+      ],
+      "aiReferenceNotes": "Award partial marks for clearly demonstrated method, valid working, sound case-study application and equivalent mathematically correct forms. Do not demand verbatim wording; allow reasonable rounding. Never award full marks when the key reasoning or calculation is missing.",
+      "table": {
+        "caption": "Table 1 – Project Vision cost estimate (blank cells are questions; all amounts in rand)",
+        "headers": [
+          "Cost item / WBS level 2",
+          "Units / hours",
+          "Cost / unit or hour",
+          "Subtotal",
+          "WBS level 2 total",
+          "% of total"
+        ],
+        "rows": [
+          [
+            "1. Project management",
+            "",
+            "",
+            "",
+            "R326 400",
+            "Q2.6.1"
+          ],
+          [
+            "Project Manager",
+            "800",
+            "R120",
+            "R96 000",
+            "",
+            ""
+          ],
+          [
+            "Project Team Members",
+            "1 920",
+            "R120",
+            "R230 400",
+            "",
+            ""
+          ],
+          [
+            "2. Hardware",
+            "",
+            "",
+            "",
+            "Calculate: Q2.2",
+            "9%"
+          ],
+          [
+            "Air pods",
+            "50",
+            "R2 500",
+            "Calculate",
+            "",
+            ""
+          ],
+          [
+            "Smart glasses",
+            "50",
+            "R4 000",
+            "Calculate",
+            "",
+            ""
+          ],
+          [
+            "3. Software",
+            "",
+            "",
+            "",
+            "R1 913 000",
+            "Q2.6.2"
+          ],
+          [
+            "TWO AUDIRE AI licence",
+            "50",
+            "R500",
+            "R25 000",
+            "",
+            ""
+          ],
+          [
+            "TWO EYES AI licence",
+            "50",
+            "R500",
+            "R25 000",
+            "",
+            ""
+          ],
+          [
+            "Software development*",
+            "",
+            "",
+            "Calculate: Q2.3.3",
+            "",
+            ""
+          ],
+          [
+            "4. Testing (10% of hardware + software)",
+            "",
+            "",
+            "Calculate: Q2.4",
+            "Calculate: Q2.4",
+            "Q2.6.3"
+          ],
+          [
+            "5. Training and support",
+            "",
+            "",
+            "",
+            "R110 000",
+            "3%"
+          ],
+          [
+            "Trainee cost",
+            "5",
+            "R2 000",
+            "R10 000",
+            "",
+            ""
+          ],
+          [
+            "Travel cost (units in days)",
+            "50",
+            "R2 000",
+            "R100 000",
+            "",
+            ""
+          ],
+          [
+            "Subtotal",
+            "",
+            "",
+            "R2 898 200",
+            "",
+            ""
+          ],
+          [
+            "6. Reserves (20% of subtotal)",
+            "",
+            "",
+            "R579 640",
+            "R579 640",
+            "Q2.6.4"
+          ],
+          [
+            "Total project cost estimate",
+            "",
+            "",
+            "",
+            "Calculate: Q2.5",
+            ""
+          ]
+        ]
+      }
+    },
+    {
+      "number": "2.7.1",
+      "marks": 10,
+      "text": "QUESTION 2.7.1 (10 marks): Using the cash flows in Table 3, calculate Project Vision's payback period to the closest approximate YEAR, MONTH and DAY. Show annual cumulative cash flows and the fractional-year calculation.",
+      "grading": "ai",
+      "aiPassScore": 70,
+      "correctAnswer": "Year 0 initial cost R3 477 840. Annual inflows years 1–4: R480 000 + R650 000 + R799 000 + R970 000 = R2 899 000. Amount unrecovered at end of year 4 = R3 477 840 − R2 899 000 = R578 840. Year 5 inflow = R1 220 000, so payback occurs during year 5. Fraction of year 5 = 578 840 / 1 220 000 = 0.474459 year. Total payback period = 4.474459 years ≈ 4 years, 5 months and 21 days using 12 months/year and 30 days/month (0.474459×12=5.69351 months; 0.69351×30≈20.81 days). A 365-day calendar convention gives approximately 4 years and 173 days, or about 4 years, 5 months and 22–23 days depending on month lengths. Accept clearly stated consistent approximation conventions.",
+      "aiRubric": [
+        "1 mark: identify initial negative cash flow R3 477 840.",
+        "Up to 4 marks: correctly sum annual inflows/cumulative cash flow through years 1–4 (R480k; R1.13m; R1.929m; R2.899m).",
+        "1 mark: outstanding balance after year 4 = R578 840.",
+        "1 mark: recognise payback takes place during YEAR 5 and use year 5 inflow R1 220 000.",
+        "1 mark: calculate 578 840 / 1 220 000 ≈ 0.47446.",
+        "1 mark: express result as approximately 4.47446 years / 4 years plus a year fraction.",
+        "1 mark: convert to ~5 months and 21 days with a disclosed 30-day month; accept other internally consistent day/month conventions.",
+        "Accept minor rounding differences and transparent alternative methods."
+      ],
+      "aiReferenceNotes": "Use the screenshot's Table 3 amounts. Payback: 4 + (R3 477 840 − R2 899 000)/R1 220 000 = 4.474459 years; ~4 years 5 months 21 days (30-day month method). The student earns marks for method even if a subsequent arithmetic slip changes their final number. Do not use discounted payback; no discount rate is requested.",
+      "table": {
+        "caption": "Table 3 – Project Vision cash flows",
+        "headers": [
+          "Year",
+          "Cash flow (R)"
+        ],
+        "rows": [
+          [
+            "0",
+            "−3 477 840"
+          ],
+          [
+            "1",
+            "+480 000"
+          ],
+          [
+            "2",
+            "+650 000"
+          ],
+          [
+            "3",
+            "+799 000"
+          ],
+          [
+            "4",
+            "+970 000"
+          ],
+          [
+            "5",
+            "+1 220 000"
+          ],
+          [
+            "6",
+            "+1 470 800"
+          ]
+        ]
+      }
+    },
+    {
+      "number": "3.1",
+      "marks": 24,
+      "text": "QUESTION 3.1 (24 marks; 12 × 2): Create an ACTIVITY-ON-NODE (AoN) network diagram of activities A–J in Table 4. Add separate START and END nodes (12 nodes in total). Follow Figure 2's node legend: earliest start (top-left), earliest finish (top-right), activity label and duration (centre), latest start (bottom-left), FREE SLACK (bottom-centre), and latest finish (bottom-right). Draw the diagram or upload a legible image; optional written calculations can support it.",
+      "grading": "ai",
+      "aiPassScore": 70,
+      "correctAnswer": "Correct AoN precedence: START→A; A→B and E; B→C and D; E→F→G; C, D and G all precede H; H→I→J→END. Durations (weeks): A2 B3 C2 D2 E4 F3 G3 H2 I4 J1. Project duration 19 weeks. Correct node values as ES/EF/LS/LF, TOTAL float and FREE float respectively: A 0/2/0/2, 0,0; B 2/5/7/10,5,0; C 5/7/10/12,5,5; D 5/7/10/12,5,5; E 2/6/2/6,0,0; F 6/9/6/9,0,0; G 9/12/9/12,0,0; H 12/14/12/14,0,0; I 14/18/14/18,0,0; J 18/19/18/19,0,0. START occurs at 0, END at 19. If using total slack rather than free slack, B=5, C=5, D=5. The legend specifically asks for FREE slack: B free slack=0, C and D free slack=5. Accept topologically equivalent diagrams.",
+      "aiRubric": [
+        "Inspect the DRAWING/UPLOADED IMAGE as primary evidence and award 2 marks for each of the 12 valid nodes: START, A, B, C, D, E, F, G, H, I, J, END.",
+        "Credit each activity node's correct duration, placement, arrows/dependencies and correct earliest/latest date annotations; award proportionate partial marks when a node is partly right.",
+        "START→A, A→B,E; B→C,D; E→F→G; H must wait for C,D,G; H→I→J→END.",
+        "Correct forward pass ends at 19 weeks, using H ES=max(C EF7,D EF7,G EF12)=12.",
+        "Correct backward pass: B has total slack 5; C and D have total and free slack 5 each.",
+        "Figure 2 explicitly labels FREE SLACK at the bottom of each box: B's FREE slack is 0 despite B's TOTAL slack being 5.",
+        "Accept equivalent drawing arrangements and labelled time values; do not award full diagram/layout marks for unillustrated claims in an optional text box."
+      ],
+      "aiReferenceNotes": "This is a 24-mark visual marking question. Judge the actual submitted network and node labels as drawn. Table 4 specifies all precedence and duration data. Figure 2 node slots are ES, EF, activity/duration, LS, FREE slack, LF. Total slack B,C,D=5,5,5; FREE slack B,C,D=0,5,5. The critical path is A–E–F–G–H–I–J lasting 19 weeks. Do not apply the October/November 2021 paper's specific 7-of-14 missing-diagram deduction to this separate January/February 2025 paper.",
+      "context": "PROJECT VISION CASE STUDY (INF3708 January/February 2025 supplementary examination)\n\nNoma Nkosi, a 20-year-old visually impaired second-year BSc Computing student at the University of South Africa (Unisa), participated in Project Six Spoken Breaths until the end of 2024. The School of Computing initiative developed an AI tool to assist visually impaired students. The tool, TWO AUDIRE, is housed in purpose-built air pods with a powerful microprocessor.\n\nTWO AUDIRE facilitates interaction with coursework and assessments using automatic speech recognition and natural language processing. It connects to module sites, the Internet and a virtual word-processing application that converts spoken responses to text. Noma can ask TWO AUDIRE to read assessment instructions, dictate answers, convert the result to a PDF and submit it via the assessment portal. The machine-learning system is not designed to provide verbatim answers to assessment questions, supporting academic honesty.\n\nNoma wants an immersive experience of hybrid classes, including Dr Emil Van Der Poll's face-to-face classes on Mondays and Wednesdays, 18:30–20:30 at Florida Campus. Sessions are streamed and recorded using three cameras, but unreliable transportation prevents her from attending on campus.\n\nInspired by Bolt for Women, she conceptualised Bolt Vision, a ride-hailing service for visually impaired students. With assistance from TWO AUDIRE, riders could travel between home and campus. Noma and School of Computing academics drafted a business case for Project Vision: integrating TWO AUDIRE into the Bolt e-hailing app. Features include (1) natural conversations to request rides exclusively from certified Bolt Vision drivers; (2) communicating driver ratings; (3) payments; (4) live updates on pickup and drop-off times and distances; and (5) in-app calls between rider and driver.\n\nBolt Vision drivers, who may also serve regular customers, are trained and certified to assist visually impaired students. They guide the student from home to the car and escort the student to a campus-building entrance. Corridors and stairs remain a safety challenge because students can bump into staff and other students. Lead programmer Khushi Singh proposed TWO EYES: a camera and motion-detection feature to recognise obstacles and guide safe navigation. Its camera technology would be installed in smart glasses.\n\nAt the beginning of this academic year, you enrolled for Honours Information Systems. For the Software Project Management (INF4825) module you are Project Vision's PART-TIME project manager, only working hours allocated to the module.",
+      "contextTitle": "Read the Project Vision case study",
+      "table": {
+        "caption": "Table 4 – Project Vision activity descriptions, estimated durations and predecessors (weeks)",
+        "headers": [
+          "Activity",
+          "Description",
+          "Duration (weeks)",
+          "Predecessor(s)"
+        ],
+        "rows": [
+          [
+            "A: Requirements Analysis",
+            "Identify functional and technical requirements for adapting TWO AUDIRE to Bolt Vision and integrating TWO EYES.",
+            "2",
+            "None"
+          ],
+          [
+            "B: API Development",
+            "Develop APIs for TWO AUDIRE to interact with Bolt e-hailing app (ride requests, payment facilitation).",
+            "3",
+            "A"
+          ],
+          [
+            "C: Natural Conversation Update",
+            "Enhance TWO AUDIRE NLP for ride requests and driver communication.",
+            "2",
+            "B"
+          ],
+          [
+            "D: Driver Performance Module",
+            "Build and integrate module to evaluate and communicate driver ratings.",
+            "2",
+            "B"
+          ],
+          [
+            "E: Motion Detection Algorithm",
+            "Develop TWO EYES motion-detection/obstacle-recognition algorithm to identify obstructions in movement paths.",
+            "4",
+            "A"
+          ],
+          [
+            "F: Camera Integration",
+            "Implement and test camera hardware integration with TWO AUDIRE for TWO EYES.",
+            "3",
+            "E"
+          ],
+          [
+            "G: Corridor Navigation Feature",
+            "Add logic and controls to guide users safely through corridors using TWO EYES camera input.",
+            "3",
+            "F"
+          ],
+          [
+            "H: User Interface Updates",
+            "Update TWO AUDIRE interface to include ride tracking, driver updates and navigation feedback.",
+            "2",
+            "C, D, G"
+          ],
+          [
+            "I: Testing and Validation",
+            "Conduct end-to-end testing of TWO AUDIRE and TWO EYES functionality integrated with Bolt Vision.",
+            "4",
+            "H"
+          ],
+          [
+            "J: Deployment",
+            "Deploy updated TWO AUDIRE and TWO EYES system with Bolt Vision in production.",
+            "1",
+            "I"
+          ]
+        ]
+      },
+      "answerType": "diagram",
+      "diagramRequired": true,
+      "diagramNoDrawingCapPercent": 100,
+      "diagramNoDrawingNote": "Question 3.1 requests a drawn AoN network; award only marks demonstrated by any accompanying calculations if the network drawing is absent. The original paper does not specify the 7-of-14 deduction used by a different 2021 exam."
+    },
+    {
+      "number": "3.2",
+      "marks": 4,
+      "text": "QUESTION 3.2 (4 marks): From the Project Vision activity network (Table 4), identify the activities with slack and state the NUMBER OF WEEKS of slack. Clarify whether you mean TOTAL slack or FREE slack if relevant.",
+      "grading": "ai",
+      "aiPassScore": 70,
+      "correctAnswer": "TOTAL slack (late start − early start): activities B, C and D each have 5 weeks. Values: B ES2 LS7 => 5; C ES5 LS10 => 5; D ES5 LS10 => 5. All other activities have total slack 0. The node legend in Question 3.1 also mentions FREE slack: B has zero FREE slack (because C and D begin at week 5), while C and D each have 5 weeks FREE slack (because H cannot begin until week 12).",
+      "aiRubric": [
+        "1 mark: B has 5 weeks TOTAL slack.",
+        "1 mark: C has 5 weeks TOTAL slack.",
+        "1 mark: D has 5 weeks TOTAL slack.",
+        "1 mark: no other activity has TOTAL slack, or demonstrate valid calculation/concept.",
+        "Do not equate B's TOTAL slack (5) with B's FREE slack (0). If student clearly reports FREE slack as requested by the node legend, credit C5/D5 and explanation B free=0."
+      ],
+      "aiReferenceNotes": "Standard total float is 5 weeks each for B,C,D; all others 0. Free float differs for B (zero) because its immediately following activities start as soon as it finishes. Accept answers that explicitly distinguish the definitions.",
+      "table": {
+        "caption": "Table 4 – Project Vision activity descriptions, estimated durations and predecessors (weeks)",
+        "headers": [
+          "Activity",
+          "Description",
+          "Duration (weeks)",
+          "Predecessor(s)"
+        ],
+        "rows": [
+          [
+            "A: Requirements Analysis",
+            "Identify functional and technical requirements for adapting TWO AUDIRE to Bolt Vision and integrating TWO EYES.",
+            "2",
+            "None"
+          ],
+          [
+            "B: API Development",
+            "Develop APIs for TWO AUDIRE to interact with Bolt e-hailing app (ride requests, payment facilitation).",
+            "3",
+            "A"
+          ],
+          [
+            "C: Natural Conversation Update",
+            "Enhance TWO AUDIRE NLP for ride requests and driver communication.",
+            "2",
+            "B"
+          ],
+          [
+            "D: Driver Performance Module",
+            "Build and integrate module to evaluate and communicate driver ratings.",
+            "2",
+            "B"
+          ],
+          [
+            "E: Motion Detection Algorithm",
+            "Develop TWO EYES motion-detection/obstacle-recognition algorithm to identify obstructions in movement paths.",
+            "4",
+            "A"
+          ],
+          [
+            "F: Camera Integration",
+            "Implement and test camera hardware integration with TWO AUDIRE for TWO EYES.",
+            "3",
+            "E"
+          ],
+          [
+            "G: Corridor Navigation Feature",
+            "Add logic and controls to guide users safely through corridors using TWO EYES camera input.",
+            "3",
+            "F"
+          ],
+          [
+            "H: User Interface Updates",
+            "Update TWO AUDIRE interface to include ride tracking, driver updates and navigation feedback.",
+            "2",
+            "C, D, G"
+          ],
+          [
+            "I: Testing and Validation",
+            "Conduct end-to-end testing of TWO AUDIRE and TWO EYES functionality integrated with Bolt Vision.",
+            "4",
+            "H"
+          ],
+          [
+            "J: Deployment",
+            "Deploy updated TWO AUDIRE and TWO EYES system with Bolt Vision in production.",
+            "1",
+            "I"
+          ]
+        ]
+      }
+    },
+    {
+      "number": "3.3",
+      "marks": 2,
+      "text": "QUESTION 3.3 (2 marks): Identify the CRITICAL PATH of Project Vision using Table 4 and state the total project duration.",
+      "grading": "ai",
+      "aiPassScore": 70,
+      "correctAnswer": "START → A → E → F → G → H → I → J → END. Duration = 2 + 4 + 3 + 3 + 2 + 4 + 1 = 19 weeks. This path has zero total float.",
+      "aiRubric": [
+        "1 mark: exact critical chain A–E–F–G–H–I–J (equivalent arrows acceptable).",
+        "1 mark: correct project duration 19 weeks."
+      ],
+      "aiReferenceNotes": "Award partial marks for clearly demonstrated method, valid working, sound case-study application and equivalent mathematically correct forms. Do not demand verbatim wording; allow reasonable rounding. Never award full marks when the key reasoning or calculation is missing.",
+      "table": {
+        "caption": "Table 4 – Project Vision activity descriptions, estimated durations and predecessors (weeks)",
+        "headers": [
+          "Activity",
+          "Description",
+          "Duration (weeks)",
+          "Predecessor(s)"
+        ],
+        "rows": [
+          [
+            "A: Requirements Analysis",
+            "Identify functional and technical requirements for adapting TWO AUDIRE to Bolt Vision and integrating TWO EYES.",
+            "2",
+            "None"
+          ],
+          [
+            "B: API Development",
+            "Develop APIs for TWO AUDIRE to interact with Bolt e-hailing app (ride requests, payment facilitation).",
+            "3",
+            "A"
+          ],
+          [
+            "C: Natural Conversation Update",
+            "Enhance TWO AUDIRE NLP for ride requests and driver communication.",
+            "2",
+            "B"
+          ],
+          [
+            "D: Driver Performance Module",
+            "Build and integrate module to evaluate and communicate driver ratings.",
+            "2",
+            "B"
+          ],
+          [
+            "E: Motion Detection Algorithm",
+            "Develop TWO EYES motion-detection/obstacle-recognition algorithm to identify obstructions in movement paths.",
+            "4",
+            "A"
+          ],
+          [
+            "F: Camera Integration",
+            "Implement and test camera hardware integration with TWO AUDIRE for TWO EYES.",
+            "3",
+            "E"
+          ],
+          [
+            "G: Corridor Navigation Feature",
+            "Add logic and controls to guide users safely through corridors using TWO EYES camera input.",
+            "3",
+            "F"
+          ],
+          [
+            "H: User Interface Updates",
+            "Update TWO AUDIRE interface to include ride tracking, driver updates and navigation feedback.",
+            "2",
+            "C, D, G"
+          ],
+          [
+            "I: Testing and Validation",
+            "Conduct end-to-end testing of TWO AUDIRE and TWO EYES functionality integrated with Bolt Vision.",
+            "4",
+            "H"
+          ],
+          [
+            "J: Deployment",
+            "Deploy updated TWO AUDIRE and TWO EYES system with Bolt Vision in production.",
+            "1",
+            "I"
+          ]
+        ]
+      }
+    }
+  ]
+}
