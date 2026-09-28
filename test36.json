@@ -23,8 +23,25 @@
           "NPV = total discounted benefits − total discounted costs. Here: R457 950 − R429 997 = R27 953."
         ],
         "remember": "Positive NPV means the discounted benefits are greater than the discounted costs.",
-        "stepsTitle": "How to work it out"
-      }
+        "stepsTitle": "How to work it out",
+        "keyTerms": [
+          {
+            "term": "NPV (Net Present Value)",
+            "meaning": "The value gained or lost after future project benefits and costs are converted into today's money; NPV = discounted benefits minus discounted costs."
+          },
+          {
+            "term": "Discount rate",
+            "meaning": "The annual percentage used to reduce future cash amounts to what they are worth today; future money is not treated as identical to money now."
+          },
+          {
+            "term": "Discount factor",
+            "meaning": "A multiplier used to express money from a future year in today's value. Formula: 1 / (1 + rate)^year."
+          }
+        ],
+        "example": "At 10%, R110 received one year later is worth R100 today (R110 / 1.10). Apply this idea to every year's project benefits and expenses before subtracting them.",
+        "pitfall": "The assessment uses rounded yearly discount factors, so its marked NPV may differ slightly from a calculation using full-precision factors."
+      },
+      "explanation": "NPV tells you what the project is worth today after allowing for the fact that money in the future is worth less than money today. Discount the future benefits and costs first, then compare them.\n\nHow to reach the marked answer: Find the discount factor for each year using 1 / (1 + rate)^year. Multiply each future benefit and cost by its discount factor. Add all discounted benefits and all discounted costs separately. NPV = total discounted benefits − total discounted costs. Here: R457 950 − R429 997 = R27 953.\n\nExample: At 10%, R110 received one year later is worth R100 today (R110 / 1.10). Apply this idea to every year's project benefits and expenses before subtracting them.\n\nStudent note: The assessment uses rounded yearly discount factors, so its marked NPV may differ slightly from a calculation using full-precision factors."
     },
     {
       "text": "Study the cashflow of Project Y in the table below. Calculate the payback period.",
@@ -82,8 +99,21 @@
           "Year 3 brings R78 000, so the fraction needed is 45 000 / 78 000 ≈ 0.58. Payback ≈ 2.6 years."
         ],
         "remember": "Use the last full year where the cumulative cash flow is still negative, then add the fraction of the next year needed to reach zero.",
-        "stepsTitle": "How to work it out"
-      }
+        "stepsTitle": "How to work it out",
+        "keyTerms": [
+          {
+            "term": "Payback period (PP)",
+            "meaning": "The time needed for accumulated cash inflows to recover the starting investment."
+          },
+          {
+            "term": "Cumulative cash flow",
+            "meaning": "The running balance after adding each year's inflows and outflows to the previous total."
+          }
+        ],
+        "example": "After Year 2, Project Y still needs R45 000. Year 3 provides R78 000, so 45 000 / 78 000 ≈ 0.58 of Year 3. Total ≈ 2.6 years.",
+        "pitfall": "Do not divide the full investment by one year's income when yearly inflows vary; first calculate the running balance."
+      },
+      "explanation": "Payback period asks one simple question: how long does it take to recover the money invested at the start?\n\nHow to reach the marked answer: Start with the initial investment of R200 000 as a negative balance. After Year 1: -200 000 + 85 000 = -115 000. After Year 2: -115 000 + 70 000 = -45 000. The project still has R45 000 to recover. Year 3 brings R78 000, so the fraction needed is 45 000 / 78 000 ≈ 0.58. Payback ≈ 2.6 years.\n\nExample: After Year 2, Project Y still needs R45 000. Year 3 provides R78 000, so 45 000 / 78 000 ≈ 0.58 of Year 3. Total ≈ 2.6 years.\n\nStudent note: Do not divide the full investment by one year's income when yearly inflows vary; first calculate the running balance."
     },
     {
       "text": "You launched Project X, which is based on the pre-investor’s model. Pre-investors denote non-professional or non-institutional investors such as friends, family, and strangers who help to fund the project. However, they expect to see a return on their investment. Nonetheless, Project X involves a new social media platform that seeks to generate revenue from user subscriptions. To launch the project, the pre-investors need to invest an accumulative amount of R75 000,00 (year 0). As subscribers and pre-investors join your venture, you expect the initial investment of R75000 to grow, increasing with R15 550,00 annually for four years (years 1-4). In the first year, you expect the new social media platform to generate R110 000,00, increasing annually by R25 000,00. Calculate the annual discounted cost based on a discount rate of 10%.",
@@ -107,8 +137,25 @@
           "This gives R75 000; R82 400.50; R88 063; R91 237.50; R93 296."
         ],
         "remember": "Do not discount Year 0. Year 0 is already in today's money.",
-        "stepsTitle": "How to work it out"
-      }
+        "stepsTitle": "How to work it out",
+        "keyTerms": [
+          {
+            "term": "Discount rate",
+            "meaning": "The annual percentage used to reduce future cash amounts to what they are worth today; future money is not treated as identical to money now."
+          },
+          {
+            "term": "Discount factor",
+            "meaning": "A multiplier used to express money from a future year in today's value. Formula: 1 / (1 + rate)^year."
+          },
+          {
+            "term": "Expense / cost",
+            "meaning": "Money used or spent to deliver and operate the project."
+          }
+        ],
+        "example": "For Year 1, normal cost R90 550 multiplied by the assessment's rounded factor 0.91 gives R82 400.50.",
+        "pitfall": "The supplied answer uses rounded discount factors (1, 0.91, 0.83, 0.75, 0.68), not full-precision 1/(1.10)^year. Keep the method and rounding consistent."
+      },
+      "explanation": "Discounting converts future costs into today's value. First calculate the normal cost for each year, then multiply it by that year's discount factor.\n\nHow to reach the marked answer: Normal costs are R75 000; R90 550; R106 100; R121 650; R137 200. At 10%, use discount factors 1.00; 0.91; 0.83; 0.75; 0.68. Multiply cost × discount factor for every year. This gives R75 000; R82 400.50; R88 063; R91 237.50; R93 296.\n\nExample: For Year 1, normal cost R90 550 multiplied by the assessment's rounded factor 0.91 gives R82 400.50.\n\nStudent note: The supplied answer uses rounded discount factors (1, 0.91, 0.83, 0.75, 0.68), not full-precision 1/(1.10)^year. Keep the method and rounding consistent."
     },
     {
       "text": "The table below lists each activity, its duration, and its predecessor(s) for illustration on an Activity-on-Arrow (AoA) diagram. What is the start time, finish time, and slack of Activity H?",
@@ -190,8 +237,25 @@
           "H is on the controlling path, so its slack is 0."
         ],
         "remember": "When several activities merge, wait for the slowest/latest predecessor.",
-        "stepsTitle": "How to work it out"
-      }
+        "stepsTitle": "How to work it out",
+        "keyTerms": [
+          {
+            "term": "AoA (Activity-on-Arrow)",
+            "meaning": "A schedule-network diagram where arrows represent activities and nodes mark events or connection points."
+          },
+          {
+            "term": "Predecessor",
+            "meaning": "An activity that must be completed, or reach a specified point, before another activity can proceed."
+          },
+          {
+            "term": "Slack (float)",
+            "meaning": "The time a scheduled activity can be delayed without moving the planned project finish; usually LS - ES or LF - EF for total slack."
+          }
+        ],
+        "example": "If E ends at Day 7, F at Day 10 and G at Day 13, their shared next event cannot begin until Day 13.",
+        "pitfall": "The supplied marking key lists both start and finish as 13, although the activity table gives H a duration of one day. Under ordinary duration arithmetic, start 13 plus one day gives finish 14. Treat the published pair as the assessment key, not a general scheduling rule."
+      },
+      "explanation": "In an AoA network, an activity that has several predecessors cannot start until every predecessor is finished. The latest predecessor controls when the next activity can begin.\n\nHow to reach the marked answer: Trace the paths that feed into Activity H through E, F and G. Use the latest finishing predecessor as the controlling time. For this assessment diagram, H reaches the controlling node at time 13. H is on the controlling path, so its slack is 0.\n\nExample: If E ends at Day 7, F at Day 10 and G at Day 13, their shared next event cannot begin until Day 13.\n\nStudent note: The supplied marking key lists both start and finish as 13, although the activity table gives H a duration of one day. Under ordinary duration arithmetic, start 13 plus one day gives finish 14. Treat the published pair as the assessment key, not a general scheduling rule."
     },
     {
       "text": "A project’s net profit is calculated by:",
@@ -214,8 +278,25 @@
           "Net profit = total income − total expenses."
         ],
         "remember": "Income minus expenses. If expenses are bigger, the result is a loss.",
-        "stepsTitle": "How to work it out"
-      }
+        "stepsTitle": "How to work it out",
+        "keyTerms": [
+          {
+            "term": "Net profit",
+            "meaning": "Total income minus total project expenses. It is money, not a percentage."
+          },
+          {
+            "term": "Revenue",
+            "meaning": "Total money earned or received by a project before its costs are subtracted."
+          },
+          {
+            "term": "Expense / cost",
+            "meaning": "Money used or spent to deliver and operate the project."
+          }
+        ],
+        "example": "Income R140 000 minus expenses R90 000 leaves net profit R50 000.",
+        "pitfall": "Revenue is the money received; profit is what remains after expenses are taken away."
+      },
+      "explanation": "Net profit is simply what is left after all project expenses are removed from all project income.\n\nHow to reach the marked answer: Add all income or revenue. Add all expenses or costs. Net profit = total income − total expenses.\n\nExample: Income R140 000 minus expenses R90 000 leaves net profit R50 000.\n\nStudent note: Revenue is the money received; profit is what remains after expenses are taken away."
     },
     {
       "text": "The project team deployed a weighed scoring model as a systematic selection process to select the best project that support the desired deliverables. Study the different criteria and their assigned weights in the table below. Note the numerical scores for each Project that has been assigned to each criteria. Calculate the weighted score for Project 1.\\n\\nNB! Consider rounding off to the nearest whole number to reach the correct answer.",
@@ -315,8 +396,21 @@
           "Round to the nearest whole number: 66."
         ],
         "remember": "All weights should add up to 100%.",
-        "stepsTitle": "How to work it out"
-      }
+        "stepsTitle": "How to work it out",
+        "keyTerms": [
+          {
+            "term": "Weighted scoring model",
+            "meaning": "A method of rating projects using several criteria; the importance (weight) of each criterion affects its contribution to the total."
+          },
+          {
+            "term": "Weight",
+            "meaning": "The percentage that shows how important a particular criterion is. Convert to a decimal before multiplying by the score."
+          }
+        ],
+        "example": "A criterion weighted 28% with a score of 85 contributes 0.28 × 85 = 23.8 points to the total.",
+        "pitfall": "Rounding should usually be done on the final sum rather than on each weighted row."
+      },
+      "explanation": "A weighted scoring model lets you compare projects using several criteria. Important criteria get a bigger weight, so they influence the final score more.\n\nHow to reach the marked answer: Convert each percentage weight to a decimal, for example 28% = 0.28. For each row, calculate weight × Project 1 score. Add all weighted values: 23.8 + 9.8 + 8 + 4.75 + 3.75 + 12.6 + 3 = 65.7. Round to the nearest whole number: 66.\n\nExample: A criterion weighted 28% with a score of 85 contributes 0.28 × 85 = 23.8 points to the total.\n\nStudent note: Rounding should usually be done on the final sum rather than on each weighted row."
     },
     {
       "text": "Project integration management involves the following phases:\n\ndeveloping the project charter.\ndeveloping the project management plan.\ndirecting and managing project work.\n\nMonitoring and controlling.\nperforming integrated change control.\nclosing the project or phase.\nWhich phase must be indicated at number 4?",
@@ -341,8 +435,25 @@
           "Then monitor/control work, manage changes and close the project or phase."
         ],
         "remember": "Question 7 asks for process 4: managing project knowledge.",
-        "stepsTitle": "How to work it out"
-      }
+        "stepsTitle": "How to work it out",
+        "keyTerms": [
+          {
+            "term": "Project integration management",
+            "meaning": "Coordinating the different parts of the project so plans, decisions, work and changes fit together."
+          },
+          {
+            "term": "Project knowledge",
+            "meaning": "Useful information, lessons and skills held by the team or gained during the project."
+          },
+          {
+            "term": "Project charter",
+            "meaning": "The document that formally authorises a project and sets out its high-level purpose."
+          }
+        ],
+        "example": "After finishing a difficult system integration, the team records what worked and shares it with teams planning the next release.",
+        "pitfall": "The fourth listed integration process is Manage Project Knowledge; monitoring and controlling project work is a separate process."
+      },
+      "explanation": "Integration management is about making all parts of the project work together. The project manager connects planning, work, knowledge, monitoring, change and closing.\n\nHow to reach the marked answer: 1: Develop the project charter. 2: Develop the project management plan. 3: Direct and manage project work. 4: Manage project knowledge — use what the team already knows and create useful new knowledge. Then monitor/control work, manage changes and close the project or phase.\n\nExample: After finishing a difficult system integration, the team records what worked and shares it with teams planning the next release.\n\nStudent note: The fourth listed integration process is Manage Project Knowledge; monitoring and controlling project work is a separate process."
     },
     {
       "text": "Examine the following return on investment (ROI) formula:\n\nROI (total discounted benefits - total discounted costs)/discounted costs\nROI = (516,000 - 243,200) / 243,200 = 1.121710526\n\nSelect the correct ROI in percentage format from the given options.",
@@ -366,8 +477,21 @@
           "1.1217 × 100 ≈ 112%."
         ],
         "remember": "A decimal such as 1.12 means about 112%, not 1.12%.",
-        "stepsTitle": "How to work it out"
-      }
+        "stepsTitle": "How to work it out",
+        "keyTerms": [
+          {
+            "term": "ROI (Return on Investment)",
+            "meaning": "The return compared with the cost of investing, commonly shown as a percentage: (benefits minus costs) / costs × 100."
+          },
+          {
+            "term": "NPV (Net Present Value)",
+            "meaning": "The value gained or lost after future project benefits and costs are converted into today's money; NPV = discounted benefits minus discounted costs."
+          }
+        ],
+        "example": "A ratio of 1.12 becomes 112% because 1.12 × 100 = 112.",
+        "pitfall": "Converting a decimal to a percentage requires multiplying by 100. Do not display 1.12 as 1.12%."
+      },
+      "explanation": "ROI shows the return made compared with the amount spent. The answer must be expressed as a percentage.\n\nHow to reach the marked answer: ROI = (benefits − costs) / costs. (516 000 − 243 200) / 243 200 = 1.1217. Convert a decimal to a percentage by multiplying by 100. 1.1217 × 100 ≈ 112%.\n\nExample: A ratio of 1.12 becomes 112% because 1.12 × 100 = 112.\n\nStudent note: Converting a decimal to a percentage requires multiplying by 100. Do not display 1.12 as 1.12%."
     },
     {
       "text": "Read the section on the Activity on Node diagram in your textbook, study the activity list and its network diagram as illustrated in the figure below. Calculate the early start, early finish, late start, and late finish of activity C.",
@@ -396,8 +520,25 @@
           "LS = LF − duration = 10 − 2 = 8."
         ],
         "remember": "Forward: EF = ES + duration. Backward: LS = LF − duration.",
-        "stepsTitle": "How to work it out"
-      }
+        "stepsTitle": "How to work it out",
+        "keyTerms": [
+          {
+            "term": "AoN (Activity-on-Node)",
+            "meaning": "A network diagram where each activity appears in a box or node and arrows show which activities depend on others."
+          },
+          {
+            "term": "ES / EF",
+            "meaning": "Early Start / Early Finish: the earliest planned start and finish calculated by the forward pass."
+          },
+          {
+            "term": "LS / LF",
+            "meaning": "Late Start / Late Finish: the latest allowed start and finish calculated by the backward pass without delaying project completion."
+          }
+        ],
+        "example": "For a two-day activity with ES 3, EF = 3 + 2 = 5; if LF is 10, LS = 10 - 2 = 8.",
+        "pitfall": "ES and EF come from the forward pass; LS and LF come from the backward pass. Do not swap start and finish."
+      },
+      "explanation": "The forward pass gives the earliest times an activity can happen. The backward pass gives the latest times it can happen without delaying the project.\n\nHow to reach the marked answer: For Activity C, ES = 3. Duration is 2, so EF = 3 + 2 = 5. The backward pass gives LF = 10. LS = LF − duration = 10 − 2 = 8.\n\nExample: For a two-day activity with ES 3, EF = 3 + 2 = 5; if LF is 10, LS = 10 - 2 = 8.\n\nStudent note: ES and EF come from the forward pass; LS and LF come from the backward pass. Do not swap start and finish."
     },
     {
       "text": "You launched Project X that is based on the pre-investor’s model. Pre-investors denote non-professional or non-institutional investors such as friends, family and strangers who help to fund the project. However, they expect to see a return on their investment. Nonetheless, Project X involves a new social media platform that seeks to generate revenue from user subscriptions. To launch the project, the pre-investors need to invest an accumulative amount of R75 000,00 (year 0). As subscribers and pre-investors join your venture, you expect the initial investment of R75000 to grow, increasing with R15 550,00 annually for four years (years 1-4). In the first year, you expect the new social media platform will generate R110 000,00, increasing annually with R25 000,00. Calculate the annual discount factor based on a discount rate of 10%.",
@@ -420,8 +561,21 @@
           "Years 1–4 are approximately 0.91, 0.83, 0.75 and 0.68."
         ],
         "remember": "Year 0 always has a factor of 1 because no time has passed.",
-        "stepsTitle": "How to work it out"
-      }
+        "stepsTitle": "How to work it out",
+        "keyTerms": [
+          {
+            "term": "Discount factor",
+            "meaning": "A multiplier used to express money from a future year in today's value. Formula: 1 / (1 + rate)^year."
+          },
+          {
+            "term": "Discount rate",
+            "meaning": "The annual percentage used to reduce future cash amounts to what they are worth today; future money is not treated as identical to money now."
+          }
+        ],
+        "example": "At 10%, Year 2 factor = 1 / 1.10² ≈ 0.8264, rounded to 0.83.",
+        "pitfall": "The Year 0 factor is 1 because the money is already at today's value. Use the assessment's stated rounded factors consistently."
+      },
+      "explanation": "A discount factor tells you how much R1 received in a future year is worth today. The further into the future, the smaller the factor.\n\nHow to reach the marked answer: Formula: discount factor = 1 / (1 + discount rate)^year. At 10%, Year 0 = 1.00. Years 1–4 are approximately 0.91, 0.83, 0.75 and 0.68.\n\nExample: At 10%, Year 2 factor = 1 / 1.10² ≈ 0.8264, rounded to 0.83.\n\nStudent note: The Year 0 factor is 1 because the money is already at today's value. Use the assessment's stated rounded factors consistently."
     },
     {
       "text": "The project team deployed a weighed scoring model as a systematic selection process to select the best project that support the desired deliverables. Study the different criteria and their assigned weights in the table below. Note the numerical scores for each Project that has been assigned to each criteria. Calculate the weighted score for Project 3.\\n\\nNB! Consider rounding off to the nearest whole number to reach the correct answer.",
@@ -521,8 +675,21 @@
           "Rounded to the nearest whole number = 67."
         ],
         "remember": "Weight × score for every row, then add.",
-        "stepsTitle": "How to work it out"
-      }
+        "stepsTitle": "How to work it out",
+        "keyTerms": [
+          {
+            "term": "Weighted scoring model",
+            "meaning": "A method of rating projects using several criteria; the importance (weight) of each criterion affects its contribution to the total."
+          },
+          {
+            "term": "Weight",
+            "meaning": "The percentage that shows how important a particular criterion is. Convert to a decimal before multiplying by the score."
+          }
+        ],
+        "example": "If Project 3 scores 70 on a 28%-weighted criterion, that row contributes 19.6 to the total.",
+        "pitfall": "Use Project 3's column only; copying a score from Project 1, 2 or 4 changes the result."
+      },
+      "explanation": "Multiply each criterion's weight by Project 3's score, then add the results.\n\nHow to reach the marked answer: 0.28×70 = 19.6; 0.14×75 = 10.5; 0.10×65 = 6.5. 0.05×95 = 4.75; 0.15×25 = 3.75; 0.18×85 = 15.3; 0.10×65 = 6.5. Total = 66.9. Rounded to the nearest whole number = 67.\n\nExample: If Project 3 scores 70 on a 28%-weighted criterion, that row contributes 19.6 to the total.\n\nStudent note: Use Project 3's column only; copying a score from Project 1, 2 or 4 changes the result."
     },
     {
       "text": "Read the section on the Activity on Node diagram in your textbook, then study the activity list and its network diagram as illustrated in the figure below. Study the activity list and its network diagram. Calculate the early start, early finish, late start, and late finish of activity K.",
@@ -551,8 +718,29 @@
           "LS = 22 − 5 = 17."
         ],
         "remember": "If LS is much later than ES, the activity has slack.",
-        "stepsTitle": "How to work it out"
-      }
+        "stepsTitle": "How to work it out",
+        "keyTerms": [
+          {
+            "term": "AoN (Activity-on-Node)",
+            "meaning": "A network diagram where each activity appears in a box or node and arrows show which activities depend on others."
+          },
+          {
+            "term": "ES / EF",
+            "meaning": "Early Start / Early Finish: the earliest planned start and finish calculated by the forward pass."
+          },
+          {
+            "term": "LS / LF",
+            "meaning": "Late Start / Late Finish: the latest allowed start and finish calculated by the backward pass without delaying project completion."
+          },
+          {
+            "term": "Slack (float)",
+            "meaning": "The time a scheduled activity can be delayed without moving the planned project finish; usually LS - ES or LF - EF for total slack."
+          }
+        ],
+        "example": "K takes five days: earliest 7 to 12, and latest 17 to 22. Its total slack is 17 - 7 = 10 days.",
+        "pitfall": "A task may have an early finish and a much later late finish when it has scheduling flexibility."
+      },
+      "explanation": "K can only start after its predecessors are ready. The forward pass finds its earliest start; the backward pass works back from the project finish.\n\nHow to reach the marked answer: The forward pass gives K an early start of 7. K lasts 5 days, so EF = 7 + 5 = 12. The backward pass gives LF = 22. LS = 22 − 5 = 17.\n\nExample: K takes five days: earliest 7 to 12, and latest 17 to 22. Its total slack is 17 - 7 = 10 days.\n\nStudent note: A task may have an early finish and a much later late finish when it has scheduling flexibility."
     },
     {
       "text": "You must choose between embarking on Project Y or Project Z. Return on investment (ROI) is one of the factors you are taking into account to inform your decision. Apply the annualised ROI formula to calculate the ROI of Project Z.",
@@ -610,8 +798,21 @@
           "Annualised over 4 years: 12.73% / 4 ≈ 3.18%."
         ],
         "remember": "Annualised ROI = total ROI divided by the number of years when the assessment uses this simple annualising method.",
-        "stepsTitle": "How to work it out"
-      }
+        "stepsTitle": "How to work it out",
+        "keyTerms": [
+          {
+            "term": "ROI (Return on Investment)",
+            "meaning": "The return compared with the cost of investing, commonly shown as a percentage: (benefits minus costs) / costs × 100."
+          },
+          {
+            "term": "Annualised ROI",
+            "meaning": "An average return expressed per year. This assessment divides simple total ROI by the four project years."
+          }
+        ],
+        "example": "Project Z receives R310 000 in four years against R275 000 invested: total ROI = R35 000 / R275 000 ≈ 12.73%; average per year ≈ 3.18%.",
+        "pitfall": "This question uses simple annualising (total ROI / four years). It is not a compound annual growth rate."
+      },
+      "explanation": "Annualised ROI spreads the total ROI across the number of project years so you can compare projects on a yearly basis.\n\nHow to reach the marked answer: Project Z total inflow = 70 000 + 75 000 + 80 000 + 85 000 = R310 000. Profit = 310 000 − 275 000 = R35 000. Total ROI = 35 000 / 275 000 ≈ 12.73%. Annualised over 4 years: 12.73% / 4 ≈ 3.18%.\n\nExample: Project Z receives R310 000 in four years against R275 000 invested: total ROI = R35 000 / R275 000 ≈ 12.73%; average per year ≈ 3.18%.\n\nStudent note: This question uses simple annualising (total ROI / four years). It is not a compound annual growth rate."
     },
     {
       "text": "What term is used for the minimum acceptable rate of return on an investment?",
@@ -632,8 +833,17 @@
           "Think of it as the organisation's minimum pass mark for an investment."
         ],
         "remember": "Required rate of return = minimum acceptable return.",
-        "stepsTitle": "How to work it out"
-      }
+        "stepsTitle": "How to work it out",
+        "keyTerms": [
+          {
+            "term": "Required rate of return",
+            "meaning": "The minimum acceptable return an organisation wants from an investment."
+          }
+        ],
+        "example": "An organisation might require at least 10% return before it will approve an investment.",
+        "pitfall": "The required rate is a threshold decided in advance; internal rate of return is calculated from a project's cash flows."
+      },
+      "explanation": "The required rate of return is the minimum return an organisation is willing to accept before it considers an investment worthwhile.\n\nHow to reach the marked answer: Think of it as the organisation's minimum pass mark for an investment.\n\nExample: An organisation might require at least 10% return before it will approve an investment.\n\nStudent note: The required rate is a threshold decided in advance; internal rate of return is calculated from a project's cash flows."
     },
     {
       "text": "A payback period (PP) calculation for a project produces a PP of 2.8 years. Select the option that provides the correct PP formula",
@@ -657,8 +867,25 @@
           "Example: 2 − (-48 000 / 59 000) ≈ 2.81 years."
         ],
         "remember": "Subtracting a negative fraction effectively adds the fraction of the next year.",
-        "stepsTitle": "How to work it out"
-      }
+        "stepsTitle": "How to work it out",
+        "keyTerms": [
+          {
+            "term": "Payback period (PP)",
+            "meaning": "The time needed for accumulated cash inflows to recover the starting investment."
+          },
+          {
+            "term": "CCF",
+            "meaning": "Cumulative Cash Flow: the running cash balance after accounting for every year up to that point."
+          },
+          {
+            "term": "Cash inflow",
+            "meaning": "Money received by a project, such as subscription income."
+          }
+        ],
+        "example": "After two years, the balance is -R48 000 and Year 3 inflow is R59 000: 2 - (-48 000 / 59 000) ≈ 2.81 years.",
+        "pitfall": "CCF is negative before payback. Subtracting that negative fraction produces addition; keep the signs when using this version of the formula."
+      },
+      "explanation": "When payback happens partway through a year, use the unrecovered balance at the end of the last negative year and divide it by the next year's cash inflow.\n\nHow to reach the marked answer: Find the last year where cumulative cash flow is still negative. Take that negative cumulative amount. PP = last negative year − (negative cumulative cash flow / next year's cash flow). Example: 2 − (-48 000 / 59 000) ≈ 2.81 years.\n\nExample: After two years, the balance is -R48 000 and Year 3 inflow is R59 000: 2 - (-48 000 / 59 000) ≈ 2.81 years.\n\nStudent note: CCF is negative before payback. Subtracting that negative fraction produces addition; keep the signs when using this version of the formula."
     },
     {
       "text": "______________________ is a dependency in schedule management that is also referred to as hard logic. For example, you cannot test code until after the code is written.",
@@ -679,8 +906,21 @@
           "Example: you cannot test software before the software has been written."
         ],
         "remember": "Mandatory = must happen in that order.",
-        "stepsTitle": "How to work it out"
-      }
+        "stepsTitle": "How to work it out",
+        "keyTerms": [
+          {
+            "term": "Dependency",
+            "meaning": "A relationship where the timing of one activity affects another."
+          },
+          {
+            "term": "Mandatory dependency (hard logic)",
+            "meaning": "An order that cannot realistically be changed because one piece of work must come before another."
+          }
+        ],
+        "example": "You must build or write code before you can test that particular completed code.",
+        "pitfall": "'Mandatory' says whether the order is unavoidable; 'internal' says where the dependency originates. They describe different aspects."
+      },
+      "explanation": "A mandatory dependency is a relationship that must happen in that order because of the nature of the work. It is also called hard logic.\n\nHow to reach the marked answer: Example: you cannot test software before the software has been written.\n\nExample: You must build or write code before you can test that particular completed code.\n\nStudent note: 'Mandatory' says whether the order is unavoidable; 'internal' says where the dependency originates. They describe different aspects."
     },
     {
       "text": "You launched Project X that is based on the pre-investor’s model. Pre-investors denote non-professional or non-institutional investors such as friends, family and strangers who help to fund the project. However, they expect to see a return on their investment. Nonetheless, Project X involves a new social media platform that seeks to generate revenue from user subscriptions. To launch the project, the pre-investors need to invest an accumulative amount of R75 000,00 (year 0). As subscribers and pre-investors join your venture, you expect the initial investment of R75000 to grow, increasing with R15 550,00 annually for four years (years 1-4). In the first year, you expect the new social media platform will generate R110 000,00, increasing annually with R25 000,00. Calculate the net profit.",
@@ -703,8 +943,25 @@
           "Net profit = 590 000 − 530 500 = R59 500."
         ],
         "remember": "Do not mix normal totals with discounted totals unless the question tells you to.",
-        "stepsTitle": "How to work it out"
-      }
+        "stepsTitle": "How to work it out",
+        "keyTerms": [
+          {
+            "term": "Net profit",
+            "meaning": "Total income minus total project expenses. It is money, not a percentage."
+          },
+          {
+            "term": "Revenue",
+            "meaning": "Total money earned or received by a project before its costs are subtracted."
+          },
+          {
+            "term": "Expense / cost",
+            "meaning": "Money used or spent to deliver and operate the project."
+          }
+        ],
+        "example": "Project X revenue of R590 000 less normal expenses of R530 500 gives net profit of R59 500.",
+        "pitfall": "Use undiscounted totals here because the question asks for net profit, not NPV."
+      },
+      "explanation": "Net profit uses normal, undiscounted totals unless the question specifically asks for discounted profit.\n\nHow to reach the marked answer: Total project revenue = R590 000. Total project expenses = R530 500. Net profit = 590 000 − 530 500 = R59 500.\n\nExample: Project X revenue of R590 000 less normal expenses of R530 500 gives net profit of R59 500.\n\nStudent note: Use undiscounted totals here because the question asks for net profit, not NPV."
     },
     {
       "text": "Using the information in the table, perform the following financial analyses for three possible projects (Project 1, Project 2, and Project 3). At a 6% discount rate, what is the NPV for the three projects?",
@@ -805,8 +1062,25 @@
           "The assessment results are Project 1 = 46 900; Project 2 = 8 850; Project 3 = -21 000."
         ],
         "remember": "A positive NPV means value is added; a negative NPV means discounted costs are greater than discounted benefits.",
-        "stepsTitle": "How to work it out"
-      }
+        "stepsTitle": "How to work it out",
+        "keyTerms": [
+          {
+            "term": "NPV (Net Present Value)",
+            "meaning": "The value gained or lost after future project benefits and costs are converted into today's money; NPV = discounted benefits minus discounted costs."
+          },
+          {
+            "term": "Discount rate",
+            "meaning": "The annual percentage used to reduce future cash amounts to what they are worth today; future money is not treated as identical to money now."
+          },
+          {
+            "term": "Project benefit",
+            "meaning": "A positive cash inflow or value received from the project; financial assessment questions may use 'benefit' for revenue."
+          }
+        ],
+        "example": "For each of the three projects, discount each year's benefits and costs at 6% separately, total both columns and subtract cost from benefit.",
+        "pitfall": "A negative NPV means discounted costs exceed discounted benefits. The supplied answer may reflect rounding used in the assessment's table."
+      },
+      "explanation": "To compare projects using NPV, discount every year's benefits and costs to today's value, then subtract discounted costs from discounted benefits.\n\nHow to reach the marked answer: Use the 6% discount factor for each year: 1 / (1.06)^year. Discount each benefit and cost. For each project, add discounted benefits and subtract discounted costs. The assessment results are Project 1 = 46 900; Project 2 = 8 850; Project 3 = -21 000.\n\nExample: For each of the three projects, discount each year's benefits and costs at 6% separately, total both columns and subtract cost from benefit.\n\nStudent note: A negative NPV means discounted costs exceed discounted benefits. The supplied answer may reflect rounding used in the assessment's table."
     },
     {
       "text": "You launched Project X that is based on the pre-investor’s model. Pre-investors denote non-professional or non-institutional investors such as friends, family and strangers who help to fund the project. However, they expect to see a return on their investment. Nonetheless, Project X involves a new social media platform that seeks to generate revenue from user subscriptions. To launch the project, the pre-investors need to invest an accumulative amount of R75 000,00 (year 0). As subscribers and pre-investors join your venture, you expect the initial investment of R75000 to grow, increasing with R15 550,00 annually for four years (years 1-4). In the first year, you expect the new social media platform will generate R110 000,00, increasing annually with R25 000,00. Calculate the total project revenue.",
@@ -829,8 +1103,21 @@
           "Total = 110 000 + 135 000 + 160 000 + 185 000 = R590 000."
         ],
         "remember": "Revenue = inflow. Expenses = outflow.",
-        "stepsTitle": "How to work it out"
-      }
+        "stepsTitle": "How to work it out",
+        "keyTerms": [
+          {
+            "term": "Revenue",
+            "meaning": "Total money earned or received by a project before its costs are subtracted."
+          },
+          {
+            "term": "Cash inflow",
+            "meaning": "Money received by a project, such as subscription income."
+          }
+        ],
+        "example": "Project X inflows are R110 000, R135 000, R160 000 and R185 000; their sum is R590 000.",
+        "pitfall": "Do not subtract project costs when the question asks for revenue alone; that calculation would be profit."
+      },
+      "explanation": "Revenue is money coming into the project. This question asks for the normal total, not a discounted value.\n\nHow to reach the marked answer: Year 1 = R110 000. Revenue increases by R25 000 each year: Year 2 = R135 000, Year 3 = R160 000, Year 4 = R185 000. Total = 110 000 + 135 000 + 160 000 + 185 000 = R590 000.\n\nExample: Project X inflows are R110 000, R135 000, R160 000 and R185 000; their sum is R590 000.\n\nStudent note: Do not subtract project costs when the question asks for revenue alone; that calculation would be profit."
     },
     {
       "text": "What does it mean when your organisation has a required rate of return?",
@@ -851,8 +1138,17 @@
           "If the organisation requires 10%, a project returning less than 10% would not meet that financial requirement."
         ],
         "remember": "Required rate of return means minimum acceptable return, not average or maximum.",
-        "stepsTitle": "How to work it out"
-      }
+        "stepsTitle": "How to work it out",
+        "keyTerms": [
+          {
+            "term": "Required rate of return",
+            "meaning": "The minimum acceptable return an organisation wants from an investment."
+          }
+        ],
+        "example": "A business that insists on at least an 8% return would compare proposed investment returns with that 8% requirement.",
+        "pitfall": "Minimum is the key word; required return is neither the average nor the maximum possible return."
+      },
+      "explanation": "An organisation may set a minimum return that a project must reach. That minimum is the required rate of return.\n\nHow to reach the marked answer: If the organisation requires 10%, a project returning less than 10% would not meet that financial requirement.\n\nExample: A business that insists on at least an 8% return would compare proposed investment returns with that 8% requirement.\n\nStudent note: Minimum is the key word; required return is neither the average nor the maximum possible return."
     },
     {
       "text": "Study the information in Table 2. Calculate the weighted score for Project 1.",
@@ -924,8 +1220,21 @@
           "Total = 12 + 10.5 + 10 + 4 = 36.5."
         ],
         "remember": "Convert percentages to decimals before multiplying.",
-        "stepsTitle": "How to work it out"
-      }
+        "stepsTitle": "How to work it out",
+        "keyTerms": [
+          {
+            "term": "Weighted scoring model",
+            "meaning": "A method of rating projects using several criteria; the importance (weight) of each criterion affects its contribution to the total."
+          },
+          {
+            "term": "Weight",
+            "meaning": "The percentage that shows how important a particular criterion is. Convert to a decimal before multiplying by the score."
+          }
+        ],
+        "example": "With weights 40%, 15%, 25%, 20% and scores 30, 70, 40, 20, the total is 12 + 10.5 + 10 + 4 = 36.5.",
+        "pitfall": "Write a separate weight-times-score line for every criterion; check the percentages add to 100%."
+      },
+      "explanation": "The weight shows how important each criterion is. Multiply each weight by Project 1's score, then add the weighted values.\n\nHow to reach the marked answer: 40%×30 = 12. 15%×70 = 10.5. 25%×40 = 10. 20%×20 = 4. Total = 12 + 10.5 + 10 + 4 = 36.5.\n\nExample: With weights 40%, 15%, 25%, 20% and scores 30, 70, 40, 20, the total is 12 + 10.5 + 10 + 4 = 36.5.\n\nStudent note: Write a separate weight-times-score line for every criterion; check the percentages add to 100%."
     },
     {
       "text": "Study the cash flow of Project Y and Project Z in the table below. What is the total discounted cash inflow of Project Y and Project Z? (Assume a discount rate of 8%).",
@@ -988,8 +1297,25 @@
           "Do not include the Year 0 investment when the question asks only for cash inflows."
         ],
         "remember": "Discounted benefits and discounted cash inflows mean the same thing in these NPV questions.",
-        "stepsTitle": "How to work it out"
-      }
+        "stepsTitle": "How to work it out",
+        "keyTerms": [
+          {
+            "term": "Discount factor",
+            "meaning": "A multiplier used to express money from a future year in today's value. Formula: 1 / (1 + rate)^year."
+          },
+          {
+            "term": "Cash inflow",
+            "meaning": "Money received by a project, such as subscription income."
+          },
+          {
+            "term": "Discount rate",
+            "meaning": "The annual percentage used to reduce future cash amounts to what they are worth today; future money is not treated as identical to money now."
+          }
+        ],
+        "example": "For Project Z, 70 000×0.93 + 75 000×0.86 + 80 000×0.79 + 85 000×0.74 = R255 700.",
+        "pitfall": "There is an apparent inconsistency in the supplied key for Project Y: the visible rounded factors with the listed inflows sum to R225 290, while the marked answer gives R224 590. Keep the concept—discount and add inflows—distinct from the provided key."
+      },
+      "explanation": "Discounted cash inflow is future money coming into the project converted into today's value.\n\nHow to reach the marked answer: Multiply each year's Project Y inflow by its 8% discount factor and add them: total = R224 590. Do the same for Project Z: total = R255 700. Do not include the Year 0 investment when the question asks only for cash inflows.\n\nExample: For Project Z, 70 000×0.93 + 75 000×0.86 + 80 000×0.79 + 85 000×0.74 = R255 700.\n\nStudent note: There is an apparent inconsistency in the supplied key for Project Y: the visible rounded factors with the listed inflows sum to R225 290, while the marked answer gives R224 590. Keep the concept—discount and add inflows—distinct from the provided key."
     },
     {
       "text": "You launched Project X that is based on the pre-investor’s model. Pre-investors denote non-professional or non-institutional investors such as friends, family and strangers who help to fund the project. However, they expect to see a return on their investment. Nonetheless, Project X involves a new social media platform that seeks to generate revenue from user subscriptions. To launch the project, the pre-investors need to invest an accumulative amount of R75 000,00 (year 0). As subscribers and pre-investors join your venture, you expect the initial investment of R75000 to grow, increasing with R15 550,00 annually for four years (years 1-4). In the first year, you expect the new social media platform will generate R110 000,00, increasing annually with R25 000,00. Calculate the annual discounted project benefits (assume a discount rate of 10%).\n\nKeep your discount factor value to 2 decimal places to ensure you get the same answer as in the options.",
@@ -1013,8 +1339,25 @@
           "Results: R100 100; R112 050; R120 000; R125 800. Year 0 benefit is R0."
         ],
         "remember": "Discount first, then add if the question asks for total discounted benefits.",
-        "stepsTitle": "How to work it out"
-      }
+        "stepsTitle": "How to work it out",
+        "keyTerms": [
+          {
+            "term": "Discount factor",
+            "meaning": "A multiplier used to express money from a future year in today's value. Formula: 1 / (1 + rate)^year."
+          },
+          {
+            "term": "Project benefit",
+            "meaning": "A positive cash inflow or value received from the project; financial assessment questions may use 'benefit' for revenue."
+          },
+          {
+            "term": "Cash inflow",
+            "meaning": "Money received by a project, such as subscription income."
+          }
+        ],
+        "example": "Year 1 Project X benefit at the source's rounded 10% factor is R110 000×0.91 = R100 100.",
+        "pitfall": "Year 0 has no benefit in this scenario. Do not confuse normal revenue with discounted revenue."
+      },
+      "explanation": "Benefits are the project's future cash inflows. Discount them so every year's benefit is expressed in today's money.\n\nHow to reach the marked answer: Benefits are R110 000, R135 000, R160 000 and R185 000 for Years 1–4. Use 10% factors 0.91, 0.83, 0.75 and 0.68. Multiply benefit × factor. Results: R100 100; R112 050; R120 000; R125 800. Year 0 benefit is R0.\n\nExample: Year 1 Project X benefit at the source's rounded 10% factor is R110 000×0.91 = R100 100.\n\nStudent note: Year 0 has no benefit in this scenario. Do not confuse normal revenue with discounted revenue."
     },
     {
       "text": "You must choose between embarking on Project Y or Project Z. Return on investment (ROI) is one of the factors you must take into account to inform your decision. Apply the annualized ROI formula to calculate the ROI of Project Y.",
@@ -1072,8 +1415,21 @@
           "Annualised ROI = 33% / 4 = 8.25%."
         ],
         "remember": "Keep the project duration in mind when the question says annualised ROI.",
-        "stepsTitle": "How to work it out"
-      }
+        "stepsTitle": "How to work it out",
+        "keyTerms": [
+          {
+            "term": "ROI (Return on Investment)",
+            "meaning": "The return compared with the cost of investing, commonly shown as a percentage: (benefits minus costs) / costs × 100."
+          },
+          {
+            "term": "Annualised ROI",
+            "meaning": "An average return expressed per year. This assessment divides simple total ROI by the four project years."
+          }
+        ],
+        "example": "Project Y income totals R266 000. The R66 000 profit on R200 000 invested is 33% total ROI; divided by four years gives 8.25%.",
+        "pitfall": "The answer asks for annualised ROI, not the entire four-year ROI."
+      },
+      "explanation": "First find the total profit compared with the initial investment, then spread that ROI across the four project years.\n\nHow to reach the marked answer: Total inflow = 85 000 + 70 000 + 78 000 + 33 000 = R266 000. Profit = 266 000 − 200 000 = R66 000. Total ROI = 66 000 / 200 000 = 33%. Annualised ROI = 33% / 4 = 8.25%.\n\nExample: Project Y income totals R266 000. The R66 000 profit on R200 000 invested is 33% total ROI; divided by four years gives 8.25%.\n\nStudent note: The answer asks for annualised ROI, not the entire four-year ROI."
     },
     {
       "text": "Read the section on the Node diagram in your textbook, then study the activity list and its network diagram as illustrated in the figure below. Calculate the early start, early finish, late start, and late finish of activity A.",
@@ -1101,8 +1457,29 @@
           "No slack means LS = ES = 0 and LF = EF = 1."
         ],
         "remember": "Activities on the critical path have zero slack, so early and late times match.",
-        "stepsTitle": "How to work it out"
-      }
+        "stepsTitle": "How to work it out",
+        "keyTerms": [
+          {
+            "term": "AoN (Activity-on-Node)",
+            "meaning": "A network diagram where each activity appears in a box or node and arrows show which activities depend on others."
+          },
+          {
+            "term": "ES / EF",
+            "meaning": "Early Start / Early Finish: the earliest planned start and finish calculated by the forward pass."
+          },
+          {
+            "term": "LS / LF",
+            "meaning": "Late Start / Late Finish: the latest allowed start and finish calculated by the backward pass without delaying project completion."
+          },
+          {
+            "term": "Critical path",
+            "meaning": "The longest-duration route through the activity network, controlling the earliest possible project finish; its activities normally have zero total slack."
+          }
+        ],
+        "example": "The first one-day task can start at 0 and finish at 1. If it has no float, its late start and finish are also 0 and 1.",
+        "pitfall": "Network times depend on the given diagram; the earliest start of a network's first activity is usually zero in this convention."
+      },
+      "explanation": "Activity A starts the network, so its earliest start is 0. Because it is on the controlling path in this diagram, its late times are the same as its early times.\n\nHow to reach the marked answer: ES = 0. Duration = 1, so EF = 1. No slack means LS = ES = 0 and LF = EF = 1.\n\nExample: The first one-day task can start at 0 and finish at 1. If it has no float, its late start and finish are also 0 and 1.\n\nStudent note: Network times depend on the given diagram; the earliest start of a network's first activity is usually zero in this convention."
     },
     {
       "text": "Examine the graphic below illustrating an activity on node (AoN) diagram. Activity F's slack is 10 — how is an activity's slack determined?",
@@ -1130,8 +1507,29 @@
           "The same result is LS − ES = 13 − 3 = 10."
         ],
         "remember": "Both LF − EF and LS − ES give total slack when the network values are consistent.",
-        "stepsTitle": "How to work it out"
-      }
+        "stepsTitle": "How to work it out",
+        "keyTerms": [
+          {
+            "term": "AoN (Activity-on-Node)",
+            "meaning": "A network diagram where each activity appears in a box or node and arrows show which activities depend on others."
+          },
+          {
+            "term": "Slack (float)",
+            "meaning": "The time a scheduled activity can be delayed without moving the planned project finish; usually LS - ES or LF - EF for total slack."
+          },
+          {
+            "term": "ES / EF",
+            "meaning": "Early Start / Early Finish: the earliest planned start and finish calculated by the forward pass."
+          },
+          {
+            "term": "LS / LF",
+            "meaning": "Late Start / Late Finish: the latest allowed start and finish calculated by the backward pass without delaying project completion."
+          }
+        ],
+        "example": "If Activity F has EF 9 and LF 19, total slack = 19 - 9 = 10; LS - ES should also give 10.",
+        "pitfall": "Subtract matching measures: late FINISH minus early FINISH, or late START minus early START."
+      },
+      "explanation": "Slack is the amount of time an activity can move without delaying the project finish. You can calculate total slack as LF − EF or as LS − ES.\n\nHow to reach the marked answer: For Activity F, EF = 7 and LF = 17. Slack = LF − EF = 17 − 7 = 10. The same result is LS − ES = 13 − 3 = 10.\n\nExample: If Activity F has EF 9 and LF 19, total slack = 19 - 9 = 10; LS - ES should also give 10.\n\nStudent note: Subtract matching measures: late FINISH minus early FINISH, or late START minus early START."
     },
     {
       "text": "Examine the graphic below illustrating an Activity on Arrow (AoA) diagram. A node's start time is calculated by adding the preceding node's start time to its duration. In the graphic, the predecessor with the latest start time determines the node's start time. For example, the start time of the node following Activities E, F, and G is 12, derived from the start time and duration of Activity G.\n\nWhy is the latest start time, produced by Activity G, indicated as the start time for the node that succeeds Activities E, F, and G?",
@@ -1160,8 +1558,25 @@
           "Therefore the next node uses 12."
         ],
         "remember": "At a merge: choose the latest predecessor finish, because all predecessors must be complete.",
-        "stepsTitle": "How to work it out"
-      }
+        "stepsTitle": "How to work it out",
+        "keyTerms": [
+          {
+            "term": "AoA (Activity-on-Arrow)",
+            "meaning": "A schedule-network diagram where arrows represent activities and nodes mark events or connection points."
+          },
+          {
+            "term": "Predecessor",
+            "meaning": "An activity that must be completed, or reach a specified point, before another activity can proceed."
+          },
+          {
+            "term": "ES / EF",
+            "meaning": "Early Start / Early Finish: the earliest planned start and finish calculated by the forward pass."
+          }
+        ],
+        "example": "If three predecessors finish at Days 6, 9 and 12, the next shared activity waits until Day 12.",
+        "pitfall": "At a forward-pass merge use the greatest predecessor finish; otherwise you would start work before every input is ready."
+      },
+      "explanation": "When several predecessor activities meet at one point, the next activity must wait until every predecessor is finished. That means the latest finishing predecessor controls the start time.\n\nHow to reach the marked answer: Path through E reaches the merge earlier. Path through F also reaches it earlier. Path through G reaches it at time 12, the latest time. Therefore the next node uses 12.\n\nExample: If three predecessors finish at Days 6, 9 and 12, the next shared activity waits until Day 12.\n\nStudent note: At a forward-pass merge use the greatest predecessor finish; otherwise you would start work before every input is ready."
     },
     {
       "text": "You launched Project X that is based on the pre-investor’s model. Pre-investors denote non-professional or non-institutional investors such as friends, family and strangers who help to fund the project. However, they expect to see a return on their investment. Nonetheless, Project X involves a new social media platform that seeks to generate revenue from user subscriptions. To launch the project, the pre-investors need to invest an accumulative amount of R75 000,00 (year 0). As subscribers and pre-investors join your venture, you expect the initial investment of R75000 to grow, increasing with R15 550,00 annually for four years (years 1-4). In the first year, you expect the new social media platform will generate R110 000,00, increasing annually with R25 000,00. Calculate the ROI (NB! Use the ROI for multi-year projects formula on Page 165 in Schwalbe (2019) — assume a discount rate of 10%).",
@@ -1185,8 +1600,25 @@
           "Convert to a percentage and round as the assessment does: about 7%."
         ],
         "remember": "For multi-year ROI, use discounted values when the question gives a discount rate.",
-        "stepsTitle": "How to work it out"
-      }
+        "stepsTitle": "How to work it out",
+        "keyTerms": [
+          {
+            "term": "ROI (Return on Investment)",
+            "meaning": "The return compared with the cost of investing, commonly shown as a percentage: (benefits minus costs) / costs × 100."
+          },
+          {
+            "term": "NPV (Net Present Value)",
+            "meaning": "The value gained or lost after future project benefits and costs are converted into today's money; NPV = discounted benefits minus discounted costs."
+          },
+          {
+            "term": "Discount rate",
+            "meaning": "The annual percentage used to reduce future cash amounts to what they are worth today; future money is not treated as identical to money now."
+          }
+        ],
+        "example": "First compare discounted benefits with discounted costs, then divide the difference by discounted costs and convert to a percentage.",
+        "pitfall": "Using undiscounted totals when the question requires discounted multi-year amounts changes the reported ROI."
+      },
+      "explanation": "For a multi-year project, the book recommends using discounted benefits and discounted costs so future money is compared fairly.\n\nHow to reach the marked answer: Total discounted benefits = R457 950. Total discounted costs = R429 997. ROI = (457 950 − 429 997) / 429 997 ≈ 0.065. Convert to a percentage and round as the assessment does: about 7%.\n\nExample: First compare discounted benefits with discounted costs, then divide the difference by discounted costs and convert to a percentage.\n\nStudent note: Using undiscounted totals when the question requires discounted multi-year amounts changes the reported ROI."
     },
     {
       "text": "What is payback period?",
@@ -1208,8 +1640,21 @@
           "At payback, cumulative benefits have caught up with cumulative costs."
         ],
         "remember": "Payback answers 'How long until we get our investment back?'",
-        "stepsTitle": "How to work it out"
-      }
+        "stepsTitle": "How to work it out",
+        "keyTerms": [
+          {
+            "term": "Payback period (PP)",
+            "meaning": "The time needed for accumulated cash inflows to recover the starting investment."
+          },
+          {
+            "term": "Cumulative cash flow",
+            "meaning": "The running balance after adding each year's inflows and outflows to the previous total."
+          }
+        ],
+        "example": "An investment of R100 000 with yearly inflows of R40 000, R40 000 and R40 000 pays back halfway through Year 3: 2.5 years.",
+        "pitfall": "Payback is measured in time, not rand or percent; it does not by itself measure all benefits earned after recovery."
+      },
+      "explanation": "Payback period is how long the project takes to recover the money originally invested.\n\nHow to reach the marked answer: Before payback, the cumulative cash position is still below zero. At payback, cumulative benefits have caught up with cumulative costs.\n\nExample: An investment of R100 000 with yearly inflows of R40 000, R40 000 and R40 000 pays back halfway through Year 3: 2.5 years.\n\nStudent note: Payback is measured in time, not rand or percent; it does not by itself measure all benefits earned after recovery."
     },
     {
       "text": "A project team must choose whether to launch Project A or Project B. The table below shows the amounts to be invested for each project, followed by the expected annual revenue. Calculate the net profit for Project A.",
@@ -1266,8 +1711,25 @@
           "Net profit = 503 000 − 250 000 = R253 000."
         ],
         "remember": "Net profit is not ROI. Profit is an amount of money; ROI is a percentage.",
-        "stepsTitle": "How to work it out"
-      }
+        "stepsTitle": "How to work it out",
+        "keyTerms": [
+          {
+            "term": "Net profit",
+            "meaning": "Total income minus total project expenses. It is money, not a percentage."
+          },
+          {
+            "term": "Revenue",
+            "meaning": "Total money earned or received by a project before its costs are subtracted."
+          },
+          {
+            "term": "Expense / cost",
+            "meaning": "Money used or spent to deliver and operate the project."
+          }
+        ],
+        "example": "If Project A receives R400 000 over its life and its investment is R147 000 with no additional costs in the question, net profit is R253 000.",
+        "pitfall": "Check whether the table includes additional ongoing expenses before subtracting only the initial investment."
+      },
+      "explanation": "Add all Project A revenue, then subtract the initial investment.\n\nHow to reach the marked answer: Revenue = 95 000 + 110 000 + 132 000 + 166 000 = R503 000. Initial investment = R250 000. Net profit = 503 000 − 250 000 = R253 000.\n\nExample: If Project A receives R400 000 over its life and its investment is R147 000 with no additional costs in the question, net profit is R253 000.\n\nStudent note: Check whether the table includes additional ongoing expenses before subtracting only the initial investment."
     },
     {
       "text": "What is slack time in project scheduling?",
@@ -1289,8 +1751,21 @@
           "An activity with positive slack has some scheduling flexibility."
         ],
         "remember": "Zero slack usually means the activity is on a critical path.",
-        "stepsTitle": "How to work it out"
-      }
+        "stepsTitle": "How to work it out",
+        "keyTerms": [
+          {
+            "term": "Slack (float)",
+            "meaning": "The time a scheduled activity can be delayed without moving the planned project finish; usually LS - ES or LF - EF for total slack."
+          },
+          {
+            "term": "Critical path",
+            "meaning": "The longest-duration route through the activity network, controlling the earliest possible project finish; its activities normally have zero total slack."
+          }
+        ],
+        "example": "An activity with ES 3 and LS 7 has 4 days of total slack, so it could start four days later without changing the planned project finish.",
+        "pitfall": "Free float and total float are not identical; this question defines total slack."
+      },
+      "explanation": "Slack is the time an activity can be delayed without delaying the planned finish of the project.\n\nHow to reach the marked answer: An activity with zero total slack is critical. An activity with positive slack has some scheduling flexibility.\n\nExample: An activity with ES 3 and LS 7 has 4 days of total slack, so it could start four days later without changing the planned project finish.\n\nStudent note: Free float and total float are not identical; this question defines total slack."
     },
     {
       "text": "In schedule management, a ______________ on a project is a significant event that typically has no duration.",
@@ -1311,8 +1786,21 @@
           "Examples: requirements approved, testing complete, system goes live."
         ],
         "remember": "Task = work with duration. Milestone = important point with no duration.",
-        "stepsTitle": "How to work it out"
-      }
+        "stepsTitle": "How to work it out",
+        "keyTerms": [
+          {
+            "term": "Milestone",
+            "meaning": "An important event or checkpoint in a project schedule, normally shown with zero duration."
+          },
+          {
+            "term": "Task / activity",
+            "meaning": "An identifiable piece of project work that may need time, staff, resources and cost."
+          }
+        ],
+        "example": "'First release approved' marks an important point and usually has zero duration, while 'test first release' is a task that takes time.",
+        "pitfall": "A milestone is a point on the timeline, not a piece of work with a long duration."
+      },
+      "explanation": "A milestone is a significant project event or checkpoint. It normally has zero duration because it marks that something has happened rather than representing work that takes time.\n\nHow to reach the marked answer: Examples: requirements approved, testing complete, system goes live.\n\nExample: 'First release approved' marks an important point and usually has zero duration, while 'test first release' is a task that takes time.\n\nStudent note: A milestone is a point on the timeline, not a piece of work with a long duration."
     },
     {
       "text": "Study the cash flow of Project Y and Project Z in the table below. What is the net present value (NPV) of Project Y and Project Z? (Assume a discount rate of 8%).",
@@ -1374,8 +1862,25 @@
           "Project Z: R255 700 − R275 000 = -R19 300."
         ],
         "remember": "Positive NPV adds financial value; negative NPV does not recover the investment after discounting.",
-        "stepsTitle": "How to work it out"
-      }
+        "stepsTitle": "How to work it out",
+        "keyTerms": [
+          {
+            "term": "NPV (Net Present Value)",
+            "meaning": "The value gained or lost after future project benefits and costs are converted into today's money; NPV = discounted benefits minus discounted costs."
+          },
+          {
+            "term": "Cash inflow",
+            "meaning": "Money received by a project, such as subscription income."
+          },
+          {
+            "term": "Discount rate",
+            "meaning": "The annual percentage used to reduce future cash amounts to what they are worth today; future money is not treated as identical to money now."
+          }
+        ],
+        "example": "Using the assessment's reported discounted inflows: Y = R224 590 - R200 000 = R24 590; Z = R255 700 - R275 000 = -R19 300.",
+        "pitfall": "This answer inherits the Project Y discounted-inflow value supplied by the assessment; its earlier rounded-factor table appears arithmetically inconsistent. Recheck raw figures when doing an independent calculation."
+      },
+      "explanation": "Once you have the total discounted inflow, subtract the Year 0 investment to get NPV.\n\nHow to reach the marked answer: Project Y: R224 590 − R200 000 = R24 590. Project Z: R255 700 − R275 000 = -R19 300.\n\nExample: Using the assessment's reported discounted inflows: Y = R224 590 - R200 000 = R24 590; Z = R255 700 - R275 000 = -R19 300.\n\nStudent note: This answer inherits the Project Y discounted-inflow value supplied by the assessment; its earlier rounded-factor table appears arithmetically inconsistent. Recheck raw figures when doing an independent calculation."
     },
     {
       "text": "Project integration management includes ________________, which involves identifying and managing the points of interaction among the various elements of a project. Its primary tools are communication and relationships.",
@@ -1396,8 +1901,21 @@
           "The project manager uses communication and relationships to stop gaps, misunderstandings and hand-off problems between those parts."
         ],
         "remember": "Interface management is about the connection points between project elements.",
-        "stepsTitle": "How to work it out"
-      }
+        "stepsTitle": "How to work it out",
+        "keyTerms": [
+          {
+            "term": "Interface management",
+            "meaning": "Managing the points where teams, activities, suppliers or systems meet and exchange work or information."
+          },
+          {
+            "term": "Project integration management",
+            "meaning": "Coordinating the different parts of the project so plans, decisions, work and changes fit together."
+          }
+        ],
+        "example": "The mobile-app team and backend-API team agree what data format the booking screen will send and receive.",
+        "pitfall": "Managing an interface means coordinating a boundary or connection; it is broader than designing only the app's visible user interface."
+      },
+      "explanation": "Interface management means finding and managing the places where different parts of the project meet or depend on one another — for example, two teams, systems, suppliers or work streams.\n\nHow to reach the marked answer: The project manager uses communication and relationships to stop gaps, misunderstandings and hand-off problems between those parts.\n\nExample: The mobile-app team and backend-API team agree what data format the booking screen will send and receive.\n\nStudent note: Managing an interface means coordinating a boundary or connection; it is broader than designing only the app's visible user interface."
     },
     {
       "text": "When does payback usually occur?",
@@ -1419,8 +1937,21 @@
           "Equivalently, cumulative benefits − cumulative costs = 0."
         ],
         "remember": "Payback is the break-even point in time.",
-        "stepsTitle": "How to work it out"
-      }
+        "stepsTitle": "How to work it out",
+        "keyTerms": [
+          {
+            "term": "Payback period (PP)",
+            "meaning": "The time needed for accumulated cash inflows to recover the starting investment."
+          },
+          {
+            "term": "Cumulative cash flow",
+            "meaning": "The running balance after adding each year's inflows and outflows to the previous total."
+          }
+        ],
+        "example": "If cumulative benefits and costs are both R200 000 by Year 4, the project has recovered its investment at that point.",
+        "pitfall": "Breaking even is the moment of payback; gains earned after that are separate."
+      },
+      "explanation": "Payback happens at the point where the accumulated benefits have fully caught up with the accumulated costs.\n\nHow to reach the marked answer: At that exact point: cumulative benefits = cumulative costs. Equivalently, cumulative benefits − cumulative costs = 0.\n\nExample: If cumulative benefits and costs are both R200 000 by Year 4, the project has recovered its investment at that point.\n\nStudent note: Breaking even is the moment of payback; gains earned after that are separate."
     },
     {
       "text": "You launched Project X that is based on the pre-investor’s model. Pre-investors denote non-professional or non-institutional investors such as friends, family and strangers who help to fund the project. However, they expect to see a return on their investment. Nonetheless, Project X involves a new social media platform that seeks to generate revenue from user subscriptions. To launch the project, the pre-investors need to invest an accumulative amount of R75 000,00 (year 0). As subscribers and pre-investors join your venture, you expect the initial investment of R75000 to grow, increasing with R15 550,00 annually for four years (years 1-4). In the first year, you expect the new social media platform will generate R110 000,00, increasing annually with R25 000,00. Calculate the total discounted costs (assume a discount rate of 10%)",
@@ -1442,8 +1973,25 @@
           "Add them: total discounted costs = R429 997."
         ],
         "remember": "Total discounted cost is not the same as total normal project expenses.",
-        "stepsTitle": "How to work it out"
-      }
+        "stepsTitle": "How to work it out",
+        "keyTerms": [
+          {
+            "term": "Discount factor",
+            "meaning": "A multiplier used to express money from a future year in today's value. Formula: 1 / (1 + rate)^year."
+          },
+          {
+            "term": "Expense / cost",
+            "meaning": "Money used or spent to deliver and operate the project."
+          },
+          {
+            "term": "Discount rate",
+            "meaning": "The annual percentage used to reduce future cash amounts to what they are worth today; future money is not treated as identical to money now."
+          }
+        ],
+        "example": "Discount each of Project X's Year 1–4 costs with the appropriate year factor, include undiscounted Year 0, and add all five today's-value costs.",
+        "pitfall": "The supplied marked total uses rounded 10% factors. Do not confuse it with the sum of normal expenses (R530 500)."
+      },
+      "explanation": "Discount every year's project cost to today's value, then add those discounted costs together.\n\nHow to reach the marked answer: Discounted costs are R75 000; R82 400.50; R88 063; R91 237.50; R93 296. Add them: total discounted costs = R429 997.\n\nExample: Discount each of Project X's Year 1–4 costs with the appropriate year factor, include undiscounted Year 0, and add all five today's-value costs.\n\nStudent note: The supplied marked total uses rounded 10% factors. Do not confuse it with the sum of normal expenses (R530 500)."
     },
     {
       "text": "Read the section on the Activity on Node diagram in your textbook, then study the activity list and its network diagram as illustrated in the figure below. Calculate the slack of Activity E.",
@@ -1471,8 +2019,29 @@
           "You can also use LF − EF = 17 − 6 = 11."
         ],
         "remember": "The two slack formulas should give the same answer.",
-        "stepsTitle": "How to work it out"
-      }
+        "stepsTitle": "How to work it out",
+        "keyTerms": [
+          {
+            "term": "AoN (Activity-on-Node)",
+            "meaning": "A network diagram where each activity appears in a box or node and arrows show which activities depend on others."
+          },
+          {
+            "term": "Slack (float)",
+            "meaning": "The time a scheduled activity can be delayed without moving the planned project finish; usually LS - ES or LF - EF for total slack."
+          },
+          {
+            "term": "ES / EF",
+            "meaning": "Early Start / Early Finish: the earliest planned start and finish calculated by the forward pass."
+          },
+          {
+            "term": "LS / LF",
+            "meaning": "Late Start / Late Finish: the latest allowed start and finish calculated by the backward pass without delaying project completion."
+          }
+        ],
+        "example": "If Activity E has ES 4 and LS 15, its total slack is 15 - 4 = 11 days.",
+        "pitfall": "Use either LS - ES or LF - EF, but never mix a start with a finish in the same subtraction."
+      },
+      "explanation": "Use the early and late times shown in the node. Total slack is the difference between late and early timing.\n\nHow to reach the marked answer: Activity E has ES = 3 and LS = 14. Slack = LS − ES = 14 − 3 = 11. You can also use LF − EF = 17 − 6 = 11.\n\nExample: If Activity E has ES 4 and LS 15, its total slack is 15 - 4 = 11 days.\n\nStudent note: Use either LS - ES or LF - EF, but never mix a start with a finish in the same subtraction."
     },
     {
       "text": "The table below lists each activity, its duration, and its predecessor(s) for illustration on an Activity-on-Arrow (AoA) diagram. What is the start time, finish time, and slack of Activity C?",
@@ -1553,8 +2122,25 @@
           "Slack is 2, meaning it can move by 2 time units without delaying the project."
         ],
         "remember": "Use the diagram's node times rather than guessing from the activity name alone.",
-        "stepsTitle": "How to work it out"
-      }
+        "stepsTitle": "How to work it out",
+        "keyTerms": [
+          {
+            "term": "AoA (Activity-on-Arrow)",
+            "meaning": "A schedule-network diagram where arrows represent activities and nodes mark events or connection points."
+          },
+          {
+            "term": "Predecessor",
+            "meaning": "An activity that must be completed, or reach a specified point, before another activity can proceed."
+          },
+          {
+            "term": "Slack (float)",
+            "meaning": "The time a scheduled activity can be delayed without moving the planned project finish; usually LS - ES or LF - EF for total slack."
+          }
+        ],
+        "example": "If a network gives an activity an event start of 8, finish of 10 and allowable delay of 2, read all three separately from the network timing.",
+        "pitfall": "An activity's duration, event time and slack are different measurements; follow the original diagram's conventions."
+      },
+      "explanation": "For an AoA question, follow the arrows and node times. The activity's timing comes from the network logic, and slack tells you how much delay is available.\n\nHow to reach the marked answer: For the assessment's Activity C, the start time shown by the network is 8. Its finish time is 10. Slack is 2, meaning it can move by 2 time units without delaying the project.\n\nExample: If a network gives an activity an event start of 8, finish of 10 and allowable delay of 2, read all three separately from the network timing.\n\nStudent note: An activity's duration, event time and slack are different measurements; follow the original diagram's conventions."
     },
     {
       "text": "A project team must choose whether to launch Project A or Project B. The table below illustrates the respective amount that will be invested for each project, followed by the expected annual revenue. Calculate the net profit for Project B.",
@@ -1611,8 +2197,25 @@
           "Net profit = 620 000 − 300 000 = R320 000."
         ],
         "remember": "Profit is a rand amount; ROI turns that profit into a percentage of the investment.",
-        "stepsTitle": "How to work it out"
-      }
+        "stepsTitle": "How to work it out",
+        "keyTerms": [
+          {
+            "term": "Net profit",
+            "meaning": "Total income minus total project expenses. It is money, not a percentage."
+          },
+          {
+            "term": "Revenue",
+            "meaning": "Total money earned or received by a project before its costs are subtracted."
+          },
+          {
+            "term": "Expense / cost",
+            "meaning": "Money used or spent to deliver and operate the project."
+          }
+        ],
+        "example": "Project B's profit is all of its income over the stated years minus its investment and any other stated costs.",
+        "pitfall": "Do not mix Project A and B columns. Profit is a rand amount, while ROI is normally a percentage."
+      },
+      "explanation": "Add Project B's revenue and subtract the initial investment.\n\nHow to reach the marked answer: Revenue = 150 000 + 210 000 + 120 000 + 140 000 = R620 000. Initial investment = R300 000. Net profit = 620 000 − 300 000 = R320 000.\n\nExample: Project B's profit is all of its income over the stated years minus its investment and any other stated costs.\n\nStudent note: Do not mix Project A and B columns. Profit is a rand amount, while ROI is normally a percentage."
     },
     {
       "text": "Examine the graphic below illustrating an activity on node (AoN) diagram. Activity B's late finish is 3 — how is an activity's late finish determined?",
@@ -1640,8 +2243,25 @@
           "Therefore B's late finish is 3."
         ],
         "remember": "Backward pass at a split: use the smallest successor late start.",
-        "stepsTitle": "How to work it out"
-      }
+        "stepsTitle": "How to work it out",
+        "keyTerms": [
+          {
+            "term": "AoN (Activity-on-Node)",
+            "meaning": "A network diagram where each activity appears in a box or node and arrows show which activities depend on others."
+          },
+          {
+            "term": "LS / LF",
+            "meaning": "Late Start / Late Finish: the latest allowed start and finish calculated by the backward pass without delaying project completion."
+          },
+          {
+            "term": "Predecessor",
+            "meaning": "An activity that must be completed, or reach a specified point, before another activity can proceed."
+          }
+        ],
+        "example": "If activity B goes into a successor whose late start is 3, B must finish no later than 3 in the backward pass.",
+        "pitfall": "At a split with several successors, use the SMALLEST successor late start to determine the predecessor's late finish."
+      },
+      "explanation": "In a backward pass, a predecessor must finish early enough for every successor to start on time. When there are several successors, use the earliest (smallest) late-start value of those successors.\n\nHow to reach the marked answer: Activity B feeds several following activities. The earliest successor late start shown is 3. Therefore B's late finish is 3.\n\nExample: If activity B goes into a successor whose late start is 3, B must finish no later than 3 in the backward pass.\n\nStudent note: At a split with several successors, use the SMALLEST successor late start to determine the predecessor's late finish."
     },
     {
       "text": "You launched Project X that is based on the pre-investor’s model. Pre-investors denote non-professional or non-institutional investors such as friends, family and strangers who help to fund the project. However, they expect to see a return on their investment. Nonetheless, Project X involves a new social media platform that seeks to generate revenue from user subscriptions. To launch the project, the pre-investors need to invest an accumulative amount of R75 000,00 (year 0). As subscribers and pre-investors join your venture, you expect the initial investment of R75000 to grow, increasing with R15 550,00 annually for four years (years 1-4). In the first year, you expect the new social media platform will generate R110 000,00, increasing annually with R25 000,00. Calculate the annual discount factor based on a discount rate of 8%.",
@@ -1663,8 +2283,21 @@
           "Rounded to two decimals for Years 0–4: 1.00; 0.93; 0.86; 0.79; 0.74."
         ],
         "remember": "Higher discount rates make future values shrink faster.",
-        "stepsTitle": "How to work it out"
-      }
+        "stepsTitle": "How to work it out",
+        "keyTerms": [
+          {
+            "term": "Discount factor",
+            "meaning": "A multiplier used to express money from a future year in today's value. Formula: 1 / (1 + rate)^year."
+          },
+          {
+            "term": "Discount rate",
+            "meaning": "The annual percentage used to reduce future cash amounts to what they are worth today; future money is not treated as identical to money now."
+          }
+        ],
+        "example": "At 8%, the Year 1 discount factor = 1/1.08 ≈ 0.93; Year 2 ≈ 0.86, Year 3 ≈ 0.79 and Year 4 ≈ 0.74.",
+        "pitfall": "Do not reuse the 10% set from other Project X questions; use 8% as stated here."
+      },
+      "explanation": "Use the same discount-factor formula, but with 8% instead of 10%.\n\nHow to reach the marked answer: Formula: 1 / (1.08)^year. Rounded to two decimals for Years 0–4: 1.00; 0.93; 0.86; 0.79; 0.74.\n\nExample: At 8%, the Year 1 discount factor = 1/1.08 ≈ 0.93; Year 2 ≈ 0.86, Year 3 ≈ 0.79 and Year 4 ≈ 0.74.\n\nStudent note: Do not reuse the 10% set from other Project X questions; use 8% as stated here."
     },
     {
       "text": "Which project selection technique takes into account both the profitability of a project and the timing of cash flow?",
@@ -1687,8 +2320,25 @@
           "NPV converts future inflows and outflows to present value and then finds the net value."
         ],
         "remember": "If timing of cash flow matters, think NPV.",
-        "stepsTitle": "How to work it out"
-      }
+        "stepsTitle": "How to work it out",
+        "keyTerms": [
+          {
+            "term": "NPV (Net Present Value)",
+            "meaning": "The value gained or lost after future project benefits and costs are converted into today's money; NPV = discounted benefits minus discounted costs."
+          },
+          {
+            "term": "Discount factor",
+            "meaning": "A multiplier used to express money from a future year in today's value. Formula: 1 / (1 + rate)^year."
+          },
+          {
+            "term": "Cash inflow",
+            "meaning": "Money received by a project, such as subscription income."
+          }
+        ],
+        "example": "R100 now and R100 four years later are not equal in today's-value terms; NPV discounts later amounts before comparing returns.",
+        "pitfall": "Simple profit ignores when payments arrive; NPV accounts for that timing."
+      },
+      "explanation": "NPV considers both profit and when the cash happens. It discounts future money because R1 today is worth more than R1 received years later.\n\nHow to reach the marked answer: ROI measures return compared with cost. Payback measures how quickly the investment is recovered. NPV converts future inflows and outflows to present value and then finds the net value.\n\nExample: R100 now and R100 four years later are not equal in today's-value terms; NPV discounts later amounts before comparing returns.\n\nStudent note: Simple profit ignores when payments arrive; NPV accounts for that timing."
     },
     {
       "text": "Fill in the missing word:\n\nAn activity or __________ is an element of work normally found on the work breakdown structure (WBS) that has expected duration, cost, and resource requirements.",
@@ -1709,8 +2359,21 @@
           "Tasks are usually derived from the work packages in the WBS."
         ],
         "remember": "Task = activity = work that takes time and resources.",
-        "stepsTitle": "How to work it out"
-      }
+        "stepsTitle": "How to work it out",
+        "keyTerms": [
+          {
+            "term": "WBS (Work Breakdown Structure)",
+            "meaning": "A hierarchical breakdown of a project's deliverables into smaller, manageable pieces called work packages."
+          },
+          {
+            "term": "Task / activity",
+            "meaning": "An identifiable piece of project work that may need time, staff, resources and cost."
+          }
+        ],
+        "example": "'Build the login page' is a task that may take a developer two days and require testing effort.",
+        "pitfall": "A WBS organises project deliverables into smaller work packages; an activity/task is scheduled work arising from the plan."
+      },
+      "explanation": "An activity, often called a task, is a piece of project work. It normally has a duration and needs resources, and it can also have an estimated cost.\n\nHow to reach the marked answer: Tasks are usually derived from the work packages in the WBS.\n\nExample: 'Build the login page' is a task that may take a developer two days and require testing effort.\n\nStudent note: A WBS organises project deliverables into smaller work packages; an activity/task is scheduled work arising from the plan."
     },
     {
       "text": "You launched Project X that is based on the pre-investor’s model. Pre-investors denote non-professional or non-institutional investors such as friends, family and strangers who help to fund the project. However, they expect to see a return on their investment. Nonetheless, Project X involves a new social media platform that seeks to generate revenue from user subscriptions. To launch the project, the pre-investors need to invest an accumulative amount of R75 000,00 (year 0). As subscribers and pre-investors join your venture, you expect the initial investment of R75000 to grow, increasing with R15 550,00 annually for four years (years 1-4). In the first year, you expect the new social media platform will generate R110 000,00, increasing annually with R25 000,00. Calculate the total discounted project benefits (assume a discount rate of 10%)",
@@ -1731,8 +2394,25 @@
           "R100 100 + R112 050 + R120 000 + R125 800 = R457 950."
         ],
         "remember": "Discounted benefits are also called discounted cash inflows in these financial-analysis questions.",
-        "stepsTitle": "How to work it out"
-      }
+        "stepsTitle": "How to work it out",
+        "keyTerms": [
+          {
+            "term": "Project benefit",
+            "meaning": "A positive cash inflow or value received from the project; financial assessment questions may use 'benefit' for revenue."
+          },
+          {
+            "term": "Discount factor",
+            "meaning": "A multiplier used to express money from a future year in today's value. Formula: 1 / (1 + rate)^year."
+          },
+          {
+            "term": "Cash inflow",
+            "meaning": "Money received by a project, such as subscription income."
+          }
+        ],
+        "example": "Project X's rounded discounted annual inflows are R100 100, R112 050, R120 000 and R125 800; add them for R457 950.",
+        "pitfall": "Only include incoming benefits in this total. Costs are calculated separately for NPV."
+      },
+      "explanation": "After discounting each year's benefit, add the discounted amounts to get the total discounted project benefits.\n\nHow to reach the marked answer: R100 100 + R112 050 + R120 000 + R125 800 = R457 950.\n\nExample: Project X's rounded discounted annual inflows are R100 100, R112 050, R120 000 and R125 800; add them for R457 950.\n\nStudent note: Only include incoming benefits in this total. Costs are calculated separately for NPV."
     },
     {
       "text": "Fill in the missing word:\n\n______________________dependencies, in the context of schedule management, involves relationships between project activities that are generally inside the project team's control. For example, if software is developed by the team, they can create dependencies such as performance unit testing before system testing.",
@@ -1753,8 +2433,25 @@
           "Example: the team may decide that unit testing must finish before system testing starts."
         ],
         "remember": "Internal tells you where the dependency comes from; mandatory tells you whether the order is unavoidable.",
-        "stepsTitle": "How to work it out"
-      }
+        "stepsTitle": "How to work it out",
+        "keyTerms": [
+          {
+            "term": "Dependency",
+            "meaning": "A relationship where the timing of one activity affects another."
+          },
+          {
+            "term": "Internal dependency",
+            "meaning": "A dependency between activities within the project or team's control."
+          },
+          {
+            "term": "Mandatory dependency (hard logic)",
+            "meaning": "An order that cannot realistically be changed because one piece of work must come before another."
+          }
+        ],
+        "example": "The app team's testing activity depends on its own coding activity; this is an internal project relationship.",
+        "pitfall": "Internal is about who controls the relationship; mandatory/discretionary tells whether its ordering is fixed or chosen."
+      },
+      "explanation": "An internal dependency is a relationship between activities that is generally inside the project team's control.\n\nHow to reach the marked answer: Example: the team may decide that unit testing must finish before system testing starts.\n\nExample: The app team's testing activity depends on its own coding activity; this is an internal project relationship.\n\nStudent note: Internal is about who controls the relationship; mandatory/discretionary tells whether its ordering is fixed or chosen."
     },
     {
       "text": "Study the activity list and its network diagram. Identify the critical path(s).",
@@ -1782,8 +2479,25 @@
           "That is the controlling path in this network."
         ],
         "remember": "Critical path means longest path, not shortest path.",
-        "stepsTitle": "How to work it out"
-      }
+        "stepsTitle": "How to work it out",
+        "keyTerms": [
+          {
+            "term": "Critical path",
+            "meaning": "The longest-duration route through the activity network, controlling the earliest possible project finish; its activities normally have zero total slack."
+          },
+          {
+            "term": "Slack (float)",
+            "meaning": "The time a scheduled activity can be delayed without moving the planned project finish; usually LS - ES or LF - EF for total slack."
+          },
+          {
+            "term": "AoN (Activity-on-Node)",
+            "meaning": "A network diagram where each activity appears in a box or node and arrows show which activities depend on others."
+          }
+        ],
+        "example": "Add the durations on each complete start-to-finish network route. The longest valid route determines when the project can finish.",
+        "pitfall": "The longest-duration path is critical, not the one with the greatest number of activities. Verify A-B-G-J-L against the actual network."
+      },
+      "explanation": "The critical path is the longest-duration path through the network. It controls the earliest possible project finish date. Activities on it normally have zero slack.\n\nHow to reach the marked answer: Add the durations along each complete path. A-B-G-J-L = 1 + 2 + 5 + 8 + 6 = 22. That is the controlling path in this network.\n\nExample: Add the durations on each complete start-to-finish network route. The longest valid route determines when the project can finish.\n\nStudent note: The longest-duration path is critical, not the one with the greatest number of activities. Verify A-B-G-J-L against the actual network."
     },
     {
       "text": "Fill in the missing words:\n\nIn most financial analysis and net present value (NPV) calculations, the term discounted benefits can be treated as synonymous with the term__________________.",
@@ -1805,8 +2519,25 @@
           "Cash outflow = money going out."
         ],
         "remember": "Benefits are inflows; costs are outflows.",
-        "stepsTitle": "How to work it out"
-      }
+        "stepsTitle": "How to work it out",
+        "keyTerms": [
+          {
+            "term": "Project benefit",
+            "meaning": "A positive cash inflow or value received from the project; financial assessment questions may use 'benefit' for revenue."
+          },
+          {
+            "term": "Cash inflow",
+            "meaning": "Money received by a project, such as subscription income."
+          },
+          {
+            "term": "Discount factor",
+            "meaning": "A multiplier used to express money from a future year in today's value. Formula: 1 / (1 + rate)^year."
+          }
+        ],
+        "example": "Subscription money entering Project X is a benefit/inflow; its future value after discounting is a discounted cash inflow.",
+        "pitfall": "The cash flowing IN is a benefit; cash paid OUT is a cost."
+      },
+      "explanation": "In these NPV calculations, a benefit is money coming into the project. That is why discounted benefits can be treated as discounted cash inflows.\n\nHow to reach the marked answer: Cash inflow = money coming in. Cash outflow = money going out.\n\nExample: Subscription money entering Project X is a benefit/inflow; its future value after discounting is a discounted cash inflow.\n\nStudent note: The cash flowing IN is a benefit; cash paid OUT is a cost."
     },
     {
       "text": "Study the activity list and its network diagram. Which activities have slack?",
@@ -1834,8 +2565,29 @@
           "In the assessment, the activities identified as having slack are C, D, E, F, H and I."
         ],
         "remember": "A useful shortcut: find the critical path first; then look for flexibility on the other activities.",
-        "stepsTitle": "How to work it out"
-      }
+        "stepsTitle": "How to work it out",
+        "keyTerms": [
+          {
+            "term": "Critical path",
+            "meaning": "The longest-duration route through the activity network, controlling the earliest possible project finish; its activities normally have zero total slack."
+          },
+          {
+            "term": "Slack (float)",
+            "meaning": "The time a scheduled activity can be delayed without moving the planned project finish; usually LS - ES or LF - EF for total slack."
+          },
+          {
+            "term": "ES / EF",
+            "meaning": "Early Start / Early Finish: the earliest planned start and finish calculated by the forward pass."
+          },
+          {
+            "term": "LS / LF",
+            "meaning": "Late Start / Late Finish: the latest allowed start and finish calculated by the backward pass without delaying project completion."
+          }
+        ],
+        "example": "If the critical path is A-B-G-J-L, calculate slack on other activities; a task with LS greater than ES has positive slack.",
+        "pitfall": "An activity outside a particular critical path may have float, but always confirm with its calculated network times."
+      },
+      "explanation": "Activities on the critical path have zero slack. Activities outside the critical path can have positive slack, meaning they have some room to move.\n\nHow to reach the marked answer: First identify the critical path: A-B-G-J-L. Those critical-path activities have zero slack. In the assessment, the activities identified as having slack are C, D, E, F, H and I.\n\nExample: If the critical path is A-B-G-J-L, calculate slack on other activities; a task with LS greater than ES has positive slack.\n\nStudent note: An activity outside a particular critical path may have float, but always confirm with its calculated network times."
     },
     {
       "text": "Study the cashflow of Project Z in the table below. Calculate the payback period for Project Z.",
@@ -1893,8 +2645,25 @@
           "Payback ≈ 3.59 years, rounded to 3.6 years."
         ],
         "remember": "The payback happens during the first year that changes the cumulative balance from negative to positive.",
-        "stepsTitle": "How to work it out"
-      }
+        "stepsTitle": "How to work it out",
+        "keyTerms": [
+          {
+            "term": "Payback period (PP)",
+            "meaning": "The time needed for accumulated cash inflows to recover the starting investment."
+          },
+          {
+            "term": "Cumulative cash flow",
+            "meaning": "The running balance after adding each year's inflows and outflows to the previous total."
+          },
+          {
+            "term": "Cash inflow",
+            "meaning": "Money received by a project, such as subscription income."
+          }
+        ],
+        "example": "For Project Z, subtract inflows from the R275 000 investment each year; the negative balance after Year 3 is recovered during Year 4, giving about 3.6 years.",
+        "pitfall": "Use the remaining unrecovered amount before the recovery year, not the original investment, to calculate the fraction."
+      },
+      "explanation": "Build the cumulative cash flow until the negative balance becomes positive.\n\nHow to reach the marked answer: Start: -R275 000. After Year 1: -205 000; after Year 2: -130 000; after Year 3: -50 000. Year 4 brings R85 000, so fraction needed = 50 000 / 85 000 ≈ 0.59. Payback ≈ 3.59 years, rounded to 3.6 years.\n\nExample: For Project Z, subtract inflows from the R275 000 investment each year; the negative balance after Year 3 is recovered during Year 4, giving about 3.6 years.\n\nStudent note: Use the remaining unrecovered amount before the recovery year, not the original investment, to calculate the fraction."
     },
     {
       "text": "A payback period (PP) calculation for a project results in a PP of 2.8136 years. To convert the payback period into months, the fractional part of the year, 0.8136, is multiplied by 12. Why is the fractional part of the payback year multiplied by 12?",
@@ -1916,8 +2685,21 @@
           "0.8136 × 12 ≈ 9.76 months."
         ],
         "remember": "Years to months: multiply the fractional year by 12.",
-        "stepsTitle": "How to work it out"
-      }
+        "stepsTitle": "How to work it out",
+        "keyTerms": [
+          {
+            "term": "Fraction of a year",
+            "meaning": "The decimal part of a time value; multiply it by 12 to express that part in months."
+          },
+          {
+            "term": "Payback period (PP)",
+            "meaning": "The time needed for accumulated cash inflows to recover the starting investment."
+          }
+        ],
+        "example": "For 2.8136 years, the fractional 0.8136 year is 0.8136×12 ≈ 9.76 months, on top of two full years.",
+        "pitfall": "Multiplying by 12 converts years to months; multiplying by 100 only turns decimals into percentages."
+      },
+      "explanation": "The decimal part of a payback period represents a fraction of one year. A year has 12 months, so multiply the fraction by 12.\n\nHow to reach the marked answer: For 2.8136 years, the whole part is 2 years. 0.8136 × 12 ≈ 9.76 months.\n\nExample: For 2.8136 years, the fractional 0.8136 year is 0.8136×12 ≈ 9.76 months, on top of two full years.\n\nStudent note: Multiplying by 12 converts years to months; multiplying by 100 only turns decimals into percentages."
     },
     {
       "text": "You launched Project X that is based on the pre-investor’s model. Pre-investors denote non-professional or non-institutional investors such as friends, family and strangers who help to fund the project. However, they expect to see a return on their investment. Nonetheless, Project X involves a new social media platform that seeks to generate revenue from user subscriptions. To launch the project, the pre-investors need to invest an accumulative amount of R75 000,00 (year 0). As subscribers and pre-investors join your venture, you expect the initial investment of R75000 to grow, increasing with R15 550,00 annually for four years (years 1-4). In the first year, you expect the new social media platform will generate R110 000,00, increasing annually with R25 000,00. Calculate the total project expenses.",
@@ -1939,8 +2721,25 @@
           "Add them: total project expenses = R530 500."
         ],
         "remember": "Normal expenses use the original amounts. Discounted costs use today's-value amounts.",
-        "stepsTitle": "How to work it out"
-      }
+        "stepsTitle": "How to work it out",
+        "keyTerms": [
+          {
+            "term": "Expense / cost",
+            "meaning": "Money used or spent to deliver and operate the project."
+          },
+          {
+            "term": "Cash outflow",
+            "meaning": "Money paid by a project, such as development or operating costs."
+          },
+          {
+            "term": "Discount factor",
+            "meaning": "A multiplier used to express money from a future year in today's value. Formula: 1 / (1 + rate)^year."
+          }
+        ],
+        "example": "Project X normal costs are R75 000 + R90 550 + R106 100 + R121 650 + R137 200 = R530 500.",
+        "pitfall": "Do not apply discount factors unless the question explicitly asks for discounted expenses or NPV."
+      },
+      "explanation": "This question asks for the normal total costs before discounting.\n\nHow to reach the marked answer: Costs are R75 000; R90 550; R106 100; R121 650; R137 200. Add them: total project expenses = R530 500.\n\nExample: Project X normal costs are R75 000 + R90 550 + R106 100 + R121 650 + R137 200 = R530 500.\n\nStudent note: Do not apply discount factors unless the question explicitly asks for discounted expenses or NPV."
     }
   ]
 }
