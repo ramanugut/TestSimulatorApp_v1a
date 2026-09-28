@@ -3773,73 +3773,83 @@ body.dark-mode:is(.theme-slate,.theme-deep,.theme-black) :is(
 }
 
 
-/* Quiet, cohesive accents for all three dark intensities.
-   Sage replaces neon green; softened steel blue, amber and rose remain distinct. */
+/* Clear, saturated accents on genuinely dark surfaces. Colour signals purpose:
+   emerald = action/success, blue = selection/info, amber = caution, red = error.
+   Keep full-colour fills small and leave the reading background neutral. */
 body.dark-mode.theme-slate {
-  --accent-color: #88b3a0;
-  --accent-strong: #7ca893;
-  --accent-secondary: #9bb7c5;
-  --selected-option-color: #88b3a0;
-  --accent-ink: #0b1b15;
-  --danger-color: #d5a3a4;
-  --warning-color: #d4bc93;
-  --accent-wash: rgba(136,179,160,.10);
-  --secondary-wash: rgba(155,183,197,.10);
-  --dark-choice: #23322f;
-  --dark-correct: #203029;
-  --dark-answer: #1b2923;
-  --dark-remember: #203028;
-  --dark-book: #252e31;
-  --dark-explanation: #1d282d;
-  --dark-reading: #2b4440;
-  --dark-pass-panel: #1c2c24;
-  --dark-fail-panel: #322527;
-  --dark-amber-panel: #302c23;
-  --dark-info-panel: #222d34;
+  --text-color: #f4f7fb;
+  --muted-text: #c0cbd7;
+  --border-color: #46535f;
+  --accent-color: #35d8a0;
+  --accent-strong: #24bf89;
+  --accent-secondary: #64bfff;
+  --selected-option-color: #35d8a0;
+  --accent-ink: #062017;
+  --danger-color: #ff778c;
+  --warning-color: #ffc052;
+  --accent-wash: rgba(53,216,160,.17);
+  --secondary-wash: rgba(100,191,255,.16);
+  --dark-choice: #182f46;
+  --dark-correct: #113c2d;
+  --dark-answer: #123427;
+  --dark-remember: #17372b;
+  --dark-book: #193449;
+  --dark-explanation: #172f42;
+  --dark-reading: #183d52;
+  --dark-pass-panel: #123b2a;
+  --dark-fail-panel: #401f2a;
+  --dark-amber-panel: #382b15;
+  --dark-info-panel: #17334a;
 }
 body.dark-mode.theme-deep {
-  --accent-color: #82aa96;
-  --accent-strong: #77a08a;
-  --accent-secondary: #92aab8;
-  --selected-option-color: #82aa96;
-  --accent-ink: #081711;
-  --danger-color: #cfa0a2;
-  --warning-color: #ceb58d;
-  --accent-wash: rgba(130,170,150,.10);
-  --secondary-wash: rgba(146,170,184,.10);
-  --dark-choice: #172620;
-  --dark-correct: #17271f;
-  --dark-answer: #14211a;
-  --dark-remember: #17251c;
-  --dark-book: #182126;
-  --dark-explanation: #151e23;
-  --dark-reading: #253b35;
-  --dark-pass-panel: #14221a;
-  --dark-fail-panel: #271c1f;
-  --dark-amber-panel: #262218;
-  --dark-info-panel: #19232a;
+  --text-color: #f5f8fc;
+  --muted-text: #c3cdd8;
+  --border-color: #3b4754;
+  --accent-color: #42e0a9;
+  --accent-strong: #29cb94;
+  --accent-secondary: #61bdff;
+  --selected-option-color: #42e0a9;
+  --accent-ink: #052017;
+  --danger-color: #ff778b;
+  --warning-color: #ffc354;
+  --accent-wash: rgba(66,224,169,.16);
+  --secondary-wash: rgba(97,189,255,.16);
+  --dark-choice: #10273d;
+  --dark-correct: #103529;
+  --dark-answer: #102a21;
+  --dark-remember: #122e23;
+  --dark-book: #122b3d;
+  --dark-explanation: #102639;
+  --dark-reading: #11364d;
+  --dark-pass-panel: #102f23;
+  --dark-fail-panel: #331820;
+  --dark-amber-panel: #30230f;
+  --dark-info-panel: #102c43;
 }
 body.dark-mode.theme-black {
-  --accent-color: #7c9f8d;
-  --accent-strong: #759783;
-  --accent-secondary: #879fac;
-  --selected-option-color: #7c9f8d;
-  --accent-ink: #07140d;
-  --danger-color: #c79b9d;
-  --warning-color: #c7af89;
-  --accent-wash: rgba(124,159,141,.11);
-  --secondary-wash: rgba(135,159,172,.10);
-  --dark-choice: #101e19;
-  --dark-correct: #11221a;
-  --dark-answer: #101a13;
-  --dark-remember: #111d15;
-  --dark-book: #10171a;
-  --dark-explanation: #0d1519;
-  --dark-reading: #1c322b;
-  --dark-pass-panel: #101a13;
-  --dark-fail-panel: #1d1315;
-  --dark-amber-panel: #1d1a11;
-  --dark-info-panel: #111a1f;
+  --text-color: #f6f8fb;
+  --muted-text: #c6d0d9;
+  --border-color: #333c46;
+  --accent-color: #4be6ad;
+  --accent-strong: #30cd96;
+  --accent-secondary: #6ac7ff;
+  --selected-option-color: #4be6ad;
+  --accent-ink: #041b12;
+  --danger-color: #ff7d91;
+  --warning-color: #ffc65d;
+  --accent-wash: rgba(75,230,173,.17);
+  --secondary-wash: rgba(106,199,255,.17);
+  --dark-choice: #0a2032;
+  --dark-correct: #0b2b1d;
+  --dark-answer: #0a2319;
+  --dark-remember: #0d281c;
+  --dark-book: #0c2230;
+  --dark-explanation: #0a1e2b;
+  --dark-reading: #0d3043;
+  --dark-pass-panel: #0b281c;
+  --dark-fail-panel: #2a1019;
+  --dark-amber-panel: #281e0d;
+  --dark-info-panel: #0b2336;
 }
 
 /* Accent fills need dark ink, while muted outline buttons remain easy to read. */
@@ -3940,5 +3950,59 @@ body.dark-mode:is(.theme-slate,.theme-deep,.theme-black) .result-actions .btn:fo
 body.dark-mode:is(.theme-slate,.theme-deep,.theme-black) :is(
   button, input, select, textarea, summary, a
 ):focus-visible {
+  outline-color: var(--accent-secondary);
+}
+
+
+/* Sharper selected, answered and focused states without brighter page panels. */
+.theme-swatch-light {
+  background: linear-gradient(135deg, #fff 0 65%, #0b956a 65% 100%);
+}
+.theme-swatch-slate {
+  background: linear-gradient(135deg, #101318 0 66%, #35d8a0 66% 100%);
+}
+.theme-swatch-deep {
+  background: linear-gradient(135deg, #050608 0 66%, #42e0a9 66% 100%);
+}
+.theme-swatch-black {
+  background: linear-gradient(135deg, #000 0 66%, #4be6ad 66% 100%);
+  border-color: #818b97;
+}
+body.dark-mode:is(.theme-slate,.theme-deep,.theme-black) .theme-choice[aria-pressed="true"] {
+  background: var(--accent-wash);
+  border-color: var(--accent-color);
+  box-shadow: inset 0 0 0 1px var(--accent-color);
+}
+body.dark-mode:is(.theme-slate,.theme-deep,.theme-black) .options li.selected {
+  background: var(--dark-choice);
+  border-color: var(--accent-secondary);
+  box-shadow: inset 3px 0 0 var(--accent-secondary);
+}
+body.dark-mode:is(.theme-slate,.theme-deep,.theme-black) .options li.option-correct:not(.selected) {
+  background: var(--dark-correct);
+  border-color: var(--accent-color);
+  box-shadow: inset 3px 0 0 var(--accent-color);
+}
+body.dark-mode:is(.theme-slate,.theme-deep,.theme-black) :is(input[type="radio"], input[type="checkbox"]) {
+  accent-color: var(--accent-secondary);
+}
+body.dark-mode:is(.theme-slate,.theme-deep,.theme-black) :is(
+  .progress-bar-container, .study-guide-card, .study-correct-answer,
+  .correct-answer, .study-explanation, .explanation, .study-book-reference,
+  .study-guide-remember, .flashcard-answer-panel, .ai-grade-feedback
+) {
+  border-color: var(--border-color);
+}
+body.dark-mode:is(.theme-slate,.theme-deep,.theme-black) :is(
+  .study-guide-card, .study-explanation, .explanation
+) {
+  border-left-color: var(--accent-secondary);
+}
+body.dark-mode:is(.theme-slate,.theme-deep,.theme-black) :is(
+  .study-correct-answer, .correct-answer, .flashcard-answer-panel
+) {
+  border-left-color: var(--accent-color);
+}
+body.dark-mode:is(.theme-slate,.theme-deep,.theme-black) .study-voice-reading {
   outline-color: var(--accent-secondary);
 }
