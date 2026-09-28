@@ -2150,7 +2150,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     unlockAchievement("first-test");
 
-    if (score === questions.length) {
+    const availableMarks = questions.reduce(
+      (total, question) => total + getQuestionMarks(question), 0
+    );
+    if (availableMarks > 0 && score >= availableMarks - 0.0001) {
       unlockAchievement("perfect-score");
     }
 
@@ -2695,6 +2698,7 @@ const testFiles = [
   // Initialize test variables and UI
   function initializeTest() {
     resetReviewState();
+    aiGrades = {};
     if (questions.length === 0) {
       questionsContainer.innerHTML = `<p>No questions available in the selected file.</p>`;
       paginationControls.classList.add("hidden");
@@ -2832,7 +2836,9 @@ const testFiles = [
     if (answer.image && /^data:image\//.test(answer.image)) {
       const existing = new Image();
       existing.onload = () => {
-        if (!edited) ctx.drawImage(existing, 0, 0, canvas.width, canvas.height);
+        if (!edited && answer.image === existing.src) {
+          ctx.drawImage(existing, 0, 0, canvas.width, canvas.height);
+        }
       };
       existing.src = answer.image;
     }
@@ -4193,6 +4199,7 @@ const testFiles = [
         explanationHeight: explanationDimensions.h,
         isCorrect,
         hasUserAnswer,
+        aiGrade: grade.aiGrade || null,
         diagramImage: rawUserAnswer && typeof rawUserAnswer === "object" &&
           typeof rawUserAnswer.image === "string" &&
           /^data:image\/jpeg;base64,/.test(rawUserAnswer.image)
@@ -4397,7 +4404,9 @@ const testFiles = [
           textColor: entry.isCorrect ? correctTextColor : incorrectTextColor,
           spacingAfter: 4,
           badge: {
-            label: entry.isCorrect ? "Correct" : "Incorrect",
+            label: entry.aiGrade
+              ? "AI " + Math.round(entry.aiGrade.score) + "%"
+              : entry.isCorrect ? "Correct" : "Incorrect",
             fillColor: entry.isCorrect ? correctTextColor : incorrectTextColor,
             textColor: { r: 255, g: 255, b: 255 },
           },
