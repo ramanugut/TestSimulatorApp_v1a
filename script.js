@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const resultMessageElement = document.getElementById("result-message");
   const testSelect = document.getElementById("test-select");
   const studyModeToggle = document.getElementById("study-mode-toggle");
-  const darkModeToggle = document.getElementById("dark-mode-toggle");
+  const themeButtons = document.querySelectorAll(".theme-choice");
   const paginationControls = document.getElementById("pagination-controls");
   const prevPageButton = document.getElementById("prev-page");
   const nextPageButton = document.getElementById("next-page");
@@ -2911,30 +2911,41 @@ document.addEventListener("DOMContentLoaded", function () {
 
   //************************ SECTION 3: THEME HANDLING ************************//
 
-  // Handle Dark Mode theme based on user preferences
-  if (darkModeToggle) {
-    if (localStorage.getItem("theme") === "dark") {
-      document.body.classList.add("dark-mode");
-      darkModeToggle.textContent = "Disable Dark Mode";
-    } else {
-      document.body.classList.add("light-mode");
-      darkModeToggle.textContent = "Enable Dark Mode";
-    }
+  // Three dark intensities plus Light. Preserve existing settings and migrate
+  // the old single "dark" value to Deep so returning users get less glare.
+  const appearanceModes = ["light", "slate", "deep", "black"];
 
-    darkModeToggle.addEventListener("click", () => {
-      if (document.body.classList.contains("dark-mode")) {
-        document.body.classList.remove("dark-mode");
-        document.body.classList.add("light-mode");
-        localStorage.setItem("theme", "light");
-        darkModeToggle.textContent = "Enable Dark Mode";
-      } else {
-        document.body.classList.remove("light-mode");
-        document.body.classList.add("dark-mode");
-        localStorage.setItem("theme", "dark");
-        darkModeToggle.textContent = "Disable Dark Mode";
-      }
+  function applyAppearanceMode(value) {
+    const chosen = appearanceModes.includes(value) ? value : "light";
+    document.body.classList.remove(
+      "light-mode", "dark-mode", "theme-slate", "theme-deep", "theme-black"
+    );
+    document.body.classList.add(chosen === "light" ? "light-mode" : "dark-mode");
+    if (chosen !== "light") document.body.classList.add("theme-" + chosen);
+    document.documentElement.style.colorScheme = chosen === "light" ? "light" : "dark";
+    themeButtons.forEach(function (button) {
+      const active = button.dataset.theme === chosen;
+      button.setAttribute("aria-pressed", String(active));
+      button.classList.toggle("active", active);
     });
+    try {
+      localStorage.setItem("theme", chosen);
+    } catch (error) {
+      // Theme switching still works when a private browser blocks storage.
+    }
+    return chosen;
   }
+
+  let savedAppearance = "light";
+  try {
+    savedAppearance = localStorage.getItem("theme") || "light";
+  } catch (error) { /* Storage is optional. */ }
+  applyAppearanceMode(savedAppearance === "dark" ? "deep" : savedAppearance);
+  themeButtons.forEach(function (button) {
+    button.addEventListener("click", function () {
+      applyAppearanceMode(button.dataset.theme);
+    });
+  });
 
   //************************ SECTION 4: TEST FILE LOADING ************************//
 
