@@ -1736,7 +1736,7 @@ document.addEventListener("DOMContentLoaded", function () {
     session.currentPartTarget = part.element;
 
     utterance.onstart = function () {
-      if (activeStudyVoice !== session) return;
+      if (activeStudyVoice !== session || session.paused) return;
       session.activeTarget = part.element;
       if (part.element) part.element.classList.add("study-voice-reading");
     };
