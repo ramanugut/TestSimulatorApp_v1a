@@ -2473,3 +2473,68 @@ body.dark-mode .ai-grade-verdict--incorrect {
   background: #450a0a;
   color: #fecaca;
 }
+
+
+/* INF3708 long-form exam: case material and network drawing */
+.question-case-study {
+  margin: 14px 0;
+  padding: 12px 14px;
+  border: 1px solid var(--border-color, #cbd5e1);
+  border-radius: 10px;
+  background: var(--card-bg, rgba(148, 163, 184, 0.08));
+}
+.question-case-study summary {
+  font-weight: 700;
+  cursor: pointer;
+}
+.question-case-study > div {
+  white-space: normal;
+  line-height: 1.6;
+  margin-top: 10px;
+}
+.diagram-answer {
+  display: grid;
+  gap: 12px;
+  margin: 14px 0;
+  min-width: 0;
+}
+.diagram-answer p {
+  margin: 0;
+  line-height: 1.5;
+}
+.diagram-canvas {
+  display: block;
+  width: 100%;
+  max-width: 960px;
+  height: auto;
+  background: #fff;
+  border: 2px solid #94a3b8;
+  border-radius: 8px;
+  touch-action: none;
+  cursor: crosshair;
+}
+.diagram-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+}
+.diagram-upload-label {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+}
+.diagram-upload-label input {
+  max-width: min(100%, 300px);
+}
+.diagram-answer > label {
+  display: grid;
+  gap: 8px;
+  font-weight: 600;
+}
+.diagram-answer .text-area-input {
+  width: 100%;
+  font-weight: 400;
+}
