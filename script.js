@@ -3288,7 +3288,9 @@ const testFiles = [
         correctAnswerElement.classList.add("study-correct-answer");
         questionElement.appendChild(correctAnswerElement);
 
-        if (question.explanation) {
+        // Detailed study cards already include the explanation, definitions and example.
+        // Keep the short explanation only as a fallback to avoid repeating a long block.
+        if (question.explanation && !question.study) {
           const explanationElement = document.createElement("p");
           const studyExplanationMarkup =
             formatRichText(question.explanation) ||
