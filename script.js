@@ -3391,7 +3391,7 @@ const testFiles = [
 
     if (bookmarks.length === 0) {
       bookmarkListElement.classList.add("empty");
-      bookmarkListElement.textContent = "No bookmarks yet.";
+      bookmarkListElement.textContent = "No bookmarked questions yet.";
       bookmarkCycleIndex = 0;
       return;
     }
@@ -3402,7 +3402,10 @@ const testFiles = [
       button.type = "button";
       button.className = "bookmark-pill";
       button.textContent = `Q${bookmark + 1}`;
-      button.addEventListener("click", () => jumpToQuestion(bookmark));
+      button.addEventListener("click", () => {
+        closeOptionsModal();
+        jumpToQuestion(bookmark);
+      });
       bookmarkListElement.appendChild(button);
     });
 
