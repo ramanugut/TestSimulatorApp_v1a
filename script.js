@@ -23,6 +23,9 @@ document.addEventListener("DOMContentLoaded", function () {
   let bookmarkCycleIndex = 0;
   let lastMotivationIndex = null;
   let currentMode = "test";
+  const studyVoiceAvailable = "speechSynthesis" in window &&
+    typeof window.SpeechSynthesisUtterance === "function";
+  let activeStudyVoice = null;
   let questionResults = [];
   let aiGrades = {};
   let reviewFilter = "all";
@@ -936,6 +939,7 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
+    stopStudyVoice();
     isStudyMode = checked;
     document.body.classList.toggle("study-mode-active", isStudyMode);
     renderQuestions();
@@ -993,6 +997,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!mode) {
       return;
     }
+    if (mode !== "study") stopStudyVoice();
 
     if (mode === currentMode) {
       updateModeButtons(currentMode);
@@ -1601,6 +1606,276 @@ document.addEventListener("DOMContentLoaded", function () {
     return card;
   }
 
+
+
+  // Study Mode voice reader uses only saved notes and the browser's built-in voice.
+  // Each reading section is a short utterance so playback remains responsive.
+  function appendStudyVoiceText(parts, text, element) {
+    let remaining = String(text || "").replace(/\s+/g, " ").trim();
+    while (remaining.length > 220) {
+      const candidate = remaining.slice(0, 220);
+      let cut = Math.max(candidate.lastIndexOf(". "), candidate.lastIndexOf("! "),
+        candidate.lastIndexOf("? "));
+      if (cut >= 80) {
+        cut += 1;
+      } else {
+        cut = candidate.lastIndexOf(" ");
+      }
+      if (cut < 50) cut = 220;
+      parts.push({ text: remaining.slice(0, cut).trim(), element: element });
+      remaining = remaining.slice(cut).trim();
+    }
+    if (remaining) parts.push({ text: remaining, element: element });
+  }
+
+  function visibleStudyVoiceText(element) {
+    return element ? (element.innerText || element.textContent || "") : "";
+  }
+
+  function buildStudyVoiceParts(questionElement, kind) {
+    const parts = [];
+    const answer = questionElement.querySelector(
+      ".study-correct-answer .rich-content, .correct-answer .rich-content"
+    );
+    const guide = questionElement.querySelector(".study-guide-card");
+    const fallback = questionElement.querySelector(
+      ".study-explanation .rich-content, .explanation .rich-content"
+    );
+
+    if (kind === "explain") {
+      appendStudyVoiceText(parts, "Let us understand this question.", answer);
+    }
+    if (answer) {
+      appendStudyVoiceText(parts, "Correct answer. " + visibleStudyVoiceText(answer),
+        answer.parentElement);
+    }
+
+    if (guide) {
+      const title = guide.querySelector(".study-guide-title");
+      if (kind === "explain" && title) {
+        appendStudyVoiceText(parts, visibleStudyVoiceText(title), title);
+      }
+      Array.from(guide.children).forEach(function (element) {
+        if (kind === "explain" &&
+          (element.classList.contains("study-guide-title") ||
+           element.classList.contains("study-book-reference"))) return;
+
+        if (element.tagName === "OL" || element.tagName === "UL") {
+          Array.from(element.children).forEach(function (item, index) {
+            const lead = element.tagName === "OL" ? "Step " + (index + 1) + ". " : "";
+            appendStudyVoiceText(parts, lead + visibleStudyVoiceText(item), item);
+          });
+        } else {
+          appendStudyVoiceText(parts, visibleStudyVoiceText(element), element);
+        }
+      });
+    } else if (fallback) {
+      appendStudyVoiceText(parts, "Why this answer? " + visibleStudyVoiceText(fallback),
+        fallback.parentElement);
+    } else {
+      appendStudyVoiceText(parts, "No further study notes have been provided for this question.",
+        answer);
+    }
+    return parts;
+  }
+
+  function clearStudyVoiceHighlight(session) {
+    if (session.activeTarget) {
+      session.activeTarget.classList.remove("study-voice-reading");
+      session.activeTarget = null;
+    }
+  }
+
+  function setStudyVoiceButtonState(session, state) {
+    session.playButton.textContent = state === "playing" ? "Restart" : "Play";
+    session.pauseButton.textContent = state === "paused" ? "Resume" : "Pause";
+    session.pauseButton.disabled = state === "idle";
+    session.stopButton.disabled = state === "idle";
+  }
+
+  function stopStudyVoice(message) {
+    const session = activeStudyVoice;
+    activeStudyVoice = null; // Ignore late end/error callbacks from cancelled speech.
+    if (session) {
+      clearStudyVoiceHighlight(session);
+      setStudyVoiceButtonState(session, "idle");
+      session.status.textContent = message || "Stopped.";
+    }
+    if (studyVoiceAvailable) window.speechSynthesis.cancel();
+  }
+
+  function finishStudyVoice(session, message) {
+    if (activeStudyVoice !== session) return;
+    activeStudyVoice = null;
+    clearStudyVoiceHighlight(session);
+    setStudyVoiceButtonState(session, "idle");
+    session.status.textContent = message;
+  }
+
+  function preferredStudyVoice() {
+    const voices = window.speechSynthesis.getVoices();
+    return voices.find(function (voice) { return /^en-ZA$/i.test(voice.lang); }) ||
+      voices.find(function (voice) { return /^en-GB$/i.test(voice.lang); }) ||
+      voices.find(function (voice) { return /^en/i.test(voice.lang); }) || null;
+  }
+
+  function speakNextStudyVoicePart(session) {
+    if (activeStudyVoice !== session || session.paused) return;
+    clearStudyVoiceHighlight(session);
+    if (session.nextIndex >= session.parts.length) {
+      finishStudyVoice(session, "Finished reading.");
+      return;
+    }
+
+    const part = session.parts[session.nextIndex++];
+    const utterance = new window.SpeechSynthesisUtterance(part.text);
+    utterance.rate = session.rate;
+    utterance.lang = session.voice ? session.voice.lang : "en";
+    if (session.voice) utterance.voice = session.voice;
+    session.currentUtterance = utterance;
+
+    utterance.onstart = function () {
+      if (activeStudyVoice !== session) return;
+      session.activeTarget = part.element;
+      if (part.element) part.element.classList.add("study-voice-reading");
+    };
+    utterance.onend = function () {
+      if (activeStudyVoice !== session) return;
+      clearStudyVoiceHighlight(session);
+      session.currentUtterance = null;
+      if (!session.paused) speakNextStudyVoicePart(session);
+    };
+    utterance.onerror = function (event) {
+      if (activeStudyVoice !== session) return;
+      finishStudyVoice(session,
+        event.error === "not-allowed"
+          ? "Your browser blocked audio. Tap Play again or check audio permissions."
+          : "Speech stopped. Check that a device voice is available, then try again.");
+    };
+    try {
+      window.speechSynthesis.speak(utterance);
+    } catch (error) {
+      finishStudyVoice(session, "Unable to start the device voice. Try another browser.");
+    }
+  }
+
+  function resumeStudyVoice(session) {
+    if (activeStudyVoice !== session) return;
+    session.paused = false;
+    window.speechSynthesis.resume();
+    setStudyVoiceButtonState(session, "playing");
+    session.status.textContent = "Reading " +
+      (session.kind === "explain" ? "the saved explanation" : "the notes") + "...";
+    if (!session.currentUtterance) speakNextStudyVoicePart(session);
+  }
+
+  function createStudyVoiceControls(questionElement, questionNumber) {
+    const card = document.createElement("section");
+    card.className = "study-voice-card";
+    card.setAttribute("aria-label", "Voice reader for question " + questionNumber);
+    card.innerHTML = [
+      '<div class="study-voice-heading">',
+      '  <div><h4>Listen to study notes</h4>',
+      '  <p>Uses your device voice. No AI or paid voice service.</p></div>',
+      '  <label class="study-voice-field">Listen to',
+      '    <select class="study-voice-kind" aria-label="Choose what to listen to">',
+      '      <option value="notes">Read notes</option>',
+      '      <option value="explain">Explain to me</option>',
+      '    </select>',
+      '  </label>',
+      '</div>',
+      '<div class="study-voice-controls">',
+      '  <div class="study-voice-buttons">',
+      '    <button type="button" class="btn btn-primary" data-voice-action="play">Play</button>',
+      '    <button type="button" class="btn btn-secondary" data-voice-action="pause" disabled>Pause</button>',
+      '    <button type="button" class="btn btn-tertiary" data-voice-action="stop" disabled>Stop</button>',
+      '  </div>',
+      '  <label class="study-voice-field">Speed',
+      '    <select class="study-voice-speed" aria-label="Reading speed">',
+      '      <option value="0.75">0.75×</option>',
+      '      <option value="1" selected>1×</option>',
+      '      <option value="1.25">1.25×</option>',
+      '      <option value="1.5">1.5×</option>',
+      '    </select>',
+      '  </label>',
+      '</div>',
+      '<p class="study-voice-status" role="status" aria-live="polite">',
+      '  Explain to me reads the detailed notes already saved for this question.',
+      '</p>'
+    ].join("");
+
+    const kindSelect = card.querySelector(".study-voice-kind");
+    const speedSelect = card.querySelector(".study-voice-speed");
+    const playButton = card.querySelector('[data-voice-action="play"]');
+    const pauseButton = card.querySelector('[data-voice-action="pause"]');
+    const stopButton = card.querySelector('[data-voice-action="stop"]');
+    const status = card.querySelector(".study-voice-status");
+
+    if (!studyVoiceAvailable) {
+      card.querySelectorAll("button, select").forEach(function (element) {
+        element.disabled = true;
+      });
+      status.textContent = "Voice reading is not supported in this browser. The written notes remain available.";
+      return card;
+    }
+
+    playButton.addEventListener("click", function () {
+      if (activeStudyVoice && activeStudyVoice.root === card &&
+          activeStudyVoice.paused && activeStudyVoice.kind === kindSelect.value &&
+          activeStudyVoice.rate === Number(speedSelect.value)) {
+        resumeStudyVoice(activeStudyVoice);
+        return;
+      }
+      stopStudyVoice();
+      const parts = buildStudyVoiceParts(questionElement, kindSelect.value);
+      if (!parts.length) {
+        status.textContent = "There is no readable text for this question.";
+        return;
+      }
+      const session = {
+        root: card, kind: kindSelect.value, rate: Number(speedSelect.value),
+        parts: parts, nextIndex: 0, currentUtterance: null, activeTarget: null,
+        paused: false, voice: preferredStudyVoice(),
+        playButton: playButton, pauseButton: pauseButton,
+        stopButton: stopButton, status: status
+      };
+      activeStudyVoice = session;
+      setStudyVoiceButtonState(session, "playing");
+      status.textContent = "Reading " +
+        (session.kind === "explain" ? "the saved explanation" : "the notes") + "...";
+      speakNextStudyVoicePart(session);
+    });
+
+    pauseButton.addEventListener("click", function () {
+      const session = activeStudyVoice;
+      if (!session || session.root !== card) return;
+      if (session.paused) {
+        resumeStudyVoice(session);
+      } else {
+        session.paused = true;
+        window.speechSynthesis.pause();
+        clearStudyVoiceHighlight(session);
+        setStudyVoiceButtonState(session, "paused");
+        status.textContent = "Paused.";
+      }
+    });
+    stopButton.addEventListener("click", function () {
+      if (activeStudyVoice && activeStudyVoice.root === card) stopStudyVoice();
+    });
+    kindSelect.addEventListener("change", function () {
+      if (activeStudyVoice && activeStudyVoice.root === card) {
+        stopStudyVoice("Selection changed. Press Play to listen.");
+      }
+    });
+    speedSelect.addEventListener("change", function () {
+      if (activeStudyVoice && activeStudyVoice.root === card) {
+        stopStudyVoice("Speed changed. Press Play to restart at the new speed.");
+      }
+    });
+    return card;
+  }
+
+  window.addEventListener("pagehide", function () { stopStudyVoice(); });
 
   function isAiGradedQuestion(question) {
     return Boolean(
@@ -2487,6 +2762,7 @@ const testFiles = [
   }
 
   function loadQuestions(filename, customData = null) {
+    stopStudyVoice();
     currentTestFile = filename;
     if (filename !== CUSTOM_TEST_VALUE) {
       lastRegularTestValue = filename;
@@ -3068,6 +3344,7 @@ const testFiles = [
   }
 
   function renderQuestions() {
+    stopStudyVoice();
     if (!questionsContainer) {
       return;
     }
@@ -3341,29 +3618,29 @@ const testFiles = [
         }
       }
 
-      // Apply feedback if the test has been submitted
+      // Apply feedback if submitted. Study Mode also exposes the saved learning guide.
       if (testSubmitted) {
         applyFeedback(questionElement, question, actualIndex);
       } else if (isStudyMode) {
-        // Handle study mode
         questionElement.appendChild(createReadablePanel(
           isAiGradedQuestion(question) ? "Reference answer" : "Correct answer",
           formatAnswerForDisplay(question.correctAnswer), "study-correct-answer"
         ));
+      }
 
-        // Detailed study cards already include the explanation, definitions and example.
-        // Keep the short explanation only as a fallback to avoid repeating a long block.
-        if (question.explanation && !question.study) {
+      if (isStudyMode) {
+        questionElement.appendChild(
+          createStudyVoiceControls(questionElement, question.number || actualIndex + 1)
+        );
+
+        // The saved study guide takes the place of the short explanation when available.
+        if (question.study) {
+          const studyGuideElement = createStudyGuideElement(question.study);
+          if (studyGuideElement) questionElement.appendChild(studyGuideElement);
+        } else if (!testSubmitted && question.explanation) {
           questionElement.appendChild(createReadablePanel(
             "Why this answer?", question.explanation, "study-explanation"
           ));
-        }
-
-        if (question.study) {
-          const studyGuideElement = createStudyGuideElement(question.study);
-          if (studyGuideElement) {
-            questionElement.appendChild(studyGuideElement);
-          }
         }
       }
 
