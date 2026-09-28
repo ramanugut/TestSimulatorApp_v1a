@@ -937,6 +937,9 @@ document.addEventListener("DOMContentLoaded", function () {
         (!showFlashcards).toString()
       );
     }
+    if (window.MasteryEngine) {
+      window.MasteryEngine.setContext({ mode: activeMode, testFile: currentTestFile });
+    }
   }
 
   function applyStudyModeState(checked) {
@@ -3116,6 +3119,9 @@ const testFiles = [
   function loadQuestions(filename, customData = null) {
     stopStudyVoice();
     currentTestFile = filename;
+    if (window.MasteryEngine) {
+      window.MasteryEngine.setContext({ mode: currentMode, testFile: filename });
+    }
     if (filename !== CUSTOM_TEST_VALUE) {
       lastRegularTestValue = filename;
     }

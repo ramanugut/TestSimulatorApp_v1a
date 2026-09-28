@@ -1,0 +1,26 @@
+name: Mastery Engine Checks
+on:
+  push:
+    branches: [main, feature/reusable-mastery-engine]
+  pull_request:
+    branches: [main]
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Check JavaScript syntax
+        run: |
+          node --check script.js
+          node --check learning-engine.js
+          node --check learning-modules.js
+          node --check modules/inf3708-mastery.js
+      - name: Validate subject schema and activities
+        run: node tests/mastery-content.test.cjs
+      - name: Install DOM test dependency
+        run: npm install --no-save --no-package-lock jsdom@25
+      - name: Smoke-test mastery UI
+        run: node tests/mastery-ui.test.cjs
