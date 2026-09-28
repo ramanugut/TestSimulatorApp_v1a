@@ -5,8 +5,8 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>StudyFlow - Test Simulator</title>
-    <link rel="stylesheet" href="styles.css?v=20260928-live-seek-dark-v4">
+    <title>Test Simulator | Study &amp; Practise</title>
+    <link rel="stylesheet" href="styles.css?v=20260928-header-themes-v5">
     <link
         rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
@@ -15,14 +15,14 @@
 <body>
     <header id="floating-header" class="app-header">
         <div class="header-top">
-            <div class="logo">dY"s StudyFlow</div>
+            <div class="logo" aria-label="Test Simulator"><span class="logo-mark" aria-hidden="true">TS</span><span class="logo-name">Test Simulator</span></div>
             <div class="mobile-timer" aria-label="Time remaining">⏱️ <span id="mobile-time">00:00</span></div>
             <div class="header-top-actions">
                 <button
                     id="open-options"
                     class="header-options-btn"
                     type="button"
-                    aria-label="Open tools"
+                    aria-label="Open app settings"
                 aria-expanded="false"
                 aria-controls="options-modal"
             >
@@ -32,7 +32,7 @@
                         <path d="M13 17a1 1 0 0 1-1 1H9a1 1 0 1 1 0-2h3a1 1 0 0 1 1 1Zm0-4a1 1 0 0 1-1 1H9a1 1 0 1 1 0-2h3a1 1 0 0 1 1 1Zm0-4a1 1 0 0 1-1 1H9a1 1 0 1 1 0-2h3a1 1 0 0 1 1 1Z" fill="currentColor"/>
                     </svg>
                 </span>
-                <span class="options-label">Tools</span>
+                <span class="options-label">Settings</span>
             </button>
                 <button
                     id="header-toggle"
@@ -111,8 +111,8 @@
 
     <main class="page-wrapper">
         <div class="page-container">
-            <h1 class="page-title sr-only">StudyFlow Test Simulator</h1>
-            <section class="mode-tabs" role="tablist" aria-label="StudyFlow views">
+            <h1 class="page-title sr-only">Test Simulator</h1>
+            <section class="mode-tabs" role="tablist" aria-label="Test Simulator views">
                 <button
                     id="mode-tab-test"
                     class="mode-tab-button active"
@@ -331,7 +331,7 @@
     >
         <div class="modal-content tools-modal-content">
             <header class="modal-header">
-                <h2 id="options-modal-title">Test settings</h2>
+                <h2 id="options-modal-title">Settings</h2>
                 <button id="close-options" class="modal-close" type="button" aria-label="Close tools">&times;</button>
             </header>
 
@@ -339,10 +339,13 @@
                 <h3 id="modal-quick-settings-title" class="sr-only">Test settings</h3>
                 <div class="quick-settings-grid">
                     <div class="quick-item">
-                        <span class="input-label">Appearance</span>
-                        <button id="dark-mode-toggle" class="btn btn-tertiary" type="button">
-                            Toggle Dark Mode
-                        </button>
+                        <span class="input-label" id="theme-choice-label">Appearance</span>
+                        <div class="theme-choices" role="group" aria-labelledby="theme-choice-label">
+                            <button type="button" class="theme-choice" data-theme="light" aria-pressed="true"><span class="theme-swatch theme-swatch-light" aria-hidden="true"></span>Light</button>
+                            <button type="button" class="theme-choice" data-theme="slate" aria-pressed="false"><span class="theme-swatch theme-swatch-slate" aria-hidden="true"></span>Slate</button>
+                            <button type="button" class="theme-choice" data-theme="deep" aria-pressed="false"><span class="theme-swatch theme-swatch-deep" aria-hidden="true"></span>Deep</button>
+                            <button type="button" class="theme-choice" data-theme="black" aria-pressed="false"><span class="theme-swatch theme-swatch-black" aria-hidden="true"></span>Black</button>
+                        </div>
                     </div>
                     <div class="quick-item">
                         <label class="input-label" for="pass-mark-input">Pass mark (%)</label>
@@ -369,10 +372,10 @@
 
     <div id="achievement-toast" class="hidden"></div>
 
-    <footer class="app-footer">StudyFlow © 2025 — Developed by Marven Ramanugu, keep learning.</footer>
+    <footer class="app-footer">Test Simulator © 2026 · Developed by Marven Ramanugu.</footer>
 
     <script src="app-config.js"></script>
-    <script src="script.js?v=20260928-live-seek-dark-v4"></script>
+    <script src="script.js?v=20260928-header-themes-v5"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
 </body>
 </html>
