@@ -1582,6 +1582,19 @@ document.addEventListener("DOMContentLoaded", function () {
       );
     }
 
+    const diagramImage =
+      studentAnswer && typeof studentAnswer === "object" &&
+      typeof studentAnswer.image === "string" &&
+      question.answerType === "diagram"
+        ? studentAnswer.image
+        : "";
+    const answerText =
+      studentAnswer && typeof studentAnswer === "object"
+        ? (typeof studentAnswer.text === "string" ? studentAnswer.text.trim() : "")
+        : typeof studentAnswer === "string"
+          ? studentAnswer.trim()
+          : String(studentAnswer || "").trim();
+
     const response = await fetch(endpoint, {
       method: "POST",
       headers: {
@@ -1589,10 +1602,9 @@ document.addEventListener("DOMContentLoaded", function () {
       },
       body: JSON.stringify({
         question: question.text || "",
-        studentAnswer:
-          typeof studentAnswer === "string"
-            ? studentAnswer.trim()
-            : String(studentAnswer || "").trim(),
+        studentAnswer: answerText || (diagramImage ? "Answer supplied as a drawn network diagram." : ""),
+        diagramImage,
+        diagramRequired: question.diagramRequired === true,
         modelAnswer: formatAnswerForDisplay(question.correctAnswer),
         rubric: question.aiRubric || [],
         referenceNotes:
@@ -2762,6 +2774,173 @@ const testFiles = [
 
   //************************ SECTION 6: RENDERING QUESTIONS ************************//
 
+  function createDiagramAnswerInput(actualIndex) {
+    const previous = userAnswers[actualIndex];
+    const answer = previous && typeof previous === "object" && !Array.isArray(previous)
+      ? previous
+      : { text: "", image: "" };
+    userAnswers[actualIndex] = answer;
+
+    const wrapper = document.createElement("div");
+    wrapper.className = "diagram-answer";
+    const instructions = document.createElement("p");
+    instructions.textContent =
+      "Draw the AOA network here using a mouse, touch or pen, or upload a clear drawing. " +
+      "Add event numbers and earliest/latest dates on nodes, and activities/durations on arrows. " +
+      "Text alone is capped at 7/14 marks, as in the original exam.";
+    wrapper.appendChild(instructions);
+
+    const canvas = document.createElement("canvas");
+    canvas.width = 960;
+    canvas.height = 480;
+    canvas.className = "diagram-canvas";
+    canvas.setAttribute("aria-label", "Draw the Activity-on-Arrow network diagram");
+    const ctx = canvas.getContext("2d");
+    ctx.fillStyle = "#ffffff";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.strokeStyle = "#172b4d";
+    ctx.lineWidth = 2.8;
+    ctx.lineCap = "round";
+    ctx.lineJoin = "round";
+    wrapper.appendChild(canvas);
+
+    let drawing = false;
+    let edited = false;
+    const positions = (event) => {
+      const rect = canvas.getBoundingClientRect();
+      return {
+        x: (event.clientX - rect.left) * canvas.width / rect.width,
+        y: (event.clientY - rect.top) * canvas.height / rect.height,
+      };
+    };
+    const saveChange = () => {
+      updateProgress();
+      if (!isStudyMode && !timerStarted && !testSubmitted) {
+        startTimer();
+        if (startTestButton) startTestButton.disabled = true;
+        if (submitButton) submitButton.disabled = false;
+        testInProgress = true;
+      }
+      saveProgress();
+    };
+    const commitDrawing = () => {
+      if (!edited) return;
+      answer.image = canvas.toDataURL("image/jpeg", 0.84);
+      edited = false;
+      saveChange();
+    };
+    if (answer.image && /^data:image\//.test(answer.image)) {
+      const existing = new Image();
+      existing.onload = () => {
+        if (!edited) ctx.drawImage(existing, 0, 0, canvas.width, canvas.height);
+      };
+      existing.src = answer.image;
+    }
+    canvas.addEventListener("pointerdown", (event) => {
+      if (testSubmitted) return;
+      event.preventDefault();
+      const point = positions(event);
+      drawing = true;
+      edited = true;
+      canvas.setPointerCapture(event.pointerId);
+      ctx.beginPath();
+      ctx.moveTo(point.x, point.y);
+      ctx.lineTo(point.x + 0.01, point.y + 0.01);
+      ctx.stroke();
+    });
+    canvas.addEventListener("pointermove", (event) => {
+      if (!drawing || testSubmitted) return;
+      event.preventDefault();
+      const point = positions(event);
+      ctx.lineTo(point.x, point.y);
+      ctx.stroke();
+    });
+    const finishStroke = () => {
+      if (!drawing) return;
+      drawing = false;
+      commitDrawing();
+    };
+    canvas.addEventListener("pointerup", finishStroke);
+    canvas.addEventListener("pointercancel", finishStroke);
+    canvas.addEventListener("lostpointercapture", finishStroke);
+    if (testSubmitted) canvas.style.pointerEvents = "none";
+
+    const controls = document.createElement("div");
+    controls.className = "diagram-controls";
+    const clear = document.createElement("button");
+    clear.type = "button";
+    clear.className = "btn btn-secondary";
+    clear.textContent = "Clear drawing";
+    clear.disabled = testSubmitted;
+    clear.addEventListener("click", () => {
+      ctx.fillStyle = "#ffffff";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#172b4d";
+      answer.image = "";
+      edited = false;
+      saveChange();
+    });
+    controls.appendChild(clear);
+
+    const uploadLabel = document.createElement("label");
+    uploadLabel.className = "diagram-upload-label";
+    uploadLabel.textContent = "Or upload your drawing: ";
+    const upload = document.createElement("input");
+    upload.type = "file";
+    upload.accept = "image/png,image/jpeg,image/webp";
+    upload.disabled = testSubmitted;
+    upload.setAttribute("aria-label", "Upload a network diagram image");
+    upload.addEventListener("change", () => {
+      const file = upload.files && upload.files[0];
+      if (!file) return;
+      if (!/^image\/(png|jpeg|webp)$/.test(file.type) || file.size > 8 * 1024 * 1024) {
+        alert("Choose a PNG, JPEG or WebP image no larger than 8 MB.");
+        upload.value = "";
+        return;
+      }
+      const url = URL.createObjectURL(file);
+      const img = new Image();
+      img.onload = () => {
+        ctx.fillStyle = "#ffffff";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        const ratio = Math.min(canvas.width / img.width, canvas.height / img.height);
+        const width = img.width * ratio;
+        const height = img.height * ratio;
+        ctx.drawImage(img, (canvas.width - width) / 2, (canvas.height - height) / 2, width, height);
+        URL.revokeObjectURL(url);
+        edited = true;
+        commitDrawing();
+        upload.value = "";
+      };
+      img.onerror = () => {
+        URL.revokeObjectURL(url);
+        alert("Could not read that picture. Try another image.");
+        upload.value = "";
+      };
+      img.src = url;
+    });
+    uploadLabel.appendChild(upload);
+    controls.appendChild(uploadLabel);
+    wrapper.appendChild(controls);
+
+    const textLabel = document.createElement("label");
+    textLabel.textContent = "Optional explanation / calculations";
+    const textarea = document.createElement("textarea");
+    textarea.name = "question-" + actualIndex;
+    textarea.className = "text-area-input";
+    textarea.placeholder = "For example: node 1 to node 2 = A(7); earliest/latest times ...";
+    textarea.rows = 5;
+    textarea.value = answer.text || "";
+    textarea.disabled = testSubmitted;
+    textarea.addEventListener("input", () => {
+      answer.text = textarea.value;
+      saveChange();
+    });
+    textLabel.appendChild(textarea);
+    wrapper.appendChild(textLabel);
+    return wrapper;
+  }
+
   function renderQuestions() {
     if (!questionsContainer) {
       return;
@@ -2986,6 +3165,12 @@ const testFiles = [
           optionsList.appendChild(optionElement);
         });
         questionElement.appendChild(optionsList);
+      } else if (question.answerType === "diagram") {
+        questionElement.appendChild(createDiagramAnswerInput(actualIndex));
+        const note = document.createElement("div");
+        note.className = "ai-answer-note";
+        note.textContent = "AI will inspect the submitted drawing and your optional calculations.";
+        questionElement.appendChild(note);
       } else {
         // Handle questions without options (e.g., short answer questions)
         const textareaElement = document.createElement("textarea");
