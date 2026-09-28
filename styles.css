@@ -3771,3 +3771,174 @@ body.dark-mode:is(.theme-slate,.theme-deep,.theme-black) :is(
   #options-modal .theme-choices { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   #options-modal .theme-choice { min-height: 44px; }
 }
+
+
+/* Quiet, cohesive accents for all three dark intensities.
+   Sage replaces neon green; softened steel blue, amber and rose remain distinct. */
+body.dark-mode.theme-slate {
+  --accent-color: #88b3a0;
+  --accent-strong: #7ca893;
+  --accent-secondary: #9bb7c5;
+  --selected-option-color: #88b3a0;
+  --accent-ink: #0b1b15;
+  --danger-color: #d5a3a4;
+  --warning-color: #d4bc93;
+  --accent-wash: rgba(136,179,160,.10);
+  --secondary-wash: rgba(155,183,197,.10);
+  --dark-choice: #23322f;
+  --dark-correct: #203029;
+  --dark-answer: #1b2923;
+  --dark-remember: #203028;
+  --dark-book: #252e31;
+  --dark-explanation: #1d282d;
+  --dark-reading: #2b4440;
+  --dark-pass-panel: #1c2c24;
+  --dark-fail-panel: #322527;
+  --dark-amber-panel: #302c23;
+  --dark-info-panel: #222d34;
+}
+body.dark-mode.theme-deep {
+  --accent-color: #82aa96;
+  --accent-strong: #77a08a;
+  --accent-secondary: #92aab8;
+  --selected-option-color: #82aa96;
+  --accent-ink: #081711;
+  --danger-color: #cfa0a2;
+  --warning-color: #ceb58d;
+  --accent-wash: rgba(130,170,150,.10);
+  --secondary-wash: rgba(146,170,184,.10);
+  --dark-choice: #172620;
+  --dark-correct: #17271f;
+  --dark-answer: #14211a;
+  --dark-remember: #17251c;
+  --dark-book: #182126;
+  --dark-explanation: #151e23;
+  --dark-reading: #253b35;
+  --dark-pass-panel: #14221a;
+  --dark-fail-panel: #271c1f;
+  --dark-amber-panel: #262218;
+  --dark-info-panel: #19232a;
+}
+body.dark-mode.theme-black {
+  --accent-color: #7c9f8d;
+  --accent-strong: #759783;
+  --accent-secondary: #879fac;
+  --selected-option-color: #7c9f8d;
+  --accent-ink: #07140d;
+  --danger-color: #c79b9d;
+  --warning-color: #c7af89;
+  --accent-wash: rgba(124,159,141,.11);
+  --secondary-wash: rgba(135,159,172,.10);
+  --dark-choice: #101e19;
+  --dark-correct: #11221a;
+  --dark-answer: #101a13;
+  --dark-remember: #111d15;
+  --dark-book: #10171a;
+  --dark-explanation: #0d1519;
+  --dark-reading: #1c322b;
+  --dark-pass-panel: #101a13;
+  --dark-fail-panel: #1d1315;
+  --dark-amber-panel: #1d1a11;
+  --dark-info-panel: #111a1f;
+}
+
+/* Accent fills need dark ink, while muted outline buttons remain easy to read. */
+body.dark-mode:is(.theme-slate,.theme-deep,.theme-black) :is(
+  .btn-primary, .mode-tab-button.active, .bookmark-button.active,
+  .bookmark-button:hover, .floating-actions-toggle, #back-to-top,
+  #achievement-toast
+),
+body.dark-mode:is(.theme-slate,.theme-deep,.theme-black) .app-header .logo-mark {
+  background: var(--accent-color);
+  color: var(--accent-ink);
+}
+body.dark-mode:is(.theme-slate,.theme-deep,.theme-black) .btn-primary:hover {
+  background: var(--accent-strong);
+  color: var(--accent-ink);
+}
+body.dark-mode:is(.theme-slate,.theme-deep,.theme-black) :is(
+  .btn-tertiary, .readable-panel-heading, .feedback.correct,
+  .flashcard-answer-panel .readable-panel-heading,
+  .flashcard-answer-panel h3, .bookmark-label
+) { color: var(--accent-color); }
+body.dark-mode:is(.theme-slate,.theme-deep,.theme-black) .btn-tertiary {
+  border-color: var(--accent-color);
+}
+body.dark-mode:is(.theme-slate,.theme-deep,.theme-black) :is(
+  .btn-tertiary:hover, .result-actions .btn.btn-tertiary:hover
+) { background: var(--accent-wash); }
+body.dark-mode:is(.theme-slate,.theme-deep,.theme-black) .result-actions .btn.btn-tertiary {
+  background: var(--accent-wash);
+}
+body.dark-mode:is(.theme-slate,.theme-deep,.theme-black) :is(
+  .flashcard-source, .question-number
+) { color: var(--accent-secondary); }
+body.dark-mode:is(.theme-slate,.theme-deep,.theme-black) .flashcard-source {
+  background: var(--secondary-wash);
+}
+body.dark-mode:is(.theme-slate,.theme-deep,.theme-black) :is(
+  .flashcard-answer-panel, .flashcard-answer-panel.readable-panel
+) {
+  background: var(--dark-answer);
+  color: var(--text-color);
+  border-left-color: var(--accent-color);
+}
+body.dark-mode:is(.theme-slate,.theme-deep,.theme-black) .study-voice-reading {
+  background: var(--dark-reading);
+  outline-color: var(--accent-secondary);
+}
+body.dark-mode:is(.theme-slate,.theme-deep,.theme-black) :is(
+  .study-guide-card, .study-correct-answer, .correct-answer
+) { border-left-color: var(--accent-color); }
+body.dark-mode:is(.theme-slate,.theme-deep,.theme-black) .study-guide-card {
+  border-left-color: var(--accent-secondary);
+}
+
+/* Success, information, warning and error have separate low-glare states.
+   No legacy pastel/gradient banner should illuminate an OLED-dark workspace. */
+body.dark-mode:is(.theme-slate,.theme-deep,.theme-black) .result-banner.result-banner--pass {
+  background: var(--dark-pass-panel);
+  border-color: var(--accent-color);
+  color: var(--text-color);
+}
+body.dark-mode:is(.theme-slate,.theme-deep,.theme-black) .result-banner.result-banner--fail {
+  background: var(--dark-fail-panel);
+  border-color: var(--danger-color);
+  color: var(--text-color);
+}
+body.dark-mode:is(.theme-slate,.theme-deep,.theme-black) :is(
+  .result-banner--pass, .result-banner--fail
+) :is(.result-headline,.result-summary) { color: var(--text-color); }
+body.dark-mode:is(.theme-slate,.theme-deep,.theme-black) .result-banner::before {
+  opacity: .045;
+}
+body.dark-mode:is(.theme-slate,.theme-deep,.theme-black) .bookmark-pill {
+  background: var(--dark-amber-panel);
+  color: var(--warning-color);
+  border: 1px solid var(--border-color);
+}
+body.dark-mode:is(.theme-slate,.theme-deep,.theme-black) .ai-grade-verdict--correct {
+  background: var(--dark-pass-panel);
+  color: var(--accent-color);
+}
+body.dark-mode:is(.theme-slate,.theme-deep,.theme-black) .ai-grade-verdict--mostly_correct {
+  background: var(--dark-info-panel);
+  color: var(--accent-secondary);
+}
+body.dark-mode:is(.theme-slate,.theme-deep,.theme-black) .ai-grade-verdict--partially_correct {
+  background: var(--dark-amber-panel);
+  color: var(--warning-color);
+}
+body.dark-mode:is(.theme-slate,.theme-deep,.theme-black) .ai-grade-verdict--incorrect {
+  background: var(--dark-fail-panel);
+  color: var(--danger-color);
+}
+body.dark-mode:is(.theme-slate,.theme-deep,.theme-black) .ai-grade-feedback {
+  border-left-color: var(--accent-secondary);
+}
+body.dark-mode:is(.theme-slate,.theme-deep,.theme-black) .result-actions .btn:focus-visible,
+body.dark-mode:is(.theme-slate,.theme-deep,.theme-black) :is(
+  button, input, select, textarea, summary, a
+):focus-visible {
+  outline-color: var(--accent-secondary);
+}
