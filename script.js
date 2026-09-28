@@ -4466,7 +4466,8 @@ const testFiles = [
       }
     }
 
-    if (question.explanation) {
+    // Study Mode already displays the fuller guide; do not repeat the same explanation.
+    if (question.explanation && !(isStudyMode && question.study)) {
       questionElement.appendChild(createReadablePanel(
         "Why this answer?", question.explanation, "explanation"
       ));
