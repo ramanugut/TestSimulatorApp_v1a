@@ -41,8 +41,6 @@ body.modal-open {
     overflow: hidden;
 }
 
-}
-
 body.light-mode {
     background: var(--bg-color);
 }
@@ -3321,4 +3319,72 @@ body.dark-mode textarea::placeholder {
 body.dark-mode .study-voice-pickable:hover,
 body.dark-mode .study-voice-pickable:focus-visible {
   background: #365666;
+}
+
+
+/* Corrected Test Simulator branding: compact, legible at phone sizes. */
+.app-header .logo {
+  display: inline-flex; align-items: center; gap: .45rem; min-width: 0;
+  color: var(--text-color); font-weight: 750; font-size: .95rem; letter-spacing: -.02em;
+}
+.app-header .logo-mark {
+  display: inline-grid; place-items: center; flex: 0 0 29px; height: 29px;
+  border-radius: 8px; background: var(--accent-color); color: #10291f;
+  font-size: .7rem; font-weight: 800; letter-spacing: -.03em;
+}
+.app-header .logo-name { white-space: nowrap; }
+.app-header .header-top { min-width: 0; }
+.app-header .header-top-actions { flex: 0 0 auto; }
+.app-header .header-options-btn { width: 40px; min-width: 40px; height: 40px; min-height: 40px; }
+.app-header .header-options-btn:focus-visible,
+.app-header .header-toggle:focus-visible { outline: 2px solid var(--accent-secondary); outline-offset: 2px; }
+@media (max-width: 768px) {
+  .app-header .logo { font-size: .92rem; }
+  .app-header .header-toggle, .app-header .header-options-btn {
+    width: 44px; min-width: 44px; height: 44px; min-height: 44px;
+  }
+}
+@media (max-width: 400px) {
+  .app-header .logo { font-size: .86rem; }
+  .app-header .logo-mark { display: none; }
+  .app-header .header-top { gap: .28rem; }
+  .app-header .header-options-btn, .app-header .header-toggle {
+    width: 40px; min-width: 40px; height: 40px; min-height: 40px;
+  }
+  .app-header .mobile-timer { font-size: .76rem; }
+}
+
+/* Appearance stays in Settings, never another permanent header control. */
+#options-modal .quick-item--appearance {
+  display: flex; flex-direction: column; align-items: stretch; gap: .55rem;
+}
+#options-modal .quick-item--appearance .input-label { flex: initial; }
+#options-modal .theme-choices {
+  display: grid; grid-template-columns: repeat(4, minmax(0,1fr));
+  width: 100%; max-width: none; gap: .4rem;
+}
+.theme-choice {
+  display: inline-flex; align-items: center; justify-content: center; gap: .38rem;
+  min-width: 0; min-height: 43px; padding: .45rem .35rem;
+  border: 1px solid var(--border-color); border-radius: var(--radius-sm);
+  background: var(--surface-color); color: var(--text-color); font: inherit;
+  font-size: .81rem; font-weight: 650; cursor: pointer;
+  transition: background-color .15s ease, border-color .15s ease;
+}
+.theme-choice:hover, .theme-choice:focus-visible { border-color: var(--accent-secondary); }
+.theme-choice:focus-visible { outline: 2px solid var(--accent-secondary); outline-offset: 2px; }
+.theme-choice[aria-pressed="true"] {
+  border-color: var(--accent-color); box-shadow: inset 0 0 0 1px var(--accent-color);
+  background: var(--subtle-surface);
+}
+.theme-swatch {
+  flex: 0 0 15px; width: 15px; height: 15px; border-radius: 50%;
+  border: 1px solid rgba(115,133,150,.6);
+}
+.theme-swatch-light { background: #f9fafb; }
+.theme-swatch-slate { background: #22303e; }
+.theme-swatch-deep { background: #101722; }
+.theme-swatch-black { background: #000000; }
+@media (max-width: 390px) {
+  #options-modal .theme-choices { grid-template-columns: repeat(2,minmax(0,1fr)); }
 }
