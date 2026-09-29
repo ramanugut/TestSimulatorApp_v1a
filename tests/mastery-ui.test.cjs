@@ -11,7 +11,7 @@ const dom = new JSDOM(
   { url: "http://localhost/", runScripts: "outside-only" }
 );
 const window = dom.window;
-for (const path of ["learning-modules.js", "modules/inf3708-mastery.js", "learning-engine.js"]) {
+for (const path of ["learning-modules.js", "modules/inf3708-mastery.js", "modules/ict2622-mastery.js", "learning-engine.js"]) {
   window.eval(fs.readFileSync(path, "utf8"));
 }
 window.document.dispatchEvent(new window.Event("DOMContentLoaded"));
@@ -82,5 +82,11 @@ assert.ok(root.textContent.includes("A reusable topic"));
 assert.equal(window.document.getElementById("mastery-module-label").textContent, "Other subject");
 assert.equal(window.localStorage.getItem("test-simulator:mastery:v1:other-subject"), null,
   "Other subject progress should start clean");
-console.log("Mastery UI smoke test passed: topic hub, diagram, calculation, progress isolation, mode switching.");
+engine.setContext({ mode: "study", testFile: "ict2622-oct-nov-2025-practice.json" });
+panel.open = true;
+panel.dispatchEvent(new window.Event("toggle"));
+assert.equal(window.document.getElementById("mastery-module-label").textContent, "ICT2622");
+assert.ok(root.textContent.includes("System vision and development cycles"),
+  "ICT2622 should use the same shared topic engine");
+console.log("Mastery UI smoke test passed: topic hub, diagram, calculation, progress isolation, ICT2622 and mode switching.");
 dom.window.close();
