@@ -3198,6 +3198,55 @@ const testFiles = [
     }
   }
 
+  // These five original AI-generated MCQs are a new practice SESSION, never
+  // added to the official-paper list. They use the existing local MCQ grader.
+  function startGeneratedPractice(generated, info = {}) {
+    if (!Array.isArray(generated) || generated.length !== 5 ||
+        generated.some(q => !q.options || !q.options.includes(q.correctAnswer))) {
+      throw new Error("The generated practice set is incomplete.");
+    }
+    const firstSource = testFiles.includes(currentTestFile)
+      ? currentTestFile
+      : currentCustomSession?.sources?.find(source => testFiles.includes(source.file))?.file;
+    if (!firstSource) {
+      throw new Error("Select a saved paper before opening AI-generated practice.");
+    }
+    const selectedLabel = testSelect?.selectedOptions?.[0]?.textContent || firstSource;
+    const sources = isCustomSessionActive() && Array.isArray(currentCustomSession.sources)
+      ? currentCustomSession.sources.filter(source => testFiles.includes(source.file))
+      : [{ file: firstSource, name: selectedLabel, questionCount: questions.length }];
+    const practice = cloneQuestionsData(generated).map(question => ({
+      ...question,
+      sourceTestId: firstSource,
+      sourceTestName: "AI-generated practice · not an official paper",
+      sourceType: "AI-generated revision; not an actual UNISA exam or assessment"
+    }));
+    const matchedCode = String(info.module || selectedLabel).match(/\b(?:ICT|INF)\d{4}\b/i);
+    const label = "AI practice · " + (matchedCode ? matchedCode[0].toUpperCase() : "Mixed topics") +
+      " · not official";
+    currentCustomSession = {
+      id: "ai-practice-" + Date.now(),
+      sources,
+      requestedCount: practice.length,
+      questionCount: practice.length,
+      totalAvailableQuestions: practice.length,
+      timerMinutes: 10,
+      sourceQuestions: cloneQuestionsData(practice),
+      activeQuestions: cloneQuestionsData(practice),
+      displayName: label,
+    };
+    ensureCustomTestOption(label);
+    testSelect.value = CUSTOM_TEST_VALUE;
+    testSelect.dataset.previousValue = CUSTOM_TEST_VALUE;
+    if (timerInput) timerInput.value = "10";
+    clearSavedProgress();
+    loadQuestions(CUSTOM_TEST_VALUE, { questions: practice });
+    setMode("test");
+    if (typeof window.scrollTo === "function") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }
+
   async function createCustomSession({
     selectedTests,
     requestedCount,
