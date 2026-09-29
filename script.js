@@ -3955,6 +3955,25 @@ const testFiles = [
         note.className = "ai-answer-note";
         note.textContent = "AI will inspect the submitted drawing and your optional calculations.";
         questionElement.appendChild(note);
+      } else if (window.AnswerWorkspace &&
+          ["uml-diagram", "table", "command", "code"].includes(question.answerType)) {
+        const onChange = value => {
+          userAnswers[actualIndex] = value;
+          updateProgress();
+          if (!isStudyMode && !timerStarted && !testSubmitted) {
+            startTimer();
+            if (startTestButton) startTestButton.disabled = true;
+            if (submitButton) submitButton.disabled = false;
+            testInProgress = true;
+          }
+          saveProgress();
+        };
+        const method = question.answerType === "uml-diagram"
+          ? "createDiagram" : question.answerType === "table"
+            ? "createTable" : "createEditor";
+        questionElement.appendChild(window.AnswerWorkspace[method](
+          question, userAnswers[actualIndex], onChange, testSubmitted
+        ));
       } else {
         // Handle questions without options (e.g., short answer questions)
         const textareaElement = document.createElement("textarea");
