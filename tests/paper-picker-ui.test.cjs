@@ -118,7 +118,7 @@ async function main() {
   assert.equal(moduleCards().length, 3, "clearing search restores all modules");
 
   byText(get("paper-picker-modules"), "ICT2631").click();
-  assert.match(get("paper-picker-step").textContent, /2. Choose a paper · ICT2631/);
+  assert.match(get("paper-picker-step").textContent, /2. Choose a paper · Operating Systems Practice/);
   assert.equal(paperRows().length, 2);
   assert.ok(byText(get("paper-picker-results"), "Assessment 2 · 2026"),
     "assessment and year are visible");
@@ -135,7 +135,7 @@ async function main() {
   assert.equal(paperRows().length, 1);
   assert.ok(get("paper-picker-results").textContent.includes("INF3708"));
   type("");
-  assert.match(get("paper-picker-step").textContent, /ICT2631/,
+  assert.match(get("paper-picker-step").textContent, /Operating Systems Practice/,
     "clearing search returns to the previous module");
   get("paper-picker-back").click();
   assert.equal(moduleCards().length, 3, "back returns directly to module selection");
