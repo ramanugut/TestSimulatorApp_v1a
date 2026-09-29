@@ -1,0 +1,311 @@
+/* Paper browser: a compact header entry point and one responsive dialog.
+   Theme values come from the app's existing light / three dark palettes. */
+.paper-native-select { display: none !important; }
+.test-select-group .paper-picker-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .65rem;
+  width: 100%;
+  min-width: 0;
+  min-height: 42px;
+  padding: .38rem .7rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  background: var(--subtle-surface);
+  color: var(--text-color);
+  text-align: left;
+  cursor: pointer;
+}
+.test-select-group .paper-picker-trigger:hover {
+  border-color: var(--accent-color);
+  background: var(--surface-color);
+}
+.paper-picker-trigger:focus-visible,
+.paper-picker-close:focus-visible,
+.paper-filter:focus-visible,
+.paper-picker-item:focus-visible,
+.paper-picker-search-wrap input:focus-visible {
+  outline: 2px solid var(--accent-secondary);
+  outline-offset: 3px;
+}
+.paper-trigger-copy {
+  display: flex;
+  flex-direction: column;
+  gap: .08rem;
+  min-width: 0;
+  flex: 1;
+}
+.paper-trigger-copy strong,
+.paper-trigger-copy span {
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.paper-trigger-copy strong {
+  font-size: .71rem;
+  line-height: 1.2;
+  color: var(--accent-color);
+  font-weight: 750;
+  letter-spacing: .045em;
+  text-transform: uppercase;
+}
+.paper-trigger-copy span {
+  font-size: .84rem;
+  line-height: 1.3;
+  font-weight: 550;
+  color: var(--text-color);
+}
+.paper-picker-trigger svg {
+  flex: 0 0 auto;
+  width: 18px;
+  height: 18px;
+  color: var(--muted-text);
+}
+.paper-picker-dialog {
+  position: fixed;
+  inset: 0;
+  width: min(700px, calc(100vw - 32px));
+  max-width: 700px;
+  max-height: min(84dvh, 760px);
+  margin: auto;
+  padding: 0;
+  border: 1px solid var(--border-color);
+  border-radius: 18px;
+  background: var(--surface-color);
+  color: var(--text-color);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, .35);
+  overflow: hidden;
+  color-scheme: inherit;
+}
+.paper-picker-dialog::backdrop {
+  background: rgba(0, 0, 0, .68);
+  backdrop-filter: blur(3px);
+}
+.paper-picker-shell {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  max-height: min(84dvh, 760px);
+}
+.paper-picker-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.15rem 1.3rem .85rem;
+}
+.paper-picker-eyebrow {
+  color: var(--accent-color);
+  font-size: .68rem;
+  font-weight: 750;
+  letter-spacing: .12em;
+  margin-bottom: .3rem;
+}
+.paper-picker-heading h2 {
+  color: var(--text-color);
+  font-size: 1.3rem;
+  line-height: 1.2;
+  font-weight: 700;
+}
+.paper-picker-heading #paper-picker-description {
+  margin-top: .3rem;
+  font-size: .8rem;
+  line-height: 1.4;
+  color: var(--muted-text);
+}
+.paper-picker-close {
+  display: grid;
+  place-items: center;
+  flex: 0 0 38px;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  background: var(--subtle-surface);
+  color: var(--text-color);
+  font-size: 1.55rem;
+  cursor: pointer;
+}
+.paper-picker-close:hover { border-color: var(--accent-color); }
+.paper-picker-search-wrap {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  margin: 0 1.3rem .9rem;
+  padding: 0 .8rem;
+  min-height: 44px;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  background: var(--subtle-surface);
+  color: var(--muted-text);
+}
+.paper-picker-search-wrap:focus-within { border-color: var(--accent-secondary); }
+.paper-picker-search-wrap svg { flex: 0 0 17px; width: 17px; height: 17px; }
+.paper-picker-search-wrap input,
+.app-header .paper-picker-search-wrap input {
+  width: 100%;
+  height: 42px;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--text-color);
+  font: inherit;
+  font-size: .9rem;
+}
+.paper-picker-search-wrap input::placeholder { color: var(--muted-text); }
+.paper-picker-search-wrap input:focus-visible { outline: 0; }
+.paper-picker-modules {
+  display: flex;
+  align-items: stretch;
+  gap: .45rem;
+  padding: 0 1.3rem .8rem;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+.paper-picker-types {
+  display: flex;
+  gap: .35rem;
+  flex-wrap: wrap;
+  padding: .7rem 1.3rem;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  background: var(--subtle-surface);
+}
+.paper-filter {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .35rem;
+  flex: 0 0 auto;
+  min-height: 36px;
+  padding: .45rem .72rem;
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  background: var(--surface-color);
+  color: var(--muted-text);
+  font: inherit;
+  font-size: .79rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.paper-filter:hover { color: var(--text-color); border-color: var(--accent-color); }
+.paper-filter.is-active {
+  border-color: var(--accent-color);
+  background: var(--accent-color);
+  color: var(--bg-color);
+}
+.paper-filter-count {
+  opacity: .85;
+  font-size: .7rem;
+  font-variant-numeric: tabular-nums;
+}
+.paper-picker-count {
+  margin: 0;
+  padding: .75rem 1.3rem .25rem;
+  font-size: .75rem;
+  color: var(--muted-text);
+}
+.paper-picker-results {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 0 1.3rem 1.2rem;
+  scrollbar-width: thin;
+}
+.paper-picker-section { margin-top: .65rem; }
+.paper-picker-section-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 0 .35rem;
+  padding: .25rem .15rem;
+  font-size: .78rem;
+  letter-spacing: .035em;
+  font-weight: 750;
+  color: var(--muted-text);
+}
+.paper-picker-section-title span {
+  font-weight: 600;
+  font-size: .72rem;
+}
+.paper-picker-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .85rem;
+  width: 100%;
+  min-height: 64px;
+  padding: .7rem .85rem;
+  margin-bottom: .35rem;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  background: var(--surface-color);
+  color: var(--text-color);
+  text-align: left;
+  font: inherit;
+  cursor: pointer;
+}
+.paper-picker-item:hover { border-color: var(--accent-secondary); background: var(--subtle-surface); }
+.paper-picker-item.is-current {
+  border-color: var(--accent-color);
+  box-shadow: inset 3px 0 0 var(--accent-color);
+  background: var(--subtle-surface);
+}
+.paper-picker-item-copy { min-width: 0; display: flex; flex-direction: column; gap: .23rem; }
+.paper-picker-item-copy strong {
+  font-size: .88rem;
+  line-height: 1.35;
+  font-weight: 650;
+  color: var(--text-color);
+  overflow-wrap: anywhere;
+}
+.paper-picker-item-detail {
+  font-size: .72rem;
+  line-height: 1.35;
+  color: var(--muted-text);
+}
+.paper-picker-item-marker {
+  flex: 0 0 auto;
+  color: var(--accent-color);
+  font-size: .78rem;
+  font-weight: 700;
+}
+.paper-picker-item:not(.is-current) .paper-picker-item-marker { font-size: 1.35rem; }
+.paper-picker-empty {
+  padding: 1.6rem .7rem;
+  text-align: center;
+  font-size: .86rem;
+  color: var(--muted-text);
+}
+@media (max-width: 768px) {
+  .test-select-group .paper-picker-trigger { min-height: 44px; }
+  .paper-picker-dialog {
+    inset: auto 0 0;
+    width: 100%;
+    max-width: none;
+    max-height: 88dvh;
+    margin: 0;
+    border-radius: 18px 18px 0 0;
+    border-bottom: 0;
+  }
+  .paper-picker-shell { max-height: 88dvh; }
+  .paper-picker-heading { padding: 1rem 1rem .75rem; }
+  .paper-picker-heading h2 { font-size: 1.2rem; }
+  .paper-picker-search-wrap { margin: 0 1rem .8rem; }
+  .paper-picker-modules { padding: 0 1rem .75rem; }
+  .paper-picker-types { padding: .6rem 1rem; }
+  .paper-filter { min-height: 36px; padding: .4rem .64rem; font-size: .76rem; }
+  .paper-picker-count { padding: .6rem 1rem .2rem; }
+  .paper-picker-results { padding: 0 1rem calc(1rem + env(safe-area-inset-bottom)); }
+  .paper-picker-item { min-height: 64px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .paper-picker-dialog, .paper-picker-item { scroll-behavior: auto; }
+}
