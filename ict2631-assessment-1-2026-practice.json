@@ -1,0 +1,568 @@
+{
+  "testName": "ICT2631 – 2026 Assessment 1 Practice (original)",
+  "module": "ICT2631",
+  "assessment": "2026 assessment-style practice 1",
+  "sourceType": "Original revision questions, not a verified UNISA 2026 assessment",
+  "sourceReference": "https://www.studocu.com/en-za/course/university-of-south-africa/operating-systems-practice/6669827",
+  "sourceLimitations": "The actual 2026 assessment texts were not found; this paper is independently written preparation material.",
+  "totalMarks": 100,
+  "durationMinutes": 75,
+  "preserveOrder": true,
+  "marking": "mixed-auto-choice-and-optional-AI-written",
+  "questions": [
+    {
+      "number": "1",
+      "text": "What is the main job of an operating-system kernel?",
+      "options": [
+        "Draw every application's icons",
+        "Manage hardware resources and offer core services to programs",
+        "Store all websites on the internet",
+        "Write software licences"
+      ],
+      "correctAnswer": "Manage hardware resources and offer core services to programs",
+      "marks": 5,
+      "explanation": "The kernel is the core of an operating system that manages processes, memory and hardware access.\n\nWhy: Applications use system calls to request operating-system services.\n\nExample: The kernel controls access to CPU time and physical memory.\n\nStudent note: A shell is an interface to the OS; it is not the same thing as the kernel.",
+      "study": {
+        "title": "Kernel",
+        "simple": "The kernel is the core of an operating system that manages processes, memory and hardware access.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "Applications use system calls to request operating-system services."
+        ],
+        "example": "The kernel controls access to CPU time and physical memory.",
+        "pitfall": "A shell is an interface to the OS; it is not the same thing as the kernel.",
+        "remember": "Applications use system calls to request operating-system services.",
+        "keyTerms": [
+          {
+            "term": "Kernel",
+            "meaning": "The kernel is the core of an operating system that manages processes, memory and hardware access."
+          }
+        ]
+      }
+    },
+    {
+      "number": "2",
+      "text": "Which statement best describes a Linux distribution?",
+      "options": [
+        "A kernel plus a selected set of tools, packages and configuration",
+        "A hardware brand",
+        "A single word processor",
+        "A filesystem error"
+      ],
+      "correctAnswer": "A kernel plus a selected set of tools, packages and configuration",
+      "marks": 5,
+      "explanation": "A distribution combines the Linux kernel with user-space software and package management.\n\nWhy: Different distributions make different packaging and support choices.\n\nExample: Ubuntu and Fedora both distribute Linux with differing package tools.\n\nStudent note: Do not assume commands for one distro apply to every other distro.",
+      "study": {
+        "title": "Linux distribution",
+        "simple": "A distribution combines the Linux kernel with user-space software and package management.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "Different distributions make different packaging and support choices."
+        ],
+        "example": "Ubuntu and Fedora both distribute Linux with differing package tools.",
+        "pitfall": "Do not assume commands for one distro apply to every other distro.",
+        "remember": "Different distributions make different packaging and support choices.",
+        "keyTerms": [
+          {
+            "term": "Linux distribution",
+            "meaning": "A distribution combines the Linux kernel with user-space software and package management."
+          }
+        ]
+      }
+    },
+    {
+      "number": "3",
+      "text": "Which kind of freedom is normally associated with open-source software?",
+      "options": [
+        "Permission to inspect and modify source under licence terms",
+        "The right to ignore all licences",
+        "Free unlimited technical support",
+        "No need to preserve copyright"
+      ],
+      "correctAnswer": "Permission to inspect and modify source under licence terms",
+      "marks": 5,
+      "explanation": "Open-source licences give specified rights to inspect, use, change and redistribute software.\n\nWhy: The licence terms still apply when software is copied or shared.\n\nExample: Developers can inspect source code for a released component.\n\nStudent note: 'Free' in free software is about freedom, not necessarily zero price.",
+      "study": {
+        "title": "Open source",
+        "simple": "Open-source licences give specified rights to inspect, use, change and redistribute software.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "The licence terms still apply when software is copied or shared."
+        ],
+        "example": "Developers can inspect source code for a released component.",
+        "pitfall": "'Free' in free software is about freedom, not necessarily zero price.",
+        "remember": "The licence terms still apply when software is copied or shared.",
+        "keyTerms": [
+          {
+            "term": "Open source",
+            "meaning": "Open-source licences give specified rights to inspect, use, change and redistribute software."
+          }
+        ]
+      }
+    },
+    {
+      "number": "4",
+      "text": "Which pair correctly contrasts MIT-style permissive licensing with GPL-style copyleft?",
+      "options": [
+        "MIT generally gives broad reuse with notices; GPL has stronger conditions for certain distributed derivative works",
+        "MIT bans all modifications; GPL bans source access",
+        "Both automatically put work in the public domain",
+        "Both prohibit commercial use"
+      ],
+      "correctAnswer": "MIT generally gives broad reuse with notices; GPL has stronger conditions for certain distributed derivative works",
+      "marks": 5,
+      "explanation": "Open-source licences vary in how they require notices and downstream licensing.\n\nWhy: Permissive terms are generally lighter than strong copyleft distribution conditions.\n\nExample: An organisation inventories licences before shipping a product.\n\nStudent note: Always read the exact licence and version rather than relying on a slogan.",
+      "study": {
+        "title": "Licence models",
+        "simple": "Open-source licences vary in how they require notices and downstream licensing.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "Permissive terms are generally lighter than strong copyleft distribution conditions."
+        ],
+        "example": "An organisation inventories licences before shipping a product.",
+        "pitfall": "Always read the exact licence and version rather than relying on a slogan.",
+        "remember": "Permissive terms are generally lighter than strong copyleft distribution conditions.",
+        "keyTerms": [
+          {
+            "term": "Licence models",
+            "meaning": "Open-source licences vary in how they require notices and downstream licensing."
+          }
+        ]
+      }
+    },
+    {
+      "number": "5",
+      "text": "On a Debian/Ubuntu-style system, what is apt update generally used for?",
+      "options": [
+        "Refresh available package indexes",
+        "Install a brand-new kernel directly",
+        "Delete the user's files",
+        "Change the hardware clock only"
+      ],
+      "correctAnswer": "Refresh available package indexes",
+      "marks": 5,
+      "explanation": "Package managers use repository metadata to learn which versions are available.\n\nWhy: apt update refreshes metadata; it does not by itself upgrade every installed package.\n\nExample: An administrator can refresh indexes before installing a package.\n\nStudent note: Other Linux distributions may use dnf or another package manager.",
+      "study": {
+        "title": "Package indexes",
+        "simple": "Package managers use repository metadata to learn which versions are available.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "apt update refreshes metadata; it does not by itself upgrade every installed package."
+        ],
+        "example": "An administrator can refresh indexes before installing a package.",
+        "pitfall": "Other Linux distributions may use dnf or another package manager.",
+        "remember": "apt update refreshes metadata; it does not by itself upgrade every installed package.",
+        "keyTerms": [
+          {
+            "term": "Package indexes",
+            "meaning": "Package managers use repository metadata to learn which versions are available."
+          }
+        ]
+      }
+    },
+    {
+      "number": "6",
+      "text": "Which command prints the working directory?",
+      "options": [
+        "pwd",
+        "ps",
+        "df",
+        "chown"
+      ],
+      "correctAnswer": "pwd",
+      "marks": 5,
+      "explanation": "The working directory is the location a shell treats as the base for relative paths.\n\nWhy: pwd prints that location.\n\nExample: A terminal may print /home/student/projects.\n\nStudent note: cd changes directories; pwd reports the current directory.",
+      "study": {
+        "title": "pwd",
+        "simple": "The working directory is the location a shell treats as the base for relative paths.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "pwd prints that location."
+        ],
+        "example": "A terminal may print /home/student/projects.",
+        "pitfall": "cd changes directories; pwd reports the current directory.",
+        "remember": "pwd prints that location.",
+        "keyTerms": [
+          {
+            "term": "pwd",
+            "meaning": "The working directory is the location a shell treats as the base for relative paths."
+          }
+        ]
+      }
+    },
+    {
+      "number": "7",
+      "text": "When you are in /home/student, which is an absolute filesystem path?",
+      "options": [
+        "/var/log/syslog",
+        "notes/today.txt",
+        "../images/logo.png",
+        "./run.sh"
+      ],
+      "correctAnswer": "/var/log/syslog",
+      "marks": 5,
+      "explanation": "An absolute path begins at the root directory /; a relative path begins from the current location.\n\nWhy: /var/log/syslog identifies a path independently of your current directory.\n\nExample: The same relative filename can refer to different files after cd.\n\nStudent note: ~ expands to a home directory in many shells, but / marks the filesystem root.",
+      "study": {
+        "title": "Absolute paths",
+        "simple": "An absolute path begins at the root directory /; a relative path begins from the current location.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "/var/log/syslog identifies a path independently of your current directory."
+        ],
+        "example": "The same relative filename can refer to different files after cd.",
+        "pitfall": "~ expands to a home directory in many shells, but / marks the filesystem root.",
+        "remember": "/var/log/syslog identifies a path independently of your current directory.",
+        "keyTerms": [
+          {
+            "term": "Absolute paths",
+            "meaning": "An absolute path begins at the root directory /; a relative path begins from the current location."
+          }
+        ]
+      }
+    },
+    {
+      "number": "8",
+      "text": "Which command creates nested directories such as work/2026/notes even when the parents do not exist?",
+      "options": [
+        "mkdir -p work/2026/notes",
+        "rm -r work/2026/notes",
+        "pwd -p work/2026/notes",
+        "chmod -p work/2026/notes"
+      ],
+      "correctAnswer": "mkdir -p work/2026/notes",
+      "marks": 5,
+      "explanation": "mkdir creates directories; -p creates missing parent directories as needed.\n\nWhy: It avoids failures when intermediate directories are absent.\n\nExample: mkdir -p lab/linux/partitions prepares a nested folder.\n\nStudent note: Creating a folder is not the same as mounting a filesystem there.",
+      "study": {
+        "title": "mkdir -p",
+        "simple": "mkdir creates directories; -p creates missing parent directories as needed.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "It avoids failures when intermediate directories are absent."
+        ],
+        "example": "mkdir -p lab/linux/partitions prepares a nested folder.",
+        "pitfall": "Creating a folder is not the same as mounting a filesystem there.",
+        "remember": "It avoids failures when intermediate directories are absent.",
+        "keyTerms": [
+          {
+            "term": "mkdir -p",
+            "meaning": "mkdir creates directories; -p creates missing parent directories as needed."
+          }
+        ]
+      }
+    },
+    {
+      "number": "9",
+      "text": "Which command displays hidden entries along with normal entries in the current directory?",
+      "options": [
+        "ls -a",
+        "pwd -s",
+        "mount -h",
+        "ps -q"
+      ],
+      "correctAnswer": "ls -a",
+      "marks": 5,
+      "explanation": "Unix-like systems normally hide names beginning with a dot in basic ls output.\n\nWhy: ls -a includes those entries.\n\nExample: The .bashrc file becomes visible with ls -a ~.\n\nStudent note: Hidden is a display convention, not an encryption or security feature.",
+      "study": {
+        "title": "Hidden files",
+        "simple": "Unix-like systems normally hide names beginning with a dot in basic ls output.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "ls -a includes those entries."
+        ],
+        "example": "The .bashrc file becomes visible with ls -a ~.",
+        "pitfall": "Hidden is a display convention, not an encryption or security feature.",
+        "remember": "ls -a includes those entries.",
+        "keyTerms": [
+          {
+            "term": "Hidden files",
+            "meaning": "Unix-like systems normally hide names beginning with a dot in basic ls output."
+          }
+        ]
+      }
+    },
+    {
+      "number": "10",
+      "text": "What does the numeric file mode 640 mean for a regular file?",
+      "options": [
+        "Owner read/write, group read, others no access",
+        "Everyone read/write/execute",
+        "Owner only execute",
+        "Group full access, owner none"
+      ],
+      "correctAnswer": "Owner read/write, group read, others no access",
+      "marks": 5,
+      "explanation": "Numeric modes combine read=4, write=2 and execute=1 for owner, group and others.\n\nWhy: 6 is rw-, 4 is r--, 0 is ---.\n\nExample: chmod 640 report.txt restricts report access.\n\nStudent note: Permissions on a directory have different practical effects, especially execute/traversal.",
+      "study": {
+        "title": "chmod 640",
+        "simple": "Numeric modes combine read=4, write=2 and execute=1 for owner, group and others.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "6 is rw-, 4 is r--, 0 is ---."
+        ],
+        "example": "chmod 640 report.txt restricts report access.",
+        "pitfall": "Permissions on a directory have different practical effects, especially execute/traversal.",
+        "remember": "6 is rw-, 4 is r--, 0 is ---.",
+        "keyTerms": [
+          {
+            "term": "chmod 640",
+            "meaning": "Numeric modes combine read=4, write=2 and execute=1 for owner, group and others."
+          }
+        ]
+      }
+    },
+    {
+      "number": "11",
+      "text": "Which command changes file ownership from root to account student (with a suitable privilege)?",
+      "options": [
+        "chown student report.txt",
+        "grep student report.txt",
+        "echo student report.txt",
+        "ls -l student report.txt"
+      ],
+      "correctAnswer": "chown student report.txt",
+      "marks": 5,
+      "explanation": "A Linux file records an owning user and an owning group.\n\nWhy: chown changes ownership when the caller has permission.\n\nExample: sudo chown student:project report.txt sets user and group.\n\nStudent note: chmod changes mode bits; chown changes ownership.",
+      "study": {
+        "title": "chown",
+        "simple": "A Linux file records an owning user and an owning group.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "chown changes ownership when the caller has permission."
+        ],
+        "example": "sudo chown student:project report.txt sets user and group.",
+        "pitfall": "chmod changes mode bits; chown changes ownership.",
+        "remember": "chown changes ownership when the caller has permission.",
+        "keyTerms": [
+          {
+            "term": "chown",
+            "meaning": "A Linux file records an owning user and an owning group."
+          }
+        ]
+      }
+    },
+    {
+      "number": "12",
+      "text": "Which statement about an inode is most accurate for a typical Unix filesystem?",
+      "options": [
+        "It stores file metadata and points to file data, but the filename lives in directory entries",
+        "It is the same thing as the file extension",
+        "It is a network address",
+        "It is always the file's password"
+      ],
+      "correctAnswer": "It stores file metadata and points to file data, but the filename lives in directory entries",
+      "marks": 5,
+      "explanation": "An inode records metadata such as ownership, permissions and data locations.\n\nWhy: Directories associate names with inode numbers.\n\nExample: Two hard links can refer to one inode.\n\nStudent note: Inode exhaustion can prevent new files even when storage space remains.",
+      "study": {
+        "title": "Inodes",
+        "simple": "An inode records metadata such as ownership, permissions and data locations.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "Directories associate names with inode numbers."
+        ],
+        "example": "Two hard links can refer to one inode.",
+        "pitfall": "Inode exhaustion can prevent new files even when storage space remains.",
+        "remember": "Directories associate names with inode numbers.",
+        "keyTerms": [
+          {
+            "term": "Inodes",
+            "meaning": "An inode records metadata such as ownership, permissions and data locations."
+          }
+        ]
+      }
+    },
+    {
+      "number": "13",
+      "text": "What distinguishes a symbolic link from a hard link?",
+      "options": [
+        "A symbolic link stores a target path and can become dangling if the target is removed",
+        "Symbolic links always duplicate file bytes",
+        "Hard links always cross every filesystem",
+        "Symbolic links are a kind of encryption"
+      ],
+      "correctAnswer": "A symbolic link stores a target path and can become dangling if the target is removed",
+      "marks": 5,
+      "explanation": "A symbolic link points to a pathname rather than sharing exactly the same inode like a typical hard link.\n\nWhy: Its path may stop resolving when the target is renamed or deleted.\n\nExample: ln -s /srv/data/current shortcut creates a symlink.\n\nStudent note: Ordinary hard links to files normally cannot span different filesystems.",
+      "study": {
+        "title": "Symbolic links",
+        "simple": "A symbolic link points to a pathname rather than sharing exactly the same inode like a typical hard link.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "Its path may stop resolving when the target is renamed or deleted."
+        ],
+        "example": "ln -s /srv/data/current shortcut creates a symlink.",
+        "pitfall": "Ordinary hard links to files normally cannot span different filesystems.",
+        "remember": "Its path may stop resolving when the target is renamed or deleted.",
+        "keyTerms": [
+          {
+            "term": "Symbolic links",
+            "meaning": "A symbolic link points to a pathname rather than sharing exactly the same inode like a typical hard link."
+          }
+        ]
+      }
+    },
+    {
+      "number": "14",
+      "text": "What does export NAME=value do in Bash?",
+      "options": [
+        "Makes NAME available in the current shell environment and to its subsequently launched child processes",
+        "Reboots the host",
+        "Writes NAME to the partition table",
+        "Changes a file's permissions"
+      ],
+      "correctAnswer": "Makes NAME available in the current shell environment and to its subsequently launched child processes",
+      "marks": 5,
+      "explanation": "Shell variables are not automatically passed to every child process; exported variables join the environment.\n\nWhy: export marks or sets a variable for inheritance by subsequently launched commands.\n\nExample: export EDITOR=nano lets child tools see the EDITOR choice.\n\nStudent note: Changes made by a child process generally do not rewrite the parent's environment.",
+      "study": {
+        "title": "Exported variables",
+        "simple": "Shell variables are not automatically passed to every child process; exported variables join the environment.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "export marks or sets a variable for inheritance by subsequently launched commands."
+        ],
+        "example": "export EDITOR=nano lets child tools see the EDITOR choice.",
+        "pitfall": "Changes made by a child process generally do not rewrite the parent's environment.",
+        "remember": "export marks or sets a variable for inheritance by subsequently launched commands.",
+        "keyTerms": [
+          {
+            "term": "Exported variables",
+            "meaning": "Shell variables are not automatically passed to every child process; exported variables join the environment."
+          }
+        ]
+      }
+    },
+    {
+      "number": "15",
+      "text": "Which command best shows ownership, mode bits and sizes for entries in a directory?",
+      "options": [
+        "ls -l",
+        "ls -p only",
+        "cat /proc/cpuinfo",
+        "whoami"
+      ],
+      "correctAnswer": "ls -l",
+      "marks": 5,
+      "explanation": "The -l form of ls displays file type, mode bits, ownership, size and timestamps.\n\nWhy: It is useful when diagnosing file access.\n\nExample: ls -la includes hidden files and their detailed listing.\n\nStudent note: A trailing + indicates you should also consider an ACL.",
+      "study": {
+        "title": "Long listing",
+        "simple": "The -l form of ls displays file type, mode bits, ownership, size and timestamps.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "It is useful when diagnosing file access."
+        ],
+        "example": "ls -la includes hidden files and their detailed listing.",
+        "pitfall": "A trailing + indicates you should also consider an ACL.",
+        "remember": "It is useful when diagnosing file access.",
+        "keyTerms": [
+          {
+            "term": "Long listing",
+            "meaning": "The -l form of ls displays file type, mode bits, ownership, size and timestamps."
+          }
+        ]
+      }
+    },
+    {
+      "number": "16",
+      "text": "A shared project directory should stop ordinary users deleting each other's files even though all can create new files there. Which mechanism is relevant?",
+      "options": [
+        "Sticky bit on the directory",
+        "Disable all directory writes",
+        "Set every file executable",
+        "Replace the shell"
+      ],
+      "correctAnswer": "Sticky bit on the directory",
+      "marks": 5,
+      "explanation": "The sticky bit adds deletion restrictions on shared writable directories.\n\nWhy: It can allow users to create entries without freely removing other users' entries.\n\nExample: /tmp is a familiar example.\n\nStudent note: A directory's sticky bit is about deletion/renaming control, not encrypting file contents.",
+      "study": {
+        "title": "Shared-directory sticky bit",
+        "simple": "The sticky bit adds deletion restrictions on shared writable directories.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "It can allow users to create entries without freely removing other users' entries."
+        ],
+        "example": "/tmp is a familiar example.",
+        "pitfall": "A directory's sticky bit is about deletion/renaming control, not encrypting file contents.",
+        "remember": "It can allow users to create entries without freely removing other users' entries.",
+        "keyTerms": [
+          {
+            "term": "Shared-directory sticky bit",
+            "meaning": "The sticky bit adds deletion restrictions on shared writable directories."
+          }
+        ]
+      }
+    },
+    {
+      "number": "17",
+      "text": "Scenario: A college receives 12 Linux laptops for a shared lab. Describe an initial setup checklist covering desktop usability, updates, user accounts, storage and software licensing.",
+      "marks": 10,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "aiPassScore": 70,
+      "correctAnswer": "Choose a supported distribution/desktop; verify hardware/graphics/network; update repository indexes and packages following policy; create standard user accounts with least privilege; plan partitions and backups; test normal/accessible GNOME features/extensions; document installed software and comply with its licences; check security and a rollback plan.",
+      "aiRubric": [
+        "Distribution and hardware/desktop compatibility",
+        "Updates and package management",
+        "Standard accounts and least privilege",
+        "Storage/backups and software licensing",
+        "Testing/documentation"
+      ],
+      "aiReferenceNotes": "Reliable Linux setup involves more than the initial operating-system installation. Check hardware requirements and the users' desktop needs. Prepare updates, accounts, permissions and storage safely. Verify applications, backups and licence obligations before handover. A pilot laptop should be checked before repeating the process on the other 11 machines. Do not assume that open-source means no licence obligations or that every user needs sudo.",
+      "explanation": "Reliable Linux setup involves more than the initial operating-system installation.\n\nMethod:\n1. Check hardware requirements and the users' desktop needs.\n2. Prepare updates, accounts, permissions and storage safely.\n3. Verify applications, backups and licence obligations before handover.\n\nExample: A pilot laptop should be checked before repeating the process on the other 11 machines.\n\nStudent note: Do not assume that open-source means no licence obligations or that every user needs sudo.",
+      "study": {
+        "title": "Lab setup scenario",
+        "simple": "Reliable Linux setup involves more than the initial operating-system installation.",
+        "stepsTitle": "How to work through this scenario",
+        "steps": [
+          "Check hardware requirements and the users' desktop needs.",
+          "Prepare updates, accounts, permissions and storage safely.",
+          "Verify applications, backups and licence obligations before handover."
+        ],
+        "example": "A pilot laptop should be checked before repeating the process on the other 11 machines.",
+        "pitfall": "Do not assume that open-source means no licence obligations or that every user needs sudo.",
+        "remember": "Check hardware requirements and the users' desktop needs.",
+        "keyTerms": [
+          {
+            "term": "Lab setup scenario",
+            "meaning": "Reliable Linux setup involves more than the initial operating-system installation."
+          }
+        ]
+      }
+    },
+    {
+      "number": "18",
+      "text": "Scenario: Three tutors must edit files in a shared directory, while learners may read them but must not change them. Describe a practical Linux permission plan and how you would test it.",
+      "marks": 10,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "aiPassScore": 70,
+      "correctAnswer": "Create groups such as tutors and learners; choose directory owner/group; use group permissions, setgid and ACLs if needed to grant tutors write and learners read/traversal while preventing unintended write; use suitable default ACLs for newly created files; check the ACL mask and umask interactions; verify as each type of account.",
+      "aiRubric": [
+        "Identifies separate user/group roles",
+        "Sets read/write/traverse permissions appropriately",
+        "Considers setgid or default ACL inheritance",
+        "Describes least-privilege testing",
+        "Avoids granting everyone write"
+      ],
+      "aiReferenceNotes": "Unix permissions and ACLs help control who may read, change or enter a shared folder. Map required permissions by role before changing modes. Apply ownership, group bits and ACL/default ACL rules as needed. Test creating, reading and editing with representative accounts. getfacl can reveal permissions that are not fully visible in ls -l. Remember directory execute means traversal; reading a directory and reading files within it are separate rights.",
+      "explanation": "Unix permissions and ACLs help control who may read, change or enter a shared folder.\n\nMethod:\n1. Map required permissions by role before changing modes.\n2. Apply ownership, group bits and ACL/default ACL rules as needed.\n3. Test creating, reading and editing with representative accounts.\n\nExample: getfacl can reveal permissions that are not fully visible in ls -l.\n\nStudent note: Remember directory execute means traversal; reading a directory and reading files within it are separate rights.",
+      "study": {
+        "title": "Shared-folder permissions",
+        "simple": "Unix permissions and ACLs help control who may read, change or enter a shared folder.",
+        "stepsTitle": "How to work through this scenario",
+        "steps": [
+          "Map required permissions by role before changing modes.",
+          "Apply ownership, group bits and ACL/default ACL rules as needed.",
+          "Test creating, reading and editing with representative accounts."
+        ],
+        "example": "getfacl can reveal permissions that are not fully visible in ls -l.",
+        "pitfall": "Remember directory execute means traversal; reading a directory and reading files within it are separate rights.",
+        "remember": "Map required permissions by role before changing modes.",
+        "keyTerms": [
+          {
+            "term": "Shared-folder permissions",
+            "meaning": "Unix permissions and ACLs help control who may read, change or enter a shared folder."
+          }
+        ]
+      }
+    }
+  ]
+}
