@@ -3539,6 +3539,7 @@ const testFiles = [
   // Initialize test variables and UI
   function initializeTest() {
     resetReviewState();
+    if (revisionController) revisionController.reset();
     aiGrades = {};
     if (questions.length === 0) {
       questionsContainer.innerHTML = `<p>No questions available in the selected file.</p>`;
@@ -5007,6 +5008,7 @@ const testFiles = [
   //************************ SECTION 11: TEST RESET ************************//
 
   function resetTest() {
+    if (revisionController) revisionController.reset();
     const wasCustomSession = isCustomSessionActive();
     if (testInProgress || timerStarted) {
       const confirmReset = confirm(
