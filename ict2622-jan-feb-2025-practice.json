@@ -1,0 +1,478 @@
+{
+  "testName": "ICT2622 · Jan/Feb 2025-style Exam (original practice)",
+  "module": "ICT2622",
+  "assessment": "Jan/Feb 2025-style",
+  "sourceType": "Original exam-style practice; not a copy of the UNISA exam",
+  "sourceReference": "https://www.studocu.com/en-za/document/university-of-south-africa/object-oriented-analysis/ict2622-jan-feb-2025-exam-paper/116820025",
+  "sourceLimitations": "Newly authored questions based on independently verified topic coverage and exam structure. This file does not reproduce the source paper.",
+  "durationMinutes": 120,
+  "totalMarks": 75,
+  "preserveOrder": true,
+  "marking": "Mixed local objective / table and rubric-based AI written / diagram",
+  "questions": [
+    {
+      "number": "1",
+      "text": "A single class handles both payment verification and on-screen animation. What design concern does this illustrate?",
+      "options": [
+        "Low cohesion",
+        "Strong cohesion",
+        "No dependencies",
+        "Good encapsulation"
+      ],
+      "correctAnswer": "Low cohesion",
+      "marks": 1,
+      "explanation": "Cohesion measures how strongly one class's responsibilities belong together.\n\nThe correct option fits the definition or required activity.\n\nExample: The two duties change for different reasons.\n\nStudent note: Explain the term in your own words and identify how it differs from nearby concepts.",
+      "study": {
+        "title": "Cohesion",
+        "simple": "Cohesion measures how strongly one class's responsibilities belong together.",
+        "stepsTitle": "How to decide",
+        "steps": [
+          "Cohesion measures how strongly one class's responsibilities belong together.",
+          "Reject the distractors by checking what each concept is responsible for."
+        ],
+        "example": "The two duties change for different reasons.",
+        "pitfall": "Avoid mixing analysis with design, domain concepts with technical layers, or structures with behaviour.",
+        "remember": "Cohesion measures how strongly one class's responsibilities belong together.",
+        "keyTerms": [
+          {
+            "term": "cohesion",
+            "meaning": "Cohesion measures how strongly one class's responsibilities belong together."
+          }
+        ]
+      }
+    },
+    {
+      "number": "2",
+      "text": "A system stores a postal address as street, suburb and postcode. What kind of field is the complete address?",
+      "options": [
+        "Composite/compound field",
+        "Boolean value",
+        "Single integer",
+        "Foreign key"
+      ],
+      "correctAnswer": "Composite/compound field",
+      "marks": 1,
+      "explanation": "An address can contain smaller fields such as street, city and postal code.\n\nThe correct option fits the definition or required activity.\n\nExample: An Address class or structured value can hold all three parts.\n\nStudent note: Explain the term in your own words and identify how it differs from nearby concepts.",
+      "study": {
+        "title": "Compound",
+        "simple": "An address can contain smaller fields such as street, city and postal code.",
+        "stepsTitle": "How to decide",
+        "steps": [
+          "An address can contain smaller fields such as street, city and postal code.",
+          "Reject the distractors by checking what each concept is responsible for."
+        ],
+        "example": "An Address class or structured value can hold all three parts.",
+        "pitfall": "Avoid mixing analysis with design, domain concepts with technical layers, or structures with behaviour.",
+        "remember": "An address can contain smaller fields such as street, city and postal code.",
+        "keyTerms": [
+          {
+            "term": "compound",
+            "meaning": "An address can contain smaller fields such as street, city and postal code."
+          }
+        ]
+      }
+    },
+    {
+      "number": "3",
+      "text": "Which responsibility belongs closest to a business-domain class in a sales app?",
+      "options": [
+        "Determine whether an order meets business rules",
+        "Maintain physical TCP connections",
+        "Paint a navigation bar",
+        "Install a database server"
+      ],
+      "correctAnswer": "Determine whether an order meets business rules",
+      "marks": 1,
+      "explanation": "Domain classes represent the business concepts and rules, not physical connections to a database.\n\nThe correct option fits the definition or required activity.\n\nExample: An Order object can decide whether cancellation is permitted.\n\nStudent note: Explain the term in your own words and identify how it differs from nearby concepts.",
+      "study": {
+        "title": "Domain",
+        "simple": "Domain classes represent the business concepts and rules, not physical connections to a database.",
+        "stepsTitle": "How to decide",
+        "steps": [
+          "Domain classes represent the business concepts and rules, not physical connections to a database.",
+          "Reject the distractors by checking what each concept is responsible for."
+        ],
+        "example": "An Order object can decide whether cancellation is permitted.",
+        "pitfall": "Avoid mixing analysis with design, domain concepts with technical layers, or structures with behaviour.",
+        "remember": "Domain classes represent the business concepts and rules, not physical connections to a database.",
+        "keyTerms": [
+          {
+            "term": "domain",
+            "meaning": "Domain classes represent the business concepts and rules, not physical connections to a database."
+          }
+        ]
+      }
+    },
+    {
+      "number": "4",
+      "text": "A project records several authors per book and several books per author. What must the relational design usually add?",
+      "options": [
+        "A joining table linking the two primary keys",
+        "A single free-text comma list",
+        "A duplicate author name in every column",
+        "No keys at all"
+      ],
+      "correctAnswer": "A joining table linking the two primary keys",
+      "marks": 1,
+      "explanation": "A many-to-many relationship normally becomes an associative table with keys referencing both parents.\n\nThe correct option fits the definition or required activity.\n\nExample: BookAuthor may have book_id and author_id.\n\nStudent note: Explain the term in your own words and identify how it differs from nearby concepts.",
+      "study": {
+        "title": "M2m",
+        "simple": "A many-to-many relationship normally becomes an associative table with keys referencing both parents.",
+        "stepsTitle": "How to decide",
+        "steps": [
+          "A many-to-many relationship normally becomes an associative table with keys referencing both parents.",
+          "Reject the distractors by checking what each concept is responsible for."
+        ],
+        "example": "BookAuthor may have book_id and author_id.",
+        "pitfall": "Avoid mixing analysis with design, domain concepts with technical layers, or structures with behaviour.",
+        "remember": "A many-to-many relationship normally becomes an associative table with keys referencing both parents.",
+        "keyTerms": [
+          {
+            "term": "m2m",
+            "meaning": "A many-to-many relationship normally becomes an associative table with keys referencing both parents."
+          }
+        ]
+      }
+    },
+    {
+      "number": "5",
+      "text": "Which is more about running technical security than defining an organisation's data standards?",
+      "options": [
+        "Provisioning authentication accounts",
+        "Maintaining a data dictionary",
+        "Defining agreed naming rules",
+        "Recording which team owns a data set"
+      ],
+      "correctAnswer": "Provisioning authentication accounts",
+      "marks": 1,
+      "explanation": "A data administrator develops naming, data ownership and validation standards; system logins are usually controlled through technical administration.\n\nThe correct option fits the definition or required activity.\n\nExample: The data administrator normally focuses on standards and governance.\n\nStudent note: Explain the term in your own words and identify how it differs from nearby concepts.",
+      "study": {
+        "title": "Governance",
+        "simple": "A data administrator develops naming, data ownership and validation standards; system logins are usually controlled through technical administration.",
+        "stepsTitle": "How to decide",
+        "steps": [
+          "A data administrator develops naming, data ownership and validation standards; system logins are usually controlled through technical administration.",
+          "Reject the distractors by checking what each concept is responsible for."
+        ],
+        "example": "The data administrator normally focuses on standards and governance.",
+        "pitfall": "Avoid mixing analysis with design, domain concepts with technical layers, or structures with behaviour.",
+        "remember": "A data administrator develops naming, data ownership and validation standards; system logins are usually controlled through technical administration.",
+        "keyTerms": [
+          {
+            "term": "governance",
+            "meaning": "A data administrator develops naming, data ownership and validation standards; system logins are usually controlled through technical administration."
+          }
+        ]
+      }
+    },
+    {
+      "number": "6",
+      "text": "Define a project in the setting of a software-development initiative.",
+      "correctAnswer": "A project is a temporary undertaking with a defined start and end to create a unique result, service or product.",
+      "marks": 2,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "aiPassScore": 70,
+      "aiRubric": [
+        "Temporary work with a start/end",
+        "Unique objective or deliverable"
+      ],
+      "aiReferenceNotes": "Project work is not the same as repeating a routine task. State that the work is temporary. Name the unique product, service or result. Do not describe routine support operations as a project.",
+      "explanation": "Project work is not the same as repeating a routine task.\n\nHow to build your answer:\n1. State that the work is temporary.\n2. Name the unique product, service or result.\n\nExample: Building a new campus portal has an end and a deliverable.\n\nStudent note: Do not describe routine support operations as a project.",
+      "study": {
+        "title": "Project definition",
+        "simple": "Project work is not the same as repeating a routine task.",
+        "stepsTitle": "How to build your answer",
+        "steps": [
+          "State that the work is temporary.",
+          "Name the unique product, service or result."
+        ],
+        "example": "Building a new campus portal has an end and a deliverable.",
+        "pitfall": "Do not describe routine support operations as a project.",
+        "remember": "State that the work is temporary.",
+        "keyTerms": [
+          {
+            "term": "Project definition",
+            "meaning": "Project work is not the same as repeating a routine task."
+          }
+        ]
+      }
+    },
+    {
+      "number": "7",
+      "text": "A college plans to buy an appointment booking platform. Explain THREE useful outcomes of researching software vendors first.",
+      "correctAnswer": "Vendor research helps compare functionality against needs, estimate purchase/support costs and total ownership, and assess reliability, integrations, security, support and fit before selecting a product.",
+      "marks": 6,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "aiPassScore": 70,
+      "aiRubric": [
+        "Three distinct benefits",
+        "Requirements/function comparison",
+        "Cost and licensing/support comparison",
+        "Risk, security, reputation or integration considerations"
+      ],
+      "aiReferenceNotes": "Vendor research gathers evidence to choose an external product or service rather than relying on marketing claims. Compare products against real user requirements. Compare total cost, integration and support. Check security, reliability and references. List at least three different benefits; repeating cost in three ways will not earn three separate points.",
+      "explanation": "Vendor research gathers evidence to choose an external product or service rather than relying on marketing claims.\n\nHow to build your answer:\n1. Compare products against real user requirements.\n2. Compare total cost, integration and support.\n3. Check security, reliability and references.\n\nExample: Ask each vendor how bookings are backed up, exported and accessed by staff.\n\nStudent note: List at least three different benefits; repeating cost in three ways will not earn three separate points.",
+      "study": {
+        "title": "Vendor research",
+        "simple": "Vendor research gathers evidence to choose an external product or service rather than relying on marketing claims.",
+        "stepsTitle": "How to build your answer",
+        "steps": [
+          "Compare products against real user requirements.",
+          "Compare total cost, integration and support.",
+          "Check security, reliability and references."
+        ],
+        "example": "Ask each vendor how bookings are backed up, exported and accessed by staff.",
+        "pitfall": "List at least three different benefits; repeating cost in three ways will not earn three separate points.",
+        "remember": "Compare products against real user requirements.",
+        "keyTerms": [
+          {
+            "term": "Vendor research",
+            "meaning": "Vendor research gathers evidence to choose an external product or service rather than relying on marketing claims."
+          }
+        ]
+      }
+    },
+    {
+      "number": "8",
+      "text": "Give ONE advantage and ONE limitation of using public-key (asymmetric) encryption for secure messages.",
+      "correctAnswer": "An advantage is secure key exchange/identity verification using a public and private key; a limitation is that asymmetric operations are generally slower and more resource-intensive than symmetric encryption.",
+      "marks": 4,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "aiPassScore": 70,
+      "aiRubric": [
+        "Correct public/private-key concept",
+        "Clear benefit",
+        "Clear limitation",
+        "Difference from symmetric methods"
+      ],
+      "aiReferenceNotes": "Asymmetric encryption uses two related keys: a public key that may be shared and a private key that must be protected. Explain the pair of keys. State a genuine strength. State a genuine practical limit. Do not claim public keys must remain secret.",
+      "explanation": "Asymmetric encryption uses two related keys: a public key that may be shared and a private key that must be protected.\n\nHow to build your answer:\n1. Explain the pair of keys.\n2. State a genuine strength.\n3. State a genuine practical limit.\n\nExample: A web service negotiates a symmetric session key using public-key methods and then uses fast symmetric encryption for bulk traffic.\n\nStudent note: Do not claim public keys must remain secret.",
+      "study": {
+        "title": "Asymmetric encryption",
+        "simple": "Asymmetric encryption uses two related keys: a public key that may be shared and a private key that must be protected.",
+        "stepsTitle": "How to build your answer",
+        "steps": [
+          "Explain the pair of keys.",
+          "State a genuine strength.",
+          "State a genuine practical limit."
+        ],
+        "example": "A web service negotiates a symmetric session key using public-key methods and then uses fast symmetric encryption for bulk traffic.",
+        "pitfall": "Do not claim public keys must remain secret.",
+        "remember": "Explain the pair of keys.",
+        "keyTerms": [
+          {
+            "term": "Asymmetric encryption",
+            "meaning": "Asymmetric encryption uses two related keys: a public key that may be shared and a private key that must be protected."
+          }
+        ]
+      }
+    },
+    {
+      "number": "9",
+      "text": "Why do replicated databases need synchronization after records are changed?",
+      "correctAnswer": "Synchronization propagates or reconciles changes among replicas so that readers do not continue using conflicting or stale copies and agreed consistency rules are respected.",
+      "marks": 2,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "aiPassScore": 70,
+      "aiRubric": [
+        "Replicas share updates",
+        "Prevents stale/conflicting data"
+      ],
+      "aiReferenceNotes": "A database replica is another copy of data, often placed on another server. Describe that changes happen on one or more copies. Explain how synchronization keeps the copies acceptably consistent. Replication does not automatically replace backups or resolve every conflict.",
+      "explanation": "A database replica is another copy of data, often placed on another server.\n\nHow to build your answer:\n1. Describe that changes happen on one or more copies.\n2. Explain how synchronization keeps the copies acceptably consistent.\n\nExample: A new booking must appear at a second branch after replication.\n\nStudent note: Replication does not automatically replace backups or resolve every conflict.",
+      "study": {
+        "title": "Replication synchronization",
+        "simple": "A database replica is another copy of data, often placed on another server.",
+        "stepsTitle": "How to build your answer",
+        "steps": [
+          "Describe that changes happen on one or more copies.",
+          "Explain how synchronization keeps the copies acceptably consistent."
+        ],
+        "example": "A new booking must appear at a second branch after replication.",
+        "pitfall": "Replication does not automatically replace backups or resolve every conflict.",
+        "remember": "Describe that changes happen on one or more copies.",
+        "keyTerms": [
+          {
+            "term": "Replication synchronization",
+            "meaning": "A database replica is another copy of data, often placed on another server."
+          }
+        ]
+      }
+    },
+    {
+      "number": "10",
+      "text": "Draw a small crow's-foot-style entity relationship diagram for a sports club: one Club may have zero or many Players, and each Player belongs to exactly one Club. Include suitable key fields.",
+      "correctAnswer": "Club(clubId PK) 1 —— 0..* Player(playerId PK, clubId FK); each Player has one Club, Club may have many Players.",
+      "marks": 3,
+      "grading": "ai",
+      "answerType": "uml-diagram",
+      "aiPassScore": 70,
+      "aiRubric": [
+        "Club and Player entities",
+        "Suitable primary keys",
+        "Player carries clubId reference",
+        "Correct 1 and 0..* multiplicity",
+        "Correct association direction/labels"
+      ],
+      "aiReferenceNotes": "An ER diagram shows entities, keys and the number of records that may be associated. Draw Club and Player as separate boxes. Add the PKs and Player's Club foreign key. Connect them and mark 1 on Club side and 0..* on Player side. Place the multiplicity next to the entity end it describes.",
+      "explanation": "An ER diagram shows entities, keys and the number of records that may be associated.\n\nHow to build your answer:\n1. Draw Club and Player as separate boxes.\n2. Add the PKs and Player's Club foreign key.\n3. Connect them and mark 1 on Club side and 0..* on Player side.\n\nExample: One club with no players is valid; a player without a club is not in this business rule.\n\nStudent note: Place the multiplicity next to the entity end it describes.",
+      "study": {
+        "title": "Crow's foot relationships",
+        "simple": "An ER diagram shows entities, keys and the number of records that may be associated.",
+        "stepsTitle": "How to build your answer",
+        "steps": [
+          "Draw Club and Player as separate boxes.",
+          "Add the PKs and Player's Club foreign key.",
+          "Connect them and mark 1 on Club side and 0..* on Player side."
+        ],
+        "example": "One club with no players is valid; a player without a club is not in this business rule.",
+        "pitfall": "Place the multiplicity next to the entity end it describes.",
+        "remember": "Draw Club and Player as separate boxes.",
+        "keyTerms": [
+          {
+            "term": "Crow's foot relationships",
+            "meaning": "An ER diagram shows entities, keys and the number of records that may be associated."
+          }
+        ]
+      },
+      "diagramRequired": true,
+      "diagramNoDrawingCapPercent": 0,
+      "diagramNoDrawingNote": "This question requires an actual diagram. Text alone does not earn diagram-structure marks.",
+      "diagramInstructions": "Choose Actor, Use case, Class, Action, Decision and connectors as needed. Label every important part. Uploading a drawn diagram is also supported."
+    },
+    {
+      "number": "11",
+      "text": "ParcelDesk handles the following goals. Dispatch staff can Prepare parcel, Assign carrier, Record return, and Track parcel. A customer can Record return, Track parcel and Leave feedback. A supervisor can Track parcel and Review feedback. Draw the use case diagram with actors, a system boundary and correct associations.",
+      "correctAnswer": "Actors Dispatch Staff, Customer, Supervisor outside ParcelDesk boundary. Use cases Prepare parcel, Assign carrier, Record return, Track parcel, Leave feedback, Review feedback. Link Dispatch to prepare/assign/return/track; Customer to return/track/feedback; Supervisor to track/review.",
+      "marks": 13,
+      "grading": "ai",
+      "answerType": "uml-diagram",
+      "aiPassScore": 70,
+      "aiRubric": [
+        "Three named external actors",
+        "Six properly named verb-goal use cases",
+        "System boundary",
+        "Dispatch staff associations",
+        "Customer associations",
+        "Supervisor associations",
+        "Readable UML notation"
+      ],
+      "aiReferenceNotes": "A use case diagram maps external actor goals to the system functions they can trigger. Identify the people/roles outside the system. Draw a boundary and use-case ovals inside it. Connect each role only to the relevant goals. An actor is a role interacting with the system, not a database table.",
+      "explanation": "A use case diagram maps external actor goals to the system functions they can trigger.\n\nHow to build your answer:\n1. Identify the people/roles outside the system.\n2. Draw a boundary and use-case ovals inside it.\n3. Connect each role only to the relevant goals.\n\nExample: Both customer and staff can connect to Track parcel without duplicating the oval.\n\nStudent note: An actor is a role interacting with the system, not a database table.",
+      "study": {
+        "title": "Use case diagram",
+        "simple": "A use case diagram maps external actor goals to the system functions they can trigger.",
+        "stepsTitle": "How to build your answer",
+        "steps": [
+          "Identify the people/roles outside the system.",
+          "Draw a boundary and use-case ovals inside it.",
+          "Connect each role only to the relevant goals."
+        ],
+        "example": "Both customer and staff can connect to Track parcel without duplicating the oval.",
+        "pitfall": "An actor is a role interacting with the system, not a database table.",
+        "remember": "Identify the people/roles outside the system.",
+        "keyTerms": [
+          {
+            "term": "Use case diagram",
+            "meaning": "A use case diagram maps external actor goals to the system functions they can trigger."
+          }
+        ]
+      },
+      "diagramRequired": true,
+      "diagramNoDrawingCapPercent": 0,
+      "diagramNoDrawingNote": "This question requires an actual diagram. Text alone does not earn diagram-structure marks.",
+      "diagramInstructions": "Choose Actor, Use case, Class, Action, Decision and connectors as needed. Label every important part. Uploading a drawn diagram is also supported."
+    },
+    {
+      "number": "12",
+      "text": "SecondShelf is a community web service for trading used study materials. A registered seller adds an item with a title, condition and price. Buyers search available listings and buy an item. The service records a purchase and its chosen listing, marks the item as sold, and sends notifications. The seller confirms dispatch, and the buyer may report a delivery problem. The service keeps seller ratings after a completed purchase. Draw a UML domain class diagram with key concepts, attributes, links and sensible multiplicities.",
+      "correctAnswer": "Customer(customerId,name,email) has Listings as Seller; Listing(listingId,title,condition,price,status) belongs to Seller and may be purchased in one Purchase; Purchase(purchaseId,date,status) links Buyer and Listing; Shipment(shipmentId,date,status) belongs to Purchase; Rating(score,comment) optionally relates Buyer, Purchase and Seller. Multiplicities reflect 1 seller to many listings, 1 buyer to many purchases, and 1 purchase to 1 listing.",
+      "marks": 15,
+      "grading": "ai",
+      "answerType": "uml-diagram",
+      "aiPassScore": 70,
+      "aiRubric": [
+        "Seller/Buyer or reusable Account concept",
+        "Listing with important attributes",
+        "Purchase / Order concept",
+        "Shipment or dispatch relationship",
+        "Rating optional relationship",
+        "Associations and correct multiplicities",
+        "Business concepts rather than UI/database service classes"
+      ],
+      "aiReferenceNotes": "A domain class model shows business things, what we know about them, and their relationships. Extract important nouns in the case study. Add a few meaningful identifying/description attributes. Connect classes and mark each end's multiplicity. Do not treat login screens, email servers or buttons as core domain classes unless the scenario truly requires them.",
+      "explanation": "A domain class model shows business things, what we know about them, and their relationships.\n\nHow to build your answer:\n1. Extract important nouns in the case study.\n2. Add a few meaningful identifying/description attributes.\n3. Connect classes and mark each end's multiplicity.\n\nExample: One seller can list many items, but a sold individual listing should not be purchased twice.\n\nStudent note: Do not treat login screens, email servers or buttons as core domain classes unless the scenario truly requires them.",
+      "study": {
+        "title": "Domain class model",
+        "simple": "A domain class model shows business things, what we know about them, and their relationships.",
+        "stepsTitle": "How to build your answer",
+        "steps": [
+          "Extract important nouns in the case study.",
+          "Add a few meaningful identifying/description attributes.",
+          "Connect classes and mark each end's multiplicity."
+        ],
+        "example": "One seller can list many items, but a sold individual listing should not be purchased twice.",
+        "pitfall": "Do not treat login screens, email servers or buttons as core domain classes unless the scenario truly requires them.",
+        "remember": "Extract important nouns in the case study.",
+        "keyTerms": [
+          {
+            "term": "Domain class model",
+            "meaning": "A domain class model shows business things, what we know about them, and their relationships."
+          }
+        ]
+      },
+      "context": "SecondShelf is a community web service for trading used study materials. A registered seller adds an item with a title, condition and price. Buyers search available listings and buy an item. The service records a purchase and its chosen listing, marks the item as sold, and sends notifications. The seller confirms dispatch, and the buyer may report a delivery problem. The service keeps seller ratings after a completed purchase.",
+      "contextTitle": "Read SecondShelf scenario",
+      "diagramRequired": true,
+      "diagramNoDrawingCapPercent": 0,
+      "diagramNoDrawingNote": "This question requires an actual diagram. Text alone does not earn diagram-structure marks.",
+      "diagramInstructions": "Choose Actor, Use case, Class, Action, Decision and connectors as needed. Label every important part. Uploading a drawn diagram is also supported."
+    },
+    {
+      "number": "13",
+      "text": "SecondShelf is a community web service for trading used study materials. A registered seller adds an item with a title, condition and price. Buyers search available listings and buy an item. The service records a purchase and its chosen listing, marks the item as sold, and sends notifications. The seller confirms dispatch, and the buyer may report a delivery problem. The service keeps seller ratings after a completed purchase. Write a FULLY DEVELOPED use case description for the goal 'Buy listed item'. Include a name, primary actor, trigger, preconditions, normal steps, at least two alternative/exception flows and a clear success condition.",
+      "correctAnswer": "Use case Buy listed item. Primary actor Buyer. Trigger: buyer chooses Buy on an available listing. Preconditions: buyer has an active authenticated account; listing available. Main flow: buyer selects item, system shows price/detail, buyer confirms delivery/payment, system validates details, authorizes payment, records Purchase, marks Listing sold, notifies seller and buyer. Alternatives: payment declined -> show reason and allow retry; listing already sold -> stop transaction and inform buyer; missing address -> request correction. Postconditions: purchase recorded and item unavailable, or no sale if failed.",
+      "marks": 25,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "aiPassScore": 70,
+      "aiRubric": [
+        "Names use case and actor",
+        "States trigger",
+        "States necessary preconditions",
+        "Sequential normal flow with actor/system responsibilities",
+        "Payment and availability validation",
+        "At least two meaningful alternatives",
+        "Success and failure postconditions",
+        "Addresses notification and data consistency"
+      ],
+      "aiReferenceNotes": "A fully developed use case describes one actor goal in enough detail to understand normal and exceptional interactions. Name the goal and actor, then state the trigger and preconditions. Write the numbered happy path, alternating actor actions and system responses. Add alternatives/exceptions and postconditions. Use a numbered user/system flow; a loose paragraph of features is not a fully developed use case.",
+      "explanation": "A fully developed use case describes one actor goal in enough detail to understand normal and exceptional interactions.\n\nHow to build your answer:\n1. Name the goal and actor, then state the trigger and preconditions.\n2. Write the numbered happy path, alternating actor actions and system responses.\n3. Add alternatives/exceptions and postconditions.\n\nExample: If another buyer purchases first, the system should block this checkout rather than sell an unavailable listing.\n\nStudent note: Use a numbered user/system flow; a loose paragraph of features is not a fully developed use case.",
+      "study": {
+        "title": "Fully developed use case",
+        "simple": "A fully developed use case describes one actor goal in enough detail to understand normal and exceptional interactions.",
+        "stepsTitle": "How to build your answer",
+        "steps": [
+          "Name the goal and actor, then state the trigger and preconditions.",
+          "Write the numbered happy path, alternating actor actions and system responses.",
+          "Add alternatives/exceptions and postconditions."
+        ],
+        "example": "If another buyer purchases first, the system should block this checkout rather than sell an unavailable listing.",
+        "pitfall": "Use a numbered user/system flow; a loose paragraph of features is not a fully developed use case.",
+        "remember": "Name the goal and actor, then state the trigger and preconditions.",
+        "keyTerms": [
+          {
+            "term": "Fully developed use case",
+            "meaning": "A fully developed use case describes one actor goal in enough detail to understand normal and exceptional interactions."
+          }
+        ]
+      },
+      "context": "SecondShelf is a community web service for trading used study materials. A registered seller adds an item with a title, condition and price. Buyers search available listings and buy an item. The service records a purchase and its chosen listing, marks the item as sold, and sends notifications. The seller confirms dispatch, and the buyer may report a delivery problem. The service keeps seller ratings after a completed purchase.",
+      "contextTitle": "Read SecondShelf scenario"
+    }
+  ]
+}
