@@ -13,6 +13,10 @@ async function main() {
   const css = fs.readFileSync("paper-picker.css", "utf8");
   assert.match(css, /@media \(max-width: 768px\)/, "mobile layout exists");
   assert.match(css, /paper-module-card/, "large module cards exist");
+  assert.match(css, /--paper-visible-center/, "mobile dialog tracks the visible viewport");
+  assert.match(css, /keyboard-visible/, "keyboard-open layout keeps results readable");
+  assert.match(css, /overflow-y: auto; overscroll-behavior: contain/,
+    "mobile results remain independently scrollable");
 
   const markup = [
     '<!doctype html><html><body>',
@@ -33,6 +37,14 @@ async function main() {
     url: "http://localhost/", runScripts: "outside-only", pretendToBeVisual: true
   });
   const win = dom.window;
+  // Mock Chrome/Android's visible viewport: the layout viewport stays tall
+  // while the virtual keyboard reduces the area actually visible to students.
+  Object.defineProperty(win, "innerWidth", { configurable: true, writable: true, value: 390 });
+  Object.defineProperty(win, "innerHeight", { configurable: true, writable: true, value: 780 });
+  const viewport = new win.EventTarget();
+  viewport.height = 780;
+  viewport.offsetTop = 0;
+  Object.defineProperty(win, "visualViewport", { configurable: true, value: viewport });
   win.HTMLDialogElement.prototype.showModal = function () {
     this.setAttribute("open", "");
   };
@@ -104,6 +116,30 @@ async function main() {
   // The code is optional: partial names, familiar topics and small typos work.
   type("linux");
   assert.equal(moduleCards().length, 1, "remembering Linux finds the operating systems module");
+  const dialog = get("paper-picker");
+  assert.equal(dialog.style.getPropertyValue("--paper-visible-center"), "390px",
+    "mobile dialog is centered rather than pinned to the screen bottom");
+  search.focus();
+  viewport.height = 345;
+  viewport.dispatchEvent(new win.Event("resize"));
+  assert.equal(dialog.style.getPropertyValue("--paper-visible-height"), "345px",
+    "keyboard shrinking the visual viewport resizes the paper dialog");
+  assert.equal(dialog.style.getPropertyValue("--paper-visible-center"), "173px",
+    "dialog stays centered above the keyboard");
+  assert.ok(dialog.classList.contains("keyboard-visible"), "compact keyboard layout is active");
+  assert.equal(moduleCards().length, 1, "matching module remains available while typing");
+  viewport.offsetTop = 35;
+  viewport.dispatchEvent(new win.Event("scroll"));
+  assert.equal(dialog.style.getPropertyValue("--paper-visible-center"), "208px",
+    "dialog follows mobile browser visual-viewport scroll");
+  type("2021");
+  assert.equal(paperRows().length, 1, "searchable paper result remains present with the keyboard open");
+  viewport.height = 780;
+  viewport.offsetTop = 0;
+  viewport.dispatchEvent(new win.Event("resize"));
+  assert.equal(dialog.classList.contains("keyboard-visible"), false,
+    "normal spacing returns after keyboard closes");
+  type("linux");
   assert.ok(get("paper-picker-modules").textContent.includes("ICT2631"));
   type("uml");
   assert.equal(moduleCards().length, 1, "remembering UML finds object-oriented analysis");
