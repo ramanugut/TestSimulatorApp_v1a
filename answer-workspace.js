@@ -170,7 +170,7 @@
     const choices=[
       ["select-ellipse","Use case ◯"],["class","Class ▣"],["activity","Action ▭"],
       ["decision","Decision ◇"],["actor","Actor"],["start","Start ●"],["end","End ◎"],
-      ["line","Line"],["arrow","Arrow →"],["pen","Pen"],["erase","Eraser"],["text","Text"]
+      ["line","Line"],["arrow","Arrow →"],["dashed-arrow","Dashed ⇢"],["pen","Pen"],["erase","Eraser"],["text","Text"]
     ];
     const nodes=[];
     choices.forEach(([id,title])=>{
@@ -202,11 +202,19 @@
           labelAt(c,top+137,140);break;}
         case "start":ctx.beginPath();ctx.arc(from.x,from.y,15,0,Math.PI*2);ctx.fill();break;
         case "end":ctx.beginPath();ctx.arc(from.x,from.y,18,0,Math.PI*2);ctx.stroke();ctx.beginPath();ctx.arc(from.x,from.y,12,0,Math.PI*2);ctx.fill();break;
-        case "line":case "arrow":{ctx.beginPath();ctx.moveTo(from.x,from.y);ctx.lineTo(to.x,to.y);ctx.stroke();
-          if(tool==="arrow"){const a=Math.atan2(to.y-from.y,to.x-from.x),p=15;ctx.beginPath();ctx.moveTo(to.x,to.y);
+        case "line":case "arrow":case "dashed-arrow":{
+          if(tool==="dashed-arrow")ctx.setLineDash([9,7]);
+          ctx.beginPath();ctx.moveTo(from.x,from.y);ctx.lineTo(to.x,to.y);ctx.stroke();
+          ctx.setLineDash([]);
+          if(tool==="arrow"||tool==="dashed-arrow"){
+            const a=Math.atan2(to.y-from.y,to.x-from.x),p=15;
+            ctx.beginPath();ctx.moveTo(to.x,to.y);
             ctx.lineTo(to.x-p*Math.cos(a-.48),to.y-p*Math.sin(a-.48));ctx.moveTo(to.x,to.y);
-            ctx.lineTo(to.x-p*Math.cos(a+.48),to.y-p*Math.sin(a+.48));ctx.stroke();}
-          if(labelText.value.trim()) labelAt((from.x+to.x)/2,(from.y+to.y)/2-14,250);break;}
+            ctx.lineTo(to.x-p*Math.cos(a+.48),to.y-p*Math.sin(a+.48));ctx.stroke();
+          }
+          if(labelText.value.trim()) labelAt((from.x+to.x)/2,(from.y+to.y)/2-14,250);
+          break;
+        }
         case "text":labelAt(from.x,from.y,400);break;
       }
     }
