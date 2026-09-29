@@ -23,6 +23,65 @@ document.addEventListener("DOMContentLoaded", () => {
     practice: "Practical & other practice"
   };
   const categoryOrder = ["assessments", "exams", "practice"];
+  // Display names match UNISA's published module titles. One metadata map is
+  // reusable by the cards, current-paper label, and subject/topic search.
+  const subjectInfo = {
+    ICT2622: {
+      title: "Object-Oriented Analysis",
+      hint: "UML diagrams · classes · use cases",
+      keywords: "object oriented analysis ooa uml modelling model diagrams class use case sequence analysis requirements system design"
+    },
+    ICT2631: {
+      title: "Operating Systems Practice",
+      hint: "Linux · Windows · commands",
+      keywords: "operating system os linux windows terminal shell kernel process memory command commands installation administration"
+    },
+    INF3708: {
+      title: "Software Project Management",
+      hint: "Project planning · WBS · risk",
+      keywords: "project management planning schedule critical path gantt risk wbs work breakdown structure budget effort agile"
+    },
+    "MY UPLOADS": {
+      title: "My uploaded papers",
+      hint: "Papers you added yourself",
+      keywords: "uploaded upload custom my papers"
+    }
+  };
+  function subject(code) {
+    return subjectInfo[code] || {
+      title: code, hint: "Choose this module to see its papers", keywords: code
+    };
+  }
+  // Words can be recalled out of order. Small spelling errors in longer
+  // subject/topic words are also accepted (e.g. "operatng" -> "operating").
+  function editDistanceWithin(a, b, limit) {
+    if (Math.abs(a.length - b.length) > limit) return false;
+    let previous = Array.from({ length: b.length + 1 }, (_, i) => i);
+    for (let i = 1; i <= a.length; i++) {
+      const next = [i];
+      let minimum = next[0];
+      for (let j = 1; j <= b.length; j++) {
+        const cost = a[i - 1] === b[j - 1] ? 0 : 1;
+        next[j] = Math.min(previous[j] + 1, next[j - 1] + 1, previous[j - 1] + cost);
+        minimum = Math.min(minimum, next[j]);
+      }
+      if (minimum > limit) return false;
+      previous = next;
+    }
+    return previous[b.length] <= limit;
+  }
+  function matchesText(value, searchText) {
+    const candidate = value.toLocaleLowerCase();
+    const queryWords = searchText.toLocaleLowerCase().trim().split(/\s+/).filter(Boolean);
+    const candidateWords = candidate.match(/[a-z0-9]+/g) || [];
+    return queryWords.every(word => candidate.includes(word) ||
+      (word.length >= 5 && candidateWords.some(entry =>
+        editDistanceWithin(word, entry, word.length > 7 ? 2 : 1))));
+  }
+  function matchesSubject(code, searchText) {
+    const info = subject(code);
+    return matchesText([code, info.title, info.hint, info.keywords].join(" "), searchText);
+  }
   // null = module overview; a code = papers in that module. Search is always global.
   const state = { module: null };
 
@@ -96,11 +155,13 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       const name = option.textContent.trim();
       const module = paperModule(name, option.value);
-      triggerModule.textContent = module;
+      triggerModule.textContent = module + " · " + subject(module).title;
       triggerTitle.textContent =
         paperTitle(name, option.value, module, paperKind(name, option.value));
     }
-    trigger.title = option.textContent.trim();
+    trigger.title = option.value === "__custom_session__"
+      ? option.textContent.trim()
+      : subject(paperModule(option.textContent.trim(), option.value)).title + " — " + option.textContent.trim();
   }
 
   function sortedPapers(items) {
@@ -166,16 +227,18 @@ document.addEventListener("DOMContentLoaded", () => {
     return section;
   }
 
-  function showModules(allPapers) {
+  function showModules(allPapers, filteredCodes = null) {
     modules.replaceChildren();
     results.replaceChildren();
     modules.classList.remove("hidden");
     results.classList.add("hidden");
     back.classList.add("hidden");
-    step.textContent = "1. Choose a module";
-    description.textContent = "Start by choosing the subject you want to practise.";
-    const codes = [...new Set(allPapers.map(paper => paper.module))].sort();
-    count.textContent = codes.length + " modules";
+    step.textContent = filteredCodes ? "Modules matching your search" : "1. Choose a module";
+    description.textContent = filteredCodes
+      ? "Found a familiar subject? Select it to see its papers."
+      : "Choose by subject name or topic. You do not need to remember the code.";
+    const codes = (filteredCodes || [...new Set(allPapers.map(paper => paper.module))]).sort();
+    count.textContent = codes.length + (codes.length === 1 ? " module" : " modules");
     if (!codes.length) {
       const empty = document.createElement("p");
       empty.className = "paper-picker-empty";
@@ -188,21 +251,29 @@ document.addEventListener("DOMContentLoaded", () => {
       const button = document.createElement("button");
       button.type = "button";
       button.className = "paper-module-card" + (current ? " is-current" : "");
-      button.setAttribute("aria-label", code + ", view " + matches.length + " papers");
+      button.setAttribute("aria-label", code + ", " + subject(code).title + ", view " + matches.length + " papers");
       const text = document.createElement("span");
       text.className = "paper-module-copy";
       const title = document.createElement("strong");
       title.textContent = code;
+      const subjectName = document.createElement("span");
+      subjectName.className = "paper-module-title";
+      subjectName.textContent = subject(code).title;
+      const hint = document.createElement("span");
+      hint.className = "paper-module-hint";
+      hint.textContent = subject(code).hint;
       const detail = document.createElement("span");
+      detail.className = "paper-module-meta";
       detail.textContent = matches.length + (matches.length === 1 ? " paper" : " papers") +
         (current ? " · Current module" : "");
-      text.append(title, detail);
+      text.append(title, subjectName, hint, detail);
       const action = document.createElement("span");
       action.className = "paper-module-action";
       action.textContent = "View papers →";
       button.append(text, action);
       button.addEventListener("click", () => {
         state.module = code;
+        search.value = ""; // Selecting a subject always shows its complete paper list.
         render();
         results.scrollTop = 0;
       });
@@ -214,8 +285,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const searching = Boolean(query);
     const shown = sortedPapers(allPapers.filter(paper =>
       searching
-        ? [paper.name, paper.file, paper.module, paper.title]
-          .some(value => value.toLocaleLowerCase().includes(query))
+        ? matchesText([paper.name, paper.file, paper.module, paper.title,
+            subject(paper.module).title, subject(paper.module).keywords].join(" "), query)
         : paper.module === state.module
     ));
     modules.classList.add("hidden");
@@ -230,7 +301,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!shown.length) {
       const empty = document.createElement("p");
       empty.className = "paper-picker-empty";
-      empty.textContent = "No papers found. Try the module code, year or assessment number.";
+      empty.textContent = "Nothing found. Try a subject or topic (such as Linux, UML or project management), a module code, or a paper year.";
       results.appendChild(empty);
       return;
     }
@@ -250,8 +321,22 @@ document.addEventListener("DOMContentLoaded", () => {
   function render() {
     const allPapers = papers();
     const query = search.value.trim().toLocaleLowerCase();
-    if (!query && !state.module) showModules(allPapers);
-    else showPaperResults(allPapers, query);
+    if (!query && !state.module) {
+      showModules(allPapers);
+      return;
+    }
+    if (query) {
+      const codes = [...new Set(allPapers.map(paper => paper.module))];
+      const matchingCodes = codes.filter(code => matchesSubject(code, query));
+      // Subject or topic searches show recognizable module cards, not a
+      // long list of every exam associated with that subject.
+      const lookingForPaper = /\b(?:20\d{2}|assessment|exam|mock|supplementary|practical|practice|paper|jan|feb|oct|nov)\b/i.test(query);
+      if (matchingCodes.length && !lookingForPaper) {
+        showModules(allPapers, matchingCodes);
+        return;
+      }
+    }
+    showPaperResults(allPapers, query);
   }
   function openPicker() {
     if (dialog.open) return;
