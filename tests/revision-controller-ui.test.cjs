@@ -64,12 +64,23 @@ async function main(){
   assert.equal(started,1,"Turning the feature off invalidates a pending generated result");
   assert.equal(panel.querySelector(".revision-actions button"),null);
   assert.equal(controller.isEnabled(),false);
+  // An older Netlify deploy returns an HTML 404, not JSON. Explain what needs
+  // updating instead of reporting a vague generation or answer-key failure.
+  setting.checked=true;
+  setting.dispatchEvent(new win.Event("change",{bubbles:true}));
+  controller.showResults({questions:topics,getGrade:()=>({scoreValue:0}),moduleName:"ICT2613"});
+  win.fetch=async()=>({ok:false,status:404,json:async()=>{throw new SyntaxError("HTML 404");}});
+  panel.querySelector(".revision-actions button").click();
+  await new Promise(resolve=>setTimeout(resolve,15));
+  assert.match(panel.querySelector(".revision-feedback").textContent,
+    /not deployed on the backend yet/,"404 has useful deployment guidance");
+  assert.equal(started,1,"An endpoint 404 never starts generated practice");
   const reloaded=win.RevisionController.create({
     setting,panel,endpoint:"",onStartPractice:()=>{}
   });
   assert.equal(reloaded.isEnabled(),false);
   assert.equal(setting.checked,false);
-  console.log("AI consent UI tests passed: default off, local results, no auto-call, explicit generate only, session-only and mid-flight cancellation.");
+  console.log("AI consent UI tests passed: default off, local results, no auto-call, explicit generate only, session-only, mid-flight cancellation, and missing-endpoint guidance.");
   dom.window.close();
 }
 main().catch(error=>{console.error(error);process.exitCode=1;});
