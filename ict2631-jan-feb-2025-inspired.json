@@ -1,0 +1,698 @@
+{
+  "testName": "ICT2631 – Jan/Feb 2025 Exam-Style Mock (original)",
+  "module": "ICT2631",
+  "assessment": "2025 January/February-style practice",
+  "sourceType": "Original practice questions; NOT the original UNISA exam",
+  "sourceReference": "https://www.studocu.com/en-za/course/university-of-south-africa/operating-systems-practice/6669827",
+  "sourceLimitations": "The original full paper was not accessible. Questions are newly written for revision, not transcribed.",
+  "totalMarks": 100,
+  "durationMinutes": 120,
+  "preserveOrder": true,
+  "marking": "mixed-auto-choice-and-optional-AI-written",
+  "questions": [
+    {
+      "number": "1",
+      "text": "What does the PATH variable normally influence in a Linux shell?",
+      "options": [
+        "Which command locations the shell searches for executable names",
+        "The current file owner",
+        "The disk's partition table",
+        "The list of installed fonts"
+      ],
+      "correctAnswer": "Which command locations the shell searches for executable names",
+      "marks": 4,
+      "explanation": "PATH is a colon-separated list of directories searched when running a command by name.\n\nWhy: The shell searches those paths for a matching executable.\n\nExample: echo \"$PATH\" displays the search list.\n\nStudent note: A program outside PATH can still be run by using its path.",
+      "study": {
+        "title": "PATH variable",
+        "simple": "PATH is a colon-separated list of directories searched when running a command by name.",
+        "stepsTitle": "Why this answer fits",
+        "steps": [
+          "The shell searches those paths for a matching executable."
+        ],
+        "example": "echo \"$PATH\" displays the search list.",
+        "pitfall": "A program outside PATH can still be run by using its path.",
+        "remember": "The shell searches those paths for a matching executable.",
+        "keyTerms": [
+          {
+            "term": "PATH variable",
+            "meaning": "PATH is a colon-separated list of directories searched when running a command by name."
+          }
+        ]
+      }
+    },
+    {
+      "number": "2",
+      "text": "Which command changes the prompt for the current Bash session?",
+      "options": [
+        "PS1='lab> '",
+        "pwd='lab> '",
+        "df='lab> '",
+        "chmod='lab> '"
+      ],
+      "correctAnswer": "PS1='lab> '",
+      "marks": 4,
+      "explanation": "PS1 controls the primary Bash prompt's displayed text.\n\nWhy: Assigning PS1 in the current shell changes the prompt for that session.\n\nExample: PS1='ict2631> ' displays a simple custom prompt.\n\nStudent note: Make a change persistent via the appropriate shell startup file, not a random system file.",
+      "study": {
+        "title": "Bash PS1",
+        "simple": "PS1 controls the primary Bash prompt's displayed text.",
+        "stepsTitle": "Why this answer fits",
+        "steps": [
+          "Assigning PS1 in the current shell changes the prompt for that session."
+        ],
+        "example": "PS1='ict2631> ' displays a simple custom prompt.",
+        "pitfall": "Make a change persistent via the appropriate shell startup file, not a random system file.",
+        "remember": "Assigning PS1 in the current shell changes the prompt for that session.",
+        "keyTerms": [
+          {
+            "term": "Bash PS1",
+            "meaning": "PS1 controls the primary Bash prompt's displayed text."
+          }
+        ]
+      }
+    },
+    {
+      "number": "3",
+      "text": "Why does echo '$HOME' normally print the literal characters $HOME?",
+      "options": [
+        "Single quotes stop normal shell variable expansion",
+        "The HOME variable is deleted",
+        "echo has no expansion feature",
+        "Linux cannot use quotes"
+      ],
+      "correctAnswer": "Single quotes stop normal shell variable expansion",
+      "marks": 4,
+      "explanation": "Single quotes preserve the literal contents, while double quotes still allow variable expansion.\n\nWhy: The shell sees the dollar sign as text inside single quotes.\n\nExample: echo \"$HOME\" usually prints the home-directory path.\n\nStudent note: Expansion is performed by the shell before echo receives its arguments.",
+      "study": {
+        "title": "Shell quoting",
+        "simple": "Single quotes preserve the literal contents, while double quotes still allow variable expansion.",
+        "stepsTitle": "Why this answer fits",
+        "steps": [
+          "The shell sees the dollar sign as text inside single quotes."
+        ],
+        "example": "echo \"$HOME\" usually prints the home-directory path.",
+        "pitfall": "Expansion is performed by the shell before echo receives its arguments.",
+        "remember": "The shell sees the dollar sign as text inside single quotes.",
+        "keyTerms": [
+          {
+            "term": "Shell quoting",
+            "meaning": "Single quotes preserve the literal contents, while double quotes still allow variable expansion."
+          }
+        ]
+      }
+    },
+    {
+      "number": "4",
+      "text": "What is the effect of >> when writing command output to an existing file?",
+      "options": [
+        "Appends output to the end",
+        "Always deletes the entire directory",
+        "Changes its owner",
+        "Reads input from the file"
+      ],
+      "correctAnswer": "Appends output to the end",
+      "marks": 4,
+      "explanation": "The shell redirects standard output with > or >>.\n\nWhy: >> appends; > normally overwrites the destination file.\n\nExample: date >> journal.txt adds a line without replacing earlier content.\n\nStudent note: Check a destination before using >, especially for an important log.",
+      "study": {
+        "title": "Output redirection",
+        "simple": "The shell redirects standard output with > or >>.",
+        "stepsTitle": "Why this answer fits",
+        "steps": [
+          ">> appends; > normally overwrites the destination file."
+        ],
+        "example": "date >> journal.txt adds a line without replacing earlier content.",
+        "pitfall": "Check a destination before using >, especially for an important log.",
+        "remember": ">> appends; > normally overwrites the destination file.",
+        "keyTerms": [
+          {
+            "term": "Output redirection",
+            "meaning": "The shell redirects standard output with > or >>."
+          }
+        ]
+      }
+    },
+    {
+      "number": "5",
+      "text": "Which operator passes standard output of one command as standard input to another?",
+      "options": [
+        "|",
+        "&&",
+        ";",
+        "&"
+      ],
+      "correctAnswer": "|",
+      "marks": 4,
+      "explanation": "A pipe connects the output stream of one command to the input stream of another.\n\nWhy: It enables small tools to work together.\n\nExample: ps aux | grep ssh searches process listings for ssh.\n\nStudent note: A pipe is not the same as writing output into a named file.",
+      "study": {
+        "title": "Shell pipe",
+        "simple": "A pipe connects the output stream of one command to the input stream of another.",
+        "stepsTitle": "Why this answer fits",
+        "steps": [
+          "It enables small tools to work together."
+        ],
+        "example": "ps aux | grep ssh searches process listings for ssh.",
+        "pitfall": "A pipe is not the same as writing output into a named file.",
+        "remember": "It enables small tools to work together.",
+        "keyTerms": [
+          {
+            "term": "Shell pipe",
+            "meaning": "A pipe connects the output stream of one command to the input stream of another."
+          }
+        ]
+      }
+    },
+    {
+      "number": "6",
+      "text": "Which command searches recursively for the word warning inside files under a directory?",
+      "options": [
+        "grep -r 'warning' /var/log/example",
+        "pwd -r 'warning'",
+        "chmod -r 'warning'",
+        "mv -r 'warning'"
+      ],
+      "correctAnswer": "grep -r 'warning' /var/log/example",
+      "marks": 4,
+      "explanation": "grep -r searches through files in the supplied directory tree.\n\nWhy: It is useful for finding text across multiple logs/configs.\n\nExample: grep -rn 'warning' ./logs also includes line numbers.\n\nStudent note: Permissions and binary files can affect results; check errors.",
+      "study": {
+        "title": "Recursive grep",
+        "simple": "grep -r searches through files in the supplied directory tree.",
+        "stepsTitle": "Why this answer fits",
+        "steps": [
+          "It is useful for finding text across multiple logs/configs."
+        ],
+        "example": "grep -rn 'warning' ./logs also includes line numbers.",
+        "pitfall": "Permissions and binary files can affect results; check errors.",
+        "remember": "It is useful for finding text across multiple logs/configs.",
+        "keyTerms": [
+          {
+            "term": "Recursive grep",
+            "meaning": "grep -r searches through files in the supplied directory tree."
+          }
+        ]
+      }
+    },
+    {
+      "number": "7",
+      "text": "You want all regular files under /home/student with a .txt suffix. Which command fits?",
+      "options": [
+        "find /home/student -type f -name '*.txt'",
+        "lsblk '*.txt'",
+        "ps aux -name '*.txt'",
+        "mount -type txt"
+      ],
+      "correctAnswer": "find /home/student -type f -name '*.txt'",
+      "marks": 4,
+      "explanation": "find traverses paths and filters entries by properties such as type and name.\n\nWhy: -type f selects regular files, and -name uses a pattern.\n\nExample: Quoting '*.txt' prevents the current shell expanding it too soon.\n\nStudent note: find works on filesystem entries, whereas grep searches content.",
+      "study": {
+        "title": "find command",
+        "simple": "find traverses paths and filters entries by properties such as type and name.",
+        "stepsTitle": "Why this answer fits",
+        "steps": [
+          "-type f selects regular files, and -name uses a pattern."
+        ],
+        "example": "Quoting '*.txt' prevents the current shell expanding it too soon.",
+        "pitfall": "find works on filesystem entries, whereas grep searches content.",
+        "remember": "-type f selects regular files, and -name uses a pattern.",
+        "keyTerms": [
+          {
+            "term": "find command",
+            "meaning": "find traverses paths and filters entries by properties such as type and name."
+          }
+        ]
+      }
+    },
+    {
+      "number": "8",
+      "text": "Which command creates a gzip-compressed tar archive from project/ ?",
+      "options": [
+        "tar -czf backup.tar.gz project/",
+        "tar -xzf backup.tar.gz project/",
+        "rm -rf project/",
+        "df -czf project/"
+      ],
+      "correctAnswer": "tar -czf backup.tar.gz project/",
+      "marks": 4,
+      "explanation": "tar groups files into one archive; -z uses gzip, -c creates and -f names the archive.\n\nWhy: The output is backup.tar.gz.\n\nExample: tar -tzf backup.tar.gz can list archive contents.\n\nStudent note: Creating an archive is not yet a tested backup: plan where to store and restore it.",
+      "study": {
+        "title": "tar archive",
+        "simple": "tar groups files into one archive; -z uses gzip, -c creates and -f names the archive.",
+        "stepsTitle": "Why this answer fits",
+        "steps": [
+          "The output is backup.tar.gz."
+        ],
+        "example": "tar -tzf backup.tar.gz can list archive contents.",
+        "pitfall": "Creating an archive is not yet a tested backup: plan where to store and restore it.",
+        "remember": "The output is backup.tar.gz.",
+        "keyTerms": [
+          {
+            "term": "tar archive",
+            "meaning": "tar groups files into one archive; -z uses gzip, -c creates and -f names the archive."
+          }
+        ]
+      }
+    },
+    {
+      "number": "9",
+      "text": "Which command shows running processes with user and command information?",
+      "options": [
+        "ps aux",
+        "lsblk",
+        "mkfs.ext4",
+        "hostnamectl set-hostname"
+      ],
+      "correctAnswer": "ps aux",
+      "marks": 4,
+      "explanation": "ps can take a snapshot of processes and their resource usage.\n\nWhy: The aux format is widely used for a detailed process listing.\n\nExample: ps aux | grep nginx searches for matching process text.\n\nStudent note: top or htop is more useful for a continuously changing view.",
+      "study": {
+        "title": "ps aux",
+        "simple": "ps can take a snapshot of processes and their resource usage.",
+        "stepsTitle": "Why this answer fits",
+        "steps": [
+          "The aux format is widely used for a detailed process listing."
+        ],
+        "example": "ps aux | grep nginx searches for matching process text.",
+        "pitfall": "top or htop is more useful for a continuously changing view.",
+        "remember": "The aux format is widely used for a detailed process listing.",
+        "keyTerms": [
+          {
+            "term": "ps aux",
+            "meaning": "ps can take a snapshot of processes and their resource usage."
+          }
+        ]
+      }
+    },
+    {
+      "number": "10",
+      "text": "What is a sensible first signal for asking an ordinary process to exit cleanly?",
+      "options": [
+        "SIGTERM (for example kill -TERM PID)",
+        "SIGKILL in every case",
+        "SIGSTOP then forget it",
+        "Erase its executable"
+      ],
+      "correctAnswer": "SIGTERM (for example kill -TERM PID)",
+      "marks": 4,
+      "explanation": "Signals ask a process to take an action; TERM normally requests termination.\n\nWhy: An application may use TERM to finish work and release resources.\n\nExample: kill -TERM 1234 requests a clean stop of process 1234.\n\nStudent note: SIGKILL cannot be caught, so reserve it for cases where gentler actions fail.",
+      "study": {
+        "title": "SIGTERM",
+        "simple": "Signals ask a process to take an action; TERM normally requests termination.",
+        "stepsTitle": "Why this answer fits",
+        "steps": [
+          "An application may use TERM to finish work and release resources."
+        ],
+        "example": "kill -TERM 1234 requests a clean stop of process 1234.",
+        "pitfall": "SIGKILL cannot be caught, so reserve it for cases where gentler actions fail.",
+        "remember": "An application may use TERM to finish work and release resources.",
+        "keyTerms": [
+          {
+            "term": "SIGTERM",
+            "meaning": "Signals ask a process to take an action; TERM normally requests termination."
+          }
+        ]
+      }
+    },
+    {
+      "number": "11",
+      "text": "What does a positive nice value normally mean for a Linux process?",
+      "options": [
+        "Lower CPU scheduling priority than a process with a smaller nice value",
+        "More disk partitions",
+        "Stronger file encryption",
+        "An automatic backup"
+      ],
+      "correctAnswer": "Lower CPU scheduling priority than a process with a smaller nice value",
+      "marks": 4,
+      "explanation": "Niceness adjusts normal scheduling priority; larger nice values usually mean a process is more willing to yield CPU time.\n\nWhy: It helps control resource contention.\n\nExample: nice -n 10 long-task starts a task with a higher niceness value.\n\nStudent note: Niceness is not a hard CPU percentage limit.",
+      "study": {
+        "title": "nice values",
+        "simple": "Niceness adjusts normal scheduling priority; larger nice values usually mean a process is more willing to yield CPU time.",
+        "stepsTitle": "Why this answer fits",
+        "steps": [
+          "It helps control resource contention."
+        ],
+        "example": "nice -n 10 long-task starts a task with a higher niceness value.",
+        "pitfall": "Niceness is not a hard CPU percentage limit.",
+        "remember": "It helps control resource contention.",
+        "keyTerms": [
+          {
+            "term": "nice values",
+            "meaning": "Niceness adjusts normal scheduling priority; larger nice values usually mean a process is more willing to yield CPU time."
+          }
+        ]
+      }
+    },
+    {
+      "number": "12",
+      "text": "Which command is commonly used to check a systemd service's state?",
+      "options": [
+        "systemctl status ssh",
+        "cat /etc/passwd",
+        "mkfs -t ssh",
+        "passwd ssh"
+      ],
+      "correctAnswer": "systemctl status ssh",
+      "marks": 4,
+      "explanation": "systemd manages services on systems that use it.\n\nWhy: status reports whether a named unit is active and recent service information.\n\nExample: systemctl status ssh or sshd depends on the distribution's service name.\n\nStudent note: Service names and managers differ among Linux distributions.",
+      "study": {
+        "title": "systemctl",
+        "simple": "systemd manages services on systems that use it.",
+        "stepsTitle": "Why this answer fits",
+        "steps": [
+          "status reports whether a named unit is active and recent service information."
+        ],
+        "example": "systemctl status ssh or sshd depends on the distribution's service name.",
+        "pitfall": "Service names and managers differ among Linux distributions.",
+        "remember": "status reports whether a named unit is active and recent service information.",
+        "keyTerms": [
+          {
+            "term": "systemctl",
+            "meaning": "systemd manages services on systems that use it."
+          }
+        ]
+      }
+    },
+    {
+      "number": "13",
+      "text": "Which facility is intended for running repeated jobs at specified times?",
+      "options": [
+        "cron",
+        "PXE",
+        "ACL",
+        "AIGLX"
+      ],
+      "correctAnswer": "cron",
+      "marks": 4,
+      "explanation": "cron schedules commands or scripts using time fields.\n\nWhy: It suits routine housekeeping when a machine is running at the scheduled time.\n\nExample: A daily log-rotation script can be managed by a scheduled job.\n\nStudent note: Check the environment and output handling: cron jobs have a limited default PATH.",
+      "study": {
+        "title": "cron scheduling",
+        "simple": "cron schedules commands or scripts using time fields.",
+        "stepsTitle": "Why this answer fits",
+        "steps": [
+          "It suits routine housekeeping when a machine is running at the scheduled time."
+        ],
+        "example": "A daily log-rotation script can be managed by a scheduled job.",
+        "pitfall": "Check the environment and output handling: cron jobs have a limited default PATH.",
+        "remember": "It suits routine housekeeping when a machine is running at the scheduled time.",
+        "keyTerms": [
+          {
+            "term": "cron scheduling",
+            "meaning": "cron schedules commands or scripts using time fields."
+          }
+        ]
+      }
+    },
+    {
+      "number": "14",
+      "text": "Why might a machine use swap space?",
+      "options": [
+        "To extend virtual-memory backing when RAM pressure occurs, at a performance cost",
+        "To permanently replace all physical RAM",
+        "To hold BIOS settings",
+        "To automatically protect against malware"
+      ],
+      "correctAnswer": "To extend virtual-memory backing when RAM pressure occurs, at a performance cost",
+      "marks": 4,
+      "explanation": "Swap provides disk-backed space used by the memory manager.\n\nWhy: It can help under memory pressure, although disk access is slower than RAM.\n\nExample: swapon --show reports active swap devices/files.\n\nStudent note: Swap is not a replacement for enough RAM for a busy workload.",
+      "study": {
+        "title": "swap",
+        "simple": "Swap provides disk-backed space used by the memory manager.",
+        "stepsTitle": "Why this answer fits",
+        "steps": [
+          "It can help under memory pressure, although disk access is slower than RAM."
+        ],
+        "example": "swapon --show reports active swap devices/files.",
+        "pitfall": "Swap is not a replacement for enough RAM for a busy workload.",
+        "remember": "It can help under memory pressure, although disk access is slower than RAM.",
+        "keyTerms": [
+          {
+            "term": "swap",
+            "meaning": "Swap provides disk-backed space used by the memory manager."
+          }
+        ]
+      }
+    },
+    {
+      "number": "15",
+      "text": "A regular file is created with base mode 666 and umask 027. What permission mode normally results?",
+      "options": [
+        "640",
+        "750",
+        "777",
+        "600"
+      ],
+      "correctAnswer": "640",
+      "marks": 4,
+      "explanation": "umask removes selected permission bits from the requested new file mode.\n\nWhy: 666 masked with 027 produces 640.\n\nExample: The owner can read/write, the group can read, and others have no permissions.\n\nStudent note: For a new directory, 777 masked with 027 produces 750.",
+      "study": {
+        "title": "umask 027",
+        "simple": "umask removes selected permission bits from the requested new file mode.",
+        "stepsTitle": "Why this answer fits",
+        "steps": [
+          "666 masked with 027 produces 640."
+        ],
+        "example": "The owner can read/write, the group can read, and others have no permissions.",
+        "pitfall": "For a new directory, 777 masked with 027 produces 750.",
+        "remember": "666 masked with 027 produces 640.",
+        "keyTerms": [
+          {
+            "term": "umask 027",
+            "meaning": "umask removes selected permission bits from the requested new file mode."
+          }
+        ]
+      }
+    },
+    {
+      "number": "16",
+      "text": "Which command safely adds an existing account to a supplementary group without replacing its other supplementary groups?",
+      "options": [
+        "usermod -aG project account",
+        "usermod -G project account",
+        "passwd -d project account",
+        "chown account project"
+      ],
+      "correctAnswer": "usermod -aG project account",
+      "marks": 4,
+      "explanation": "The -a append option with -G adds supplementary group membership.\n\nWhy: Without -a, -G can replace the account's existing supplementary groups.\n\nExample: sudo usermod -aG developers learner can add a learner to developers.\n\nStudent note: A user may need a new login session to use the new membership.",
+      "study": {
+        "title": "usermod -aG",
+        "simple": "The -a append option with -G adds supplementary group membership.",
+        "stepsTitle": "Why this answer fits",
+        "steps": [
+          "Without -a, -G can replace the account's existing supplementary groups."
+        ],
+        "example": "sudo usermod -aG developers learner can add a learner to developers.",
+        "pitfall": "A user may need a new login session to use the new membership.",
+        "remember": "Without -a, -G can replace the account's existing supplementary groups.",
+        "keyTerms": [
+          {
+            "term": "usermod -aG",
+            "meaning": "The -a append option with -G adds supplementary group membership."
+          }
+        ]
+      }
+    },
+    {
+      "number": "17",
+      "text": "What does df -h primarily report?",
+      "options": [
+        "Capacity and available space by mounted filesystem",
+        "Process CPU scheduling priority",
+        "All installed packages",
+        "ACL entries for one file"
+      ],
+      "correctAnswer": "Capacity and available space by mounted filesystem",
+      "marks": 4,
+      "explanation": "df summarises filesystem free/used space in readable units.\n\nWhy: It helps locate a full filesystem.\n\nExample: df -h can show that / is nearly full.\n\nStudent note: du -sh answers how much space one selected directory uses.",
+      "study": {
+        "title": "df -h",
+        "simple": "df summarises filesystem free/used space in readable units.",
+        "stepsTitle": "Why this answer fits",
+        "steps": [
+          "It helps locate a full filesystem."
+        ],
+        "example": "df -h can show that / is nearly full.",
+        "pitfall": "du -sh answers how much space one selected directory uses.",
+        "remember": "It helps locate a full filesystem.",
+        "keyTerms": [
+          {
+            "term": "df -h",
+            "meaning": "df summarises filesystem free/used space in readable units."
+          }
+        ]
+      }
+    },
+    {
+      "number": "18",
+      "text": "Which command identifies your current effective username in a shell?",
+      "options": [
+        "whoami",
+        "whichdisk",
+        "uname -r",
+        "groups -d"
+      ],
+      "correctAnswer": "whoami",
+      "marks": 4,
+      "explanation": "whoami prints the effective user identity.\n\nWhy: It is a quick check before operations that need special permissions.\n\nExample: After a privileged shell switch, whoami helps confirm the active account.\n\nStudent note: The effective user can differ from the account that originally logged in.",
+      "study": {
+        "title": "whoami",
+        "simple": "whoami prints the effective user identity.",
+        "stepsTitle": "Why this answer fits",
+        "steps": [
+          "It is a quick check before operations that need special permissions."
+        ],
+        "example": "After a privileged shell switch, whoami helps confirm the active account.",
+        "pitfall": "The effective user can differ from the account that originally logged in.",
+        "remember": "It is a quick check before operations that need special permissions.",
+        "keyTerms": [
+          {
+            "term": "whoami",
+            "meaning": "whoami prints the effective user identity."
+          }
+        ]
+      }
+    },
+    {
+      "number": "19",
+      "text": "A Linux server reports 'No space left on device'. Explain a careful diagnosis that distinguishes filesystem capacity, inode exhaustion and large directory usage.",
+      "marks": 7,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "aiPassScore": 70,
+      "correctAnswer": "Check df -h for full mounted filesystems, df -i for exhausted inodes, and du -sh or du -x on appropriate directories to locate storage usage. Check logs and mounts, identify safe cleanup or capacity expansion, preserve critical data, and verify after changes.",
+      "aiRubric": [
+        "Checks df -h",
+        "Checks df -i or explains inodes",
+        "Uses du to investigate paths",
+        "Uses safe cleanup/expansion and verifies result"
+      ],
+      "aiReferenceNotes": "A write can fail when either data blocks or available inodes run out. Find the affected filesystem with df -h. Check inode availability using df -i. Locate large or excessive files safely, clean up or resize, then recheck. A flood of tiny cache files may exhaust inodes even when block space is available. Never start with indiscriminate rm -rf on a production server.",
+      "explanation": "A write can fail when either data blocks or available inodes run out.\n\nMethod:\n1. Find the affected filesystem with df -h.\n2. Check inode availability using df -i.\n3. Locate large or excessive files safely, clean up or resize, then recheck.\n\nExample: A flood of tiny cache files may exhaust inodes even when block space is available.\n\nStudent note: Never start with indiscriminate rm -rf on a production server.",
+      "study": {
+        "title": "Disk-full diagnosis",
+        "simple": "A write can fail when either data blocks or available inodes run out.",
+        "stepsTitle": "Steps to build your answer",
+        "steps": [
+          "Find the affected filesystem with df -h.",
+          "Check inode availability using df -i.",
+          "Locate large or excessive files safely, clean up or resize, then recheck."
+        ],
+        "example": "A flood of tiny cache files may exhaust inodes even when block space is available.",
+        "pitfall": "Never start with indiscriminate rm -rf on a production server.",
+        "remember": "Find the affected filesystem with df -h.",
+        "keyTerms": [
+          {
+            "term": "Disk-full diagnosis",
+            "meaning": "A write can fail when either data blocks or available inodes run out."
+          }
+        ]
+      }
+    },
+    {
+      "number": "20",
+      "text": "A new staff member needs permission to use shared project files but should not receive administrator rights. Describe a suitable Linux account and group approach.",
+      "marks": 7,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "aiPassScore": 70,
+      "correctAnswer": "Create or verify the account, create or use a project group, add the user as a supplementary member with usermod -aG, set appropriate group ownership and access permissions on the shared directory, consider setgid/ACL if needed, test access, and avoid adding the user to sudo/wheel unnecessarily.",
+      "aiRubric": [
+        "Account and project group identified",
+        "Correct append supplementary group method",
+        "Appropriate ownership/permissions including shared directory",
+        "Least privilege and testing"
+      ],
+      "aiReferenceNotes": "Groups let several accounts share access without granting full administrator rights. Decide what the account needs to read, write or execute. Add it to the appropriate group without dropping other memberships. Set shared-directory ownership/modes and test as the real user. A team folder owned by group editors can be configured with group write and setgid. Membership changes can require a fresh login; sudo is not needed for routine shared-data access.",
+      "explanation": "Groups let several accounts share access without granting full administrator rights.\n\nMethod:\n1. Decide what the account needs to read, write or execute.\n2. Add it to the appropriate group without dropping other memberships.\n3. Set shared-directory ownership/modes and test as the real user.\n\nExample: A team folder owned by group editors can be configured with group write and setgid.\n\nStudent note: Membership changes can require a fresh login; sudo is not needed for routine shared-data access.",
+      "study": {
+        "title": "Group access design",
+        "simple": "Groups let several accounts share access without granting full administrator rights.",
+        "stepsTitle": "Steps to build your answer",
+        "steps": [
+          "Decide what the account needs to read, write or execute.",
+          "Add it to the appropriate group without dropping other memberships.",
+          "Set shared-directory ownership/modes and test as the real user."
+        ],
+        "example": "A team folder owned by group editors can be configured with group write and setgid.",
+        "pitfall": "Membership changes can require a fresh login; sudo is not needed for routine shared-data access.",
+        "remember": "Decide what the account needs to read, write or execute.",
+        "keyTerms": [
+          {
+            "term": "Group access design",
+            "meaning": "Groups let several accounts share access without granting full administrator rights."
+          }
+        ]
+      }
+    },
+    {
+      "number": "21",
+      "text": "A service suddenly uses nearly all CPU. Outline a diagnostic process before stopping or restarting it.",
+      "marks": 7,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "aiPassScore": 70,
+      "correctAnswer": "Use top/ps to identify PID, command and user; inspect service status and relevant logs (for example journalctl); determine whether heavy work is expected; consider nice/resource controls or correcting the cause; request clean termination/restart only if justified; measure again.",
+      "aiRubric": [
+        "Identifies process with ps/top and PID",
+        "Inspects service/log context",
+        "Distinguishes expected workload from fault",
+        "Explains safe signal/restart and verification"
+      ],
+      "aiReferenceNotes": "A process can be busy without being broken; inspect evidence before disrupting service. Identify exactly which process consumes CPU. Read the service's logs and check its expected workload. Apply a controlled fix and confirm the performance change. top identifies a PID; systemctl status and journalctl -u may explain repeated failures. Do not send SIGKILL as the automatic first response.",
+      "explanation": "A process can be busy without being broken; inspect evidence before disrupting service.\n\nMethod:\n1. Identify exactly which process consumes CPU.\n2. Read the service's logs and check its expected workload.\n3. Apply a controlled fix and confirm the performance change.\n\nExample: top identifies a PID; systemctl status and journalctl -u may explain repeated failures.\n\nStudent note: Do not send SIGKILL as the automatic first response.",
+      "study": {
+        "title": "High-CPU diagnosis",
+        "simple": "A process can be busy without being broken; inspect evidence before disrupting service.",
+        "stepsTitle": "Steps to build your answer",
+        "steps": [
+          "Identify exactly which process consumes CPU.",
+          "Read the service's logs and check its expected workload.",
+          "Apply a controlled fix and confirm the performance change."
+        ],
+        "example": "top identifies a PID; systemctl status and journalctl -u may explain repeated failures.",
+        "pitfall": "Do not send SIGKILL as the automatic first response.",
+        "remember": "Identify exactly which process consumes CPU.",
+        "keyTerms": [
+          {
+            "term": "High-CPU diagnosis",
+            "meaning": "A process can be busy without being broken; inspect evidence before disrupting service."
+          }
+        ]
+      }
+    },
+    {
+      "number": "22",
+      "text": "Explain a practical approach for adding Linux swap space on a machine, including verification and making it persistent.",
+      "marks": 7,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "aiPassScore": 70,
+      "correctAnswer": "Check existing RAM and swap with free -h and swapon --show; ensure adequate disk space; create an appropriately sized swap file securely or use a swap partition; set safe file permissions (often 600 for a swap file); run mkswap and swapon; verify; add a suitable /etc/fstab entry for persistence and test.",
+      "aiRubric": [
+        "Checks current swap and capacity",
+        "Explains preparation and permission safety",
+        "Mentions mkswap and swapon",
+        "Verification and persistent fstab entry"
+      ],
+      "aiReferenceNotes": "Swap is disk-backed virtual-memory capacity that can support a machine during RAM pressure. Inspect current active swap and storage. Prepare and activate a correctly secured swap area. Verify with swapon --show and configure persistence where needed. A swap file can be made active with mkswap and swapon once safely prepared. The exact file-creation procedure depends on filesystem capabilities; do not overwrite live data.",
+      "explanation": "Swap is disk-backed virtual-memory capacity that can support a machine during RAM pressure.\n\nMethod:\n1. Inspect current active swap and storage.\n2. Prepare and activate a correctly secured swap area.\n3. Verify with swapon --show and configure persistence where needed.\n\nExample: A swap file can be made active with mkswap and swapon once safely prepared.\n\nStudent note: The exact file-creation procedure depends on filesystem capabilities; do not overwrite live data.",
+      "study": {
+        "title": "Managing swap",
+        "simple": "Swap is disk-backed virtual-memory capacity that can support a machine during RAM pressure.",
+        "stepsTitle": "Steps to build your answer",
+        "steps": [
+          "Inspect current active swap and storage.",
+          "Prepare and activate a correctly secured swap area.",
+          "Verify with swapon --show and configure persistence where needed."
+        ],
+        "example": "A swap file can be made active with mkswap and swapon once safely prepared.",
+        "pitfall": "The exact file-creation procedure depends on filesystem capabilities; do not overwrite live data.",
+        "remember": "Inspect current active swap and storage.",
+        "keyTerms": [
+          {
+            "term": "Managing swap",
+            "meaning": "Swap is disk-backed virtual-memory capacity that can support a machine during RAM pressure."
+          }
+        ]
+      }
+    }
+  ]
+}
