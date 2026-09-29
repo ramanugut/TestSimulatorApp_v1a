@@ -270,7 +270,9 @@
     }
     function exportImage(){paint(false);const image=canvas.toDataURL("image/jpeg",.82);paint(true);return image;}
     function persist(){
-      onChange({text:notes.value,image:exportImage(),diagramModel:clone(model)});
+      // Do not send a white canvas as proof of a drawing when only notes exist.
+      const hasVisual=model.objects.length>0||Boolean(model.backgroundSrc);
+      onChange({text:notes.value,image:hasVisual?exportImage():"",diagramModel:clone(model)});
     }
     function pushUndo(){
       undo.push(clone(model));if(undo.length>24)undo.shift();redo.length=0;
