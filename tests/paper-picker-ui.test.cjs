@@ -171,7 +171,7 @@ async function main() {
   assert.ok(get("paper-picker-results").textContent.includes("My revision upload"));
   get("paper-picker-back").click();
   type("not a real paper");
-  assert.match(get("paper-picker-results").textContent, /No papers found/);
+  assert.match(get("paper-picker-results").textContent, /Nothing found/);
 
   dom.window.close();
   console.log("Guided paper picker tests passed: first-time module cards, clear paper step, global search, back, open, cancellation and upload.");
