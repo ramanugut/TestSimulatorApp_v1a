@@ -85,6 +85,39 @@ document.addEventListener("DOMContentLoaded", () => {
   // null = module overview; a code = papers in that module. Search is always global.
   const state = { module: null };
 
+  // Android and iOS keyboards resize the *visual* viewport, not always the
+  // CSS layout viewport. Follow that visible rectangle while the modal is open.
+  // This also keeps the dialog centered if the browser scrolls to the search input.
+  let fullVisibleHeight = 0;
+  function syncPaperViewport() {
+    if (!dialog.open) return;
+    if (window.innerWidth > 768) {
+      dialog.classList.remove("keyboard-visible");
+      dialog.style.removeProperty("--paper-visible-center");
+      dialog.style.removeProperty("--paper-visible-height");
+      return;
+    }
+    const visual = window.visualViewport;
+    const height = Math.max(180, Math.round(Math.min(
+      visual ? visual.height : window.innerHeight,
+      window.innerHeight || (visual && visual.height) || 768
+    )));
+    const top = visual ? (visual.offsetTop || 0) : 0;
+    fullVisibleHeight = Math.max(fullVisibleHeight, height);
+    dialog.style.setProperty("--paper-visible-height", height + "px");
+    dialog.style.setProperty("--paper-visible-center", Math.round(top + height / 2) + "px");
+    dialog.classList.toggle("keyboard-visible", fullVisibleHeight - height > 120);
+  }
+  window.addEventListener("resize", syncPaperViewport);
+  window.addEventListener("orientationchange", () => {
+    fullVisibleHeight = 0;
+    syncPaperViewport();
+  });
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener("resize", syncPaperViewport);
+    window.visualViewport.addEventListener("scroll", syncPaperViewport);
+  }
+
   function paperModule(name, file) {
     return (name.match(/\b(?:INF|ICT)\d{4}\b/i) ||
       file.match(/(?:INF|ICT)\d{4}/i) || ["My uploads"])[0].toUpperCase();
@@ -345,6 +378,8 @@ document.addEventListener("DOMContentLoaded", () => {
     updateTrigger();
     render();
     dialog.showModal();
+    fullVisibleHeight = 0;
+    syncPaperViewport();
     trigger.setAttribute("aria-expanded", "true");
     // Avoid unexpectedly opening the on-screen keyboard on mobile.
     closeButton.focus({ preventScroll: true });
@@ -366,6 +401,10 @@ document.addEventListener("DOMContentLoaded", () => {
     if (event.target === dialog) dialog.close();
   });
   dialog.addEventListener("close", () => {
+    fullVisibleHeight = 0;
+    dialog.classList.remove("keyboard-visible");
+    dialog.style.removeProperty("--paper-visible-center");
+    dialog.style.removeProperty("--paper-visible-height");
     trigger.setAttribute("aria-expanded", "false");
     trigger.focus({ preventScroll: true });
   });
@@ -373,6 +412,8 @@ document.addEventListener("DOMContentLoaded", () => {
     render(); // Global search works even while viewing a module.
     results.scrollTop = 0;
   });
+  search.addEventListener("focus", syncPaperViewport);
+  search.addEventListener("blur", syncPaperViewport);
   new MutationObserver(refresh).observe(source, {
     childList: true, subtree: true, characterData: true, attributes: true,
     attributeFilter: ["data-question-count"]
