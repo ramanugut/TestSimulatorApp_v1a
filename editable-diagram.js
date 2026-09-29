@@ -285,7 +285,7 @@
     }
     function changeSelection(o){
       selected=o?o.id:null;
-      if(o)labelInput.value=o.label||"";
+      labelInput.value=o?(o.label||""):"";
       updateControls();paint(true);
       if(o)announce("Selected "+o.type+". Drag to move, corner to resize, or edit the Shape label.");
     }
