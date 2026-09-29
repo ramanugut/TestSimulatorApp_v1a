@@ -1,0 +1,1004 @@
+{
+  "testName": "ICT2622 · 2026 Assessment 2-style (32 original MCQs)",
+  "module": "ICT2622",
+  "assessment": "Assessment 2 2026-style",
+  "sourceType": "Original practice questions, NOT the actual UNISA assessment",
+  "sourceReference": "https://www.cliffsnotes.com/study-notes/34509082",
+  "sourceLimitations": "A visible 32-question review identifies topic coverage; this is a separately authored revision set, not a transcription of the premium attempt.",
+  "totalMarks": 32,
+  "preserveOrder": true,
+  "questions": [
+    {
+      "number": "1",
+      "text": "In layered design, which objects should coordinate important business rules?",
+      "options": [
+        "Screen colour definitions",
+        "Network cable labels",
+        "Domain layer objects",
+        "Raw HTML tags"
+      ],
+      "correctAnswer": "Domain layer objects",
+      "marks": 1,
+      "explanation": "Domain-layer objects represent business concepts and their behaviour.\n\nWhy: Domain layer objects describes the principle in the question.\n\nExample: Order checks whether cancellation is allowed.\n\nStudent note: The view displays information; the data access layer handles persistence.",
+      "study": {
+        "title": "Domain layer objects",
+        "simple": "Domain-layer objects represent business concepts and their behaviour.",
+        "stepsTitle": "Reasoning",
+        "steps": [
+          "Domain-layer objects represent business concepts and their behaviour.",
+          "Check what changes, collaborates or is represented in the example."
+        ],
+        "example": "Order checks whether cancellation is allowed.",
+        "pitfall": "The view displays information; the data access layer handles persistence.",
+        "remember": "Domain-layer objects represent business concepts and their behaviour.",
+        "keyTerms": [
+          {
+            "term": "Domain layer objects",
+            "meaning": "Domain-layer objects represent business concepts and their behaviour."
+          }
+        ]
+      }
+    },
+    {
+      "number": "2",
+      "text": "Which design layer handles displaying values and capturing a person's input?",
+      "options": [
+        "Persistent disk driver",
+        "Domain entity relationship",
+        "Network DHCP service",
+        "View / presentation layer"
+      ],
+      "correctAnswer": "View / presentation layer",
+      "marks": 1,
+      "explanation": "Presentation objects interact with the user through screens or other interfaces.\n\nWhy: View / presentation layer describes the principle in the question.\n\nExample: The checkout form captures a delivery address.\n\nStudent note: Do not put all business rules in the presentation layer.",
+      "study": {
+        "title": "View / presentation layer",
+        "simple": "Presentation objects interact with the user through screens or other interfaces.",
+        "stepsTitle": "Reasoning",
+        "steps": [
+          "Presentation objects interact with the user through screens or other interfaces.",
+          "Check what changes, collaborates or is represented in the example."
+        ],
+        "example": "The checkout form captures a delivery address.",
+        "pitfall": "Do not put all business rules in the presentation layer.",
+        "remember": "Presentation objects interact with the user through screens or other interfaces.",
+        "keyTerms": [
+          {
+            "term": "View / presentation layer",
+            "meaning": "Presentation objects interact with the user through screens or other interfaces."
+          }
+        ]
+      }
+    },
+    {
+      "number": "3",
+      "text": "Which layer usually performs database reads and writes on behalf of domain logic?",
+      "options": [
+        "Data access layer",
+        "Actor model",
+        "Use-case description",
+        "Desktop theme"
+      ],
+      "correctAnswer": "Data access layer",
+      "marks": 1,
+      "explanation": "Data access objects translate requests into persistence operations.\n\nWhy: Data access layer describes the principle in the question.\n\nExample: OrderRepository saves an Order.\n\nStudent note: Connection management is different from deciding whether a sale is permitted.",
+      "study": {
+        "title": "Data access layer",
+        "simple": "Data access objects translate requests into persistence operations.",
+        "stepsTitle": "Reasoning",
+        "steps": [
+          "Data access objects translate requests into persistence operations.",
+          "Check what changes, collaborates or is represented in the example."
+        ],
+        "example": "OrderRepository saves an Order.",
+        "pitfall": "Connection management is different from deciding whether a sale is permitted.",
+        "remember": "Data access objects translate requests into persistence operations.",
+        "keyTerms": [
+          {
+            "term": "Data access layer",
+            "meaning": "Data access objects translate requests into persistence operations."
+          }
+        ]
+      }
+    },
+    {
+      "number": "4",
+      "text": "Keeping PDF viewing code separate from the browser's core responsibilities demonstrates which general principle?",
+      "options": [
+        "Deep inheritance always",
+        "Separation of concerns",
+        "Random coupling",
+        "Unrestricted global state"
+      ],
+      "correctAnswer": "Separation of concerns",
+      "marks": 1,
+      "explanation": "Separation of concerns gives distinct responsibilities to distinct modules or components.\n\nWhy: Separation of concerns describes the principle in the question.\n\nExample: A plug-in handles a file format while the browser handles navigation.\n\nStudent note: A plug-in is not proof that the browser should manage its own payment domain.",
+      "study": {
+        "title": "Separation of concerns",
+        "simple": "Separation of concerns gives distinct responsibilities to distinct modules or components.",
+        "stepsTitle": "Reasoning",
+        "steps": [
+          "Separation of concerns gives distinct responsibilities to distinct modules or components.",
+          "Check what changes, collaborates or is represented in the example."
+        ],
+        "example": "A plug-in handles a file format while the browser handles navigation.",
+        "pitfall": "A plug-in is not proof that the browser should manage its own payment domain.",
+        "remember": "Separation of concerns gives distinct responsibilities to distinct modules or components.",
+        "keyTerms": [
+          {
+            "term": "Separation of concerns",
+            "meaning": "Separation of concerns gives distinct responsibilities to distinct modules or components."
+          }
+        ]
+      }
+    },
+    {
+      "number": "5",
+      "text": "Which OOD principle hides a class's internal state behind well-defined operations?",
+      "options": [
+        "Random public fields",
+        "Always using inheritance",
+        "Encapsulation",
+        "Disk mirroring"
+      ],
+      "correctAnswer": "Encapsulation",
+      "marks": 1,
+      "explanation": "Encapsulation protects an object's internal details and exposes a controlled interface.\n\nWhy: Encapsulation describes the principle in the question.\n\nExample: Balance can be updated through deposit() instead of arbitrary public changes.\n\nStudent note: Hiding everything does not excuse poor public method design.",
+      "study": {
+        "title": "Encapsulation",
+        "simple": "Encapsulation protects an object's internal details and exposes a controlled interface.",
+        "stepsTitle": "Reasoning",
+        "steps": [
+          "Encapsulation protects an object's internal details and exposes a controlled interface.",
+          "Check what changes, collaborates or is represented in the example."
+        ],
+        "example": "Balance can be updated through deposit() instead of arbitrary public changes.",
+        "pitfall": "Hiding everything does not excuse poor public method design.",
+        "remember": "Encapsulation protects an object's internal details and exposes a controlled interface.",
+        "keyTerms": [
+          {
+            "term": "Encapsulation",
+            "meaning": "Encapsulation protects an object's internal details and exposes a controlled interface."
+          }
+        ]
+      }
+    },
+    {
+      "number": "6",
+      "text": "A view sends a request to a controller, which coordinates the use case. What role does the controller have?",
+      "options": [
+        "Directly draw every pixel",
+        "Act as the customer's bank",
+        "Replace every domain class",
+        "Coordinate the application request"
+      ],
+      "correctAnswer": "Coordinate the application request",
+      "marks": 1,
+      "explanation": "A controller accepts a request and coordinates work among relevant objects.\n\nWhy: Coordinate the application request describes the principle in the question.\n\nExample: CheckoutController calls order and payment services.\n\nStudent note: A controller should not become a giant collection of unrelated business rules.",
+      "study": {
+        "title": "Coordinate the application request",
+        "simple": "A controller accepts a request and coordinates work among relevant objects.",
+        "stepsTitle": "Reasoning",
+        "steps": [
+          "A controller accepts a request and coordinates work among relevant objects.",
+          "Check what changes, collaborates or is represented in the example."
+        ],
+        "example": "CheckoutController calls order and payment services.",
+        "pitfall": "A controller should not become a giant collection of unrelated business rules.",
+        "remember": "A controller accepts a request and coordinates work among relevant objects.",
+        "keyTerms": [
+          {
+            "term": "Coordinate the application request",
+            "meaning": "A controller accepts a request and coordinates work among relevant objects."
+          }
+        ]
+      }
+    },
+    {
+      "number": "7",
+      "text": "Which of these belongs to UML interaction diagrams?",
+      "options": [
+        "Communication diagram",
+        "Gantt chart",
+        "Physical cabling plan",
+        "Balance sheet"
+      ],
+      "correctAnswer": "Communication diagram",
+      "marks": 1,
+      "explanation": "Interaction diagrams describe how objects communicate to realise behaviour.\n\nWhy: Communication diagram describes the principle in the question.\n\nExample: Objects exchange numbered messages in a communication diagram.\n\nStudent note: A domain class diagram shows structure rather than message order.",
+      "study": {
+        "title": "Communication diagram",
+        "simple": "Interaction diagrams describe how objects communicate to realise behaviour.",
+        "stepsTitle": "Reasoning",
+        "steps": [
+          "Interaction diagrams describe how objects communicate to realise behaviour.",
+          "Check what changes, collaborates or is represented in the example."
+        ],
+        "example": "Objects exchange numbered messages in a communication diagram.",
+        "pitfall": "A domain class diagram shows structure rather than message order.",
+        "remember": "Interaction diagrams describe how objects communicate to realise behaviour.",
+        "keyTerms": [
+          {
+            "term": "Communication diagram",
+            "meaning": "Interaction diagrams describe how objects communicate to realise behaviour."
+          }
+        ]
+      }
+    },
+    {
+      "number": "8",
+      "text": "You need to show message order between CustomerView, OrderController and Order. Which diagram fits best?",
+      "options": [
+        "Package hierarchy only",
+        "Sequence diagram",
+        "ERD only",
+        "Network diagram"
+      ],
+      "correctAnswer": "Sequence diagram",
+      "marks": 1,
+      "explanation": "Sequence diagrams organise interactions over time using lifelines and message arrows.\n\nWhy: Sequence diagram describes the principle in the question.\n\nExample: The view calls submitOrder() on the controller.\n\nStudent note: A class association alone does not describe the order of calls.",
+      "study": {
+        "title": "Sequence diagram",
+        "simple": "Sequence diagrams organise interactions over time using lifelines and message arrows.",
+        "stepsTitle": "Reasoning",
+        "steps": [
+          "Sequence diagrams organise interactions over time using lifelines and message arrows.",
+          "Check what changes, collaborates or is represented in the example."
+        ],
+        "example": "The view calls submitOrder() on the controller.",
+        "pitfall": "A class association alone does not describe the order of calls.",
+        "remember": "Sequence diagrams organise interactions over time using lifelines and message arrows.",
+        "keyTerms": [
+          {
+            "term": "Sequence diagram",
+            "meaning": "Sequence diagrams organise interactions over time using lifelines and message arrows."
+          }
+        ]
+      }
+    },
+    {
+      "number": "9",
+      "text": "An arrow from one object lifeline to another is usually a what in an interaction diagram?",
+      "options": [
+        "Physical Ethernet cable",
+        "Database index",
+        "Message",
+        "Actor goal"
+      ],
+      "correctAnswer": "Message",
+      "marks": 1,
+      "explanation": "A message indicates a request or communication between objects.\n\nWhy: Message describes the principle in the question.\n\nExample: Controller asks Order to calculateTotal().\n\nStudent note: The visual arrow is not necessarily a physical network request.",
+      "study": {
+        "title": "Message",
+        "simple": "A message indicates a request or communication between objects.",
+        "stepsTitle": "Reasoning",
+        "steps": [
+          "A message indicates a request or communication between objects.",
+          "Check what changes, collaborates or is represented in the example."
+        ],
+        "example": "Controller asks Order to calculateTotal().",
+        "pitfall": "The visual arrow is not necessarily a physical network request.",
+        "remember": "A message indicates a request or communication between objects.",
+        "keyTerms": [
+          {
+            "term": "Message",
+            "meaning": "A message indicates a request or communication between objects."
+          }
+        ]
+      }
+    },
+    {
+      "number": "10",
+      "text": "What does a vertical dashed line under an object usually represent on a sequence diagram?",
+      "options": [
+        "Data table key",
+        "Use-case system boundary",
+        "Deployment node",
+        "Lifeline"
+      ],
+      "correctAnswer": "Lifeline",
+      "marks": 1,
+      "explanation": "A lifeline represents the participant over the course of an interaction.\n\nWhy: Lifeline describes the principle in the question.\n\nExample: The Order object has a lifeline that receives a calculateTotal() call.\n\nStudent note: Time generally progresses down a sequence diagram.",
+      "study": {
+        "title": "Lifeline",
+        "simple": "A lifeline represents the participant over the course of an interaction.",
+        "stepsTitle": "Reasoning",
+        "steps": [
+          "A lifeline represents the participant over the course of an interaction.",
+          "Check what changes, collaborates or is represented in the example."
+        ],
+        "example": "The Order object has a lifeline that receives a calculateTotal() call.",
+        "pitfall": "Time generally progresses down a sequence diagram.",
+        "remember": "A lifeline represents the participant over the course of an interaction.",
+        "keyTerms": [
+          {
+            "term": "Lifeline",
+            "meaning": "A lifeline represents the participant over the course of an interaction."
+          }
+        ]
+      }
+    },
+    {
+      "number": "11",
+      "text": "A design class contains calculateTotal(quantity:int):decimal. What is this line?",
+      "options": [
+        "Method signature",
+        "Cardinality range",
+        "Object name only",
+        "Actor icon"
+      ],
+      "correctAnswer": "Method signature",
+      "marks": 1,
+      "explanation": "A method signature records an operation and relevant parameters/return information.\n\nWhy: Method signature describes the principle in the question.\n\nExample: calculateTotal takes an integer quantity.\n\nStudent note: Domain diagrams may omit detailed method signatures that design diagrams include.",
+      "study": {
+        "title": "Method signature",
+        "simple": "A method signature records an operation and relevant parameters/return information.",
+        "stepsTitle": "Reasoning",
+        "steps": [
+          "A method signature records an operation and relevant parameters/return information.",
+          "Check what changes, collaborates or is represented in the example."
+        ],
+        "example": "calculateTotal takes an integer quantity.",
+        "pitfall": "Domain diagrams may omit detailed method signatures that design diagrams include.",
+        "remember": "A method signature records an operation and relevant parameters/return information.",
+        "keyTerms": [
+          {
+            "term": "Method signature",
+            "meaning": "A method signature records an operation and relevant parameters/return information."
+          }
+        ]
+      }
+    },
+    {
+      "number": "12",
+      "text": "Compared with a basic problem-domain class symbol, a design class often adds what?",
+      "options": [
+        "Only a different company logo",
+        "Operation / method signatures",
+        "No attributes",
+        "Only actor stick figures"
+      ],
+      "correctAnswer": "Operation / method signatures",
+      "marks": 1,
+      "explanation": "A design class refines implementation-facing structure with operations and types.\n\nWhy: Operation / method signatures describes the principle in the question.\n\nExample: Booking includes cancel(reason:string):boolean.\n\nStudent note: Do not treat every domain noun as a fully designed technical class yet.",
+      "study": {
+        "title": "Operation / method signatures",
+        "simple": "A design class refines implementation-facing structure with operations and types.",
+        "stepsTitle": "Reasoning",
+        "steps": [
+          "A design class refines implementation-facing structure with operations and types.",
+          "Check what changes, collaborates or is represented in the example."
+        ],
+        "example": "Booking includes cancel(reason:string):boolean.",
+        "pitfall": "Do not treat every domain noun as a fully designed technical class yet.",
+        "remember": "A design class refines implementation-facing structure with operations and types.",
+        "keyTerms": [
+          {
+            "term": "Operation / method signatures",
+            "meaning": "A design class refines implementation-facing structure with operations and types."
+          }
+        ]
+      }
+    },
+    {
+      "number": "13",
+      "text": "A class that knows an Order's lines is asked to calculate its total. Which responsibility principle supports assigning it the work?",
+      "options": [
+        "Random assignment",
+        "Indirection only",
+        "Information Expert",
+        "UI ownership"
+      ],
+      "correctAnswer": "Information Expert",
+      "marks": 1,
+      "explanation": "Information Expert assigns a responsibility to an object that has the information needed.\n\nWhy: Information Expert describes the principle in the question.\n\nExample: Order can total its OrderLines.\n\nStudent note: Avoid moving basic order logic into an unrelated screen.",
+      "study": {
+        "title": "Information Expert",
+        "simple": "Information Expert assigns a responsibility to an object that has the information needed.",
+        "stepsTitle": "Reasoning",
+        "steps": [
+          "Information Expert assigns a responsibility to an object that has the information needed.",
+          "Check what changes, collaborates or is represented in the example."
+        ],
+        "example": "Order can total its OrderLines.",
+        "pitfall": "Avoid moving basic order logic into an unrelated screen.",
+        "remember": "Information Expert assigns a responsibility to an object that has the information needed.",
+        "keyTerms": [
+          {
+            "term": "Information Expert",
+            "meaning": "Information Expert assigns a responsibility to an object that has the information needed."
+          }
+        ]
+      }
+    },
+    {
+      "number": "14",
+      "text": "A small stable interface shields one component from knowing many concrete implementations. Which goal is supported?",
+      "options": [
+        "High coupling",
+        "More duplicate knowledge",
+        "No abstraction",
+        "Low coupling"
+      ],
+      "correctAnswer": "Low coupling",
+      "marks": 1,
+      "explanation": "Low coupling limits unnecessary dependencies and makes changes easier.\n\nWhy: Low coupling describes the principle in the question.\n\nExample: PaymentGateway interface hides card-provider specifics.\n\nStudent note: Low coupling does not mean objects never collaborate.",
+      "study": {
+        "title": "Low coupling",
+        "simple": "Low coupling limits unnecessary dependencies and makes changes easier.",
+        "stepsTitle": "Reasoning",
+        "steps": [
+          "Low coupling limits unnecessary dependencies and makes changes easier.",
+          "Check what changes, collaborates or is represented in the example."
+        ],
+        "example": "PaymentGateway interface hides card-provider specifics.",
+        "pitfall": "Low coupling does not mean objects never collaborate.",
+        "remember": "Low coupling limits unnecessary dependencies and makes changes easier.",
+        "keyTerms": [
+          {
+            "term": "Low coupling",
+            "meaning": "Low coupling limits unnecessary dependencies and makes changes easier."
+          }
+        ]
+      }
+    },
+    {
+      "number": "15",
+      "text": "Why divide a class that handles invoices, login and graphics into focused classes?",
+      "options": [
+        "High cohesion",
+        "Maximum public state",
+        "No testing needed",
+        "Physical replication"
+      ],
+      "correctAnswer": "High cohesion",
+      "marks": 1,
+      "explanation": "High cohesion keeps responsibilities closely related.\n\nWhy: High cohesion describes the principle in the question.\n\nExample: Invoice class handles invoice calculations.\n\nStudent note: Splitting one giant class into arbitrary tiny classes is not the only goal; aim for meaningful responsibility.",
+      "study": {
+        "title": "High cohesion",
+        "simple": "High cohesion keeps responsibilities closely related.",
+        "stepsTitle": "Reasoning",
+        "steps": [
+          "High cohesion keeps responsibilities closely related.",
+          "Check what changes, collaborates or is represented in the example."
+        ],
+        "example": "Invoice class handles invoice calculations.",
+        "pitfall": "Splitting one giant class into arbitrary tiny classes is not the only goal; aim for meaningful responsibility.",
+        "remember": "High cohesion keeps responsibilities closely related.",
+        "keyTerms": [
+          {
+            "term": "High cohesion",
+            "meaning": "High cohesion keeps responsibilities closely related."
+          }
+        ]
+      }
+    },
+    {
+      "number": "16",
+      "text": "A controller communicates through an adapter rather than referencing a volatile external service directly. Which principle is illustrated?",
+      "options": [
+        "Direct global dependency",
+        "Indirection",
+        "Unlimited inheritance",
+        "Unstructured coding"
+      ],
+      "correctAnswer": "Indirection",
+      "marks": 1,
+      "explanation": "Indirection inserts a mediator to reduce direct dependency.\n\nWhy: Indirection describes the principle in the question.\n\nExample: A payment adapter mediates between Order and a remote provider.\n\nStudent note: An extra layer needs a purpose; do not create needless complexity.",
+      "study": {
+        "title": "Indirection",
+        "simple": "Indirection inserts a mediator to reduce direct dependency.",
+        "stepsTitle": "Reasoning",
+        "steps": [
+          "Indirection inserts a mediator to reduce direct dependency.",
+          "Check what changes, collaborates or is represented in the example."
+        ],
+        "example": "A payment adapter mediates between Order and a remote provider.",
+        "pitfall": "An extra layer needs a purpose; do not create needless complexity.",
+        "remember": "Indirection inserts a mediator to reduce direct dependency.",
+        "keyTerms": [
+          {
+            "term": "Indirection",
+            "meaning": "Indirection inserts a mediator to reduce direct dependency."
+          }
+        ]
+      }
+    },
+    {
+      "number": "17",
+      "text": "One interface makes it possible to replace an SMS provider without editing business logic. Which principle does this support?",
+      "options": [
+        "Single-use naming",
+        "Cohesion failure",
+        "Protected Variations",
+        "Forced duplication"
+      ],
+      "correctAnswer": "Protected Variations",
+      "marks": 1,
+      "explanation": "Protected Variations puts a stable interface around likely points of change.\n\nWhy: Protected Variations describes the principle in the question.\n\nExample: NotificationSender isolates a service provider.\n\nStudent note: Identify what is likely to vary before choosing the boundary.",
+      "study": {
+        "title": "Protected Variations",
+        "simple": "Protected Variations puts a stable interface around likely points of change.",
+        "stepsTitle": "Reasoning",
+        "steps": [
+          "Protected Variations puts a stable interface around likely points of change.",
+          "Check what changes, collaborates or is represented in the example."
+        ],
+        "example": "NotificationSender isolates a service provider.",
+        "pitfall": "Identify what is likely to vary before choosing the boundary.",
+        "remember": "Protected Variations puts a stable interface around likely points of change.",
+        "keyTerms": [
+          {
+            "term": "Protected Variations",
+            "meaning": "Protected Variations puts a stable interface around likely points of change."
+          }
+        ]
+      }
+    },
+    {
+      "number": "18",
+      "text": "A service class is created solely to group technical saving/lookup responsibilities that do not fit a business entity. Which GRASP idea is relevant?",
+      "options": [
+        "Generalization only",
+        "Mandatory composition",
+        "Use-case actor",
+        "Pure Fabrication"
+      ],
+      "correctAnswer": "Pure Fabrication",
+      "marks": 1,
+      "explanation": "Pure Fabrication introduces a non-domain class for a helpful design responsibility.\n\nWhy: Pure Fabrication describes the principle in the question.\n\nExample: OrderRepository stores Order records.\n\nStudent note: A fabricated technical class should not be mistaken for a real-world domain noun.",
+      "study": {
+        "title": "Pure Fabrication",
+        "simple": "Pure Fabrication introduces a non-domain class for a helpful design responsibility.",
+        "stepsTitle": "Reasoning",
+        "steps": [
+          "Pure Fabrication introduces a non-domain class for a helpful design responsibility.",
+          "Check what changes, collaborates or is represented in the example."
+        ],
+        "example": "OrderRepository stores Order records.",
+        "pitfall": "A fabricated technical class should not be mistaken for a real-world domain noun.",
+        "remember": "Pure Fabrication introduces a non-domain class for a helpful design responsibility.",
+        "keyTerms": [
+          {
+            "term": "Pure Fabrication",
+            "meaning": "Pure Fabrication introduces a non-domain class for a helpful design responsibility."
+          }
+        ]
+      }
+    },
+    {
+      "number": "19",
+      "text": "An Order contains OrderLines and manages creating them. Which GRASP principle can inform who creates an OrderLine?",
+      "options": [
+        "Creator",
+        "Random UI placement",
+        "Defragmentation",
+        "Reboot sequencing"
+      ],
+      "correctAnswer": "Creator",
+      "marks": 1,
+      "explanation": "Creator assigns creation to a class with a meaningful connection to the created object.\n\nWhy: Creator describes the principle in the question.\n\nExample: Order creates its own OrderLine.\n\nStudent note: Ownership and available initialization data help determine a creator.",
+      "study": {
+        "title": "Creator",
+        "simple": "Creator assigns creation to a class with a meaningful connection to the created object.",
+        "stepsTitle": "Reasoning",
+        "steps": [
+          "Creator assigns creation to a class with a meaningful connection to the created object.",
+          "Check what changes, collaborates or is represented in the example."
+        ],
+        "example": "Order creates its own OrderLine.",
+        "pitfall": "Ownership and available initialization data help determine a creator.",
+        "remember": "Creator assigns creation to a class with a meaningful connection to the created object.",
+        "keyTerms": [
+          {
+            "term": "Creator",
+            "meaning": "Creator assigns creation to a class with a meaningful connection to the created object."
+          }
+        ]
+      }
+    },
+    {
+      "number": "20",
+      "text": "CardPayment and WalletPayment implement pay() differently. Which OO principle lets a caller use one common operation?",
+      "options": [
+        "Flat file storage",
+        "Polymorphism",
+        "Tight coupling only",
+        "Binary compression"
+      ],
+      "correctAnswer": "Polymorphism",
+      "marks": 1,
+      "explanation": "Polymorphism lets different implementations respond appropriately through a shared operation.\n\nWhy: Polymorphism describes the principle in the question.\n\nExample: PaymentMethod.pay() chooses the right implementation.\n\nStudent note: An if/else on every concrete type often signals an opportunity for polymorphism.",
+      "study": {
+        "title": "Polymorphism",
+        "simple": "Polymorphism lets different implementations respond appropriately through a shared operation.",
+        "stepsTitle": "Reasoning",
+        "steps": [
+          "Polymorphism lets different implementations respond appropriately through a shared operation.",
+          "Check what changes, collaborates or is represented in the example."
+        ],
+        "example": "PaymentMethod.pay() chooses the right implementation.",
+        "pitfall": "An if/else on every concrete type often signals an opportunity for polymorphism.",
+        "remember": "Polymorphism lets different implementations respond appropriately through a shared operation.",
+        "keyTerms": [
+          {
+            "term": "Polymorphism",
+            "meaning": "Polymorphism lets different implementations respond appropriately through a shared operation."
+          }
+        ]
+      }
+    },
+    {
+      "number": "21",
+      "text": "A contract lists available operations without committing callers to a specific implementation. What is it?",
+      "options": [
+        "Physical motherboard",
+        "Data warehouse",
+        "Interface",
+        "Static image"
+      ],
+      "correctAnswer": "Interface",
+      "marks": 1,
+      "explanation": "An interface provides an agreed interaction contract.\n\nWhy: Interface describes the principle in the question.\n\nExample: EmailSender and SmsSender can implement a NotificationSender contract.\n\nStudent note: An interface does not automatically store domain state.",
+      "study": {
+        "title": "Interface",
+        "simple": "An interface provides an agreed interaction contract.",
+        "stepsTitle": "Reasoning",
+        "steps": [
+          "An interface provides an agreed interaction contract.",
+          "Check what changes, collaborates or is represented in the example."
+        ],
+        "example": "EmailSender and SmsSender can implement a NotificationSender contract.",
+        "pitfall": "An interface does not automatically store domain state.",
+        "remember": "An interface provides an agreed interaction contract.",
+        "keyTerms": [
+          {
+            "term": "Interface",
+            "meaning": "An interface provides an agreed interaction contract."
+          }
+        ]
+      }
+    },
+    {
+      "number": "22",
+      "text": "What is a class intended to provide shared features but not be instantiated directly?",
+      "options": [
+        "Primary key",
+        "Use-case actor",
+        "Network boot service",
+        "Abstract class"
+      ],
+      "correctAnswer": "Abstract class",
+      "marks": 1,
+      "explanation": "An abstract class can share behaviour and require subclass implementation.\n\nWhy: Abstract class describes the principle in the question.\n\nExample: AbstractShape defines a common area() operation.\n\nStudent note: A base class should model an appropriate is-a relationship.",
+      "study": {
+        "title": "Abstract class",
+        "simple": "An abstract class can share behaviour and require subclass implementation.",
+        "stepsTitle": "Reasoning",
+        "steps": [
+          "An abstract class can share behaviour and require subclass implementation.",
+          "Check what changes, collaborates or is represented in the example."
+        ],
+        "example": "AbstractShape defines a common area() operation.",
+        "pitfall": "A base class should model an appropriate is-a relationship.",
+        "remember": "An abstract class can share behaviour and require subclass implementation.",
+        "keyTerms": [
+          {
+            "term": "Abstract class",
+            "meaning": "An abstract class can share behaviour and require subclass implementation."
+          }
+        ]
+      }
+    },
+    {
+      "number": "23",
+      "text": "SavingsAccount is a more specialised type of Account. What relationship describes this?",
+      "options": [
+        "Inheritance / generalization",
+        "Disk mirroring",
+        "ERD join only",
+        "Actor interaction"
+      ],
+      "correctAnswer": "Inheritance / generalization",
+      "marks": 1,
+      "explanation": "Inheritance supports true is-a specialisation.\n\nWhy: Inheritance / generalization describes the principle in the question.\n\nExample: SavingsAccount can inherit account identity and balance behaviour.\n\nStudent note: Do not inherit simply to reuse a few unrelated lines of code.",
+      "study": {
+        "title": "Inheritance / generalization",
+        "simple": "Inheritance supports true is-a specialisation.",
+        "stepsTitle": "Reasoning",
+        "steps": [
+          "Inheritance supports true is-a specialisation.",
+          "Check what changes, collaborates or is represented in the example."
+        ],
+        "example": "SavingsAccount can inherit account identity and balance behaviour.",
+        "pitfall": "Do not inherit simply to reuse a few unrelated lines of code.",
+        "remember": "Inheritance supports true is-a specialisation.",
+        "keyTerms": [
+          {
+            "term": "Inheritance / generalization",
+            "meaning": "Inheritance supports true is-a specialisation."
+          }
+        ]
+      }
+    },
+    {
+      "number": "24",
+      "text": "A Checkout owns CheckoutLine parts that only exist as its parts in the chosen model. Which relation fits?",
+      "options": [
+        "Random message passing",
+        "Composition",
+        "Weak external dependency",
+        "Data deletion policy"
+      ],
+      "correctAnswer": "Composition",
+      "marks": 1,
+      "explanation": "Composition is a strong whole–part relationship with lifecycle ownership.\n\nWhy: Composition describes the principle in the question.\n\nExample: Removing a checkout removes its transient lines in this model.\n\nStudent note: The rule depends on the chosen domain's lifecycle.",
+      "study": {
+        "title": "Composition",
+        "simple": "Composition is a strong whole–part relationship with lifecycle ownership.",
+        "stepsTitle": "Reasoning",
+        "steps": [
+          "Composition is a strong whole–part relationship with lifecycle ownership.",
+          "Check what changes, collaborates or is represented in the example."
+        ],
+        "example": "Removing a checkout removes its transient lines in this model.",
+        "pitfall": "The rule depends on the chosen domain's lifecycle.",
+        "remember": "Composition is a strong whole–part relationship with lifecycle ownership.",
+        "keyTerms": [
+          {
+            "term": "Composition",
+            "meaning": "Composition is a strong whole–part relationship with lifecycle ownership."
+          }
+        ]
+      }
+    },
+    {
+      "number": "25",
+      "text": "What makes an OrderRepository or Mapper different from an ordinary domain Order?",
+      "options": [
+        "It is always a user actor",
+        "It is always a graphic widget",
+        "It handles persistence concerns",
+        "It never stores records"
+      ],
+      "correctAnswer": "It handles persistence concerns",
+      "marks": 1,
+      "explanation": "Persistence services translate domain objects to and from storage.\n\nWhy: It handles persistence concerns describes the principle in the question.\n\nExample: A repository retrieves an Order by ID.\n\nStudent note: A business entity should not be overloaded with raw DB connection management.",
+      "study": {
+        "title": "It handles persistence concerns",
+        "simple": "Persistence services translate domain objects to and from storage.",
+        "stepsTitle": "Reasoning",
+        "steps": [
+          "Persistence services translate domain objects to and from storage.",
+          "Check what changes, collaborates or is represented in the example."
+        ],
+        "example": "A repository retrieves an Order by ID.",
+        "pitfall": "A business entity should not be overloaded with raw DB connection management.",
+        "remember": "Persistence services translate domain objects to and from storage.",
+        "keyTerms": [
+          {
+            "term": "It handles persistence concerns",
+            "meaning": "Persistence services translate domain objects to and from storage."
+          }
+        ]
+      }
+    },
+    {
+      "number": "26",
+      "text": "Student and Course have a many-to-many relationship. Which relational structure is common?",
+      "options": [
+        "One duplicated free-text name field",
+        "No relationship key",
+        "A single Boolean in Student",
+        "Enrollment join table"
+      ],
+      "correctAnswer": "Enrollment join table",
+      "marks": 1,
+      "explanation": "An associative table maps the many-to-many link into relational rows.\n\nWhy: Enrollment join table describes the principle in the question.\n\nExample: Enrollment(studentId,courseId,grade).\n\nStudent note: Use foreign keys to keep references consistent.",
+      "study": {
+        "title": "Enrollment join table",
+        "simple": "An associative table maps the many-to-many link into relational rows.",
+        "stepsTitle": "Reasoning",
+        "steps": [
+          "An associative table maps the many-to-many link into relational rows.",
+          "Check what changes, collaborates or is represented in the example."
+        ],
+        "example": "Enrollment(studentId,courseId,grade).",
+        "pitfall": "Use foreign keys to keep references consistent.",
+        "remember": "An associative table maps the many-to-many link into relational rows.",
+        "keyTerms": [
+          {
+            "term": "Enrollment join table",
+            "meaning": "An associative table maps the many-to-many link into relational rows."
+          }
+        ]
+      }
+    },
+    {
+      "number": "27",
+      "text": "Order.customerId points to Customer.id. What is Order.customerId called?",
+      "options": [
+        "Foreign key",
+        "Primary key of Customer",
+        "Full method signature",
+        "UML actor"
+      ],
+      "correctAnswer": "Foreign key",
+      "marks": 1,
+      "explanation": "A foreign key refers to a key in a related table.\n\nWhy: Foreign key describes the principle in the question.\n\nExample: Order.customerId links one order to its customer.\n\nStudent note: A reference can be part of a composite key but is not automatically the primary key.",
+      "study": {
+        "title": "Foreign key",
+        "simple": "A foreign key refers to a key in a related table.",
+        "stepsTitle": "Reasoning",
+        "steps": [
+          "A foreign key refers to a key in a related table.",
+          "Check what changes, collaborates or is represented in the example."
+        ],
+        "example": "Order.customerId links one order to its customer.",
+        "pitfall": "A reference can be part of a composite key but is not automatically the primary key.",
+        "remember": "A foreign key refers to a key in a related table.",
+        "keyTerms": [
+          {
+            "term": "Foreign key",
+            "meaning": "A foreign key refers to a key in a related table."
+          }
+        ]
+      }
+    },
+    {
+      "number": "28",
+      "text": "Which field (or set of fields) identifies a relational row uniquely?",
+      "options": [
+        "Read-only screen label",
+        "Primary key",
+        "Activity guard",
+        "Actor role"
+      ],
+      "correctAnswer": "Primary key",
+      "marks": 1,
+      "explanation": "A primary key uniquely identifies records in a relational table.\n\nWhy: Primary key describes the principle in the question.\n\nExample: orderId identifies one Order.\n\nStudent note: A primary key should be stable and non-null under ordinary SQL rules.",
+      "study": {
+        "title": "Primary key",
+        "simple": "A primary key uniquely identifies records in a relational table.",
+        "stepsTitle": "Reasoning",
+        "steps": [
+          "A primary key uniquely identifies records in a relational table.",
+          "Check what changes, collaborates or is represented in the example."
+        ],
+        "example": "orderId identifies one Order.",
+        "pitfall": "A primary key should be stable and non-null under ordinary SQL rules.",
+        "remember": "A primary key uniquely identifies records in a relational table.",
+        "keyTerms": [
+          {
+            "term": "Primary key",
+            "meaning": "A primary key uniquely identifies records in a relational table."
+          }
+        ]
+      }
+    },
+    {
+      "number": "29",
+      "text": "An order and its stock reduction must either both succeed or both roll back. Which transaction property is this?",
+      "options": [
+        "Loose coupling",
+        "Information Expert",
+        "Atomicity",
+        "Aggregation"
+      ],
+      "correctAnswer": "Atomicity",
+      "marks": 1,
+      "explanation": "Atomicity means a transaction's required changes succeed together or none take effect.\n\nWhy: Atomicity describes the principle in the question.\n\nExample: The system avoids recording an order without reserving stock.\n\nStudent note: Atomicity is one ACID concept; it is not a UML association.",
+      "study": {
+        "title": "Atomicity",
+        "simple": "Atomicity means a transaction's required changes succeed together or none take effect.",
+        "stepsTitle": "Reasoning",
+        "steps": [
+          "Atomicity means a transaction's required changes succeed together or none take effect.",
+          "Check what changes, collaborates or is represented in the example."
+        ],
+        "example": "The system avoids recording an order without reserving stock.",
+        "pitfall": "Atomicity is one ACID concept; it is not a UML association.",
+        "remember": "Atomicity means a transaction's required changes succeed together or none take effect.",
+        "keyTerms": [
+          {
+            "term": "Atomicity",
+            "meaning": "Atomicity means a transaction's required changes succeed together or none take effect."
+          }
+        ]
+      }
+    },
+    {
+      "number": "30",
+      "text": "Two databases replicate customer changes. Why is synchronization important?",
+      "options": [
+        "It creates new actors",
+        "It replaces every backup",
+        "It draws class diagrams",
+        "It reduces stale or conflicting replicas"
+      ],
+      "correctAnswer": "It reduces stale or conflicting replicas",
+      "marks": 1,
+      "explanation": "Synchronization propagates/reconciles updates so copies remain acceptably consistent.\n\nWhy: It reduces stale or conflicting replicas describes the principle in the question.\n\nExample: A corrected address should reach the branch-office replica.\n\nStudent note: Replication still requires a separate recovery plan.",
+      "study": {
+        "title": "It reduces stale or conflicting replicas",
+        "simple": "Synchronization propagates/reconciles updates so copies remain acceptably consistent.",
+        "stepsTitle": "Reasoning",
+        "steps": [
+          "Synchronization propagates/reconciles updates so copies remain acceptably consistent.",
+          "Check what changes, collaborates or is represented in the example."
+        ],
+        "example": "A corrected address should reach the branch-office replica.",
+        "pitfall": "Replication still requires a separate recovery plan.",
+        "remember": "Synchronization propagates/reconciles updates so copies remain acceptably consistent.",
+        "keyTerms": [
+          {
+            "term": "It reduces stale or conflicting replicas",
+            "meaning": "Synchronization propagates/reconciles updates so copies remain acceptably consistent."
+          }
+        ]
+      }
+    },
+    {
+      "number": "31",
+      "text": "A recurring design problem has a reusable documented approach such as Adapter or Observer. What is that approach called?",
+      "options": [
+        "Design pattern",
+        "Operating-system process",
+        "One-time license key",
+        "Numeric field"
+      ],
+      "correctAnswer": "Design pattern",
+      "marks": 1,
+      "explanation": "A design pattern names an adaptable solution approach to a common design problem.\n\nWhy: Design pattern describes the principle in the question.\n\nExample: Adapter helps use an incompatible provider interface.\n\nStudent note: Patterns are guides, not instructions to copy one implementation uncritically.",
+      "study": {
+        "title": "Design pattern",
+        "simple": "A design pattern names an adaptable solution approach to a common design problem.",
+        "stepsTitle": "Reasoning",
+        "steps": [
+          "A design pattern names an adaptable solution approach to a common design problem.",
+          "Check what changes, collaborates or is represented in the example."
+        ],
+        "example": "Adapter helps use an incompatible provider interface.",
+        "pitfall": "Patterns are guides, not instructions to copy one implementation uncritically.",
+        "remember": "A design pattern names an adaptable solution approach to a common design problem.",
+        "keyTerms": [
+          {
+            "term": "Design pattern",
+            "meaning": "A design pattern names an adaptable solution approach to a common design problem."
+          }
+        ]
+      }
+    },
+    {
+      "number": "32",
+      "text": "A designer groups related classes into logical areas such as billing and enrollment. Which UML diagram helps communicate that organisation?",
+      "options": [
+        "Disk partition map",
+        "Package diagram",
+        "Physical seating chart",
+        "RAM allocation graph"
+      ],
+      "correctAnswer": "Package diagram",
+      "marks": 1,
+      "explanation": "Package diagrams group and show dependencies among model elements.\n\nWhy: Package diagram describes the principle in the question.\n\nExample: Billing package uses common identity package.\n\nStudent note: Packages are not the same as a deployed operating-system subsystem.",
+      "study": {
+        "title": "Package diagram",
+        "simple": "Package diagrams group and show dependencies among model elements.",
+        "stepsTitle": "Reasoning",
+        "steps": [
+          "Package diagrams group and show dependencies among model elements.",
+          "Check what changes, collaborates or is represented in the example."
+        ],
+        "example": "Billing package uses common identity package.",
+        "pitfall": "Packages are not the same as a deployed operating-system subsystem.",
+        "remember": "Package diagrams group and show dependencies among model elements.",
+        "keyTerms": [
+          {
+            "term": "Package diagram",
+            "meaning": "Package diagrams group and show dependencies among model elements."
+          }
+        ]
+      }
+    }
+  ]
+}
