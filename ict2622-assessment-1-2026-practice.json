@@ -1,0 +1,942 @@
+{
+  "testName": "ICT2622 · 2026 Assessment 1-style (30 original MCQs)",
+  "module": "ICT2622",
+  "assessment": "Assessment 1 2026-style",
+  "sourceType": "Original practice questions, NOT the actual quiz attempt or UNISA assessment",
+  "sourceReference": "https://www.cliffsnotes.com/study-notes/34509110",
+  "sourceLimitations": "Only a visible review preview was verified. These are 30 newly written questions covering related topics, not a verbatim reproduction.",
+  "totalMarks": 30,
+  "preserveOrder": true,
+  "questions": [
+    {
+      "number": "1",
+      "text": "A campus platform is split into registration, fees and results areas. What is registration called?",
+      "marks": 1,
+      "options": [
+        "Sequence number",
+        "Subsystem",
+        "One attribute",
+        "Feedback loop"
+      ],
+      "correctAnswer": "Subsystem",
+      "explanation": "A subsystem is a meaningful smaller part of a larger system.\n\nWhy: Subsystem matches this question.\n\nExample: Registration can work with fees without being the entire platform.\n\nStudent note: A subsystem is a logical division, not necessarily one source file.",
+      "study": {
+        "title": "Subsystem",
+        "simple": "A subsystem is a meaningful smaller part of a larger system.",
+        "stepsTitle": "Reasoning",
+        "steps": [
+          "A subsystem is a meaningful smaller part of a larger system.",
+          "Use the example to separate this idea from the other options."
+        ],
+        "example": "Registration can work with fees without being the entire platform.",
+        "pitfall": "A subsystem is a logical division, not necessarily one source file.",
+        "remember": "A subsystem is a meaningful smaller part of a larger system.",
+        "keyTerms": [
+          {
+            "term": "Subsystem",
+            "meaning": "A subsystem is a meaningful smaller part of a larger system."
+          }
+        ]
+      }
+    },
+    {
+      "number": "2",
+      "text": "A developer must add, retrieve, change and erase library records. Which four operations describe this?",
+      "marks": 1,
+      "options": [
+        "Create, Read, Update, Delete",
+        "Copy, Route, Upload, Debug",
+        "Check, Repeat, Undo, Deploy",
+        "Create, Review, Undo, Download"
+      ],
+      "correctAnswer": "Create, Read, Update, Delete",
+      "explanation": "CRUD describes the four ordinary record-maintenance operations.\n\nWhy: Create, Read, Update, Delete matches this question.\n\nExample: Create a loan, read its status, update due date and delete a test record.\n\nStudent note: Read means retrieve, not print a report only.",
+      "study": {
+        "title": "Create, Read, Update, Delete",
+        "simple": "CRUD describes the four ordinary record-maintenance operations.",
+        "stepsTitle": "Reasoning",
+        "steps": [
+          "CRUD describes the four ordinary record-maintenance operations.",
+          "Use the example to separate this idea from the other options."
+        ],
+        "example": "Create a loan, read its status, update due date and delete a test record.",
+        "pitfall": "Read means retrieve, not print a report only.",
+        "remember": "CRUD describes the four ordinary record-maintenance operations.",
+        "keyTerms": [
+          {
+            "term": "Create, Read, Update, Delete",
+            "meaning": "CRUD describes the four ordinary record-maintenance operations."
+          }
+        ]
+      }
+    },
+    {
+      "number": "3",
+      "text": "An early proposal records the business problem, intended capabilities and expected benefit. What is it?",
+      "marks": 1,
+      "options": [
+        "Unit-test report",
+        "Detailed method diagram",
+        "Network cable list",
+        "System Vision Document"
+      ],
+      "correctAnswer": "System Vision Document",
+      "explanation": "A system vision briefly sets out why a solution is needed and what value it offers.\n\nWhy: System Vision Document matches this question.\n\nExample: A clinic proposes online booking to reduce missed visits.\n\nStudent note: It is not the complete implementation plan.",
+      "study": {
+        "title": "System Vision Document",
+        "simple": "A system vision briefly sets out why a solution is needed and what value it offers.",
+        "stepsTitle": "Reasoning",
+        "steps": [
+          "A system vision briefly sets out why a solution is needed and what value it offers.",
+          "Use the example to separate this idea from the other options."
+        ],
+        "example": "A clinic proposes online booking to reduce missed visits.",
+        "pitfall": "It is not the complete implementation plan.",
+        "remember": "A system vision briefly sets out why a solution is needed and what value it offers.",
+        "keyTerms": [
+          {
+            "term": "System Vision Document",
+            "meaning": "A system vision briefly sets out why a solution is needed and what value it offers."
+          }
+        ]
+      }
+    },
+    {
+      "number": "4",
+      "text": "A team first documents what the new system must accomplish. Which activity is it doing?",
+      "marks": 1,
+      "options": [
+        "Detailed coding",
+        "Physical deployment",
+        "Systems analysis",
+        "Backup restoration"
+      ],
+      "correctAnswer": "Systems analysis",
+      "explanation": "Analysis seeks to understand the problem and specify required behaviour.\n\nWhy: Systems analysis matches this question.\n\nExample: Record that a customer can cancel an unshipped order.\n\nStudent note: Choosing the database brand is a later design choice.",
+      "study": {
+        "title": "Systems analysis",
+        "simple": "Analysis seeks to understand the problem and specify required behaviour.",
+        "stepsTitle": "Reasoning",
+        "steps": [
+          "Analysis seeks to understand the problem and specify required behaviour.",
+          "Use the example to separate this idea from the other options."
+        ],
+        "example": "Record that a customer can cancel an unshipped order.",
+        "pitfall": "Choosing the database brand is a later design choice.",
+        "remember": "Analysis seeks to understand the problem and specify required behaviour.",
+        "keyTerms": [
+          {
+            "term": "Systems analysis",
+            "meaning": "Analysis seeks to understand the problem and specify required behaviour."
+          }
+        ]
+      }
+    },
+    {
+      "number": "5",
+      "text": "Which UML concept normally describes an external role reaching a meaningful system goal?",
+      "marks": 1,
+      "options": [
+        "CPU process",
+        "Use case",
+        "Physical index",
+        "Package file"
+      ],
+      "correctAnswer": "Use case",
+      "explanation": "A use case expresses an actor's useful objective involving the system.\n\nWhy: Use case matches this question.\n\nExample: A learner registers for a course.\n\nStudent note: Name goals with verbs and objects, not arbitrary screen labels.",
+      "study": {
+        "title": "Use case",
+        "simple": "A use case expresses an actor's useful objective involving the system.",
+        "stepsTitle": "Reasoning",
+        "steps": [
+          "A use case expresses an actor's useful objective involving the system.",
+          "Use the example to separate this idea from the other options."
+        ],
+        "example": "A learner registers for a course.",
+        "pitfall": "Name goals with verbs and objects, not arbitrary screen labels.",
+        "remember": "A use case expresses an actor's useful objective involving the system.",
+        "keyTerms": [
+          {
+            "term": "Use case",
+            "meaning": "A use case expresses an actor's useful objective involving the system."
+          }
+        ]
+      }
+    },
+    {
+      "number": "6",
+      "text": "In a use case model, what is an Actor?",
+      "marks": 1,
+      "options": [
+        "An external role interacting with the system",
+        "Always a named human",
+        "Any internal method",
+        "An SQL table"
+      ],
+      "correctAnswer": "An external role interacting with the system",
+      "explanation": "An actor is an external role such as Customer, Clerk or Payment Service.\n\nWhy: An external role interacting with the system matches this question.\n\nExample: A delivery service can be a non-human actor.\n\nStudent note: A system's own internal object is not usually its external actor.",
+      "study": {
+        "title": "An external role interacting with the system",
+        "simple": "An actor is an external role such as Customer, Clerk or Payment Service.",
+        "stepsTitle": "Reasoning",
+        "steps": [
+          "An actor is an external role such as Customer, Clerk or Payment Service.",
+          "Use the example to separate this idea from the other options."
+        ],
+        "example": "A delivery service can be a non-human actor.",
+        "pitfall": "A system's own internal object is not usually its external actor.",
+        "remember": "An actor is an external role such as Customer, Clerk or Payment Service.",
+        "keyTerms": [
+          {
+            "term": "An external role interacting with the system",
+            "meaning": "An actor is an external role such as Customer, Clerk or Payment Service."
+          }
+        ]
+      }
+    },
+    {
+      "number": "7",
+      "text": "Which technique starts by finding business events that require a system response?",
+      "marks": 1,
+      "options": [
+        "Random code refactoring",
+        "Cable tracing",
+        "CPU profiling",
+        "Event decomposition"
+      ],
+      "correctAnswer": "Event decomposition",
+      "explanation": "Event decomposition finds the events to which a system must respond.\n\nWhy: Event decomposition matches this question.\n\nExample: A customer submits an order or a payment is rejected.\n\nStudent note: A business event is not automatically the same as an actor.",
+      "study": {
+        "title": "Event decomposition",
+        "simple": "Event decomposition finds the events to which a system must respond.",
+        "stepsTitle": "Reasoning",
+        "steps": [
+          "Event decomposition finds the events to which a system must respond.",
+          "Use the example to separate this idea from the other options."
+        ],
+        "example": "A customer submits an order or a payment is rejected.",
+        "pitfall": "A business event is not automatically the same as an actor.",
+        "remember": "Event decomposition finds the events to which a system must respond.",
+        "keyTerms": [
+          {
+            "term": "Event decomposition",
+            "meaning": "Event decomposition finds the events to which a system must respond."
+          }
+        ]
+      }
+    },
+    {
+      "number": "8",
+      "text": "Interviewers ask what a tutor needs to achieve, rather than which buttons to display. Which technique is this?",
+      "marks": 1,
+      "options": [
+        "Database compression",
+        "Technical deployment",
+        "User-goal identification",
+        "File encryption"
+      ],
+      "correctAnswer": "User-goal identification",
+      "explanation": "User-goal analysis discovers useful outcomes for different actors.\n\nWhy: User-goal identification matches this question.\n\nExample: Tutor's goal: approve a submitted assignment.\n\nStudent note: A click is a step; approving an assignment is the broader goal.",
+      "study": {
+        "title": "User-goal identification",
+        "simple": "User-goal analysis discovers useful outcomes for different actors.",
+        "stepsTitle": "Reasoning",
+        "steps": [
+          "User-goal analysis discovers useful outcomes for different actors.",
+          "Use the example to separate this idea from the other options."
+        ],
+        "example": "Tutor's goal: approve a submitted assignment.",
+        "pitfall": "A click is a step; approving an assignment is the broader goal.",
+        "remember": "User-goal analysis discovers useful outcomes for different actors.",
+        "keyTerms": [
+          {
+            "term": "User-goal identification",
+            "meaning": "User-goal analysis discovers useful outcomes for different actors."
+          }
+        ]
+      }
+    },
+    {
+      "number": "9",
+      "text": "One class manages unrelated payments, layout and network configuration. Which design quality is weak?",
+      "marks": 1,
+      "options": [
+        "Pagination",
+        "Cohesion",
+        "Encapsulation of data only",
+        "Multiplicty"
+      ],
+      "correctAnswer": "Cohesion",
+      "explanation": "Cohesion measures whether a class's responsibilities naturally belong together.\n\nWhy: Cohesion matches this question.\n\nExample: A Payment class should focus on payment-related behaviour.\n\nStudent note: High cohesion is usually preferred; the example shows low cohesion.",
+      "study": {
+        "title": "Cohesion",
+        "simple": "Cohesion measures whether a class's responsibilities naturally belong together.",
+        "stepsTitle": "Reasoning",
+        "steps": [
+          "Cohesion measures whether a class's responsibilities naturally belong together.",
+          "Use the example to separate this idea from the other options."
+        ],
+        "example": "A Payment class should focus on payment-related behaviour.",
+        "pitfall": "High cohesion is usually preferred; the example shows low cohesion.",
+        "remember": "Cohesion measures whether a class's responsibilities naturally belong together.",
+        "keyTerms": [
+          {
+            "term": "Cohesion",
+            "meaning": "Cohesion measures whether a class's responsibilities naturally belong together."
+          }
+        ]
+      }
+    },
+    {
+      "number": "10",
+      "text": "A module changes whenever many other modules change because it depends on all of them. What is this a sign of?",
+      "marks": 1,
+      "options": [
+        "High coupling",
+        "Low coupling",
+        "Information hiding",
+        "Event decomposition"
+      ],
+      "correctAnswer": "High coupling",
+      "explanation": "Coupling measures how dependent parts of a design are on one another.\n\nWhy: High coupling matches this question.\n\nExample: A report feature directly importing every service increases change risk.\n\nStudent note: Low coupling and high cohesion are different design goals.",
+      "study": {
+        "title": "High coupling",
+        "simple": "Coupling measures how dependent parts of a design are on one another.",
+        "stepsTitle": "Reasoning",
+        "steps": [
+          "Coupling measures how dependent parts of a design are on one another.",
+          "Use the example to separate this idea from the other options."
+        ],
+        "example": "A report feature directly importing every service increases change risk.",
+        "pitfall": "Low coupling and high cohesion are different design goals.",
+        "remember": "Coupling measures how dependent parts of a design are on one another.",
+        "keyTerms": [
+          {
+            "term": "High coupling",
+            "meaning": "Coupling measures how dependent parts of a design are on one another."
+          }
+        ]
+      }
+    },
+    {
+      "number": "11",
+      "text": "Which UML model should show Customer, Order and Product as business concepts with attributes?",
+      "marks": 1,
+      "options": [
+        "Server rack diagram",
+        "App icon mock-up",
+        "Weekly timetable",
+        "Domain class diagram"
+      ],
+      "correctAnswer": "Domain class diagram",
+      "explanation": "A domain class model identifies important real-world concepts and their associations.\n\nWhy: Domain class diagram matches this question.\n\nExample: Customer 1 — 0..* Order.\n\nStudent note: A business Customer class is not a login screen.",
+      "study": {
+        "title": "Domain class diagram",
+        "simple": "A domain class model identifies important real-world concepts and their associations.",
+        "stepsTitle": "Reasoning",
+        "steps": [
+          "A domain class model identifies important real-world concepts and their associations.",
+          "Use the example to separate this idea from the other options."
+        ],
+        "example": "Customer 1 — 0..* Order.",
+        "pitfall": "A business Customer class is not a login screen.",
+        "remember": "A domain class model identifies important real-world concepts and their associations.",
+        "keyTerms": [
+          {
+            "term": "Domain class diagram",
+            "meaning": "A domain class model identifies important real-world concepts and their associations."
+          }
+        ]
+      }
+    },
+    {
+      "number": "12",
+      "text": "StudentNumber is recorded inside a Student class. What is StudentNumber?",
+      "marks": 1,
+      "options": [
+        "Actor",
+        "Subsystem",
+        "Attribute",
+        "Use case"
+      ],
+      "correctAnswer": "Attribute",
+      "explanation": "An attribute records information about an instance of a class.\n\nWhy: Attribute matches this question.\n\nExample: Student has studentNumber, name and status.\n\nStudent note: A class operation such as enrol() is behaviour, not an attribute.",
+      "study": {
+        "title": "Attribute",
+        "simple": "An attribute records information about an instance of a class.",
+        "stepsTitle": "Reasoning",
+        "steps": [
+          "An attribute records information about an instance of a class.",
+          "Use the example to separate this idea from the other options."
+        ],
+        "example": "Student has studentNumber, name and status.",
+        "pitfall": "A class operation such as enrol() is behaviour, not an attribute.",
+        "remember": "An attribute records information about an instance of a class.",
+        "keyTerms": [
+          {
+            "term": "Attribute",
+            "meaning": "An attribute records information about an instance of a class."
+          }
+        ]
+      }
+    },
+    {
+      "number": "13",
+      "text": "A Customer places an Order. What is the connection between those two domain classes?",
+      "marks": 1,
+      "options": [
+        "Compiler directive",
+        "Association",
+        "Keyboard shortcut",
+        "Swimlane"
+      ],
+      "correctAnswer": "Association",
+      "explanation": "An association is a relationship between class instances.\n\nWhy: Association matches this question.\n\nExample: One customer can be linked to many orders.\n\nStudent note: Multiplicity describes the counts at the ends of an association.",
+      "study": {
+        "title": "Association",
+        "simple": "An association is a relationship between class instances.",
+        "stepsTitle": "Reasoning",
+        "steps": [
+          "An association is a relationship between class instances.",
+          "Use the example to separate this idea from the other options."
+        ],
+        "example": "One customer can be linked to many orders.",
+        "pitfall": "Multiplicity describes the counts at the ends of an association.",
+        "remember": "An association is a relationship between class instances.",
+        "keyTerms": [
+          {
+            "term": "Association",
+            "meaning": "An association is a relationship between class instances."
+          }
+        ]
+      }
+    },
+    {
+      "number": "14",
+      "text": "The label 0..* appears next to Order in a Customer–Order link. What does it describe?",
+      "marks": 1,
+      "options": [
+        "Multiplicity",
+        "Data encryption",
+        "Method visibility",
+        "Project schedule"
+      ],
+      "correctAnswer": "Multiplicity",
+      "explanation": "Multiplicity gives the permitted number of linked instances.\n\nWhy: Multiplicity matches this question.\n\nExample: A customer may currently have no orders or several orders.\n\nStudent note: Read the value at the end it describes.",
+      "study": {
+        "title": "Multiplicity",
+        "simple": "Multiplicity gives the permitted number of linked instances.",
+        "stepsTitle": "Reasoning",
+        "steps": [
+          "Multiplicity gives the permitted number of linked instances.",
+          "Use the example to separate this idea from the other options."
+        ],
+        "example": "A customer may currently have no orders or several orders.",
+        "pitfall": "Read the value at the end it describes.",
+        "remember": "Multiplicity gives the permitted number of linked instances.",
+        "keyTerms": [
+          {
+            "term": "Multiplicity",
+            "meaning": "Multiplicity gives the permitted number of linked instances."
+          }
+        ]
+      }
+    },
+    {
+      "number": "15",
+      "text": "Vehicle is a general kind of Car and Bicycle. What UML relationship fits?",
+      "marks": 1,
+      "options": [
+        "File redirection",
+        "Composition only",
+        "Unique index",
+        "Generalization / inheritance"
+      ],
+      "correctAnswer": "Generalization / inheritance",
+      "explanation": "Generalization represents an is-a relationship among a parent and specialised classes.\n\nWhy: Generalization / inheritance matches this question.\n\nExample: Car is a Vehicle.\n\nStudent note: Use inheritance for true specialisation, not simply because two classes connect.",
+      "study": {
+        "title": "Generalization / inheritance",
+        "simple": "Generalization represents an is-a relationship among a parent and specialised classes.",
+        "stepsTitle": "Reasoning",
+        "steps": [
+          "Generalization represents an is-a relationship among a parent and specialised classes.",
+          "Use the example to separate this idea from the other options."
+        ],
+        "example": "Car is a Vehicle.",
+        "pitfall": "Use inheritance for true specialisation, not simply because two classes connect.",
+        "remember": "Generalization represents an is-a relationship among a parent and specialised classes.",
+        "keyTerms": [
+          {
+            "term": "Generalization / inheritance",
+            "meaning": "Generalization represents an is-a relationship among a parent and specialised classes."
+          }
+        ]
+      }
+    },
+    {
+      "number": "16",
+      "text": "A House owns Room objects and the rooms have no separate lifecycle in this model. Which whole–part relation is strongest?",
+      "marks": 1,
+      "options": [
+        "Ordinary dependency only",
+        "Actor association",
+        "Composition",
+        "Use-case include"
+      ],
+      "correctAnswer": "Composition",
+      "explanation": "Composition represents strong ownership of parts by a whole.\n\nWhy: Composition matches this question.\n\nExample: Room belongs to House in the chosen domain model.\n\nStudent note: The meaning depends on the business rules, not just UML decoration.",
+      "study": {
+        "title": "Composition",
+        "simple": "Composition represents strong ownership of parts by a whole.",
+        "stepsTitle": "Reasoning",
+        "steps": [
+          "Composition represents strong ownership of parts by a whole.",
+          "Use the example to separate this idea from the other options."
+        ],
+        "example": "Room belongs to House in the chosen domain model.",
+        "pitfall": "The meaning depends on the business rules, not just UML decoration.",
+        "remember": "Composition represents strong ownership of parts by a whole.",
+        "keyTerms": [
+          {
+            "term": "Composition",
+            "meaning": "Composition represents strong ownership of parts by a whole."
+          }
+        ]
+      }
+    },
+    {
+      "number": "17",
+      "text": "A University has independent Club objects that may continue if the university's particular record changes. What whole–part concept may fit?",
+      "marks": 1,
+      "options": [
+        "Composition required",
+        "Aggregation",
+        "Call stack",
+        "System event"
+      ],
+      "correctAnswer": "Aggregation",
+      "explanation": "Aggregation is a weaker whole–part relationship than composition.\n\nWhy: Aggregation matches this question.\n\nExample: A club can be modelled separately from its grouping.\n\nStudent note: Often a plain association is enough; only use aggregation when the whole–part distinction adds meaning.",
+      "study": {
+        "title": "Aggregation",
+        "simple": "Aggregation is a weaker whole–part relationship than composition.",
+        "stepsTitle": "Reasoning",
+        "steps": [
+          "Aggregation is a weaker whole–part relationship than composition.",
+          "Use the example to separate this idea from the other options."
+        ],
+        "example": "A club can be modelled separately from its grouping.",
+        "pitfall": "Often a plain association is enough; only use aggregation when the whole–part distinction adds meaning.",
+        "remember": "Aggregation is a weaker whole–part relationship than composition.",
+        "keyTerms": [
+          {
+            "term": "Aggregation",
+            "meaning": "Aggregation is a weaker whole–part relationship than composition."
+          }
+        ]
+      }
+    },
+    {
+      "number": "18",
+      "text": "On a UML activity diagram, what symbol normally identifies where execution begins?",
+      "marks": 1,
+      "options": [
+        "Filled circle",
+        "Open triangle",
+        "Plain actor stick figure",
+        "Class compartment"
+      ],
+      "correctAnswer": "Filled circle",
+      "explanation": "The filled initial node marks the starting point of an activity.\n\nWhy: Filled circle matches this question.\n\nExample: The first action might be Sign in.\n\nStudent note: It is not the same as an activity final node.",
+      "study": {
+        "title": "Filled circle",
+        "simple": "The filled initial node marks the starting point of an activity.",
+        "stepsTitle": "Reasoning",
+        "steps": [
+          "The filled initial node marks the starting point of an activity.",
+          "Use the example to separate this idea from the other options."
+        ],
+        "example": "The first action might be Sign in.",
+        "pitfall": "It is not the same as an activity final node.",
+        "remember": "The filled initial node marks the starting point of an activity.",
+        "keyTerms": [
+          {
+            "term": "Filled circle",
+            "meaning": "The filled initial node marks the starting point of an activity."
+          }
+        ]
+      }
+    },
+    {
+      "number": "19",
+      "text": "A workflow chooses [payment accepted] or [payment rejected]. Which UML node best represents this choice?",
+      "marks": 1,
+      "options": [
+        "Class rectangle only",
+        "External actor",
+        "Object attribute",
+        "Decision diamond"
+      ],
+      "correctAnswer": "Decision diamond",
+      "explanation": "A decision node branches control flow using labelled conditions.\n\nWhy: Decision diamond matches this question.\n\nExample: An accepted card payment continues to create an order.\n\nStudent note: Give outgoing branches clear guard labels.",
+      "study": {
+        "title": "Decision diamond",
+        "simple": "A decision node branches control flow using labelled conditions.",
+        "stepsTitle": "Reasoning",
+        "steps": [
+          "A decision node branches control flow using labelled conditions.",
+          "Use the example to separate this idea from the other options."
+        ],
+        "example": "An accepted card payment continues to create an order.",
+        "pitfall": "Give outgoing branches clear guard labels.",
+        "remember": "A decision node branches control flow using labelled conditions.",
+        "keyTerms": [
+          {
+            "term": "Decision diamond",
+            "meaning": "A decision node branches control flow using labelled conditions."
+          }
+        ]
+      }
+    },
+    {
+      "number": "20",
+      "text": "An activity diagram separates customer, system and warehouse actions into areas. What are these areas called?",
+      "marks": 1,
+      "options": [
+        "Namespaces only",
+        "Foreign keys",
+        "Swimlanes / partitions",
+        "Object lifelines"
+      ],
+      "correctAnswer": "Swimlanes / partitions",
+      "explanation": "Activity partitions group actions by the participant responsible for them.\n\nWhy: Swimlanes / partitions matches this question.\n\nExample: Customer submits order while Warehouse packs it.\n\nStudent note: A swimlane shows responsibility, not necessarily a system boundary.",
+      "study": {
+        "title": "Swimlanes / partitions",
+        "simple": "Activity partitions group actions by the participant responsible for them.",
+        "stepsTitle": "Reasoning",
+        "steps": [
+          "Activity partitions group actions by the participant responsible for them.",
+          "Use the example to separate this idea from the other options."
+        ],
+        "example": "Customer submits order while Warehouse packs it.",
+        "pitfall": "A swimlane shows responsibility, not necessarily a system boundary.",
+        "remember": "Activity partitions group actions by the participant responsible for them.",
+        "keyTerms": [
+          {
+            "term": "Swimlanes / partitions",
+            "meaning": "Activity partitions group actions by the participant responsible for them."
+          }
+        ]
+      }
+    },
+    {
+      "number": "21",
+      "text": "An entity may have many dependent records; the other end may allow none. Which notation expresses this on an ERD?",
+      "marks": 1,
+      "options": [
+        "Text justification",
+        "Crow's-foot cardinality",
+        "Gantt duration",
+        "Code indentation"
+      ],
+      "correctAnswer": "Crow's-foot cardinality",
+      "explanation": "Crow's-foot ERD notation indicates entity relationship counts and optionality.\n\nWhy: Crow's-foot cardinality matches this question.\n\nExample: One team can have zero or many players.\n\nStudent note: Always check which end receives the crow's foot.",
+      "study": {
+        "title": "Crow's-foot cardinality",
+        "simple": "Crow's-foot ERD notation indicates entity relationship counts and optionality.",
+        "stepsTitle": "Reasoning",
+        "steps": [
+          "Crow's-foot ERD notation indicates entity relationship counts and optionality.",
+          "Use the example to separate this idea from the other options."
+        ],
+        "example": "One team can have zero or many players.",
+        "pitfall": "Always check which end receives the crow's foot.",
+        "remember": "Crow's-foot ERD notation indicates entity relationship counts and optionality.",
+        "keyTerms": [
+          {
+            "term": "Crow's-foot cardinality",
+            "meaning": "Crow's-foot ERD notation indicates entity relationship counts and optionality."
+          }
+        ]
+      }
+    },
+    {
+      "number": "22",
+      "text": "Students can take many Courses and Courses have many Students. What helps represent enrolment in a relational model?",
+      "marks": 1,
+      "options": [
+        "Associative entity/table",
+        "A combined free-text field",
+        "No relationship",
+        "Duplicate Student rows"
+      ],
+      "correctAnswer": "Associative entity/table",
+      "explanation": "An associative entity resolves many-to-many relationships and may hold relationship attributes.\n\nWhy: Associative entity/table matches this question.\n\nExample: Enrolment links studentId and courseId and may store a grade.\n\nStudent note: Both parent keys normally appear as references in the joining structure.",
+      "study": {
+        "title": "Associative entity/table",
+        "simple": "An associative entity resolves many-to-many relationships and may hold relationship attributes.",
+        "stepsTitle": "Reasoning",
+        "steps": [
+          "An associative entity resolves many-to-many relationships and may hold relationship attributes.",
+          "Use the example to separate this idea from the other options."
+        ],
+        "example": "Enrolment links studentId and courseId and may store a grade.",
+        "pitfall": "Both parent keys normally appear as references in the joining structure.",
+        "remember": "An associative entity resolves many-to-many relationships and may hold relationship attributes.",
+        "keyTerms": [
+          {
+            "term": "Associative entity/table",
+            "meaning": "An associative entity resolves many-to-many relationships and may hold relationship attributes."
+          }
+        ]
+      }
+    },
+    {
+      "number": "23",
+      "text": "'The system allows learners to reserve books' is an example of which requirement?",
+      "marks": 1,
+      "options": [
+        "Hardware serial number",
+        "Project nickname",
+        "Only a business risk",
+        "Functional requirement"
+      ],
+      "correctAnswer": "Functional requirement",
+      "explanation": "A functional requirement describes behaviour or services the system must provide.\n\nWhy: Functional requirement matches this question.\n\nExample: Reserve book creates a reservation record.\n\nStudent note: Performance is generally a non-functional quality, not a reservation function.",
+      "study": {
+        "title": "Functional requirement",
+        "simple": "A functional requirement describes behaviour or services the system must provide.",
+        "stepsTitle": "Reasoning",
+        "steps": [
+          "A functional requirement describes behaviour or services the system must provide.",
+          "Use the example to separate this idea from the other options."
+        ],
+        "example": "Reserve book creates a reservation record.",
+        "pitfall": "Performance is generally a non-functional quality, not a reservation function.",
+        "remember": "A functional requirement describes behaviour or services the system must provide.",
+        "keyTerms": [
+          {
+            "term": "Functional requirement",
+            "meaning": "A functional requirement describes behaviour or services the system must provide."
+          }
+        ]
+      }
+    },
+    {
+      "number": "24",
+      "text": "'Search results should appear within two seconds under normal load' describes what kind of requirement?",
+      "marks": 1,
+      "options": [
+        "A domain association",
+        "An actor goal alone",
+        "Non-functional performance requirement",
+        "A database column name"
+      ],
+      "correctAnswer": "Non-functional performance requirement",
+      "explanation": "Non-functional requirements constrain how well a system should perform.\n\nWhy: Non-functional performance requirement matches this question.\n\nExample: A response-time target is a measurable quality requirement.\n\nStudent note: A vague phrase like 'must be fast' is hard to test.",
+      "study": {
+        "title": "Non-functional performance requirement",
+        "simple": "Non-functional requirements constrain how well a system should perform.",
+        "stepsTitle": "Reasoning",
+        "steps": [
+          "Non-functional requirements constrain how well a system should perform.",
+          "Use the example to separate this idea from the other options."
+        ],
+        "example": "A response-time target is a measurable quality requirement.",
+        "pitfall": "A vague phrase like 'must be fast' is hard to test.",
+        "remember": "Non-functional requirements constrain how well a system should perform.",
+        "keyTerms": [
+          {
+            "term": "Non-functional performance requirement",
+            "meaning": "Non-functional requirements constrain how well a system should perform."
+          }
+        ]
+      }
+    },
+    {
+      "number": "25",
+      "text": "A project builds and evaluates the solution through repeated cycles. Which development pattern is this?",
+      "marks": 1,
+      "options": [
+        "A single frozen step only",
+        "Iterative development",
+        "One-off migration only",
+        "Data compression"
+      ],
+      "correctAnswer": "Iterative development",
+      "explanation": "Iterative development revisits and refines the solution in cycles.\n\nWhy: Iterative development matches this question.\n\nExample: A trial use case is reviewed before broader release.\n\nStudent note: Incremental and iterative can work together but are not identical words.",
+      "study": {
+        "title": "Iterative development",
+        "simple": "Iterative development revisits and refines the solution in cycles.",
+        "stepsTitle": "Reasoning",
+        "steps": [
+          "Iterative development revisits and refines the solution in cycles.",
+          "Use the example to separate this idea from the other options."
+        ],
+        "example": "A trial use case is reviewed before broader release.",
+        "pitfall": "Incremental and iterative can work together but are not identical words.",
+        "remember": "Iterative development revisits and refines the solution in cycles.",
+        "keyTerms": [
+          {
+            "term": "Iterative development",
+            "meaning": "Iterative development revisits and refines the solution in cycles."
+          }
+        ]
+      }
+    },
+    {
+      "number": "26",
+      "text": "The project accepts changing priorities after stakeholder feedback. Which approach is associated with this?",
+      "marks": 1,
+      "options": [
+        "Agile development",
+        "Fixed waterfall only",
+        "A file-system format",
+        "Network boot"
+      ],
+      "correctAnswer": "Agile development",
+      "explanation": "Agile values responding to change and regular collaboration.\n\nWhy: Agile development matches this question.\n\nExample: The team reorders backlog items after a demo.\n\nStudent note: Agile still involves plans and documentation as needed.",
+      "study": {
+        "title": "Agile development",
+        "simple": "Agile values responding to change and regular collaboration.",
+        "stepsTitle": "Reasoning",
+        "steps": [
+          "Agile values responding to change and regular collaboration.",
+          "Use the example to separate this idea from the other options."
+        ],
+        "example": "The team reorders backlog items after a demo.",
+        "pitfall": "Agile still involves plans and documentation as needed.",
+        "remember": "Agile values responding to change and regular collaboration.",
+        "keyTerms": [
+          {
+            "term": "Agile development",
+            "meaning": "Agile values responding to change and regular collaboration."
+          }
+        ]
+      }
+    },
+    {
+      "number": "27",
+      "text": "A lifecycle moves through mostly sequential frozen phase outputs. Which traditional approach is this?",
+      "marks": 1,
+      "options": [
+        "Continuous exploratory prototyping",
+        "Repeated micro-iterations",
+        "Object persistence",
+        "Waterfall"
+      ],
+      "correctAnswer": "Waterfall",
+      "explanation": "Waterfall treats major stages as sequential with relatively stable handoffs.\n\nWhy: Waterfall matches this question.\n\nExample: Requirements are signed off before detailed build work.\n\nStudent note: It may be unsuitable where requirements change often.",
+      "study": {
+        "title": "Waterfall",
+        "simple": "Waterfall treats major stages as sequential with relatively stable handoffs.",
+        "stepsTitle": "Reasoning",
+        "steps": [
+          "Waterfall treats major stages as sequential with relatively stable handoffs.",
+          "Use the example to separate this idea from the other options."
+        ],
+        "example": "Requirements are signed off before detailed build work.",
+        "pitfall": "It may be unsuitable where requirements change often.",
+        "remember": "Waterfall treats major stages as sequential with relatively stable handoffs.",
+        "keyTerms": [
+          {
+            "term": "Waterfall",
+            "meaning": "Waterfall treats major stages as sequential with relatively stable handoffs."
+          }
+        ]
+      }
+    },
+    {
+      "number": "28",
+      "text": "Why might an analyst research competing suppliers during requirements gathering?",
+      "marks": 1,
+      "options": [
+        "To avoid speaking with users",
+        "To pick the prettiest website",
+        "To compare available capabilities, cost and fit",
+        "To remove security evaluation"
+      ],
+      "correctAnswer": "To compare available capabilities, cost and fit",
+      "explanation": "Vendor research gives evidence about existing products and constraints.\n\nWhy: To compare available capabilities, cost and fit matches this question.\n\nExample: Compare integration, licensing and support for booking platforms.\n\nStudent note: A product demo alone does not prove suitability.",
+      "study": {
+        "title": "To compare available capabilities, cost and fit",
+        "simple": "Vendor research gives evidence about existing products and constraints.",
+        "stepsTitle": "Reasoning",
+        "steps": [
+          "Vendor research gives evidence about existing products and constraints.",
+          "Use the example to separate this idea from the other options."
+        ],
+        "example": "Compare integration, licensing and support for booking platforms.",
+        "pitfall": "A product demo alone does not prove suitability.",
+        "remember": "Vendor research gives evidence about existing products and constraints.",
+        "keyTerms": [
+          {
+            "term": "To compare available capabilities, cost and fit",
+            "meaning": "Vendor research gives evidence about existing products and constraints."
+          }
+        ]
+      }
+    },
+    {
+      "number": "29",
+      "text": "A team is assigned to create a new once-off student app within an agreed period. What is this?",
+      "marks": 1,
+      "options": [
+        "Routine operation only",
+        "Project",
+        "Permanent business department",
+        "Single data field"
+      ],
+      "correctAnswer": "Project",
+      "explanation": "A project is a temporary effort producing a unique outcome.\n\nWhy: Project matches this question.\n\nExample: Building a new mobile registration system.\n\nStudent note: Daily processing of existing registrations is usually routine operation.",
+      "study": {
+        "title": "Project",
+        "simple": "A project is a temporary effort producing a unique outcome.",
+        "stepsTitle": "Reasoning",
+        "steps": [
+          "A project is a temporary effort producing a unique outcome.",
+          "Use the example to separate this idea from the other options."
+        ],
+        "example": "Building a new mobile registration system.",
+        "pitfall": "Daily processing of existing registrations is usually routine operation.",
+        "remember": "A project is a temporary effort producing a unique outcome.",
+        "keyTerms": [
+          {
+            "term": "Project",
+            "meaning": "A project is a temporary effort producing a unique outcome."
+          }
+        ]
+      }
+    },
+    {
+      "number": "30",
+      "text": "A model shows selected important features of the real world and leaves other details out. What technique is this?",
+      "marks": 1,
+      "options": [
+        "Abstraction",
+        "Source-code compilation",
+        "Disk formatting",
+        "Project closure"
+      ],
+      "correctAnswer": "Abstraction",
+      "explanation": "Abstraction focuses on relevant details while suppressing unnecessary complexity.\n\nWhy: Abstraction matches this question.\n\nExample: Order has ID and amount, not a drawing of the buyer's office.\n\nStudent note: A model need not represent every real-world feature.",
+      "study": {
+        "title": "Abstraction",
+        "simple": "Abstraction focuses on relevant details while suppressing unnecessary complexity.",
+        "stepsTitle": "Reasoning",
+        "steps": [
+          "Abstraction focuses on relevant details while suppressing unnecessary complexity.",
+          "Use the example to separate this idea from the other options."
+        ],
+        "example": "Order has ID and amount, not a drawing of the buyer's office.",
+        "pitfall": "A model need not represent every real-world feature.",
+        "remember": "Abstraction focuses on relevant details while suppressing unnecessary complexity.",
+        "keyTerms": [
+          {
+            "term": "Abstraction",
+            "meaning": "Abstraction focuses on relevant details while suppressing unnecessary complexity."
+          }
+        ]
+      }
+    }
+  ]
+}
