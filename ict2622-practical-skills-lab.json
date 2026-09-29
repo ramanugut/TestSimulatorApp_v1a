@@ -1,0 +1,276 @@
+{
+  "testName": "ICT2622 · Extended Practical Skills Lab (Assessment 3-style, original)",
+  "module": "ICT2622",
+  "assessment": "Extra practice, not a verified 2026 Assessment 3",
+  "sourceType": "Original mixed practical practice; NOT a copy of any official or premium assessment",
+  "sourceReference": "https://www.studocu.com/en-za/course/university-of-south-africa/object-oriented-analysis/2325444",
+  "sourceLimitations": "No verified ICT2622 Assessment 3 for 2026 was available. This optional lab demonstrates the app's diagram, table, code and command inputs with newly created material.",
+  "totalMarks": 50,
+  "durationMinutes": 95,
+  "preserveOrder": true,
+  "questions": [
+    {
+      "number": "1",
+      "text": "RepairTrack is a repair booking system. A Client registers a Device and creates a RepairRequest describing a fault. A Technician is assigned to requests and records inspections, quoted cost and repair status. The Client accepts or rejects a quote. Accepted jobs are repaired and closed; rejected jobs are returned unmodified. Each RepairRequest belongs to one Client and one Device. A Client can have several requests; one Technician can handle several requests. Write a fully developed use case description for 'Approve repair quote'. Include primary actor, trigger, preconditions, main success steps, at least two alternate paths and postconditions.",
+      "marks": 12,
+      "answerType": "ai-text",
+      "grading": "ai",
+      "aiPassScore": 70,
+      "correctAnswer": "Name: Approve repair quote. Actor: Client. Trigger: quote available. Preconditions: Client authenticated; quote applies to a pending RepairRequest. Main: Client opens request; system shows cost and scope; Client accepts; system verifies quote current, records decision and notifies Technician; request moves to approved. Alternatives: reject quote -> rejected state/return device; quote expired -> request new quotation; permission failure -> deny update. Postconditions: accurate quote decision and next step recorded.",
+      "aiRubric": [
+        "Actor, name, goal and trigger",
+        "Accurate preconditions",
+        "Numbered user/system main flow",
+        "Validates quote/request",
+        "Two alternate or exception paths",
+        "Correct final state and notification"
+      ],
+      "aiReferenceNotes": "A use case documents a role's complete goal and its normal and exception interactions. Write the actor, trigger and preconditions. List the actor/system steps in order. Add realistic alternatives and final outcomes. A feature list alone is not a fully developed use case.",
+      "explanation": "A use case documents a role's complete goal and its normal and exception interactions.\n\n1. Write the actor, trigger and preconditions.\n2. List the actor/system steps in order.\n3. Add realistic alternatives and final outcomes.\n\nExample: If the quote expires before approval, the system should not silently approve the old cost.\n\nStudent note: A feature list alone is not a fully developed use case.",
+      "study": {
+        "title": "Fully developed use case",
+        "simple": "A use case documents a role's complete goal and its normal and exception interactions.",
+        "stepsTitle": "How to solve",
+        "steps": [
+          "Write the actor, trigger and preconditions.",
+          "List the actor/system steps in order.",
+          "Add realistic alternatives and final outcomes."
+        ],
+        "example": "If the quote expires before approval, the system should not silently approve the old cost.",
+        "pitfall": "A feature list alone is not a fully developed use case.",
+        "remember": "Write the actor, trigger and preconditions.",
+        "keyTerms": [
+          {
+            "term": "Fully developed use case",
+            "meaning": "A use case documents a role's complete goal and its normal and exception interactions."
+          }
+        ]
+      },
+      "context": "RepairTrack is a repair booking system. A Client registers a Device and creates a RepairRequest describing a fault. A Technician is assigned to requests and records inspections, quoted cost and repair status. The Client accepts or rejects a quote. Accepted jobs are repaired and closed; rejected jobs are returned unmodified. Each RepairRequest belongs to one Client and one Device. A Client can have several requests; one Technician can handle several requests.",
+      "contextTitle": "Read RepairTrack scenario"
+    },
+    {
+      "number": "2",
+      "text": "RepairTrack is a repair booking system. A Client registers a Device and creates a RepairRequest describing a fault. A Technician is assigned to requests and records inspections, quoted cost and repair status. The Client accepts or rejects a quote. Accepted jobs are repaired and closed; rejected jobs are returned unmodified. Each RepairRequest belongs to one Client and one Device. A Client can have several requests; one Technician can handle several requests. Draw a domain class diagram. Show Client, Device, RepairRequest, Technician and Quote (or equivalent) with identifying attributes, labelled associations and multiplicities.",
+      "marks": 15,
+      "answerType": "uml-diagram",
+      "grading": "ai",
+      "aiPassScore": 70,
+      "correctAnswer": "Client(clientId,name) 1 -> 0..* Device(deviceId,type,serial), Client 1 -> 0..* RepairRequest(requestId,fault,status), Device 1 -> 0..* RepairRequest, Technician 0..1 -> 0..* RepairRequest (assignment optional initially), RepairRequest 1 -> 0..1 Quote(quoteId,amount,status). The same client owns the request's device.",
+      "aiRubric": [
+        "Core five classes",
+        "Useful identifiers and business attributes",
+        "Client–Device ownership",
+        "Client and Device relationship to requests",
+        "Optional Technician assignment",
+        "Request–Quote relation",
+        "Relevant multiplicities and readable UML notation"
+      ],
+      "aiReferenceNotes": "A domain class diagram models business objects, attributes and their links. Extract important nouns from the story. Give each entity a key and important attributes. Connect the associations and annotate optional/one/many counts. Do not model a screen, controller or raw database connection as a domain object.",
+      "explanation": "A domain class diagram models business objects, attributes and their links.\n\n1. Extract important nouns from the story.\n2. Give each entity a key and important attributes.\n3. Connect the associations and annotate optional/one/many counts.\n\nExample: A new repair request may be unassigned until a technician is selected.\n\nStudent note: Do not model a screen, controller or raw database connection as a domain object.",
+      "study": {
+        "title": "Domain class diagram",
+        "simple": "A domain class diagram models business objects, attributes and their links.",
+        "stepsTitle": "How to solve",
+        "steps": [
+          "Extract important nouns from the story.",
+          "Give each entity a key and important attributes.",
+          "Connect the associations and annotate optional/one/many counts."
+        ],
+        "example": "A new repair request may be unassigned until a technician is selected.",
+        "pitfall": "Do not model a screen, controller or raw database connection as a domain object.",
+        "remember": "Extract important nouns from the story.",
+        "keyTerms": [
+          {
+            "term": "Domain class diagram",
+            "meaning": "A domain class diagram models business objects, attributes and their links."
+          }
+        ]
+      },
+      "context": "RepairTrack is a repair booking system. A Client registers a Device and creates a RepairRequest describing a fault. A Technician is assigned to requests and records inspections, quoted cost and repair status. The Client accepts or rejects a quote. Accepted jobs are repaired and closed; rejected jobs are returned unmodified. Each RepairRequest belongs to one Client and one Device. A Client can have several requests; one Technician can handle several requests.",
+      "contextTitle": "Read RepairTrack scenario",
+      "diagramRequired": true,
+      "diagramNoDrawingCapPercent": 0,
+      "diagramNoDrawingNote": "The task requires a submitted drawing; optional explanation alone cannot earn diagram marks.",
+      "diagramInstructions": "Choose shapes and connectors, draw with touch or a mouse, or upload a PNG/JPEG/WebP image. Label important relationships."
+    },
+    {
+      "number": "3",
+      "text": "RepairTrack is a repair booking system. A Client registers a Device and creates a RepairRequest describing a fault. A Technician is assigned to requests and records inspections, quoted cost and repair status. The Client accepts or rejects a quote. Accepted jobs are repaired and closed; rejected jobs are returned unmodified. Each RepairRequest belongs to one Client and one Device. A Client can have several requests; one Technician can handle several requests. Fill the responsibility table using these exact labels. Row 1: Client; row 2: RepairRequest; row 3: Technician; row 4: Quote. For each row enter the matching responsibility from this word bank: stores contact details / stores reported fault and status / records inspection outcome / stores estimated charge. The second column must be the short type label: actor or domain entity. Treat Client as a domain entity because this is a domain model.",
+      "marks": 8,
+      "answerType": "table",
+      "grading": "table",
+      "tableFixedRows": true,
+      "tableRows": 4,
+      "tableColumns": [
+        {
+          "key": "responsibility",
+          "label": "Responsibility"
+        },
+        {
+          "key": "type",
+          "label": "Type"
+        }
+      ],
+      "tableCorrectRows": [
+        {
+          "responsibility": "stores contact details",
+          "type": "domain entity"
+        },
+        {
+          "responsibility": "stores reported fault and status",
+          "type": "domain entity"
+        },
+        {
+          "responsibility": "records inspection outcome",
+          "type": "domain entity"
+        },
+        {
+          "responsibility": "stores estimated charge",
+          "type": "domain entity"
+        }
+      ],
+      "correctAnswer": "Client – stores contact details, domain entity\nRepairRequest – stores reported fault and status, domain entity\nTechnician – records inspection outcome, domain entity\nQuote – stores estimated charge, domain entity",
+      "explanation": "Match each class to the information it owns and the actions it is responsible for.\n\n1. Read the case study and the word bank.\n2. Assign one role to each given row.\n\nExample: Quote stores the amount, not the technician's personal details.\n\nStudent note: A person can be both an external actor in one UML view and a domain entity in another. The question asks for the domain-model classification.",
+      "study": {
+        "title": "Responsibility table",
+        "simple": "Business classes hold related information and operations; a table can make responsibilities explicit.",
+        "stepsTitle": "How to solve",
+        "steps": [
+          "Match each row to one item from the provided list.",
+          "Keep domain classes separate from controllers, views and database adapters."
+        ],
+        "example": "RepairRequest stores a description of the fault and the current progress.",
+        "pitfall": "The same concept may be shown differently in a use-case versus class diagram.",
+        "remember": "Match each row to one item from the provided list.",
+        "keyTerms": [
+          {
+            "term": "Responsibility table",
+            "meaning": "Business classes hold related information and operations; a table can make responsibilities explicit."
+          }
+        ]
+      },
+      "tableInstructions": "Type a responsibility from the word bank and the short type label. Marking checks each table cell separately.",
+      "context": "RepairTrack is a repair booking system. A Client registers a Device and creates a RepairRequest describing a fault. A Technician is assigned to requests and records inspections, quoted cost and repair status. The Client accepts or rejects a quote. Accepted jobs are repaired and closed; rejected jobs are returned unmodified. Each RepairRequest belongs to one Client and one Device. A Client can have several requests; one Technician can handle several requests.",
+      "contextTitle": "Read RepairTrack scenario"
+    },
+    {
+      "number": "4",
+      "text": "Write simple language-neutral pseudocode for a function called canApproveQuote. It receives an authenticatedClientId and a repairRequest. It must return false if the request does not belong to this client, the quote is missing or the quote has expired; otherwise it returns true only if the request status is 'Quoted'. Explain why the checks are ordered safely.",
+      "marks": 8,
+      "answerType": "code",
+      "grading": "ai",
+      "aiPassScore": 70,
+      "correctAnswer": "function canApproveQuote(clientId, request):\n    if request is null: return false\n    if request.clientId != clientId: return false\n    if request.quote is null: return false\n    if request.quote.expiresAt < now(): return false\n    return request.status == 'Quoted'",
+      "aiRubric": [
+        "Defines function accepting caller and request",
+        "Safely handles missing request",
+        "Checks ownership/authorization",
+        "Checks presence of quote",
+        "Checks expiry",
+        "Checks required request status",
+        "Returns a Boolean result",
+        "Explains safe access order / equivalent logic"
+      ],
+      "aiReferenceNotes": "Pseudocode states intended logic without relying on one exact programming-language syntax. Check that objects exist before reading their fields. Validate ownership and business conditions. Return true only when all required conditions pass. Equivalent safe pseudocode earns credit. The app reviews the solution against a rubric; it does not execute submitted code.",
+      "explanation": "Pseudocode states intended logic without relying on one exact programming-language syntax.\n\n1. Check that objects exist before reading their fields.\n2. Validate ownership and business conditions.\n3. Return true only when all required conditions pass.\n\nExample: A missing quote must be checked before attempting to read quote.expiresAt.\n\nStudent note: Equivalent safe pseudocode earns credit. The app reviews the solution against a rubric; it does not execute submitted code.",
+      "study": {
+        "title": "Safe pseudocode",
+        "simple": "Pseudocode states intended logic without relying on one exact programming-language syntax.",
+        "stepsTitle": "How to solve",
+        "steps": [
+          "Check that objects exist before reading their fields.",
+          "Validate ownership and business conditions.",
+          "Return true only when all required conditions pass."
+        ],
+        "example": "A missing quote must be checked before attempting to read quote.expiresAt.",
+        "pitfall": "Equivalent safe pseudocode earns credit. The app reviews the solution against a rubric; it does not execute submitted code.",
+        "remember": "Check that objects exist before reading their fields.",
+        "keyTerms": [
+          {
+            "term": "Safe pseudocode",
+            "meaning": "Pseudocode states intended logic without relying on one exact programming-language syntax."
+          }
+        ]
+      },
+      "context": "RepairTrack is a repair booking system. A Client registers a Device and creates a RepairRequest describing a fault. A Technician is assigned to requests and records inspections, quoted cost and repair status. The Client accepts or rejects a quote. Accepted jobs are repaired and closed; rejected jobs are returned unmodified. Each RepairRequest belongs to one Client and one Device. A Client can have several requests; one Technician can handle several requests.",
+      "contextTitle": "Read RepairTrack scenario"
+    },
+    {
+      "number": "5",
+      "text": "For a training SQL database with table RepairRequest and columns requestId and status, enter ONE query that lists requestId values where status is exactly 'quoted' (lowercase). Use SELECT and WHERE.",
+      "marks": 2,
+      "answerType": "command",
+      "grading": "command",
+      "correctAnswer": "SELECT requestId FROM RepairRequest WHERE status = 'quoted';",
+      "acceptedAnswers": [
+        "SELECT requestId FROM RepairRequest WHERE status='quoted';",
+        "SELECT requestId FROM RepairRequest WHERE status = 'quoted'",
+        "SELECT requestId FROM RepairRequest WHERE status='quoted'"
+      ],
+      "explanation": "SELECT specifies the output column; FROM names the table; WHERE filters the rows.\n\nExample: SELECT requestId FROM RepairRequest WHERE status = 'quoted';\n\nStudent note: This is text checking, not a live query. SQL keyword case varies by style, but the expected training answer is deliberately explicit.",
+      "study": {
+        "title": "SQL SELECT filtering",
+        "simple": "A SELECT statement retrieves chosen columns from rows meeting a condition.",
+        "stepsTitle": "How to solve",
+        "steps": [
+          "Choose requestId as the output column.",
+          "Filter the exact status string with WHERE."
+        ],
+        "example": "WHERE status = 'quoted' selects only quoted requests.",
+        "pitfall": "SQL is shown as a command here; submitted commands are never executed against a database.",
+        "remember": "Choose requestId as the output column.",
+        "keyTerms": [
+          {
+            "term": "SQL SELECT filtering",
+            "meaning": "A SELECT statement retrieves chosen columns from rows meeting a condition."
+          }
+        ]
+      }
+    },
+    {
+      "number": "6",
+      "text": "RepairTrack is a repair booking system. A Client registers a Device and creates a RepairRequest describing a fault. A Technician is assigned to requests and records inspections, quoted cost and repair status. The Client accepts or rejects a quote. Accepted jobs are repaired and closed; rejected jobs are returned unmodified. Each RepairRequest belongs to one Client and one Device. A Client can have several requests; one Technician can handle several requests. Draw a small activity diagram for a client reviewing a quote. Show accepted, rejected and expired branches, ending in a recorded state.",
+      "marks": 5,
+      "answerType": "uml-diagram",
+      "grading": "ai",
+      "aiPassScore": 70,
+      "correctAnswer": "Start -> Client views quote -> decision [expired] request new quote / End, [valid] decision [accept] record Approved and notify technician / End, [reject] record Rejected and schedule return / End.",
+      "aiRubric": [
+        "Start and end nodes",
+        "View quote action",
+        "Quote expiry decision",
+        "Approve/reject decision",
+        "State update / notification",
+        "Correct arrows and branch guards"
+      ],
+      "aiReferenceNotes": "A workflow diagram shows events, actions and condition-dependent routes. Draw a clear initial node and view-quote action. Add decision diamonds with named guards. End each outcome with an appropriate action. Use arrowheads and label [accepted], [rejected] and [expired].",
+      "explanation": "A workflow diagram shows events, actions and condition-dependent routes.\n\n1. Draw a clear initial node and view-quote action.\n2. Add decision diamonds with named guards.\n3. End each outcome with an appropriate action.\n\nExample: An expired quote cannot be approved without a fresh quotation.\n\nStudent note: Use arrowheads and label [accepted], [rejected] and [expired].",
+      "study": {
+        "title": "Activity diagram decisions",
+        "simple": "A workflow diagram shows events, actions and condition-dependent routes.",
+        "stepsTitle": "How to solve",
+        "steps": [
+          "Draw a clear initial node and view-quote action.",
+          "Add decision diamonds with named guards.",
+          "End each outcome with an appropriate action."
+        ],
+        "example": "An expired quote cannot be approved without a fresh quotation.",
+        "pitfall": "Use arrowheads and label [accepted], [rejected] and [expired].",
+        "remember": "Draw a clear initial node and view-quote action.",
+        "keyTerms": [
+          {
+            "term": "Activity diagram decisions",
+            "meaning": "A workflow diagram shows events, actions and condition-dependent routes."
+          }
+        ]
+      },
+      "context": "RepairTrack is a repair booking system. A Client registers a Device and creates a RepairRequest describing a fault. A Technician is assigned to requests and records inspections, quoted cost and repair status. The Client accepts or rejects a quote. Accepted jobs are repaired and closed; rejected jobs are returned unmodified. Each RepairRequest belongs to one Client and one Device. A Client can have several requests; one Technician can handle several requests.",
+      "contextTitle": "Read RepairTrack scenario",
+      "diagramRequired": true,
+      "diagramNoDrawingCapPercent": 0,
+      "diagramNoDrawingNote": "The task requires a submitted drawing; optional explanation alone cannot earn diagram marks.",
+      "diagramInstructions": "Choose shapes and connectors, draw with touch or a mouse, or upload a PNG/JPEG/WebP image. Label important relationships."
+    }
+  ]
+}
