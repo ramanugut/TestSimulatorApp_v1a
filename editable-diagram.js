@@ -60,7 +60,7 @@
       ? clone(saved)
       : {version:1,objects:[],backgroundSrc:initial && initial.image || ""};
     model.objects=model.objects.slice(0,180);
-    let selected=null, tool="usecase", gesture=null, background=null, imageRequest=0;
+    let selected=null, tool=model.objects.length?"move":"usecase", gesture=null, background=null, imageRequest=0;
     const undo=[],redo=[];
     const host=elem("section","answer-workspace uml-workspace editable-uml-workspace");
     host.appendChild(elem("p","answer-workspace-help",
