@@ -25,6 +25,7 @@ jobs:
         run: |
           node tests/mastery-content.test.cjs
           node tests/ict2631-content.test.cjs
+          node tests/ict2622-content.test.cjs
       - name: Install DOM test dependency
         run: npm install --no-save --no-package-lock jsdom@25
       - name: Smoke-test mastery UI
