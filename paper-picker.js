@@ -292,7 +292,7 @@ document.addEventListener("DOMContentLoaded", () => {
     modules.classList.add("hidden");
     results.classList.remove("hidden");
     back.classList.remove("hidden");
-    step.textContent = searching ? "Search results" : "2. Choose a paper · " + state.module;
+    step.textContent = searching ? "Search results" : "2. Choose a paper · " + subject(state.module).title;
     description.textContent = searching
       ? "Results from every module. Choose a paper to open it."
       : "Tap a paper below to open it. Use Modules to go back.";
@@ -313,7 +313,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const members = shown.filter(paper =>
         searching ? paper.module === key : paper.kind === key);
       results.appendChild(makePaperSection(
-        searching ? key : categoryNames[key], members, searching
+        searching ? key + " · " + subject(key).title : categoryNames[key], members, searching
       ));
     });
   }
