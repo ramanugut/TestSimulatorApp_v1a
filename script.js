@@ -3042,6 +3042,7 @@ const testFiles = [
           const questionCount = Array.isArray(data.questions)
             ? data.questions.length
             : 0;
+          option.dataset.questionCount = String(questionCount);
           availableTestsMetadata.push({
             file: filename,
             name: option.textContent,
@@ -5563,6 +5564,9 @@ const testFiles = [
             const option = document.createElement("option");
             option.value = file.name;
             option.textContent = testName;
+            option.dataset.questionCount = String(
+              Array.isArray(data.questions) ? data.questions.length : 0
+            );
             if (testSelect) {
               testSelect.appendChild(option);
               testSelect.value = file.name;
