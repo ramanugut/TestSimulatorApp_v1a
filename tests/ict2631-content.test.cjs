@@ -19,7 +19,7 @@ for (const name of names) {
   const data = JSON.parse(fs.readFileSync(name, "utf8"));
   assert.equal(data.module,"ICT2631");
   assert.match(data.sourceType, /[Oo]riginal/);
-  assert.ok(!/original UNISA (exam|assessment)/i.test(data.sourceType), "Do not mislabel original practice as official papers");
+  assert.match(data.sourceType, /NOT the original UNISA exam|not a verified UNISA 2026 assessment/i, "Practice must not be presented as an official paper");
   assert.equal(data.preserveOrder, true);
   assert.equal(data.totalMarks, 100);
   assert.equal(data.questions.reduce((sum,q)=>sum+q.marks,0),100,"Marks mismatch: "+name);
