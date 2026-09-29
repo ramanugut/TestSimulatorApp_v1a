@@ -130,6 +130,9 @@
     return host;
   }
   function createDiagram(question, initial, onChange, disabled) {
+    if (window.EditableDiagram && typeof window.EditableDiagram.create === "function") {
+      return window.EditableDiagram.create(question, initial, onChange, disabled);
+    }
     const state=initial && typeof initial==="object" && !Array.isArray(initial)
       ? {text:initial.text || "",image:initial.image || ""}:{text:"",image:""};
     const host=el("section","answer-workspace uml-workspace");
