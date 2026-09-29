@@ -78,7 +78,24 @@ ptr("pointerup",815,415);
 assert.ok(saved.diagramModel.objects[1].w>=260,"Corner handle resizes the shape");
 assert.ok(host.textContent.includes("Upload"),"Upload alternative retained");
 assert.ok(events>=7,"Edits publish persistence updates");
-const reloaded=win.AnswerWorkspace.createDiagram(question,saved,()=>{},false);
+const oldImage=saved.image;
+let reopenedValue=null;
+const reloaded=win.AnswerWorkspace.createDiagram(question,saved,value=>{reopenedValue=value;},false);
 assert.equal(reloaded.querySelectorAll('[data-tool]').length>=14,true);
-console.log("Movable diagram UI tests passed: create, move, resize, attached arrow, edit label, undo/redo, saved model and upload.");
+const resumedCanvas=reloaded.querySelector("canvas");
+resumedCanvas.getBoundingClientRect=()=>({left:0,top:0,width:960,height:560});
+const move=(type,x,y)=>resumedCanvas.dispatchEvent(new win.MouseEvent(type,{
+  clientX:x,clientY:y,bubbles:true,cancelable:true
+}));
+move("pointerdown",650,290);move("pointermove",690,310);move("pointerup",690,310);
+assert.ok(reopenedValue?.diagramModel?.objects[1].x>saved.diagramModel.objects[1].x,
+  "Editable objects survive saving and reopening; they do not become flat pixels");
+assert.ok(oldImage.startsWith("data:image/jpeg;base64,"));
+let textOnly=null;
+const blank=win.AnswerWorkspace.createDiagram(question,null,value=>{textOnly=value;},false);
+const textarea=blank.querySelector("textarea");
+textarea.value="Explanation only.";
+textarea.dispatchEvent(new win.Event("input",{bubbles:true}));
+assert.equal(textOnly.image,"","Text alone must not masquerade as an actual drawing");
+console.log("Movable diagram UI tests passed: create, move, resize, attached arrow, rename, undo/redo, reopen, notes-only and upload.");
 dom.window.close();
