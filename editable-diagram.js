@@ -72,6 +72,11 @@
     const tools=Array.isArray(question.diagramTools) && question.diagramTools.length
       ? TYPES.filter(([id])=>question.diagramTools.includes(id)||id==="move") : TYPES;
     function setTool(next){
+      if(next!=="move"&&selected){
+        selected=null;
+        labelInput.value="";
+        paint(true);
+      }
       tool=next;
       for(const [id,b] of toolButtons) b.setAttribute("aria-pressed",String(id===next));
       canvas.style.cursor=next==="move"?"grab":next==="pen"?"crosshair":"crosshair";
@@ -291,13 +296,13 @@
       o.label=labelInput.value;paint(true);persist();
     });
     labelInput.addEventListener("blur",()=>{labelHistory=false;});
-    function setBackground(src){
+    function setBackground(src,saveAfterLoad=false){
       const seq=++imageRequest;
       background=null;
-      if(!src){paint(true);return;}
+      if(!src){paint(true);if(saveAfterLoad)persist();return;}
       const img=new Image();
-      img.onload=()=>{if(seq!==imageRequest)return;background=img;paint(true);};
-      img.onerror=()=>{if(seq!==imageRequest)return;announce("Previous image could not be loaded.");paint(true);};
+      img.onload=()=>{if(seq!==imageRequest)return;background=img;paint(true);if(saveAfterLoad)persist();};
+      img.onerror=()=>{if(seq!==imageRequest)return;announce("Previous image could not be loaded.");paint(true);if(saveAfterLoad)persist();};
       img.src=src;
     }
     function createShape(type,start,end){
@@ -391,11 +396,11 @@
     canvas.addEventListener("lostpointercapture",()=>{ /* pointerup/pointercancel performs commit */ });
     const undoButton=button("Undo",()=>{
       if(!undo.length)return;redo.push(clone(model));model=undo.pop();selected=null;
-      setBackground(model.backgroundSrc);updateControls();persist();
+      setBackground(model.backgroundSrc,true);updateControls();
     },disabled);
     const redoButton=button("Redo",()=>{
       if(!redo.length)return;undo.push(clone(model));model=redo.pop();selected=null;
-      setBackground(model.backgroundSrc);updateControls();persist();
+      setBackground(model.backgroundSrc,true);updateControls();
     },disabled);
     const deleteButton=button("Delete selected",()=>{
       if(!selected)return;pushUndo();const id=selected;
@@ -427,7 +432,7 @@
         const w=img.width*ratio,h=img.height*ratio;
         x.drawImage(img,(W-w)/2,(H-h)/2,w,h);
         pushUndo();model.objects=[];model.backgroundSrc=temp.toDataURL("image/jpeg",.8);
-        selected=null;setBackground(model.backgroundSrc);updateControls();persist();
+        selected=null;setBackground(model.backgroundSrc,true);updateControls();
         announce("Image uploaded as a background. You can draw and move new shapes on top.");
         URL.revokeObjectURL(url);upload.value="";
       };
