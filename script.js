@@ -4861,6 +4861,12 @@ const testFiles = [
         Math.round(grade.aiGrade.score) + "%).";
       feedbackElement.classList.add(isCorrect ? "correct" : "ai-partial-feedback");
       questionElement.classList.add(isCorrect ? "correct" : "incorrect");
+    } else if (grade.tableGrade) {
+      const earned = Number(grade.scoreValue.toFixed(2));
+      feedbackElement.textContent = "Table: " + earned + "/" + getQuestionMarks(question) +
+        " marks (" + grade.tableGrade.details + ").";
+      feedbackElement.classList.add(isCorrect ? "correct" : "ai-partial-feedback");
+      questionElement.classList.add(isCorrect ? "correct" : "incorrect");
     } else if (isCorrect) {
       questionElement.classList.add("correct");
       feedbackElement.textContent = "Correct!";
@@ -5030,7 +5036,7 @@ const testFiles = [
 
   function formatAnswerForDisplay(answer) {
     if (answer && typeof answer === "object" && !Array.isArray(answer)) {
-      return (answer.image ? "[Network diagram attached] " : "") +
+      return (answer.image ? "[Diagram image attached] " : "") +
         (typeof answer.text === "string" ? answer.text : "");
     }
     if (Array.isArray(answer)) {
