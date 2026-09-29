@@ -1,0 +1,568 @@
+{
+  "testName": "ICT2631 – 2026 Assessment 2 Practice (original)",
+  "module": "ICT2631",
+  "assessment": "2026 assessment-style practice 2",
+  "sourceType": "Original revision questions, not a verified UNISA 2026 assessment",
+  "sourceReference": "https://www.studocu.com/en-za/course/university-of-south-africa/operating-systems-practice/6669827",
+  "sourceLimitations": "The actual 2026 assessment texts were not found; this paper is independently written preparation material.",
+  "totalMarks": 100,
+  "durationMinutes": 75,
+  "preserveOrder": true,
+  "marking": "mixed-auto-choice-and-optional-AI-written",
+  "questions": [
+    {
+      "number": "1",
+      "text": "What is a process ID (PID)?",
+      "options": [
+        "A number identifying a running process",
+        "A disk's filesystem type",
+        "A user's password hash",
+        "A licence version"
+      ],
+      "correctAnswer": "A number identifying a running process",
+      "marks": 5,
+      "explanation": "A PID identifies a process during its lifetime.\n\nWhy: Tools use it to inspect or signal a specific running process.\n\nExample: ps displays PIDs beside commands.\n\nStudent note: PIDs can be reused after old processes exit, so check what you are targeting.",
+      "study": {
+        "title": "PID",
+        "simple": "A PID identifies a process during its lifetime.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "Tools use it to inspect or signal a specific running process."
+        ],
+        "example": "ps displays PIDs beside commands.",
+        "pitfall": "PIDs can be reused after old processes exit, so check what you are targeting.",
+        "remember": "Tools use it to inspect or signal a specific running process.",
+        "keyTerms": [
+          {
+            "term": "PID",
+            "meaning": "A PID identifies a process during its lifetime."
+          }
+        ]
+      }
+    },
+    {
+      "number": "2",
+      "text": "Which tool offers a live view of processes and CPU/memory usage?",
+      "options": [
+        "top",
+        "lsblk",
+        "chmod",
+        "mkfs"
+      ],
+      "correctAnswer": "top",
+      "marks": 5,
+      "explanation": "top refreshes a running view of process/resource usage.\n\nWhy: It is useful for finding a process that suddenly consumes CPU.\n\nExample: Sort by CPU to spot a busy service.\n\nStudent note: ps provides a snapshot rather than a constantly refreshing view.",
+      "study": {
+        "title": "top",
+        "simple": "top refreshes a running view of process/resource usage.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "It is useful for finding a process that suddenly consumes CPU."
+        ],
+        "example": "Sort by CPU to spot a busy service.",
+        "pitfall": "ps provides a snapshot rather than a constantly refreshing view.",
+        "remember": "It is useful for finding a process that suddenly consumes CPU.",
+        "keyTerms": [
+          {
+            "term": "top",
+            "meaning": "top refreshes a running view of process/resource usage."
+          }
+        ]
+      }
+    },
+    {
+      "number": "3",
+      "text": "When an application can shut down cleanly, which signal is normally preferable to start with?",
+      "options": [
+        "SIGTERM",
+        "SIGKILL always",
+        "SIGSTOP as deletion",
+        "No signal is possible"
+      ],
+      "correctAnswer": "SIGTERM",
+      "marks": 5,
+      "explanation": "SIGTERM requests termination and allows many programs to handle cleanup.\n\nWhy: SIGKILL cannot be caught by the application.\n\nExample: kill -TERM 1234 asks the specified process to exit.\n\nStudent note: Confirm the PID first, and do not assume the program will obey TERM.",
+      "study": {
+        "title": "Clean termination",
+        "simple": "SIGTERM requests termination and allows many programs to handle cleanup.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "SIGKILL cannot be caught by the application."
+        ],
+        "example": "kill -TERM 1234 asks the specified process to exit.",
+        "pitfall": "Confirm the PID first, and do not assume the program will obey TERM.",
+        "remember": "SIGKILL cannot be caught by the application.",
+        "keyTerms": [
+          {
+            "term": "Clean termination",
+            "meaning": "SIGTERM requests termination and allows many programs to handle cleanup."
+          }
+        ]
+      }
+    },
+    {
+      "number": "4",
+      "text": "Which command displays current services on a systemd-based machine in more detail?",
+      "options": [
+        "systemctl status service-name",
+        "passwd service-name",
+        "dd status service-name",
+        "mkfs service-name"
+      ],
+      "correctAnswer": "systemctl status service-name",
+      "marks": 5,
+      "explanation": "systemd-based Linux systems manage service units with systemctl.\n\nWhy: Status helps inspect whether a service is active or has failed.\n\nExample: systemctl status nginx can report whether a web server runs.\n\nStudent note: Some distributions use service names that differ or another init system.",
+      "study": {
+        "title": "Service management",
+        "simple": "systemd-based Linux systems manage service units with systemctl.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "Status helps inspect whether a service is active or has failed."
+        ],
+        "example": "systemctl status nginx can report whether a web server runs.",
+        "pitfall": "Some distributions use service names that differ or another init system.",
+        "remember": "Status helps inspect whether a service is active or has failed.",
+        "keyTerms": [
+          {
+            "term": "Service management",
+            "meaning": "systemd-based Linux systems manage service units with systemctl."
+          }
+        ]
+      }
+    },
+    {
+      "number": "5",
+      "text": "Why use journalctl -u nginx on a systemd-based host?",
+      "options": [
+        "To inspect log entries for the nginx unit",
+        "To install nginx automatically",
+        "To create a new account",
+        "To inspect partition GUIDs"
+      ],
+      "correctAnswer": "To inspect log entries for the nginx unit",
+      "marks": 5,
+      "explanation": "journalctl can query logs collected by systemd-journald.\n\nWhy: Filtering with -u focuses on a named service unit.\n\nExample: journalctl -u nginx --since today narrows the investigation.\n\nStudent note: Some applications also write separate logs; look for a useful error and time window.",
+      "study": {
+        "title": "Service logs",
+        "simple": "journalctl can query logs collected by systemd-journald.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "Filtering with -u focuses on a named service unit."
+        ],
+        "example": "journalctl -u nginx --since today narrows the investigation.",
+        "pitfall": "Some applications also write separate logs; look for a useful error and time window.",
+        "remember": "Filtering with -u focuses on a named service unit.",
+        "keyTerms": [
+          {
+            "term": "Service logs",
+            "meaning": "journalctl can query logs collected by systemd-journald."
+          }
+        ]
+      }
+    },
+    {
+      "number": "6",
+      "text": "What is the purpose of the cron scheduling system?",
+      "options": [
+        "Run specified jobs according to time rules",
+        "Manage GPU compositing",
+        "Change file ownership",
+        "Allocate inode numbers manually"
+      ],
+      "correctAnswer": "Run specified jobs according to time rules",
+      "marks": 5,
+      "explanation": "A cron job describes a command and when it should run.\n\nWhy: It is useful for repeated unattended tasks.\n\nExample: A nightly backup script can have a cron entry.\n\nStudent note: Test a script's PATH and permissions because cron's environment differs from an interactive shell.",
+      "study": {
+        "title": "cron",
+        "simple": "A cron job describes a command and when it should run.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "It is useful for repeated unattended tasks."
+        ],
+        "example": "A nightly backup script can have a cron entry.",
+        "pitfall": "Test a script's PATH and permissions because cron's environment differs from an interactive shell.",
+        "remember": "It is useful for repeated unattended tasks.",
+        "keyTerms": [
+          {
+            "term": "cron",
+            "meaning": "A cron job describes a command and when it should run."
+          }
+        ]
+      }
+    },
+    {
+      "number": "7",
+      "text": "Which command reports active swap areas?",
+      "options": [
+        "swapon --show",
+        "swapoff --all",
+        "ls -color",
+        "chown --show"
+      ],
+      "correctAnswer": "swapon --show",
+      "marks": 5,
+      "explanation": "Swap is disk-backed backing space available to the memory manager.\n\nWhy: swapon --show lists active areas.\n\nExample: free -h also shows a summary of swap use.\n\nStudent note: Do not disable swap on a pressured system without understanding the consequences.",
+      "study": {
+        "title": "Swap reporting",
+        "simple": "Swap is disk-backed backing space available to the memory manager.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "swapon --show lists active areas."
+        ],
+        "example": "free -h also shows a summary of swap use.",
+        "pitfall": "Do not disable swap on a pressured system without understanding the consequences.",
+        "remember": "swapon --show lists active areas.",
+        "keyTerms": [
+          {
+            "term": "Swap reporting",
+            "meaning": "Swap is disk-backed backing space available to the memory manager."
+          }
+        ]
+      }
+    },
+    {
+      "number": "8",
+      "text": "What is one important difference between df and du?",
+      "options": [
+        "df reports filesystem space; du totals storage used by selected paths",
+        "df changes permissions; du changes owner",
+        "Both are licence checkers",
+        "du only reports CPU usage"
+      ],
+      "correctAnswer": "df reports filesystem space; du totals storage used by selected paths",
+      "marks": 5,
+      "explanation": "The tools answer different disk-usage questions.\n\nWhy: df checks space on a filesystem, whereas du investigates directories and files.\n\nExample: A filesystem can show full in df, then du can help identify large paths.\n\nStudent note: Deleted-but-still-open files can make these reports differ temporarily.",
+      "study": {
+        "title": "df versus du",
+        "simple": "The tools answer different disk-usage questions.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "df checks space on a filesystem, whereas du investigates directories and files."
+        ],
+        "example": "A filesystem can show full in df, then du can help identify large paths.",
+        "pitfall": "Deleted-but-still-open files can make these reports differ temporarily.",
+        "remember": "df checks space on a filesystem, whereas du investigates directories and files.",
+        "keyTerms": [
+          {
+            "term": "df versus du",
+            "meaning": "The tools answer different disk-usage questions."
+          }
+        ]
+      }
+    },
+    {
+      "number": "9",
+      "text": "Which command shows block devices with filesystem identifiers useful for mounting?",
+      "options": [
+        "lsblk -f",
+        "ps -ef",
+        "grep -v",
+        "top -b"
+      ],
+      "correctAnswer": "lsblk -f",
+      "marks": 5,
+      "explanation": "lsblk -f lists block devices and known filesystem metadata.\n\nWhy: It helps confirm the partition and UUID before editing mount settings.\n\nExample: Check /dev/sdb1's filesystem type before attempting to mount it.\n\nStudent note: Do not guess disk device names on a live machine.",
+      "study": {
+        "title": "lsblk -f",
+        "simple": "lsblk -f lists block devices and known filesystem metadata.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "It helps confirm the partition and UUID before editing mount settings."
+        ],
+        "example": "Check /dev/sdb1's filesystem type before attempting to mount it.",
+        "pitfall": "Do not guess disk device names on a live machine.",
+        "remember": "It helps confirm the partition and UUID before editing mount settings.",
+        "keyTerms": [
+          {
+            "term": "lsblk -f",
+            "meaning": "lsblk -f lists block devices and known filesystem metadata."
+          }
+        ]
+      }
+    },
+    {
+      "number": "10",
+      "text": "Why may an administrator put a UUID rather than a /dev/sdX name in /etc/fstab?",
+      "options": [
+        "UUIDs are generally less sensitive to device-name order changing between boots",
+        "It makes data impossible to delete",
+        "It speeds up the CPU",
+        "It creates a backup automatically"
+      ],
+      "correctAnswer": "UUIDs are generally less sensitive to device-name order changing between boots",
+      "marks": 5,
+      "explanation": "/etc/fstab can use a filesystem UUID as a stable reference.\n\nWhy: Device enumeration such as /dev/sdb can change when disks are added or reordered.\n\nExample: Use blkid to find a UUID before drafting a mount entry.\n\nStudent note: A wrong fstab entry can disrupt boot, so validate it safely.",
+      "study": {
+        "title": "UUID mounting",
+        "simple": "/etc/fstab can use a filesystem UUID as a stable reference.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "Device enumeration such as /dev/sdb can change when disks are added or reordered."
+        ],
+        "example": "Use blkid to find a UUID before drafting a mount entry.",
+        "pitfall": "A wrong fstab entry can disrupt boot, so validate it safely.",
+        "remember": "Device enumeration such as /dev/sdb can change when disks are added or reordered.",
+        "keyTerms": [
+          {
+            "term": "UUID mounting",
+            "meaning": "/etc/fstab can use a filesystem UUID as a stable reference."
+          }
+        ]
+      }
+    },
+    {
+      "number": "11",
+      "text": "What is the main benefit of the directory setgid bit on a collaborative folder?",
+      "options": [
+        "New entries normally inherit the parent directory's group",
+        "It gives every user full root privileges",
+        "It starts a network service",
+        "It forces compression"
+      ],
+      "correctAnswer": "New entries normally inherit the parent directory's group",
+      "marks": 5,
+      "explanation": "Shared group inheritance helps files created by different team members remain in a useful group.\n\nWhy: A directory with setgid passes its group to new entries in common Linux filesystems.\n\nExample: chmod g+s /srv/team can support collaborative ownership.\n\nStudent note: Group inheritance alone does not guarantee write access; check mode bits/default ACL.",
+      "study": {
+        "title": "Directory setgid",
+        "simple": "Shared group inheritance helps files created by different team members remain in a useful group.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "A directory with setgid passes its group to new entries in common Linux filesystems."
+        ],
+        "example": "chmod g+s /srv/team can support collaborative ownership.",
+        "pitfall": "Group inheritance alone does not guarantee write access; check mode bits/default ACL.",
+        "remember": "A directory with setgid passes its group to new entries in common Linux filesystems.",
+        "keyTerms": [
+          {
+            "term": "Directory setgid",
+            "meaning": "Shared group inheritance helps files created by different team members remain in a useful group."
+          }
+        ]
+      }
+    },
+    {
+      "number": "12",
+      "text": "What does an ACL allow beyond the traditional owner/group/other permissions?",
+      "options": [
+        "Rights for additional named users or groups",
+        "Password recovery from any file",
+        "Automatic network boot",
+        "More CPU cores"
+      ],
+      "correctAnswer": "Rights for additional named users or groups",
+      "marks": 5,
+      "explanation": "Access control lists provide finer-grained permission entries.\n\nWhy: For example, one named user can receive access without opening permissions to all others.\n\nExample: getfacl and setfacl inspect and change common POSIX ACLs.\n\nStudent note: The ACL mask may limit the effective rights of named entries.",
+      "study": {
+        "title": "ACL",
+        "simple": "Access control lists provide finer-grained permission entries.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "For example, one named user can receive access without opening permissions to all others."
+        ],
+        "example": "getfacl and setfacl inspect and change common POSIX ACLs.",
+        "pitfall": "The ACL mask may limit the effective rights of named entries.",
+        "remember": "For example, one named user can receive access without opening permissions to all others.",
+        "keyTerms": [
+          {
+            "term": "ACL",
+            "meaning": "Access control lists provide finer-grained permission entries."
+          }
+        ]
+      }
+    },
+    {
+      "number": "13",
+      "text": "Which command normally applies the mode rwxr-x--- to a directory?",
+      "options": [
+        "chmod 750 directory",
+        "chmod 640 directory",
+        "chmod 777 directory",
+        "chown 750 directory"
+      ],
+      "correctAnswer": "chmod 750 directory",
+      "marks": 5,
+      "explanation": "Numeric mode 750 gives owner 7=rwx, group 5=r-x, others 0=---.\n\nWhy: It lets group members traverse/read the directory but not edit its entries.\n\nExample: chmod 750 /srv/reports sets these mode bits.\n\nStudent note: To list/traverse a directory correctly, understand read and execute separately.",
+      "study": {
+        "title": "chmod 750",
+        "simple": "Numeric mode 750 gives owner 7=rwx, group 5=r-x, others 0=---.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "It lets group members traverse/read the directory but not edit its entries."
+        ],
+        "example": "chmod 750 /srv/reports sets these mode bits.",
+        "pitfall": "To list/traverse a directory correctly, understand read and execute separately.",
+        "remember": "It lets group members traverse/read the directory but not edit its entries.",
+        "keyTerms": [
+          {
+            "term": "chmod 750",
+            "meaning": "Numeric mode 750 gives owner 7=rwx, group 5=r-x, others 0=---."
+          }
+        ]
+      }
+    },
+    {
+      "number": "14",
+      "text": "Which command is commonly used to see an account's UID and group memberships?",
+      "options": [
+        "id username",
+        "df username",
+        "tar username",
+        "pwd username"
+      ],
+      "correctAnswer": "id username",
+      "marks": 5,
+      "explanation": "Linux has user IDs and group IDs for access decisions.\n\nWhy: id prints identity and supplementary group information.\n\nExample: id thandi helps confirm group membership after account changes.\n\nStudent note: After modifying groups, an old login session may not reflect new membership.",
+      "study": {
+        "title": "id command",
+        "simple": "Linux has user IDs and group IDs for access decisions.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "id prints identity and supplementary group information."
+        ],
+        "example": "id thandi helps confirm group membership after account changes.",
+        "pitfall": "After modifying groups, an old login session may not reflect new membership.",
+        "remember": "id prints identity and supplementary group information.",
+        "keyTerms": [
+          {
+            "term": "id command",
+            "meaning": "Linux has user IDs and group IDs for access decisions."
+          }
+        ]
+      }
+    },
+    {
+      "number": "15",
+      "text": "Which statement is most accurate about a backup?",
+      "options": [
+        "A backup needs independent safe storage and a tested recovery procedure",
+        "An archive on the same failing disk is always enough",
+        "A successful command guarantees future recovery",
+        "Backups only matter for source code"
+      ],
+      "correctAnswer": "A backup needs independent safe storage and a tested recovery procedure",
+      "marks": 5,
+      "explanation": "A backup should survive expected failure scenarios and be restorable.\n\nWhy: Testing recovery validates that data and procedures are useful.\n\nExample: Store a copy outside the primary machine and practise restoring selected files.\n\nStudent note: tar can create archives; it does not by itself establish a complete backup strategy.",
+      "study": {
+        "title": "Backups",
+        "simple": "A backup should survive expected failure scenarios and be restorable.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "Testing recovery validates that data and procedures are useful."
+        ],
+        "example": "Store a copy outside the primary machine and practise restoring selected files.",
+        "pitfall": "tar can create archives; it does not by itself establish a complete backup strategy.",
+        "remember": "Testing recovery validates that data and procedures are useful.",
+        "keyTerms": [
+          {
+            "term": "Backups",
+            "meaning": "A backup should survive expected failure scenarios and be restorable."
+          }
+        ]
+      }
+    },
+    {
+      "number": "16",
+      "text": "A server receives an IP address automatically during network startup. Which service commonly provides that configuration?",
+      "options": [
+        "DHCP",
+        "ACL",
+        "AIGLX",
+        "umask"
+      ],
+      "correctAnswer": "DHCP",
+      "marks": 5,
+      "explanation": "Dynamic Host Configuration Protocol commonly provides network settings to clients.\n\nWhy: It may supply IP address, gateway, DNS and—in some PXE settings—boot-related information.\n\nExample: A machine obtains network parameters when joining a managed LAN.\n\nStudent note: PXE is a network-boot workflow, not a replacement for DHCP itself.",
+      "study": {
+        "title": "DHCP",
+        "simple": "Dynamic Host Configuration Protocol commonly provides network settings to clients.",
+        "stepsTitle": "Why the answer fits",
+        "steps": [
+          "It may supply IP address, gateway, DNS and—in some PXE settings—boot-related information."
+        ],
+        "example": "A machine obtains network parameters when joining a managed LAN.",
+        "pitfall": "PXE is a network-boot workflow, not a replacement for DHCP itself.",
+        "remember": "It may supply IP address, gateway, DNS and—in some PXE settings—boot-related information.",
+        "keyTerms": [
+          {
+            "term": "DHCP",
+            "meaning": "Dynamic Host Configuration Protocol commonly provides network settings to clients."
+          }
+        ]
+      }
+    },
+    {
+      "number": "17",
+      "text": "Scenario: After a server reboot, a shared service does not start and staff cannot access a mounted data volume. Outline a safe fault-finding order, including evidence collection and recovery checks.",
+      "marks": 10,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "aiPassScore": 70,
+      "correctAnswer": "Check service status with systemctl and relevant logs with journalctl; inspect mount state with findmnt/mount, block identifiers with lsblk -f or blkid, and available disk/inodes with df -h/df -i; compare /etc/fstab entries with current UUIDs; check permissions; make a backed-up correction, test mount -a where appropriate, restart only after the underlying issue is resolved, and verify service/client access.",
+      "aiRubric": [
+        "Uses systemctl/journalctl to inspect failure",
+        "Checks actual mounted devices and UUID/fstab consistency",
+        "Checks disk/inode and access issues",
+        "Describes safe correction and validation",
+        "Avoids immediate destructive commands"
+      ],
+      "aiReferenceNotes": "A service may fail because its data filesystem did not mount or is inaccessible. Record the exact service error and when it began. Verify the device, mount state, capacity and permissions. Correct one known cause at a time and check both mount and service. A stale UUID in fstab could leave /srv/data unmounted, causing the service to fail. Do not format a disk or use chmod 777 as a first troubleshooting step.",
+      "explanation": "A service may fail because its data filesystem did not mount or is inaccessible.\n\nMethod:\n1. Record the exact service error and when it began.\n2. Verify the device, mount state, capacity and permissions.\n3. Correct one known cause at a time and check both mount and service.\n\nExample: A stale UUID in fstab could leave /srv/data unmounted, causing the service to fail.\n\nStudent note: Do not format a disk or use chmod 777 as a first troubleshooting step.",
+      "study": {
+        "title": "Post-reboot troubleshooting",
+        "simple": "A service may fail because its data filesystem did not mount or is inaccessible.",
+        "stepsTitle": "How to work through this scenario",
+        "steps": [
+          "Record the exact service error and when it began.",
+          "Verify the device, mount state, capacity and permissions.",
+          "Correct one known cause at a time and check both mount and service."
+        ],
+        "example": "A stale UUID in fstab could leave /srv/data unmounted, causing the service to fail.",
+        "pitfall": "Do not format a disk or use chmod 777 as a first troubleshooting step.",
+        "remember": "Record the exact service error and when it began.",
+        "keyTerms": [
+          {
+            "term": "Post-reboot troubleshooting",
+            "meaning": "A service may fail because its data filesystem did not mount or is inaccessible."
+          }
+        ]
+      }
+    },
+    {
+      "number": "18",
+      "text": "Scenario: A company needs nightly backups of a Linux project directory. Design a simple scheduling and recovery plan using standard tools, including how you would know backups really work.",
+      "marks": 10,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "aiPassScore": 70,
+      "correctAnswer": "Choose data scope and frequency, produce dated backups (for example tar or suitable incremental tool), use cron/systemd timers with controlled permissions and logging, store a protected copy off the source disk, monitor for failure, define retention, periodically restore sample files in a safe location, compare expected content and document recovery steps.",
+      "aiRubric": [
+        "Describes backup scope and creation",
+        "Mentions scheduled execution",
+        "Includes secure separate storage and retention",
+        "Covers failure logs/alerts",
+        "Describes test restores and verification"
+      ],
+      "aiReferenceNotes": "A backup is valuable only when it can be recovered within the required time. Decide what data is essential and how often it changes. Schedule, protect and record each backup result. Perform and document regular restore tests. A job can use tar to archive /srv/project to a separate destination, followed by a periodic test restore. A green cron exit code alone does not prove that all important files can be restored.",
+      "explanation": "A backup is valuable only when it can be recovered within the required time.\n\nMethod:\n1. Decide what data is essential and how often it changes.\n2. Schedule, protect and record each backup result.\n3. Perform and document regular restore tests.\n\nExample: A job can use tar to archive /srv/project to a separate destination, followed by a periodic test restore.\n\nStudent note: A green cron exit code alone does not prove that all important files can be restored.",
+      "study": {
+        "title": "Backup and restore workflow",
+        "simple": "A backup is valuable only when it can be recovered within the required time.",
+        "stepsTitle": "How to work through this scenario",
+        "steps": [
+          "Decide what data is essential and how often it changes.",
+          "Schedule, protect and record each backup result.",
+          "Perform and document regular restore tests."
+        ],
+        "example": "A job can use tar to archive /srv/project to a separate destination, followed by a periodic test restore.",
+        "pitfall": "A green cron exit code alone does not prove that all important files can be restored.",
+        "remember": "Decide what data is essential and how often it changes.",
+        "keyTerms": [
+          {
+            "term": "Backup and restore workflow",
+            "meaning": "A backup is valuable only when it can be recovered within the required time."
+          }
+        ]
+      }
+    }
+  ]
+}
