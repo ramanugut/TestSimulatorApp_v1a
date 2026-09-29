@@ -27,6 +27,26 @@ It supports mouse and touch. On narrow screens the tools scroll horizontally;
 editable tables present each row with vertically stacked labelled cells.
 Neither drawing nor editing requires an API.
 
+### Movable UML objects (2026-09-29 update)
+
+`editable-diagram.js` is loaded before `answer-workspace.js`; the legacy
+raster-only editor remains as a fallback. **New diagrams save both**
+`answer.image` (a JPEG for AI grading) and `answer.diagramModel` (editable
+object positions, dimensions, labels, attached connector IDs and pen strokes).
+Choose a shape, drag to create, then drag it using **Move**. Move is selected
+automatically after creating a shape and on reopening saved object diagrams.
+Use the bottom-right green handle to resize, and select a shape to change its
+label. Undo, redo, Delete selected, keyboard arrow nudges and mouse/touch
+pointer dragging are available. A line or arrow beginning and ending inside
+a shape snaps to those objects and follows them when they move.
+
+An old image-only answer (saved before this update), or an uploaded photograph,
+can still be opened as a flat background. New shapes drawn on top remain
+editable; the pixels inside the old flattened image cannot automatically
+be converted back to individual objects. Uploading an image replaces the
+current diagram canvas (Undo is available). A note-only submission must keep
+`image:""` so it cannot bypass a question's required-drawing rule.
+
 ## Question schemas
 
 ### Diagram
