@@ -159,6 +159,14 @@ document.addEventListener("DOMContentLoaded", function () {
   const progressTextElement = document.getElementById("progress-text");
   const headerElement = document.getElementById("floating-header");
   const headerToggleButton = document.getElementById("header-toggle");
+  const revisionController = window.RevisionController
+    ? window.RevisionController.create({
+        setting: document.getElementById("ai-revision-enabled"),
+        panel: document.getElementById("revision-insights"),
+        endpoint: window.APP_CONFIG && window.APP_CONFIG.aiPracticeEndpoint,
+        onStartPractice: startGeneratedPractice,
+      })
+    : null;
   const MOBILE_BREAKPOINT = 768;
   let lastViewportIsMobile = window.innerWidth <= MOBILE_BREAKPOINT;
   let headerCollapsed = window.innerWidth <= MOBILE_BREAKPOINT;
