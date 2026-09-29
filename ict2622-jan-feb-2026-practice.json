@@ -1,0 +1,520 @@
+{
+  "testName": "ICT2622 · Jan/Feb 2026-style Exam (original practice)",
+  "module": "ICT2622",
+  "assessment": "Jan/Feb 2026-style",
+  "sourceType": "Original exam-style practice; not a copy of the UNISA paper",
+  "sourceReference": "https://www.studocu.com/en-za/document/university-of-south-africa/object-oriented-analysis/ict2622-final-exam-paper-januaryfebruary-2026/152215087",
+  "sourceLimitations": "The available preview confirms exam structure and topics; the scenario and practice questions here are newly authored.",
+  "totalMarks": 60,
+  "durationMinutes": 120,
+  "preserveOrder": true,
+  "questions": [
+    {
+      "number": "1",
+      "text": "What is a meaningful part of a large information system called?",
+      "options": [
+        "Subsystem",
+        "Single field",
+        "Binary file",
+        "Loop statement"
+      ],
+      "correctAnswer": "Subsystem",
+      "marks": 1,
+      "explanation": "A subsystem is one part of a larger system with a defined responsibility.\n\nWhy the answer fits: It identifies the correct concept rather than a nearby but different activity.\n\nExample: Registration is one part of a student management system.\n\nStudent note: It is not automatically the same as one source-code function.",
+      "study": {
+        "title": "A subsystem is one part of a larger system with a defined responsibility",
+        "simple": "A subsystem is one part of a larger system with a defined responsibility.",
+        "stepsTitle": "How to answer",
+        "steps": [
+          "A subsystem is one part of a larger system with a defined responsibility.",
+          "Check the question's goal before choosing an option."
+        ],
+        "example": "Registration is one part of a student management system.",
+        "pitfall": "It is not automatically the same as one source-code function.",
+        "remember": "A subsystem is one part of a larger system with a defined responsibility.",
+        "keyTerms": [
+          {
+            "term": "Subsystem",
+            "meaning": "A subsystem is one part of a larger system with a defined responsibility."
+          }
+        ]
+      }
+    },
+    {
+      "number": "2",
+      "text": "A team shows a working appointment prototype after its first short cycle. What has it produced?",
+      "options": [
+        "A usable increment",
+        "A complete system guarantee",
+        "Only a network cable",
+        "A final five-year plan"
+      ],
+      "correctAnswer": "A usable increment",
+      "marks": 1,
+      "explanation": "An iteration usually ends with an increment that can be reviewed.\n\nWhy the answer fits: It identifies the correct concept rather than a nearby but different activity.\n\nExample: Early appointment booking can be demonstrated.\n\nStudent note: Incremental does not mean no testing.",
+      "study": {
+        "title": "An iteration usually ends with an increment that can be reviewed",
+        "simple": "An iteration usually ends with an increment that can be reviewed.",
+        "stepsTitle": "How to answer",
+        "steps": [
+          "An iteration usually ends with an increment that can be reviewed.",
+          "Check the question's goal before choosing an option."
+        ],
+        "example": "Early appointment booking can be demonstrated.",
+        "pitfall": "Incremental does not mean no testing.",
+        "remember": "An iteration usually ends with an increment that can be reviewed.",
+        "keyTerms": [
+          {
+            "term": "A usable increment",
+            "meaning": "An iteration usually ends with an increment that can be reviewed."
+          }
+        ]
+      }
+    },
+    {
+      "number": "3",
+      "text": "Which information generally belongs in an early system vision summary?",
+      "options": [
+        "Problem, key capabilities and business value",
+        "Every SQL index",
+        "Every method body",
+        "A complete cable plan"
+      ],
+      "correctAnswer": "Problem, key capabilities and business value",
+      "marks": 1,
+      "explanation": "A system vision sets out the reason to build and the high-level value.\n\nWhy the answer fits: It identifies the correct concept rather than a nearby but different activity.\n\nExample: The clinic needs fewer missed visits.\n\nStudent note: A full technical schedule belongs elsewhere.",
+      "study": {
+        "title": "A system vision sets out the reason to build and the high-level value",
+        "simple": "A system vision sets out the reason to build and the high-level value.",
+        "stepsTitle": "How to answer",
+        "steps": [
+          "A system vision sets out the reason to build and the high-level value.",
+          "Check the question's goal before choosing an option."
+        ],
+        "example": "The clinic needs fewer missed visits.",
+        "pitfall": "A full technical schedule belongs elsewhere.",
+        "remember": "A system vision sets out the reason to build and the high-level value.",
+        "keyTerms": [
+          {
+            "term": "Problem, key capabilities and business value",
+            "meaning": "A system vision sets out the reason to build and the high-level value."
+          }
+        ]
+      }
+    },
+    {
+      "number": "4",
+      "text": "A team describes the work the app must perform before choosing frameworks. Which activity is occurring?",
+      "options": [
+        "Analysis",
+        "Implementation",
+        "Deployment",
+        "Compilation"
+      ],
+      "correctAnswer": "Analysis",
+      "marks": 1,
+      "explanation": "Analysis defines the intended requirements, whereas design specifies the solution approach.\n\nWhy the answer fits: It identifies the correct concept rather than a nearby but different activity.\n\nExample: Documenting booking rules is analysis.\n\nStudent note: Do not confuse what and how.",
+      "study": {
+        "title": "Analysis defines the intended requirements, whereas design specifies the solution approach",
+        "simple": "Analysis defines the intended requirements, whereas design specifies the solution approach.",
+        "stepsTitle": "How to answer",
+        "steps": [
+          "Analysis defines the intended requirements, whereas design specifies the solution approach.",
+          "Check the question's goal before choosing an option."
+        ],
+        "example": "Documenting booking rules is analysis.",
+        "pitfall": "Do not confuse what and how.",
+        "remember": "Analysis defines the intended requirements, whereas design specifies the solution approach.",
+        "keyTerms": [
+          {
+            "term": "Analysis",
+            "meaning": "Analysis defines the intended requirements, whereas design specifies the solution approach."
+          }
+        ]
+      }
+    },
+    {
+      "number": "5",
+      "text": "Which UML view can show the high-level structure of a deployed solution and major pieces?",
+      "options": [
+        "System / subsystem architecture view",
+        "Individual unit test",
+        "Text editor menu",
+        "Login password"
+      ],
+      "correctAnswer": "System / subsystem architecture view",
+      "marks": 1,
+      "explanation": "Architecture views show how important components or subsystems are organised.\n\nWhy the answer fits: It identifies the correct concept rather than a nearby but different activity.\n\nExample: A system can contain application, database and reporting parts.\n\nStudent note: Use-case diagrams focus on actor goals rather than deployed parts.",
+      "study": {
+        "title": "Architecture views show how important components or subsystems are organised",
+        "simple": "Architecture views show how important components or subsystems are organised.",
+        "stepsTitle": "How to answer",
+        "steps": [
+          "Architecture views show how important components or subsystems are organised.",
+          "Check the question's goal before choosing an option."
+        ],
+        "example": "A system can contain application, database and reporting parts.",
+        "pitfall": "Use-case diagrams focus on actor goals rather than deployed parts.",
+        "remember": "Architecture views show how important components or subsystems are organised.",
+        "keyTerms": [
+          {
+            "term": "System / subsystem architecture view",
+            "meaning": "Architecture views show how important components or subsystems are organised."
+          }
+        ]
+      }
+    },
+    {
+      "number": "6",
+      "text": "A manager asks what an assistant wants to achieve using a booking app. Which requirement method is most appropriate?",
+      "options": [
+        "User goal technique",
+        "Random screen sketching",
+        "Formatting code",
+        "Defragmenting a drive"
+      ],
+      "correctAnswer": "User goal technique",
+      "marks": 1,
+      "explanation": "User-goal analysis finds the meaningful work users want the system to support.\n\nWhy the answer fits: It identifies the correct concept rather than a nearby but different activity.\n\nExample: Assistant: confirm a booking.\n\nStudent note: A user's click sequence is more detailed than the goal itself.",
+      "study": {
+        "title": "User-goal analysis finds the meaningful work users want the system to support",
+        "simple": "User-goal analysis finds the meaningful work users want the system to support.",
+        "stepsTitle": "How to answer",
+        "steps": [
+          "User-goal analysis finds the meaningful work users want the system to support.",
+          "Check the question's goal before choosing an option."
+        ],
+        "example": "Assistant: confirm a booking.",
+        "pitfall": "A user's click sequence is more detailed than the goal itself.",
+        "remember": "User-goal analysis finds the meaningful work users want the system to support.",
+        "keyTerms": [
+          {
+            "term": "User goal technique",
+            "meaning": "User-goal analysis finds the meaningful work users want the system to support."
+          }
+        ]
+      }
+    },
+    {
+      "number": "7",
+      "text": "What does CRUD stand for when discussing information maintenance?",
+      "options": [
+        "Create, Read, Update, Delete",
+        "Copy, Run, Upload, Download",
+        "Code, Render, Undo, Deploy",
+        "Check, Route, Use, Debug"
+      ],
+      "correctAnswer": "Create, Read, Update, Delete",
+      "marks": 1,
+      "explanation": "CRUD lists the main operations applied to stored records.\n\nWhy the answer fits: It identifies the correct concept rather than a nearby but different activity.\n\nExample: Create a tool record, read it, update it or delete it.\n\nStudent note: CRUD is not a development lifecycle.",
+      "study": {
+        "title": "CRUD lists the main operations applied to stored records",
+        "simple": "CRUD lists the main operations applied to stored records.",
+        "stepsTitle": "How to answer",
+        "steps": [
+          "CRUD lists the main operations applied to stored records.",
+          "Check the question's goal before choosing an option."
+        ],
+        "example": "Create a tool record, read it, update it or delete it.",
+        "pitfall": "CRUD is not a development lifecycle.",
+        "remember": "CRUD lists the main operations applied to stored records.",
+        "keyTerms": [
+          {
+            "term": "Create, Read, Update, Delete",
+            "meaning": "CRUD lists the main operations applied to stored records."
+          }
+        ]
+      }
+    },
+    {
+      "number": "8",
+      "text": "Which diagram is most suitable for showing business classes and how they are linked?",
+      "options": [
+        "Domain class diagram",
+        "Network cabling map",
+        "Use-case actor list alone",
+        "A line of shell commands"
+      ],
+      "correctAnswer": "Domain class diagram",
+      "marks": 1,
+      "explanation": "Domain class diagrams show real problem-domain concepts and associations.\n\nWhy the answer fits: It identifies the correct concept rather than a nearby but different activity.\n\nExample: Member owns Tool; Rental links Member and Tool.\n\nStudent note: A domain model is not a detailed code listing.",
+      "study": {
+        "title": "Domain class diagrams show real problem-domain concepts and associations",
+        "simple": "Domain class diagrams show real problem-domain concepts and associations.",
+        "stepsTitle": "How to answer",
+        "steps": [
+          "Domain class diagrams show real problem-domain concepts and associations.",
+          "Check the question's goal before choosing an option."
+        ],
+        "example": "Member owns Tool; Rental links Member and Tool.",
+        "pitfall": "A domain model is not a detailed code listing.",
+        "remember": "Domain class diagrams show real problem-domain concepts and associations.",
+        "keyTerms": [
+          {
+            "term": "Domain class diagram",
+            "meaning": "Domain class diagrams show real problem-domain concepts and associations."
+          }
+        ]
+      }
+    },
+    {
+      "number": "9",
+      "text": "Which statement about a DBMS is accurate?",
+      "options": [
+        "It manages data storage, queries and controlled access",
+        "It only draws screenshots",
+        "It is an operating-system kernel",
+        "It is an actor role"
+      ],
+      "correctAnswer": "It manages data storage, queries and controlled access",
+      "marks": 1,
+      "explanation": "A database management system supports storing, retrieving and protecting data.\n\nWhy the answer fits: It identifies the correct concept rather than a nearby but different activity.\n\nExample: An app persists Order records through a DBMS.\n\nStudent note: A DBMS is software, not the business-domain Order entity.",
+      "study": {
+        "title": "A database management system supports storing, retrieving and protecting data",
+        "simple": "A database management system supports storing, retrieving and protecting data.",
+        "stepsTitle": "How to answer",
+        "steps": [
+          "A database management system supports storing, retrieving and protecting data.",
+          "Check the question's goal before choosing an option."
+        ],
+        "example": "An app persists Order records through a DBMS.",
+        "pitfall": "A DBMS is software, not the business-domain Order entity.",
+        "remember": "A database management system supports storing, retrieving and protecting data.",
+        "keyTerms": [
+          {
+            "term": "It manages data storage, queries and controlled access",
+            "meaning": "A database management system supports storing, retrieving and protecting data."
+          }
+        ]
+      }
+    },
+    {
+      "number": "10",
+      "text": "A diagram shows decisions, actions and their order from start to finish. Which UML diagram is that?",
+      "options": [
+        "Activity diagram",
+        "Use-case diagram",
+        "Domain class diagram",
+        "Deployment architecture map"
+      ],
+      "correctAnswer": "Activity diagram",
+      "marks": 1,
+      "explanation": "An activity diagram describes a workflow with actions and branch conditions.\n\nWhy the answer fits: It identifies the correct concept rather than a nearby but different activity.\n\nExample: A checkout flow contains the [payment accepted] decision.\n\nStudent note: Do not use a use-case oval to represent every workflow step.",
+      "study": {
+        "title": "An activity diagram describes a workflow with actions and branch conditions",
+        "simple": "An activity diagram describes a workflow with actions and branch conditions.",
+        "stepsTitle": "How to answer",
+        "steps": [
+          "An activity diagram describes a workflow with actions and branch conditions.",
+          "Check the question's goal before choosing an option."
+        ],
+        "example": "A checkout flow contains the [payment accepted] decision.",
+        "pitfall": "Do not use a use-case oval to represent every workflow step.",
+        "remember": "An activity diagram describes a workflow with actions and branch conditions.",
+        "keyTerms": [
+          {
+            "term": "Activity diagram",
+            "meaning": "An activity diagram describes a workflow with actions and branch conditions."
+          }
+        ]
+      }
+    },
+    {
+      "number": "11",
+      "text": "CampCart is a small online grocery service for registered college residents. A Customer signs in, browses available items, and adds any quantity within stock limits to a Cart. During checkout the system calculates the amount, receives a delivery address, requests payment authorization, and creates an Order only when payment succeeds. The system reduces stock, sends the order to the store and notifies the Customer. Declined payment leaves the cart unchanged. An administrator maintains item information and views order reports. Fill the four-row classification table. The rows must appear in this order: 1) customer need, 2) a system function, 3) expected business benefit, 4) a detailed implementation choice. For each row type the matching category (Problem / Capability / Benefit / Design detail) and the short tag from this word bank: stock errors / checkout / fewer failed orders / database indexing.",
+      "marks": 8,
+      "answerType": "table",
+      "grading": "table",
+      "tableFixedRows": true,
+      "tableRows": 4,
+      "tableColumns": [
+        {
+          "key": "category",
+          "label": "Category"
+        },
+        {
+          "key": "tag",
+          "label": "Word-bank tag"
+        }
+      ],
+      "tableCorrectRows": [
+        {
+          "category": [
+            "Problem",
+            "Customer problem"
+          ],
+          "tag": "stock errors"
+        },
+        {
+          "category": "Capability",
+          "tag": "checkout"
+        },
+        {
+          "category": "Benefit",
+          "tag": "fewer failed orders"
+        },
+        {
+          "category": [
+            "Design detail",
+            "Implementation detail"
+          ],
+          "tag": "database indexing"
+        }
+      ],
+      "correctAnswer": "1 Problem | stock errors\n2 Capability | checkout\n3 Benefit | fewer failed orders\n4 Design detail | database indexing",
+      "explanation": "A vision starts with the need, then identifies high-level capabilities and expected benefits. Implementation detail is usually deferred.\n\n1. Read the purpose of each row.\n2. Select the matching category and short tag from the word bank.\n\nExample: Checkout is a capability, not a problem.\n\nStudent note: The table tests classification, not the ability to memorise a long paragraph. Each correct expected cell earns a share of the mark.",
+      "study": {
+        "title": "System vision classification",
+        "simple": "A high-level system vision states the problem, relevant capabilities and expected value. Database-level details belong in later design.",
+        "stepsTitle": "Fill the table",
+        "steps": [
+          "Separate the problem from the function meant to solve it.",
+          "Separate business benefit from detailed design choices."
+        ],
+        "example": "Checkout is a system capability; fewer failed orders is a benefit.",
+        "pitfall": "Avoid classifying how something is implemented as the customer problem.",
+        "remember": "Problem → capability → benefit.",
+        "keyTerms": [
+          {
+            "term": "System vision",
+            "meaning": "Short high-level summary of why and what the planned system should do."
+          }
+        ]
+      },
+      "tableInstructions": "Fill each row's two cells using the words given in the question. Partial correct tables receive partial marks.",
+      "context": "CampCart is a small online grocery service for registered college residents. A Customer signs in, browses available items, and adds any quantity within stock limits to a Cart. During checkout the system calculates the amount, receives a delivery address, requests payment authorization, and creates an Order only when payment succeeds. The system reduces stock, sends the order to the store and notifies the Customer. Declined payment leaves the cart unchanged. An administrator maintains item information and views order reports.",
+      "contextTitle": "Read CampCart scenario"
+    },
+    {
+      "number": "12",
+      "text": "CampCart is a small online grocery service for registered college residents. A Customer signs in, browses available items, and adds any quantity within stock limits to a Cart. During checkout the system calculates the amount, receives a delivery address, requests payment authorization, and creates an Order only when payment succeeds. The system reduces stock, sends the order to the store and notifies the Customer. Declined payment leaves the cart unchanged. An administrator maintains item information and views order reports. Explain how a user-goal analysis would identify at least THREE Customer goals and TWO Administrator goals. Explain why those goals matter to the intended system.",
+      "correctAnswer": "Customer goals include sign in, browse items, manage cart, complete a paid order, and check status. Administrator goals include update inventory and inspect orders/reports. Goals describe meaningful outcomes rather than interface clicks. System rules include stock and payment checks.",
+      "marks": 12,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "aiPassScore": 70,
+      "aiRubric": [
+        "Three meaningful customer goals",
+        "Two meaningful administrator goals",
+        "Distinct roles and responsibilities",
+        "Meaningful outcomes, not screen buttons",
+        "Scenario-specific stock/payment implications"
+      ],
+      "aiReferenceNotes": "An actor goal expresses useful work the actor wants to complete. Identify each actor and list the outcomes they need. Distinguish goals from individual button clicks. Check each goal against stated business conditions. Do not invent an admin payment capability that the scenario never mentions.",
+      "explanation": "An actor goal expresses useful work the actor wants to complete.\n\nMethod:\n1. Identify each actor and list the outcomes they need.\n2. Distinguish goals from individual button clicks.\n3. Check each goal against stated business conditions.\n\nExample: Confirm purchase is a goal; click Confirm is just one step.\n\nStudent note: Do not invent an admin payment capability that the scenario never mentions.",
+      "study": {
+        "title": "User goal analysis",
+        "simple": "An actor goal expresses useful work the actor wants to complete.",
+        "stepsTitle": "Method",
+        "steps": [
+          "Identify each actor and list the outcomes they need.",
+          "Distinguish goals from individual button clicks.",
+          "Check each goal against stated business conditions."
+        ],
+        "example": "Confirm purchase is a goal; click Confirm is just one step.",
+        "pitfall": "Do not invent an admin payment capability that the scenario never mentions.",
+        "remember": "Identify each actor and list the outcomes they need.",
+        "keyTerms": [
+          {
+            "term": "User goal analysis",
+            "meaning": "An actor goal expresses useful work the actor wants to complete."
+          }
+        ]
+      },
+      "context": "CampCart is a small online grocery service for registered college residents. A Customer signs in, browses available items, and adds any quantity within stock limits to a Cart. During checkout the system calculates the amount, receives a delivery address, requests payment authorization, and creates an Order only when payment succeeds. The system reduces stock, sends the order to the store and notifies the Customer. Declined payment leaves the cart unchanged. An administrator maintains item information and views order reports.",
+      "contextTitle": "Read the case study"
+    },
+    {
+      "number": "13",
+      "text": "CampCart is a small online grocery service for registered college residents. A Customer signs in, browses available items, and adds any quantity within stock limits to a Cart. During checkout the system calculates the amount, receives a delivery address, requests payment authorization, and creates an Order only when payment succeeds. The system reduces stock, sends the order to the store and notifies the Customer. Declined payment leaves the cart unchanged. An administrator maintains item information and views order reports. Draw an activity diagram for placing an order, including stock validation, payment failure and success, followed by order creation and notification.",
+      "correctAnswer": "Initial -> login -> browse -> add items -> check stock [insufficient: change quantity/back to browse] [sufficient: checkout] -> calculate total -> enter address -> request payment -> decision [declined: show failure/return to checkout] [approved: create order -> reduce stock -> send to store -> notify customer] -> Final.",
+      "marks": 15,
+      "grading": "ai",
+      "answerType": "uml-diagram",
+      "aiPassScore": 70,
+      "aiRubric": [
+        "Initial and final nodes",
+        "Login/browse/cart actions",
+        "Stock validation and alternate path",
+        "Checkout and delivery address",
+        "Payment decision with explicit rejected branch",
+        "Order creation only after success",
+        "Reduce stock and send notification",
+        "Correct arrows/guards and readable flow"
+      ],
+      "aiReferenceNotes": "An activity diagram makes business workflow and decision branches visible. Draw a start node and ordered actions. Add two guarded decisions for stock and payment. Keep order creation after accepted payment and end the flow. A diagram without arrows and branch labels can look like a list of boxes rather than a real process.",
+      "explanation": "An activity diagram makes business workflow and decision branches visible.\n\nMethod:\n1. Draw a start node and ordered actions.\n2. Add two guarded decisions for stock and payment.\n3. Keep order creation after accepted payment and end the flow.\n\nExample: Payment failure returns to a safe earlier step and should not create a successful order.\n\nStudent note: A diagram without arrows and branch labels can look like a list of boxes rather than a real process.",
+      "study": {
+        "title": "Checkout activity modelling",
+        "simple": "An activity diagram makes business workflow and decision branches visible.",
+        "stepsTitle": "Method",
+        "steps": [
+          "Draw a start node and ordered actions.",
+          "Add two guarded decisions for stock and payment.",
+          "Keep order creation after accepted payment and end the flow."
+        ],
+        "example": "Payment failure returns to a safe earlier step and should not create a successful order.",
+        "pitfall": "A diagram without arrows and branch labels can look like a list of boxes rather than a real process.",
+        "remember": "Draw a start node and ordered actions.",
+        "keyTerms": [
+          {
+            "term": "Checkout activity modelling",
+            "meaning": "An activity diagram makes business workflow and decision branches visible."
+          }
+        ]
+      },
+      "context": "CampCart is a small online grocery service for registered college residents. A Customer signs in, browses available items, and adds any quantity within stock limits to a Cart. During checkout the system calculates the amount, receives a delivery address, requests payment authorization, and creates an Order only when payment succeeds. The system reduces stock, sends the order to the store and notifies the Customer. Declined payment leaves the cart unchanged. An administrator maintains item information and views order reports.",
+      "contextTitle": "Read the case study",
+      "diagramRequired": true,
+      "diagramNoDrawingCapPercent": 0,
+      "diagramNoDrawingNote": "A diagram must be drawn or uploaded for structure marks.",
+      "diagramInstructions": "Select a UML shape, drag it on the canvas, enter labels, then add connectors. Draw with touch or upload an image."
+    },
+    {
+      "number": "14",
+      "text": "ToolTrade helps local makers borrow equipment. A registered Member may advertise several Tools with an identifier, condition and availability. Another Member creates a Rental for one listed Tool, with start/end dates and a status. Each Rental has one borrower, one Tool and may record one or more Payment attempts. An Owner is a Member whose tool is listed. A returned Tool may receive a Rating linked to its Rental. Draw a UML domain class diagram with important classes, identifying attributes, labelled associations and realistic multiplicities.",
+      "correctAnswer": "Member(memberId,name) 1 owner to 0..* Tool(toolId,condition,available), Member 1 borrower to 0..* Rental(rentalId,start,end,status), Rental 1 to 1 Tool, Rental 1 to 0..* Payment(paymentId,amount,status), Rental 1 to 0..1 Rating(score,comment). One Tool may participate in many Rentals across time, but each Rental references one Tool.",
+      "marks": 15,
+      "grading": "ai",
+      "answerType": "uml-diagram",
+      "aiPassScore": 70,
+      "aiRubric": [
+        "Member class and identifying attribute",
+        "Tool class and basic attributes",
+        "Rental/booking class with dates/status",
+        "Payment attempts or transactions",
+        "Optional Rating class",
+        "Owner vs borrower roles of Member",
+        "Correct labels/multiplicities including optional rating",
+        "No UI/controller classes mixed into a domain model"
+      ],
+      "aiReferenceNotes": "Model domain nouns as classes, then add attributes and associations with realistic multiplicities. Identify Member, Tool, Rental and supporting concepts. Add key fields and important business attributes. Connect owner, borrower, rental, payment and optional rating roles. Distinguish a person's two roles; do not duplicate the same Member data unless there is a sound reason.",
+      "explanation": "Model domain nouns as classes, then add attributes and associations with realistic multiplicities.\n\nMethod:\n1. Identify Member, Tool, Rental and supporting concepts.\n2. Add key fields and important business attributes.\n3. Connect owner, borrower, rental, payment and optional rating roles.\n\nExample: A maker can own many tools, and one tool can have several rentals across different dates.\n\nStudent note: Distinguish a person's two roles; do not duplicate the same Member data unless there is a sound reason.",
+      "study": {
+        "title": "Domain class diagram",
+        "simple": "Model domain nouns as classes, then add attributes and associations with realistic multiplicities.",
+        "stepsTitle": "Method",
+        "steps": [
+          "Identify Member, Tool, Rental and supporting concepts.",
+          "Add key fields and important business attributes.",
+          "Connect owner, borrower, rental, payment and optional rating roles."
+        ],
+        "example": "A maker can own many tools, and one tool can have several rentals across different dates.",
+        "pitfall": "Distinguish a person's two roles; do not duplicate the same Member data unless there is a sound reason.",
+        "remember": "Identify Member, Tool, Rental and supporting concepts.",
+        "keyTerms": [
+          {
+            "term": "Domain class diagram",
+            "meaning": "Model domain nouns as classes, then add attributes and associations with realistic multiplicities."
+          }
+        ]
+      },
+      "context": "ToolTrade helps local makers borrow equipment. A registered Member may advertise several Tools with an identifier, condition and availability. Another Member creates a Rental for one listed Tool, with start/end dates and a status. Each Rental has one borrower, one Tool and may record one or more Payment attempts. An Owner is a Member whose tool is listed. A returned Tool may receive a Rating linked to its Rental.",
+      "contextTitle": "Read the case study",
+      "diagramRequired": true,
+      "diagramNoDrawingCapPercent": 0,
+      "diagramNoDrawingNote": "A diagram must be drawn or uploaded for structure marks.",
+      "diagramInstructions": "Select a UML shape, drag it on the canvas, enter labels, then add connectors. Draw with touch or upload an image."
+    }
+  ]
+}
