@@ -18,8 +18,11 @@ jobs:
           node --check learning-engine.js
           node --check learning-modules.js
           node --check modules/inf3708-mastery.js
+          node --check modules/ict2631-mastery.js
       - name: Validate subject schema and activities
-        run: node tests/mastery-content.test.cjs
+        run: |
+          node tests/mastery-content.test.cjs
+          node tests/ict2631-content.test.cjs
       - name: Install DOM test dependency
         run: npm install --no-save --no-package-lock jsdom@25
       - name: Smoke-test mastery UI
