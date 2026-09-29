@@ -4880,6 +4880,18 @@ const testFiles = [
         missedCount,
       });
 
+      // Private, offline topic analysis runs for everyone. Only an explicit
+      // Settings opt-in AND a later button click may invoke the AI generator.
+      if (revisionController) {
+        const code = testName.match(/\b(?:ICT|INF)\d{4}\b/i);
+        revisionController.showResults({
+          questions,
+          getGrade: (question, index) =>
+            getQuestionGrade(question, index, userAnswers[index]),
+          moduleName: code ? code[0].toUpperCase() : "Mixed modules",
+        });
+      }
+
       incrementStreakIfNeeded();
 
       // Save stats and update display
