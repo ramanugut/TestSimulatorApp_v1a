@@ -1105,6 +1105,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function hasProvidedAnswer(answer) {
     if (answer && typeof answer === "object" && !Array.isArray(answer)) {
+      if (Array.isArray(answer.table)) return answer.table.some(row =>
+        Object.values(row || {}).some(value => String(value == null ? "" : value).trim()));
       return Boolean(
         (typeof answer.text === "string" && answer.text.trim()) ||
         (typeof answer.image === "string" && /^data:image\/(jpeg|png|webp);base64,/.test(answer.image))
@@ -2315,7 +2317,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const diagramImage =
       studentAnswer && typeof studentAnswer === "object" &&
       typeof studentAnswer.image === "string" &&
-      question.answerType === "diagram"
+      (question.answerType === "diagram" || question.answerType === "uml-diagram")
         ? studentAnswer.image
         : "";
     const answerText =
@@ -2332,7 +2334,7 @@ document.addEventListener("DOMContentLoaded", function () {
       },
       body: JSON.stringify({
         question: question.text || "",
-        studentAnswer: answerText || (diagramImage ? "Answer supplied as a drawn network diagram." : ""),
+        studentAnswer: answerText || (diagramImage ? "Answer supplied as a drawn diagram." : ""),
         diagramImage,
         diagramRequired: question.diagramRequired === true,
         // A paper may prescribe its own rule for a missing diagram. Older
