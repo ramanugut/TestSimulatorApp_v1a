@@ -1,0 +1,698 @@
+{
+  "testName": "ICT2631 – Oct/Nov 2025 Topic-Based Mock (original)",
+  "module": "ICT2631",
+  "assessment": "2025 October/November-inspired practice",
+  "sourceType": "Original practice questions; NOT the original UNISA exam",
+  "sourceReference": "https://www.studocu.com/en-za/document/university-of-south-africa/operating-systems-practice/ict2631-final-exam-october-november-2025-operating-systems-practice/142910047",
+  "sourceLimitations": "The original full paper was not accessible. Questions are newly written for revision, not transcribed.",
+  "totalMarks": 100,
+  "durationMinutes": 120,
+  "preserveOrder": true,
+  "marking": "mixed-auto-choice-and-optional-AI-written",
+  "questions": [
+    {
+      "number": "1",
+      "text": "Which description best matches AIGLX in a Linux graphical system?",
+      "options": [
+        "A service that schedules cron jobs",
+        "An approach enabling accelerated indirect GLX, helping composited desktop effects",
+        "A disk encryption format",
+        "A remote boot protocol"
+      ],
+      "correctAnswer": "An approach enabling accelerated indirect GLX, helping composited desktop effects",
+      "marks": 4,
+      "explanation": "AIGLX is a graphics technology that enables accelerated indirect OpenGL rendering in X environments.\n\nWhy: It relates to desktop 3D/compositing, not file storage or networking.\n\nExample: A compositing window manager can use graphics acceleration for visual desktop effects.\n\nStudent note: AIGLX is older X11-era terminology; do not confuse it with PXE.",
+      "study": {
+        "title": "AIGLX",
+        "simple": "AIGLX is a graphics technology that enables accelerated indirect OpenGL rendering in X environments.",
+        "stepsTitle": "Why this answer fits",
+        "steps": [
+          "It relates to desktop 3D/compositing, not file storage or networking."
+        ],
+        "example": "A compositing window manager can use graphics acceleration for visual desktop effects.",
+        "pitfall": "AIGLX is older X11-era terminology; do not confuse it with PXE.",
+        "remember": "It relates to desktop 3D/compositing, not file storage or networking.",
+        "keyTerms": [
+          {
+            "term": "AIGLX",
+            "meaning": "AIGLX is a graphics technology that enables accelerated indirect OpenGL rendering in X environments."
+          }
+        ]
+      }
+    },
+    {
+      "number": "2",
+      "text": "A GNOME 3 user needs a desktop feature that is not included by default. What is a sensible first action?",
+      "options": [
+        "Delete the home directory",
+        "Install a compatible GNOME Shell extension or use available settings",
+        "Repartition the entire disk",
+        "Disable the kernel"
+      ],
+      "correctAnswer": "Install a compatible GNOME Shell extension or use available settings",
+      "marks": 4,
+      "explanation": "Extensions can add or change features of the GNOME Shell desktop.\n\nWhy: Settings and compatible extensions are less disruptive than replacing the OS.\n\nExample: A window-management extension can change the desktop workflow.\n\nStudent note: Check compatibility with the installed GNOME version before installing extensions.",
+      "study": {
+        "title": "GNOME Shell extensions",
+        "simple": "Extensions can add or change features of the GNOME Shell desktop.",
+        "stepsTitle": "Why this answer fits",
+        "steps": [
+          "Settings and compatible extensions are less disruptive than replacing the OS."
+        ],
+        "example": "A window-management extension can change the desktop workflow.",
+        "pitfall": "Check compatibility with the installed GNOME version before installing extensions.",
+        "remember": "Settings and compatible extensions are less disruptive than replacing the OS.",
+        "keyTerms": [
+          {
+            "term": "GNOME Shell extensions",
+            "meaning": "Extensions can add or change features of the GNOME Shell desktop."
+          }
+        ]
+      }
+    },
+    {
+      "number": "3",
+      "text": "In Bash's default Emacs-style line editor, which shortcut cuts from the cursor to the end of the current line?",
+      "options": [
+        "Ctrl+K",
+        "Ctrl+U",
+        "Ctrl+Y",
+        "Alt+B"
+      ],
+      "correctAnswer": "Ctrl+K",
+      "marks": 4,
+      "explanation": "Readline provides keyboard shortcuts for editing a command before running it.\n\nWhy: Ctrl+K is kill-line, which removes text from the cursor forward.\n\nExample: Place the cursor before '.log' in a long command and use Ctrl+K to remove the remainder.\n\nStudent note: 'Kill' here means cut text into a kill ring; it does not terminate a Linux process.",
+      "study": {
+        "title": "Ctrl+K",
+        "simple": "Readline provides keyboard shortcuts for editing a command before running it.",
+        "stepsTitle": "Why this answer fits",
+        "steps": [
+          "Ctrl+K is kill-line, which removes text from the cursor forward."
+        ],
+        "example": "Place the cursor before '.log' in a long command and use Ctrl+K to remove the remainder.",
+        "pitfall": "'Kill' here means cut text into a kill ring; it does not terminate a Linux process.",
+        "remember": "Ctrl+K is kill-line, which removes text from the cursor forward.",
+        "keyTerms": [
+          {
+            "term": "Ctrl+K",
+            "meaning": "Readline provides keyboard shortcuts for editing a command before running it."
+          }
+        ]
+      }
+    },
+    {
+      "number": "4",
+      "text": "Which default readline shortcut removes text from the cursor back to the beginning of the command line?",
+      "options": [
+        "Ctrl+D",
+        "Ctrl+U",
+        "Ctrl+P",
+        "Alt+D"
+      ],
+      "correctAnswer": "Ctrl+U",
+      "marks": 4,
+      "explanation": "Ctrl+U cuts the text before the cursor in Bash's default Emacs-style editing mode.\n\nWhy: It operates backward to the beginning, unlike Ctrl+K.\n\nExample: If a mistyped command begins with a wrong path, Ctrl+U removes the part before your cursor.\n\nStudent note: The shell may be configured with another editing mode, such as vi.",
+      "study": {
+        "title": "Ctrl+U",
+        "simple": "Ctrl+U cuts the text before the cursor in Bash's default Emacs-style editing mode.",
+        "stepsTitle": "Why this answer fits",
+        "steps": [
+          "It operates backward to the beginning, unlike Ctrl+K."
+        ],
+        "example": "If a mistyped command begins with a wrong path, Ctrl+U removes the part before your cursor.",
+        "pitfall": "The shell may be configured with another editing mode, such as vi.",
+        "remember": "It operates backward to the beginning, unlike Ctrl+K.",
+        "keyTerms": [
+          {
+            "term": "Ctrl+U",
+            "meaning": "Ctrl+U cuts the text before the cursor in Bash's default Emacs-style editing mode."
+          }
+        ]
+      }
+    },
+    {
+      "number": "5",
+      "text": "You want to cut the preceding word while editing a Bash command. Which key combination is commonly used?",
+      "options": [
+        "Ctrl+W",
+        "Ctrl+Y",
+        "Ctrl+L",
+        "Ctrl+E"
+      ],
+      "correctAnswer": "Ctrl+W",
+      "marks": 4,
+      "explanation": "In Bash's default editing mode, Ctrl+W removes the previous word.\n\nWhy: This is a word-level edit rather than deleting the whole line.\n\nExample: In 'cat /var/log/old.log', position the cursor after the filename and press Ctrl+W.\n\nStudent note: Ctrl+L clears the visible terminal; it does not cut a word.",
+      "study": {
+        "title": "Ctrl+W",
+        "simple": "In Bash's default editing mode, Ctrl+W removes the previous word.",
+        "stepsTitle": "Why this answer fits",
+        "steps": [
+          "This is a word-level edit rather than deleting the whole line."
+        ],
+        "example": "In 'cat /var/log/old.log', position the cursor after the filename and press Ctrl+W.",
+        "pitfall": "Ctrl+L clears the visible terminal; it does not cut a word.",
+        "remember": "This is a word-level edit rather than deleting the whole line.",
+        "keyTerms": [
+          {
+            "term": "Ctrl+W",
+            "meaning": "In Bash's default editing mode, Ctrl+W removes the previous word."
+          }
+        ]
+      }
+    },
+    {
+      "number": "6",
+      "text": "Which shortcut normally cuts the following word in the default Bash line editor?",
+      "options": [
+        "Ctrl+A",
+        "Alt+D (Meta+D)",
+        "Ctrl+R",
+        "Ctrl+C"
+      ],
+      "correctAnswer": "Alt+D (Meta+D)",
+      "marks": 4,
+      "explanation": "Alt+D deletes the word ahead of the cursor in Emacs-style readline.\n\nWhy: Meta is normally the Alt key; Esc then D can often be used instead.\n\nExample: Move to the start of an incorrect argument and use Alt+D to remove it.\n\nStudent note: Ctrl+C interrupts a running command and is not the word-cut shortcut.",
+      "study": {
+        "title": "Alt+D",
+        "simple": "Alt+D deletes the word ahead of the cursor in Emacs-style readline.",
+        "stepsTitle": "Why this answer fits",
+        "steps": [
+          "Meta is normally the Alt key; Esc then D can often be used instead."
+        ],
+        "example": "Move to the start of an incorrect argument and use Alt+D to remove it.",
+        "pitfall": "Ctrl+C interrupts a running command and is not the word-cut shortcut.",
+        "remember": "Meta is normally the Alt key; Esc then D can often be used instead.",
+        "keyTerms": [
+          {
+            "term": "Alt+D",
+            "meaning": "Alt+D deletes the word ahead of the cursor in Emacs-style readline."
+          }
+        ]
+      }
+    },
+    {
+      "number": "7",
+      "text": "After cutting a command-line fragment using a readline shortcut, which key pastes it back?",
+      "options": [
+        "Ctrl+Y",
+        "Ctrl+Z",
+        "Ctrl+O",
+        "Alt+F"
+      ],
+      "correctAnswer": "Ctrl+Y",
+      "marks": 4,
+      "explanation": "Readline calls restoring recently killed text 'yanking'.\n\nWhy: Ctrl+Y inserts the most recently cut fragment.\n\nExample: Use Ctrl+K accidentally, then Ctrl+Y to restore the cut text.\n\nStudent note: This is different from Ctrl+V, which has another purpose in many terminals.",
+      "study": {
+        "title": "Ctrl+Y (yank)",
+        "simple": "Readline calls restoring recently killed text 'yanking'.",
+        "stepsTitle": "Why this answer fits",
+        "steps": [
+          "Ctrl+Y inserts the most recently cut fragment."
+        ],
+        "example": "Use Ctrl+K accidentally, then Ctrl+Y to restore the cut text.",
+        "pitfall": "This is different from Ctrl+V, which has another purpose in many terminals.",
+        "remember": "Ctrl+Y inserts the most recently cut fragment.",
+        "keyTerms": [
+          {
+            "term": "Ctrl+Y (yank)",
+            "meaning": "Readline calls restoring recently killed text 'yanking'."
+          }
+        ]
+      }
+    },
+    {
+      "number": "8",
+      "text": "What is the main purpose of PXE?",
+      "options": [
+        "To compile a new kernel",
+        "To boot a machine through a network before its installed OS starts",
+        "To create user accounts",
+        "To compress files"
+      ],
+      "correctAnswer": "To boot a machine through a network before its installed OS starts",
+      "marks": 4,
+      "explanation": "Preboot Execution Environment lets suitable firmware obtain boot information over the network.\n\nWhy: It is used for provisioning or booting systems without relying on a local OS installation.\n\nExample: An IT lab can network-boot many PCs into an operating-system installer.\n\nStudent note: DHCP commonly supplies network/boot details; a server provides the boot program.",
+      "study": {
+        "title": "PXE",
+        "simple": "Preboot Execution Environment lets suitable firmware obtain boot information over the network.",
+        "stepsTitle": "Why this answer fits",
+        "steps": [
+          "It is used for provisioning or booting systems without relying on a local OS installation."
+        ],
+        "example": "An IT lab can network-boot many PCs into an operating-system installer.",
+        "pitfall": "DHCP commonly supplies network/boot details; a server provides the boot program.",
+        "remember": "It is used for provisioning or booting systems without relying on a local OS installation.",
+        "keyTerms": [
+          {
+            "term": "PXE",
+            "meaning": "Preboot Execution Environment lets suitable firmware obtain boot information over the network."
+          }
+        ]
+      }
+    },
+    {
+      "number": "9",
+      "text": "After running CITY=Polokwane in Bash, which command prints the stored value?",
+      "options": [
+        "echo CITY",
+        "echo $CITY",
+        "echo 'CITY'",
+        "ls CITY"
+      ],
+      "correctAnswer": "echo $CITY",
+      "marks": 4,
+      "explanation": "A shell variable holds data; a dollar sign normally asks the shell to expand it to its value.\n\nWhy: $CITY becomes Polokwane, while CITY without the dollar sign is just text.\n\nExample: echo \"$CITY\" prints Polokwane.\n\nStudent note: Quotes matter: single quotes prevent normal variable expansion.",
+      "study": {
+        "title": "Shell variable expansion",
+        "simple": "A shell variable holds data; a dollar sign normally asks the shell to expand it to its value.",
+        "stepsTitle": "Why this answer fits",
+        "steps": [
+          "$CITY becomes Polokwane, while CITY without the dollar sign is just text."
+        ],
+        "example": "echo \"$CITY\" prints Polokwane.",
+        "pitfall": "Quotes matter: single quotes prevent normal variable expansion.",
+        "remember": "$CITY becomes Polokwane, while CITY without the dollar sign is just text.",
+        "keyTerms": [
+          {
+            "term": "Shell variable expansion",
+            "meaning": "A shell variable holds data; a dollar sign normally asks the shell to expand it to its value."
+          }
+        ]
+      }
+    },
+    {
+      "number": "10",
+      "text": "Why is the sticky bit useful on a writable shared directory such as /tmp?",
+      "options": [
+        "It encrypts every file",
+        "It limits deletion/renaming of entries to owners or privileged users despite shared write access",
+        "It forces all programs to run as root",
+        "It gives everyone read access"
+      ],
+      "correctAnswer": "It limits deletion/renaming of entries to owners or privileged users despite shared write access",
+      "marks": 4,
+      "explanation": "On directories, the sticky bit restricts which users can remove or rename entries.\n\nWhy: It helps prevent one user deleting another person's files in a shared writable directory.\n\nExample: /tmp is commonly shown with permissions such as drwxrwxrwt.\n\nStudent note: A lowercase t in the others-execute position shows sticky plus execute; T shows sticky without that execute bit.",
+      "study": {
+        "title": "Sticky bit",
+        "simple": "On directories, the sticky bit restricts which users can remove or rename entries.",
+        "stepsTitle": "Why this answer fits",
+        "steps": [
+          "It helps prevent one user deleting another person's files in a shared writable directory."
+        ],
+        "example": "/tmp is commonly shown with permissions such as drwxrwxrwt.",
+        "pitfall": "A lowercase t in the others-execute position shows sticky plus execute; T shows sticky without that execute bit.",
+        "remember": "It helps prevent one user deleting another person's files in a shared writable directory.",
+        "keyTerms": [
+          {
+            "term": "Sticky bit",
+            "meaning": "On directories, the sticky bit restricts which users can remove or rename entries."
+          }
+        ]
+      }
+    },
+    {
+      "number": "11",
+      "text": "A Linux 'ls -l' permission string ends with '+'. What should you investigate?",
+      "options": [
+        "The file is zero bytes",
+        "Extended access-control information such as a POSIX ACL",
+        "The file is mounted read-only",
+        "The file is an archive"
+      ],
+      "correctAnswer": "Extended access-control information such as a POSIX ACL",
+      "marks": 4,
+      "explanation": "An access control list (ACL) can grant more detailed permissions than owner/group/other bits.\n\nWhy: GNU ls commonly displays a '+' after permission bits when an ACL is present.\n\nExample: Use getfacl filename to inspect entries for a named user.\n\nStudent note: Do not assume the visible rwx triplets show every effective permission.",
+      "study": {
+        "title": "ACL indicator",
+        "simple": "An access control list (ACL) can grant more detailed permissions than owner/group/other bits.",
+        "stepsTitle": "Why this answer fits",
+        "steps": [
+          "GNU ls commonly displays a '+' after permission bits when an ACL is present."
+        ],
+        "example": "Use getfacl filename to inspect entries for a named user.",
+        "pitfall": "Do not assume the visible rwx triplets show every effective permission.",
+        "remember": "GNU ls commonly displays a '+' after permission bits when an ACL is present.",
+        "keyTerms": [
+          {
+            "term": "ACL indicator",
+            "meaning": "An access control list (ACL) can grant more detailed permissions than owner/group/other bits."
+          }
+        ]
+      }
+    },
+    {
+      "number": "12",
+      "text": "Which command helps identify disks and partitions in a tree view before mounting?",
+      "options": [
+        "lsblk",
+        "whoami",
+        "passwd",
+        "history"
+      ],
+      "correctAnswer": "lsblk",
+      "marks": 4,
+      "explanation": "lsblk lists block devices and their relationships.\n\nWhy: The command helps distinguish a whole disk from partitions before a disk operation.\n\nExample: Run lsblk -f to inspect partitions and filesystems.\n\nStudent note: Identify the correct target before using any destructive partition tool.",
+      "study": {
+        "title": "lsblk",
+        "simple": "lsblk lists block devices and their relationships.",
+        "stepsTitle": "Why this answer fits",
+        "steps": [
+          "The command helps distinguish a whole disk from partitions before a disk operation."
+        ],
+        "example": "Run lsblk -f to inspect partitions and filesystems.",
+        "pitfall": "Identify the correct target before using any destructive partition tool.",
+        "remember": "The command helps distinguish a whole disk from partitions before a disk operation.",
+        "keyTerms": [
+          {
+            "term": "lsblk",
+            "meaning": "lsblk lists block devices and their relationships."
+          }
+        ]
+      }
+    },
+    {
+      "number": "13",
+      "text": "What does the Linux mount command do?",
+      "options": [
+        "Adds a filesystem to the directory tree at a mount point",
+        "Changes the current user's password",
+        "Deletes a partition",
+        "Lists shell aliases"
+      ],
+      "correctAnswer": "Adds a filesystem to the directory tree at a mount point",
+      "marks": 4,
+      "explanation": "Linux exposes mounted filesystems within one directory hierarchy.\n\nWhy: Mount attaches a filesystem to a chosen directory (mount point).\n\nExample: A prepared /dev/sdb1 might be mounted on /mnt/data.\n\nStudent note: The directory must exist, and an incorrect device choice can cause problems.",
+      "study": {
+        "title": "Mounting",
+        "simple": "Linux exposes mounted filesystems within one directory hierarchy.",
+        "stepsTitle": "Why this answer fits",
+        "steps": [
+          "Mount attaches a filesystem to a chosen directory (mount point)."
+        ],
+        "example": "A prepared /dev/sdb1 might be mounted on /mnt/data.",
+        "pitfall": "The directory must exist, and an incorrect device choice can cause problems.",
+        "remember": "Mount attaches a filesystem to a chosen directory (mount point).",
+        "keyTerms": [
+          {
+            "term": "Mounting",
+            "meaning": "Linux exposes mounted filesystems within one directory hierarchy."
+          }
+        ]
+      }
+    },
+    {
+      "number": "14",
+      "text": "A removable drive must be writable from both common Linux and Windows desktops. Which design concern matters most?",
+      "options": [
+        "Pick the filesystem only by its colour",
+        "Select a filesystem both platforms can read/write, considering size and permission limits",
+        "Always use a native Linux-only filesystem",
+        "Disable backups"
+      ],
+      "correctAnswer": "Select a filesystem both platforms can read/write, considering size and permission limits",
+      "marks": 4,
+      "explanation": "Filesystem choice should reflect the devices and operating systems sharing the drive.\n\nWhy: A cross-platform filesystem may be more convenient but may not preserve normal Unix permissions.\n\nExample: exFAT is often used for removable drives shared between modern Linux and Windows systems.\n\nStudent note: ext4 is a common native Linux filesystem; compatibility is a separate decision.",
+      "study": {
+        "title": "Filesystem compatibility",
+        "simple": "Filesystem choice should reflect the devices and operating systems sharing the drive.",
+        "stepsTitle": "Why this answer fits",
+        "steps": [
+          "A cross-platform filesystem may be more convenient but may not preserve normal Unix permissions."
+        ],
+        "example": "exFAT is often used for removable drives shared between modern Linux and Windows systems.",
+        "pitfall": "ext4 is a common native Linux filesystem; compatibility is a separate decision.",
+        "remember": "A cross-platform filesystem may be more convenient but may not preserve normal Unix permissions.",
+        "keyTerms": [
+          {
+            "term": "Filesystem compatibility",
+            "meaning": "Filesystem choice should reflect the devices and operating systems sharing the drive."
+          }
+        ]
+      }
+    },
+    {
+      "number": "15",
+      "text": "With umask 022, what are the usual starting permissions for a new regular file made with mode 666?",
+      "options": [
+        "777",
+        "644",
+        "755",
+        "600"
+      ],
+      "correctAnswer": "644",
+      "marks": 4,
+      "explanation": "umask removes selected permission bits from the mode requested when a file is created.\n\nWhy: 666 masked by 022 gives 644: owner read/write; group and others read.\n\nExample: New directories normally start from 777, so with umask 022 they become 755.\n\nStudent note: Ordinary new files do not normally start executable: do not subtract the mask from 777 for files.",
+      "study": {
+        "title": "umask 022",
+        "simple": "umask removes selected permission bits from the mode requested when a file is created.",
+        "stepsTitle": "Why this answer fits",
+        "steps": [
+          "666 masked by 022 gives 644: owner read/write; group and others read."
+        ],
+        "example": "New directories normally start from 777, so with umask 022 they become 755.",
+        "pitfall": "Ordinary new files do not normally start executable: do not subtract the mask from 777 for files.",
+        "remember": "666 masked by 022 gives 644: owner read/write; group and others read.",
+        "keyTerms": [
+          {
+            "term": "umask 022",
+            "meaning": "umask removes selected permission bits from the mode requested when a file is created."
+          }
+        ]
+      }
+    },
+    {
+      "number": "16",
+      "text": "What is the main group-related effect of setting the setgid bit on a shared directory?",
+      "options": [
+        "All contents become encrypted",
+        "Newly created entries generally inherit the directory's group",
+        "Only root can enter the directory",
+        "It removes all ACL entries"
+      ],
+      "correctAnswer": "Newly created entries generally inherit the directory's group",
+      "marks": 4,
+      "explanation": "The setgid bit on a directory supports group ownership for collaborative work.\n\nWhy: New files and subdirectories generally inherit its group, subject to filesystem behaviour.\n\nExample: A team's shared folder can use chmod g+s and group write permissions.\n\nStudent note: Setgid does not replace correct access permissions or ACLs.",
+      "study": {
+        "title": "Directory setgid",
+        "simple": "The setgid bit on a directory supports group ownership for collaborative work.",
+        "stepsTitle": "Why this answer fits",
+        "steps": [
+          "New files and subdirectories generally inherit its group, subject to filesystem behaviour."
+        ],
+        "example": "A team's shared folder can use chmod g+s and group write permissions.",
+        "pitfall": "Setgid does not replace correct access permissions or ACLs.",
+        "remember": "New files and subdirectories generally inherit its group, subject to filesystem behaviour.",
+        "keyTerms": [
+          {
+            "term": "Directory setgid",
+            "meaning": "The setgid bit on a directory supports group ownership for collaborative work."
+          }
+        ]
+      }
+    },
+    {
+      "number": "17",
+      "text": "You need to search a file for 'error' without caring about upper/lower case. Which command fits?",
+      "options": [
+        "grep -i error app.log",
+        "mv error app.log",
+        "chmod error app.log",
+        "touch -i error app.log"
+      ],
+      "correctAnswer": "grep -i error app.log",
+      "marks": 4,
+      "explanation": "grep searches text for matching lines; -i ignores case.\n\nWhy: It matches ERROR, Error and error.\n\nExample: grep -i 'error' /var/log/app.log helps inspect application logs.\n\nStudent note: Use quotation marks for search phrases containing spaces.",
+      "study": {
+        "title": "grep -i",
+        "simple": "grep searches text for matching lines; -i ignores case.",
+        "stepsTitle": "Why this answer fits",
+        "steps": [
+          "It matches ERROR, Error and error."
+        ],
+        "example": "grep -i 'error' /var/log/app.log helps inspect application logs.",
+        "pitfall": "Use quotation marks for search phrases containing spaces.",
+        "remember": "It matches ERROR, Error and error.",
+        "keyTerms": [
+          {
+            "term": "grep -i",
+            "meaning": "grep searches text for matching lines; -i ignores case."
+          }
+        ]
+      }
+    },
+    {
+      "number": "18",
+      "text": "Which command most directly summarises how much disk space /var/log uses in human-readable units?",
+      "options": [
+        "du -sh /var/log",
+        "df -i /var/log",
+        "ls -a /var/log",
+        "pwd /var/log"
+      ],
+      "correctAnswer": "du -sh /var/log",
+      "marks": 4,
+      "explanation": "du measures storage used by files and directories; -s summarises and -h makes units readable.\n\nWhy: It answers the space-consumption question for one directory.\n\nExample: du -sh /var/log might report 1.2G.\n\nStudent note: df reports filesystem capacity; du reports usage by selected paths.",
+      "study": {
+        "title": "du -sh",
+        "simple": "du measures storage used by files and directories; -s summarises and -h makes units readable.",
+        "stepsTitle": "Why this answer fits",
+        "steps": [
+          "It answers the space-consumption question for one directory."
+        ],
+        "example": "du -sh /var/log might report 1.2G.",
+        "pitfall": "df reports filesystem capacity; du reports usage by selected paths.",
+        "remember": "It answers the space-consumption question for one directory.",
+        "keyTerms": [
+          {
+            "term": "du -sh",
+            "meaning": "du measures storage used by files and directories; -s summarises and -h makes units readable."
+          }
+        ]
+      }
+    },
+    {
+      "number": "19",
+      "text": "Scenario: A training centre must install Linux on 20 PCs using a network rather than individual USB sticks. Explain a sensible PXE-based workflow and name the main parts involved.",
+      "marks": 7,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "aiPassScore": 70,
+      "correctAnswer": "Enable network/PXE boot in client firmware; configure DHCP to provide IP and boot information; provide suitable boot files over TFTP or another supported boot method; load an installer or network image; ensure reachable network and compatible architecture; test on one machine before scaling.",
+      "aiRubric": [
+        "Identifies PXE/network boot and firmware option",
+        "Mentions DHCP/network settings",
+        "Mentions delivery of a bootloader or boot program (for example TFTP)",
+        "Explains loading installer/image and testing"
+      ],
+      "aiReferenceNotes": "Network boot can install many systems from centrally maintained boot resources. Prepare compatible network-boot image and boot services. Configure DHCP and the boot-file service as required by the environment. Enable network boot on the clients and validate on one machine before rollout. A lab boots to a network installer that loads its files from the deployment server. Network boot is not the same as mounting an already-running machine's remote filesystem.",
+      "explanation": "Network boot can install many systems from centrally maintained boot resources.\n\nMethod:\n1. Prepare compatible network-boot image and boot services.\n2. Configure DHCP and the boot-file service as required by the environment.\n3. Enable network boot on the clients and validate on one machine before rollout.\n\nExample: A lab boots to a network installer that loads its files from the deployment server.\n\nStudent note: Network boot is not the same as mounting an already-running machine's remote filesystem.",
+      "study": {
+        "title": "PXE deployment",
+        "simple": "Network boot can install many systems from centrally maintained boot resources.",
+        "stepsTitle": "Steps to build your answer",
+        "steps": [
+          "Prepare compatible network-boot image and boot services.",
+          "Configure DHCP and the boot-file service as required by the environment.",
+          "Enable network boot on the clients and validate on one machine before rollout."
+        ],
+        "example": "A lab boots to a network installer that loads its files from the deployment server.",
+        "pitfall": "Network boot is not the same as mounting an already-running machine's remote filesystem.",
+        "remember": "Prepare compatible network-boot image and boot services.",
+        "keyTerms": [
+          {
+            "term": "PXE deployment",
+            "meaning": "Network boot can install many systems from centrally maintained boot resources."
+          }
+        ]
+      }
+    },
+    {
+      "number": "20",
+      "text": "Scenario: Two colleagues need extra access to a single Linux file without changing access for everyone in the file's group. Describe how to check and manage suitable permissions.",
+      "marks": 7,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "aiPassScore": 70,
+      "correctAnswer": "Inspect ls -l and getfacl; retain normal owner/group/other permissions; add a suitable named-user ACL entry with setfacl -m u:username:rw file as appropriate; check the effective permissions and ACL mask with getfacl; use least privilege.",
+      "aiRubric": [
+        "Identifies ACL as granular permission mechanism",
+        "Mentions getfacl inspection",
+        "Shows suitable setfacl named-user entry",
+        "Mentions ACL mask/effective rights or least privilege"
+      ],
+      "aiReferenceNotes": "ACLs can permit named users or groups when ordinary rwx permission groups are too broad. Check ownership and existing access before changing anything. Grant only the necessary rights to the named user using setfacl. Verify the effective ACL and test access with the intended account. setfacl -m u:thabo:rw report.txt adds an entry for thabo; getfacl report.txt shows the result. A '+' after ls -l mode bits is a clue, not a full permission explanation.",
+      "explanation": "ACLs can permit named users or groups when ordinary rwx permission groups are too broad.\n\nMethod:\n1. Check ownership and existing access before changing anything.\n2. Grant only the necessary rights to the named user using setfacl.\n3. Verify the effective ACL and test access with the intended account.\n\nExample: setfacl -m u:thabo:rw report.txt adds an entry for thabo; getfacl report.txt shows the result.\n\nStudent note: A '+' after ls -l mode bits is a clue, not a full permission explanation.",
+      "study": {
+        "title": "Granular file permissions",
+        "simple": "ACLs can permit named users or groups when ordinary rwx permission groups are too broad.",
+        "stepsTitle": "Steps to build your answer",
+        "steps": [
+          "Check ownership and existing access before changing anything.",
+          "Grant only the necessary rights to the named user using setfacl.",
+          "Verify the effective ACL and test access with the intended account."
+        ],
+        "example": "setfacl -m u:thabo:rw report.txt adds an entry for thabo; getfacl report.txt shows the result.",
+        "pitfall": "A '+' after ls -l mode bits is a clue, not a full permission explanation.",
+        "remember": "Check ownership and existing access before changing anything.",
+        "keyTerms": [
+          {
+            "term": "Granular file permissions",
+            "meaning": "ACLs can permit named users or groups when ordinary rwx permission groups are too broad."
+          }
+        ]
+      }
+    },
+    {
+      "number": "21",
+      "text": "Scenario: A new data partition should be available at /srv/data after every reboot. Explain a safe preparation, mount and persistence process.",
+      "marks": 7,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "aiPassScore": 70,
+      "correctAnswer": "Confirm the device and partition using lsblk -f and blkid; back up any existing data; format only if appropriate; create /srv/data; test mounting; record its UUID and filesystem type in /etc/fstab with suitable options; validate with mount -a and df/findmnt, taking care not to overwrite data.",
+      "aiRubric": [
+        "Checks device and filesystem safely",
+        "Explains mount point creation and trial mount",
+        "Uses UUID/filesystem in /etc/fstab for persistence",
+        "Validates configuration and notes data-loss risk"
+      ],
+      "aiReferenceNotes": "A mount links a filesystem to a directory; /etc/fstab describes mounts to arrange automatically. Identify the right partition and its UUID. Mount it to an existing directory and check its content. Add a tested fstab entry, then verify with mount -a. An entry can use UUID=... /srv/data ext4 defaults 0 2 for a suitable ext4 data filesystem. Formatting destroys existing filesystem contents; mounting and formatting are different tasks.",
+      "explanation": "A mount links a filesystem to a directory; /etc/fstab describes mounts to arrange automatically.\n\nMethod:\n1. Identify the right partition and its UUID.\n2. Mount it to an existing directory and check its content.\n3. Add a tested fstab entry, then verify with mount -a.\n\nExample: An entry can use UUID=... /srv/data ext4 defaults 0 2 for a suitable ext4 data filesystem.\n\nStudent note: Formatting destroys existing filesystem contents; mounting and formatting are different tasks.",
+      "study": {
+        "title": "Persistent mount",
+        "simple": "A mount links a filesystem to a directory; /etc/fstab describes mounts to arrange automatically.",
+        "stepsTitle": "Steps to build your answer",
+        "steps": [
+          "Identify the right partition and its UUID.",
+          "Mount it to an existing directory and check its content.",
+          "Add a tested fstab entry, then verify with mount -a."
+        ],
+        "example": "An entry can use UUID=... /srv/data ext4 defaults 0 2 for a suitable ext4 data filesystem.",
+        "pitfall": "Formatting destroys existing filesystem contents; mounting and formatting are different tasks.",
+        "remember": "Identify the right partition and its UUID.",
+        "keyTerms": [
+          {
+            "term": "Persistent mount",
+            "meaning": "A mount links a filesystem to a directory; /etc/fstab describes mounts to arrange automatically."
+          }
+        ]
+      }
+    },
+    {
+      "number": "22",
+      "text": "A company wants to reuse an open-source component in a product it distributes. Explain why it must compare a strong copyleft licence with a permissive licence before deciding.",
+      "marks": 7,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "aiPassScore": 70,
+      "correctAnswer": "The company must read the exact licence and distribution obligations; strong copyleft licences such as GPL generally require source/compatible licensing of covered derivative distributed works, while permissive licences such as MIT generally allow wider reuse with copyright and licence notices. The obligations depend on the version, combination and way software is distributed; seek legal review when needed.",
+      "aiRubric": [
+        "Defines source-code/licence obligations at a useful level",
+        "Distinguishes copyleft from permissive approaches",
+        "Mentions keeping required copyright or licence notices",
+        "Notes distribution and exact licence terms matter"
+      ],
+      "aiReferenceNotes": "Open-source does not mean no conditions; licences specify what users can modify and redistribute. Identify every component and its exact licence/version. Check notice, source availability and redistribution obligations. Record compliance for the intended form of product distribution. A distributed application that includes GPL-covered code needs a different compliance review from one that includes an MIT-licensed library. This is licence-awareness practice, not legal advice; do not assume all open-source licences have the same obligations.",
+      "explanation": "Open-source does not mean no conditions; licences specify what users can modify and redistribute.\n\nMethod:\n1. Identify every component and its exact licence/version.\n2. Check notice, source availability and redistribution obligations.\n3. Record compliance for the intended form of product distribution.\n\nExample: A distributed application that includes GPL-covered code needs a different compliance review from one that includes an MIT-licensed library.\n\nStudent note: This is licence-awareness practice, not legal advice; do not assume all open-source licences have the same obligations.",
+      "study": {
+        "title": "Open-source licence choices",
+        "simple": "Open-source does not mean no conditions; licences specify what users can modify and redistribute.",
+        "stepsTitle": "Steps to build your answer",
+        "steps": [
+          "Identify every component and its exact licence/version.",
+          "Check notice, source availability and redistribution obligations.",
+          "Record compliance for the intended form of product distribution."
+        ],
+        "example": "A distributed application that includes GPL-covered code needs a different compliance review from one that includes an MIT-licensed library.",
+        "pitfall": "This is licence-awareness practice, not legal advice; do not assume all open-source licences have the same obligations.",
+        "remember": "Identify every component and its exact licence/version.",
+        "keyTerms": [
+          {
+            "term": "Open-source licence choices",
+            "meaning": "Open-source does not mean no conditions; licences specify what users can modify and redistribute."
+          }
+        ]
+      }
+    }
+  ]
+}
