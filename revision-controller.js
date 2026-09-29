@@ -99,8 +99,12 @@
         let payload=null;
         try{payload=await response.json();}catch(_){}
         if(run!==version||!enabled||!current)return;
+        if(response.status===404)throw new Error(
+          "The AI practice generator is not deployed on the backend yet. " +
+          "Your revision map and missed answers still work. Please ask the app owner to update the Netlify backend."
+        );
         if(!response.ok)throw new Error(
-          typeof payload?.error==="string"?payload.error:"Optional AI practice is unavailable."
+          typeof payload?.error==="string"?payload.error:"Optional AI practice is unavailable. Please try again later."
         );
         const items=window.RevisionInsights.generatedQuestions(payload,request);
         if(run!==version||!enabled||!current)return;
