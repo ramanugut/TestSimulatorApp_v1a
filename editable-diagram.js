@@ -418,7 +418,7 @@
       setBackground("");updateControls();paint(true);persist();
     },disabled);
     controls.append(undoButton,redoButton,deleteButton,clearButton);
-    const uploadLabel=elem("label","uml-upload","Or upload an image");
+    const uploadLabel=elem("label","uml-upload","Upload a diagram image");
     const upload=elem("input");upload.type="file";upload.accept="image/png,image/jpeg,image/webp";
     upload.disabled=!!disabled;upload.setAttribute("aria-label","Upload a diagram");
     upload.addEventListener("change",()=>{
