@@ -3572,9 +3572,10 @@ const testFiles = [
     wrapper.className = "diagram-answer";
     const instructions = document.createElement("p");
     instructions.textContent =
-      "Draw the AOA network here using a mouse, touch or pen, or upload a clear drawing. " +
-      "Add event numbers and earliest/latest dates on nodes, and activities/durations on arrows. " +
-      "Text alone is capped at 7/14 marks, as in the original exam.";
+      questions[actualIndex].diagramInstructions ||
+      "Draw the required diagram using a mouse, touch or pen, or upload a clear image. " +
+      "Include important labels, connections and any requested calculations. " +
+      "The question's own grading rubric controls missing-diagram marks.";
     wrapper.appendChild(instructions);
 
     const canvas = document.createElement("canvas");
