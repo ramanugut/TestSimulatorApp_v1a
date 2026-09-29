@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Test Simulator | Study &amp; Practise</title>
     <link rel="stylesheet" href="styles.css?v=20260928-vivid-dark-accents-v8">
+    <link rel="stylesheet" href="paper-picker.css?v=20260929-paper-picker1">
     <link
         rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
@@ -55,8 +56,18 @@
         <div id="header-sections" class="header-sections">
             <div class="header-main">
                 <div class="test-select-group">
-                    <label class="input-label sr-only" for="test-select">Choose a Test</label>
-                    <select id="test-select"></select>
+                    <label class="input-label sr-only" for="test-select">Current test (app data)</label>
+                    <select id="test-select" class="paper-native-select" tabindex="-1" aria-hidden="true"></select>
+                    <button id="open-paper-picker" class="paper-picker-trigger" type="button"
+                        aria-haspopup="dialog" aria-controls="paper-picker" aria-label="Choose a paper">
+                        <span class="paper-trigger-copy">
+                            <strong id="current-paper-module">Choose a paper</strong>
+                            <span id="current-paper-title">Select an assessment or exam</span>
+                        </span>
+                        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
                     <div
                         id="custom-session-chip"
                         class="custom-session-chip hidden"
@@ -110,6 +121,32 @@
             </div>
         </div>
     </header>
+
+    <dialog id="paper-picker" class="paper-picker-dialog" aria-labelledby="paper-picker-title"
+        aria-describedby="paper-picker-description">
+        <div class="paper-picker-shell">
+            <header class="paper-picker-heading">
+                <div>
+                    <p class="paper-picker-eyebrow">TEST LIBRARY</p>
+                    <h2 id="paper-picker-title">Choose a paper</h2>
+                    <p id="paper-picker-description">Find an assessment, exam or practice paper.</p>
+                </div>
+                <button id="close-paper-picker" class="paper-picker-close" type="button" aria-label="Close paper list">&times;</button>
+            </header>
+            <div class="paper-picker-search-wrap">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/>
+                    <path d="m16 16 4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <label class="sr-only" for="paper-picker-search">Search all papers</label>
+                <input id="paper-picker-search" type="search" autocomplete="off" placeholder="Search a module, year or paper">
+            </div>
+            <div id="paper-picker-modules" class="paper-picker-modules" role="group" aria-label="Filter by module"></div>
+            <div id="paper-picker-types" class="paper-picker-types" role="group" aria-label="Filter by paper type"></div>
+            <p id="paper-picker-count" class="paper-picker-count" role="status" aria-live="polite"></p>
+            <div id="paper-picker-results" class="paper-picker-results"></div>
+        </div>
+    </dialog>
 
     <main class="page-wrapper">
         <div class="page-container">
@@ -388,7 +425,8 @@
     <script src="learning-engine.js?v=20260928-mastery1"></script>
     <script src="editable-diagram.js?v=20260929-movable2"></script>
     <script src="answer-workspace.js?v=20260929-workspaces3"></script>
-    <script src="script.js?v=20260929-workspaces2"></script>
+    <script src="paper-picker.js?v=20260929-paper-picker1"></script>
+    <script src="script.js?v=20260929-paper-picker1"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
 </body>
 </html>
