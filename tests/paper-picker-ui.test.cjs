@@ -83,7 +83,7 @@ async function main() {
     search.dispatchEvent(new win.Event("input", { bubbles: true }));
   }
 
-  assert.equal(get("current-paper-module").textContent, "ICT2631");
+  assert.match(get("current-paper-module").textContent, /ICT2631 · Operating Systems Practice/);
   assert.match(get("current-paper-title").textContent, /Oct\/Nov 2025/);
 
   // First screen requires no knowledge of filters or hidden categories.
@@ -93,8 +93,29 @@ async function main() {
   assert.equal(moduleCards().length, 3, "module selection is the first screen");
   assert.equal(paperRows().length, 0, "all papers are not dumped on new students");
   assert.ok(byText(get("paper-picker-modules"), "ICT2631"));
+  assert.match(byText(get("paper-picker-modules"), "ICT2622").textContent,
+    /Object-Oriented Analysis.*UML diagrams/s, "students see subject names and familiar topics");
   assert.match(byText(get("paper-picker-modules"), "ICT2631").textContent,
-    /2 papers.*Current module/, "current module is recognizable");
+    /Operating Systems Practice.*Linux.*2 papers.*Current module/s,
+    "the full subject name and current module are recognizable");
+  assert.match(byText(get("paper-picker-modules"), "INF3708").textContent,
+    /Software Project Management.*WBS/s, "project subject hints appear");
+
+  // The code is optional: partial names, familiar topics and small typos work.
+  type("linux");
+  assert.equal(moduleCards().length, 1, "remembering Linux finds the operating systems module");
+  assert.ok(get("paper-picker-modules").textContent.includes("ICT2631"));
+  type("uml");
+  assert.equal(moduleCards().length, 1, "remembering UML finds object-oriented analysis");
+  assert.ok(get("paper-picker-modules").textContent.includes("ICT2622"));
+  type("project management");
+  assert.equal(moduleCards().length, 1, "full subject name works");
+  assert.ok(get("paper-picker-modules").textContent.includes("INF3708"));
+  type("operatng");
+  assert.equal(moduleCards().length, 1, "minor spelling mistakes in long subject words work");
+  assert.ok(get("paper-picker-modules").textContent.includes("ICT2631"));
+  type("");
+  assert.equal(moduleCards().length, 3, "clearing search restores all modules");
 
   byText(get("paper-picker-modules"), "ICT2631").click();
   assert.match(get("paper-picker-step").textContent, /2. Choose a paper · ICT2631/);
@@ -123,7 +144,7 @@ async function main() {
   type("2021");
   byText(get("paper-picker-results"), "Oct/Nov 2021").click();
   assert.equal(source.value, "inf3708-oct-nov-2021.json");
-  assert.equal(get("current-paper-module").textContent, "INF3708");
+  assert.match(get("current-paper-module").textContent, /INF3708 · Software Project Management/);
   assert.equal(get("paper-picker").open, false);
 
   // A denied switch must preserve the running paper and leave the picker open.
