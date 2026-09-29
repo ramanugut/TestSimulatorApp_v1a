@@ -1,0 +1,188 @@
+/* ICT2631: original offline revision module. Shared engine remains subject-agnostic.
+   These are independently authored lessons; not a copy of any restricted exam paper. */
+(function () {
+  "use strict";
+  const term = (term, meaning) => ({term, meaning});
+  const choice = (id,prompt,options,answer,explanation,studentNote,extra) =>
+    Object.assign({id,kind:"choice",prompt,options,answer,explanation,studentNote},extra||{});
+  const sequence = (id,prompt,items,answer,explanation,studentNote) =>
+    ({id,kind:"sequence",prompt,items,answer,explanation,studentNote});
+  const topic = (id,title,summary,terms,notes,exercises) =>
+    ({id,title,summary,reference:"ICT2631 original practice notes: "+title,
+      terms,notes,exercises});
+  const chapter = (title,topics) => ({title,topics});
+  window.MasteryModules = window.MasteryModules || [];
+  window.MasteryModules.push({
+    id:"ict2631",name:"ICT2631",
+    sourceFiles:[
+      "ict2631-oct-nov-2025-inspired.json",
+      "ict2631-jan-feb-2025-inspired.json",
+      "ict2631-assessment-1-2026-practice.json",
+      "ict2631-assessment-2-2026-practice.json"
+    ],
+    chapters:[
+      chapter("1 · Operating systems and open source",[
+        topic("ict-kernel","Kernel, shell and distributions",
+          "The kernel manages the CPU, memory, hardware access and processes. A shell lets a user send commands. A distribution packages Linux with tools, configuration and updates.",
+          [term("Kernel","Core operating-system component that manages resources."),
+           term("Shell","Command interpreter, for example Bash."),
+           term("Distribution","A packaged operating system using Linux and selected user-space tools.")],
+          ["A command typed into Bash is interpreted by the shell; programs request kernel services with system calls.",
+           "Ubuntu and Fedora are distributions, not two different definitions of the Linux kernel."],
+          [choice("ict1a","A learner runs ls in Bash. Which part interprets the typed command?",["The shell","The partition table","The ACL mask"],0,
+            "Bash is the shell. It interprets commands and launches programs that then use kernel services.",
+            "Do not confuse the user interface with the resource-management kernel."),
+           choice("ict1b","Which component is responsible for CPU scheduling and process memory?",["The kernel","The text editor","A file extension"],0,
+            "The kernel allocates system resources to processes.","A desktop environment is not the kernel.")]),
+        topic("ict-licences","Open-source permissions and obligations",
+          "Open-source licences permit defined uses of source code. Permissive and copyleft licences can carry different redistribution obligations.",
+          [term("GPL","A strong copyleft licence family with obligations for certain distributed derivative works."),
+           term("MIT licence","A permissive licence with copyright and licence notice requirements.")],
+          ["'Open source' does not mean all components are licence-free or have identical conditions.",
+           "Distribution method and the exact licence/version can change your obligations."],
+          [choice("ict1c","A developer is about to ship a product with a third-party library. What should they check?",["The exact library licence and distribution obligations","Only whether the download was free","Only the icon colour"],0,
+            "The licence tells the developer which terms must be followed when using and distributing code.",
+            "Keep copies of required notices and check dependencies, not just the top-level package.")])
+      ]),
+      chapter("2 · Desktop and command-line skills",[
+        topic("ict-desktop","GNOME, AIGLX and PXE",
+          "GNOME provides a graphical desktop. AIGLX is related to accelerated X11 graphics for composited effects. PXE is firmware-level network boot and serves a completely different purpose.",
+          [term("GNOME","A Linux desktop environment."),term("AIGLX","Accelerated Indirect GLX graphics technology."),
+           term("PXE","Preboot Execution Environment for network boot.")],
+          ["To add a GNOME feature, check settings or a compatible extension before replacing the OS.",
+           "PXE often involves firmware, DHCP and a boot-file delivery service."],
+          [choice("ict2a","A new lab PC must start a Linux installer over the LAN. Which technology fits?",["PXE","AIGLX","POSIX ACL"],0,
+            "PXE lets compatible firmware start a network boot sequence.",
+            "AIGLX concerns graphics acceleration, not network deployment."),
+           choice("ict2b","A desktop needs additional GNOME behaviour. Which first action is least disruptive?",["Check settings and compatible Shell extensions","Format the disk","Disable the kernel"],0,
+            "The desktop can often be adapted without changing operating systems.",
+            "Check extension compatibility with the installed GNOME version.")]),
+        topic("ict-readline","Edit commands quickly in Bash",
+          "With Bash's usual Emacs-style readline mappings: Ctrl+K cuts forward to line end, Ctrl+U cuts backward to line start, Ctrl+W cuts the preceding word, Alt+D cuts the following word, and Ctrl+Y restores cut text.",
+          [term("Kill","Readline's term for cutting command-line text."),term("Yank","Readline's term for pasting killed text.")],
+          ["These keystrokes edit a line before you execute it; 'kill' here does not mean sending SIGTERM to a process.",
+           "Alt often acts as Meta. On some terminals, press Esc and then D instead of Alt+D."],
+          [choice("ict2c","You are halfway through a mistyped command. Which shortcut removes everything after the cursor?",["Ctrl+K","Ctrl+U","Ctrl+Y"],0,
+            "Ctrl+K cuts from the cursor to the end of the current line.",
+            "Ctrl+U cuts toward the beginning; Ctrl+Y pastes killed text."),
+           choice("ict2d","You accidentally removed command text using Ctrl+K. How can you paste it back?",["Ctrl+Y","Ctrl+C","Ctrl+L"],0,
+            "Ctrl+Y yanks the last cut text back into the command line.",
+            "Browser clipboard shortcuts may differ from readline shortcuts.")]),
+        topic("ict-bash","Variables, quoting, paths and pipes",
+          "Use NAME=value to assign a Bash variable, $NAME to expand its value, and export to pass it to child processes. Single quotes normally prevent expansion; a pipe (|) connects one command's output to another's input.",
+          [term("PATH","Directories searched when running commands by name."),term("PS1","Primary Bash prompt text."),
+           term("Pipe","Operator connecting standard output to standard input.")],
+          ["echo '$CITY' prints the literal string, while echo \"$CITY\" usually prints the variable's value.",
+           "The > operator usually overwrites a file; >> appends; neither is a pipe."],
+          [choice("ict2e","CITY=Venda has been assigned. Which command prints the variable's value?",["echo \"$CITY\"","echo '$CITY'","echo CITY"],0,
+            "Double quotes keep the expanded value together as one argument.",
+            "Single quotes suppress normal variable expansion."),
+           choice("ict2f","Which operator sends ps output into grep?",["|",">>",";"],0,
+            "The pipe passes one command's standard output to the next command's standard input.",
+            "Appending to a file is not the same as streaming between processes.")])
+      ]),
+      chapter("3 · Storage and file access",[
+        topic("ict-devices","Partitions, mount points and persistence",
+          "Linux filesystems appear within one directory tree. Tools such as lsblk -f and blkid help identify devices. mount attaches a filesystem to a mount point; /etc/fstab describes persistent mount configuration.",
+          [term("Mount point","Directory at which a filesystem becomes accessible."),
+           term("UUID","Identifier often used in fstab because device names may change."),
+           term("/etc/fstab","Configuration describing filesystems to mount.")],
+          ["A new directory is not automatically a mounted filesystem.",
+           "Formatting can destroy existing data; always identify a partition before taking action."],
+          [sequence("ict3a","Select the safe order for preparing a persistent mount.",[
+            "Identify the correct existing filesystem and UUID",
+            "Create a mount-point directory",
+            "Test mount and inspect files",
+            "Add a suitable /etc/fstab entry and validate it"
+          ],["Identify the correct existing filesystem and UUID","Create a mount-point directory",
+             "Test mount and inspect files","Add a suitable /etc/fstab entry and validate it"],
+          "Identify before mounting, then test the intended location before relying on fstab at reboot.",
+          "Only format an unneeded or appropriately backed-up partition; this exercise assumes a usable filesystem already exists."),
+           choice("ict3b","Which command most directly shows partitions and their filesystem details?",["lsblk -f","whoami","kill -9"],0,
+            "lsblk -f is a safe inspection command for disks, partitions and filesystem information.",
+            "Inspect the correct device before changing storage configuration.")]),
+        topic("ict-permissions","rwx, umask, setgid, sticky bit and ACL",
+          "Regular permissions describe owner/group/other access. umask removes selected default bits on creation. The sticky bit restricts removal on shared directories; directory setgid supports group inheritance. ACLs allow named entries.",
+          [term("rwx","Read=4, write=2, execute=1."),
+           term("umask","Permission bits removed from a requested creation mode."),
+           term("ACL","Access control list with additional user/group entries."),
+           term("Sticky bit","Shared-directory deletion/rename protection.")],
+          ["For a regular new file start with mode 666, not 777: umask 022 results in 644.",
+           "A '+' after ls -l permission bits suggests an ACL; inspect with getfacl."],
+          [choice("ict3c","What does chmod 640 give a regular file?",["Owner rw, group r, others none","Everyone rwx","Owner x only"],0,
+            "Mode 6=4+2, 4=read, 0=no access.",
+            "Directory execute has a traversal meaning; the file example is about a regular file."),
+           choice("ict3d","Users share a writable folder but should not delete each other's entries. What should you investigate?",["Sticky bit","Swap priority","PXE"],0,
+            "The directory sticky bit restricts deletion/rename in a shared writable location.",
+            "Setgid serves a different purpose: group inheritance."),
+           choice("ict3e","Which command reveals additional named-user permissions on a file?",["getfacl file.txt","df -h","uname -r"],0,
+            "getfacl reports access-control-list entries and their effective permissions.",
+            "An ACL mask may limit apparent rwx permissions of named users/groups.")]),
+        topic("ict-space","Measure disk blocks, inodes and swap",
+          "df measures mounted filesystem capacity, df -i reports inode availability, du measures usage by chosen paths, and swapon --show lists active swap areas.",
+          [term("Inode","File metadata structure; an inode shortage can prevent file creation."),
+           term("Swap","Disk-backed memory support, slower than physical RAM.")],
+          ["'No space left on device' can mean unavailable data blocks or unavailable inodes.",
+           "A process can keep a deleted file open, delaying the return of filesystem space."],
+          [choice("ict3f","A filesystem shows free gigabytes but cannot create another tiny file. What should you check?",["df -i","gnome-extensions","echo $PS1"],0,
+            "df -i detects possible inode exhaustion even when block capacity remains.",
+            "Also check quota rules and logs when inodes are healthy."),
+           choice("ict3g","Which command measures how much space /var/log itself uses?",["du -sh /var/log","df -h /var/log only","swapon --show"],0,
+            "du -sh summarises the selected directory's disk use in readable units.",
+            "df reports its containing filesystem's capacity instead.")])
+      ]),
+      chapter("4 · Accounts, processes and services",[
+        topic("ict-accounts","User identity and group membership",
+          "Linux accounts have user IDs and groups. Normal users should have the least permissions needed. Use usermod -aG to add supplementary group membership without replacing existing memberships.",
+          [term("UID","Numeric user identifier."),term("GID","Numeric group identifier."),
+           term("sudo","Tool for running permitted commands with elevated privileges.")],
+          ["id username reveals group membership; changes may need a new session to become visible.",
+           "Use chown for ownership and chmod for mode bits."],
+          [choice("ict4a","Which command adds account 'learner' to group 'editors' without dropping its other supplementary groups?",[
+            "sudo usermod -aG editors learner","sudo usermod -G editors learner","sudo chmod editors learner"],0,
+            "The -a option appends membership; -G without -a can replace other supplementary groups.",
+            "Do not give sudo privileges to someone who only needs edit access.")]),
+        topic("ict-processes","Processes, signals and service logs",
+          "ps shows snapshots of running processes; top refreshes live usage. A PID identifies a process. SIGTERM requests termination; SIGKILL forces termination. On systemd machines, systemctl and journalctl help inspect services.",
+          [term("PID","Process identifier."),term("SIGTERM","Termination request a program can generally handle."),
+           term("SIGKILL","Uncatchable forced termination signal.")],
+          ["Confirm a PID before signalling it; PIDs are reused.",
+           "Check logs before repeatedly restarting a failing service."],
+          [choice("ict4b","A service needs to stop gracefully. Which is a sensible initial request?",["SIGTERM","SIGKILL in every case","Reformat its disk"],0,
+            "TERM gives many programs an opportunity to release resources and shut down.",
+            "SIGKILL should not be the default first action."),
+           choice("ict4c","Which command inspects service-specific entries on a systemd host?",["journalctl -u nginx","lsblk -f nginx","umask nginx"],0,
+            "journalctl -u can filter the service's journal entries.",
+            "Use the correct unit name for the host's distribution.")])
+      ]),
+      chapter("5 · Practical administration and recovery",[
+        topic("ict-jobs","Cron, backup and restore checks",
+          "Scheduled jobs use a known command and time rule. Backups need safe separate storage and periodic test restores; an archive file alone does not prove recovery will work.",
+          [term("cron","Repeated command scheduling mechanism."),term("tar","Tool for creating and reading archives."),
+           term("Restore test","Safe check that backed-up data can actually be recovered.")],
+          ["A cron job may not have your interactive terminal's PATH.",
+           "Keep a protected backup copy away from the source disk and decide retention periods."],
+          [choice("ict5a","Why is a restore test important?",["It checks that backed-up data can be recovered","It deletes expired passwords","It forces larger swap"],0,
+            "A backup succeeds only when required information can be restored in a real incident.",
+            "Monitor failures and test more than the archive's existence.")]),
+        topic("ict-troubleshoot","Systematic diagnosis and deployment",
+          "Work from symptoms to evidence before changing anything: inspect service state/logs, devices/mounts, free space and access. Network deployment can use PXE; verify it on one client before broad rollout.",
+          [term("journalctl","Tool to inspect systemd journal events."),
+           term("PXE deployment","Network boot of clients into a centrally supplied boot program or installer.")],
+          ["A failing service may be caused by an unmounted data filesystem rather than its executable.",
+           "Avoid chmod 777, random deletion and formatting as first troubleshooting actions."],
+          [sequence("ict5b","Choose a safe troubleshooting sequence for a failing Linux service.",[
+            "Record symptoms and inspect systemctl status / logs",
+            "Check storage, mounts, permissions and dependent services",
+            "Apply one justified, backed-up correction",
+            "Restart if required and verify the user-facing function"
+          ],["Record symptoms and inspect systemctl status / logs",
+             "Check storage, mounts, permissions and dependent services",
+             "Apply one justified, backed-up correction",
+             "Restart if required and verify the user-facing function"],
+          "Evidence-first troubleshooting preserves information and limits avoidable damage.",
+          "Confirm a mount's UUID with lsblk -f or blkid rather than assuming the device is always /dev/sdb1.")])
+      ])
+    ]
+  });
+}());
