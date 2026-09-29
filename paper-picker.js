@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function paperKind(name, file) {
     const value = name + " " + file;
-    if (/practical[\\s-]*skills[\\s-]*lab|skills[\\s-]*lab/i.test(value)) return "practice";
+    if (/practical[\s-]*skills[\s-]*lab|skills[\s-]*lab/i.test(value)) return "practice";
     if (/assessment/i.test(value)) return "assessments";
     if (/exam|supplementary|jan[\s/_-]*feb|oct[\s/_-]*nov/i.test(value)) return "exams";
     return "practice";
