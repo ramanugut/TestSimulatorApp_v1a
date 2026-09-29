@@ -2982,6 +2982,13 @@ const testFiles = [
   "ict2631-jan-feb-2025-inspired.json",
   "ict2631-assessment-1-2026-practice.json",
   "ict2631-assessment-2-2026-practice.json",
+  // ICT2622 original, clearly-labelled revision packs and mixed-format lab.
+  "ict2622-jan-feb-2025-practice.json",
+  "ict2622-oct-nov-2025-practice.json",
+  "ict2622-jan-feb-2026-practice.json",
+  "ict2622-assessment-1-2026-practice.json",
+  "ict2622-assessment-2-2026-practice.json",
+  "ict2622-practical-skills-lab.json",
 ];
 
 
