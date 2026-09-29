@@ -2463,6 +2463,22 @@ document.addEventListener("DOMContentLoaded", function () {
       };
     }
 
+    if (question.grading === "table" && window.AnswerWorkspace) {
+      const result = window.AnswerWorkspace.gradeTable(question, userAnswer);
+      return {
+        hasAnswer: true,
+        isCorrect: result.score === 1,
+        scoreValue: getQuestionMarks(question) * result.score,
+        tableGrade: result,
+      };
+    }
+    if (question.grading === "command") {
+      // Compare shell commands without executing or lowercasing them.
+      const tidy = value => String(value || "").replace(/\r\n/g, "\n").trim().replace(/[ \t]+/g, " ");
+      const candidates = [question.correctAnswer].concat(question.acceptedAnswers || []);
+      const isCorrect = candidates.some(value => tidy(value) === tidy(userAnswer));
+      return {hasAnswer: true,isCorrect,scoreValue:isCorrect ? getQuestionMarks(question):0};
+    }
     const isCorrect = answersMatch(userAnswer, question.correctAnswer);
     return {
       hasAnswer: true,
