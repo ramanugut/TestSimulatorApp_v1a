@@ -73,6 +73,7 @@
       grid.appendChild(heading);
       rows.forEach((row,index) => {
         const group=el("fieldset","editable-table-row");
+        group.style.setProperty("--answer-table-columns",String(columns.length));
         const legend=el("legend","","Row "+(index+1)); group.appendChild(legend);
         columns.forEach(col => {
           const field=el("label","editable-table-cell");
