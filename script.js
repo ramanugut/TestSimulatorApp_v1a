@@ -2954,12 +2954,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Test file references
 const testFiles = [
-  // Approved INF3708 assessments only. Other legacy ICT test*.json files remain
-  // in the repository but are hidden from the exam picker and custom-test builder.
+  // Curated INF3708 originals and separately labelled ICT2631 original revision
+  // packs. Legacy test*.json files stay hidden from the picker and custom builder.
   "inf3708-oct-nov-2021.json",
   "inf3708-jan-feb-2025-supplementary.json",
   "inf3708-assessment-1-2026.json",
   "test36.json", // INF3708 Assessment 2 (14 June 2026)
+  "ict2631-oct-nov-2025-inspired.json",
+  "ict2631-jan-feb-2025-inspired.json",
+  "ict2631-assessment-1-2026-practice.json",
+  "ict2631-assessment-2-2026-practice.json",
 ];
 
 
