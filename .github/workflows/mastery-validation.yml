@@ -21,6 +21,7 @@ jobs:
           node --check modules/ict2631-mastery.js
           node --check modules/ict2622-mastery.js
           node --check answer-workspace.js
+          node --check editable-diagram.js
       - name: Validate subject schema and activities
         run: |
           node tests/mastery-content.test.cjs
@@ -32,3 +33,4 @@ jobs:
         run: |
           node tests/mastery-ui.test.cjs
           node tests/answer-workspace-ui.test.cjs
+          node tests/editable-diagram-ui.test.cjs
