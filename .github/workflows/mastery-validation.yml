@@ -23,11 +23,14 @@ jobs:
           node --check modules/ict2622-mastery.js
           node --check answer-workspace.js
           node --check editable-diagram.js
+          node --check revision-insights.js
+          node --check revision-controller.js
       - name: Validate subject schema and activities
         run: |
           node tests/mastery-content.test.cjs
           node tests/ict2631-content.test.cjs
           node tests/ict2622-content.test.cjs
+          node tests/revision-insights.test.cjs
       - name: Install DOM test dependency
         run: npm install --no-save --no-package-lock jsdom@25
       - name: Smoke-test mastery UI
@@ -36,3 +39,4 @@ jobs:
           node tests/answer-workspace-ui.test.cjs
           node tests/paper-picker-ui.test.cjs
           node tests/editable-diagram-ui.test.cjs
+          node tests/revision-controller-ui.test.cjs
