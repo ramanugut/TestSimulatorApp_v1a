@@ -1,0 +1,529 @@
+{
+  "testName": "ICT2622 · Oct/Nov 2025-style Exam (original practice)",
+  "module": "ICT2622",
+  "assessment": "Oct/Nov 2025-style",
+  "sourceType": "Original exam-style practice, NOT the original UNISA paper",
+  "sourceReference": "https://www.scribd.com/document/971232190/ICT2622-Oct-Nov-2025-Exam-Paper",
+  "sourceLimitations": "Original independently authored questions and scenarios informed by published topic headings and examination structure.",
+  "totalMarks": 60,
+  "durationMinutes": 120,
+  "preserveOrder": true,
+  "questions": [
+    {
+      "number": "1",
+      "text": "A planning team is documenting the services a proposed app must provide, without deciding the programming language. Which work is this?",
+      "options": [
+        "Requirements analysis",
+        "Detailed implementation",
+        "Hardware deployment",
+        "Source-code compilation"
+      ],
+      "correctAnswer": "Requirements analysis",
+      "marks": 1,
+      "explanation": "Analysis focuses on what the system must do; design focuses on implementation.\n\nWhy: Requirements analysis fits the described concept.\n\nExample: A team defines a goal such as scheduling an appointment.\n\nStudent note: A language choice is normally a design/implementation concern.",
+      "study": {
+        "title": "Analysis focuses on what the system must do; design focuses on implementation",
+        "simple": "Analysis focuses on what the system must do; design focuses on implementation.",
+        "stepsTitle": "Think it through",
+        "steps": [
+          "Analysis focuses on what the system must do; design focuses on implementation.",
+          "Eliminate options that describe a different stage, role or diagram."
+        ],
+        "example": "A team defines a goal such as scheduling an appointment.",
+        "pitfall": "A language choice is normally a design/implementation concern.",
+        "remember": "Analysis focuses on what the system must do; design focuses on implementation.",
+        "keyTerms": [
+          {
+            "term": "Requirements analysis",
+            "meaning": "Analysis focuses on what the system must do; design focuses on implementation."
+          }
+        ]
+      }
+    },
+    {
+      "number": "2",
+      "text": "A patient wants to reschedule a booking. How should 'Reschedule booking' be treated during use case identification?",
+      "options": [
+        "As an actor goal supported by the system",
+        "As a database field",
+        "As a file extension",
+        "As the only non-functional requirement"
+      ],
+      "correctAnswer": "As an actor goal supported by the system",
+      "marks": 1,
+      "explanation": "Use cases capture meaningful goals achieved through interaction.\n\nWhy: As an actor goal supported by the system fits the described concept.\n\nExample: A patient completes Reschedule booking.\n\nStudent note: Do not name a use case only 'Click blue button'.",
+      "study": {
+        "title": "Use cases capture meaningful goals achieved through interaction",
+        "simple": "Use cases capture meaningful goals achieved through interaction.",
+        "stepsTitle": "Think it through",
+        "steps": [
+          "Use cases capture meaningful goals achieved through interaction.",
+          "Eliminate options that describe a different stage, role or diagram."
+        ],
+        "example": "A patient completes Reschedule booking.",
+        "pitfall": "Do not name a use case only 'Click blue button'.",
+        "remember": "Use cases capture meaningful goals achieved through interaction.",
+        "keyTerms": [
+          {
+            "term": "As an actor goal supported by the system",
+            "meaning": "Use cases capture meaningful goals achieved through interaction."
+          }
+        ]
+      }
+    },
+    {
+      "number": "3",
+      "text": "A team delivers one working feature, gathers feedback and then starts the next short cycle. What is the main output of its cycle?",
+      "options": [
+        "A usable system increment",
+        "Only a blank requirements form",
+        "An always-complete final product",
+        "A new organisation chart"
+      ],
+      "correctAnswer": "A usable system increment",
+      "marks": 1,
+      "explanation": "Iterative development learns from working increments and review.\n\nWhy: A usable system increment fits the described concept.\n\nExample: A pilot search feature is tested before checkout is built.\n\nStudent note: One iteration need not contain the entire finished system.",
+      "study": {
+        "title": "Iterative development learns from working increments and review",
+        "simple": "Iterative development learns from working increments and review.",
+        "stepsTitle": "Think it through",
+        "steps": [
+          "Iterative development learns from working increments and review.",
+          "Eliminate options that describe a different stage, role or diagram."
+        ],
+        "example": "A pilot search feature is tested before checkout is built.",
+        "pitfall": "One iteration need not contain the entire finished system.",
+        "remember": "Iterative development learns from working increments and review.",
+        "keyTerms": [
+          {
+            "term": "A usable system increment",
+            "meaning": "Iterative development learns from working increments and review."
+          }
+        ]
+      }
+    },
+    {
+      "number": "4",
+      "text": "A Customer can hold several Orders, and an Order has one Customer. What do 'one' and 'several' describe?",
+      "options": [
+        "Relationship multiplicity",
+        "An operating-system permission",
+        "A CPU speed",
+        "User authentication"
+      ],
+      "correctAnswer": "Relationship multiplicity",
+      "marks": 1,
+      "explanation": "Multiplicity describes how many objects may participate at either end of a relationship.\n\nWhy: Relationship multiplicity fits the described concept.\n\nExample: A Customer 1 — 0..* Order link.\n\nStudent note: A link and its multiplicity are different pieces of UML information.",
+      "study": {
+        "title": "Multiplicity describes how many objects may participate at either end of a relationship",
+        "simple": "Multiplicity describes how many objects may participate at either end of a relationship.",
+        "stepsTitle": "Think it through",
+        "steps": [
+          "Multiplicity describes how many objects may participate at either end of a relationship.",
+          "Eliminate options that describe a different stage, role or diagram."
+        ],
+        "example": "A Customer 1 — 0..* Order link.",
+        "pitfall": "A link and its multiplicity are different pieces of UML information.",
+        "remember": "Multiplicity describes how many objects may participate at either end of a relationship.",
+        "keyTerms": [
+          {
+            "term": "Relationship multiplicity",
+            "meaning": "Multiplicity describes how many objects may participate at either end of a relationship."
+          }
+        ]
+      }
+    },
+    {
+      "number": "5",
+      "text": "A student system includes staff, procedures, data and applications. Which understanding is most accurate?",
+      "options": [
+        "It is a sociotechnical information system",
+        "Only hardware matters",
+        "Only the code matters",
+        "Only the database counts"
+      ],
+      "correctAnswer": "It is a sociotechnical information system",
+      "marks": 1,
+      "explanation": "An information system uses people, processes, information and technology together.\n\nWhy: It is a sociotechnical information system fits the described concept.\n\nExample: People approve requests while software records their status.\n\nStudent note: Do not omit work procedures and user roles.",
+      "study": {
+        "title": "An information system uses people, processes, information and technology together",
+        "simple": "An information system uses people, processes, information and technology together.",
+        "stepsTitle": "Think it through",
+        "steps": [
+          "An information system uses people, processes, information and technology together.",
+          "Eliminate options that describe a different stage, role or diagram."
+        ],
+        "example": "People approve requests while software records their status.",
+        "pitfall": "Do not omit work procedures and user roles.",
+        "remember": "An information system uses people, processes, information and technology together.",
+        "keyTerms": [
+          {
+            "term": "It is a sociotechnical information system",
+            "meaning": "An information system uses people, processes, information and technology together."
+          }
+        ]
+      }
+    },
+    {
+      "number": "6",
+      "text": "You need to model real-world business entities and their attributes before selecting a database. Which diagram suits the job?",
+      "options": [
+        "Domain class diagram",
+        "Network topology map",
+        "Gantt chart",
+        "CPU scheduling chart"
+      ],
+      "correctAnswer": "Domain class diagram",
+      "marks": 1,
+      "explanation": "A domain class diagram records meaningful business classes and their relationships.\n\nWhy: Domain class diagram fits the described concept.\n\nExample: Student, Course and Registration classes.\n\nStudent note: Domain classes are not automatically screen components.",
+      "study": {
+        "title": "A domain class diagram records meaningful business classes and their relationships",
+        "simple": "A domain class diagram records meaningful business classes and their relationships.",
+        "stepsTitle": "Think it through",
+        "steps": [
+          "A domain class diagram records meaningful business classes and their relationships.",
+          "Eliminate options that describe a different stage, role or diagram."
+        ],
+        "example": "Student, Course and Registration classes.",
+        "pitfall": "Domain classes are not automatically screen components.",
+        "remember": "A domain class diagram records meaningful business classes and their relationships.",
+        "keyTerms": [
+          {
+            "term": "Domain class diagram",
+            "meaning": "A domain class diagram records meaningful business classes and their relationships."
+          }
+        ]
+      }
+    },
+    {
+      "number": "7",
+      "text": "A sponsor asks for a one-page summary of the problem, major expected capabilities and business benefit. What document is suitable?",
+      "options": [
+        "System vision document",
+        "Detailed source listing",
+        "Every unit test",
+        "Deployment patch log"
+      ],
+      "correctAnswer": "System vision document",
+      "marks": 1,
+      "explanation": "A system vision gives decision makers a short overview of the proposed solution.\n\nWhy: System vision document fits the described concept.\n\nExample: It states why a booking system is needed and what it should improve.\n\nStudent note: Do not confuse the vision with a full project timetable.",
+      "study": {
+        "title": "A system vision gives decision makers a short overview of the proposed solution",
+        "simple": "A system vision gives decision makers a short overview of the proposed solution.",
+        "stepsTitle": "Think it through",
+        "steps": [
+          "A system vision gives decision makers a short overview of the proposed solution.",
+          "Eliminate options that describe a different stage, role or diagram."
+        ],
+        "example": "It states why a booking system is needed and what it should improve.",
+        "pitfall": "Do not confuse the vision with a full project timetable.",
+        "remember": "A system vision gives decision makers a short overview of the proposed solution.",
+        "keyTerms": [
+          {
+            "term": "System vision document",
+            "meaning": "A system vision gives decision makers a short overview of the proposed solution."
+          }
+        ]
+      }
+    },
+    {
+      "number": "8",
+      "text": "A large campus system is divided into admission, finance and registration parts. Each part is a:",
+      "options": [
+        "Subsystem",
+        "Compiler",
+        "Primary key",
+        "Network switch"
+      ],
+      "correctAnswer": "Subsystem",
+      "marks": 1,
+      "explanation": "Subsystems are meaningful parts of a larger system.\n\nWhy: Subsystem fits the described concept.\n\nExample: Registration is one part of student management.\n\nStudent note: A subsystem is not automatically a single program file.",
+      "study": {
+        "title": "Subsystems are meaningful parts of a larger system",
+        "simple": "Subsystems are meaningful parts of a larger system.",
+        "stepsTitle": "Think it through",
+        "steps": [
+          "Subsystems are meaningful parts of a larger system.",
+          "Eliminate options that describe a different stage, role or diagram."
+        ],
+        "example": "Registration is one part of student management.",
+        "pitfall": "A subsystem is not automatically a single program file.",
+        "remember": "Subsystems are meaningful parts of a larger system.",
+        "keyTerms": [
+          {
+            "term": "Subsystem",
+            "meaning": "Subsystems are meaningful parts of a larger system."
+          }
+        ]
+      }
+    },
+    {
+      "number": "9",
+      "text": "A client expects changing business rules and regular feedback. Which development approach explicitly allows adaptation?",
+      "options": [
+        "Agile",
+        "A fixed plan never revisited",
+        "One-shot installation",
+        "A static archive"
+      ],
+      "correctAnswer": "Agile",
+      "marks": 1,
+      "explanation": "Agile development uses feedback and incremental progress to adapt plans.\n\nWhy: Agile fits the described concept.\n\nExample: A team reorders features after a user demonstration.\n\nStudent note: Agile still needs planning, quality controls and clear goals.",
+      "study": {
+        "title": "Agile development uses feedback and incremental progress to adapt plans",
+        "simple": "Agile development uses feedback and incremental progress to adapt plans.",
+        "stepsTitle": "Think it through",
+        "steps": [
+          "Agile development uses feedback and incremental progress to adapt plans.",
+          "Eliminate options that describe a different stage, role or diagram."
+        ],
+        "example": "A team reorders features after a user demonstration.",
+        "pitfall": "Agile still needs planning, quality controls and clear goals.",
+        "remember": "Agile development uses feedback and incremental progress to adapt plans.",
+        "keyTerms": [
+          {
+            "term": "Agile",
+            "meaning": "Agile development uses feedback and incremental progress to adapt plans."
+          }
+        ]
+      }
+    },
+    {
+      "number": "10",
+      "text": "Two actors need the same booking-status function. What is the better UML use-case representation?",
+      "options": [
+        "Connect both actors to one shared use case",
+        "Duplicate the entire system boundary",
+        "Turn each actor into a database table",
+        "Remove one actor"
+      ],
+      "correctAnswer": "Connect both actors to one shared use case",
+      "marks": 1,
+      "explanation": "A use case is one system goal that can be shared by several actor roles.\n\nWhy: Connect both actors to one shared use case fits the described concept.\n\nExample: A Customer and a Clerk can both check status.\n\nStudent note: An actor is a role, not a named person's login.",
+      "study": {
+        "title": "A use case is one system goal that can be shared by several actor roles",
+        "simple": "A use case is one system goal that can be shared by several actor roles.",
+        "stepsTitle": "Think it through",
+        "steps": [
+          "A use case is one system goal that can be shared by several actor roles.",
+          "Eliminate options that describe a different stage, role or diagram."
+        ],
+        "example": "A Customer and a Clerk can both check status.",
+        "pitfall": "An actor is a role, not a named person's login.",
+        "remember": "A use case is one system goal that can be shared by several actor roles.",
+        "keyTerms": [
+          {
+            "term": "Connect both actors to one shared use case",
+            "meaning": "A use case is one system goal that can be shared by several actor roles."
+          }
+        ]
+      }
+    },
+    {
+      "number": "11",
+      "text": "Greenhill College provides a secure digital library. A Learner signs in to search academic resources, download licensed electronic items, reserve available print books, renew eligible loans and view borrowing history. A Librarian maintains resource records and processes returns. A Library Manager reviews overdue reports and manages accounts. Automated reminders alert learners about due dates. A print book cannot be downloaded. Explain two important differences between a Learner's authority and a Librarian's authority.",
+      "correctAnswer": "Learners can search, reserve/renew and access permitted resources; librarians can create/update resource records and process returns. Learners do not have the librarian's collection-maintenance rights.",
+      "marks": 4,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "aiPassScore": 70,
+      "aiRubric": [
+        "Describes learner functions",
+        "Describes librarian maintenance functions",
+        "Names at least two concrete differences",
+        "Maintains appropriate access separation"
+      ],
+      "aiReferenceNotes": "An actor's system permissions should match their role and goals. Identify what each role is allowed to do. Give at least two clear differences. Explain that one role cannot simply do everything the other can. A manager has a third role; do not confuse library management with learner access.",
+      "explanation": "An actor's system permissions should match their role and goals.\n\n1. Identify what each role is allowed to do.\n2. Give at least two clear differences.\n3. Explain that one role cannot simply do everything the other can.\n\nExample: Searching for a journal differs from publishing a new journal entry into the catalogue.\n\nStudent note: A manager has a third role; do not confuse library management with learner access.",
+      "study": {
+        "title": "Actor privileges",
+        "simple": "An actor's system permissions should match their role and goals.",
+        "stepsTitle": "Suggested method",
+        "steps": [
+          "Identify what each role is allowed to do.",
+          "Give at least two clear differences.",
+          "Explain that one role cannot simply do everything the other can."
+        ],
+        "example": "Searching for a journal differs from publishing a new journal entry into the catalogue.",
+        "pitfall": "A manager has a third role; do not confuse library management with learner access.",
+        "remember": "Identify what each role is allowed to do.",
+        "keyTerms": [
+          {
+            "term": "Actor privileges",
+            "meaning": "An actor's system permissions should match their role and goals."
+          }
+        ]
+      },
+      "context": "Greenhill College provides a secure digital library. A Learner signs in to search academic resources, download licensed electronic items, reserve available print books, renew eligible loans and view borrowing history. A Librarian maintains resource records and processes returns. A Library Manager reviews overdue reports and manages accounts. Automated reminders alert learners about due dates. A print book cannot be downloaded.",
+      "contextTitle": "Read the scenario"
+    },
+    {
+      "number": "12",
+      "text": "Greenhill College provides a secure digital library. A Learner signs in to search academic resources, download licensed electronic items, reserve available print books, renew eligible loans and view borrowing history. A Librarian maintains resource records and processes returns. A Library Manager reviews overdue reports and manages accounts. Automated reminders alert learners about due dates. A print book cannot be downloaded. A Learner selects a physical textbook and presses Download. What should the system do and why?",
+      "correctAnswer": "Reject/disable digital download for this physical-only item, explain it is a print copy, and offer the reservation/pickup process if available.",
+      "marks": 2,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "aiPassScore": 70,
+      "aiRubric": [
+        "Blocks impossible/unlicensed download",
+        "Offers appropriate physical-book action",
+        "Explains reason or user guidance"
+      ],
+      "aiReferenceNotes": "The system must enforce business rules that reflect the type and availability of an item. Detect that the resource is a physical item. Prevent a digital download. Offer a reservation or appropriate next step. Never fabricate a digital file for a print-only item.",
+      "explanation": "The system must enforce business rules that reflect the type and availability of an item.\n\n1. Detect that the resource is a physical item.\n2. Prevent a digital download.\n3. Offer a reservation or appropriate next step.\n\nExample: The screen may show Reserve print book instead of Download.\n\nStudent note: Never fabricate a digital file for a print-only item.",
+      "study": {
+        "title": "Input validation and real-world rules",
+        "simple": "The system must enforce business rules that reflect the type and availability of an item.",
+        "stepsTitle": "Suggested method",
+        "steps": [
+          "Detect that the resource is a physical item.",
+          "Prevent a digital download.",
+          "Offer a reservation or appropriate next step."
+        ],
+        "example": "The screen may show Reserve print book instead of Download.",
+        "pitfall": "Never fabricate a digital file for a print-only item.",
+        "remember": "Detect that the resource is a physical item.",
+        "keyTerms": [
+          {
+            "term": "Input validation and real-world rules",
+            "meaning": "The system must enforce business rules that reflect the type and availability of an item."
+          }
+        ]
+      },
+      "context": "Greenhill College provides a secure digital library. A Learner signs in to search academic resources, download licensed electronic items, reserve available print books, renew eligible loans and view borrowing history. A Librarian maintains resource records and processes returns. A Library Manager reviews overdue reports and manages accounts. Automated reminders alert learners about due dates. A print book cannot be downloaded.",
+      "contextTitle": "Read the scenario"
+    },
+    {
+      "number": "13",
+      "text": "Greenhill College provides a secure digital library. A Learner signs in to search academic resources, download licensed electronic items, reserve available print books, renew eligible loans and view borrowing history. A Librarian maintains resource records and processes returns. A Library Manager reviews overdue reports and manages accounts. Automated reminders alert learners about due dates. A print book cannot be downloaded. The Manager sees a rise in overdue books. Describe two features already described that could help investigate or reduce the problem.",
+      "correctAnswer": "Use due/overdue reminder notifications to encourage returns; use the manager's overdue reports and loan history to identify the trend; eligible renewal tools can also reduce accidental overdue status.",
+      "marks": 4,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "aiPassScore": 70,
+      "aiRubric": [
+        "Identifies automated due/overdue reminders",
+        "Identifies manager reports / history",
+        "Explains how each helps",
+        "Names two distinct features"
+      ],
+      "aiReferenceNotes": "Good scenario answers connect system functions to the actual problem. State two relevant existing features. Explain the practical benefit of each. Keep answers linked to the scenario rather than inventing unrelated technology. A feature name without an explanation may not earn full scenario marks.",
+      "explanation": "Good scenario answers connect system functions to the actual problem.\n\n1. State two relevant existing features.\n2. Explain the practical benefit of each.\n3. Keep answers linked to the scenario rather than inventing unrelated technology.\n\nExample: Overdue reports show repeated delays; reminders help students return or renew on time.\n\nStudent note: A feature name without an explanation may not earn full scenario marks.",
+      "study": {
+        "title": "Use requirements to solve a scenario",
+        "simple": "Good scenario answers connect system functions to the actual problem.",
+        "stepsTitle": "Suggested method",
+        "steps": [
+          "State two relevant existing features.",
+          "Explain the practical benefit of each.",
+          "Keep answers linked to the scenario rather than inventing unrelated technology."
+        ],
+        "example": "Overdue reports show repeated delays; reminders help students return or renew on time.",
+        "pitfall": "A feature name without an explanation may not earn full scenario marks.",
+        "remember": "State two relevant existing features.",
+        "keyTerms": [
+          {
+            "term": "Use requirements to solve a scenario",
+            "meaning": "Good scenario answers connect system functions to the actual problem."
+          }
+        ]
+      },
+      "context": "Greenhill College provides a secure digital library. A Learner signs in to search academic resources, download licensed electronic items, reserve available print books, renew eligible loans and view borrowing history. A Librarian maintains resource records and processes returns. A Library Manager reviews overdue reports and manages accounts. Automated reminders alert learners about due dates. A print book cannot be downloaded.",
+      "contextTitle": "Read the scenario"
+    },
+    {
+      "number": "14",
+      "text": "TrayGo serves local students who order meals from registered cafés. A Customer chooses a café, adds menu items to a cart, selects delivery and confirms payment. The Café may accept or reject an order. If accepted, it prepares the food and marks it ready. The platform assigns a Courier, who collects the meal, marks it in transit and delivers it. The Customer receives a status notice and may leave a rating. Payment failure stops the order before a café is notified. Draw a UML USE CASE diagram showing a system boundary, the external actor roles and the major goals they perform.",
+      "correctAnswer": "TrayGo system boundary containing Browse menu, Place order, Pay, Track order, Accept/reject order, Mark ready, Collect delivery, Update delivery, Rate experience. Customer linked to browse/place/pay/track/rate; Café linked to accept/reject/mark ready; Courier linked to collect/update delivery. Payment service optional external actor if modelled consistently.",
+      "marks": 20,
+      "grading": "ai",
+      "answerType": "uml-diagram",
+      "aiPassScore": 70,
+      "aiRubric": [
+        "Customer, Café and Courier actors",
+        "Boundary with an appropriate system name",
+        "Customer's key goals",
+        "Café's acceptance and readiness goals",
+        "Courier's pickup/update goals",
+        "Correct actor-to-oval associations",
+        "Clear naming and readable layout",
+        "Optional payment service represented consistently"
+      ],
+      "aiReferenceNotes": "An actor is a role outside the system. An oval describes a meaningful goal carried out through the system. List all external roles and their goals. Place goal ovals inside the system boundary. Connect relevant actors; do not model every internal calculation as an actor. Use case diagrams show who needs functions; they do not show detailed chronological steps.",
+      "explanation": "An actor is a role outside the system. An oval describes a meaningful goal carried out through the system.\n\n1. List all external roles and their goals.\n2. Place goal ovals inside the system boundary.\n3. Connect relevant actors; do not model every internal calculation as an actor.\n\nExample: Customer connects to Place order; Café connects to Accept order; Courier connects to Update delivery.\n\nStudent note: Use case diagrams show who needs functions; they do not show detailed chronological steps.",
+      "study": {
+        "title": "Use case diagram from a scenario",
+        "simple": "An actor is a role outside the system. An oval describes a meaningful goal carried out through the system.",
+        "stepsTitle": "Suggested method",
+        "steps": [
+          "List all external roles and their goals.",
+          "Place goal ovals inside the system boundary.",
+          "Connect relevant actors; do not model every internal calculation as an actor."
+        ],
+        "example": "Customer connects to Place order; Café connects to Accept order; Courier connects to Update delivery.",
+        "pitfall": "Use case diagrams show who needs functions; they do not show detailed chronological steps.",
+        "remember": "List all external roles and their goals.",
+        "keyTerms": [
+          {
+            "term": "Use case diagram from a scenario",
+            "meaning": "An actor is a role outside the system. An oval describes a meaningful goal carried out through the system."
+          }
+        ]
+      },
+      "context": "TrayGo serves local students who order meals from registered cafés. A Customer chooses a café, adds menu items to a cart, selects delivery and confirms payment. The Café may accept or reject an order. If accepted, it prepares the food and marks it ready. The platform assigns a Courier, who collects the meal, marks it in transit and delivers it. The Customer receives a status notice and may leave a rating. Payment failure stops the order before a café is notified.",
+      "contextTitle": "Read the scenario",
+      "diagramRequired": true,
+      "diagramNoDrawingCapPercent": 0,
+      "diagramNoDrawingNote": "Drawing required: optional explanation alone does not earn diagram-structure marks.",
+      "diagramInstructions": "Choose a shape and drag to draw it. Label each actor, use case, action or decision. Use Line/Arrow to connect them. You may upload an image instead."
+    },
+    {
+      "number": "15",
+      "text": "TrayGo serves local students who order meals from registered cafés. A Customer chooses a café, adds menu items to a cart, selects delivery and confirms payment. The Café may accept or reject an order. If accepted, it prepares the food and marks it ready. The platform assigns a Courier, who collects the meal, marks it in transit and delivers it. The Customer receives a status notice and may leave a rating. Payment failure stops the order before a café is notified. Draw an ACTIVITY diagram for a successful order, including payment failure and café rejection paths. Include start/end nodes, actions, arrows and decisions.",
+      "correctAnswer": "Start -> Customer selects café -> adds items -> checkout -> calculate total -> choose payment -> validate payment [failure: display failure then End/retry] [success: send order to café] -> café decision [reject: notify customer and cancel/end] [accept: prepare food -> mark ready] -> assign courier -> courier collects -> in transit -> delivered -> notify customer -> optional rate -> End. Guarded flows at decisions.",
+      "marks": 20,
+      "grading": "ai",
+      "answerType": "uml-diagram",
+      "aiPassScore": 70,
+      "aiRubric": [
+        "Initial and final nodes",
+        "Order selection and checkout actions",
+        "Payment decision and failure path",
+        "Café accept/reject decision and alternatives",
+        "Preparation/readiness actions",
+        "Courier assignment/pickup and transit",
+        "Delivery, notification and feedback",
+        "Arrows and meaningful guards",
+        "Flow shows correct sequence"
+      ],
+      "aiReferenceNotes": "Activity diagrams show ordered actions, decision points and alternative outcomes in a process. Start with a filled initial circle. Place rounded action boxes and diamond decisions in time order. Label branches such as [approved] and [declined], then end each completed path. Use case diagrams show user goals; activity diagrams show the workflow that achieves a goal.",
+      "explanation": "Activity diagrams show ordered actions, decision points and alternative outcomes in a process.\n\n1. Start with a filled initial circle.\n2. Place rounded action boxes and diamond decisions in time order.\n3. Label branches such as [approved] and [declined], then end each completed path.\n\nExample: A failed payment must not continue directly into preparation.\n\nStudent note: Use case diagrams show user goals; activity diagrams show the workflow that achieves a goal.",
+      "study": {
+        "title": "Activity diagram with branches",
+        "simple": "Activity diagrams show ordered actions, decision points and alternative outcomes in a process.",
+        "stepsTitle": "Suggested method",
+        "steps": [
+          "Start with a filled initial circle.",
+          "Place rounded action boxes and diamond decisions in time order.",
+          "Label branches such as [approved] and [declined], then end each completed path."
+        ],
+        "example": "A failed payment must not continue directly into preparation.",
+        "pitfall": "Use case diagrams show user goals; activity diagrams show the workflow that achieves a goal.",
+        "remember": "Start with a filled initial circle.",
+        "keyTerms": [
+          {
+            "term": "Activity diagram with branches",
+            "meaning": "Activity diagrams show ordered actions, decision points and alternative outcomes in a process."
+          }
+        ]
+      },
+      "context": "TrayGo serves local students who order meals from registered cafés. A Customer chooses a café, adds menu items to a cart, selects delivery and confirms payment. The Café may accept or reject an order. If accepted, it prepares the food and marks it ready. The platform assigns a Courier, who collects the meal, marks it in transit and delivers it. The Customer receives a status notice and may leave a rating. Payment failure stops the order before a café is notified.",
+      "contextTitle": "Read the scenario",
+      "diagramRequired": true,
+      "diagramNoDrawingCapPercent": 0,
+      "diagramNoDrawingNote": "Drawing required: optional explanation alone does not earn diagram-structure marks.",
+      "diagramInstructions": "Choose a shape and drag to draw it. Label each actor, use case, action or decision. Use Line/Arrow to connect them. You may upload an image instead."
+    }
+  ]
+}
