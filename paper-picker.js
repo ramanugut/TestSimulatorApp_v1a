@@ -3,8 +3,11 @@
 document.addEventListener("DOMContentLoaded", () => {
   const source = document.getElementById("test-select");
   const trigger = document.getElementById("open-paper-picker");
+  const quickTrigger = document.getElementById("open-paper-picker-quick");
   const triggerModule = document.getElementById("current-paper-module");
   const triggerTitle = document.getElementById("current-paper-title");
+  const quickTriggerModule = document.getElementById("mobile-paper-module");
+  const quickTriggerTitle = document.getElementById("mobile-paper-title");
   const dialog = document.getElementById("paper-picker");
   const description = document.getElementById("paper-picker-description");
   const closeButton = document.getElementById("close-paper-picker");
@@ -176,25 +179,37 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function updateTrigger() {
     const option = source.selectedOptions[0];
-    if (!option || !option.value) {
-      triggerModule.textContent = "Choose a paper";
-      triggerTitle.textContent = "Select an assessment or exam";
-      trigger.title = "Choose a paper";
-      return;
+    let moduleText = "Choose module";
+    let paperText = "Choose assessment or exam";
+    let compactModuleText = "Choose module";
+    let compactPaperText = "Choose paper";
+    let titleText = "Choose module and paper";
+
+    if (option && option.value) {
+      if (option.value === "__custom_session__") {
+        moduleText = "Module: Custom mix";
+        paperText = "Paper: " + (option.textContent.trim() || "Your practice session");
+        compactModuleText = "Custom mix";
+        compactPaperText = option.textContent.trim() || "Practice session";
+        titleText = option.textContent.trim() || "Custom practice session";
+      } else {
+        const name = option.textContent.trim();
+        const module = paperModule(name, option.value);
+        const title = paperTitle(name, option.value, module, paperKind(name, option.value));
+        moduleText = "Module: " + module + " · " + subject(module).title;
+        paperText = "Paper: " + title;
+        compactModuleText = "Module: " + module;
+        compactPaperText = "Paper: " + title;
+        titleText = subject(module).title + " — " + name;
+      }
     }
-    if (option.value === "__custom_session__") {
-      triggerModule.textContent = "Custom mix";
-      triggerTitle.textContent = option.textContent.trim() || "Your practice session";
-    } else {
-      const name = option.textContent.trim();
-      const module = paperModule(name, option.value);
-      triggerModule.textContent = module + " · " + subject(module).title;
-      triggerTitle.textContent =
-        paperTitle(name, option.value, module, paperKind(name, option.value));
-    }
-    trigger.title = option.value === "__custom_session__"
-      ? option.textContent.trim()
-      : subject(paperModule(option.textContent.trim(), option.value)).title + " — " + option.textContent.trim();
+
+    triggerModule.textContent = moduleText;
+    triggerTitle.textContent = paperText;
+    trigger.title = titleText;
+    if (quickTriggerModule) quickTriggerModule.textContent = compactModuleText;
+    if (quickTriggerTitle) quickTriggerTitle.textContent = compactPaperText;
+    if (quickTrigger) quickTrigger.title = titleText;
   }
 
   function sortedPapers(items) {
@@ -371,8 +386,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     showPaperResults(allPapers, query);
   }
-  function openPicker() {
+  let lastPickerTrigger = trigger;
+  function openPicker(event) {
     if (dialog.open) return;
+    lastPickerTrigger = event && event.currentTarget ? event.currentTarget : trigger;
     state.module = null;
     search.value = "";
     updateTrigger();
@@ -381,6 +398,7 @@ document.addEventListener("DOMContentLoaded", () => {
     fullVisibleHeight = 0;
     syncPaperViewport();
     trigger.setAttribute("aria-expanded", "true");
+    if (quickTrigger) quickTrigger.setAttribute("aria-expanded", "true");
     // Avoid unexpectedly opening the on-screen keyboard on mobile.
     closeButton.focus({ preventScroll: true });
   }
@@ -390,6 +408,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   trigger.addEventListener("click", openPicker);
+  if (quickTrigger) quickTrigger.addEventListener("click", openPicker);
   closeButton.addEventListener("click", () => dialog.close());
   back.addEventListener("click", () => {
     state.module = null;
@@ -406,7 +425,10 @@ document.addEventListener("DOMContentLoaded", () => {
     dialog.style.removeProperty("--paper-visible-center");
     dialog.style.removeProperty("--paper-visible-height");
     trigger.setAttribute("aria-expanded", "false");
-    trigger.focus({ preventScroll: true });
+    if (quickTrigger) quickTrigger.setAttribute("aria-expanded", "false");
+    if (lastPickerTrigger && typeof lastPickerTrigger.focus === "function") {
+      lastPickerTrigger.focus({ preventScroll: true });
+    }
   });
   search.addEventListener("input", () => {
     render(); // Global search works even while viewing a module.
