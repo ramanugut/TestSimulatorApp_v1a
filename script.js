@@ -1015,6 +1015,9 @@ document.addEventListener("DOMContentLoaded", function () {
     INF3708: {
       title: "Information Technology Project Management",
       detail: "9th Edition · Kathy Schwalbe · Shared Google Drive copy",
+      // Google Drive uses /preview for iframe embedding. Keep /view for the
+      // full reader because it can use the user's normal signed-in Drive session.
+      embedUrl: "https://drive.google.com/file/d/1wSsvyKvhPLXYA7AryPtDSc6NcKG8lzlX/preview",
       url: "https://drive.google.com/file/d/1wSsvyKvhPLXYA7AryPtDSc6NcKG8lzlX/view?usp=drivesdk"
     }
   };
@@ -1071,9 +1074,10 @@ document.addEventListener("DOMContentLoaded", function () {
   function loadCurrentBook() {
     const source = getCurrentBookSource();
     if (!source || !bookReaderFrame) return;
-    if (bookReaderFrame.dataset.source === source.url) return;
-    bookReaderFrame.src = source.url;
-    bookReaderFrame.dataset.source = source.url;
+    const readerUrl = source.embedUrl || source.url;
+    if (bookReaderFrame.dataset.source === readerUrl) return;
+    bookReaderFrame.src = readerUrl;
+    bookReaderFrame.dataset.source = readerUrl;
   }
 
   function updateModeButtons(activeMode) {
