@@ -412,14 +412,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   function openPicker(event) {
     if (dialog.open) return;
-    const allPapers = papers();
-    const currentPaper = allPapers.find(paper => paper.file === source.value);
-    const remembered = readPickerPreferences().lastSelectedModule;
-    state.module = currentPaper
-      ? currentPaper.module
-      : allPapers.some(paper => paper.module === remembered)
-        ? remembered
-        : null;
+    state.module = null;
     search.value = "";
     updateTrigger();
     render();
