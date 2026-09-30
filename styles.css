@@ -4154,3 +4154,275 @@ body.dark-mode:is(.theme-slate,.theme-deep,.theme-black) .study-voice-reading {
     font-size: .74rem;
   }
 }
+
+
+/* 2026-09-30: one quiet header + popup-based test controls.
+   Keep module/paper, timer, Settings and Menu in one row; never duplicate them below. */
+.app-header,
+.app-header.collapsed {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  padding: .5rem .8rem;
+  transform: none;
+  border-radius: 0;
+}
+.app-header .header-top {
+  width: 100%;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: .55rem;
+}
+.app-header .logo {
+  flex: 0 0 auto;
+}
+.header-paper-context {
+  position: relative;
+  flex: 1 1 28rem;
+  min-width: 180px;
+  max-width: 620px;
+}
+.header-paper-context .paper-picker-trigger {
+  width: 100%;
+  min-height: 42px;
+}
+.header-timer {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .35rem;
+  flex: 0 0 auto;
+  min-width: 92px;
+  height: 42px;
+  padding: .35rem .65rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  background: var(--subtle-surface);
+  color: var(--accent-color);
+  font-size: .9rem;
+  font-weight: 750;
+  font-variant-numeric: tabular-nums;
+}
+.header-timer svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.app-header .header-options-btn,
+.app-header .header-toggle {
+  display: inline-flex;
+  width: 42px;
+  min-width: 42px;
+  height: 42px;
+  min-height: 42px;
+  border-radius: var(--radius-sm);
+  box-shadow: none;
+}
+.app-header .header-toggle {
+  border: 1px solid var(--border-color);
+  background: var(--surface-color);
+  color: var(--text-color);
+}
+.app-header .header-toggle:hover,
+.app-header .header-toggle:focus-visible {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+}
+.app-header .options-label {
+  display: none;
+}
+.header-paper-shortcut,
+.header-sections,
+.mobile-timer {
+  display: none !important;
+}
+
+.test-controls-modal-content {
+  width: min(560px, 100%);
+  gap: 1rem;
+  padding: 1.15rem;
+}
+.test-controls-modal-content .modal-header {
+  align-items: flex-start;
+}
+.test-controls-modal-content .modal-header h2 {
+  margin: 0;
+  font-size: 1.16rem;
+}
+.test-controls-subtitle {
+  margin: .25rem 0 0;
+  font-size: .82rem;
+  line-height: 1.4;
+}
+.test-controls-progress {
+  padding: .8rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  background: var(--subtle-surface);
+}
+.test-controls-primary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: .55rem;
+}
+.test-controls-primary .btn {
+  min-height: 44px;
+  min-width: 0;
+  padding-inline: .6rem;
+}
+.test-controls-more {
+  display: flex;
+  flex-direction: column;
+  gap: .8rem;
+  padding-top: .15rem;
+}
+.test-controls-more h3 {
+  margin: 0;
+  font-size: .92rem;
+}
+.test-controls-more .timer-settings {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: auto minmax(0,1fr);
+  align-items: center;
+  gap: .25rem .65rem;
+  padding: .75rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  background: var(--subtle-surface);
+}
+.test-controls-more .timer-input-group {
+  min-width: 0;
+}
+.test-controls-more .timer-input-group input {
+  width: 92px;
+  min-height: 42px;
+}
+.test-controls-more .assistive-text {
+  grid-column: 1 / -1;
+  margin: 0;
+  font-size: .76rem;
+}
+.test-controls-secondary {
+  display: grid;
+  gap: .5rem;
+}
+.test-controls-secondary .btn {
+  width: 100%;
+  min-height: 44px;
+}
+body.modal-open {
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .app-header,
+  .app-header.collapsed {
+    padding: .42rem .55rem;
+  }
+  .app-header .header-top {
+    gap: .35rem;
+  }
+  .app-header .logo-name {
+    display: none;
+  }
+  .app-header .logo-mark {
+    display: inline-grid;
+  }
+  .header-paper-context {
+    flex: 1 1 auto;
+    min-width: 0;
+    max-width: none;
+  }
+  .header-paper-context .paper-picker-trigger {
+    min-height: 42px;
+    padding: .3rem .48rem;
+    gap: .38rem;
+  }
+  .header-paper-context .paper-trigger-copy strong {
+    font-size: .69rem;
+  }
+  .header-paper-context .paper-trigger-copy span {
+    font-size: .72rem;
+  }
+  .header-paper-context .paper-trigger-leading-icon {
+    width: 17px;
+    height: 17px;
+    flex-basis: 17px;
+  }
+  .header-timer {
+    min-width: 78px;
+    height: 42px;
+    padding: .3rem .45rem;
+    font-size: .82rem;
+  }
+  .header-timer svg {
+    width: 16px;
+    height: 16px;
+  }
+  .app-header .header-options-btn,
+  .app-header .header-toggle {
+    width: 42px;
+    min-width: 42px;
+    height: 42px;
+    min-height: 42px;
+  }
+
+  /* Every app modal follows the visible phone viewport, including the keyboard. */
+  .modal:not(.hidden) {
+    inset: auto 0 auto 0;
+    top: var(--modal-visible-top, 0px);
+    width: 100%;
+    height: var(--modal-visible-height, 100dvh);
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+  }
+  .modal:not(.hidden) .modal-content {
+    max-height: calc(var(--modal-visible-height, 100dvh) - 20px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+  .test-controls-modal-content {
+    width: min(520px, 100%);
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .test-controls-primary {
+    grid-template-columns: 1fr;
+  }
+  .test-controls-primary .btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 430px) {
+  .header-timer svg {
+    display: none;
+  }
+}
+
+@media (max-width: 400px) {
+  .app-header .logo-mark {
+    display: none;
+  }
+  .header-timer {
+    min-width: 67px;
+    padding-inline: .32rem;
+    font-size: .76rem;
+  }
+  .app-header .header-options-btn,
+  .app-header .header-toggle {
+    width: 40px;
+    min-width: 40px;
+    height: 40px;
+    min-height: 40px;
+  }
+}
