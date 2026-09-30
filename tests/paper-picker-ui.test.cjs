@@ -180,7 +180,7 @@ async function main() {
   type("2021");
   byText(get("paper-picker-results"), "Oct/Nov 2021").click();
   assert.equal(source.value, "inf3708-oct-nov-2021.json");
-  assert.match(get("current-paper-module").textContent, /INF3708 · Software Project Management/);
+  assert.match(get("current-paper-module").textContent, /Module: INF3708/, "selected module stays compact in the single header selector");
   assert.equal(get("paper-picker").open, false);
 
   // A denied switch must preserve the running paper and leave the picker open.
