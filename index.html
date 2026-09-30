@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Test Simulator | Study &amp; Practise</title>
-    <link rel="stylesheet" href="styles.css?v=20260930-nav-icons1">
+    <link rel="stylesheet" href="styles.css?v=20260930-popup-menu1">
     <link rel="stylesheet" href="paper-picker.css?v=20260930-nav-icons1">
     <link
         rel="stylesheet"
@@ -19,133 +19,64 @@
 <body>
     <header id="floating-header" class="app-header">
         <div class="header-top">
-            <div class="logo" aria-label="Test Simulator"><span class="logo-mark" aria-hidden="true">TS</span><span class="logo-name">Test Simulator</span></div>
-            <button
-                id="open-paper-picker-quick"
-                class="header-paper-shortcut"
-                type="button"
-                aria-haspopup="dialog"
-                aria-controls="paper-picker"
-                aria-expanded="false"
-                aria-label="Choose module and paper"
-                title="Choose module and paper"
-            >
-                <svg class="header-paper-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                    <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5v-15Z"/>
-                    <path d="M4 20.5A2.5 2.5 0 0 1 6.5 18H20"/>
-                </svg>
-                <span class="header-paper-copy">
-                    <strong id="mobile-paper-module">Choose module</strong>
-                    <span id="mobile-paper-title">Choose paper</span>
-                </span>
-                <svg class="header-paper-chevron" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                    <path d="m7 10 5 5 5-5"/>
-                </svg>
-            </button>
-            <div class="mobile-timer" aria-label="Time remaining">⏱️ <span id="mobile-time">00:00</span></div>
-            <div class="header-top-actions">
-                <button
-                    id="open-options"
-                    class="header-options-btn"
-                    type="button"
-                    aria-label="Open app settings"
-                    title="Appearance and app settings"
-                    aria-expanded="false"
-                    aria-controls="options-modal"
-                >
-                <span aria-hidden="true" class="icon icon-gear">
-                    <svg viewBox="0 0 24 24" role="presentation" aria-hidden="true">
-                        <path d="M12 15.25A3.25 3.25 0 1 0 12 8.75a3.25 3.25 0 0 0 0 6.5Z"/>
-                        <path d="M19.4 13.5a7.8 7.8 0 0 0 .05-3l1.65-1.29-1.8-3.12-1.95.79a8.3 8.3 0 0 0-2.6-1.5L14.45 3h-3.6l-.3 2.38a8.3 8.3 0 0 0-2.6 1.5L6 6.09 4.2 9.21l1.65 1.29a7.8 7.8 0 0 0 .05 3l-1.7 1.3L6 17.91l2-.8a8.2 8.2 0 0 0 2.55 1.48l.3 2.41h3.6l.3-2.41a8.2 8.2 0 0 0 2.55-1.48l2 .8 1.8-3.12-1.7-1.29Z"/>
+            <div class="logo" aria-label="Test Simulator">
+                <span class="logo-mark" aria-hidden="true">TS</span>
+                <span class="logo-name">Test Simulator</span>
+            </div>
+
+            <div class="test-select-group header-paper-context">
+                <label class="input-label sr-only" for="test-select">Current test (app data)</label>
+                <select id="test-select" class="paper-native-select" tabindex="-1" aria-hidden="true"></select>
+                <button id="open-paper-picker" class="paper-picker-trigger header-paper-trigger" type="button"
+                    aria-haspopup="dialog" aria-controls="paper-picker" aria-expanded="false"
+                    aria-label="Choose module and paper">
+                    <svg class="paper-trigger-leading-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5v-15Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                        <path d="M4 20.5A2.5 2.5 0 0 1 6.5 18H20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
                     </svg>
-                </span>
-                <span class="options-label">Settings</span>
-            </button>
-                <button
-                    id="header-toggle"
-                    class="header-toggle"
-                    type="button"
-                    aria-expanded="false"
-                    aria-controls="header-sections"
-                >
-                    <span class="sr-only">Show exam controls</span>
+                    <span class="paper-trigger-copy">
+                        <strong id="current-paper-module">Choose module</strong>
+                        <span id="current-paper-title">Choose assessment or exam</span>
+                    </span>
+                    <svg class="paper-trigger-chevron" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <div id="custom-session-chip" class="custom-session-chip hidden" role="status" aria-live="polite">
+                    <span id="custom-session-summary"></span>
+                    <button id="exit-custom-session" class="chip-dismiss" type="button" aria-label="Exit custom session">&times;</button>
+                </div>
+            </div>
+
+            <div class="header-timer" aria-label="Time remaining">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <circle cx="12" cy="13" r="8"/>
+                    <path d="M12 9v4l2.6 1.6M9 2h6"/>
+                </svg>
+                <span id="mobile-time">00:00</span>
+            </div>
+
+            <div class="header-top-actions">
+                <button id="open-options" class="header-options-btn" type="button"
+                    aria-label="Settings" title="Settings" aria-expanded="false" aria-controls="options-modal">
+                    <span aria-hidden="true" class="icon icon-gear">
+                        <svg viewBox="0 0 24 24" role="presentation" aria-hidden="true">
+                            <path d="M12 15.25A3.25 3.25 0 1 0 12 8.75a3.25 3.25 0 0 0 0 6.5Z"/>
+                            <path d="M19.4 13.5a7.8 7.8 0 0 0 .05-3l1.65-1.29-1.8-3.12-1.95.79a8.3 8.3 0 0 0-2.6-1.5L14.45 3h-3.6l-.3 2.38a8.3 8.3 0 0 0-2.6 1.5L6 6.09 4.2 9.21l1.65 1.29a7.8 7.8 0 0 0 .05 3l-1.7 1.3L6 17.91l2-.8a8.2 8.2 0 0 0 2.55 1.48l.3 2.41h3.6l.3-2.41a8.2 8.2 0 0 0 2.55-1.48l2 .8 1.8-3.12-1.7-1.29Z"/>
+                        </svg>
+                    </span>
+                    <span class="options-label">Settings</span>
+                </button>
+
+                <button id="header-toggle" class="header-toggle" type="button"
+                    aria-expanded="false" aria-controls="test-controls-modal"
+                    aria-label="Open test controls" title="Test controls">
                     <span aria-hidden="true" class="icon icon-hamburger">
                         <svg viewBox="0 0 24 24" role="presentation">
                             <path d="M4 7h16a1 1 0 0 0 0-2H4a1 1 0 1 0 0 2zm16 4H4a1 1 0 1 0 0 2h16a1 1 0 0 0 0-2zm0 6H4a1 1 0 1 0 0 2h16a1 1 0 0 0 0-2z" fill="currentColor"/>
                         </svg>
                     </span>
                 </button>
-            </div>
-        </div>
-        <div id="header-sections" class="header-sections">
-            <div class="header-main">
-                <div class="test-select-group">
-                    <label class="input-label sr-only" for="test-select">Current test (app data)</label>
-                    <select id="test-select" class="paper-native-select" tabindex="-1" aria-hidden="true"></select>
-                    <button id="open-paper-picker" class="paper-picker-trigger" type="button"
-                        aria-haspopup="dialog" aria-controls="paper-picker" aria-label="Choose module and paper">
-                        <svg class="paper-trigger-leading-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                            <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5v-15Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-                            <path d="M4 20.5A2.5 2.5 0 0 1 6.5 18H20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                        </svg>
-                        <span class="paper-trigger-copy">
-                            <strong id="current-paper-module">Choose module</strong>
-                            <span id="current-paper-title">Choose assessment or exam</span>
-                        </span>
-                        <svg class="paper-trigger-chevron" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                            <path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </button>
-                    <div
-                        id="custom-session-chip"
-                        class="custom-session-chip hidden"
-                        role="status"
-                        aria-live="polite"
-                    >
-                        <span id="custom-session-summary"></span>
-                        <button
-                            id="exit-custom-session"
-                            class="chip-dismiss"
-                            type="button"
-                            aria-label="Exit custom session"
-                        >
-                            &times;
-                        </button>
-                    </div>
-                </div>
-                <div class="header-progress">
-                    <span class="progress-label sr-only">Progress</span>
-                    <div id="floating-progress" class="progress-group">
-                        <div class="progress-bar-container">
-                            <div id="progress-bar"></div>
-                        </div>
-                        <span id="progress-text">0%</span>
-                    </div>
-                </div>
-            </div>
-            <div class="header-controls">
-                <div class="timer-display" aria-label="Time remaining">⏱️ <span id="floating-time">00:00</span></div>
-                <div class="header-actions">
-                    <button id="start-test" class="btn btn-primary" type="button">Start Test</button>
-                    <button id="pause-timer" class="btn btn-secondary" type="button">Pause Timer</button>
-                    <button id="submit-test" class="btn btn-primary" type="button">Submit Test</button>
-                </div>
-                <details id="test-settings-menu" class="test-settings-menu">
-                    <summary title="Timer and test actions">Actions <span aria-hidden="true">⌄</span></summary>
-                    <div class="test-settings-panel">
-                        <div class="timer-settings">
-                            <label class="input-label" for="timer-input">Timer (minutes)</label>
-                            <div class="timer-input-group">
-                                <input type="number" id="timer-input" value="30" min="0" aria-describedby="timer-help">
-                                <span class="timer-unit">min</span>
-                            </div>
-                            <p id="timer-help" class="assistive-text">Adjust anytime during a test.</p>
-                        </div>
-                        <button id="define-test" class="btn btn-tertiary" type="button" aria-haspopup="dialog" aria-expanded="false">Define Custom Test</button>
-                        <button id="reset-test" class="btn btn-secondary" type="button">Reset Test</button>
-                        <button id="download-results" class="btn btn-tertiary" type="button">Download Results as PDF</button>
-                    </div>
-                </details>
             </div>
         </div>
     </header>
@@ -349,6 +280,48 @@
     </main>
 
     <div id="modal-backdrop" class="modal-backdrop hidden"></div>
+    <div id="test-controls-modal" class="modal hidden" role="dialog" aria-modal="true"
+        aria-labelledby="test-controls-title" aria-hidden="true">
+        <div class="modal-content test-controls-modal-content">
+            <header class="modal-header">
+                <div>
+                    <h2 id="test-controls-title">Test controls</h2>
+                    <p class="test-controls-subtitle">Everything for the current test, without covering your questions.</p>
+                </div>
+                <button id="close-test-controls" class="modal-close" type="button" aria-label="Close test controls">&times;</button>
+            </header>
+
+            <section class="test-controls-progress" aria-label="Test progress">
+                <div id="floating-progress" class="progress-group">
+                    <div class="progress-bar-container"><div id="progress-bar"></div></div>
+                    <span id="progress-text">0%</span>
+                </div>
+            </section>
+
+            <section class="test-controls-primary" aria-label="Main test actions">
+                <button id="start-test" class="btn btn-primary" type="button">Start Test</button>
+                <button id="pause-timer" class="btn btn-secondary" type="button">Pause Timer</button>
+                <button id="submit-test" class="btn btn-primary" type="button">Submit Test</button>
+            </section>
+
+            <section class="test-controls-more" aria-labelledby="test-controls-more-title">
+                <h3 id="test-controls-more-title">More actions</h3>
+                <div class="timer-settings">
+                    <label class="input-label" for="timer-input">Timer</label>
+                    <div class="timer-input-group">
+                        <input type="number" id="timer-input" value="30" min="0" inputmode="numeric" aria-describedby="timer-help">
+                        <span class="timer-unit">minutes</span>
+                    </div>
+                    <p id="timer-help" class="assistive-text">You can change this before or during a test.</p>
+                </div>
+                <div class="test-controls-secondary">
+                    <button id="define-test" class="btn btn-tertiary" type="button" aria-haspopup="dialog" aria-expanded="false">Define Custom Test</button>
+                    <button id="reset-test" class="btn btn-secondary" type="button">Reset Test</button>
+                    <button id="download-results" class="btn btn-tertiary" type="button">Download Results as PDF</button>
+                </div>
+            </section>
+        </div>
+    </div>
     <div
         id="define-test-modal"
         class="modal hidden"
@@ -480,8 +453,8 @@
     <script src="answer-workspace.js?v=20260929-workspaces3"></script>
     <script src="revision-insights.js?v=20260929-ai-optin1"></script>
     <script src="revision-controller.js?v=20260929-backend-error2"></script>
-    <script src="paper-picker.js?v=20260930-nav-icons1"></script>
-    <script src="script.js?v=20260929-ai-optin2"></script>
+    <script src="paper-picker.js?v=20260930-popup-menu1"></script>
+    <script src="script.js?v=20260930-popup-menu1"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
 </body>
 </html>
