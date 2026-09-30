@@ -41,6 +41,16 @@ document.addEventListener("DOMContentLoaded", () => {
       hint: "Project planning · WBS · risk",
       keywords: "project management planning schedule critical path gantt risk wbs work breakdown structure budget effort agile"
     },
+    ICT2613: {
+      title: "Internet Programming",
+      hint: "PHP · SQL · PDO · MVC",
+      keywords: "internet programming web php mysql sql database pdo mvc model view controller apache browser http dynamic web pages debugging"
+    },
+    ICT2642: {
+      title: "Business Informatics IIB",
+      hint: "MIS · data · CRM · enterprise systems",
+      keywords: "business informatics management information systems mis data mining olap crm enterprise systems linux unix software platforms saas cloud"
+    },
     "MY UPLOADS": {
       title: "My uploaded papers",
       hint: "Papers you added yourself",
