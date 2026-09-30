@@ -4426,3 +4426,80 @@ body.modal-open {
     min-height: 40px;
   }
 }
+
+
+/* 2026-09-30: desktop header follows the study workspace instead of hugging the left edge. */
+@media (min-width: 769px) {
+  .app-header,
+  .app-header.collapsed {
+    padding: .5rem 1rem;
+  }
+
+  .app-header .header-top {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    gap: .6rem;
+  }
+
+  .app-header .logo {
+    min-width: max-content;
+  }
+
+  .header-paper-context {
+    flex: 1 1 0;
+    min-width: 320px;
+    max-width: none;
+  }
+
+  .header-paper-context .paper-picker-trigger {
+    min-height: 44px;
+    padding-inline: .75rem;
+  }
+
+  .header-timer {
+    height: 44px;
+    min-width: 104px;
+  }
+
+  .app-header .header-top-actions {
+    flex: 0 0 auto;
+    display: flex;
+    gap: .45rem;
+  }
+
+  .app-header .header-options-btn,
+  .app-header .header-toggle {
+    width: auto;
+    min-width: 0;
+    height: 44px;
+    min-height: 44px;
+    padding: .4rem .7rem;
+    gap: .42rem;
+  }
+
+  .app-header .header-options-btn .options-label,
+  .app-header .header-toggle .menu-label {
+    display: inline;
+    font-size: .8rem;
+    font-weight: 650;
+    white-space: nowrap;
+  }
+
+  .app-header .header-options-btn .icon,
+  .app-header .header-toggle .icon {
+    width: 20px;
+    height: 20px;
+    flex: 0 0 20px;
+  }
+
+  .page-wrapper {
+    padding-top: .85rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .app-header .header-toggle .menu-label {
+    display: none;
+  }
+}
