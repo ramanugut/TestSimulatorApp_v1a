@@ -3019,6 +3019,10 @@ const testFiles = [
   "ict2622-assessment-1-2026-practice.json",
   "ict2622-assessment-2-2026-practice.json",
   "ict2622-practical-skills-lab.json",
+  // Verified 2026 additions. ICT2613 is intentionally partial: missing/truncated
+  // tutorial-letter questions are withheld instead of reconstructed by guesswork.
+  "ict2613-assessment-1-2026-partial.json",
+  "ict2642-assessment-2-2026.json",
 ];
 
 
