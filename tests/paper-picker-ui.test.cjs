@@ -95,7 +95,7 @@ async function main() {
     search.dispatchEvent(new win.Event("input", { bubbles: true }));
   }
 
-  assert.match(get("current-paper-module").textContent, /ICT2631 · Operating Systems Practice/);
+  assert.match(get("current-paper-module").textContent, /Module: ICT2631/, "compact header shows the module once without duplicating the full subject title");
   assert.match(get("current-paper-title").textContent, /Oct\/Nov 2025/);
 
   // First screen requires no knowledge of filters or hidden categories.
