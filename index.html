@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Test Simulator | Study &amp; Practise</title>
-    <link rel="stylesheet" href="styles.css?v=20260930-desktop-header1">
+    <link rel="stylesheet" href="styles.css?v=20260930-book-reader1">
     <link rel="stylesheet" href="paper-picker.css?v=20260930-nav-icons1">
     <link
         rel="stylesheet"
@@ -161,6 +161,23 @@
                     </svg>
                     <span>Flashcards</span>
                 </button>
+                <button
+                    id="mode-tab-book"
+                    class="mode-tab-button hidden"
+                    type="button"
+                    role="tab"
+                    aria-selected="false"
+                    aria-controls="mode-panel-book"
+                    data-mode="book"
+                    hidden
+                >
+                    <svg class="mode-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H11v16H6.5A2.5 2.5 0 0 0 4 21.5v-16Z"/>
+                        <path d="M20 5.5A2.5 2.5 0 0 0 17.5 3H13v16h4.5a2.5 2.5 0 0 1 2.5 2.5v-16Z"/>
+                        <path d="M8 7h1M15 7h1"/>
+                    </svg>
+                    <span>Book</span>
+                </button>
             </section>
 
             <section id="mode-panel-test" class="mode-panel active" role="tabpanel" aria-labelledby="mode-tab-test">
@@ -275,6 +292,45 @@
                         <button id="flashcard-next" type="button" class="btn btn-tertiary">Next →</button>
                     </nav>
                     <p id="flashcards-empty" class="flashcards-empty">Choose a test above to start revising with flashcards.</p>
+                </div>
+            </section>
+
+            <section
+                id="mode-panel-book"
+                class="mode-panel"
+                role="tabpanel"
+                aria-labelledby="mode-tab-book"
+                aria-hidden="true"
+            >
+                <div class="book-reader-workspace">
+                    <header class="book-reader-heading">
+                        <div class="book-reader-heading-copy">
+                            <span class="book-reader-kicker">INF3708 textbook</span>
+                            <h2 id="book-reader-title">Information Technology Project Management</h2>
+                            <p id="book-reader-status">9th Edition · Kathy Schwalbe · Opens from your shared Google Drive copy.</p>
+                        </div>
+                        <a
+                            id="book-open-external"
+                            class="btn btn-secondary book-open-external"
+                            href="https://drive.google.com/file/d/1wSsvyKvhPLXYA7AryPtDSc6NcKG8lzlX/view?usp=drivesdk"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >Open full reader</a>
+                    </header>
+
+                    <div class="book-reader-frame-wrap">
+                        <iframe
+                            id="book-reader-frame"
+                            title="INF3708 Information Technology Project Management textbook"
+                            loading="lazy"
+                            allowfullscreen
+                        ></iframe>
+                    </div>
+
+                    <p class="book-reader-help">
+                        Use the Google Drive viewer controls for page navigation, zoom and search.
+                        If the embedded viewer is restricted by your browser, use <strong>Open full reader</strong>.
+                    </p>
                 </div>
             </section>
         </div>
@@ -455,7 +511,7 @@
     <script src="revision-insights.js?v=20260929-ai-optin1"></script>
     <script src="revision-controller.js?v=20260929-backend-error2"></script>
     <script src="paper-picker.js?v=20260930-five-modules1"></script>
-    <script src="script.js?v=20260930-five-modules1"></script>
+    <script src="script.js?v=20260930-book-reader1"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
 </body>
 </html>
