@@ -119,6 +119,12 @@ document.addEventListener("DOMContentLoaded", function () {
   const modeButtons = document.querySelectorAll(".mode-tab-button");
   const modePanelTest = document.getElementById("mode-panel-test");
   const modePanelFlashcards = document.getElementById("mode-panel-flashcards");
+  const modePanelBook = document.getElementById("mode-panel-book");
+  const modeTabBook = document.getElementById("mode-tab-book");
+  const bookReaderFrame = document.getElementById("book-reader-frame");
+  const bookReaderTitle = document.getElementById("book-reader-title");
+  const bookReaderStatus = document.getElementById("book-reader-status");
+  const bookOpenExternal = document.getElementById("book-open-external");
   const openOptionsButton = document.getElementById("open-options");
   const closeOptionsButton = document.getElementById("close-options");
   const optionsModal = document.getElementById("options-modal");
@@ -944,6 +950,71 @@ document.addEventListener("DOMContentLoaded", function () {
     headerToggleButton.setAttribute("title", "Test controls");
   }
 
+  const BOOK_SOURCES = {
+    INF3708: {
+      title: "Information Technology Project Management",
+      detail: "9th Edition · Kathy Schwalbe · Shared Google Drive copy",
+      url: "https://drive.google.com/file/d/1wSsvyKvhPLXYA7AryPtDSc6NcKG8lzlX/view?usp=drivesdk"
+    }
+  };
+
+  function getCurrentModuleCode() {
+    const selectedLabel = testSelect?.selectedOptions?.[0]?.textContent || "";
+    const labelMatch = selectedLabel.match(/\b[A-Z]{3}\d{4}\b/i);
+    if (labelMatch) return labelMatch[0].toUpperCase();
+
+    const fileMatch = String(currentTestFile || "").match(/([a-z]{3}\d{4})/i);
+    if (fileMatch) return fileMatch[1].toUpperCase();
+
+    // Legacy INF3708 Assessment 2 filename.
+    if (currentTestFile === "test36.json") return "INF3708";
+    return "";
+  }
+
+  function getCurrentBookSource() {
+    return BOOK_SOURCES[getCurrentModuleCode()] || null;
+  }
+
+  function syncBookAvailability() {
+    const source = getCurrentBookSource();
+    if (modeTabBook) {
+      modeTabBook.hidden = !source;
+      modeTabBook.classList.toggle("hidden", !source);
+    }
+
+    if (bookReaderTitle) {
+      bookReaderTitle.textContent = source ? source.title : "No book available";
+    }
+    if (bookReaderStatus) {
+      bookReaderStatus.textContent = source
+        ? source.detail
+        : "A textbook has not been linked for this module yet.";
+    }
+    if (bookOpenExternal) {
+      if (source) {
+        bookOpenExternal.href = source.url;
+        bookOpenExternal.removeAttribute("aria-disabled");
+        bookOpenExternal.removeAttribute("tabindex");
+      } else {
+        bookOpenExternal.removeAttribute("href");
+        bookOpenExternal.setAttribute("aria-disabled", "true");
+        bookOpenExternal.setAttribute("tabindex", "-1");
+      }
+    }
+
+    if (!source && currentMode === "book") {
+      setMode("test");
+    }
+  }
+
+  function loadCurrentBook() {
+    const source = getCurrentBookSource();
+    if (!source || !bookReaderFrame) return;
+    if (bookReaderFrame.dataset.source === source.url) return;
+    bookReaderFrame.src = source.url;
+    bookReaderFrame.dataset.source = source.url;
+  }
+
   function updateModeButtons(activeMode) {
     if (!modeButtons.length) {
       return;
@@ -959,10 +1030,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function updateModePanels(activeMode) {
     const showFlashcards = activeMode === "flashcards";
+    const showBook = activeMode === "book";
+    const showQuestions = !showFlashcards && !showBook;
 
     if (modePanelTest) {
-      modePanelTest.classList.toggle("active", !showFlashcards);
-      modePanelTest.setAttribute("aria-hidden", showFlashcards.toString());
+      modePanelTest.classList.toggle("active", showQuestions);
+      modePanelTest.setAttribute("aria-hidden", (!showQuestions).toString());
     }
 
     if (modePanelFlashcards) {
@@ -972,6 +1045,13 @@ document.addEventListener("DOMContentLoaded", function () {
         (!showFlashcards).toString()
       );
     }
+
+    if (modePanelBook) {
+      modePanelBook.classList.toggle("active", showBook);
+      modePanelBook.setAttribute("aria-hidden", (!showBook).toString());
+      if (showBook) loadCurrentBook();
+    }
+
     if (window.MasteryEngine) {
       window.MasteryEngine.setContext({ mode: activeMode, testFile: currentTestFile });
     }
@@ -1055,11 +1135,12 @@ document.addEventListener("DOMContentLoaded", function () {
           studyModeToggle.checked = true;
         }
         applyStudyModeState(true);
-      } else if (currentMode === "test") {
+      } else if (currentMode === "test" || currentMode === "book") {
         if (studyModeToggle && studyModeToggle.checked) {
           studyModeToggle.checked = false;
         }
         applyStudyModeState(false);
+        if (currentMode === "book") loadCurrentBook();
       }
 
       return;
@@ -1072,11 +1153,12 @@ document.addEventListener("DOMContentLoaded", function () {
         studyModeToggle.checked = true;
       }
       applyStudyModeState(true);
-    } else if (mode === "test") {
+    } else if (mode === "test" || mode === "book") {
       if (studyModeToggle && studyModeToggle.checked) {
         studyModeToggle.checked = false;
       }
       applyStudyModeState(false);
+      if (mode === "book") loadCurrentBook();
     }
 
     updateModeButtons(mode);
@@ -3183,6 +3265,7 @@ const testFiles = [
   function loadQuestions(filename, customData = null) {
     stopStudyVoice();
     currentTestFile = filename;
+    syncBookAvailability();
     if (window.MasteryEngine) {
       window.MasteryEngine.setContext({ mode: currentMode, testFile: filename });
     }
