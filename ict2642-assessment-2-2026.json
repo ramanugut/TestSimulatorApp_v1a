@@ -1,0 +1,142 @@
+{
+  "testName": "ICT2642 · 2026 Assessment 2 (verified written assessment · 50 marks)",
+  "module": "ICT2642",
+  "assessment": "Assessment 2 2026",
+  "totalMarks": 50,
+  "originalQuestionCount": 8,
+  "preserveOrder": true,
+  "marking": "ai-assisted-written",
+  "sourceType": "Verified 2026 written assignment questions with reference answers for study and AI-assisted practice marking",
+  "sourceReference": "https://www.studocu.com/en-za/document/university-of-south-africa/business-informatics-iib/tl103-assignment-02-2026-business-informatics-2b-ict2642-guide/164435705",
+  "sourceLimitations": "Question wording and marks follow the 2026 tutorial letter. Reference answers are study answers and should be treated as marking guidance rather than an official memorandum.",
+  "questions": [
+    {
+      "number": "1.1",
+      "marks": 5,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "text": "Briefly explain why corporations are interested in using Unix or Linux as the operating system for their corporate servers.",
+      "correctAnswer": "Corporations are interested in Unix or Linux because they can be less expensive than mainframe operating systems, they are scalable for growing workloads, they are reliable and resilient for server use, they run on many processor and hardware platforms, and they have strong support from major technology vendors.",
+      "aiRubric": [
+        "Mentions lower cost or cost effectiveness.",
+        "Explains scalability for growing corporate workloads.",
+        "Explains reliability, stability or resilience.",
+        "Mentions support for many processor/hardware platforms.",
+        "Mentions broad enterprise/vendor support."
+      ],
+      "explanation": "Unix and Linux are attractive server platforms because organisations need systems that are dependable, can grow with demand, can run on suitable hardware and do not create unnecessary platform cost. Their wide enterprise support also reduces the risk of using them in corporate environments.\n\nStudent note: For 5 marks, give separate reasons rather than repeating the same idea using different words."
+    },
+    {
+      "number": "1.2",
+      "marks": 12,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "text": "Identify and briefly describe six current trends in contemporary software platforms.",
+      "correctAnswer": "1. Linux and open-source software: source code can be inspected, modified and redistributed, and Linux is widely used on servers.\n2. Software for the Web: technologies such as Java, JavaScript, HTML and HTML5 support web applications.\n3. Web services and Service-Oriented Architecture (SOA): standard web technologies let different applications exchange data and reusable services integrate systems.\n4. Software outsourcing: organisations use outside vendors to develop, customise or maintain software.\n5. Cloud services: Software as a Service (SaaS) allows software to be used over the internet rather than installed and maintained locally.\n6. Mashups and apps: mashups combine data/services from multiple sources, while apps provide focused software for internet-connected and mobile devices.",
+      "aiRubric": [
+        "Identifies and describes Linux/open-source software.",
+        "Identifies and describes web software/technologies.",
+        "Identifies and describes web services and/or SOA.",
+        "Identifies and describes software outsourcing.",
+        "Identifies and describes cloud services/SaaS.",
+        "Identifies and describes mashups and apps."
+      ],
+      "explanation": "The question needs both identification and a short description. Naming six trends without explaining what they mean will not fully answer the question.\n\nStudent note: A useful exam method is: name the trend first, then add one sentence explaining what it changes or enables."
+    },
+    {
+      "number": "2.1",
+      "marks": 6,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "text": "Describe the data hierarchy.",
+      "correctAnswer": "The data hierarchy moves from the smallest data unit to larger organised structures: bit (0 or 1), byte (a group of bits representing a character or value), field (one item or attribute such as a surname), record (related fields describing one entity), file (a collection of related records), and database (an organised collection of related files/data that can be stored, accessed and managed).",
+      "aiRubric": [
+        "Defines bit.",
+        "Defines byte.",
+        "Defines field.",
+        "Defines record.",
+        "Defines file.",
+        "Defines database and keeps the hierarchy in a sensible order."
+      ],
+      "explanation": "The hierarchy shows how small pieces of data are combined into progressively larger structures: bit → byte → field → record → file → database.\n\nStudent note: Memorise the order, but also know one plain-English example for each level so you can explain it instead of only listing the terms."
+    },
+    {
+      "number": "2.2",
+      "marks": 3,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "text": "What makes data mining an important business tool?",
+      "correctAnswer": "Data mining is important because it finds hidden patterns and relationships in large data sets, helps managers predict behaviour and trends, and turns stored data into useful knowledge for better business decisions.",
+      "aiRubric": [
+        "Hidden patterns/relationships in large data sets.",
+        "Prediction of future behaviour or trends.",
+        "Better decisions or useful business knowledge."
+      ],
+      "explanation": "Data mining goes beyond simply storing or displaying data. It looks for patterns that can help a business understand what is happening and what may happen next.\n\nStudent note: Link data mining to action: discover patterns, predict, then make better decisions."
+    },
+    {
+      "number": "2.3",
+      "marks": 4,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "text": "What types of information does data mining produce?",
+      "correctAnswer": "Data mining can produce associations (items/events linked together), sequences (patterns occurring over time), classifications (assigning cases to known categories), and clusters (discovering natural groups when categories are not already defined).",
+      "aiRubric": [
+        "Associations.",
+        "Sequences.",
+        "Classification.",
+        "Clustering."
+      ],
+      "explanation": "The four common outputs describe different kinds of patterns: things linked together, things that happen in order, known categories, and naturally discovered groups.\n\nStudent note: Classification uses predefined categories; clustering discovers groups without starting with predefined categories."
+    },
+    {
+      "number": "2.4",
+      "marks": 8,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "text": "What are the differences between data mining and OLAP?",
+      "correctAnswer": "Data mining searches large data sets for hidden or previously unknown patterns and relationships, can help predict future trends, and often uses statistical or AI techniques. OLAP (Online Analytical Processing) lets users interactively analyse and summarise existing data from multiple dimensions. With OLAP the user normally decides what dimensions or measures to examine; data mining can discover relationships the user did not know to ask about.",
+      "aiRubric": [
+        "Data mining discovers hidden/unknown patterns.",
+        "Data mining can support prediction.",
+        "Data mining may use statistical/AI techniques.",
+        "Data mining can find relationships not explicitly requested.",
+        "OLAP analyses existing data.",
+        "OLAP summarises/aggregates data.",
+        "OLAP supports multidimensional analysis.",
+        "OLAP is driven by the user's chosen questions/dimensions."
+      ],
+      "explanation": "Both tools analyse data, but they answer different kinds of questions. OLAP helps a user explore and summarise known dimensions; data mining is designed to uncover patterns and relationships that may not already be obvious.\n\nStudent note: A simple memory trick is OLAP = explore what you ask for; data mining = discover patterns you may not have known to ask for."
+    },
+    {
+      "number": "3.1",
+      "marks": 8,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "text": "What business processes are supported by enterprise systems? Give specific examples.",
+      "correctAnswer": "Enterprise systems support processes across the main business functions. Sales and marketing includes order processing, quotations, pricing, billing and sales planning. Manufacturing and production includes procurement, inventory management, production planning, scheduling and materials purchasing. Finance and accounting includes the general ledger, accounts payable/receivable, budgeting and financial reporting. Human resources includes recruitment, payroll, training, employee records and benefits administration.",
+      "aiRubric": [
+        "Sales and marketing plus a relevant process example.",
+        "Manufacturing/production plus a relevant process example.",
+        "Finance/accounting plus a relevant process example.",
+        "Human resources plus a relevant process example."
+      ],
+      "explanation": "Enterprise systems integrate work across major business functions instead of keeping each department's information isolated. Good answers name the function and then give concrete processes the system supports.\n\nStudent note: Do not only write 'sales, HR, finance, manufacturing'. The question asks for examples, so attach real processes such as payroll, billing, inventory or production scheduling."
+    },
+    {
+      "number": "3.2",
+      "marks": 4,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "text": "Discuss the difference between operational CRM and analytical CRM.",
+      "correctAnswer": "Operational CRM supports day-to-day customer-facing activities such as sales, marketing and customer service and captures information during those interactions. Analytical CRM analyses the customer data collected by operational systems and other sources to identify behaviour, buying patterns and insights that support strategic decisions and improved customer relationships.",
+      "aiRubric": [
+        "Operational CRM supports day-to-day/customer-facing activities.",
+        "Operational CRM includes sales, marketing and/or customer service and captures interaction data.",
+        "Analytical CRM analyses customer data.",
+        "Analytical CRM supports patterns/insights/strategic decision-making."
+      ],
+      "explanation": "Operational CRM is about running customer interactions; analytical CRM is about learning from the data created by those interactions.\n\nStudent note: Think operational = doing the customer work now; analytical = studying customer data to improve future decisions."
+    }
+  ]
+}
