@@ -6,8 +6,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Test Simulator | Study &amp; Practise</title>
-    <link rel="stylesheet" href="styles.css?v=20260928-vivid-dark-accents-v8">
-    <link rel="stylesheet" href="paper-picker.css?v=20260929-keyboard-safe1">
+    <link rel="stylesheet" href="styles.css?v=20260930-nav-icons1">
+    <link rel="stylesheet" href="paper-picker.css?v=20260930-nav-icons1">
     <link
         rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
@@ -20,6 +20,28 @@
     <header id="floating-header" class="app-header">
         <div class="header-top">
             <div class="logo" aria-label="Test Simulator"><span class="logo-mark" aria-hidden="true">TS</span><span class="logo-name">Test Simulator</span></div>
+            <button
+                id="open-paper-picker-quick"
+                class="header-paper-shortcut"
+                type="button"
+                aria-haspopup="dialog"
+                aria-controls="paper-picker"
+                aria-expanded="false"
+                aria-label="Choose module and paper"
+                title="Choose module and paper"
+            >
+                <svg class="header-paper-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5v-15Z"/>
+                    <path d="M4 20.5A2.5 2.5 0 0 1 6.5 18H20"/>
+                </svg>
+                <span class="header-paper-copy">
+                    <strong id="mobile-paper-module">Choose module</strong>
+                    <span id="mobile-paper-title">Choose paper</span>
+                </span>
+                <svg class="header-paper-chevron" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="m7 10 5 5 5-5"/>
+                </svg>
+            </button>
             <div class="mobile-timer" aria-label="Time remaining">⏱️ <span id="mobile-time">00:00</span></div>
             <div class="header-top-actions">
                 <button
@@ -31,9 +53,10 @@
                     aria-expanded="false"
                     aria-controls="options-modal"
                 >
-                <span aria-hidden="true" class="icon icon-tools">
+                <span aria-hidden="true" class="icon icon-gear">
                     <svg viewBox="0 0 24 24" role="presentation" aria-hidden="true">
-                        <path d="M4 7h6m4 0h6M12 4v6M4 17h3m4 0h9M9 14v6"/>
+                        <path d="M12 15.25A3.25 3.25 0 1 0 12 8.75a3.25 3.25 0 0 0 0 6.5Z"/>
+                        <path d="M19.4 13.5a7.8 7.8 0 0 0 .05-3l1.65-1.29-1.8-3.12-1.95.79a8.3 8.3 0 0 0-2.6-1.5L14.45 3h-3.6l-.3 2.38a8.3 8.3 0 0 0-2.6 1.5L6 6.09 4.2 9.21l1.65 1.29a7.8 7.8 0 0 0 .05 3l-1.7 1.3L6 17.91l2-.8a8.2 8.2 0 0 0 2.55 1.48l.3 2.41h3.6l.3-2.41a8.2 8.2 0 0 0 2.55-1.48l2 .8 1.8-3.12-1.7-1.29Z"/>
                     </svg>
                 </span>
                 <span class="options-label">Settings</span>
@@ -60,12 +83,16 @@
                     <label class="input-label sr-only" for="test-select">Current test (app data)</label>
                     <select id="test-select" class="paper-native-select" tabindex="-1" aria-hidden="true"></select>
                     <button id="open-paper-picker" class="paper-picker-trigger" type="button"
-                        aria-haspopup="dialog" aria-controls="paper-picker" aria-label="Choose a paper">
+                        aria-haspopup="dialog" aria-controls="paper-picker" aria-label="Choose module and paper">
+                        <svg class="paper-trigger-leading-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5v-15Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                            <path d="M4 20.5A2.5 2.5 0 0 1 6.5 18H20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                        </svg>
                         <span class="paper-trigger-copy">
-                            <strong id="current-paper-module">Choose a paper</strong>
-                            <span id="current-paper-title">Select an assessment or exam</span>
+                            <strong id="current-paper-module">Choose module</strong>
+                            <span id="current-paper-title">Choose assessment or exam</span>
                         </span>
-                        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <svg class="paper-trigger-chevron" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                             <path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </button>
@@ -166,7 +193,11 @@
                     aria-controls="mode-panel-test"
                     data-mode="test"
                 >
-                    Test Mode
+                    <svg class="mode-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <path d="M9 5h6M9 3h6v4H9zM6 5h2m8 0h2a2 2 0 0 1 2 2v12H4V7a2 2 0 0 1 2-2Z"/>
+                        <path d="m8 13 2 2 5-5"/>
+                    </svg>
+                    <span>Test</span>
                 </button>
                 <button
                     id="mode-tab-study"
@@ -177,7 +208,11 @@
                     aria-controls="mode-panel-test"
                     data-mode="study"
                 >
-                    Study Mode
+                    <svg class="mode-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H11v16H6.5A2.5 2.5 0 0 0 4 21.5v-16Z"/>
+                        <path d="M20 5.5A2.5 2.5 0 0 0 17.5 3H13v16h4.5a2.5 2.5 0 0 1 2.5 2.5v-16Z"/>
+                    </svg>
+                    <span>Study</span>
                 </button>
                 <button
                     id="mode-tab-flashcards"
@@ -188,7 +223,11 @@
                     aria-controls="mode-panel-flashcards"
                     data-mode="flashcards"
                 >
-                    Flashcards
+                    <svg class="mode-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <rect x="5" y="5" width="14" height="14" rx="2"/>
+                        <path d="M8 9h8M8 13h5M3 9V5a2 2 0 0 1 2-2h10"/>
+                    </svg>
+                    <span>Flashcards</span>
                 </button>
             </section>
 
@@ -441,7 +480,7 @@
     <script src="answer-workspace.js?v=20260929-workspaces3"></script>
     <script src="revision-insights.js?v=20260929-ai-optin1"></script>
     <script src="revision-controller.js?v=20260929-backend-error2"></script>
-    <script src="paper-picker.js?v=20260929-keyboard-safe1"></script>
+    <script src="paper-picker.js?v=20260930-nav-icons1"></script>
     <script src="script.js?v=20260929-ai-optin2"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
 </body>
