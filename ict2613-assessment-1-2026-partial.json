@@ -1,0 +1,259 @@
+{
+  "testName": "ICT2613 · 2026 Assessment 1 (verified partial · 18 questions)",
+  "module": "ICT2613",
+  "assessment": "Assessment 1 2026",
+  "totalMarks": 23,
+  "originalTotalMarks": 41,
+  "originalQuestionCount": 26,
+  "missingQuestionNumbers": [
+    5,
+    6,
+    7,
+    8,
+    16,
+    17,
+    19,
+    26
+  ],
+  "preserveOrder": true,
+  "marking": "automatic-multiple-choice",
+  "sourceType": "Verified questions recovered from ICT2613/102/0/2026; incomplete questions were not guessed",
+  "sourceReference": "https://www.studocu.com/en-za/document/university-of-south-africa/internet-programing/tutorial-letter-for-ict2613-internet-programming-year-module-important-info/171030055",
+  "sourceLimitations": "The public preview omits or truncates Questions 5-8, 16-17 and 26. Question 19 is visible but its listed choices do not cleanly describe the PDO constructor arguments, so it is withheld rather than guessed.",
+  "questions": [
+    {
+      "number": "1",
+      "marks": 1,
+      "text": "When the web server receives an HTTP request for a PHP page, the web server calls the _____________.",
+      "options": [
+        "database server",
+        "web browser",
+        "static web page",
+        "PHP interpreter"
+      ],
+      "correctAnswer": "PHP interpreter",
+      "explanation": "PHP is server-side code. When a PHP page is requested, the web server passes the PHP code to the PHP interpreter so it can execute the script and produce output, usually HTML, for the browser.\n\nStudent note: Apache is the web server; PHP is the interpreter that executes the PHP script. Keep those two roles separate."
+    },
+    {
+      "number": "2",
+      "marks": 1,
+      "text": "Which of the following software is a web browser?",
+      "options": [
+        "Google Chrome",
+        "phpMyAdmin",
+        "Microsoft Outlook",
+        "Apache"
+      ],
+      "correctAnswer": "Google Chrome",
+      "explanation": "Google Chrome is a web browser used by a client to request and display web pages. phpMyAdmin is a database administration tool, Outlook is an email application, and Apache is a web server.\n\nStudent note: A browser runs on the client side; a web server such as Apache responds to browser requests."
+    },
+    {
+      "number": "3",
+      "marks": 1,
+      "text": "The first part of a URL is called the ___________.",
+      "options": [
+        "domain identifier",
+        "directory",
+        "filename",
+        "protocol"
+      ],
+      "correctAnswer": "protocol",
+      "explanation": "A URL normally starts with the protocol or scheme, such as http:// or https://. It tells the browser how to communicate with the resource.\n\nStudent note: In https://example.com/page.php, https is the protocol, example.com is the domain, and page.php is the file or resource path."
+    },
+    {
+      "number": "4",
+      "marks": 1,
+      "text": "Which of the following is not a database server that can be used for dynamic web pages?",
+      "options": [
+        "MySQL",
+        "SQL Server",
+        "Python",
+        "Oracle"
+      ],
+      "correctAnswer": "Python",
+      "explanation": "MySQL, Microsoft SQL Server and Oracle are database management systems. Python is a programming language, not a database server.\n\nStudent note: A programming language can connect to a database, but that does not make the language itself a database server."
+    },
+    {
+      "number": "9",
+      "marks": 2,
+      "text": "What is the output produced by the following code?\n\n```php\n$num_1 = 10;\n$num_2 = \"10\";\n$result_1 = var_export(($num_1 == 10), true);\n$result_2 = var_export(($num_2 == 10), true);\n$result_3 = var_export(($num_1 === \"10\"), true);\necho \"$result_1, $result_2, $result_3\";\n```",
+      "options": [
+        "1, 0, 1",
+        "1,1,",
+        "true, true, false",
+        "true, false, false"
+      ],
+      "correctAnswer": "true, true, false",
+      "explanation": "The == operator compares values after PHP type juggling, so 10 == 10 and \"10\" == 10 are both true. The === operator compares both value and type, so integer 10 is not identical to string \"10\". var_export(..., true) returns the words true or false.\n\nStudent note: == means equal value; === means equal value AND equal data type."
+    },
+    {
+      "number": "10",
+      "marks": 2,
+      "text": "Which one of the following statements stores 0 in $result after execution?",
+      "options": [
+        "$result = 6 + 2 * 2;",
+        "$result = 2 + 2 + 1 * 2;",
+        "$result = 10 % 2 * 2;",
+        "$result = 11 - 1 / 2;"
+      ],
+      "correctAnswer": "$result = 10 % 2 * 2;",
+      "explanation": "The modulus operator % gives the remainder. 10 % 2 is 0 because 10 divides exactly by 2. Then 0 * 2 remains 0.\n\nStudent note: Remember normal operator precedence: multiplication, division and modulus are evaluated before addition and subtraction."
+    },
+    {
+      "number": "11",
+      "marks": 2,
+      "text": "Study the SQL query below:\n\n```sql\nSELECT vendorName, invoiceNumber, invoiceDate, invoiceTotal\nFROM vendors INNER JOIN invoices\nON vendors = invoices\nWHERE invoiceTotal >= 500\nORDER BY vendorName\n```\n\nIf vendorName contains string data and invoiceTotal contains decimal values, how will the result set be ordered?",
+      "options": [
+        "alphabetically starting with A",
+        "alphabetically starting with Z",
+        "numerically starting with 500",
+        "numerically starting with 0"
+      ],
+      "correctAnswer": "alphabetically starting with A",
+      "explanation": "ORDER BY vendorName sorts by the vendorName column. Because no DESC keyword is supplied, SQL uses ascending order by default, so text values are arranged alphabetically from A onward.\n\nStudent note: ASC is the default. DESC must be written when you want the reverse order."
+    },
+    {
+      "number": "12",
+      "marks": 1,
+      "text": "When you code a DELETE statement, you usually need to include ___________.",
+      "options": [
+        "a SORT BY clause",
+        "a WHERE clause",
+        "an inner join",
+        "an outer join"
+      ],
+      "correctAnswer": "a WHERE clause",
+      "explanation": "A WHERE clause limits which rows are deleted. Without it, a DELETE statement can remove every row in the table.\n\nStudent note: Before running DELETE or UPDATE, always check the WHERE condition carefully because it controls which records are affected."
+    },
+    {
+      "number": "13",
+      "marks": 2,
+      "text": "Which of the following is incorrect regarding relational databases?",
+      "options": [
+        "A database can have multiple tables",
+        "A database table can have many primary keys",
+        "A database table can have many foreign keys",
+        "A database table can have many rows and columns"
+      ],
+      "correctAnswer": "A database table can have many primary keys",
+      "explanation": "A table has one primary-key constraint, although that primary key may be made from more than one column. A table may contain many foreign keys and many rows and columns.\n\nStudent note: Do not confuse a composite primary key with 'many primary keys'. A composite key is still one primary key made from several columns."
+    },
+    {
+      "number": "14",
+      "marks": 1,
+      "text": "Which is a data type used for a column in a database table?",
+      "options": [
+        "PRIMARY",
+        "FOREIGN",
+        "INT",
+        "INDEX"
+      ],
+      "correctAnswer": "INT",
+      "explanation": "INT is a database data type used for whole numbers. PRIMARY, FOREIGN and INDEX describe keys or indexing concepts rather than column data types.\n\nStudent note: Common SQL data types include INT, VARCHAR, DATE and DECIMAL."
+    },
+    {
+      "number": "15",
+      "marks": 1,
+      "text": "Which type of SQL statement returns a result set?",
+      "options": [
+        "UPDATE",
+        "CREATE",
+        "INSERT",
+        "SELECT"
+      ],
+      "correctAnswer": "SELECT",
+      "explanation": "SELECT retrieves rows and columns from a database and returns them as a result set. INSERT adds data, UPDATE changes data, and CREATE defines database objects.\n\nStudent note: Think SELECT = read, INSERT = add, UPDATE = change, DELETE = remove."
+    },
+    {
+      "number": "18",
+      "marks": 2,
+      "text": "Which one of the following is incorrect about PDO?",
+      "options": [
+        "PDO facilitates database access in PHP",
+        "Creation of a PDO object can result in errors that can be handled using a try/catch statement",
+        "One can specify the name of the database table when creating a PDO object",
+        "A PDO object can be created using three arguments"
+      ],
+      "correctAnswer": "One can specify the name of the database table when creating a PDO object",
+      "explanation": "A PDO connection is created for a database connection, normally using a DSN plus username and password. You do not choose a particular table in the PDO constructor; tables are referenced later in SQL statements.\n\nStudent note: PDO connects PHP to the database. SQL statements decide which table and rows you work with."
+    },
+    {
+      "number": "20",
+      "marks": 1,
+      "text": "In the catch block of a try/catch statement for handling PDO exceptions, you can get a message that describes the exception by using the getMessage() method of the _____.",
+      "options": [
+        "PDO object",
+        "PDOStatement object",
+        "PHPException object",
+        "PDOException object"
+      ],
+      "correctAnswer": "PDOException object",
+      "explanation": "Database connection or PDO errors can be represented by a PDOException. Calling getMessage() on that exception object returns the error message.\n\nStudent note: The catch variable represents the exception that was thrown; getMessage() is called on that exception object."
+    },
+    {
+      "number": "21",
+      "marks": 1,
+      "text": "What does the acronym MVC stand for?",
+      "options": [
+        "Mixed-Vector-CPU",
+        "Most-Valuable-Computer programmer",
+        "Model-View-Controller",
+        "Must-Verify-Constraints"
+      ],
+      "correctAnswer": "Model-View-Controller",
+      "explanation": "MVC stands for Model-View-Controller. It separates data and business logic (Model), the user interface (View), and request coordination (Controller).\n\nStudent note: Learn the responsibility of each part, not only the three words."
+    },
+    {
+      "number": "22",
+      "marks": 1,
+      "text": "Which component of MVC contains code to access database in a web application?",
+      "options": [
+        "Constraints",
+        "Controller",
+        "View",
+        "Model"
+      ],
+      "correctAnswer": "Model",
+      "explanation": "The Model represents application data and business rules and normally contains or calls the data-access logic. The View presents information and the Controller handles requests and coordinates work.\n\nStudent note: Database work belongs with the model/data layer, not directly inside the page used to display the interface."
+    },
+    {
+      "number": "23",
+      "marks": 1,
+      "text": "When you use the MVC pattern, the ________________ consists of the HTML and PHP files that make up the user interface of the application.",
+      "options": [
+        "Controller",
+        "View",
+        "Model",
+        "Constraints"
+      ],
+      "correctAnswer": "View",
+      "explanation": "The View is the presentation part of MVC. It contains the interface that the user sees and interacts with, often built with HTML and presentation-focused PHP.\n\nStudent note: View = what the user sees; Model = data/business logic; Controller = request coordinator."
+    },
+    {
+      "number": "24",
+      "marks": 1,
+      "text": "When you use the MVC pattern, the controller gets the HTTP requests and then directs the use of the files that represent ____________.",
+      "options": [
+        "the database and the view",
+        "the model, the view and the database",
+        "the model and the view",
+        "the model, the view and the user interface"
+      ],
+      "correctAnswer": "the model and the view",
+      "explanation": "The Controller receives the request, calls the appropriate Model logic, and selects or coordinates the View used to return a response.\n\nStudent note: In MVC the controller coordinates the model and view; it should not replace them."
+    },
+    {
+      "number": "25",
+      "marks": 1,
+      "text": "When you use the MVC pattern, _________________.",
+      "options": [
+        "the application runs fast",
+        "all the PHP code is in the controller",
+        "the pattern is used in every PHP file of the application",
+        "it is easier to test and debug the application"
+      ],
+      "correctAnswer": "it is easier to test and debug the application",
+      "explanation": "MVC separates responsibilities, which makes parts of the application easier to understand, change, test and debug independently.\n\nStudent note: MVC improves structure and maintainability; it does not automatically guarantee faster execution."
+    }
+  ]
+}
