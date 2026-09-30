@@ -3,6 +3,39 @@
 document.addEventListener("DOMContentLoaded", function () {
   //************************ SECTION 1: INITIALIZATION ************************//
 
+  // Small, durable preferences are kept separate from an active test attempt.
+  // This means choosing a module/paper is remembered even when no timer is running.
+  const APP_PREFERENCES_KEY = "testSimulatorPreferences";
+
+  function readAppPreferences() {
+    try {
+      const saved = JSON.parse(localStorage.getItem(APP_PREFERENCES_KEY) || "{}");
+      return saved && typeof saved === "object" && !Array.isArray(saved) ? saved : {};
+    } catch (error) {
+      console.warn("Unable to read app preferences:", error);
+      return {};
+    }
+  }
+
+  let appPreferences = readAppPreferences();
+
+  function saveAppPreferences(changes = {}) {
+    appPreferences = {
+      ...appPreferences,
+      ...changes,
+      updatedAt: Date.now(),
+    };
+    try {
+      localStorage.setItem(APP_PREFERENCES_KEY, JSON.stringify(appPreferences));
+      window.dispatchEvent(new CustomEvent("test-simulator-preferences-changed", {
+        detail: { ...appPreferences },
+      }));
+    } catch (error) {
+      console.warn("Unable to save app preferences:", error);
+    }
+    return appPreferences;
+  }
+
   // Global variables
   let questions = [];
   let originalQuestions = [];
@@ -22,7 +55,10 @@ document.addEventListener("DOMContentLoaded", function () {
   let initialTimerSeconds = null;
   let bookmarkCycleIndex = 0;
   let lastMotivationIndex = null;
-  let currentMode = "test";
+  const savedMode = typeof appPreferences.mode === "string" ? appPreferences.mode : "";
+  let currentMode = ["test", "study", "flashcards", "book"].includes(savedMode)
+    ? savedMode
+    : "test";
   const studyVoiceAvailable = "speechSynthesis" in window &&
     typeof window.SpeechSynthesisUtterance === "function";
   let activeStudyVoice = null;
@@ -60,6 +96,31 @@ document.addEventListener("DOMContentLoaded", function () {
   const testSelect = document.getElementById("test-select");
   const studyModeToggle = document.getElementById("study-mode-toggle");
   const themeButtons = document.querySelectorAll(".theme-choice");
+
+  // Restore low-risk usability preferences. Paper-specific durations can still
+  // replace the timer value when a paper explicitly defines one.
+  if (timerInput && Number.isFinite(Number(appPreferences.timerMinutes))) {
+    timerInput.value = String(Math.max(0, Number(appPreferences.timerMinutes)));
+  }
+  if (passMarkInput && Number.isFinite(Number(appPreferences.passMark))) {
+    passMarkInput.value = String(Math.max(0, Math.min(100, Number(appPreferences.passMark))));
+  }
+  if (timerInput) {
+    timerInput.addEventListener("change", () => {
+      const value = Number(timerInput.value);
+      if (Number.isFinite(value) && value >= 0) {
+        saveAppPreferences({ timerMinutes: value });
+      }
+    });
+  }
+  if (passMarkInput) {
+    passMarkInput.addEventListener("change", () => {
+      const value = Number(passMarkInput.value);
+      if (Number.isFinite(value)) {
+        saveAppPreferences({ passMark: Math.max(0, Math.min(100, value)) });
+      }
+    });
+  }
   const paginationControls = document.getElementById("pagination-controls");
   const prevPageButton = document.getElementById("prev-page");
   const nextPageButton = document.getElementById("next-page");
@@ -1147,6 +1208,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     currentMode = mode;
+    saveAppPreferences({ mode });
 
     if (mode === "study") {
       if (studyModeToggle && !studyModeToggle.checked) {
@@ -3115,6 +3177,10 @@ const testFiles = [
     let firstTestLoaded = false;
     let savedProgressFile = null;
     let savedProgressData = null;
+    let savedPreferenceFile =
+      typeof appPreferences.lastSelectedPaper === "string"
+        ? appPreferences.lastSelectedPaper
+        : null;
 
     try {
       savedProgressData = JSON.parse(localStorage.getItem("testProgress"));
@@ -3138,6 +3204,12 @@ const testFiles = [
     if (!testFiles.includes(lastRegularTestValue)) {
       lastRegularTestValue = null;
     }
+    if (!testFiles.includes(savedPreferenceFile)) {
+      savedPreferenceFile = null;
+    }
+
+    // Active progress wins. Otherwise reopen the paper the student last chose.
+    const preferredFile = savedProgressFile || savedPreferenceFile;
 
     const fetchPromises = testFiles.map((filename) =>
       fetch(filename)
@@ -3165,9 +3237,9 @@ const testFiles = [
             questionCount,
           });
 
-          const shouldLoadThisFile = savedProgressFile
-            ? savedProgressFile !== CUSTOM_TEST_VALUE &&
-              filename === savedProgressFile
+          const shouldLoadThisFile = preferredFile
+            ? preferredFile !== CUSTOM_TEST_VALUE &&
+              filename === preferredFile
             : !firstTestLoaded;
 
           if (!firstTestLoaded && shouldLoadThisFile) {
@@ -3271,6 +3343,7 @@ const testFiles = [
     }
     if (filename !== CUSTOM_TEST_VALUE) {
       lastRegularTestValue = filename;
+      saveAppPreferences({ lastSelectedPaper: filename });
     }
 
     const initializeFromQuestions = (rawQuestions, preserveOrder = false) => {
