@@ -94,6 +94,30 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   // null = module overview; a code = papers in that module. Search is always global.
   const state = { module: null };
+  const preferencesKey = "testSimulatorPreferences";
+
+  function readPickerPreferences() {
+    try {
+      const saved = JSON.parse(localStorage.getItem(preferencesKey) || "{}");
+      return saved && typeof saved === "object" && !Array.isArray(saved) ? saved : {};
+    } catch (error) {
+      return {};
+    }
+  }
+
+  function rememberModule(code) {
+    if (!code || code === "MY UPLOADS") return;
+    try {
+      const saved = readPickerPreferences();
+      localStorage.setItem(preferencesKey, JSON.stringify({
+        ...saved,
+        lastSelectedModule: code,
+        updatedAt: Date.now(),
+      }));
+    } catch (error) {
+      // The picker still works when storage is blocked/private.
+    }
+  }
 
   // Android and iOS keyboards resize the *visual* viewport, not always the
   // CSS layout viewport. Follow that visible rectangle while the modal is open.
@@ -257,6 +281,7 @@ document.addEventListener("DOMContentLoaded", () => {
           return;
         }
       }
+      rememberModule(paper.module);
       dialog.close();
     });
     return button;
@@ -319,6 +344,7 @@ document.addEventListener("DOMContentLoaded", () => {
       button.append(text, action);
       button.addEventListener("click", () => {
         state.module = code;
+        rememberModule(code);
         search.value = ""; // Selecting a subject always shows its complete paper list.
         render();
         results.scrollTop = 0;
@@ -386,7 +412,14 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   function openPicker(event) {
     if (dialog.open) return;
-    state.module = null;
+    const allPapers = papers();
+    const currentPaper = allPapers.find(paper => paper.file === source.value);
+    const remembered = readPickerPreferences().lastSelectedModule;
+    state.module = currentPaper
+      ? currentPaper.module
+      : allPapers.some(paper => paper.module === remembered)
+        ? remembered
+        : null;
     search.value = "";
     updateTrigger();
     render();
