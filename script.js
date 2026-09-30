@@ -159,6 +159,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const progressTextElement = document.getElementById("progress-text");
   const headerElement = document.getElementById("floating-header");
   const headerToggleButton = document.getElementById("header-toggle");
+  const testControlsModal = document.getElementById("test-controls-modal");
+  const closeTestControlsButton = document.getElementById("close-test-controls");
   const revisionController = window.RevisionController
     ? window.RevisionController.create({
         setting: document.getElementById("ai-revision-enabled"),
@@ -732,6 +734,43 @@ document.addEventListener("DOMContentLoaded", function () {
     return defineTestModal && !defineTestModal.classList.contains("hidden");
   }
 
+  function isTestControlsModalOpen() {
+    return testControlsModal && !testControlsModal.classList.contains("hidden");
+  }
+
+  function syncModalViewport() {
+    const viewport = window.visualViewport;
+    const height = Math.max(240, Math.round(
+      viewport ? viewport.height : window.innerHeight
+    ));
+    const top = Math.max(0, Math.round(viewport ? viewport.offsetTop : 0));
+    document.documentElement.style.setProperty("--modal-visible-height", height + "px");
+    document.documentElement.style.setProperty("--modal-visible-top", top + "px");
+  }
+
+  function openTestControlsModal() {
+    if (!testControlsModal || isTestControlsModalOpen()) return;
+    closeOptionsModal();
+    closeDefineTestModal();
+    syncModalViewport();
+    testControlsModal.classList.remove("hidden");
+    testControlsModal.setAttribute("aria-hidden", "false");
+    showModalBackdrop();
+    syncHeaderToggleState();
+    if (closeTestControlsButton) closeTestControlsButton.focus({ preventScroll: true });
+  }
+
+  function closeTestControlsModal(restoreFocus = true) {
+    if (!testControlsModal || !isTestControlsModalOpen()) return;
+    testControlsModal.classList.add("hidden");
+    testControlsModal.setAttribute("aria-hidden", "true");
+    syncHeaderToggleState();
+    if (restoreFocus && headerToggleButton && testControlsModal.contains(document.activeElement)) {
+      headerToggleButton.focus({ preventScroll: true });
+    }
+    hideModalBackdropIfNoModal();
+  }
+
   function showModalBackdrop() {
     if (!modalBackdrop) {
       return;
@@ -745,7 +784,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!modalBackdrop) {
       return;
     }
-    if (!isOptionsModalOpen() && !isDefineTestModalOpen()) {
+    if (!isOptionsModalOpen() && !isDefineTestModalOpen() && !isTestControlsModalOpen()) {
       modalBackdrop.classList.add("hidden");
       modalBackdrop.setAttribute("aria-hidden", "true");
       document.body.classList.remove("modal-open");
@@ -762,6 +801,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     closeOptionsModal();
+    closeTestControlsModal(false);
+    syncModalViewport();
     defineTestModal.classList.remove("hidden");
     defineTestModal.setAttribute("aria-hidden", "false");
     showModalBackdrop();
@@ -811,6 +852,10 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     if (isOptionsModalOpen()) {
       closeOptionsModal();
+      return;
+    }
+    if (isTestControlsModalOpen()) {
+      closeTestControlsModal();
     }
   }
 
@@ -892,29 +937,11 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function syncHeaderToggleState() {
-    if (!headerElement || !headerToggleButton) {
-      return;
-    }
-
-    if (!isMobileViewport()) {
-      headerCollapsed = false;
-      headerElement.classList.remove("collapsed");
-      headerToggleButton.setAttribute("aria-expanded", "true");
-      headerToggleButton.setAttribute("aria-label", "Hide exam controls");
-      headerToggleButton.setAttribute("title", "Hide exam controls");
-      return;
-    }
-
-    headerElement.classList.toggle("collapsed", headerCollapsed);
-    const headerToggleLabel = headerCollapsed
-      ? "Show exam controls"
-      : "Hide exam controls";
-    headerToggleButton.setAttribute(
-      "aria-expanded",
-      headerCollapsed ? "false" : "true"
-    );
-    headerToggleButton.setAttribute("aria-label", headerToggleLabel);
-    headerToggleButton.setAttribute("title", headerToggleLabel);
+    if (!headerToggleButton) return;
+    const open = isTestControlsModalOpen();
+    headerToggleButton.setAttribute("aria-expanded", open ? "true" : "false");
+    headerToggleButton.setAttribute("aria-label", open ? "Close test controls" : "Open test controls");
+    headerToggleButton.setAttribute("title", "Test controls");
   }
 
   function updateModeButtons(activeMode) {
@@ -975,6 +1002,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     closeDefineTestModal();
+    closeTestControlsModal(false);
+    syncModalViewport();
     optionsModal.classList.remove("hidden");
     optionsModal.setAttribute("aria-hidden", "false");
     showModalBackdrop();
@@ -1060,20 +1089,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   function handleResponsiveState() {
-    const isMobile = isMobileViewport();
-
-    if (isMobile && !lastViewportIsMobile) {
-      headerCollapsed = true;
-      if (isOptionsModalOpen()) {
-        closeOptionsModal();
-      }
-    } else if (!isMobile && lastViewportIsMobile) {
-      headerCollapsed = false;
-    }
-
+    syncModalViewport();
     syncHeaderToggleState();
-
-    lastViewportIsMobile = isMobile;
+    lastViewportIsMobile = isMobileViewport();
   }
 
   function escapeHTML(value) {
@@ -2797,6 +2815,12 @@ document.addEventListener("DOMContentLoaded", function () {
     if (isOptionsModalOpen()) {
       event.preventDefault();
       closeOptionsModal();
+      return;
+    }
+
+    if (isTestControlsModalOpen()) {
+      event.preventDefault();
+      closeTestControlsModal();
     }
   });
 
@@ -2810,25 +2834,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (headerToggleButton) {
     headerToggleButton.addEventListener("click", () => {
-      if (!isMobileViewport()) {
-        return;
+      if (isTestControlsModalOpen()) {
+        closeTestControlsModal();
+      } else {
+        openTestControlsModal();
       }
-      headerCollapsed = !headerCollapsed;
-      syncHeaderToggleState();
     });
   }
 
-  const testSettingsMenu = document.getElementById("test-settings-menu");
-  if (testSettingsMenu) {
-    testSettingsMenu.addEventListener("click", (event) => {
-      if (event.target.closest("button")) testSettingsMenu.open = false;
-    });
-    document.addEventListener("click", (event) => {
-      if (!testSettingsMenu.contains(event.target)) testSettingsMenu.open = false;
-    });
+  if (closeTestControlsButton) {
+    closeTestControlsButton.addEventListener("click", () => closeTestControlsModal());
   }
 
   window.addEventListener("resize", handleResponsiveState);
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener("resize", syncModalViewport);
+    window.visualViewport.addEventListener("scroll", syncModalViewport);
+  }
 
   loadStreak();
   loadStats();
@@ -4742,10 +4764,7 @@ const testFiles = [
       }
       testInProgress = true;
       saveProgress();
-      if (isMobileViewport()) {
-        headerCollapsed = true;
-        syncHeaderToggleState();
-      }
+      closeTestControlsModal();
     });
   }
 
