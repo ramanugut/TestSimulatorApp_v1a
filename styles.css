@@ -4736,3 +4736,106 @@ body.modal-open {
         width: 100%;
     }
 }
+
+
+/* 2026-10-01: Study Mode Guess First.
+   Keep teaching content hidden until the student has genuinely attempted the question. */
+.study-guess-first-bar {
+  display: none;
+}
+body.study-mode-active .study-guess-first-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .9rem;
+  margin-bottom: .85rem;
+  padding: .72rem .85rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  background: var(--subtle-surface);
+}
+.study-guess-first-copy {
+  display: flex;
+  flex-direction: column;
+  gap: .15rem;
+  min-width: 0;
+}
+.study-guess-first-copy strong {
+  color: var(--text-color);
+  font-size: .88rem;
+}
+.study-guess-first-copy span {
+  color: var(--muted-text);
+  font-size: .76rem;
+  line-height: 1.35;
+}
+.study-guess-first-toggle {
+  flex: 0 0 auto;
+  min-width: 52px;
+  min-height: 34px;
+  padding: .3rem .65rem;
+  border: 1px solid var(--accent-color);
+  border-radius: 999px;
+  background: var(--accent-color);
+  color: #fff;
+  font: inherit;
+  font-size: .76rem;
+  font-weight: 750;
+  cursor: pointer;
+}
+.study-guess-first-toggle[aria-pressed="false"] {
+  border-color: var(--border-color);
+  background: var(--surface-color);
+  color: var(--muted-text);
+}
+.study-guess-gate {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  flex-wrap: wrap;
+  margin-top: .25rem;
+  padding: .75rem .85rem;
+  border: 1px dashed var(--border-color);
+  border-radius: var(--radius-md);
+  background: var(--subtle-surface);
+}
+.study-guess-check {
+  min-height: 42px;
+}
+.study-guess-status {
+  flex: 1 1 220px;
+  margin: 0;
+  color: var(--muted-text);
+  font-size: .8rem;
+  line-height: 1.4;
+}
+body.dark-mode .study-guess-first-bar,
+body.dark-mode .study-guess-gate {
+  background: var(--subtle-surface);
+  border-color: var(--border-color);
+}
+body.dark-mode .study-guess-first-toggle {
+  color: var(--accent-ink, #062017);
+}
+body.dark-mode .study-guess-first-toggle[aria-pressed="false"] {
+  color: var(--muted-text);
+}
+@media (max-width: 560px) {
+  body.study-mode-active .study-guess-first-bar {
+    align-items: flex-start;
+    padding: .65rem .7rem;
+  }
+  .study-guess-first-copy span {
+    font-size: .72rem;
+  }
+  .study-guess-gate {
+    align-items: stretch;
+    flex-direction: column;
+  }
+  .study-guess-check {
+    width: 100%;
+  }
+  .study-guess-status {
+    flex-basis: auto;
+  }
+}
