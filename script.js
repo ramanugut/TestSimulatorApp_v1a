@@ -234,6 +234,19 @@ document.addEventListener("DOMContentLoaded", function () {
   const closeTestControlsButton = document.getElementById("close-test-controls");
   const aiStudyToolsSetting = document.getElementById("ai-revision-enabled");
   const masteryModeSetting = document.getElementById("mastery-mode-enabled");
+  const AI_STUDY_SESSION_KEY = "testSimulatorAiStudyToolsEnabled";
+
+  // AI consent is session-only: keep it through refreshes in this tab, but do
+  // not put it in durable localStorage.
+  if (aiStudyToolsSetting) {
+    try {
+      aiStudyToolsSetting.checked =
+        sessionStorage.getItem(AI_STUDY_SESSION_KEY) === "true";
+    } catch (error) {
+      aiStudyToolsSetting.checked = false;
+    }
+  }
+
   const revisionController = window.RevisionController
     ? window.RevisionController.create({
         setting: aiStudyToolsSetting,
@@ -4211,6 +4224,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (aiStudyToolsSetting) {
     aiStudyToolsSetting.addEventListener("change", () => {
+      try {
+        if (aiStudyToolsSetting.checked) {
+          sessionStorage.setItem(AI_STUDY_SESSION_KEY, "true");
+        } else {
+          sessionStorage.removeItem(AI_STUDY_SESSION_KEY);
+        }
+      } catch (error) {
+        // AI still works for the current page when session storage is unavailable.
+      }
       // The AI buttons must disappear immediately when the session opt-in is off.
       renderQuestions();
     });
