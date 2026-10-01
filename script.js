@@ -330,18 +330,15 @@ document.addEventListener("DOMContentLoaded", function () {
       keyTerms.length ? "Key terms:\n- " + keyTerms.join("\n- ") : "",
     ].filter(Boolean).join("\n\n");
 
-    const baselineExplanation =
-      String(study.simple || question.explanation || correctAnswer || "").trim() ||
-      "I am studying this concept and need a clearer explanation.";
-
     return {
+      mode: "tutor",
       question:
         "AI tutor study task. Teach the underlying topic of this practice question in plain English. " +
-        "The text supplied as the student answer is only the explanation the learner has already seen; " +
-        "it is NOT an exam answer to score. In your feedback, give a clearer and deeper explanation, " +
-        "define important terms, explain why the reference answer works, show how to approach similar questions, " +
-        "and include a concrete example where possible. Original question: " + String(question.text || ""),
-      studentAnswer: baselineExplanation,
+        "Use the saved answer and study notes only as reference material. They were not written by the learner. " +
+        "Give a clearer and deeper explanation, define important terms, explain why the reference answer works, " +
+        "show how to approach similar questions, and include a concrete example where possible. " +
+        "Original question: " + String(question.text || ""),
+      studentAnswer: "Tutor request only; no learner exam answer is supplied.",
       modelAnswer: [correctAnswer, referenceNotes].filter(Boolean).join("\n\n"),
       referenceNotes,
       rubric: [
@@ -393,6 +390,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const source = buildAiTutorRequest(question);
     const requestBody = {
+      mode: "tutor",
       question: source.question,
       studentAnswer: source.studentAnswer,
       modelAnswer: source.modelAnswer,
@@ -608,6 +606,7 @@ document.addEventListener("DOMContentLoaded", function () {
     return {
       source,
       body: {
+        mode: "tutor",
         question: task,
         // This is existing reference explanation, never the student's real answer.
         studentAnswer: source.studentAnswer,
@@ -718,6 +717,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ].filter(Boolean).join("\n\n");
 
     const requestBody = {
+      mode: "tutor",
       question: [
         "AI TUTOR CHAT — this is a teaching conversation, NOT an exam answer to grade.",
         "Answer the learner's latest follow-up directly in plain English.",
