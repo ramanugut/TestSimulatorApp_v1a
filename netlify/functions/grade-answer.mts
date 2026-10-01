@@ -82,6 +82,8 @@ export default async (req: Request) => {
     return jsonResponse({ error: "Invalid JSON request." }, 400, origin);
   }
 
+  const requestMode = body.mode === "tutor" ? "tutor" : "grade";
+
   const rawDiagramImage = typeof body.diagramImage === "string"
     ? body.diagramImage.trim()
     : "";
@@ -118,18 +120,24 @@ export default async (req: Request) => {
     )
   );
 
-  if (!question || !studentAnswer || !modelAnswer) {
+  if (
+    !question ||
+    !modelAnswer ||
+    (requestMode === "grade" && !studentAnswer)
+  ) {
     return jsonResponse(
       {
         error:
-          "Question, student answer and reference answer are required for AI marking.",
+          requestMode === "tutor"
+            ? "Question and reference material are required for AI tutoring."
+            : "Question, student answer and reference answer are required for AI marking.",
       },
       400,
       origin
     );
   }
 
-  const systemPrompt = [
+  const markerSystemPrompt = [
     "You are a fair university study-practice marker for the subject named in the question and its reference notes. Mark diagrams, written answers, code and structured explanations against their specific rubric.",
     "CRITICAL SOURCE RULE: only the field named studentAnswer and any submitted diagram image are the learner's work.",
     "The fields referenceAnswer, markingRubric, and bookReference are reference material written for marking/study support. They are NOT statements made by the learner.",
@@ -152,34 +160,69 @@ export default async (req: Request) => {
     "Return JSON with score (0-100 number), verdict (correct, mostly_correct, partially_correct, incorrect), feedback, strengths (string array), missingPoints (string array), and bookAlignment (string).",
   ].join("\n");
 
+  const tutorSystemPrompt = [
+    "You are a patient university study tutor. This request is for teaching, NOT marking.",
+    "No learner exam answer is being graded in tutor mode.",
+    "The question, reference answer, rubric and study notes are teaching context only. They are NOT statements written by the learner.",
+    "Never say 'you correctly described', 'you mentioned', 'you identified', 'your explanation shows', or similar wording based on reference material.",
+    "Explain the concept in plain English, define important terms, and show how to approach similar questions.",
+    "Use feedback for the main teaching explanation.",
+    "Use strengths for useful foundations or rules from the reference material, but describe them as concepts or reference points, never as learner achievements.",
+    "Use missingPoints for key ideas the learner should still understand or remember.",
+    "Use bookAlignment for one short Student note, memory tip, or course-context reminder.",
+    "Do not discuss marks, scores or verdicts in the visible teaching text.",
+    "Return JSON with score, verdict, feedback, strengths, missingPoints, and bookAlignment using the required schema.",
+  ].join("\n");
+
+  const systemPrompt =
+    requestMode === "tutor" ? tutorSystemPrompt : markerSystemPrompt;
+
   const userPrompt = JSON.stringify(
-    {
-      question,
-      learnerSubmission: {
-        studentAnswer,
-        diagramProvided: Boolean(diagramImage),
-      },
-      referenceMaterialDoNotAttributeToLearner: {
-        referenceAnswer: modelAnswer,
-        markingRubric: rubric,
-        bookReference: {
-          chapter,
-          section,
-          notes: referenceNotes,
+    requestMode === "tutor"
+      ? {
+          tutorTask: question,
+          referenceMaterialDoNotAttributeToLearner: {
+            referenceAnswer: modelAnswer,
+            suggestedTeachingPoints: rubric,
+            bookReference: {
+              chapter,
+              section,
+              notes: referenceNotes,
+            },
+          },
+          tutoringInstruction:
+            "Teach from the reference material without treating any of it as learner-authored text. Put the main explanation in feedback, useful concept foundations in strengths, important follow-up ideas in missingPoints, and one Student note or memory tip in bookAlignment. Set score to 100 and verdict to correct because this is not a marking request.",
+        }
+      : {
+          question,
+          learnerSubmission: {
+            studentAnswer,
+            diagramProvided: Boolean(diagramImage),
+          },
+          referenceMaterialDoNotAttributeToLearner: {
+            referenceAnswer: modelAnswer,
+            markingRubric: rubric,
+            bookReference: {
+              chapter,
+              section,
+              notes: referenceNotes,
+            },
+          },
+          passThreshold: minimumScore,
+          diagramRequired,
+          markingInstruction:
+            "Score semantic accuracy and coverage from 0 to 100. A learner can earn full marks using different valid wording. Attribute strengths only to content in learnerSubmission. Treat all referenceMaterialDoNotAttributeToLearner content only as marking/study guidance.",
         },
-      },
-      passThreshold: minimumScore,
-      diagramRequired,
-      markingInstruction:
-        "Score semantic accuracy and coverage from 0 to 100. A learner can earn full marks using different valid wording. Attribute strengths only to content in learnerSubmission. Treat all referenceMaterialDoNotAttributeToLearner content only as marking/study guidance.",
-    },
     null,
     2
   );
 
   try {
-    const model = diagramImage ? "qwen/qwen3.8-27b" : "openai/gpt-oss-120b";
-    const userContent = diagramImage
+    const model =
+      requestMode === "grade" && diagramImage
+        ? "qwen/qwen3.8-27b"
+        : "openai/gpt-oss-120b";
+    const userContent = requestMode === "grade" && diagramImage
       ? [
           { type: "text", text: userPrompt },
           { type: "image_url", image_url: { url: diagramImage } },
@@ -195,13 +238,15 @@ export default async (req: Request) => {
         },
         body: JSON.stringify({
           model,
-          ...(diagramImage ? { max_completion_tokens: 1600 } : { reasoning_effort: "low" }),
+          ...(requestMode === "grade" && diagramImage
+            ? { max_completion_tokens: 1600 }
+            : { reasoning_effort: "low" }),
           temperature: 0,
           messages: [
             { role: "system", content: systemPrompt },
             { role: "user", content: userContent },
           ],
-          response_format: diagramImage ? { type: "json_object" } : {
+          response_format: requestMode === "grade" && diagramImage ? { type: "json_object" } : {
             type: "json_schema",
             json_schema: {
               name: "answer_grade",
@@ -273,6 +318,27 @@ export default async (req: Request) => {
     }
 
     const grade = JSON.parse(content);
+
+    if (requestMode === "tutor") {
+      return jsonResponse(
+        {
+          score: 100,
+          accepted: true,
+          verdict: "correct",
+          feedback: typeof grade.feedback === "string" ? grade.feedback : "",
+          strengths: Array.isArray(grade.strengths) ? grade.strengths.slice(0, 5) : [],
+          missingPoints: Array.isArray(grade.missingPoints)
+            ? grade.missingPoints.slice(0, 5)
+            : [],
+          bookAlignment:
+            typeof grade.bookAlignment === "string" ? grade.bookAlignment : "",
+          mode: "tutor",
+        },
+        200,
+        origin
+      );
+    }
+
     const withoutDrawing = diagramRequired && !diagramImage;
     const cap = withoutDrawing ? diagramNoDrawingCapPercent : 100;
     const score = Math.max(0, Math.min(cap, Number(grade.score) || 0));
