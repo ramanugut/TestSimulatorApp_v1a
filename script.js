@@ -229,6 +229,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const testControlsModal = document.getElementById("test-controls-modal");
   const closeTestControlsButton = document.getElementById("close-test-controls");
   const aiStudyToolsSetting = document.getElementById("ai-revision-enabled");
+  const masteryModeSetting = document.getElementById("mastery-mode-enabled");
   const revisionController = window.RevisionController
     ? window.RevisionController.create({
         setting: aiStudyToolsSetting,
@@ -246,6 +247,36 @@ document.addEventListener("DOMContentLoaded", function () {
   function aiTutorEnabled() {
     return Boolean(aiStudyToolsSetting && aiStudyToolsSetting.checked);
   }
+
+  function masteryModeEnabled() {
+    return Boolean(masteryModeSetting && masteryModeSetting.checked);
+  }
+
+  function syncMasteryModeUi() {
+    const enabled = masteryModeEnabled();
+    document.body.classList.toggle("mastery-mode-enabled", enabled);
+    if (resultReviewFailedButton) {
+      resultReviewFailedButton.textContent = enabled
+        ? "Retry Missed Questions"
+        : "Review Missed Questions";
+    }
+    if (window.MasteryEngine) {
+      window.MasteryEngine.setContext({
+        mode: currentMode,
+        testFile: currentTestFile,
+        enabled,
+      });
+    }
+  }
+
+  if (masteryModeSetting) {
+    masteryModeSetting.checked = appPreferences.masteryMode === true;
+    masteryModeSetting.addEventListener("change", () => {
+      saveAppPreferences({ masteryMode: masteryModeSetting.checked === true });
+      syncMasteryModeUi();
+    });
+  }
+  syncMasteryModeUi();
 
   function aiTutorKey(question, actualIndex) {
     return [
@@ -666,6 +697,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (resultReviewFailedButton) {
       resultReviewFailedButton.disabled = missedCount === 0;
+      resultReviewFailedButton.textContent = masteryModeEnabled()
+        ? "Retry Missed Questions"
+        : "Review Missed Questions";
+    }
+
+    if (masteryModeEnabled()) {
+      resultSummaryElement.textContent += missedCount > 0
+        ? " Mastery Mode: retry the missed questions until you can answer them correctly."
+        : " Mastery Mode: every question in this round is correct.";
     }
 
     if (typeof window !== "undefined" && typeof window.scrollTo === "function") {
@@ -1365,7 +1405,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     if (window.MasteryEngine) {
-      window.MasteryEngine.setContext({ mode: activeMode, testFile: currentTestFile });
+      window.MasteryEngine.setContext({ mode: activeMode, testFile: currentTestFile, enabled: masteryModeEnabled() });
     }
   }
 
@@ -3597,7 +3637,7 @@ const testFiles = [
     currentTestFile = filename;
     syncBookAvailability();
     if (window.MasteryEngine) {
-      window.MasteryEngine.setContext({ mode: currentMode, testFile: filename });
+      window.MasteryEngine.setContext({ mode: currentMode, testFile: filename, enabled: masteryModeEnabled() });
     }
     if (filename !== CUSTOM_TEST_VALUE) {
       lastRegularTestValue = filename;
@@ -5090,9 +5130,75 @@ const testFiles = [
     });
   }
 
+  function startMasteryRetry() {
+    if (!masteryModeEnabled() || !testSubmitted) {
+      return;
+    }
+
+    const missedQuestions = questions
+      .filter((question, index) => questionResults[index] !== "correct")
+      .map((question) => cloneQuestionData(question));
+
+    if (!missedQuestions.length) {
+      return;
+    }
+
+    const previousSession = isCustomSessionActive() ? currentCustomSession : null;
+    const selectedLabel =
+      testSelect?.selectedOptions?.[0]?.textContent || "Current paper";
+    const sourceFile = testFiles.includes(currentTestFile)
+      ? currentTestFile
+      : previousSession?.sources?.find((source) => testFiles.includes(source.file))?.file || "";
+
+    const sources = Array.isArray(previousSession?.sources) && previousSession.sources.length
+      ? previousSession.sources.map((source) => ({ ...source }))
+      : sourceFile
+        ? [{ file: sourceFile, name: selectedLabel, questionCount: questions.length }]
+        : [];
+
+    const retryMinutes = Math.max(5, Math.ceil(missedQuestions.length * 2));
+    const label =
+      "Mastery retry · " + missedQuestions.length + " missed question" +
+      (missedQuestions.length === 1 ? "" : "s");
+
+    currentCustomSession = {
+      id: "mastery-retry-" + Date.now(),
+      sources,
+      requestedCount: missedQuestions.length,
+      questionCount: missedQuestions.length,
+      totalAvailableQuestions: missedQuestions.length,
+      timerMinutes: retryMinutes,
+      sourceQuestions: cloneQuestionsData(missedQuestions),
+      activeQuestions: cloneQuestionsData(missedQuestions),
+      displayName: label,
+      masteryRetry: true,
+    };
+
+    ensureCustomTestOption(label);
+    if (testSelect) {
+      testSelect.value = CUSTOM_TEST_VALUE;
+      testSelect.dataset.previousValue = CUSTOM_TEST_VALUE;
+    }
+    if (timerInput) {
+      timerInput.value = String(retryMinutes);
+    }
+
+    clearSavedProgress();
+    loadQuestions(CUSTOM_TEST_VALUE, { questions: missedQuestions });
+    setMode("test");
+
+    if (typeof window.scrollTo === "function") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }
+
   if (resultReviewFailedButton) {
     resultReviewFailedButton.addEventListener("click", () => {
       if (!testSubmitted) {
+        return;
+      }
+      if (masteryModeEnabled()) {
+        startMasteryRetry();
         return;
       }
       setReviewMode("incorrect");
@@ -5212,6 +5318,21 @@ const testFiles = [
       });
 
       if (unansweredQuestions.length > 0) {
+        if (masteryModeEnabled()) {
+          const firstUnanswered = unansweredQuestions[0] - 1;
+          showAllQuestions = false;
+          currentPage = Math.floor(firstUnanswered / questionsPerPage) + 1;
+          renderQuestions();
+          updatePaginationControls();
+          closeTestControlsModal(false);
+          alert(
+            "Mastery Mode is on. Attempt every question before submitting. " +
+            "Question " + unansweredQuestions[0] + " is the first unanswered question."
+          );
+          scrollToQuestionsTop();
+          return;
+        }
+
         const proceed = confirm(
           `You have unanswered questions: ${unansweredQuestions.join(
             ", "
