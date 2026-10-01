@@ -7,6 +7,9 @@
   var activeModule = null;
   var progress = null;
   var currentTopic = null;
+  var currentChapter = null;
+  var useChapterMastery = false;
+  var currentBookTitle = "";
   var selectedNodes = {};
   var versions = {};
   var speaking = false;
@@ -45,9 +48,9 @@
   }
   function chapters() { return activeModule ? activeModule.chapters || [] : []; }
   function topics() {
-    return chapters().reduce(function (all, chapter) {
+    return chapters().reduce(function (all, chapter, chapterIndex) {
       return all.concat((chapter.topics || []).map(function (topic) {
-        return { chapter: chapter, topic: topic };
+        return { chapter: chapter, chapterIndex: chapterIndex, topic: topic };
       }));
     }, []);
   }
@@ -71,6 +74,23 @@
       });
       return all;
     }, []);
+  }
+  function chapterStatus(chapter) {
+    var chapterTopics = chapter && Array.isArray(chapter.topics) ? chapter.topics : [];
+    if (!chapterTopics.length) return "Not started";
+    var states = chapterTopics.map(status);
+    if (states.every(function (state) { return state === "Mastered"; })) return "Mastered";
+    if (states.some(function (state) { return state === "Practising"; })) return "Practising";
+    if (states.some(function (state) { return state === "Learning" || state === "Mastered"; })) return "Learning";
+    return "Not started";
+  }
+  function chapterProgress(chapter) {
+    var chapterTopics = chapter && Array.isArray(chapter.topics) ? chapter.topics : [];
+    var mastered = chapterTopics.filter(function (topic) { return status(topic) === "Mastered"; }).length;
+    return { mastered: mastered, total: chapterTopics.length };
+  }
+  function chapterDueCount(index) {
+    return dueExercises().filter(function (entry) { return entry.chapterIndex === index; }).length;
   }
   function stopNarration() {
     if (speaking && "speechSynthesis" in window) window.speechSynthesis.cancel();
@@ -115,28 +135,92 @@
       activeModule = match;
       progress = readProgress(match);
       currentTopic = null;
+      currentChapter = null;
       versions = {};
       selectedNodes = {};
     }
+
+    var nextChapterMode = context.bookAvailable === true;
+    if (useChapterMastery !== nextChapterMode) {
+      currentTopic = null;
+      currentChapter = null;
+    }
+    useChapterMastery = nextChapterMode;
+    currentBookTitle =
+      typeof context.bookTitle === "string" ? context.bookTitle.trim() : "";
+
     var name = document.getElementById("mastery-module-label");
     if (name) name.textContent = match.name;
+    var summaryTitle = document.getElementById("mastery-summary-title");
+    if (summaryTitle) summaryTitle.textContent = useChapterMastery ? "Chapter mastery" : "Topic mastery";
     if (panel.open) render();
   }
   function render() {
     if (!root || !activeModule) return;
     root.replaceChildren();
-    if (currentTopic && findTopic(currentTopic)) renderTopic(findTopic(currentTopic));
-    else renderHome();
+    if (currentTopic && findTopic(currentTopic)) {
+      renderTopic(findTopic(currentTopic));
+    } else if (
+      useChapterMastery &&
+      Number.isInteger(currentChapter) &&
+      chapters()[currentChapter]
+    ) {
+      renderChapter(currentChapter);
+    } else {
+      renderHome();
+    }
   }
   function renderHome() {
     var header = append(root, "div", "mastery-heading");
-    append(header, "h3", "", "Learn by topic");
-    append(header, "p", "", "Understand, practise, apply, then return for revision.");
+    append(header, "h3", "", useChapterMastery ? "Learn by chapter" : "Learn by topic");
+    append(
+      header,
+      "p",
+      "",
+      useChapterMastery
+        ? "Mastery follows the linked textbook chapter structure. Open a chapter, learn its topics, practise, then return for revision."
+        : "Understand, practise, apply, then return for revision."
+    );
+    if (useChapterMastery && currentBookTitle) {
+      append(header, "p", "mastery-book-context", "Book: " + currentBookTitle);
+    }
+
     var summary = append(root, "div", "mastery-overview");
+    var due = dueExercises();
+
+    if (useChapterMastery) {
+      var chapterList = chapters();
+      var masteredChapters = chapterList.filter(function (chapter) {
+        return chapterStatus(chapter) === "Mastered";
+      }).length;
+      append(summary, "strong", "", masteredChapters + " / " + chapterList.length + " chapters mastered");
+      append(summary, "span", "", due.length ? due.length + " review activities due" : "No reviews due now");
+      if (due.length) action(summary, "Review due", "open-topic", due[0].topic.id, "mastery-primary");
+
+      var grid = append(root, "div", "mastery-chapter-list");
+      chapterList.forEach(function (chapter, index) {
+        var button = action(grid, "", "open-chapter", index, "mastery-chapter-card");
+        var copy = append(button, "span", "mastery-chapter-card-copy");
+        append(copy, "strong", "", chapter.title);
+        var progressInfo = chapterProgress(chapter);
+        var dueCount = chapterDueCount(index);
+        append(
+          copy,
+          "span",
+          "mastery-chapter-progress",
+          progressInfo.mastered + " / " + progressInfo.total + " topics mastered" +
+            (dueCount ? " · " + dueCount + " review" + (dueCount === 1 ? "" : "s") + " due" : "")
+        );
+        var chapterState = chapterStatus(chapter);
+        var badge = append(button, "span", "mastery-status", chapterState);
+        badge.setAttribute("data-status", chapterState.toLowerCase().replace(/\s+/g, "-"));
+      });
+      return;
+    }
+
     var all = topics();
     var mastered = all.filter(function (x) { return status(x.topic) === "Mastered"; }).length;
     append(summary, "strong", "", mastered + " / " + all.length + " topics mastered");
-    var due = dueExercises();
     append(summary, "span", "", due.length ? due.length + " review activities due" : "No reviews due now");
     if (due.length) action(summary, "Review due", "open-topic", due[0].topic.id, "mastery-primary");
     chapters().forEach(function (chapter) {
@@ -149,10 +233,56 @@
       });
     });
   }
+
+  function renderChapter(index) {
+    var chapter = chapters()[index];
+    if (!chapter) {
+      currentChapter = null;
+      renderHome();
+      return;
+    }
+
+    var nav = append(root, "div", "mastery-topic-nav");
+    action(nav, "← All chapters", "home", null, "mastery-back");
+    if (currentBookTitle) append(nav, "span", "", currentBookTitle);
+
+    append(root, "h3", "mastery-topic-title", chapter.title);
+    var chapterState = chapterStatus(chapter);
+    var badge = append(root, "span", "mastery-status mastery-current-status", chapterState);
+    badge.setAttribute("data-status", chapterState.toLowerCase().replace(/\s+/g, "-"));
+
+    var progressInfo = chapterProgress(chapter);
+    var overview = append(root, "div", "mastery-overview mastery-chapter-overview");
+    append(overview, "strong", "", progressInfo.mastered + " / " + progressInfo.total + " topics mastered");
+    var dueCount = chapterDueCount(index);
+    append(
+      overview,
+      "span",
+      "",
+      dueCount
+        ? dueCount + " review activit" + (dueCount === 1 ? "y" : "ies") + " due in this chapter"
+        : "No reviews due in this chapter"
+    );
+
+    append(root, "p", "mastery-chapter-intro",
+      "Work through the topics below. The chapter is mastered when every topic has passed practice and a later review.");
+
+    var section = append(root, "section", "mastery-chapter mastery-chapter-topics");
+    (chapter.topics || []).forEach(function (topic) {
+      var button = action(section, topic.title, "open-topic", topic.id, "mastery-topic-link");
+      var topicState = status(topic);
+      var topicBadge = append(button, "span", "mastery-status", topicState);
+      topicBadge.setAttribute("data-status", topicState.toLowerCase().replace(/\s+/g, "-"));
+    });
+  }
   function renderTopic(entry) {
     var topic = entry.topic;
     var nav = append(root, "div", "mastery-topic-nav");
-    action(nav, "← All topics", "home", null, "mastery-back");
+    if (useChapterMastery) {
+      action(nav, "← Chapter", "open-chapter", entry.chapterIndex, "mastery-back");
+    } else {
+      action(nav, "← All topics", "home", null, "mastery-back");
+    }
     append(nav, "span", "", entry.chapter.title);
     append(root, "h3", "mastery-topic-title", topic.title);
     var badge = append(root, "span", "mastery-status mastery-current-status", status(topic));
@@ -361,8 +491,10 @@
   }
   function showTopic(id) {
     stopNarration();
-    if (!findTopic(id)) return;
+    var entry = findTopic(id);
+    if (!entry) return;
     currentTopic = id;
+    if (useChapterMastery) currentChapter = entry.chapterIndex;
     progress.visited[id] = true;
     saveProgress();
     selectedNodes = {};
@@ -374,7 +506,23 @@
     if (!control || !root.contains(control)) return;
     var operation = control.dataset.masteryAction;
     var value = control.dataset.value;
-    if (operation === "home") { stopNarration(); currentTopic = null; render(); return; }
+    if (operation === "home") {
+      stopNarration();
+      currentTopic = null;
+      currentChapter = null;
+      render();
+      return;
+    }
+    if (operation === "open-chapter") {
+      var chapterIndex = Number(value);
+      if (!Number.isInteger(chapterIndex) || !chapters()[chapterIndex]) return;
+      stopNarration();
+      currentTopic = null;
+      currentChapter = chapterIndex;
+      render();
+      panel.scrollIntoView({ behavior: "smooth", block: "start" });
+      return;
+    }
     if (operation === "open-topic") { showTopic(value); return; }
     if (operation === "narrate") {
       var found = findTopic(value);
