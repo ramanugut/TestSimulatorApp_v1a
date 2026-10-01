@@ -9,6 +9,14 @@ const styles = fs.readFileSync("styles.css", "utf8");
 assert.match(index, /AI study tools/, "Settings should expose the shared AI study opt-in");
 assert.match(index, /Teach me more/i, "Settings should describe the question tutor");
 assert.match(index, /contextual chat box/i, "Settings should describe the contextual tutor chat");
+assert.match(index, /stays enabled through refreshes in this tab/i,
+  "Settings should explain refresh-safe session consent");
+assert.match(script, /sessionStorage\.getItem\(AI_STUDY_SESSION_KEY\)/,
+  "AI opt-in should restore from sessionStorage");
+assert.match(script, /sessionStorage\.setItem\(AI_STUDY_SESSION_KEY, "true"\)/,
+  "AI opt-in should persist for the current tab session");
+assert.doesNotMatch(script, /saveAppPreferences\(\{\s*aiStudy/i,
+  "AI opt-in must not be saved as a durable local preference");
 assert.match(script, /function aiTutorEnabled\(\)/, "Tutor should have an explicit enabled check");
 assert.match(
   script,
@@ -67,4 +75,4 @@ assert.match(
   "Tutor chat should explain that actual test answers are not sent"
 );
 
-console.log("AI tutor checks passed: opt-in guard, interactive teaching paths, contextual chat, retrieval quiz and answer privacy.");
+console.log("AI tutor checks passed: session-persistent opt-in, interactive teaching paths, contextual chat, retrieval quiz and answer privacy.");
