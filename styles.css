@@ -5130,3 +5130,28 @@ body.dark-mode .study-guess-first-toggle[aria-pressed="false"] {
     flex-basis: auto;
   }
 }
+
+
+/* Question ordering controls and visible grouping. */
+.quick-item--question-order select {
+    width: 100%;
+    min-width: 0;
+}
+
+.question-order-note {
+    color: var(--muted-text);
+    font-size: 0.8rem;
+    line-height: 1.45;
+}
+
+.question-group-heading {
+    margin: 0.4rem 0 0;
+    padding: 0.6rem 0.8rem;
+    border-left: 4px solid var(--accent-color);
+    border-radius: var(--radius-sm);
+    background: var(--subtle-surface);
+    color: var(--text-color);
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+}
