@@ -2,16 +2,19 @@
    Uses the existing server-side Groq key; browser never sees credentials.
    The client sends only the selected question and its saved learning/reference notes.
    Student answers, identity and saved progress are never required or sent. */
-const ORIGINS=new Set([
-  "https://ramanugut.github.io",
-  "http://localhost:8888",
-  "http://127.0.0.1:8888"
-]);
+function allowedOrigins(){
+  return new Set([
+    "https://ramanugut.github.io",
+    "http://localhost:8888",
+    "http://127.0.0.1:8888"
+  ]);
+}
 function headers(origin:string){
+  const origins=allowedOrigins();
   return {
     "Content-Type":"application/json; charset=utf-8",
     "Cache-Control":"no-store",
-    ...(ORIGINS.has(origin)?{
+    ...(origins.has(origin)?{
       "Access-Control-Allow-Origin":origin,
       "Access-Control-Allow-Methods":"POST, OPTIONS",
       "Access-Control-Allow-Headers":"Content-Type",
@@ -39,11 +42,11 @@ type TutorLesson={
 export default async(req:Request)=>{
   const origin=req.headers.get("origin")||"";
   if(req.method==="OPTIONS"){
-    if(!ORIGINS.has(origin))return reply({error:"Origin not allowed."},403,origin);
+    if(!allowedOrigins().has(origin))return reply({error:"Origin not allowed."},403,origin);
     return new Response(null,{status:204,headers:headers(origin)});
   }
   if(req.method!=="POST")return reply({error:"Method not allowed."},405,origin);
-  if(origin&&!ORIGINS.has(origin))return reply({error:"Origin not allowed."},403,origin);
+  if(origin&&!allowedOrigins().has(origin))return reply({error:"Origin not allowed."},403,origin);
 
   const apiKey=Netlify.env.get("GROQ_API_KEY");
   if(!apiKey)return reply({error:"The AI tutor is not configured yet."},503,origin);
