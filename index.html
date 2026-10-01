@@ -480,6 +480,19 @@
                         <label class="input-label" for="pass-mark-input">Pass mark (%)</label>
                         <input type="number" id="pass-mark-input" value="50" min="0" max="100">
                     </div>
+                    <div class="quick-item quick-item--question-order">
+                        <label class="input-label" for="question-order-select">Question order</label>
+                        <select id="question-order-select" aria-describedby="question-order-note">
+                            <option value="auto">Default paper behaviour</option>
+                            <option value="random">Random each load / reset</option>
+                            <option value="paper">Original paper order</option>
+                            <option value="type">Group by question type</option>
+                            <option value="chapter">Group by chapter / topic</option>
+                        </select>
+                        <small id="question-order-note" class="question-order-note">
+                            Uses the paper's normal behaviour. Your choice is saved in this browser.
+                        </small>
+                    </div>
                     <div class="quick-item">
                         <span class="input-label">Import questions</span>
                         <label class="file-upload btn btn-secondary" for="upload-test-input">
@@ -528,7 +541,7 @@
     <script src="revision-insights.js?v=20260929-ai-optin1"></script>
     <script src="revision-controller.js?v=20261001-ai-session1"></script>
     <script src="paper-picker.js?v=20260930-persistence2"></script>
-    <script src="script.js?v=20261001-ai-source3"></script>
+    <script src="script.js?v=20261001-question-order1"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
 </body>
 </html>
