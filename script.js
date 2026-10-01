@@ -682,33 +682,64 @@ document.addEventListener("DOMContentLoaded", function () {
       throw new Error("The AI tutor chat is not connected yet.");
     }
 
+    const prompt = String(userMessage || "").trim().slice(0, 1800);
+    if (!prompt) throw new Error("Ask the tutor a question first.");
+
     const source = buildAiTutorRequest(question);
     const history = getAiTutorChatHistory(question, actualIndex);
-    const payload = {
-      mode: "chat",
-      module: source.module,
-      topic: source.topic,
-      question: String(question?.text || ""),
-      correctAnswer: source.correctAnswer,
-      explanation: source.explanation,
+    const recentConversation = history.slice(-8).map(turn =>
+      (turn.role === "assistant" ? "AI tutor: " : "Learner: ") + String(turn.content || "")
+    ).join("\n\n");
+
+    const contextNotes = [
+      source.explanation ? "Saved explanation: " + source.explanation : "",
+      source.steps?.length ? "Saved steps:\n- " + source.steps.join("\n- ") : "",
+      source.example ? "Saved example: " + source.example : "",
+      source.pitfall ? "Saved common mistake: " + source.pitfall : "",
+      source.remember ? "Saved memory note: " + source.remember : "",
+      Array.isArray(source.keyTerms) && source.keyTerms.length
+        ? "Saved key terms:\n- " + source.keyTerms
+            .map(entry => entry.term + ": " + entry.meaning).join("\n- ")
+        : "",
+      recentConversation ? "Recent tutor conversation:\n" + recentConversation : "",
+    ].filter(Boolean).join("\n\n");
+
+    const requestBody = {
+      question: [
+        "AI TUTOR CHAT — this is a teaching conversation, NOT an exam answer to grade.",
+        "Answer the learner's latest follow-up directly in plain English.",
+        "Use the current question and saved notes as context. If the learner asks a related broader question, " +
+          "you may use well-established subject knowledge, but do not pretend broader knowledge is exact textbook wording.",
+        "If the learner asks for a list to cram, give a short organised list and briefly explain each item.",
+        "If the learner asks to understand, explain the relationship between ideas and give a useful example.",
+        "Do not discuss marks, scores or verdicts.",
+        "Current module/topic: " + [source.module, source.topic].filter(Boolean).join(" — "),
+        "Original assessment question: " + String(question?.text || ""),
+        "Learner's latest question: " + prompt,
+      ].join("\n\n"),
+      // Required by the live grading endpoint. This is a fixed tutor instruction,
+      // never the learner's selected/written test answer.
+      studentAnswer: "Tutor chat request. Please answer the learner's question above.",
+      modelAnswer: source.correctAnswer || source.explanation ||
+        "Use the supplied topic context to teach the learner.",
+      referenceNotes: contextNotes,
+      rubric: [
+        "Treat this as tutoring, not marking.",
+        "Put the direct answer in feedback.",
+        "Use missingPoints for useful key ideas or list items that support the answer.",
+        "Use bookAlignment for one short Student note, memory tip, or course-context warning.",
+        "You may use standard subject knowledge for a related follow-up when the saved notes are too narrow.",
+        "Never invent exact textbook pages, lecturer requirements or official university wording.",
+      ],
       chapter: source.chapter,
       section: source.section,
-      steps: source.steps,
-      example: source.example,
-      pitfall: source.pitfall,
-      remember: source.remember,
-      keyTerms: source.keyTerms,
-      history: history.slice(-8).map(turn => ({
-        role: turn.role,
-        content: turn.content,
-      })),
-      userMessage: String(userMessage || "").trim().slice(0, 1800),
+      minimumScore: 0,
     };
 
     const response = await fetch(endpoint, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
+      body: JSON.stringify(requestBody),
     });
 
     let body = null;
@@ -725,27 +756,39 @@ document.addEventListener("DOMContentLoaded", function () {
       );
     }
 
-    const chat = body?.chat;
-    if (
-      !chat ||
-      typeof chat.answer !== "string" ||
-      !chat.answer.trim() ||
-      typeof chat.studentNote !== "string" ||
-      !chat.studentNote.trim()
-    ) {
-      throw new Error("The AI tutor chat returned an incomplete answer. Please retry.");
+    const feedback = typeof body?.feedback === "string" ? body.feedback.trim() : "";
+    const keyPoints = Array.isArray(body?.missingPoints)
+      ? body.missingPoints
+          .filter(item => typeof item === "string" && item.trim())
+          .slice(0, 5)
+      : [];
+    const studentNote = typeof body?.bookAlignment === "string"
+      ? body.bookAlignment.trim()
+      : "";
+
+    if (!feedback) {
+      throw new Error("The AI tutor chat returned an empty answer. Please retry.");
     }
 
-    const userTurn = { role: "user", content: payload.userMessage };
+    let answer = feedback;
+    if (keyPoints.length) {
+      const normalizedFeedback = feedback.toLowerCase();
+      const unseen = keyPoints.filter(item =>
+        !normalizedFeedback.includes(String(item).toLowerCase().slice(0, 45))
+      );
+      if (unseen.length) {
+        answer += "\n\nKey points:\n- " + unseen.join("\n- ");
+      }
+    }
+
+    const userTurn = { role: "user", content: prompt };
     const assistantTurn = {
       role: "assistant",
-      content: chat.answer.trim(),
-      studentNote: chat.studentNote.trim(),
-      suggestedQuestions: Array.isArray(chat.suggestedQuestions)
-        ? chat.suggestedQuestions
-            .filter(item => typeof item === "string" && item.trim())
-            .slice(0, 3)
-        : [],
+      content: answer,
+      studentNote:
+        studentNote ||
+        "Use the saved answer and textbook notes as the final check for course-specific wording.",
+      suggestedQuestions: [],
     };
     history.push(userTurn, assistantTurn);
     if (history.length > 16) history.splice(0, history.length - 16);
