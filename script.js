@@ -312,31 +312,55 @@ document.addEventListener("DOMContentLoaded", function () {
     const topic =
       study.title || question.topic || study.section || question.section ||
       study.chapter || question.chapter || "Topic from this question";
+    const correctAnswer = formatAnswerForDisplay(question.correctAnswer);
+    const steps = Array.isArray(study.steps) ? study.steps.slice(0, 6).map(String) : [];
     const keyTerms = Array.isArray(study.keyTerms)
       ? study.keyTerms
           .filter(entry => entry && entry.term && entry.meaning)
           .slice(0, 8)
-          .map(entry => ({
-            term: String(entry.term),
-            meaning: String(entry.meaning),
-          }))
+          .map(entry => String(entry.term) + ": " + String(entry.meaning))
       : [];
 
+    const referenceNotes = [
+      study.simple ? "Plain explanation: " + study.simple : "",
+      steps.length ? "Method / steps:\n- " + steps.join("\n- ") : "",
+      study.example ? "Example: " + study.example : "",
+      study.pitfall ? "Common mistake: " + study.pitfall : "",
+      study.remember ? "Remember: " + study.remember : "",
+      keyTerms.length ? "Key terms:\n- " + keyTerms.join("\n- ") : "",
+    ].filter(Boolean).join("\n\n");
+
+    const baselineExplanation =
+      String(study.simple || question.explanation || correctAnswer || "").trim() ||
+      "I am studying this concept and need a clearer explanation.";
+
     return {
-      module: getCurrentModuleCode() || "",
-      topic: String(topic),
-      question: String(question.text || ""),
-      correctAnswer: formatAnswerForDisplay(question.correctAnswer),
-      explanation: String(study.simple || question.explanation || ""),
+      question:
+        "AI tutor study task. Teach the underlying topic of this practice question in plain English. " +
+        "The text supplied as the student answer is only the explanation the learner has already seen; " +
+        "it is NOT an exam answer to score. In your feedback, give a clearer and deeper explanation, " +
+        "define important terms, explain why the reference answer works, show how to approach similar questions, " +
+        "and include a concrete example where possible. Original question: " + String(question.text || ""),
+      studentAnswer: baselineExplanation,
+      modelAnswer: [correctAnswer, referenceNotes].filter(Boolean).join("\n\n"),
+      referenceNotes,
+      rubric: [
+        "Use feedback as a teaching lesson, not as criticism of a real student answer.",
+        "Explain the concept in simple English and define unfamiliar terms.",
+        "Explain why the reference answer is correct and how to solve or recognise similar questions.",
+        "Include a useful concrete example in the feedback where possible.",
+        "Use missingPoints for the key ideas the learner should master.",
+        "Use bookAlignment for a short memory tip or connection to the supplied study notes.",
+      ],
       chapter: String(study.chapter || question.chapter || ""),
       section: String(study.section || question.section || ""),
-      steps: Array.isArray(study.steps)
-        ? study.steps.slice(0, 6).map(String)
-        : [],
-      example: String(study.example || ""),
-      pitfall: String(study.pitfall || ""),
-      remember: String(study.remember || ""),
-      keyTerms,
+      minimumScore: 0,
+      _topic: String(topic),
+      _steps: steps,
+      _example: String(study.example || ""),
+      _pitfall: String(study.pitfall || ""),
+      _remember: String(study.remember || ""),
+      _correctAnswer: correctAnswer,
     };
   }
 
@@ -367,9 +391,16 @@ document.addEventListener("DOMContentLoaded", function () {
       throw new Error("The AI tutor is not connected yet.");
     }
 
+    const source = buildAiTutorRequest(question);
     const requestBody = {
-      ...buildAiTutorRequest(question),
-      mode: "lesson",
+      question: source.question,
+      studentAnswer: source.studentAnswer,
+      modelAnswer: source.modelAnswer,
+      referenceNotes: source.referenceNotes,
+      rubric: source.rubric,
+      chapter: source.chapter,
+      section: source.section,
+      minimumScore: source.minimumScore,
     };
 
     const pending = fetch(endpoint, {
@@ -390,7 +421,66 @@ document.addEventListener("DOMContentLoaded", function () {
             : "The AI tutor is unavailable right now. Please try again."
         );
       }
-      const lesson = payload?.lesson;
+
+      const keyIdeas = Array.isArray(payload?.missingPoints)
+        ? payload.missingPoints.filter(item => typeof item === "string" && item.trim()).slice(0, 5)
+        : [];
+      const strengths = Array.isArray(payload?.strengths)
+        ? payload.strengths.filter(item => typeof item === "string" && item.trim()).slice(0, 4)
+        : [];
+      const feedback = typeof payload?.feedback === "string" ? payload.feedback.trim() : "";
+      const alignment = typeof payload?.bookAlignment === "string"
+        ? payload.bookAlignment.trim()
+        : "";
+
+      const deepDiveParts = [];
+      if (keyIdeas.length) {
+        deepDiveParts.push("Key ideas to master:\n- " + keyIdeas.join("\n- "));
+      }
+      if (strengths.length) {
+        deepDiveParts.push("Useful foundations from the reference material:\n- " + strengths.join("\n- "));
+      }
+      if (!deepDiveParts.length && source.referenceNotes) {
+        deepDiveParts.push(source.referenceNotes);
+      }
+
+      let lessonSteps = source._steps.slice(0, 6);
+      if (lessonSteps.length < 2 && keyIdeas.length >= 2) {
+        lessonSteps = keyIdeas.slice(0, 6);
+      }
+      if (lessonSteps.length < 2) {
+        lessonSteps = [
+          "Identify the main concept the question is testing.",
+          "Use the reference answer to connect that concept to the exact wording of the question.",
+          "Apply the same idea to a new example instead of memorising the wording.",
+        ];
+      }
+
+      const lesson = {
+        topicTitle: source._topic || "Learn this topic",
+        simpleExplanation:
+          feedback || String(question?.study?.simple || question?.explanation || source._correctAnswer || ""),
+        deepDive: deepDiveParts.join("\n\n") ||
+          "Use the explanation above together with the reference answer to understand the reasoning, not just the final wording.",
+        steps: lessonSteps,
+        example:
+          source._example || alignment ||
+          "Try changing the names or numbers in the original question and apply the same rule or method again.",
+        commonMistake:
+          source._pitfall || keyIdeas[0] ||
+          "A common mistake is memorising the final answer without understanding the rule or method behind it.",
+        memoryTip:
+          source._remember || alignment ||
+          "Link the wording of the question to the core concept before choosing or writing an answer.",
+        studentNote:
+          alignment ||
+          "Compare this AI explanation with the saved reference answer and textbook notes before relying on it.",
+        checkQuestion:
+          "Without looking at the answer, explain the main idea behind this question and how you would approach a similar one.",
+        checkAnswer:
+          source._correctAnswer || "Use the reference answer shown in Study mode to check your explanation.",
+      };
+
       if (!validAiTutorLesson(lesson)) {
         throw new Error("The AI tutor returned an incomplete lesson. Please retry.");
       }
@@ -463,73 +553,126 @@ document.addEventListener("DOMContentLoaded", function () {
     return "theory";
   }
 
+  function buildAiTutorFocusRequest(question, focus) {
+    const source = buildAiTutorRequest(question);
+    const options = Array.isArray(question?.options)
+      ? question.options.map((option, index) =>
+          String.fromCharCode(65 + index) + ". " + canonicalizeAnswerValue(option)
+        )
+      : [];
+
+    let task = "";
+    let rubric = [];
+
+    if (focus === "simpler") {
+      task =
+        "AI tutor task. Re-explain the concept behind this question using very simple English, " +
+        "short sentences, and everyday wording. Define any abbreviation or specialist term before using it. " +
+        "Do not grade the learner. Original question: " + String(question?.text || "");
+      rubric = [
+        "Use feedback for one clear beginner-friendly explanation.",
+        "Use missingPoints for two to four key words or ideas the learner must understand.",
+        "Use bookAlignment for one short memory tip.",
+        "Do not discuss marks, scores or verdicts.",
+      ];
+    } else if (focus === "options") {
+      task =
+        "AI tutor task. Compare the multiple-choice options for this question. Explain why the correct option is correct " +
+        "and why every other option is wrong or misleading. Label the options A, B, C and so on. " +
+        "Focus on the concept difference that helps a student avoid the trap next time. Do not grade the learner. " +
+        "Original question: " + String(question?.text || "") +
+        "\nOptions:\n" + options.join("\n");
+      rubric = [
+        "Use feedback to cover every supplied option in order.",
+        "For each option say correct, wrong, or misleading and explain why.",
+        "Do not merely repeat the option text.",
+        "Use bookAlignment for one rule that helps distinguish the options.",
+        "Do not discuss marks, scores or verdicts.",
+      ];
+    } else if (focus === "quiz") {
+      task =
+        "AI tutor task. Create exactly ONE short transfer question that tests the same underlying concept as the supplied " +
+        "question but changes the wording, scenario, values or context. It must not be a copy of the original. " +
+        "Do not grade the learner. Original question: " + String(question?.text || "");
+      rubric = [
+        "Put ONLY the new transfer question in feedback. Do not reveal its answer there.",
+        "Put the correct answer plus a short reason in bookAlignment.",
+        "The new question must test the same concept, not an unrelated topic.",
+        "Keep it answerable from the supplied reference answer and study notes.",
+        "Do not discuss marks, scores or verdicts.",
+      ];
+    } else {
+      throw new Error("Unknown tutor focus.");
+    }
+
+    return {
+      source,
+      body: {
+        question: task,
+        // This is existing reference explanation, never the student's real answer.
+        studentAnswer: source.studentAnswer,
+        modelAnswer: source.modelAnswer,
+        referenceNotes: [
+          source.referenceNotes,
+          options.length ? "Options from the original question:\n" + options.join("\n") : "",
+        ].filter(Boolean).join("\n\n"),
+        rubric,
+        chapter: source.chapter,
+        section: source.section,
+        minimumScore: 0,
+      },
+    };
+  }
+
   async function requestAiTutorFocus(question, actualIndex, focus) {
     const key = aiTutorFocusKey(question, actualIndex, focus);
     if (aiTutorFocusCache.has(key)) return aiTutorFocusCache.get(key);
 
-    const lesson = await requestAiTutorLesson(question, actualIndex);
-    let result;
+    const endpoint = window.APP_CONFIG && window.APP_CONFIG.aiTutorEndpoint;
+    if (typeof endpoint !== "string" || !endpoint.trim()) {
+      throw new Error("The AI tutor is not connected yet.");
+    }
 
-    if (focus === "simpler") {
-      result = {
-        text: lesson.simpleExplanation,
-        points: Array.isArray(lesson.steps) ? lesson.steps.slice(0, 4) : [],
-        tip: lesson.memoryTip || "",
-      };
-    } else if (focus === "quiz") {
-      result = {
-        question: lesson.checkQuestion,
-        answer: lesson.checkAnswer,
-      };
-    } else if (focus === "options") {
-      const endpoint = window.APP_CONFIG && window.APP_CONFIG.aiTutorChatEndpoint;
-      if (typeof endpoint !== "string" || !endpoint.trim()) {
-        throw new Error("The AI tutor is not connected yet.");
+    const request = buildAiTutorFocusRequest(question, focus);
+    const response = await fetch(endpoint, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(request.body),
+    });
+
+    let payload = null;
+    try {
+      payload = await response.json();
+    } catch (_) {
+      payload = null;
+    }
+    if (!response.ok) {
+      throw new Error(
+        typeof payload?.error === "string"
+          ? payload.error
+          : "The AI tutor is unavailable right now. Please try again."
+      );
+    }
+
+    const feedback = typeof payload?.feedback === "string" ? payload.feedback.trim() : "";
+    const alignment = typeof payload?.bookAlignment === "string"
+      ? payload.bookAlignment.trim()
+      : "";
+    const points = Array.isArray(payload?.missingPoints)
+      ? payload.missingPoints.filter(item => typeof item === "string" && item.trim()).slice(0, 5)
+      : [];
+
+    let result;
+    if (focus === "quiz") {
+      if (!feedback || !alignment) {
+        throw new Error("The AI tutor could not create a clean practice question. Please retry.");
       }
-      const options = Array.isArray(question?.options)
-        ? question.options.map((option, index) =>
-            String.fromCharCode(65 + index) + ". " + canonicalizeAnswerValue(option)
-          )
-        : [];
-      const requestBody = {
-        ...buildAiTutorRequest(question),
-        mode: "chat",
-        userMessage:
-          "Compare every answer option for this question. Label them A, B, C and so on. " +
-          "Explain why the correct option is correct and why each other option is wrong or misleading. " +
-          "Focus on the concept difference that helps me avoid the trap next time. Options:\n" +
-          options.join("\n"),
-        history: [],
-      };
-      const response = await fetch(endpoint, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(requestBody),
-      });
-      let payload = null;
-      try {
-        payload = await response.json();
-      } catch (_) {
-        payload = null;
-      }
-      if (!response.ok) {
-        throw new Error(
-          typeof payload?.error === "string"
-            ? payload.error
-            : "The AI tutor is unavailable right now. Please try again."
-        );
-      }
-      const chat = payload?.chat;
-      if (!chat || typeof chat.answer !== "string" || !chat.answer.trim()) {
+      result = { question: feedback, answer: alignment };
+    } else {
+      if (!feedback) {
         throw new Error("The AI tutor returned an empty explanation. Please retry.");
       }
-      result = {
-        text: chat.answer.trim(),
-        points: [],
-        tip: typeof chat.studentNote === "string" ? chat.studentNote.trim() : "",
-      };
-    } else {
-      throw new Error("Unknown tutor focus.");
+      result = { text: feedback, points, tip: alignment };
     }
 
     aiTutorFocusCache.set(key, result);
@@ -555,15 +698,55 @@ document.addEventListener("DOMContentLoaded", function () {
     const prompt = String(userMessage || "").trim().slice(0, 1800);
     if (!prompt) throw new Error("Ask the tutor a question first.");
 
+    const source = buildAiTutorRequest(question);
     const history = getAiTutorChatHistory(question, actualIndex);
+    const recentConversation = history.slice(-8).map(turn =>
+      (turn.role === "assistant" ? "AI tutor: " : "Learner: ") + String(turn.content || "")
+    ).join("\n\n");
+
+    const contextNotes = [
+      source.explanation ? "Saved explanation: " + source.explanation : "",
+      source.steps?.length ? "Saved steps:\n- " + source.steps.join("\n- ") : "",
+      source.example ? "Saved example: " + source.example : "",
+      source.pitfall ? "Saved common mistake: " + source.pitfall : "",
+      source.remember ? "Saved memory note: " + source.remember : "",
+      Array.isArray(source.keyTerms) && source.keyTerms.length
+        ? "Saved key terms:\n- " + source.keyTerms
+            .map(entry => entry.term + ": " + entry.meaning).join("\n- ")
+        : "",
+      recentConversation ? "Recent tutor conversation:\n" + recentConversation : "",
+    ].filter(Boolean).join("\n\n");
+
     const requestBody = {
-      ...buildAiTutorRequest(question),
-      mode: "chat",
-      userMessage: prompt,
-      history: history.slice(-8).map(turn => ({
-        role: turn.role === "assistant" ? "assistant" : "user",
-        content: String(turn.content || ""),
-      })),
+      question: [
+        "AI TUTOR CHAT — this is a teaching conversation, NOT an exam answer to grade.",
+        "Answer the learner's latest follow-up directly in plain English.",
+        "Use the current question and saved notes as context. If the learner asks a related broader question, " +
+          "you may use well-established subject knowledge, but do not pretend broader knowledge is exact textbook wording.",
+        "If the learner asks for a list to cram, give a short organised list and briefly explain each item.",
+        "If the learner asks to understand, explain the relationship between ideas and give a useful example.",
+        "Do not discuss marks, scores or verdicts.",
+        "Current module/topic: " + [source.module, source.topic].filter(Boolean).join(" — "),
+        "Original assessment question: " + String(question?.text || ""),
+        "Learner's latest question: " + prompt,
+      ].join("\n\n"),
+      // Required by the live grading endpoint. This is a fixed tutor instruction,
+      // never the learner's selected/written test answer.
+      studentAnswer: "Tutor chat request. Please answer the learner's question above.",
+      modelAnswer: source.correctAnswer || source.explanation ||
+        "Use the supplied topic context to teach the learner.",
+      referenceNotes: contextNotes,
+      rubric: [
+        "Treat this as tutoring, not marking.",
+        "Put the direct answer in feedback.",
+        "Use missingPoints for useful key ideas or list items that support the answer.",
+        "Use bookAlignment for one short Student note, memory tip, or course-context warning.",
+        "You may use standard subject knowledge for a related follow-up when the saved notes are too narrow.",
+        "Never invent exact textbook pages, lecturer requirements or official university wording.",
+      ],
+      chapter: source.chapter,
+      section: source.section,
+      minimumScore: 0,
     };
 
     const response = await fetch(endpoint, {
@@ -572,38 +755,53 @@ document.addEventListener("DOMContentLoaded", function () {
       body: JSON.stringify(requestBody),
     });
 
-    let payload = null;
+    let body = null;
     try {
-      payload = await response.json();
+      body = await response.json();
     } catch (_) {
-      payload = null;
+      body = null;
     }
     if (!response.ok) {
       throw new Error(
-        typeof payload?.error === "string"
-          ? payload.error
+        typeof body?.error === "string"
+          ? body.error
           : "The AI tutor chat is unavailable right now. Please try again."
       );
     }
 
-    const chat = payload?.chat;
-    if (!chat || typeof chat.answer !== "string" || !chat.answer.trim()) {
+    const feedback = typeof body?.feedback === "string" ? body.feedback.trim() : "";
+    const keyPoints = Array.isArray(body?.missingPoints)
+      ? body.missingPoints
+          .filter(item => typeof item === "string" && item.trim())
+          .slice(0, 5)
+      : [];
+    const studentNote = typeof body?.bookAlignment === "string"
+      ? body.bookAlignment.trim()
+      : "";
+
+    if (!feedback) {
       throw new Error("The AI tutor chat returned an empty answer. Please retry.");
+    }
+
+    let answer = feedback;
+    if (keyPoints.length) {
+      const normalizedFeedback = feedback.toLowerCase();
+      const unseen = keyPoints.filter(item =>
+        !normalizedFeedback.includes(String(item).toLowerCase().slice(0, 45))
+      );
+      if (unseen.length) {
+        answer += "\n\nKey points:\n- " + unseen.join("\n- ");
+      }
     }
 
     const userTurn = { role: "user", content: prompt };
     const assistantTurn = {
       role: "assistant",
-      content: chat.answer.trim(),
+      content: answer,
       studentNote:
-        typeof chat.studentNote === "string" && chat.studentNote.trim()
-          ? chat.studentNote.trim()
-          : "Use the saved answer and textbook notes as the final check for course-specific wording.",
-      suggestedQuestions: Array.isArray(chat.suggestedQuestions)
-        ? chat.suggestedQuestions
-            .filter(item => typeof item === "string" && item.trim())
-            .slice(0, 3)
-        : [],
+        studentNote ||
+        "Use the saved answer and textbook notes as the final check for course-specific wording.",
+      suggestedQuestions: [],
     };
     history.push(userTurn, assistantTurn);
     if (history.length > 16) history.splice(0, history.length - 16);
