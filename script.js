@@ -297,25 +297,55 @@ document.addEventListener("DOMContentLoaded", function () {
     const topic =
       study.title || question.topic || study.section || question.section ||
       study.chapter || question.chapter || "Topic from this question";
+    const correctAnswer = formatAnswerForDisplay(question.correctAnswer);
+    const steps = Array.isArray(study.steps) ? study.steps.slice(0, 6).map(String) : [];
     const keyTerms = Array.isArray(study.keyTerms)
       ? study.keyTerms
           .filter(entry => entry && entry.term && entry.meaning)
           .slice(0, 8)
-          .map(entry => ({ term: String(entry.term), meaning: String(entry.meaning) }))
+          .map(entry => String(entry.term) + ": " + String(entry.meaning))
       : [];
+
+    const referenceNotes = [
+      study.simple ? "Plain explanation: " + study.simple : "",
+      steps.length ? "Method / steps:\n- " + steps.join("\n- ") : "",
+      study.example ? "Example: " + study.example : "",
+      study.pitfall ? "Common mistake: " + study.pitfall : "",
+      study.remember ? "Remember: " + study.remember : "",
+      keyTerms.length ? "Key terms:\n- " + keyTerms.join("\n- ") : "",
+    ].filter(Boolean).join("\n\n");
+
+    const baselineExplanation =
+      String(study.simple || question.explanation || correctAnswer || "").trim() ||
+      "I am studying this concept and need a clearer explanation.";
+
     return {
-      module: getCurrentModuleCode() || "",
-      topic: String(topic),
-      question: String(question.text || ""),
-      correctAnswer: formatAnswerForDisplay(question.correctAnswer),
-      explanation: String(study.simple || question.explanation || ""),
+      question:
+        "AI tutor study task. Teach the underlying topic of this practice question in plain English. " +
+        "The text supplied as the student answer is only the explanation the learner has already seen; " +
+        "it is NOT an exam answer to score. In your feedback, give a clearer and deeper explanation, " +
+        "define important terms, explain why the reference answer works, show how to approach similar questions, " +
+        "and include a concrete example where possible. Original question: " + String(question.text || ""),
+      studentAnswer: baselineExplanation,
+      modelAnswer: [correctAnswer, referenceNotes].filter(Boolean).join("\n\n"),
+      referenceNotes,
+      rubric: [
+        "Use feedback as a teaching lesson, not as criticism of a real student answer.",
+        "Explain the concept in simple English and define unfamiliar terms.",
+        "Explain why the reference answer is correct and how to solve or recognise similar questions.",
+        "Include a useful concrete example in the feedback where possible.",
+        "Use missingPoints for the key ideas the learner should master.",
+        "Use bookAlignment for a short memory tip or connection to the supplied study notes.",
+      ],
       chapter: String(study.chapter || question.chapter || ""),
       section: String(study.section || question.section || ""),
-      steps: Array.isArray(study.steps) ? study.steps.slice(0, 6).map(String) : [],
-      example: String(study.example || ""),
-      pitfall: String(study.pitfall || ""),
-      remember: String(study.remember || ""),
-      keyTerms,
+      minimumScore: 0,
+      _topic: String(topic),
+      _steps: steps,
+      _example: String(study.example || ""),
+      _pitfall: String(study.pitfall || ""),
+      _remember: String(study.remember || ""),
+      _correctAnswer: correctAnswer,
     };
   }
 
@@ -346,21 +376,28 @@ document.addEventListener("DOMContentLoaded", function () {
       throw new Error("The AI tutor is not connected yet.");
     }
 
+    const source = buildAiTutorRequest(question);
+    const requestBody = {
+      question: source.question,
+      studentAnswer: source.studentAnswer,
+      modelAnswer: source.modelAnswer,
+      referenceNotes: source.referenceNotes,
+      rubric: source.rubric,
+      chapter: source.chapter,
+      section: source.section,
+      minimumScore: source.minimumScore,
+    };
+
     const pending = fetch(endpoint, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(buildAiTutorRequest(question)),
+      body: JSON.stringify(requestBody),
     }).then(async response => {
       let payload = null;
       try {
         payload = await response.json();
       } catch (_) {
         payload = null;
-      }
-      if (response.status === 404) {
-        throw new Error(
-          "The AI tutor backend is still being deployed. Your normal study notes still work."
-        );
       }
       if (!response.ok) {
         throw new Error(
@@ -369,11 +406,71 @@ document.addEventListener("DOMContentLoaded", function () {
             : "The AI tutor is unavailable right now. Please try again."
         );
       }
-      if (!validAiTutorLesson(payload?.lesson)) {
+
+      const keyIdeas = Array.isArray(payload?.missingPoints)
+        ? payload.missingPoints.filter(item => typeof item === "string" && item.trim()).slice(0, 5)
+        : [];
+      const strengths = Array.isArray(payload?.strengths)
+        ? payload.strengths.filter(item => typeof item === "string" && item.trim()).slice(0, 4)
+        : [];
+      const feedback = typeof payload?.feedback === "string" ? payload.feedback.trim() : "";
+      const alignment = typeof payload?.bookAlignment === "string"
+        ? payload.bookAlignment.trim()
+        : "";
+
+      const deepDiveParts = [];
+      if (keyIdeas.length) {
+        deepDiveParts.push("Key ideas to master:\n- " + keyIdeas.join("\n- "));
+      }
+      if (strengths.length) {
+        deepDiveParts.push("Useful foundations from the reference material:\n- " + strengths.join("\n- "));
+      }
+      if (!deepDiveParts.length && source.referenceNotes) {
+        deepDiveParts.push(source.referenceNotes);
+      }
+
+      let lessonSteps = source._steps.slice(0, 6);
+      if (lessonSteps.length < 2 && keyIdeas.length >= 2) {
+        lessonSteps = keyIdeas.slice(0, 6);
+      }
+      if (lessonSteps.length < 2) {
+        lessonSteps = [
+          "Identify the main concept the question is testing.",
+          "Use the reference answer to connect that concept to the exact wording of the question.",
+          "Apply the same idea to a new example instead of memorising the wording.",
+        ];
+      }
+
+      const lesson = {
+        topicTitle: source._topic || "Learn this topic",
+        simpleExplanation:
+          feedback || String(question?.study?.simple || question?.explanation || source._correctAnswer || ""),
+        deepDive: deepDiveParts.join("\n\n") ||
+          "Use the explanation above together with the reference answer to understand the reasoning, not just the final wording.",
+        steps: lessonSteps,
+        example:
+          source._example || alignment ||
+          "Try changing the names or numbers in the original question and apply the same rule or method again.",
+        commonMistake:
+          source._pitfall || keyIdeas[0] ||
+          "A common mistake is memorising the final answer without understanding the rule or method behind it.",
+        memoryTip:
+          source._remember || alignment ||
+          "Link the wording of the question to the core concept before choosing or writing an answer.",
+        studentNote:
+          alignment ||
+          "Compare this AI explanation with the saved reference answer and textbook notes before relying on it.",
+        checkQuestion:
+          "Without looking at the answer, explain the main idea behind this question and how you would approach a similar one.",
+        checkAnswer:
+          source._correctAnswer || "Use the reference answer shown in Study mode to check your explanation.",
+      };
+
+      if (!validAiTutorLesson(lesson)) {
         throw new Error("The AI tutor returned an incomplete lesson. Please retry.");
       }
-      aiTutorCache.set(key, payload.lesson);
-      return payload.lesson;
+      aiTutorCache.set(key, lesson);
+      return lesson;
     }).finally(() => {
       aiTutorPending.delete(key);
     });
