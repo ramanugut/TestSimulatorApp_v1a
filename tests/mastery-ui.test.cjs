@@ -20,9 +20,9 @@ const root = window.document.getElementById("mastery-root");
 const engine = window.MasteryEngine;
 assert.ok(engine && engine.setContext);
 
-engine.setContext({ mode: "test", testFile: "test36.json" });
+engine.setContext({ mode: "test", testFile: "test36.json", enabled: true });
 assert.equal(panel.hidden, true, "Mastery must not clutter test mode");
-engine.setContext({ mode: "study", testFile: "test36.json" });
+engine.setContext({ mode: "study", testFile: "test36.json", enabled: true });
 assert.equal(panel.hidden, false, "Study Mode should expose matching content");
 assert.equal(window.document.getElementById("mastery-module-label").textContent, "INF3708");
 panel.open = true;
@@ -60,7 +60,7 @@ assert.ok(numericCard.querySelector(".mastery-feedback").textContent.includes("S
 assert.ok(window.localStorage.getItem("test-simulator:mastery:v1:inf3708"),
   "Mastery progress should be saved separately from exam progress");
 
-engine.setContext({ mode: "flashcards", testFile: "test36.json" });
+engine.setContext({ mode: "flashcards", testFile: "test36.json", enabled: true });
 assert.equal(panel.hidden, true);
 assert.equal(panel.open, false);
 
@@ -75,14 +75,14 @@ window.MasteryModules.push({
     }]
   }] }]
 });
-engine.setContext({ mode: "study", testFile: "other.json" });
+engine.setContext({ mode: "study", testFile: "other.json", enabled: true });
 panel.open = true;
 panel.dispatchEvent(new window.Event("toggle"));
 assert.ok(root.textContent.includes("A reusable topic"));
 assert.equal(window.document.getElementById("mastery-module-label").textContent, "Other subject");
 assert.equal(window.localStorage.getItem("test-simulator:mastery:v1:other-subject"), null,
   "Other subject progress should start clean");
-engine.setContext({ mode: "study", testFile: "ict2622-oct-nov-2025-practice.json" });
+engine.setContext({ mode: "study", testFile: "ict2622-oct-nov-2025-practice.json", enabled: true });
 panel.open = true;
 panel.dispatchEvent(new window.Event("toggle"));
 assert.equal(window.document.getElementById("mastery-module-label").textContent, "ICT2622");
