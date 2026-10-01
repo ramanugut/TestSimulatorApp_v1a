@@ -1,5 +1,6 @@
-/* Session-only opt-in controller for adaptive revision. This feature never
-   auto-generates, does not use localStorage, and sends no student answers. */
+/* Session-only opt-in controller for adaptive revision. The host page may
+   restore consent from sessionStorage across refreshes in the same tab.
+   This feature never auto-generates, does not use localStorage, and sends no student answers. */
 (function () {
   "use strict";
   function element(tag,cls,text){
@@ -12,14 +13,13 @@
     if(!setting||!panel||!window.RevisionInsights) return {
       reset(){},showResults(){},isEnabled(){return false;}
     };
-    let enabled=false,current=null,busy=false,used=false,version=0;
-    setting.checked=false; // Always require explicit consent on each page load.
+    let enabled=setting.checked===true,current=null,busy=false,used=false,version=0;
     function reset(){
       version++;
       current=null;busy=false;used=false;
       panel.replaceChildren();
       panel.classList.add("hidden");
-      // Do not change enabled: a tab session lasts until refresh or closing.
+      // Do not change enabled: the host keeps consent for this tab session.
     }
     function render(){
       panel.replaceChildren();
