@@ -248,6 +248,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const aiTutorCache = new Map();
   const aiTutorPending = new Map();
   const aiTutorFocusCache = new Map();
+  const aiTutorChatHistory = new Map();
 
   function aiTutorEnabled() {
     return Boolean(aiStudyToolsSetting && aiStudyToolsSetting.checked);
@@ -665,6 +666,247 @@ document.addEventListener("DOMContentLoaded", function () {
     return result;
   }
 
+  function aiTutorChatKey(question, actualIndex) {
+    return aiTutorKey(question, actualIndex) + "::chat";
+  }
+
+  function getAiTutorChatHistory(question, actualIndex) {
+    const key = aiTutorChatKey(question, actualIndex);
+    if (!aiTutorChatHistory.has(key)) aiTutorChatHistory.set(key, []);
+    return aiTutorChatHistory.get(key);
+  }
+
+  async function requestAiTutorChat(question, actualIndex, userMessage) {
+    const endpoint = window.APP_CONFIG && window.APP_CONFIG.aiTutorChatEndpoint;
+    if (typeof endpoint !== "string" || !endpoint.trim()) {
+      throw new Error("The AI tutor chat is not connected yet.");
+    }
+
+    const source = buildAiTutorRequest(question);
+    const history = getAiTutorChatHistory(question, actualIndex);
+    const payload = {
+      mode: "chat",
+      module: source.module,
+      topic: source.topic,
+      question: String(question?.text || ""),
+      correctAnswer: source.correctAnswer,
+      explanation: source.explanation,
+      chapter: source.chapter,
+      section: source.section,
+      steps: source.steps,
+      example: source.example,
+      pitfall: source.pitfall,
+      remember: source.remember,
+      keyTerms: source.keyTerms,
+      history: history.slice(-8).map(turn => ({
+        role: turn.role,
+        content: turn.content,
+      })),
+      userMessage: String(userMessage || "").trim().slice(0, 1800),
+    };
+
+    const response = await fetch(endpoint, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+
+    let body = null;
+    try {
+      body = await response.json();
+    } catch (_) {
+      body = null;
+    }
+    if (!response.ok) {
+      throw new Error(
+        typeof body?.error === "string"
+          ? body.error
+          : "The AI tutor chat is unavailable right now. Please try again."
+      );
+    }
+
+    const chat = body?.chat;
+    if (
+      !chat ||
+      typeof chat.answer !== "string" ||
+      !chat.answer.trim() ||
+      typeof chat.studentNote !== "string" ||
+      !chat.studentNote.trim()
+    ) {
+      throw new Error("The AI tutor chat returned an incomplete answer. Please retry.");
+    }
+
+    const userTurn = { role: "user", content: payload.userMessage };
+    const assistantTurn = {
+      role: "assistant",
+      content: chat.answer.trim(),
+      studentNote: chat.studentNote.trim(),
+      suggestedQuestions: Array.isArray(chat.suggestedQuestions)
+        ? chat.suggestedQuestions
+            .filter(item => typeof item === "string" && item.trim())
+            .slice(0, 3)
+        : [],
+    };
+    history.push(userTurn, assistantTurn);
+    if (history.length > 16) history.splice(0, history.length - 16);
+    return assistantTurn;
+  }
+
+  function renderAiTutorChatHistory(transcript, question, actualIndex, sendPrompt) {
+    transcript.replaceChildren();
+    const history = getAiTutorChatHistory(question, actualIndex);
+    if (!history.length) {
+      transcript.classList.add("is-empty");
+      return;
+    }
+    transcript.classList.remove("is-empty");
+
+    history.forEach(turn => {
+      const message = document.createElement("div");
+      message.className =
+        "ai-tutor-chat-message " +
+        (turn.role === "assistant" ? "is-assistant" : "is-user");
+
+      const label = document.createElement("span");
+      label.className = "ai-tutor-chat-label";
+      label.textContent = turn.role === "assistant" ? "AI tutor" : "You";
+
+      const body = document.createElement("div");
+      body.className = "ai-tutor-chat-message-body";
+      if (turn.role === "assistant") {
+        body.classList.add("rich-content");
+        body.innerHTML = formatRichText(turn.content);
+      } else {
+        body.textContent = turn.content;
+      }
+      message.append(label, body);
+
+      if (turn.role === "assistant" && turn.studentNote) {
+        const note = document.createElement("div");
+        note.className = "ai-tutor-chat-note";
+        const strong = document.createElement("strong");
+        strong.textContent = "Student note: ";
+        note.append(strong, document.createTextNode(turn.studentNote));
+        message.appendChild(note);
+      }
+
+      if (
+        turn.role === "assistant" &&
+        Array.isArray(turn.suggestedQuestions) &&
+        turn.suggestedQuestions.length
+      ) {
+        const followUps = document.createElement("div");
+        followUps.className = "ai-tutor-chat-suggestions";
+        turn.suggestedQuestions.forEach(text => {
+          const button = document.createElement("button");
+          button.type = "button";
+          button.className = "ai-tutor-chat-suggestion";
+          button.textContent = text;
+          button.addEventListener("click", () => sendPrompt(text));
+          followUps.appendChild(button);
+        });
+        message.appendChild(followUps);
+      }
+
+      transcript.appendChild(message);
+    });
+
+    requestAnimationFrame(() => {
+      transcript.scrollTop = transcript.scrollHeight;
+    });
+  }
+
+  function createAiTutorChatPanel(question, actualIndex) {
+    const section = document.createElement("section");
+    section.className = "ai-tutor-chat";
+    section.setAttribute("aria-label", "Ask AI about this topic");
+
+    const header = document.createElement("div");
+    header.className = "ai-tutor-chat-heading";
+    const copy = document.createElement("div");
+    const title = document.createElement("h4");
+    title.textContent = "Ask AI about this topic";
+    const hint = document.createElement("p");
+    hint.textContent =
+      "Ask anything the buttons do not cover. The tutor keeps this question and its study notes as context.";
+    copy.append(title, hint);
+    header.appendChild(copy);
+
+    const transcript = document.createElement("div");
+    transcript.className = "ai-tutor-chat-transcript";
+    transcript.setAttribute("aria-live", "polite");
+
+    const composer = document.createElement("div");
+    composer.className = "ai-tutor-chat-composer";
+    const input = document.createElement("textarea");
+    input.className = "ai-tutor-chat-input";
+    input.rows = 2;
+    input.maxLength = 1800;
+    input.placeholder =
+      "Ask a follow-up… e.g. List the main parts of this topic so I can understand and cram them.";
+    input.setAttribute("aria-label", "Ask the AI tutor a follow-up question");
+
+    const send = document.createElement("button");
+    send.type = "button";
+    send.className = "btn btn-primary ai-tutor-chat-send";
+    send.textContent = "Ask AI";
+
+    const status = document.createElement("p");
+    status.className = "ai-tutor-status ai-tutor-chat-status";
+    status.setAttribute("role", "status");
+    status.setAttribute("aria-live", "polite");
+
+    const privacy = document.createElement("p");
+    privacy.className = "ai-tutor-privacy";
+    privacy.textContent =
+      "What you type in this chat is sent to AI. Your real selected/written test answer is not sent.";
+
+    let busy = false;
+    const sendPrompt = async text => {
+      const prompt = String(text || "").trim();
+      if (!prompt || busy) return;
+      busy = true;
+      input.disabled = true;
+      send.disabled = true;
+      status.textContent = "Thinking about your question…";
+      if (input.value.trim() === prompt) input.value = "";
+
+      // Show the learner's message immediately while the tutor is thinking.
+      const history = getAiTutorChatHistory(question, actualIndex);
+      const optimistic = { role: "user", content: prompt, pending: true };
+      history.push(optimistic);
+      renderAiTutorChatHistory(transcript, question, actualIndex, sendPrompt);
+      history.pop();
+
+      try {
+        await requestAiTutorChat(question, actualIndex, prompt);
+        status.textContent = "";
+        renderAiTutorChatHistory(transcript, question, actualIndex, sendPrompt);
+      } catch (error) {
+        status.textContent =
+          error?.message || "The AI tutor could not answer that. Please try again.";
+      } finally {
+        busy = false;
+        input.disabled = false;
+        send.disabled = false;
+        input.focus({ preventScroll: true });
+      }
+    };
+
+    send.addEventListener("click", () => sendPrompt(input.value));
+    input.addEventListener("keydown", event => {
+      if ((event.ctrlKey || event.metaKey) && event.key === "Enter") {
+        event.preventDefault();
+        sendPrompt(input.value);
+      }
+    });
+
+    composer.append(input, send);
+    section.append(header, transcript, composer, status, privacy);
+    renderAiTutorChatHistory(transcript, question, actualIndex, sendPrompt);
+    return section;
+  }
+
   function appendAiTutorTextSection(card, headingText, value) {
     if (!value) return;
     const section = document.createElement("section");
@@ -994,6 +1236,7 @@ document.addEventListener("DOMContentLoaded", function () {
     addButton("quiz", "Quiz me", actions.quiz);
 
     card.append(menu, status, detailHost);
+    card.appendChild(createAiTutorChatPanel(question, actualIndex));
     card.appendChild(createAiTutorConfidenceControl(question, actualIndex, actions));
 
     const studentNote = document.createElement("section");
