@@ -4602,3 +4602,137 @@ body.modal-open {
     min-height: 440px;
   }
 }
+
+
+/* Question-based AI tutor. Hidden entirely unless the session AI setting is enabled. */
+.ai-tutor-wrap {
+    margin-top: 0.25rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.ai-tutor-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.ai-tutor-button {
+    min-height: 44px;
+}
+
+.ai-tutor-status {
+    margin: 0.65rem 0 0;
+    color: var(--muted-text);
+    font-size: 0.88rem;
+    line-height: 1.45;
+}
+
+.ai-tutor-status:empty {
+    display: none;
+}
+
+.ai-tutor-lesson {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.1rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    background: var(--subtle-surface);
+}
+
+.ai-tutor-lesson-heading {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.ai-tutor-kicker {
+    width: fit-content;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent-color);
+}
+
+.ai-tutor-lesson-heading h3,
+.ai-tutor-section h4,
+.ai-tutor-check h4 {
+    margin: 0;
+    color: var(--text-color);
+}
+
+.ai-tutor-disclaimer {
+    margin: 0;
+    color: var(--muted-text);
+    font-size: 0.82rem;
+    line-height: 1.45;
+}
+
+.ai-tutor-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+}
+
+.ai-tutor-section .rich-content,
+.ai-tutor-check .rich-content {
+    color: var(--text-color);
+}
+
+.ai-tutor-steps {
+    margin: 0;
+    padding-left: 1.35rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    color: var(--text-color);
+}
+
+.ai-tutor-student-note {
+    padding: 0.8rem 0.9rem;
+    border-left: 4px solid var(--accent-color);
+    border-radius: var(--radius-md);
+    background: var(--surface-color);
+    color: var(--text-color);
+    line-height: 1.55;
+}
+
+.ai-tutor-check {
+    padding-top: 0.85rem;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.ai-tutor-check details {
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    background: var(--surface-color);
+    overflow: hidden;
+}
+
+.ai-tutor-check summary {
+    cursor: pointer;
+    padding: 0.75rem 0.85rem;
+    font-weight: 600;
+    color: var(--accent-color);
+}
+
+.ai-tutor-check-answer {
+    padding: 0 0.85rem 0.85rem;
+}
+
+@media (max-width: 720px) {
+    .ai-tutor-lesson {
+        padding: 0.9rem;
+    }
+
+    .ai-tutor-button {
+        width: 100%;
+    }
+}
