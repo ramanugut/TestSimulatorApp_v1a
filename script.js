@@ -247,6 +247,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // as adaptive revision. It never receives the student's answer.
   const aiTutorCache = new Map();
   const aiTutorPending = new Map();
+  const aiTutorFocusCache = new Map();
 
   function aiTutorEnabled() {
     return Boolean(aiStudyToolsSetting && aiStudyToolsSetting.checked);
@@ -479,6 +480,191 @@ document.addEventListener("DOMContentLoaded", function () {
     return pending;
   }
 
+  function aiTutorFocusKey(question, actualIndex, focus) {
+    return aiTutorKey(question, actualIndex) + "::" + focus;
+  }
+
+  function aiTutorConfidenceKey(question, actualIndex) {
+    return [
+      currentTestFile || "paper",
+      question && (question.sourceQuestionIndex ?? question.number) != null
+        ? String(question.sourceQuestionIndex ?? question.number)
+        : String(actualIndex),
+      String(question && question.text || "").slice(0, 90),
+    ].join("::");
+  }
+
+  function readAiTutorConfidence(question, actualIndex) {
+    const store =
+      appPreferences.aiTutorConfidence &&
+      typeof appPreferences.aiTutorConfidence === "object" &&
+      !Array.isArray(appPreferences.aiTutorConfidence)
+        ? appPreferences.aiTutorConfidence
+        : {};
+    return store[aiTutorConfidenceKey(question, actualIndex)]?.value || "";
+  }
+
+  function recordAiTutorConfidence(question, actualIndex, value) {
+    const previous =
+      appPreferences.aiTutorConfidence &&
+      typeof appPreferences.aiTutorConfidence === "object" &&
+      !Array.isArray(appPreferences.aiTutorConfidence)
+        ? { ...appPreferences.aiTutorConfidence }
+        : {};
+    const key = aiTutorConfidenceKey(question, actualIndex);
+    previous[key] = { value, updatedAt: Date.now() };
+
+    // Keep this tiny: it is a usability hint, not a detailed learning record.
+    const entries = Object.entries(previous)
+      .sort((a, b) => Number(b[1]?.updatedAt || 0) - Number(a[1]?.updatedAt || 0))
+      .slice(0, 80);
+    saveAppPreferences({ aiTutorConfidence: Object.fromEntries(entries) });
+  }
+
+  function aiTutorQuestionKind(question) {
+    const answerType = String(question?.answerType || "").toLowerCase();
+    const text = String(question?.text || "").toLowerCase();
+    if (answerType.includes("diagram") || /\bdiagram\b|activity-on-arrow|uml/.test(text)) {
+      return "diagram";
+    }
+    if (answerType === "code" || answerType === "command" || /\bcode\b|command|sql\b|python\b|java\b/.test(text)) {
+      return "code";
+    }
+    if (/calculate|calculation|formula|equation|variance|cpi\b|spi\b|npv\b|float\b|duration|earned value/.test(text)) {
+      return "calculation";
+    }
+    if (Array.isArray(question?.options) && question.options.length >= 2) {
+      return "mcq";
+    }
+    return "theory";
+  }
+
+  function buildAiTutorFocusRequest(question, focus) {
+    const source = buildAiTutorRequest(question);
+    const options = Array.isArray(question?.options)
+      ? question.options.map((option, index) =>
+          String.fromCharCode(65 + index) + ". " + canonicalizeAnswerValue(option)
+        )
+      : [];
+
+    let task = "";
+    let rubric = [];
+
+    if (focus === "simpler") {
+      task =
+        "AI tutor task. Re-explain the concept behind this question using very simple English, " +
+        "short sentences, and everyday wording. Define any abbreviation or specialist term before using it. " +
+        "Do not grade the learner. Original question: " + String(question?.text || "");
+      rubric = [
+        "Use feedback for one clear beginner-friendly explanation.",
+        "Use missingPoints for two to four key words or ideas the learner must understand.",
+        "Use bookAlignment for one short memory tip.",
+        "Do not discuss marks, scores or verdicts.",
+      ];
+    } else if (focus === "options") {
+      task =
+        "AI tutor task. Compare the multiple-choice options for this question. Explain why the correct option is correct " +
+        "and why every other option is wrong or misleading. Label the options A, B, C and so on. " +
+        "Focus on the concept difference that helps a student avoid the trap next time. Do not grade the learner. " +
+        "Original question: " + String(question?.text || "") +
+        "\nOptions:\n" + options.join("\n");
+      rubric = [
+        "Use feedback to cover every supplied option in order.",
+        "For each option say correct, wrong, or misleading and explain why.",
+        "Do not merely repeat the option text.",
+        "Use bookAlignment for one rule that helps distinguish the options.",
+        "Do not discuss marks, scores or verdicts.",
+      ];
+    } else if (focus === "quiz") {
+      task =
+        "AI tutor task. Create exactly ONE short transfer question that tests the same underlying concept as the supplied " +
+        "question but changes the wording, scenario, values or context. It must not be a copy of the original. " +
+        "Do not grade the learner. Original question: " + String(question?.text || "");
+      rubric = [
+        "Put ONLY the new transfer question in feedback. Do not reveal its answer there.",
+        "Put the correct answer plus a short reason in bookAlignment.",
+        "The new question must test the same concept, not an unrelated topic.",
+        "Keep it answerable from the supplied reference answer and study notes.",
+        "Do not discuss marks, scores or verdicts.",
+      ];
+    } else {
+      throw new Error("Unknown tutor focus.");
+    }
+
+    return {
+      source,
+      body: {
+        question: task,
+        // This is existing reference explanation, never the student's real answer.
+        studentAnswer: source.studentAnswer,
+        modelAnswer: source.modelAnswer,
+        referenceNotes: [
+          source.referenceNotes,
+          options.length ? "Options from the original question:\n" + options.join("\n") : "",
+        ].filter(Boolean).join("\n\n"),
+        rubric,
+        chapter: source.chapter,
+        section: source.section,
+        minimumScore: 0,
+      },
+    };
+  }
+
+  async function requestAiTutorFocus(question, actualIndex, focus) {
+    const key = aiTutorFocusKey(question, actualIndex, focus);
+    if (aiTutorFocusCache.has(key)) return aiTutorFocusCache.get(key);
+
+    const endpoint = window.APP_CONFIG && window.APP_CONFIG.aiTutorEndpoint;
+    if (typeof endpoint !== "string" || !endpoint.trim()) {
+      throw new Error("The AI tutor is not connected yet.");
+    }
+
+    const request = buildAiTutorFocusRequest(question, focus);
+    const response = await fetch(endpoint, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(request.body),
+    });
+
+    let payload = null;
+    try {
+      payload = await response.json();
+    } catch (_) {
+      payload = null;
+    }
+    if (!response.ok) {
+      throw new Error(
+        typeof payload?.error === "string"
+          ? payload.error
+          : "The AI tutor is unavailable right now. Please try again."
+      );
+    }
+
+    const feedback = typeof payload?.feedback === "string" ? payload.feedback.trim() : "";
+    const alignment = typeof payload?.bookAlignment === "string"
+      ? payload.bookAlignment.trim()
+      : "";
+    const points = Array.isArray(payload?.missingPoints)
+      ? payload.missingPoints.filter(item => typeof item === "string" && item.trim()).slice(0, 5)
+      : [];
+
+    let result;
+    if (focus === "quiz") {
+      if (!feedback || !alignment) {
+        throw new Error("The AI tutor could not create a clean practice question. Please retry.");
+      }
+      result = { question: feedback, answer: alignment };
+    } else {
+      if (!feedback) {
+        throw new Error("The AI tutor returned an empty explanation. Please retry.");
+      }
+      result = { text: feedback, points, tip: alignment };
+    }
+
+    aiTutorFocusCache.set(key, result);
+    return result;
+  }
+
   function appendAiTutorTextSection(card, headingText, value) {
     if (!value) return;
     const section = document.createElement("section");
@@ -492,7 +678,197 @@ document.addEventListener("DOMContentLoaded", function () {
     card.appendChild(section);
   }
 
-  function renderAiTutorLesson(host, lesson) {
+  function createAiTutorDetailShell(titleText) {
+    const section = document.createElement("section");
+    section.className = "ai-tutor-detail";
+    const title = document.createElement("h4");
+    title.textContent = titleText;
+    const body = document.createElement("div");
+    body.className = "ai-tutor-detail-body";
+    section.append(title, body);
+    return { section, body };
+  }
+
+  function renderAiTutorLocalFocus(host, lesson, focus) {
+    host.replaceChildren();
+
+    if (focus === "example") {
+      const shell = createAiTutorDetailShell("Example");
+      const content = document.createElement("div");
+      content.className = "rich-content";
+      content.innerHTML = formatRichText(lesson.example);
+      shell.body.appendChild(content);
+      if (lesson.commonMistake) {
+        const mistake = document.createElement("div");
+        mistake.className = "ai-tutor-mini-note";
+        const strong = document.createElement("strong");
+        strong.textContent = "Watch out: ";
+        mistake.append(strong, document.createTextNode(lesson.commonMistake));
+        shell.body.appendChild(mistake);
+      }
+      host.appendChild(shell.section);
+      return;
+    }
+
+    if (focus === "steps") {
+      const shell = createAiTutorDetailShell("Work it through");
+      if (lesson.deepDive) {
+        const intro = document.createElement("div");
+        intro.className = "rich-content ai-tutor-step-intro";
+        intro.innerHTML = formatRichText(lesson.deepDive);
+        shell.body.appendChild(intro);
+      }
+      const list = document.createElement("ol");
+      list.className = "ai-tutor-steps";
+      lesson.steps.forEach(step => {
+        const item = document.createElement("li");
+        item.textContent = step;
+        list.appendChild(item);
+      });
+      shell.body.appendChild(list);
+      if (lesson.memoryTip) {
+        const tip = document.createElement("div");
+        tip.className = "ai-tutor-mini-note";
+        const strong = document.createElement("strong");
+        strong.textContent = "Memory tip: ";
+        tip.append(strong, document.createTextNode(lesson.memoryTip));
+        shell.body.appendChild(tip);
+      }
+      host.appendChild(shell.section);
+    }
+  }
+
+  function renderAiTutorRemoteFocus(host, result, focus) {
+    host.replaceChildren();
+    const shell = createAiTutorDetailShell(
+      focus === "options" ? "Why the options differ" : "Simpler explanation"
+    );
+    const content = document.createElement("div");
+    content.className = "rich-content";
+    content.innerHTML = formatRichText(result.text);
+    shell.body.appendChild(content);
+
+    if (Array.isArray(result.points) && result.points.length) {
+      const list = document.createElement("ul");
+      list.className = "ai-tutor-key-points";
+      result.points.forEach(point => {
+        const item = document.createElement("li");
+        item.textContent = point;
+        list.appendChild(item);
+      });
+      shell.body.appendChild(list);
+    }
+
+    if (result.tip) {
+      const tip = document.createElement("div");
+      tip.className = "ai-tutor-mini-note";
+      const strong = document.createElement("strong");
+      strong.textContent = "Remember: ";
+      tip.append(strong, document.createTextNode(result.tip));
+      shell.body.appendChild(tip);
+    }
+    host.appendChild(shell.section);
+  }
+
+  function createAiTutorConfidenceControl(question, actualIndex, actions, compact = false) {
+    const section = document.createElement("section");
+    section.className = "ai-tutor-confidence" + (compact ? " is-compact" : "");
+
+    const prompt = document.createElement("span");
+    prompt.className = "ai-tutor-confidence-label";
+    prompt.textContent = compact ? "How did that feel?" : "How confident are you now?";
+    section.appendChild(prompt);
+
+    const choices = document.createElement("div");
+    choices.className = "ai-tutor-confidence-choices";
+    const saved = readAiTutorConfidence(question, actualIndex);
+
+    [
+      { value: "confused", label: "Still confused", next: "simpler" },
+      { value: "getting", label: "Getting it", next: "example" },
+      { value: "understand", label: "I understand", next: "quiz" },
+    ].forEach(choice => {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "ai-tutor-confidence-button";
+      button.textContent = choice.label;
+      button.setAttribute("aria-pressed", String(saved === choice.value));
+      button.addEventListener("click", () => {
+        recordAiTutorConfidence(question, actualIndex, choice.value);
+        choices.querySelectorAll("button").forEach(item =>
+          item.setAttribute("aria-pressed", String(item === button))
+        );
+        const nextAction = actions && actions[choice.next];
+        if (typeof nextAction === "function") nextAction();
+      });
+      choices.appendChild(button);
+    });
+    section.appendChild(choices);
+    return section;
+  }
+
+  function renderAiTutorQuiz(host, result, question, actualIndex, actions) {
+    host.replaceChildren();
+    const shell = createAiTutorDetailShell("Try one without looking");
+    shell.section.classList.add("ai-tutor-quiz");
+
+    const questionText = document.createElement("div");
+    questionText.className = "rich-content ai-tutor-quiz-question";
+    questionText.innerHTML = formatRichText(result.question);
+
+    const input = document.createElement("textarea");
+    input.className = "ai-tutor-quiz-input";
+    input.rows = 3;
+    input.placeholder = "Explain your answer in your own words…";
+    input.setAttribute("aria-label", "Your answer to the AI tutor practice question");
+
+    const controls = document.createElement("div");
+    controls.className = "ai-tutor-quiz-controls";
+    const compare = document.createElement("button");
+    compare.type = "button";
+    compare.className = "btn btn-primary";
+    compare.textContent = "Compare answer";
+
+    const status = document.createElement("p");
+    status.className = "ai-tutor-status";
+    status.setAttribute("role", "status");
+    status.setAttribute("aria-live", "polite");
+
+    const answer = document.createElement("div");
+    answer.className = "ai-tutor-quiz-answer hidden";
+    const answerTitle = document.createElement("strong");
+    answerTitle.textContent = "Model answer / reasoning";
+    const answerBody = document.createElement("div");
+    answerBody.className = "rich-content";
+    answerBody.innerHTML = formatRichText(result.answer);
+    const privacy = document.createElement("p");
+    privacy.className = "ai-tutor-privacy";
+    privacy.textContent =
+      "Your answer above stays on this device. It is not sent to the AI tutor.";
+    answer.append(answerTitle, answerBody, privacy);
+
+    compare.addEventListener("click", () => {
+      if (!input.value.trim()) {
+        status.textContent = "Write an answer first so you practise recalling the idea.";
+        input.focus();
+        return;
+      }
+      status.textContent =
+        "Compare the ideas, not the exact wording. Then choose how confident you feel.";
+      answer.classList.remove("hidden");
+      if (!shell.section.querySelector(".ai-tutor-confidence")) {
+        shell.body.appendChild(
+          createAiTutorConfidenceControl(question, actualIndex, actions, true)
+        );
+      }
+    });
+
+    controls.appendChild(compare);
+    shell.body.append(questionText, input, controls, status, answer);
+    host.appendChild(shell.section);
+  }
+
+  function renderAiTutorLesson(host, lesson, question, actualIndex) {
     host.replaceChildren();
     const card = document.createElement("article");
     card.className = "ai-tutor-lesson";
@@ -507,32 +883,118 @@ document.addEventListener("DOMContentLoaded", function () {
     const note = document.createElement("p");
     note.className = "ai-tutor-disclaimer";
     note.textContent =
-      "Built from this question and its saved study material. AI can make mistakes, so use the reference answer and textbook as the final check.";
+      "Start with the short explanation, then choose only the help you need. AI can make mistakes; use the saved answer and textbook as the final check.";
     heading.append(kicker, title, note);
     card.appendChild(heading);
 
-    appendAiTutorTextSection(card, "Explain it simply", lesson.simpleExplanation);
-    appendAiTutorTextSection(card, "Go deeper", lesson.deepDive);
+    appendAiTutorTextSection(card, "Quick explanation", lesson.simpleExplanation);
 
-    if (Array.isArray(lesson.steps) && lesson.steps.length) {
-      const section = document.createElement("section");
-      section.className = "ai-tutor-section";
-      const headingSteps = document.createElement("h4");
-      headingSteps.textContent = "How to handle questions like this";
-      const list = document.createElement("ol");
-      list.className = "ai-tutor-steps";
-      lesson.steps.forEach(step => {
-        const item = document.createElement("li");
-        item.textContent = step;
-        list.appendChild(item);
+    const kind = aiTutorQuestionKind(question);
+    const menu = document.createElement("div");
+    menu.className = "ai-tutor-menu";
+    menu.setAttribute("role", "group");
+    menu.setAttribute("aria-label", "Choose how the AI tutor should help");
+
+    const detailHost = document.createElement("div");
+    detailHost.className = "ai-tutor-detail-host";
+    detailHost.setAttribute("aria-live", "polite");
+
+    const status = document.createElement("p");
+    status.className = "ai-tutor-status";
+    status.setAttribute("role", "status");
+    status.setAttribute("aria-live", "polite");
+
+    const buttons = {};
+    const actions = {};
+
+    const setActive = focus => {
+      Object.entries(buttons).forEach(([key, button]) => {
+        button.setAttribute("aria-pressed", String(key === focus));
       });
-      section.append(headingSteps, list);
-      card.appendChild(section);
-    }
+    };
 
-    appendAiTutorTextSection(card, "Example", lesson.example);
-    appendAiTutorTextSection(card, "Common mistake", lesson.commonMistake);
-    appendAiTutorTextSection(card, "Memory tip", lesson.memoryTip);
+    const addButton = (focus, label, action) => {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "ai-tutor-menu-button";
+      button.textContent = label;
+      button.setAttribute("aria-pressed", "false");
+      button.addEventListener("click", action);
+      buttons[focus] = button;
+      menu.appendChild(button);
+    };
+
+    actions.example = () => {
+      setActive("example");
+      status.textContent = "";
+      renderAiTutorLocalFocus(detailHost, lesson, "example");
+    };
+    actions.steps = () => {
+      setActive("steps");
+      status.textContent = "";
+      renderAiTutorLocalFocus(detailHost, lesson, "steps");
+    };
+
+    const loadRemote = async focus => {
+      const button = buttons[focus];
+      if (!button || button.disabled) return;
+      setActive(focus);
+      button.disabled = true;
+      const original = button.textContent;
+      button.textContent = "Loading…";
+      status.textContent =
+        focus === "quiz"
+          ? "Creating a new question on the same concept…"
+          : "Preparing that explanation…";
+      try {
+        const result = await requestAiTutorFocus(question, actualIndex, focus);
+        if (!aiTutorEnabled() || !document.body.contains(card)) return;
+        status.textContent = "";
+        if (focus === "quiz") {
+          renderAiTutorQuiz(detailHost, result, question, actualIndex, actions);
+        } else {
+          renderAiTutorRemoteFocus(detailHost, result, focus);
+        }
+      } catch (error) {
+        detailHost.replaceChildren();
+        status.textContent =
+          error?.message || "The AI tutor could not load that view. Please try again.";
+      } finally {
+        button.disabled = false;
+        button.textContent = original;
+      }
+    };
+
+    actions.simpler = () => loadRemote("simpler");
+    actions.quiz = () => loadRemote("quiz");
+    actions.options = () => loadRemote("options");
+
+    addButton("simpler", "Simpler", actions.simpler);
+    addButton(
+      "example",
+      kind === "calculation" ? "Worked example" :
+        kind === "diagram" ? "Diagram example" :
+          kind === "code" ? "Code example" : "Example",
+      actions.example
+    );
+    addButton(
+      "steps",
+      kind === "calculation" ? "Calculation steps" :
+        kind === "diagram" ? "Build step-by-step" :
+          kind === "code" ? "Walk through" : "Steps",
+      actions.steps
+    );
+    if (Array.isArray(question?.options) && question.options.length >= 2) {
+      addButton(
+        "options",
+        Array.isArray(question.correctAnswer) ? "Compare options" : "Why other options?",
+        actions.options
+      );
+    }
+    addButton("quiz", "Quiz me", actions.quiz);
+
+    card.append(menu, status, detailHost);
+    card.appendChild(createAiTutorConfidenceControl(question, actualIndex, actions));
 
     const studentNote = document.createElement("section");
     studentNote.className = "ai-tutor-student-note";
@@ -540,26 +1002,12 @@ document.addEventListener("DOMContentLoaded", function () {
     studentNoteTitle.textContent = "Student note: ";
     studentNote.append(
       studentNoteTitle,
-      document.createTextNode(lesson.studentNote)
+      document.createTextNode(
+        lesson.studentNote ||
+        "Try to explain the rule in your own words, then use Quiz me to check that you can apply it."
+      )
     );
     card.appendChild(studentNote);
-
-    const check = document.createElement("section");
-    check.className = "ai-tutor-check";
-    const checkTitle = document.createElement("h4");
-    checkTitle.textContent = "Check yourself";
-    const checkQuestion = document.createElement("div");
-    checkQuestion.className = "rich-content";
-    checkQuestion.innerHTML = formatRichText(lesson.checkQuestion);
-    const reveal = document.createElement("details");
-    const summary = document.createElement("summary");
-    summary.textContent = "Show answer";
-    const answer = document.createElement("div");
-    answer.className = "rich-content ai-tutor-check-answer";
-    answer.innerHTML = formatRichText(lesson.checkAnswer);
-    reveal.append(summary, answer);
-    check.append(checkTitle, checkQuestion, reveal);
-    card.appendChild(check);
 
     host.appendChild(card);
   }
@@ -575,7 +1023,7 @@ document.addEventListener("DOMContentLoaded", function () {
     lessonHost.className = "ai-tutor-output";
     const cached = aiTutorCache.get(aiTutorKey(question, actualIndex));
     if (cached) {
-      renderAiTutorLesson(lessonHost, cached);
+      renderAiTutorLesson(lessonHost, cached, question, actualIndex);
       wrapper.appendChild(lessonHost);
       return wrapper;
     }
@@ -596,11 +1044,11 @@ document.addEventListener("DOMContentLoaded", function () {
       button.disabled = true;
       button.textContent = "Teaching…";
       status.textContent =
-        "Building a deeper lesson from this question and its study notes…";
+        "Building a short lesson from this question and its study notes…";
       try {
         const lesson = await requestAiTutorLesson(question, actualIndex);
         if (!aiTutorEnabled() || !document.body.contains(wrapper)) return;
-        renderAiTutorLesson(lessonHost, lesson);
+        renderAiTutorLesson(lessonHost, lesson, question, actualIndex);
         actionRow.remove();
         status.remove();
       } catch (error) {
@@ -615,6 +1063,7 @@ document.addEventListener("DOMContentLoaded", function () {
     wrapper.append(actionRow, status, lessonHost);
     return wrapper;
   }
+
   const MOBILE_BREAKPOINT = 768;
   let lastViewportIsMobile = window.innerWidth <= MOBILE_BREAKPOINT;
   let headerCollapsed = window.innerWidth <= MOBILE_BREAKPOINT;
