@@ -320,6 +320,34 @@ document.addEventListener("DOMContentLoaded", function () {
     return Boolean(masteryModeSetting && masteryModeSetting.checked);
   }
 
+  function syncMasteryEngineContext(mode = currentMode, testFile = currentTestFile) {
+    if (!window.MasteryEngine) return;
+
+    var bookAvailable = false;
+    var bookTitle = "";
+    // During the first synchronous setup currentTestFile is empty and the
+    // book registry lower in this file has not been initialised yet. Once a
+    // paper loads, the registry is ready and this detects the linked book.
+    if (testFile) {
+      try {
+        var bookSource = getCurrentBookSource();
+        bookAvailable = Boolean(bookSource);
+        bookTitle = bookSource && bookSource.title ? bookSource.title : "";
+      } catch (_) {
+        bookAvailable = false;
+        bookTitle = "";
+      }
+    }
+
+    window.MasteryEngine.setContext({
+      mode,
+      testFile,
+      enabled: masteryModeEnabled(),
+      bookAvailable,
+      bookTitle,
+    });
+  }
+
   function syncMasteryModeUi() {
     const enabled = masteryModeEnabled();
     document.body.classList.toggle("mastery-mode-enabled", enabled);
@@ -329,11 +357,7 @@ document.addEventListener("DOMContentLoaded", function () {
         : "Review Missed Questions";
     }
     if (window.MasteryEngine) {
-      window.MasteryEngine.setContext({
-        mode: currentMode,
-        testFile: currentTestFile,
-        enabled,
-      });
+      syncMasteryEngineContext(currentMode, currentTestFile);
     }
   }
 
@@ -2399,7 +2423,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     if (window.MasteryEngine) {
-      window.MasteryEngine.setContext({ mode: activeMode, testFile: currentTestFile, enabled: masteryModeEnabled() });
+      syncMasteryEngineContext(activeMode, currentTestFile);
     }
   }
 
@@ -4821,7 +4845,7 @@ const testFiles = [
     currentTestFile = filename;
     syncBookAvailability();
     if (window.MasteryEngine) {
-      window.MasteryEngine.setContext({ mode: currentMode, testFile: filename, enabled: masteryModeEnabled() });
+      syncMasteryEngineContext(currentMode, filename);
     }
     if (filename !== CUSTOM_TEST_VALUE) {
       lastRegularTestValue = filename;
