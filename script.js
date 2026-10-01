@@ -57,6 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
     QUESTION_ORDER_MODES.has(appPreferences.questionOrder)
       ? appPreferences.questionOrder
       : "auto";
+  let activeQuestionOrderMode = questionOrderMode;
   let bookmarkedQuestions = new Set();
   let initialTimerSeconds = null;
   let bookmarkCycleIndex = 0;
@@ -134,10 +135,11 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
       }
 
+      activeQuestionOrderMode = questionOrderMode;
       questions = prepareQuestionsForSession(
         originalQuestions,
         currentTestPreserveOrder,
-        questionOrderMode
+        activeQuestionOrderMode
       );
       currentPage = 1;
       studyGuessRevealedQuestions.clear();
@@ -4687,11 +4689,14 @@ const testFiles = [
     return topic ? "Topic: " + topic : "No chapter / topic label";
   }
 
-  function getEffectiveQuestionOrderMode(preserveOrder = currentTestPreserveOrder) {
-    if (questionOrderMode === "auto") {
+  function getEffectiveQuestionOrderMode(
+    preserveOrder = currentTestPreserveOrder,
+    orderMode = activeQuestionOrderMode
+  ) {
+    if (orderMode === "auto") {
       return preserveOrder ? "paper" : "random";
     }
-    return questionOrderMode;
+    return orderMode;
   }
 
   function stableSortQuestions(items, compare) {
@@ -4737,7 +4742,10 @@ const testFiles = [
   }
 
   function getQuestionOrderGroupLabel(question) {
-    const effectiveMode = getEffectiveQuestionOrderMode();
+    const effectiveMode = getEffectiveQuestionOrderMode(
+      currentTestPreserveOrder,
+      activeQuestionOrderMode
+    );
     if (effectiveMode === "type") {
       return getQuestionTypeInfo(question).label;
     }
@@ -4835,12 +4843,19 @@ const testFiles = [
           ? savedProgress.activeQuestions
           : null;
 
+      activeQuestionOrderMode =
+        savedActiveQuestions &&
+        typeof savedProgress.questionOrderMode === "string" &&
+        QUESTION_ORDER_MODES.has(savedProgress.questionOrderMode)
+          ? savedProgress.questionOrderMode
+          : questionOrderMode;
+
       questions = savedActiveQuestions
         ? cloneQuestionsData(savedActiveQuestions)
         : prepareQuestionsForSession(
             originalQuestions,
             preserveOrder,
-            questionOrderMode
+            activeQuestionOrderMode
           );
       updateQuestionOrderNote();
       initializeTest();
@@ -6873,7 +6888,12 @@ const testFiles = [
     bookmarkedQuestions = new Set();
     bookmarkCycleIndex = 0;
     if (originalQuestions.length > 0) {
-      questions = prepareQuestionsForSession(originalQuestions, currentTestPreserveOrder);
+      activeQuestionOrderMode = questionOrderMode;
+      questions = prepareQuestionsForSession(
+        originalQuestions,
+        currentTestPreserveOrder,
+        activeQuestionOrderMode
+      );
     }
     currentPage = 1;
     renderQuestions();
@@ -7481,7 +7501,7 @@ const testFiles = [
       // Save the exact working order so refresh/resume never moves answers to
       // another question when Random or grouped order is active.
       activeQuestions: cloneQuestionsData(questions),
-      questionOrderMode,
+      questionOrderMode: activeQuestionOrderMode,
     };
     progressData.lastRegularTestValue = lastRegularTestValue;
 
