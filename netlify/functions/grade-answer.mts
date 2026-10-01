@@ -131,37 +131,47 @@ export default async (req: Request) => {
 
   const systemPrompt = [
     "You are a fair university study-practice marker for the subject named in the question and its reference notes. Mark diagrams, written answers, code and structured explanations against their specific rubric.",
+    "CRITICAL SOURCE RULE: only the field named studentAnswer and any submitted diagram image are the learner's work.",
+    "The fields referenceAnswer, markingRubric, and bookReference are reference material written for marking/study support. They are NOT statements made by the learner.",
+    "Never attribute wording, ideas, examples, steps, definitions, or explanations from the reference material to the learner unless the same idea is actually present in studentAnswer or clearly visible in the submitted diagram.",
+    "Do not say phrases such as 'you correctly described', 'you mentioned', 'you identified', or 'your explanation shows' unless the claimed point is supported by the learner's actual submission.",
+    "Every item in strengths must be supported by something the learner actually wrote or drew. If the learner did not state a reference point, place it in missingPoints instead of strengths.",
+    "When referring to study material, say 'the reference answer explains...' or 'the study notes add...' rather than implying the learner wrote it.",
     "Mark the learner's UNDERSTANDING, not whether they copied the reference answer word for word.",
     "Different wording, sentence structure, examples, and order are acceptable when the meaning is accurate.",
     "Do not penalize spelling, grammar, or simple English unless it changes the meaning.",
     "Award partial credit when the learner understands some but not all required ideas.",
     "Do not award credit for vague statements that do not actually show the concept.",
     "If the learner contradicts a core principle, reduce the score even if other keywords are present.",
-    "Use only the supplied question, reference answer, rubric, and reference notes. Do not introduce unrelated requirements.",
-    "The reference answer is a marking guide, not a phrase-matching template.",
+    "Use only the supplied question, learner submission, reference answer, rubric, and reference notes. Do not introduce unrelated requirements.",
+    "The reference answer is a marking guide, not a phrase-matching template and not part of the learner's response.",
     "For submitted drawings, identify the diagram type from the question. Examine visible labels, actors, use cases, associations, cardinalities, class attributes, decisions, arrows and flow as relevant. Only award marks for elements actually present and readable.",
     "Apply each paper's own missing-diagram rule. The INF3708 2021 Q5.1 penalty of 7/14 must NOT be applied to other papers.",
     "If a drawing is supplied, award partial marks fairly for diagram structure and any correct readable calculations.",
-    "Return concise, helpful feedback that teaches the learner what they understood and what they should improve.",
+    "Return concise, helpful feedback that teaches the learner what they understood and what they should improve, while keeping learner work and reference material clearly separate.",
     "Return JSON with score (0-100 number), verdict (correct, mostly_correct, partially_correct, incorrect), feedback, strengths (string array), missingPoints (string array), and bookAlignment (string).",
   ].join("\n");
 
   const userPrompt = JSON.stringify(
     {
       question,
-      studentAnswer,
-      referenceAnswer: modelAnswer,
-      markingRubric: rubric,
-      bookReference: {
-        chapter,
-        section,
-        notes: referenceNotes,
+      learnerSubmission: {
+        studentAnswer,
+        diagramProvided: Boolean(diagramImage),
+      },
+      referenceMaterialDoNotAttributeToLearner: {
+        referenceAnswer: modelAnswer,
+        markingRubric: rubric,
+        bookReference: {
+          chapter,
+          section,
+          notes: referenceNotes,
+        },
       },
       passThreshold: minimumScore,
       diagramRequired,
-      diagramProvided: Boolean(diagramImage),
       markingInstruction:
-        "Score semantic accuracy and coverage from 0 to 100. A learner can earn full marks using different valid wording. Base the verdict on the score and the supplied material.",
+        "Score semantic accuracy and coverage from 0 to 100. A learner can earn full marks using different valid wording. Attribute strengths only to content in learnerSubmission. Treat all referenceMaterialDoNotAttributeToLearner content only as marking/study guidance.",
     },
     null,
     2
