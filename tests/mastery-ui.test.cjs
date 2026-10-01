@@ -5,7 +5,7 @@ const fs = require("node:fs");
 const { JSDOM } = require("jsdom");
 const dom = new JSDOM(
   '<!doctype html><html><body class="study-mode-active">' +
-  '<details id="mastery-panel" hidden><summary>Topic mastery <span id="mastery-module-label"></span></summary>' +
+  '<details id="mastery-panel" hidden><summary><span id="mastery-summary-title">Topic mastery</span> <span id="mastery-module-label"></span></summary>' +
   '<div id="mastery-root"></div></details><div class="test-content">Existing exam questions</div>' +
   '</body></html>',
   { url: "http://localhost/", runScripts: "outside-only" }
@@ -60,7 +60,34 @@ assert.ok(numericCard.querySelector(".mastery-feedback").textContent.includes("S
 assert.ok(window.localStorage.getItem("test-simulator:mastery:v1:inf3708"),
   "Mastery progress should be saved separately from exam progress");
 
-engine.setContext({ mode: "flashcards", testFile: "test36.json", enabled: true });
+// When the current module has a linked book, mastery becomes chapter-first.
+engine.setContext({
+  mode: "study",
+  testFile: "test36.json",
+  enabled: true,
+  bookAvailable: true,
+  bookTitle: "Information Technology Project Management"
+});
+panel.open = true;
+panel.dispatchEvent(new window.Event("toggle"));
+assert.ok(root.textContent.includes("Learn by chapter"), "Book-backed mastery should open by chapter");
+assert.ok(root.textContent.includes("13 chapters mastered"), "Chapter summary should use chapter progress");
+assert.equal(
+  window.document.getElementById("mastery-summary-title").textContent,
+  "Chapter mastery",
+  "Panel label should switch to chapter mastery when a book is linked"
+);
+const chapterButtons = root.querySelectorAll('[data-mastery-action="open-chapter"]');
+assert.equal(chapterButtons.length, 13, "INF3708 book mastery should expose all 13 chapters");
+chapterButtons[5].click();
+assert.ok(root.textContent.includes("6 · Project Schedule Management"));
+assert.ok(root.textContent.includes("Critical path and slack"));
+const chapterBack = root.querySelector('[data-mastery-action="home"]');
+assert.ok(chapterBack && chapterBack.textContent.includes("All chapters"));
+chapterBack.click();
+assert.ok(root.textContent.includes("Learn by chapter"));
+
+engine.setContext({ mode: "flashcards", testFile: "test36.json", enabled: true, bookAvailable: true });
 assert.equal(panel.hidden, true);
 assert.equal(panel.open, false);
 
@@ -75,18 +102,25 @@ window.MasteryModules.push({
     }]
   }] }]
 });
-engine.setContext({ mode: "study", testFile: "other.json", enabled: true });
+engine.setContext({ mode: "study", testFile: "other.json", enabled: true, bookAvailable: false });
 panel.open = true;
 panel.dispatchEvent(new window.Event("toggle"));
 assert.ok(root.textContent.includes("A reusable topic"));
 assert.equal(window.document.getElementById("mastery-module-label").textContent, "Other subject");
 assert.equal(window.localStorage.getItem("test-simulator:mastery:v1:other-subject"), null,
   "Other subject progress should start clean");
-engine.setContext({ mode: "study", testFile: "ict2622-oct-nov-2025-practice.json", enabled: true });
+engine.setContext({ mode: "study", testFile: "ict2622-oct-nov-2025-practice.json", enabled: true, bookAvailable: false });
 panel.open = true;
 panel.dispatchEvent(new window.Event("toggle"));
 assert.equal(window.document.getElementById("mastery-module-label").textContent, "ICT2622");
+assert.ok(root.textContent.includes("Learn by topic"),
+  "A module without a linked book should keep topic-based mastery");
+assert.equal(
+  window.document.getElementById("mastery-summary-title").textContent,
+  "Topic mastery",
+  "Panel label should return to topic mastery without a linked book"
+);
 assert.ok(root.textContent.includes("System vision and development cycles"),
   "ICT2622 should use the same shared topic engine");
-console.log("Mastery UI smoke test passed: topic hub, diagram, calculation, progress isolation, ICT2622 and mode switching.");
+console.log("Mastery UI smoke test passed: chapter-first book mastery, topic fallback, diagram, calculation, progress isolation and mode switching.");
 dom.window.close();
