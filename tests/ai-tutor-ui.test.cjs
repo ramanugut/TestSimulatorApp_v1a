@@ -38,6 +38,12 @@ assert.match(script, /aiTutorChatHistory/, "Tutor chat should preserve recent co
 assert.match(script, /Learner's latest question:/, "Tutor chat should send the learner's free-form follow-up");
 assert.match(script, /Tutor chat request\. Please answer the learner's question above\./,
   "Tutor chat should use a fixed backend placeholder instead of the real test answer");
+assert.match(script, /mode:\s*"tutor"/,
+  "Tutor requests should be explicitly separated from marking requests");
+assert.match(script, /Tutor request only; no learner exam answer is supplied\./,
+  "Tutor requests should use a neutral placeholder, not the saved explanation");
+assert.doesNotMatch(script, /studentAnswer:\s*baselineExplanation/,
+  "Saved study explanations must never be sent as the learner's answer");
 assert.match(script, /Still confused/, "Tutor should include a confidence check");
 assert.match(script, /Compare answer/, "Tutor quiz should require retrieval before revealing the model answer");
 assert.match(
