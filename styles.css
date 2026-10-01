@@ -4606,135 +4606,276 @@ body.modal-open {
 
 /* Question-based AI tutor. Hidden entirely unless the session AI setting is enabled. */
 .ai-tutor-wrap {
-    margin-top: 0.25rem;
-    padding-top: 1rem;
-    border-top: 1px solid var(--border-color);
+  margin-top: .25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
 }
 
 .ai-tutor-actions {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    flex-wrap: wrap;
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  flex-wrap: wrap;
 }
 
 .ai-tutor-button {
-    min-height: 44px;
+  min-height: 44px;
 }
 
 .ai-tutor-status {
-    margin: 0.65rem 0 0;
-    color: var(--muted-text);
-    font-size: 0.88rem;
-    line-height: 1.45;
+  margin: .55rem 0 0;
+  color: var(--muted-text);
+  font-size: .84rem;
+  line-height: 1.45;
 }
 
 .ai-tutor-status:empty {
-    display: none;
+  display: none;
 }
 
 .ai-tutor-lesson {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    padding: 1.1rem;
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-lg);
-    background: var(--subtle-surface);
+  display: flex;
+  flex-direction: column;
+  gap: .9rem;
+  padding: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  background: var(--subtle-surface);
 }
 
 .ai-tutor-lesson-heading {
-    display: flex;
-    flex-direction: column;
-    gap: 0.35rem;
+  display: flex;
+  flex-direction: column;
+  gap: .3rem;
 }
 
 .ai-tutor-kicker {
-    width: fit-content;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--accent-color);
+  width: fit-content;
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--accent-color);
 }
 
 .ai-tutor-lesson-heading h3,
 .ai-tutor-section h4,
-.ai-tutor-check h4 {
-    margin: 0;
-    color: var(--text-color);
+.ai-tutor-detail h4 {
+  margin: 0;
+  color: var(--text-color);
 }
 
 .ai-tutor-disclaimer {
-    margin: 0;
-    color: var(--muted-text);
-    font-size: 0.82rem;
-    line-height: 1.45;
+  margin: 0;
+  color: var(--muted-text);
+  font-size: .78rem;
+  line-height: 1.45;
 }
 
 .ai-tutor-section {
-    display: flex;
-    flex-direction: column;
-    gap: 0.45rem;
+  display: flex;
+  flex-direction: column;
+  gap: .4rem;
 }
 
 .ai-tutor-section .rich-content,
-.ai-tutor-check .rich-content {
-    color: var(--text-color);
+.ai-tutor-detail .rich-content {
+  color: var(--text-color);
 }
 
-.ai-tutor-steps {
-    margin: 0;
-    padding-left: 1.35rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.45rem;
-    color: var(--text-color);
+.ai-tutor-menu {
+  display: flex;
+  gap: .45rem;
+  flex-wrap: wrap;
 }
 
+.ai-tutor-menu-button,
+.ai-tutor-confidence-button {
+  min-height: 36px;
+  padding: .42rem .7rem;
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  background: var(--surface-color);
+  color: var(--text-color);
+  font: inherit;
+  font-size: .78rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.ai-tutor-menu-button:hover,
+.ai-tutor-confidence-button:hover {
+  border-color: var(--accent-color);
+}
+
+.ai-tutor-menu-button[aria-pressed="true"] {
+  border-color: var(--accent-color);
+  background: rgba(16, 185, 129, .12);
+  color: var(--accent-color);
+}
+
+.ai-tutor-menu-button:disabled {
+  opacity: .65;
+  cursor: wait;
+}
+
+.ai-tutor-detail-host:empty {
+  display: none;
+}
+
+.ai-tutor-detail {
+  display: flex;
+  flex-direction: column;
+  gap: .55rem;
+  padding: .85rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  background: var(--surface-color);
+}
+
+.ai-tutor-detail-body {
+  display: flex;
+  flex-direction: column;
+  gap: .7rem;
+}
+
+.ai-tutor-step-intro {
+  color: var(--text-color);
+}
+
+.ai-tutor-steps,
+.ai-tutor-key-points {
+  margin: 0;
+  padding-left: 1.3rem;
+  display: flex;
+  flex-direction: column;
+  gap: .42rem;
+  color: var(--text-color);
+}
+
+.ai-tutor-mini-note,
 .ai-tutor-student-note {
-    padding: 0.8rem 0.9rem;
-    border-left: 4px solid var(--accent-color);
-    border-radius: var(--radius-md);
-    background: var(--surface-color);
-    color: var(--text-color);
-    line-height: 1.55;
+  padding: .72rem .8rem;
+  border-left: 4px solid var(--accent-color);
+  border-radius: var(--radius-md);
+  background: var(--subtle-surface);
+  color: var(--text-color);
+  line-height: 1.5;
 }
 
-.ai-tutor-check {
-    padding-top: 0.85rem;
-    border-top: 1px solid var(--border-color);
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
+.ai-tutor-confidence {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .65rem;
+  flex-wrap: wrap;
+  padding-top: .15rem;
 }
 
-.ai-tutor-check details {
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-md);
-    background: var(--surface-color);
-    overflow: hidden;
+.ai-tutor-confidence.is-compact {
+  margin-top: .2rem;
+  padding-top: .65rem;
+  border-top: 1px solid var(--border-color);
 }
 
-.ai-tutor-check summary {
-    cursor: pointer;
-    padding: 0.75rem 0.85rem;
-    font-weight: 600;
-    color: var(--accent-color);
+.ai-tutor-confidence-label {
+  color: var(--muted-text);
+  font-size: .78rem;
+  font-weight: 700;
 }
 
-.ai-tutor-check-answer {
-    padding: 0 0.85rem 0.85rem;
+.ai-tutor-confidence-choices {
+  display: flex;
+  gap: .35rem;
+  flex-wrap: wrap;
+}
+
+.ai-tutor-confidence-button {
+  min-height: 32px;
+  padding: .34rem .62rem;
+  font-size: .72rem;
+}
+
+.ai-tutor-confidence-button[aria-pressed="true"] {
+  border-color: var(--accent-secondary);
+  background: rgba(14, 165, 233, .12);
+  color: var(--accent-secondary);
+}
+
+.ai-tutor-quiz-question {
+  font-weight: 600;
+}
+
+.ai-tutor-quiz-input {
+  width: 100%;
+  min-height: 84px;
+  resize: vertical;
+}
+
+.ai-tutor-quiz-controls {
+  display: flex;
+  gap: .55rem;
+  flex-wrap: wrap;
+}
+
+.ai-tutor-quiz-answer {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  padding: .75rem;
+  border-radius: var(--radius-md);
+  background: var(--subtle-surface);
+  color: var(--text-color);
+}
+
+.ai-tutor-privacy {
+  margin: 0;
+  color: var(--muted-text);
+  font-size: .74rem;
+  line-height: 1.4;
+}
+
+body.dark-mode .ai-tutor-menu-button,
+body.dark-mode .ai-tutor-confidence-button,
+body.dark-mode .ai-tutor-detail {
+  background: var(--surface-color);
+  border-color: var(--border-color);
 }
 
 @media (max-width: 720px) {
-    .ai-tutor-lesson {
-        padding: 0.9rem;
-    }
+  .ai-tutor-lesson {
+    padding: .85rem;
+  }
 
-    .ai-tutor-button {
-        width: 100%;
-    }
+  .ai-tutor-button {
+    width: 100%;
+  }
+
+  .ai-tutor-menu {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: .15rem;
+    scrollbar-width: thin;
+  }
+
+  .ai-tutor-menu-button {
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
+
+  .ai-tutor-confidence {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .ai-tutor-confidence-choices {
+    width: 100%;
+  }
+
+  .ai-tutor-confidence-button {
+    flex: 1 1 30%;
+  }
 }
 
 
