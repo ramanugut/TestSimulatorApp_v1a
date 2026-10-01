@@ -51,6 +51,12 @@ document.addEventListener("DOMContentLoaded", function () {
   let testSubmitted = false;
   let currentTestFile = "";
   let currentTestPreserveOrder = false;
+  const QUESTION_ORDER_MODES = new Set(["auto", "random", "paper", "type", "chapter"]);
+  let questionOrderMode =
+    typeof appPreferences.questionOrder === "string" &&
+    QUESTION_ORDER_MODES.has(appPreferences.questionOrder)
+      ? appPreferences.questionOrder
+      : "auto";
   let bookmarkedQuestions = new Set();
   let initialTimerSeconds = null;
   let bookmarkCycleIndex = 0;
@@ -99,7 +105,48 @@ document.addEventListener("DOMContentLoaded", function () {
   const studyModeToggle = document.getElementById("study-mode-toggle");
   const studyGuessFirstBar = document.getElementById("study-guess-first-bar");
   const studyGuessFirstToggle = document.getElementById("study-guess-first-toggle");
+  const questionOrderSelect = document.getElementById("question-order-select");
+  const questionOrderNote = document.getElementById("question-order-note");
   const themeButtons = document.querySelectorAll(".theme-choice");
+
+  if (questionOrderSelect) {
+    questionOrderSelect.value = questionOrderMode;
+    questionOrderSelect.addEventListener("change", () => {
+      const nextMode = QUESTION_ORDER_MODES.has(questionOrderSelect.value)
+        ? questionOrderSelect.value
+        : "auto";
+      questionOrderMode = nextMode;
+      saveAppPreferences({ questionOrder: questionOrderMode });
+      updateQuestionOrderNote();
+
+      const hasExistingWork =
+        testInProgress ||
+        timerStarted ||
+        testSubmitted ||
+        bookmarkedQuestions.size > 0 ||
+        Object.values(userAnswers).some((answer) => hasProvidedAnswer(answer));
+
+      if (!originalQuestions.length || hasExistingWork) {
+        if (hasExistingWork && questionOrderNote) {
+          questionOrderNote.textContent +=
+            " Saved. It will apply when you load or reset the paper, so your current answers stay attached to the same questions.";
+        }
+        return;
+      }
+
+      questions = prepareQuestionsForSession(
+        originalQuestions,
+        currentTestPreserveOrder,
+        questionOrderMode
+      );
+      currentPage = 1;
+      studyGuessRevealedQuestions.clear();
+      renderQuestions();
+      updatePaginationControls();
+      updateBookmarkPanel();
+      renderFlashcards();
+    });
+  }
 
   // Restore low-risk usability preferences. Paper-specific durations can still
   // replace the timer value when a paper explicitly defines one.
@@ -4580,22 +4627,184 @@ const testFiles = [
     return rawQuestions.map((question) => cloneQuestionData(question));
   }
 
-  function prepareQuestionsForSession(baseQuestions, preserveOrder = false) {
+  function getQuestionTypeInfo(question) {
+    if (Array.isArray(question?.options) && question.options.length) {
+      return { label: "Multiple choice", rank: 10 };
+    }
+
+    const answerType = String(question?.answerType || "").toLowerCase();
+    if (answerType.includes("diagram")) {
+      return { label: "Diagram", rank: 20 };
+    }
+    if (answerType === "table") {
+      return { label: "Table / structured", rank: 30 };
+    }
+    if (answerType === "code" || answerType === "command") {
+      return { label: "Code / command", rank: 40 };
+    }
+
+    const text = String(question?.text || "").toLowerCase();
+    if (
+      answerType === "number" ||
+      answerType === "numeric" ||
+      /\bcalculate\b|\bcalculation\b|\bformula\b|\bequation\b|\bvariance\b|\bcpi\b|\bspi\b|\bnpv\b|\bearned value\b/.test(text)
+    ) {
+      return { label: "Calculation", rank: 50 };
+    }
+
+    if (
+      answerType === "ai-text" ||
+      answerType === "text" ||
+      answerType === "textarea" ||
+      question?.grading === "ai"
+    ) {
+      return { label: "Written answer", rank: 60 };
+    }
+
+    return { label: "Other", rank: 90 };
+  }
+
+  function getQuestionChapterLabel(question) {
+    const study =
+      question?.study && typeof question.study === "object"
+        ? question.study
+        : {};
+
+    const chapter = String(study.chapter || question?.chapter || "").trim();
+    if (chapter) {
+      return /^chapter\b/i.test(chapter) ? chapter : "Chapter: " + chapter;
+    }
+
+    const topic = String(
+      question?.topic ||
+      study.topic ||
+      question?.section ||
+      study.section ||
+      study.title ||
+      ""
+    ).trim();
+
+    return topic ? "Topic: " + topic : "No chapter / topic label";
+  }
+
+  function getEffectiveQuestionOrderMode(preserveOrder = currentTestPreserveOrder) {
+    if (questionOrderMode === "auto") {
+      return preserveOrder ? "paper" : "random";
+    }
+    return questionOrderMode;
+  }
+
+  function stableSortQuestions(items, compare) {
+    return items
+      .map((question, index) => ({ question, index }))
+      .sort((a, b) => compare(a.question, b.question) || a.index - b.index)
+      .map((entry) => entry.question);
+  }
+
+  function orderQuestionsForSession(items, preserveOrder = false, orderMode = questionOrderMode) {
+    const effectiveMode =
+      orderMode === "auto"
+        ? (preserveOrder ? "paper" : "random")
+        : orderMode;
+
+    if (effectiveMode === "paper") {
+      return items;
+    }
+    if (effectiveMode === "random") {
+      return shuffleArray(items);
+    }
+    if (effectiveMode === "type") {
+      return stableSortQuestions(items, (a, b) => {
+        const typeA = getQuestionTypeInfo(a);
+        const typeB = getQuestionTypeInfo(b);
+        return typeA.rank - typeB.rank ||
+          typeA.label.localeCompare(typeB.label, undefined, {
+            numeric: true,
+            sensitivity: "base",
+          });
+      });
+    }
+    if (effectiveMode === "chapter") {
+      return stableSortQuestions(items, (a, b) =>
+        getQuestionChapterLabel(a).localeCompare(
+          getQuestionChapterLabel(b),
+          undefined,
+          { numeric: true, sensitivity: "base" }
+        )
+      );
+    }
+    return items;
+  }
+
+  function getQuestionOrderGroupLabel(question) {
+    const effectiveMode = getEffectiveQuestionOrderMode();
+    if (effectiveMode === "type") {
+      return getQuestionTypeInfo(question).label;
+    }
+    if (effectiveMode === "chapter") {
+      return getQuestionChapterLabel(question);
+    }
+    return "";
+  }
+
+  function updateQuestionOrderNote() {
+    if (!questionOrderNote) return;
+
+    const notes = {
+      auto:
+        currentTestPreserveOrder
+          ? "This paper keeps its intended order. Your choice is saved in this browser."
+          : "This paper uses its normal random order. Your choice is saved in this browser.",
+      random:
+        "Questions are reshuffled when you load or reset the paper. An in-progress test keeps the same order after refresh.",
+      paper:
+        "Questions follow the original paper order.",
+      type:
+        "Questions are grouped by type, such as multiple choice, diagram, table, code, calculation and written answers.",
+      chapter:
+        "Questions use chapter metadata where available, then topic/section labels as a fallback.",
+    };
+
+    questionOrderNote.textContent = notes[questionOrderMode] || notes.auto;
+
+    if (questionOrderMode === "chapter" && originalQuestions.length) {
+      const labelledCount = originalQuestions.filter(
+        (question) => getQuestionChapterLabel(question) !== "No chapter / topic label"
+      ).length;
+      if (labelledCount === 0) {
+        questionOrderNote.textContent +=
+          " This paper does not have chapter/topic labels yet, so its questions remain in one group.";
+      } else if (labelledCount < originalQuestions.length) {
+        questionOrderNote.textContent +=
+          " Questions without labels are kept together in a separate group.";
+      }
+    }
+  }
+
+  function prepareQuestionsForSession(
+    baseQuestions,
+    preserveOrder = false,
+    orderMode = questionOrderMode
+  ) {
     if (!Array.isArray(baseQuestions)) {
       return [];
     }
 
     const questionsWithShuffledOptions = baseQuestions.map((question) => {
       const clonedQuestion = cloneQuestionData(question);
+      // Question ordering and option ordering are separate. Some papers need
+      // their answer choices kept exactly as supplied even when questions move.
       if (!preserveOrder && Array.isArray(clonedQuestion.options)) {
         clonedQuestion.options = shuffleArray([...clonedQuestion.options]);
       }
       return clonedQuestion;
     });
 
-    return preserveOrder
-      ? questionsWithShuffledOptions
-      : shuffleArray(questionsWithShuffledOptions);
+    return orderQuestionsForSession(
+      questionsWithShuffledOptions,
+      preserveOrder,
+      orderMode
+    );
   }
 
   function loadQuestions(filename, customData = null) {
@@ -4614,7 +4823,26 @@ const testFiles = [
     const initializeFromQuestions = (rawQuestions, preserveOrder = false) => {
       originalQuestions = cloneQuestionsData(rawQuestions || []);
       currentTestPreserveOrder = preserveOrder;
-      questions = prepareQuestionsForSession(originalQuestions, preserveOrder);
+
+      // Resume the exact question/option order saved with an active attempt.
+      // This prevents a refresh from attaching saved answers to different
+      // questions when Random order is selected.
+      const savedProgress = getSavedProgress();
+      const savedActiveQuestions =
+        savedProgress &&
+        Array.isArray(savedProgress.activeQuestions) &&
+        savedProgress.activeQuestions.length === originalQuestions.length
+          ? savedProgress.activeQuestions
+          : null;
+
+      questions = savedActiveQuestions
+        ? cloneQuestionsData(savedActiveQuestions)
+        : prepareQuestionsForSession(
+            originalQuestions,
+            preserveOrder,
+            questionOrderMode
+          );
+      updateQuestionOrderNote();
       initializeTest();
     };
 
@@ -5277,8 +5505,24 @@ const testFiles = [
       ? filteredIndexes
       : filteredIndexes.slice(startIndex, startIndex + questionsPerPage);
 
-    indexesToDisplay.forEach((actualIndex) => {
+    let previousGroupLabel = "";
+    indexesToDisplay.forEach((actualIndex, displayPosition) => {
       const question = questions[actualIndex];
+      const groupLabel = getQuestionOrderGroupLabel(question);
+
+      if (
+        groupLabel &&
+        (displayPosition === 0 || groupLabel !== previousGroupLabel)
+      ) {
+        const groupHeading = document.createElement("div");
+        groupHeading.className = "question-group-heading";
+        groupHeading.setAttribute("role", "heading");
+        groupHeading.setAttribute("aria-level", "3");
+        groupHeading.textContent = groupLabel;
+        questionsContainer.appendChild(groupHeading);
+      }
+      previousGroupLabel = groupLabel;
+
       const questionElement = document.createElement("div");
       questionElement.classList.add("question");
       questionElement.setAttribute("data-question-index", actualIndex);
@@ -7234,6 +7478,10 @@ const testFiles = [
       isTimerPaused,
       showAllQuestions,
       bookmarkedQuestions: Array.from(bookmarkedQuestions),
+      // Save the exact working order so refresh/resume never moves answers to
+      // another question when Random or grouped order is active.
+      activeQuestions: cloneQuestionsData(questions),
+      questionOrderMode,
     };
     progressData.lastRegularTestValue = lastRegularTestValue;
 
