@@ -228,14 +228,261 @@ document.addEventListener("DOMContentLoaded", function () {
   const headerToggleButton = document.getElementById("header-toggle");
   const testControlsModal = document.getElementById("test-controls-modal");
   const closeTestControlsButton = document.getElementById("close-test-controls");
+  const aiStudyToolsSetting = document.getElementById("ai-revision-enabled");
   const revisionController = window.RevisionController
     ? window.RevisionController.create({
-        setting: document.getElementById("ai-revision-enabled"),
+        setting: aiStudyToolsSetting,
         panel: document.getElementById("revision-insights"),
         endpoint: window.APP_CONFIG && window.APP_CONFIG.aiPracticeEndpoint,
         onStartPractice: startGeneratedPractice,
       })
     : null;
+
+  // Question tutor is session-only and uses the same explicit Settings opt-in
+  // as adaptive revision. It never receives the student's answer.
+  const aiTutorCache = new Map();
+  const aiTutorPending = new Map();
+
+  function aiTutorEnabled() {
+    return Boolean(aiStudyToolsSetting && aiStudyToolsSetting.checked);
+  }
+
+  function aiTutorKey(question, actualIndex) {
+    return [
+      currentTestFile || "paper",
+      actualIndex,
+      String(question && question.text || "").slice(0, 500),
+    ].join("::");
+  }
+
+  function buildAiTutorRequest(question) {
+    const study = question && question.study && typeof question.study === "object"
+      ? question.study
+      : {};
+    const topic =
+      study.title || question.topic || study.section || question.section ||
+      study.chapter || question.chapter || "Topic from this question";
+    const keyTerms = Array.isArray(study.keyTerms)
+      ? study.keyTerms
+          .filter(entry => entry && entry.term && entry.meaning)
+          .slice(0, 8)
+          .map(entry => ({ term: String(entry.term), meaning: String(entry.meaning) }))
+      : [];
+    return {
+      module: getCurrentModuleCode() || "",
+      topic: String(topic),
+      question: String(question.text || ""),
+      correctAnswer: formatAnswerForDisplay(question.correctAnswer),
+      explanation: String(study.simple || question.explanation || ""),
+      chapter: String(study.chapter || question.chapter || ""),
+      section: String(study.section || question.section || ""),
+      steps: Array.isArray(study.steps) ? study.steps.slice(0, 6).map(String) : [],
+      example: String(study.example || ""),
+      pitfall: String(study.pitfall || ""),
+      remember: String(study.remember || ""),
+      keyTerms,
+    };
+  }
+
+  function validAiTutorLesson(value) {
+    return Boolean(
+      value && typeof value === "object" &&
+      typeof value.topicTitle === "string" &&
+      typeof value.simpleExplanation === "string" &&
+      typeof value.deepDive === "string" &&
+      Array.isArray(value.steps) && value.steps.length >= 2 &&
+      value.steps.every(step => typeof step === "string") &&
+      typeof value.example === "string" &&
+      typeof value.commonMistake === "string" &&
+      typeof value.memoryTip === "string" &&
+      typeof value.studentNote === "string" &&
+      typeof value.checkQuestion === "string" &&
+      typeof value.checkAnswer === "string"
+    );
+  }
+
+  async function requestAiTutorLesson(question, actualIndex) {
+    const key = aiTutorKey(question, actualIndex);
+    if (aiTutorCache.has(key)) return aiTutorCache.get(key);
+    if (aiTutorPending.has(key)) return aiTutorPending.get(key);
+
+    const endpoint = window.APP_CONFIG && window.APP_CONFIG.aiTutorEndpoint;
+    if (typeof endpoint !== "string" || !endpoint.trim()) {
+      throw new Error("The AI tutor is not connected yet.");
+    }
+
+    const pending = fetch(endpoint, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(buildAiTutorRequest(question)),
+    }).then(async response => {
+      let payload = null;
+      try {
+        payload = await response.json();
+      } catch (_) {
+        payload = null;
+      }
+      if (response.status === 404) {
+        throw new Error(
+          "The AI tutor backend is still being deployed. Your normal study notes still work."
+        );
+      }
+      if (!response.ok) {
+        throw new Error(
+          typeof payload?.error === "string"
+            ? payload.error
+            : "The AI tutor is unavailable right now. Please try again."
+        );
+      }
+      if (!validAiTutorLesson(payload?.lesson)) {
+        throw new Error("The AI tutor returned an incomplete lesson. Please retry.");
+      }
+      aiTutorCache.set(key, payload.lesson);
+      return payload.lesson;
+    }).finally(() => {
+      aiTutorPending.delete(key);
+    });
+
+    aiTutorPending.set(key, pending);
+    return pending;
+  }
+
+  function appendAiTutorTextSection(card, headingText, value) {
+    if (!value) return;
+    const section = document.createElement("section");
+    section.className = "ai-tutor-section";
+    const heading = document.createElement("h4");
+    heading.textContent = headingText;
+    const body = document.createElement("div");
+    body.className = "rich-content";
+    body.innerHTML = formatRichText(String(value));
+    section.append(heading, body);
+    card.appendChild(section);
+  }
+
+  function renderAiTutorLesson(host, lesson) {
+    host.replaceChildren();
+    const card = document.createElement("article");
+    card.className = "ai-tutor-lesson";
+
+    const heading = document.createElement("div");
+    heading.className = "ai-tutor-lesson-heading";
+    const kicker = document.createElement("span");
+    kicker.className = "ai-tutor-kicker";
+    kicker.textContent = "AI tutor";
+    const title = document.createElement("h3");
+    title.textContent = lesson.topicTitle || "Learn this topic";
+    const note = document.createElement("p");
+    note.className = "ai-tutor-disclaimer";
+    note.textContent =
+      "Built from this question and its saved study material. AI can make mistakes, so use the reference answer and textbook as the final check.";
+    heading.append(kicker, title, note);
+    card.appendChild(heading);
+
+    appendAiTutorTextSection(card, "Explain it simply", lesson.simpleExplanation);
+    appendAiTutorTextSection(card, "Go deeper", lesson.deepDive);
+
+    if (Array.isArray(lesson.steps) && lesson.steps.length) {
+      const section = document.createElement("section");
+      section.className = "ai-tutor-section";
+      const headingSteps = document.createElement("h4");
+      headingSteps.textContent = "How to handle questions like this";
+      const list = document.createElement("ol");
+      list.className = "ai-tutor-steps";
+      lesson.steps.forEach(step => {
+        const item = document.createElement("li");
+        item.textContent = step;
+        list.appendChild(item);
+      });
+      section.append(headingSteps, list);
+      card.appendChild(section);
+    }
+
+    appendAiTutorTextSection(card, "Example", lesson.example);
+    appendAiTutorTextSection(card, "Common mistake", lesson.commonMistake);
+    appendAiTutorTextSection(card, "Memory tip", lesson.memoryTip);
+
+    const studentNote = document.createElement("section");
+    studentNote.className = "ai-tutor-student-note";
+    const studentNoteTitle = document.createElement("strong");
+    studentNoteTitle.textContent = "Student note: ";
+    studentNote.append(
+      studentNoteTitle,
+      document.createTextNode(lesson.studentNote)
+    );
+    card.appendChild(studentNote);
+
+    const check = document.createElement("section");
+    check.className = "ai-tutor-check";
+    const checkTitle = document.createElement("h4");
+    checkTitle.textContent = "Check yourself";
+    const checkQuestion = document.createElement("div");
+    checkQuestion.className = "rich-content";
+    checkQuestion.innerHTML = formatRichText(lesson.checkQuestion);
+    const reveal = document.createElement("details");
+    const summary = document.createElement("summary");
+    summary.textContent = "Show answer";
+    const answer = document.createElement("div");
+    answer.className = "rich-content ai-tutor-check-answer";
+    answer.innerHTML = formatRichText(lesson.checkAnswer);
+    reveal.append(summary, answer);
+    check.append(checkTitle, checkQuestion, reveal);
+    card.appendChild(check);
+
+    host.appendChild(card);
+  }
+
+  function createAiTutorBlock(question, actualIndex) {
+    if (!aiTutorEnabled() || (!isStudyMode && !testSubmitted)) return null;
+
+    const wrapper = document.createElement("section");
+    wrapper.className = "ai-tutor-wrap";
+    wrapper.setAttribute("aria-label", "Optional AI tutor");
+
+    const lessonHost = document.createElement("div");
+    lessonHost.className = "ai-tutor-output";
+    const cached = aiTutorCache.get(aiTutorKey(question, actualIndex));
+    if (cached) {
+      renderAiTutorLesson(lessonHost, cached);
+      wrapper.appendChild(lessonHost);
+      return wrapper;
+    }
+
+    const actionRow = document.createElement("div");
+    actionRow.className = "ai-tutor-actions";
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "btn btn-tertiary ai-tutor-button";
+    button.textContent = "✨ Teach me more";
+    const status = document.createElement("p");
+    status.className = "ai-tutor-status";
+    status.setAttribute("role", "status");
+    status.setAttribute("aria-live", "polite");
+
+    button.addEventListener("click", async () => {
+      if (!aiTutorEnabled()) return;
+      button.disabled = true;
+      button.textContent = "Teaching…";
+      status.textContent =
+        "Building a deeper lesson from this question and its study notes…";
+      try {
+        const lesson = await requestAiTutorLesson(question, actualIndex);
+        if (!aiTutorEnabled() || !document.body.contains(wrapper)) return;
+        renderAiTutorLesson(lessonHost, lesson);
+        actionRow.remove();
+        status.remove();
+      } catch (error) {
+        button.disabled = false;
+        button.textContent = "✨ Teach me more";
+        status.textContent =
+          error?.message || "The AI tutor could not load. Please try again.";
+      }
+    });
+
+    actionRow.appendChild(button);
+    wrapper.append(actionRow, status, lessonHost);
+    return wrapper;
+  }
   const MOBILE_BREAKPOINT = 768;
   let lastViewportIsMobile = window.innerWidth <= MOBILE_BREAKPOINT;
   let headerCollapsed = window.innerWidth <= MOBILE_BREAKPOINT;
@@ -2978,6 +3225,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
   setMode(currentMode);
 
+  if (aiStudyToolsSetting) {
+    aiStudyToolsSetting.addEventListener("change", () => {
+      // The AI buttons must disappear immediately when the session opt-in is off.
+      renderQuestions();
+    });
+  }
+
   handleResponsiveState();
 
   if (headerToggleButton) {
@@ -4307,6 +4561,11 @@ const testFiles = [
           addStudyVoiceToHeading(questionElement, voiceHost,
             question.number || actualIndex + 1);
         }
+      }
+
+      const aiTutorBlock = createAiTutorBlock(question, actualIndex);
+      if (aiTutorBlock) {
+        questionElement.appendChild(aiTutorBlock);
       }
 
       questionsContainer.appendChild(questionElement);
