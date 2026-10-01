@@ -35,9 +35,9 @@ assert.match(script, /Quiz me/, "Tutor should create a transfer-practice questio
 assert.match(script, /Ask AI about this topic/, "Tutor should expose a contextual chat box");
 assert.match(script, /function requestAiTutorChat\(/, "Tutor chat should have its own request flow");
 assert.match(script, /aiTutorChatHistory/, "Tutor chat should preserve recent context in memory");
-assert.match(script, /Learner's latest question:/, "Tutor chat should send the learner's free-form follow-up");
-assert.match(script, /Tutor chat request\. Please answer the learner's question above\./,
-  "Tutor chat should use a fixed backend placeholder instead of the real test answer");
+assert.match(script, /userMessage:\s*prompt/, "Tutor chat should send the learner's free-form follow-up as a tutor message");
+assert.match(script, /mode:\s*"lesson"/, "Teach me more should use tutor lesson mode");
+assert.match(script, /mode:\s*"chat"/, "Tutor follow-ups should use tutor chat mode");
 assert.match(script, /Still confused/, "Tutor should include a confidence check");
 assert.match(script, /Compare answer/, "Tutor quiz should require retrieval before revealing the model answer");
 assert.match(
@@ -47,13 +47,13 @@ assert.match(
 );
 assert.match(
   config,
-  /aiTutorEndpoint:[\s\S]*\/api\/grade-answer/,
-  "Fixed tutor actions should use the deployed AI backend"
+  /aiTutorEndpoint:[\s\S]*\/api\/teach-topic/,
+  "Fixed tutor actions should use the dedicated tutor backend"
 );
 assert.match(
   config,
-  /aiTutorChatEndpoint:[\s\S]*\/api\/grade-answer/,
-  "Contextual tutor chat should use the already-live AI backend"
+  /aiTutorChatEndpoint:[\s\S]*\/api\/teach-topic/,
+  "Contextual tutor chat should use the dedicated tutor backend"
 );
 const tutorStart = script.indexOf("const aiTutorCache");
 const tutorEnd = script.indexOf("const MOBILE_BREAKPOINT", tutorStart);
@@ -63,6 +63,11 @@ assert.doesNotMatch(
   tutorRegion,
   /userAnswers\s*\[/,
   "Tutor requests must not send the student's real test answers"
+);
+assert.doesNotMatch(
+  tutorRegion,
+  /studentAnswer\s*:/,
+  "Tutor study explanations must never be sent as a studentAnswer"
 );
 assert.match(styles, /\.ai-tutor-menu/, "Tutor choice chips should be styled");
 assert.match(styles, /\.ai-tutor-confidence/, "Tutor confidence controls should be styled");
