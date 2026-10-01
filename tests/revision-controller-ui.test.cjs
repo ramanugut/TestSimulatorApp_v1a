@@ -10,7 +10,7 @@ async function main(){
   win.eval(fs.readFileSync("revision-insights.js","utf8"));
   win.eval(fs.readFileSync("revision-controller.js","utf8"));
   const setting=win.document.getElementById("opt"),panel=win.document.getElementById("report");
-  setting.checked=true;
+  setting.checked=false;
   let calls=0,started=0,saved=[];
   const topics=[
     {marks:2,study:{title:"PHP form validation",simple:"Validate POST fields.",pitfall:"POST is not encryption."}},
@@ -32,7 +32,7 @@ async function main(){
     setting,panel,endpoint:"https://studyflow-ai-grader.netlify.app/api/generate-practice",
     onStartPractice:questions=>{started++;assert.equal(questions.length,5);}
   });
-  assert.equal(setting.checked,false,"AI consent must not persist when page reloads");
+  assert.equal(setting.checked,false,"AI consent is off when the host has not restored session consent");
   controller.showResults({questions:topics,getGrade:(q,i)=>({scoreValue:scores[i]}),moduleName:"ICT2613"});
   assert.equal(panel.classList.contains("hidden"),false);
   assert.ok(panel.textContent.includes("AI practice is off"));
@@ -78,9 +78,10 @@ async function main(){
   const reloaded=win.RevisionController.create({
     setting,panel,endpoint:"",onStartPractice:()=>{}
   });
-  assert.equal(reloaded.isEnabled(),false);
-  assert.equal(setting.checked,false);
-  console.log("AI consent UI tests passed: default off, local results, no auto-call, explicit generate only, session-only, mid-flight cancellation, and missing-endpoint guidance.");
+  assert.equal(reloaded.isEnabled(),true,
+    "Controller should respect AI consent already restored by the host for this tab session");
+  assert.equal(setting.checked,true);
+  console.log("AI consent UI tests passed: default off, restored tab-session consent, local results, no auto-call, explicit generate only, mid-flight cancellation, and missing-endpoint guidance.");
   dom.window.close();
 }
 main().catch(error=>{console.error(error);process.exitCode=1;});
