@@ -27,6 +27,9 @@ assert.match(script, /Quiz me/, "Tutor should create a transfer-practice questio
 assert.match(script, /Ask AI about this topic/, "Tutor should expose a contextual chat box");
 assert.match(script, /function requestAiTutorChat\(/, "Tutor chat should have its own request flow");
 assert.match(script, /aiTutorChatHistory/, "Tutor chat should preserve recent context in memory");
+assert.match(script, /Learner's latest question:/, "Tutor chat should send the learner's free-form follow-up");
+assert.match(script, /Tutor chat request\. Please answer the learner's question above\./,
+  "Tutor chat should use a fixed backend placeholder instead of the real test answer");
 assert.match(script, /Still confused/, "Tutor should include a confidence check");
 assert.match(script, /Compare answer/, "Tutor quiz should require retrieval before revealing the model answer");
 assert.match(
@@ -41,8 +44,8 @@ assert.match(
 );
 assert.match(
   config,
-  /aiTutorChatEndpoint:[\s\S]*\/api\/teach-topic/,
-  "Contextual tutor chat should use the dedicated teaching endpoint"
+  /aiTutorChatEndpoint:[\s\S]*\/api\/grade-answer/,
+  "Contextual tutor chat should use the already-live AI backend"
 );
 const tutorStart = script.indexOf("const aiTutorCache");
 const tutorEnd = script.indexOf("const MOBILE_BREAKPOINT", tutorStart);
