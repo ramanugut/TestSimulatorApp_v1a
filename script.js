@@ -68,6 +68,9 @@ document.addEventListener("DOMContentLoaded", function () {
     : "test";
   let studyGuessFirstEnabled = appPreferences.studyGuessFirst !== false;
   const studyGuessRevealedQuestions = new Set();
+  // Guess First must never reuse a saved Test-mode answer. Keep Study-mode
+  // attempts in their own temporary buffer so the student starts with a blank choice.
+  let studyGuessAnswers = {};
   const studyVoiceAvailable = "speechSynthesis" in window &&
     typeof window.SpeechSynthesisUtterance === "function";
   let activeStudyVoice = null;
@@ -142,7 +145,7 @@ document.addEventListener("DOMContentLoaded", function () {
         activeQuestionOrderMode
       );
       currentPage = 1;
-      studyGuessRevealedQuestions.clear();
+      resetStudyGuessSession();
       renderQuestions();
       updatePaginationControls();
       updateBookmarkPanel();
@@ -2314,6 +2317,29 @@ document.addEventListener("DOMContentLoaded", function () {
     return false;
   }
 
+  function usesStudyGuessBuffer() {
+    return isStudyMode && studyGuessFirstEnabled && !testSubmitted;
+  }
+
+  function getInteractiveAnswer(actualIndex) {
+    return usesStudyGuessBuffer()
+      ? studyGuessAnswers[actualIndex]
+      : userAnswers[actualIndex];
+  }
+
+  function setInteractiveAnswer(actualIndex, value) {
+    if (usesStudyGuessBuffer()) {
+      studyGuessAnswers[actualIndex] = value;
+    } else {
+      userAnswers[actualIndex] = value;
+    }
+  }
+
+  function resetStudyGuessSession() {
+    studyGuessAnswers = {};
+    studyGuessRevealedQuestions.clear();
+  }
+
   function studyAnswerVisible(actualIndex) {
     return testSubmitted ||
       !studyGuessFirstEnabled ||
@@ -2326,7 +2352,7 @@ document.addEventListener("DOMContentLoaded", function () {
       '[data-study-guess-index="' + actualIndex + '"]'
     );
     if (!button) return;
-    const attempted = hasMeaningfulStudyAttempt(userAnswers[actualIndex]);
+    const attempted = hasMeaningfulStudyAttempt(getInteractiveAnswer(actualIndex));
     button.disabled = !attempted;
     const status = root.querySelector(
       '[data-study-guess-status="' + actualIndex + '"]'
@@ -2339,7 +2365,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function revealStudyAnswer(actualIndex) {
-    if (!hasMeaningfulStudyAttempt(userAnswers[actualIndex])) return;
+    if (!hasMeaningfulStudyAttempt(getInteractiveAnswer(actualIndex))) return;
     const before = questionsContainer?.querySelector(
       '[data-question-index="' + actualIndex + '"]'
     );
@@ -4206,6 +4232,9 @@ document.addEventListener("DOMContentLoaded", function () {
   if (studyGuessFirstToggle) {
     studyGuessFirstToggle.addEventListener("click", () => {
       studyGuessFirstEnabled = !studyGuessFirstEnabled;
+      if (studyGuessFirstEnabled) {
+        resetStudyGuessSession();
+      }
       saveAppPreferences({ studyGuessFirst: studyGuessFirstEnabled });
       stopStudyVoice();
       syncStudyGuessFirstControl();
@@ -4841,7 +4870,7 @@ const testFiles = [
 
   function loadQuestions(filename, customData = null) {
     stopStudyVoice();
-    studyGuessRevealedQuestions.clear();
+    resetStudyGuessSession();
     currentTestFile = filename;
     syncBookAvailability();
     if (window.MasteryEngine) {
@@ -5335,11 +5364,11 @@ const testFiles = [
   //************************ SECTION 6: RENDERING QUESTIONS ************************//
 
   function createDiagramAnswerInput(actualIndex) {
-    const previous = userAnswers[actualIndex];
+    const previous = getInteractiveAnswer(actualIndex);
     const answer = previous && typeof previous === "object" && !Array.isArray(previous)
       ? previous
       : { text: "", image: "" };
-    userAnswers[actualIndex] = answer;
+    setInteractiveAnswer(actualIndex, answer);
 
     const wrapper = document.createElement("div");
     wrapper.className = "diagram-answer";
@@ -5375,14 +5404,17 @@ const testFiles = [
       };
     };
     const saveChange = () => {
-      updateProgress();
-      if (!isStudyMode && !timerStarted && !testSubmitted) {
-        startTimer();
-        if (startTestButton) startTestButton.disabled = true;
-        if (submitButton) submitButton.disabled = false;
-        testInProgress = true;
+      setInteractiveAnswer(actualIndex, answer);
+      if (!usesStudyGuessBuffer()) {
+        updateProgress();
+        if (!isStudyMode && !timerStarted && !testSubmitted) {
+          startTimer();
+          if (startTestButton) startTestButton.disabled = true;
+          if (submitButton) submitButton.disabled = false;
+          testInProgress = true;
+        }
+        saveProgress();
       }
-      saveProgress();
       if (isStudyMode && studyGuessFirstEnabled && !studyAnswerVisible(actualIndex)) {
         updateStudyGuessButtonState(actualIndex);
       }
@@ -5690,46 +5722,55 @@ const testFiles = [
 
           input.addEventListener("change", (event) => {
             if (isMultipleCorrect) {
-              // Handle multiple selections
-              if (!Array.isArray(userAnswers[actualIndex])) {
-                userAnswers[actualIndex] = [];
+              // Handle multiple selections without leaking a saved Test answer into Guess First.
+              let selectedAnswers = getInteractiveAnswer(actualIndex);
+              if (!Array.isArray(selectedAnswers)) {
+                selectedAnswers = [];
+              } else {
+                selectedAnswers = [...selectedAnswers];
               }
               if (event.target.checked) {
-                userAnswers[actualIndex].push(event.target.value);
+                if (!selectedAnswers.some((value) => answerValuesEqual(value, event.target.value))) {
+                  selectedAnswers.push(event.target.value);
+                }
                 optionElement.classList.add("selected");
               } else {
-                userAnswers[actualIndex] = userAnswers[actualIndex].filter(
-                  (value) => value !== event.target.value
+                selectedAnswers = selectedAnswers.filter(
+                  (value) => !answerValuesEqual(value, event.target.value)
                 );
                 optionElement.classList.remove("selected");
               }
+              setInteractiveAnswer(actualIndex, selectedAnswers);
             } else {
-              // Handle single selection
-              userAnswers[actualIndex] = event.target.value;
+              // Handle single selection.
+              setInteractiveAnswer(actualIndex, event.target.value);
               const optionItems = optionsList.querySelectorAll("li");
               optionItems.forEach((item) => item.classList.remove("selected"));
               optionElement.classList.add("selected");
             }
 
-            updateProgress();
-            if (!isStudyMode && !timerStarted) {
-              startTimer();
-              if (startTestButton) {
-                startTestButton.disabled = true;
+            if (!usesStudyGuessBuffer()) {
+              updateProgress();
+              if (!isStudyMode && !timerStarted) {
+                startTimer();
+                if (startTestButton) {
+                  startTestButton.disabled = true;
+                }
+                if (submitButton) {
+                  submitButton.disabled = false;
+                }
+                testInProgress = true;
               }
-              if (submitButton) {
-                submitButton.disabled = false;
-              }
-              testInProgress = true;
+              saveProgress();
             }
-            saveProgress();
             if (isStudyMode && studyGuessFirstEnabled && !studyAnswerVisible(actualIndex)) {
               updateStudyGuessButtonState(actualIndex, questionElement);
             }
           });
 
-          // Restore user selections
-          const storedAnswer = userAnswers[actualIndex];
+          // Restore only the answer that belongs to the current mode. Guess First
+          // deliberately ignores saved Test-mode answers.
+          const storedAnswer = getInteractiveAnswer(actualIndex);
           if (Array.isArray(storedAnswer)) {
             if (
               storedAnswer.some((value) =>
@@ -5762,15 +5803,17 @@ const testFiles = [
       } else if (window.AnswerWorkspace &&
           ["uml-diagram", "table", "command", "code"].includes(question.answerType)) {
         const onChange = value => {
-          userAnswers[actualIndex] = value;
-          updateProgress();
-          if (!isStudyMode && !timerStarted && !testSubmitted) {
-            startTimer();
-            if (startTestButton) startTestButton.disabled = true;
-            if (submitButton) submitButton.disabled = false;
-            testInProgress = true;
+          setInteractiveAnswer(actualIndex, value);
+          if (!usesStudyGuessBuffer()) {
+            updateProgress();
+            if (!isStudyMode && !timerStarted && !testSubmitted) {
+              startTimer();
+              if (startTestButton) startTestButton.disabled = true;
+              if (submitButton) submitButton.disabled = false;
+              testInProgress = true;
+            }
+            saveProgress();
           }
-          saveProgress();
           if (isStudyMode && studyGuessFirstEnabled && !studyAnswerVisible(actualIndex)) {
             updateStudyGuessButtonState(actualIndex, questionElement);
           }
@@ -5779,7 +5822,7 @@ const testFiles = [
           ? "createDiagram" : question.answerType === "table"
             ? "createTable" : "createEditor";
         questionElement.appendChild(window.AnswerWorkspace[method](
-          question, userAnswers[actualIndex], onChange, testSubmitted
+          question, getInteractiveAnswer(actualIndex), onChange, testSubmitted
         ));
       } else {
         // Handle questions without options (e.g., short answer questions)
@@ -5790,26 +5833,29 @@ const testFiles = [
         textareaElement.rows = 5; // Adjust the number of rows as needed
 
         textareaElement.addEventListener("input", (event) => {
-          userAnswers[actualIndex] = event.target.value;
-          updateProgress();
-          if (!isStudyMode && !timerStarted) {
-            startTimer();
-            if (startTestButton) {
-              startTestButton.disabled = true;
+          setInteractiveAnswer(actualIndex, event.target.value);
+          if (!usesStudyGuessBuffer()) {
+            updateProgress();
+            if (!isStudyMode && !timerStarted) {
+              startTimer();
+              if (startTestButton) {
+                startTestButton.disabled = true;
+              }
+              if (submitButton) {
+                submitButton.disabled = false;
+              }
+              testInProgress = true;
             }
-            if (submitButton) {
-              submitButton.disabled = false;
-            }
-            testInProgress = true;
+            saveProgress();
           }
-          saveProgress();
           if (isStudyMode && studyGuessFirstEnabled && !studyAnswerVisible(actualIndex)) {
             updateStudyGuessButtonState(actualIndex, questionElement);
           }
         });
 
-        if (userAnswers[actualIndex]) {
-          textareaElement.value = userAnswers[actualIndex];
+        const storedTextAnswer = getInteractiveAnswer(actualIndex);
+        if (typeof storedTextAnswer === "string") {
+          textareaElement.value = storedTextAnswer;
         }
 
         if (testSubmitted) {
@@ -6876,7 +6922,7 @@ const testFiles = [
     clearInterval(timer);
     timer = null;
     aiGrades = {};
-    studyGuessRevealedQuestions.clear();
+    resetStudyGuessSession();
 
     if (wasCustomSession) {
       regenerateCustomSessionQuestions();
