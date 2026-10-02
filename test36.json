@@ -160,12 +160,12 @@
     {
       "text": "The table below lists each activity, its duration, and its predecessor(s) for illustration on an Activity-on-Arrow (AoA) diagram. What is the start time, finish time, and slack of Activity H?",
       "options": [
-        "start time = 13; finish time = 13; slack = 0",
+        "start time = 12; finish time = 13; slack = 0",
         "start time = 13; finish time = 13; slack = 1",
         "start time = 12; finish time = 13; slack = 1",
         "start time = 15; finish time = 17; slack = 2"
       ],
-      "correctAnswer": "start time = 13; finish time = 13; slack = 0",
+      "correctAnswer": "start time = 12; finish time = 13; slack = 0",
       "table": {
         "headers": [
           "Activity",
@@ -229,14 +229,16 @@
         "chapter": "Chapter 6 – Project Schedule Management",
         "section": "Sequence Activities → Network Diagrams / Activity-on-Arrow",
         "pages": "pp. 228–232",
-        "simple": "In an AoA network, an activity that has several predecessors cannot start until every predecessor is finished. The latest predecessor controls when the next activity can begin.",
+        "simple": "Work forward through the predecessor table. Activity H can start only when E, F and G have all finished.",
         "steps": [
-          "Trace the paths that feed into Activity H through E, F and G.",
-          "Use the latest finishing predecessor as the controlling time.",
-          "For this assessment diagram, H reaches the controlling node at time 13.",
-          "H is on the controlling path, so its slack is 0."
+          "A runs from 0 to 3.",
+          "B runs 3 to 6, C runs 3 to 8, and D runs 3 to 7.",
+          "E runs 6 to 7, F runs 8 to 10, and G runs 7 to 12.",
+          "H must wait for the latest of E, F and G, so H starts at 12.",
+          "H lasts 1 day, so it finishes at 13.",
+          "H is the final activity on the controlling path, so its slack is 0."
         ],
-        "remember": "When several activities merge, wait for the slowest/latest predecessor.",
+        "remember": "At a merge, use the latest predecessor finish. Then add the activity duration to get its finish time.",
         "stepsTitle": "How to work it out",
         "keyTerms": [
           {
@@ -252,10 +254,11 @@
             "meaning": "The time a scheduled activity can be delayed without moving the planned project finish; usually LS - ES or LF - EF for total slack."
           }
         ],
-        "example": "If E ends at Day 7, F at Day 10 and G at Day 13, their shared next event cannot begin until Day 13.",
-        "pitfall": "The supplied marking key lists both start and finish as 13, although the activity table gives H a duration of one day. Under ordinary duration arithmetic, start 13 plus one day gives finish 14. Treat the published pair as the assessment key, not a general scheduling rule."
+        "example": "E finishes at 7, F at 10 and G at 12. H therefore starts at 12; with duration 1, it finishes at 13.",
+        "pitfall": "The original assessment key marked 13/13/0, but that conflicts with the supplied predecessor table and H's one-day duration. The app now uses the worked network result: 12/13/0."
       },
-      "explanation": "In an AoA network, an activity that has several predecessors cannot start until every predecessor is finished. The latest predecessor controls when the next activity can begin.\n\nHow to reach the marked answer: Trace the paths that feed into Activity H through E, F and G. Use the latest finishing predecessor as the controlling time. For this assessment diagram, H reaches the controlling node at time 13. H is on the controlling path, so its slack is 0.\n\nExample: If E ends at Day 7, F at Day 10 and G at Day 13, their shared next event cannot begin until Day 13.\n\nStudent note: The supplied marking key lists both start and finish as 13, although the activity table gives H a duration of one day. Under ordinary duration arithmetic, start 13 plus one day gives finish 14. Treat the published pair as the assessment key, not a general scheduling rule."
+      "explanation": "Activity H must wait until E, F and G are all complete.\n\nHow to work it out: A finishes at 3. That gives B 3–6, C 3–8 and D 3–7. Their next activities finish at E = 7, F = 10 and G = 12. The latest predecessor finish is 12, so H starts at 12. H has a duration of 1 day, so it finishes at 13. Because H finishes the controlling path, its slack is 0.\n\nStudent note: The original assessment key showed start 13 and finish 13. That does not match the supplied durations and predecessors, so the app now teaches the calculated result: start 12, finish 13, slack 0.",
+      "sourceMarkedAnswer": "start time = 13; finish time = 13; slack = 0"
     },
     {
       "text": "A project’s net profit is calculated by:",
@@ -1242,9 +1245,9 @@
         "R200 000,00 and R275 000,00",
         "R275 000,00 and R200 000,00",
         "R24 892,62 and -R19 900,66",
-        "R224 590 and R255 700"
+        "R225 290 and R255 700"
       ],
-      "correctAnswer": "R224 590 and R255 700",
+      "correctAnswer": "R225 290 and R255 700",
       "table": {
         "headers": [
           "Year",
@@ -1290,13 +1293,16 @@
         "chapter": "Chapter 4 – Project Integration Management",
         "section": "Net Present Value Analysis",
         "pages": "pp. 148–150",
-        "simple": "Discounted cash inflow is future money coming into the project converted into today's value.",
+        "simple": "Multiply each year's inflow by the discount factor shown in the table, then add the discounted inflows.",
         "steps": [
-          "Multiply each year's Project Y inflow by its 8% discount factor and add them: total = R224 590.",
-          "Do the same for Project Z: total = R255 700.",
-          "Do not include the Year 0 investment when the question asks only for cash inflows."
+          "Project Y: 85 000×0.93 = 79 050.",
+          "Project Y: 70 000×0.86 = 60 200.",
+          "Project Y: 78 000×0.79 = 61 620.",
+          "Project Y: 33 000×0.74 = 24 420.",
+          "Project Y total = 79 050 + 60 200 + 61 620 + 24 420 = R225 290.",
+          "Project Z total = 70 000×0.93 + 75 000×0.86 + 80 000×0.79 + 85 000×0.74 = R255 700."
         ],
-        "remember": "Discounted benefits and discounted cash inflows mean the same thing in these NPV questions.",
+        "remember": "For discounted cash inflow, do not include the negative Year 0 investment. Discount and add only the future inflows.",
         "stepsTitle": "How to work it out",
         "keyTerms": [
           {
@@ -1312,10 +1318,11 @@
             "meaning": "The annual percentage used to reduce future cash amounts to what they are worth today; future money is not treated as identical to money now."
           }
         ],
-        "example": "For Project Z, 70 000×0.93 + 75 000×0.86 + 80 000×0.79 + 85 000×0.74 = R255 700.",
-        "pitfall": "There is an apparent inconsistency in the supplied key for Project Y: the visible rounded factors with the listed inflows sum to R225 290, while the marked answer gives R224 590. Keep the concept—discount and add inflows—distinct from the provided key."
+        "example": "For Project Y, the four discounted inflows are R79 050, R60 200, R61 620 and R24 420.",
+        "pitfall": "The original assessment key gives Project Y as R224 590. Using the factors printed in the same question gives R225 290, a R700 difference."
       },
-      "explanation": "Discounted cash inflow is future money coming into the project converted into today's value.\n\nHow to reach the marked answer: Multiply each year's Project Y inflow by its 8% discount factor and add them: total = R224 590. Do the same for Project Z: total = R255 700. Do not include the Year 0 investment when the question asks only for cash inflows.\n\nExample: For Project Z, 70 000×0.93 + 75 000×0.86 + 80 000×0.79 + 85 000×0.74 = R255 700.\n\nStudent note: There is an apparent inconsistency in the supplied key for Project Y: the visible rounded factors with the listed inflows sum to R225 290, while the marked answer gives R224 590. Keep the concept—discount and add inflows—distinct from the provided key."
+      "explanation": "Use the discount factors printed in the table and multiply them by each future cash inflow.\n\nHow to work it out: Project Y = 85 000×0.93 + 70 000×0.86 + 78 000×0.79 + 33 000×0.74 = 79 050 + 60 200 + 61 620 + 24 420 = R225 290. Project Z = 70 000×0.93 + 75 000×0.86 + 80 000×0.79 + 85 000×0.74 = R255 700.\n\nStudent note: The original assessment key says R224 590 for Project Y, but the arithmetic from the question's own table gives R225 290. The app now uses the calculated value.",
+      "sourceMarkedAnswer": "R224 590 and R255 700"
     },
     {
       "text": "You launched Project X that is based on the pre-investor’s model. Pre-investors denote non-professional or non-institutional investors such as friends, family and strangers who help to fund the project. However, they expect to see a return on their investment. Nonetheless, Project X involves a new social media platform that seeks to generate revenue from user subscriptions. To launch the project, the pre-investors need to invest an accumulative amount of R75 000,00 (year 0). As subscribers and pre-investors join your venture, you expect the initial investment of R75000 to grow, increasing with R15 550,00 annually for four years (years 1-4). In the first year, you expect the new social media platform will generate R110 000,00, increasing annually with R25 000,00. Calculate the annual discounted project benefits (assume a discount rate of 10%).\n\nKeep your discount factor value to 2 decimal places to ensure you get the same answer as in the options.",
@@ -1489,7 +1496,10 @@
         "Slack is calculated by adding the early start to the early finish. For Activity F, adding the early start of 3 to the early finish of 7 results in a slack of 10.",
         "All three options provide valid explanations for determining an activity's slack."
       ],
-      "correctAnswer": "Slack is calculated by subtracting the early finish from the late finish. For Activity F, subtracting its early finish of 7 from its late finish of 17 results in a slack of 10.",
+      "correctAnswer": [
+        "Slack is calculated by subtracting the early finish from the late finish. For Activity F, subtracting its early finish of 7 from its late finish of 17 results in a slack of 10.",
+        "Slack is calculated by subtracting the early start from the late start. For Activity F, subtracting the early start of 3 from the late start of 13 results in a slack of 10."
+      ],
       "image": {
         "src": "assets/inf3708/aon-filled.svg",
         "alt": "Activity on Node timing diagram showing early start, early finish, late start, slack and late finish. Tap to enlarge.",
@@ -1500,13 +1510,13 @@
         "chapter": "Chapter 6 – Project Schedule Management",
         "section": "Critical Path Method → Slack / Float",
         "pages": "pp. 239–241",
-        "simple": "Slack is the amount of time an activity can move without delaying the project finish. You can calculate total slack as LF − EF or as LS − ES.",
+        "simple": "Total slack can be calculated in two equivalent ways: LF − EF or LS − ES.",
         "steps": [
-          "For Activity F, EF = 7 and LF = 17.",
-          "Slack = LF − EF = 17 − 7 = 10.",
-          "The same result is LS − ES = 13 − 3 = 10."
+          "Using finish times: LF − EF = 17 − 7 = 10.",
+          "Using start times: LS − ES = 13 − 3 = 10.",
+          "Therefore options A and B are both mathematically correct."
         ],
-        "remember": "Both LF − EF and LS − ES give total slack when the network values are consistent.",
+        "remember": "Slack = LS − ES = LF − EF. Both formulas should give the same number.",
         "stepsTitle": "How to work it out",
         "keyTerms": [
           {
@@ -1526,10 +1536,11 @@
             "meaning": "Late Start / Late Finish: the latest allowed start and finish calculated by the backward pass without delaying project completion."
           }
         ],
-        "example": "If Activity F has EF 9 and LF 19, total slack = 19 - 9 = 10; LS - ES should also give 10.",
-        "pitfall": "Subtract matching measures: late FINISH minus early FINISH, or late START minus early START."
+        "example": "For Activity F, 17−7 = 10 and 13−3 = 10.",
+        "pitfall": "Do not choose 'all three'. Adding ES + EF is not a slack formula."
       },
-      "explanation": "Slack is the amount of time an activity can move without delaying the project finish. You can calculate total slack as LF − EF or as LS − ES.\n\nHow to reach the marked answer: For Activity F, EF = 7 and LF = 17. Slack = LF − EF = 17 − 7 = 10. The same result is LS − ES = 13 − 3 = 10.\n\nExample: If Activity F has EF 9 and LF 19, total slack = 19 - 9 = 10; LS - ES should also give 10.\n\nStudent note: Subtract matching measures: late FINISH minus early FINISH, or late START minus early START."
+      "explanation": "Activity F has 10 days of slack. There are two standard ways to calculate total slack: LF − EF and LS − ES.\n\nHow to work it out: 17 − 7 = 10, and 13 − 3 = 10. So both the first and second options are correct.\n\nStudent note: The original assessment marked only the first formula, but the second formula is also a standard and equivalent slack calculation.",
+      "sourceMarkedAnswer": "Slack is calculated by subtracting the early finish from the late finish. For Activity F, subtracting its early finish of 7 from its late finish of 17 results in a slack of 10."
     },
     {
       "text": "Examine the graphic below illustrating an Activity on Arrow (AoA) diagram. A node's start time is calculated by adding the preceding node's start time to its duration. In the graphic, the predecessor with the latest start time determines the node's start time. For example, the start time of the node following Activities E, F, and G is 12, derived from the start time and duration of Activity G.\n\nWhy is the latest start time, produced by Activity G, indicated as the start time for the node that succeeds Activities E, F, and G?",
@@ -1807,10 +1818,10 @@
       "options": [
         "R200 000 and R275 000",
         "R275 000 and R200 000",
-        "R24 590 and -R19 300",
+        "R25 290 and -R19 300",
         "R24 982 and R13 300"
       ],
-      "correctAnswer": "R24 590 and -R19 300",
+      "correctAnswer": "R25 290 and -R19 300",
       "table": {
         "headers": [
           "Year",
@@ -1856,12 +1867,14 @@
         "chapter": "Chapter 4 – Project Integration Management",
         "section": "Net Present Value Analysis",
         "pages": "pp. 148–150",
-        "simple": "Once you have the total discounted inflow, subtract the Year 0 investment to get NPV.",
+        "simple": "NPV is the discounted cash inflow minus the Year 0 investment.",
         "steps": [
-          "Project Y: R224 590 − R200 000 = R24 590.",
-          "Project Z: R255 700 − R275 000 = -R19 300."
+          "Project Y discounted inflow = R225 290.",
+          "Project Y NPV = R225 290 − R200 000 = R25 290.",
+          "Project Z discounted inflow = R255 700.",
+          "Project Z NPV = R255 700 − R275 000 = -R19 300."
         ],
-        "remember": "Positive NPV adds financial value; negative NPV does not recover the investment after discounting.",
+        "remember": "Keep the sign: a negative NPV means the discounted inflows do not recover the investment.",
         "stepsTitle": "How to work it out",
         "keyTerms": [
           {
@@ -1877,10 +1890,11 @@
             "meaning": "The annual percentage used to reduce future cash amounts to what they are worth today; future money is not treated as identical to money now."
           }
         ],
-        "example": "Using the assessment's reported discounted inflows: Y = R224 590 - R200 000 = R24 590; Z = R255 700 - R275 000 = -R19 300.",
-        "pitfall": "This answer inherits the Project Y discounted-inflow value supplied by the assessment; its earlier rounded-factor table appears arithmetically inconsistent. Recheck raw figures when doing an independent calculation."
+        "example": "Project Y: R225 290 − R200 000 = R25 290.",
+        "pitfall": "The original assessment key used R224 590 for Project Y's discounted inflow, so it reported R24 590 NPV. That earlier inflow total is arithmetically inconsistent with the table."
       },
-      "explanation": "Once you have the total discounted inflow, subtract the Year 0 investment to get NPV.\n\nHow to reach the marked answer: Project Y: R224 590 − R200 000 = R24 590. Project Z: R255 700 − R275 000 = -R19 300.\n\nExample: Using the assessment's reported discounted inflows: Y = R224 590 - R200 000 = R24 590; Z = R255 700 - R275 000 = -R19 300.\n\nStudent note: This answer inherits the Project Y discounted-inflow value supplied by the assessment; its earlier rounded-factor table appears arithmetically inconsistent. Recheck raw figures when doing an independent calculation."
+      "explanation": "Start with the discounted inflow totals, then subtract the initial investment.\n\nHow to work it out: Project Y = R225 290 − R200 000 = R25 290. Project Z = R255 700 − R275 000 = -R19 300.\n\nStudent note: The source key reported R24 590 for Project Y because it used the incorrect R224 590 discounted-inflow total. The app now carries the corrected arithmetic through to NPV.",
+      "sourceMarkedAnswer": "R24 590 and -R19 300"
     },
     {
       "text": "Project integration management includes ________________, which involves identifying and managing the points of interaction among the various elements of a project. Its primary tools are communication and relationships.",
@@ -2039,19 +2053,19 @@
           }
         ],
         "example": "If Activity E has ES 4 and LS 15, its total slack is 15 - 4 = 11 days.",
-        "pitfall": "Use either LS - ES or LF - EF, but never mix a start with a finish in the same subtraction."
+        "pitfall": "The source transcript oddly lists both 11 and 0 as correct. The supplied timing diagram shows ES = 3, LS = 14, EF = 6 and LF = 17, so both slack formulas give 11."
       },
-      "explanation": "Use the early and late times shown in the node. Total slack is the difference between late and early timing.\n\nHow to reach the marked answer: Activity E has ES = 3 and LS = 14. Slack = LS − ES = 14 − 3 = 11. You can also use LF − EF = 17 − 6 = 11.\n\nExample: If Activity E has ES 4 and LS 15, its total slack is 15 - 4 = 11 days.\n\nStudent note: Use either LS - ES or LF - EF, but never mix a start with a finish in the same subtraction."
+      "explanation": "Use the early and late times shown in the node. Total slack is the difference between matching late and early times.\n\nHow to work it out: Activity E has ES = 3 and LS = 14, so slack = 14 − 3 = 11. The finish-time check gives LF − EF = 17 − 6 = 11.\n\nStudent note: The source feedback also lists 0, but the supplied diagram's timing values calculate to 11. The app therefore keeps 11 as the correct value."
     },
     {
       "text": "The table below lists each activity, its duration, and its predecessor(s) for illustration on an Activity-on-Arrow (AoA) diagram. What is the start time, finish time, and slack of Activity C?",
       "options": [
-        "start time = 8; finish time = 10; slack = 2",
+        "start time = 3; finish time = 8; slack = 2",
         "start time = 8; finish time = 10; slack = 0",
         "start time = 10; finish time = 8; slack = 2",
         "start time = 10; finish time = 8; slack = 0"
       ],
-      "correctAnswer": "start time = 8; finish time = 10; slack = 2",
+      "correctAnswer": "start time = 3; finish time = 8; slack = 2",
       "table": {
         "headers": [
           "Activity",
@@ -2115,13 +2129,16 @@
         "chapter": "Chapter 6 – Project Schedule Management",
         "section": "Sequence Activities → Network Diagrams / Activity-on-Arrow",
         "pages": "pp. 228–232; slack pp. 239–241",
-        "simple": "For an AoA question, follow the arrows and node times. The activity's timing comes from the network logic, and slack tells you how much delay is available.",
+        "simple": "Activity C follows A. Use A's finish as C's start, add C's duration, then compare the C→F branch with the merge time to find slack.",
         "steps": [
-          "For the assessment's Activity C, the start time shown by the network is 8.",
-          "Its finish time is 10.",
-          "Slack is 2, meaning it can move by 2 time units without delaying the project."
+          "A starts at 0 and lasts 3 days, so A finishes at 3.",
+          "C depends on A, so C starts at 3.",
+          "C lasts 5 days, so C finishes at 8.",
+          "F follows C and lasts 2 days, so the C→F branch reaches the merge at 10.",
+          "The G branch reaches the same merge at 12, so the C→F branch has 2 days of slack.",
+          "Therefore Activity C: start 3, finish 8, slack 2."
         ],
-        "remember": "Use the diagram's node times rather than guessing from the activity name alone.",
+        "remember": "A predecessor's finish becomes the successor's earliest start.",
         "stepsTitle": "How to work it out",
         "keyTerms": [
           {
@@ -2137,10 +2154,11 @@
             "meaning": "The time a scheduled activity can be delayed without moving the planned project finish; usually LS - ES or LF - EF for total slack."
           }
         ],
-        "example": "If a network gives an activity an event start of 8, finish of 10 and allowable delay of 2, read all three separately from the network timing.",
-        "pitfall": "An activity's duration, event time and slack are different measurements; follow the original diagram's conventions."
+        "example": "C starts when A finishes: 3. Then 3 + 5 = 8. Its branch reaches the merge 2 days before the controlling G branch.",
+        "pitfall": "The original source answer 8/10/2 matches Activity F's timing, not Activity C's. The app now uses C's timing from the supplied table."
       },
-      "explanation": "For an AoA question, follow the arrows and node times. The activity's timing comes from the network logic, and slack tells you how much delay is available.\n\nHow to reach the marked answer: For the assessment's Activity C, the start time shown by the network is 8. Its finish time is 10. Slack is 2, meaning it can move by 2 time units without delaying the project.\n\nExample: If a network gives an activity an event start of 8, finish of 10 and allowable delay of 2, read all three separately from the network timing.\n\nStudent note: An activity's duration, event time and slack are different measurements; follow the original diagram's conventions."
+      "explanation": "Activity C has A as its predecessor. A lasts 3 days, so A finishes at time 3 and C starts at 3. C lasts 5 days, so C finishes at 8. F then takes the C branch from 8 to 10, while the G branch reaches the merge at 12. That gives the C branch 2 days of slack.\n\nCorrect result: start time = 3; finish time = 8; slack = 2.\n\nStudent note: The original assessment key showed 8/10/2, which is the timing of Activity F. The app now uses the timing that belongs to Activity C.",
+      "sourceMarkedAnswer": "start time = 8; finish time = 10; slack = 2"
     },
     {
       "text": "A project team must choose whether to launch Project A or Project B. The table below illustrates the respective amount that will be invested for each project, followed by the expected annual revenue. Calculate the net profit for Project B.",
@@ -2542,12 +2560,12 @@
     {
       "text": "Study the activity list and its network diagram. Which activities have slack?",
       "options": [
-        "C, D, E, F, H, I",
+        "C, D, E, F, H, I, K",
         "C, D, E, G, J",
         "C, D, E, H, I, J",
         "None of the activities have slack"
       ],
-      "correctAnswer": "C, D, E, F, H, I",
+      "correctAnswer": "C, D, E, F, H, I, K",
       "image": {
         "src": "assets/inf3708/network-main.svg",
         "alt": "Activity on Node network diagram for activities A to L. Tap to enlarge.",
@@ -2558,13 +2576,19 @@
         "chapter": "Chapter 6 – Project Schedule Management",
         "section": "Critical Path Method → Slack / Float",
         "pages": "pp. 239–241",
-        "simple": "Activities on the critical path have zero slack. Activities outside the critical path can have positive slack, meaning they have some room to move.",
+        "simple": "Activities with positive slack have LS greater than ES. Calculate the early and late times for each non-critical activity.",
         "steps": [
-          "First identify the critical path: A-B-G-J-L.",
-          "Those critical-path activities have zero slack.",
-          "In the assessment, the activities identified as having slack are C, D, E, F, H and I."
+          "Critical path A-B-G-J-L has zero slack and project duration 22.",
+          "C slack = 8 − 3 = 5.",
+          "D slack = 12 − 1 = 11.",
+          "E slack = 14 − 3 = 11.",
+          "F slack = 13 − 3 = 10.",
+          "H slack = 16 − 8 = 8.",
+          "I slack = 10 − 5 = 5.",
+          "K slack = 17 − 7 = 10.",
+          "Therefore the activities with positive slack are C, D, E, F, H, I and K."
         ],
-        "remember": "A useful shortcut: find the critical path first; then look for flexibility on the other activities.",
+        "remember": "Do not assume every activity outside one drawn path has the same slack; calculate LS − ES (or LF − EF) for each activity.",
         "stepsTitle": "How to work it out",
         "keyTerms": [
           {
@@ -2584,10 +2608,11 @@
             "meaning": "Late Start / Late Finish: the latest allowed start and finish calculated by the backward pass without delaying project completion."
           }
         ],
-        "example": "If the critical path is A-B-G-J-L, calculate slack on other activities; a task with LS greater than ES has positive slack.",
-        "pitfall": "An activity outside a particular critical path may have float, but always confirm with its calculated network times."
+        "example": "Question 12 gives K as ES = 7 and LS = 17, so K alone has 10 days of slack and must be included.",
+        "pitfall": "The original assessment answer omitted K even though its own timing values show K has 10 days of slack."
       },
-      "explanation": "Activities on the critical path have zero slack. Activities outside the critical path can have positive slack, meaning they have some room to move.\n\nHow to reach the marked answer: First identify the critical path: A-B-G-J-L. Those critical-path activities have zero slack. In the assessment, the activities identified as having slack are C, D, E, F, H and I.\n\nExample: If the critical path is A-B-G-J-L, calculate slack on other activities; a task with LS greater than ES has positive slack.\n\nStudent note: An activity outside a particular critical path may have float, but always confirm with its calculated network times."
+      "explanation": "The critical path is A-B-G-J-L, so those activities have zero slack. The remaining network calculations give C = 5, D = 11, E = 11, F = 10, H = 8, I = 5 and K = 10 days of slack.\n\nCorrect set: C, D, E, F, H, I, K.\n\nStudent note: The original assessment key omitted K, but Question 12 gives K an early start of 7 and late start of 17. That means K has 10 days of slack, so it must be included.",
+      "sourceMarkedAnswer": "C, D, E, F, H, I"
     },
     {
       "text": "Study the cashflow of Project Z in the table below. Calculate the payback period for Project Z.",
