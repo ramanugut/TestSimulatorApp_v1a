@@ -4,8 +4,8 @@
     {
       "text": "You launched Project X that is based on the pre-investor’s model. Pre-investors denote non-professional or non-institutional investors such as friends, family and strangers who help to fund the project. However, they expect to see a return on their investment. Nonetheless, Project X involves a new social media platform that seeks to generate revenue from user subscriptions. To launch the project, the pre-investors need to invest an accumulative amount of R75 000,00 (year 0). As subscribers and pre-investors join your venture, you expect the initial investment of R75000 to grow, increasing with R15 550,00 annually for four years (years 1-4). In the first year, you expect the new social media platform will generate R110 000,00, increasing annually with R25 000,00. Calculate the net present value (NPV) (assume a discount rate of 10%)",
       "options": [
-        "R27 953",
         "R590 500,00",
+        "R47 800,50",
         "R28 027,08",
         "R470 800,00"
       ],
@@ -40,9 +40,9 @@
           }
         ],
         "example": "For Year 2, the benefit is R135 000 / 1.10² = R111 570,25. Do the same for each future benefit and cost, then subtract the two totals.",
-        "pitfall": "Using rounded factors such as 0.91, 0.83, 0.75 and 0.68 produces the assessment-key approximation R27 953. The exact 10% calculation is R28 027,08."
+        "pitfall": "The original source/key reported R27 953 because it used rounded discount factors. That value is kept only as source metadata and is no longer offered as a selectable answer. Use the full 10% discounting formula."
       },
-      "explanation": "Use the full NPV formula, not rounded discount factors.\n\nHow to work it out: Exact discounted benefits = R458 138,11. Exact discounted costs = R430 111,02. Therefore NPV = R458 138,11 − R430 111,02 = R28 027,08.\n\nStudent note: The original assessment answer R27 953 comes from multiplying by rounded factors (0.91, 0.83, 0.75, 0.68). Those rounded factors are useful for a quick approximation, but they do not give the exact NPV at 10%.",
+      "explanation": "Use the full NPV formula, not rounded discount factors.\n\nHow to work it out: Exact discounted benefits = R458 138,11. Exact discounted costs = R430 111,02. Therefore NPV = R458 138,11 − R430 111,02 = R28 027,08.\n\nStudent note: The original assessment answer R27 953 came from rounded discount factors. It is retained only as the original source answer for audit/reference and is not a valid selectable answer in the corrected app.",
       "sourceMarkedAnswer": "R27 953"
     },
     {
