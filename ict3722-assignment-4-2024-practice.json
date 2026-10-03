@@ -202,6 +202,22 @@
         "Mentions performance, skills, portability or security trade-off."
       ],
       "explanation": "SQL is a strong tool, not an automatic guarantee of a good database. Design, indexes, permissions and application practices still matter.\n\nStudent note: Avoid saying SQL itself causes SQL injection; unsafe application construction of SQL is the problem."
+    },
+    {
+      "number": "12",
+      "marks": 5,
+      "grading": "ai",
+      "answerType": "code",
+      "text": "Write SQL that returns beneficiaries who have an allergy record for `Peanuts`. Use the Beneficiary and Allergy tables rather than assuming allergy data is stored in the Beneficiary table.",
+      "correctAnswer": "SELECT b.*\nFROM Beneficiary b\nJOIN Allergy a ON a.BeneficiaryID = b.BeneficiaryID\nWHERE a.AllergyType = 'Peanuts';",
+      "aiRubric": [
+        "Reads from Beneficiary and Allergy.",
+        "Joins the tables using BeneficiaryID.",
+        "Filters AllergyType for Peanuts.",
+        "Returns beneficiary information.",
+        "Equivalent valid join/subquery solutions are accepted."
+      ],
+      "explanation": "Allergy details are normalised into the child Allergy table, so the query must follow the relationship back to Beneficiary.\n\nStudent note: After normalisation, do not query a column from the old combined table if that fact now belongs in a child table."
     }
   ]
 }
