@@ -1,0 +1,254 @@
+{
+  "testName": "ICT3621 · 2025 Summative Assessment 3 · structure practice (100 marks)",
+  "module": "ICT3621",
+  "assessment": "Summative Assessment 3 2025",
+  "totalMarks": 100,
+  "preserveOrder": true,
+  "marking": "ai-assisted-mixed",
+  "sourceType": "Source-verified 2025 assessment structure. The original municipal case rows are replaced with a clean equivalent relation while preserving the assessed normalisation, ERD, data-quality and DBMS-choice skills.",
+  "sourceReference": "https://www.studocu.com/en-za/document/university-of-south-africa/database-design/summative-assessment-03-database-design-for-ict3621/141061604",
+  "sourceLimitations": "The real assessment uses a Johannesburg water-maintenance table. To avoid reproducing the source table verbatim while keeping the same skills, this app uses an equivalent municipal maintenance relation with the same normalisation problems.",
+  "caseStudy": {
+    "title": "Municipal maintenance incidents",
+    "functionalDependencies": [
+      "(IncidentID, RepairCode) is the composite key in the starting relation.",
+      "IncidentID -> IncidentDate, ProblemType, Detail, IncidentTime, AreaCode, Street, LocationType, InspectorID, InspectorName",
+      "AreaCode -> AreaName, Region",
+      "RepairCode -> RepairDescription, RepairDate"
+    ]
+  },
+  "questions": [
+    {
+      "number": "1.1",
+      "marks": 10,
+      "grading": "ai",
+      "answerType": "uml-diagram",
+      "diagramRequired": true,
+      "diagramTools": [
+        "entity",
+        "attribute",
+        "relationship",
+        "arrow",
+        "line",
+        "text",
+        "pen"
+      ],
+      "text": "Using the incident relation below and the supplied dependencies, draw a dependency diagram for the relation in First Normal Form (1NF). Mark the composite key and show the partial and transitive dependencies.",
+      "table": {
+        "headers": [
+          "IncidentID",
+          "IncidentDate",
+          "ProblemType",
+          "Detail",
+          "IncidentTime",
+          "AreaCode",
+          "AreaName",
+          "Region",
+          "Street",
+          "LocationType",
+          "RepairCode",
+          "RepairDescription",
+          "RepairDate",
+          "InspectorID",
+          "InspectorName"
+        ],
+        "rows": [
+          [
+            "I101",
+            "2025-01-10",
+            "Water leak",
+            "Burst pipe",
+            "13:40",
+            "A01",
+            "Wilgeheuwel",
+            "C",
+            "Curlew Close",
+            "Suburb",
+            "R01",
+            "Pipe replacement",
+            "2025-01-10",
+            "IN7",
+            "K. Ndlovu"
+          ],
+          [
+            "I101",
+            "2025-01-10",
+            "Water leak",
+            "Burst pipe",
+            "13:40",
+            "A01",
+            "Wilgeheuwel",
+            "C",
+            "Curlew Close",
+            "Suburb",
+            "R04",
+            "Pressure test",
+            "2025-01-11",
+            "IN7",
+            "K. Ndlovu"
+          ],
+          [
+            "I204",
+            "2025-01-12",
+            "Low pressure",
+            "Loose joint",
+            "14:38",
+            "A08",
+            "Glenvista",
+            "F",
+            "Kirby Road",
+            "Suburb",
+            "R03",
+            "Joint replacement",
+            "2025-01-15",
+            "IN3",
+            "M. Dube"
+          ]
+        ]
+      },
+      "correctAnswer": "The 1NF relation keeps atomic values and uses composite key (IncidentID, RepairCode). Show IncidentID determining the incident attributes; RepairCode determining RepairDescription and RepairDate; IncidentID -> AreaCode -> AreaName, Region as a transitive dependency; and IncidentID -> InspectorID -> InspectorName as another transitive dependency.",
+      "aiRubric": [
+        "Marks IncidentID + RepairCode as composite key.",
+        "Shows IncidentID partial dependency.",
+        "Shows RepairCode partial dependency.",
+        "Shows AreaCode transitive dependency.",
+        "Shows InspectorID transitive dependency.",
+        "Diagram is actually drawn."
+      ],
+      "explanation": "1NF makes the values atomic but still allows redundancy caused by partial and transitive dependencies.\n\nStudent note: First identify the key, then draw arrows for every determinant before deciding which normal form is broken."
+    },
+    {
+      "number": "1.2",
+      "marks": 5,
+      "grading": "ai",
+      "answerType": "uml-diagram",
+      "diagramRequired": true,
+      "diagramTools": [
+        "entity",
+        "attribute",
+        "relationship",
+        "arrow",
+        "line",
+        "text",
+        "pen"
+      ],
+      "text": "Transform the design to Second Normal Form (2NF) and draw the resulting relations. Remove partial dependencies but leave transitive dependencies for the next step.",
+      "correctAnswer": "A valid 2NF design separates INCIDENT(IncidentID, incident details including AreaCode, AreaName, Region, InspectorID, InspectorName), REPAIR(RepairCode, RepairDescription, RepairDate) and INCIDENT_REPAIR(IncidentID, RepairCode). The bridge keeps the original many-to-many combination. Area and inspector transitive dependencies may still remain in INCIDENT at 2NF.",
+      "aiRubric": [
+        "Removes attributes depending only on IncidentID from the composite-key relation.",
+        "Separates RepairCode-dependent attributes.",
+        "Creates a bridge for IncidentID and RepairCode.",
+        "Does not incorrectly require transitive-dependency removal at 2NF."
+      ],
+      "explanation": "2NF removes dependencies on only part of a composite key.\n\nStudent note: 2NF = 1NF plus no partial dependency."
+    },
+    {
+      "number": "1.3",
+      "marks": 5,
+      "grading": "ai",
+      "answerType": "uml-diagram",
+      "diagramRequired": true,
+      "diagramTools": [
+        "entity",
+        "attribute",
+        "relationship",
+        "arrow",
+        "line",
+        "text",
+        "pen"
+      ],
+      "text": "Transform the 2NF design to Third Normal Form (3NF). Draw the final relations and show primary and foreign keys.",
+      "correctAnswer": "A valid 3NF design is INCIDENT(IncidentID PK, IncidentDate, ProblemType, Detail, IncidentTime, AreaCode FK, Street, LocationType, InspectorID FK); AREA(AreaCode PK, AreaName, Region); INSPECTOR(InspectorID PK, InspectorName); REPAIR(RepairCode PK, RepairDescription, RepairDate); INCIDENT_REPAIR(IncidentID PK/FK, RepairCode PK/FK).",
+      "aiRubric": [
+        "Creates AREA and removes AreaName/Region from INCIDENT.",
+        "Creates INSPECTOR and removes InspectorName from INCIDENT.",
+        "Keeps valid INCIDENT relation.",
+        "Keeps REPAIR relation.",
+        "Keeps associative INCIDENT_REPAIR relation.",
+        "Shows PKs/FKs."
+      ],
+      "explanation": "3NF removes transitive dependencies, so descriptive data about an area or inspector belongs in its own entity.\n\nStudent note: If a non-key field determines another non-key field, you probably still have a 3NF problem."
+    },
+    {
+      "number": "1.4",
+      "marks": 5,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "text": "Write five business rules that match your 3NF municipal-maintenance design.",
+      "correctAnswer": "Examples: one area can have many incidents and each incident occurs in one area; one inspector can handle many incidents and each incident references one inspector; one incident can require many repairs and one repair type can be used for many incidents through INCIDENT_REPAIR; each area code identifies one area; each inspector ID identifies one inspector. Equivalent consistent rules are acceptable.",
+      "aiRubric": [
+        "Five distinct rules.",
+        "Rules match the relations.",
+        "Cardinality is clear.",
+        "Rules are business statements rather than SQL."
+      ],
+      "explanation": "Business rules explain the real-world meaning behind the relationships and cardinalities.\n\nStudent note: Write rules using one/many and must/may so the cardinality can be drawn from the sentence."
+    },
+    {
+      "number": "1.5",
+      "marks": 25,
+      "grading": "ai",
+      "answerType": "uml-diagram",
+      "diagramRequired": true,
+      "diagramTools": [
+        "entity",
+        "attribute",
+        "relationship",
+        "line",
+        "arrow",
+        "text",
+        "pen"
+      ],
+      "text": "Draw an ERD for your 3NF relations. Include primary keys, foreign keys and cardinalities consistent with your business rules.",
+      "correctAnswer": "Expected core entities are INCIDENT, AREA, INSPECTOR, REPAIR and INCIDENT_REPAIR. AREA 1:M INCIDENT; INSPECTOR 1:M INCIDENT; INCIDENT and REPAIR are M:N resolved through INCIDENT_REPAIR. PKs/FKs and consistent cardinalities must be visible.",
+      "aiRubric": [
+        "All core entities present.",
+        "PKs shown.",
+        "FKs shown.",
+        "AREA to INCIDENT relationship correct.",
+        "INSPECTOR to INCIDENT relationship correct.",
+        "M:N incident/repair relationship resolved through bridge.",
+        "Cardinalities readable."
+      ],
+      "explanation": "The ERD should be the visual form of the same rules and normalised relations you already created.\n\nStudent note: If the ERD contradicts your business rules, one of them still needs fixing."
+    },
+    {
+      "number": "2",
+      "marks": 25,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "text": "Discuss how a municipal organisation can keep operational database information accurate and reliable while still giving different users the information they need for their work and decisions.",
+      "correctAnswer": "Use validation and database constraints, controlled transaction processing, referential integrity, duplicate prevention, data-quality checks and correction procedures, role-based access/least privilege, views for different user groups, authentication, audit logs, backups and tested recovery, concurrency controls, clear ownership/stewardship, regular reconciliation, and timely update procedures. Access should match job needs without allowing uncontrolled modification.",
+      "aiRubric": [
+        "Data validation/constraints.",
+        "Referential integrity/transaction accuracy.",
+        "Role-based access or least privilege.",
+        "Views/appropriate information for different users.",
+        "Audit/logging/accountability.",
+        "Backups/recovery.",
+        "Data-quality ownership/review.",
+        "Concurrency or controlled updates."
+      ],
+      "explanation": "Availability is not enough. Users need data that is correct, current and protected from accidental or unauthorised change.\n\nStudent note: Structure a 25-mark answer under Accuracy, Access, Protection and Recovery."
+    },
+    {
+      "number": "3",
+      "marks": 25,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "text": "A municipality must choose between an open-source DBMS and a proprietary DBMS. Recommend one approach for this scenario and justify the choice. A well-supported recommendation for either approach may earn full credit.",
+      "correctAnswer": "Either choice can be defensible. A strong answer compares total cost, licensing, vendor support, skills availability, security patching, reliability, ecosystem/tooling, integration, performance/scalability, compliance/governance, lock-in and long-term maintainability. The recommendation must connect those factors to the municipality's needs rather than claiming one category is always superior.",
+      "aiRubric": [
+        "Makes a clear recommendation.",
+        "Compares cost/licensing.",
+        "Discusses support/skills.",
+        "Discusses security/reliability.",
+        "Discusses integration/tooling or scalability.",
+        "Discusses governance/compliance or lock-in.",
+        "Connects reasons to the municipal scenario.",
+        "Does not claim an unsupported universal winner."
+      ],
+      "explanation": "The question is a decision argument, not a definition exercise. Both open-source and proprietary systems have trade-offs.\n\nStudent note: State your choice, then defend it with criteria that matter to the organisation."
+    }
+  ]
+}
