@@ -102,5 +102,6 @@
       ],
       "explanation": "The join combines related vendor and invoice rows through vendor_id. `ORDER BY ... DESC` then places the largest invoice totals first.\n\nStudent note: Build SQL in layers: SELECT columns → FROM/JOIN tables → ON relationship → ORDER BY result."
     }
-  ]
+  ],
+  "totalMarks": 18
 }
