@@ -4496,20 +4496,42 @@ document.addEventListener("DOMContentLoaded", function () {
 
   //************************ SECTION 3: THEME HANDLING ************************//
 
-  // Core neutral themes plus two richer visual themes. Color Pop keeps a
-  // light reading surface; Gradient Vibes uses a dark premium palette.
-  const appearanceModes = ["light", "slate", "deep", "black", "colorpop", "gradient"];
-  const lightAppearanceModes = new Set(["light", "colorpop"]);
+  // Neutral themes plus two distinct rich theme families. Each rich family
+  // has its own light and dark mode; the exact variant is saved in the browser.
+  const appearanceModes = [
+    "light", "slate", "deep", "black",
+    "colorful-light", "colorful-dark",
+    "gradient-light", "gradient-dark"
+  ];
+  const lightAppearanceModes = new Set(["light", "colorful-light", "gradient-light"]);
+  const legacyAppearanceMap = {
+    dark: "deep",
+    colorpop: "colorful-light",
+    gradient: "gradient-dark"
+  };
 
   function applyAppearanceMode(value) {
-    const chosen = appearanceModes.includes(value) ? value : "light";
+    const migrated = legacyAppearanceMap[value] || value;
+    const chosen = appearanceModes.includes(migrated) ? migrated : "light";
     const isLightAppearance = lightAppearanceModes.has(chosen);
+    const themeFamily = chosen.startsWith("colorful-")
+      ? "colorful"
+      : chosen.startsWith("gradient-")
+        ? "gradient"
+        : "";
+
     document.body.classList.remove(
       "light-mode", "dark-mode", "theme-slate", "theme-deep", "theme-black",
-      "theme-colorpop", "theme-gradient"
+      "theme-colorpop", "theme-colorful", "theme-gradient"
     );
     document.body.classList.add(isLightAppearance ? "light-mode" : "dark-mode");
-    if (chosen !== "light") document.body.classList.add("theme-" + chosen);
+
+    if (themeFamily) {
+      document.body.classList.add("theme-" + themeFamily);
+    } else if (chosen !== "light") {
+      document.body.classList.add("theme-" + chosen);
+    }
+
     document.documentElement.style.colorScheme = isLightAppearance ? "light" : "dark";
     themeButtons.forEach(function (button) {
       const active = button.dataset.theme === chosen;
@@ -4528,7 +4550,7 @@ document.addEventListener("DOMContentLoaded", function () {
   try {
     savedAppearance = localStorage.getItem("theme") || "light";
   } catch (error) { /* Storage is optional. */ }
-  applyAppearanceMode(savedAppearance === "dark" ? "deep" : savedAppearance);
+  applyAppearanceMode(savedAppearance);
   themeButtons.forEach(function (button) {
     button.addEventListener("click", function () {
       applyAppearanceMode(button.dataset.theme);
