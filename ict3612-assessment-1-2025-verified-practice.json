@@ -190,5 +190,6 @@
       "correctAnswer": "ORDER BY invoice_total DESC",
       "explanation": "ORDER BY chooses the sort column and DESC requests descending order, which places larger numeric values before smaller ones.\n\nStudent note: ASC is ascending; DESC is descending."
     }
-  ]
+  ],
+  "totalMarks": 14
 }
