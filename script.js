@@ -4902,6 +4902,65 @@ const testFiles = [
     );
   }
 
+  // Saved progress stores the session's shuffled question order, but it must
+  // never freeze old question content. Rebuild that saved order from the latest
+  // JSON so corrected options, answers, explanations and diagrams take effect
+  // immediately after a refresh.
+  function reconcileSavedQuestionsWithLatest(savedQuestions, latestQuestions) {
+    if (!Array.isArray(savedQuestions) || !Array.isArray(latestQuestions)) {
+      return null;
+    }
+
+    const latestBuckets = new Map();
+    latestQuestions.forEach((question) => {
+      const key = String(question?.text || "").trim();
+      if (!key) return;
+      if (!latestBuckets.has(key)) latestBuckets.set(key, []);
+      latestBuckets.get(key).push(question);
+    });
+
+    const reconciled = [];
+    for (const savedQuestion of savedQuestions) {
+      const key = String(savedQuestion?.text || "").trim();
+      const bucket = latestBuckets.get(key);
+      const latestQuestion = bucket && bucket.length ? bucket.shift() : null;
+
+      // If the question still exists, latest JSON is authoritative.
+      if (latestQuestion) {
+        const fresh = cloneQuestionData(latestQuestion);
+
+        // Preserve the student's session option order where those options still
+        // exist, then append newly corrected/added options. Removed stale options
+        // are deliberately dropped.
+        if (Array.isArray(fresh.options) && Array.isArray(savedQuestion?.options)) {
+          const ordered = [];
+          savedQuestion.options.forEach((savedOption) => {
+            const match = fresh.options.find((freshOption) =>
+              answerValuesEqual(freshOption, savedOption)
+            );
+            if (
+              match !== undefined &&
+              !ordered.some((value) => answerValuesEqual(value, match))
+            ) {
+              ordered.push(match);
+            }
+          });
+          fresh.options.forEach((freshOption) => {
+            if (!ordered.some((value) => answerValuesEqual(value, freshOption))) {
+              ordered.push(freshOption);
+            }
+          });
+          fresh.options = ordered;
+        }
+
+        reconciled.push(fresh);
+      }
+    }
+
+    // If matching failed for any reason, do not risk dropping questions.
+    return reconciled.length === latestQuestions.length ? reconciled : null;
+  }
+
   function loadQuestions(filename, customData = null) {
     stopStudyVoice();
     resetStudyGuessSession();
@@ -4937,8 +4996,12 @@ const testFiles = [
           ? savedProgress.questionOrderMode
           : questionOrderMode;
 
-      questions = savedActiveQuestions
-        ? cloneQuestionsData(savedActiveQuestions)
+      const reconciledSavedQuestions = savedActiveQuestions
+        ? reconcileSavedQuestionsWithLatest(savedActiveQuestions, originalQuestions)
+        : null;
+
+      questions = reconciledSavedQuestions
+        ? reconciledSavedQuestions
         : prepareQuestionsForSession(
             originalQuestions,
             preserveOrder,
@@ -5359,6 +5422,29 @@ const testFiles = [
       remainingTime = getTimerInputSeconds();
       showAllQuestions = false;
     }
+
+    // A corrected assessment can remove or replace an old option. Do not keep a
+    // stale saved selection that no longer exists in the latest question data.
+    Object.keys(userAnswers).forEach((key) => {
+      const index = Number(key);
+      const question = questions[index];
+      if (!question || !Array.isArray(question.options) || !question.options.length) {
+        return;
+      }
+      const savedAnswer = userAnswers[key];
+      if (Array.isArray(savedAnswer)) {
+        const valid = savedAnswer.filter((answer) =>
+          question.options.some((option) => answerValuesEqual(option, answer))
+        );
+        if (valid.length) userAnswers[key] = valid;
+        else delete userAnswers[key];
+      } else if (
+        typeof savedAnswer === "string" &&
+        !question.options.some((option) => answerValuesEqual(option, savedAnswer))
+      ) {
+        delete userAnswers[key];
+      }
+    });
 
     bookmarkCycleIndex = 0;
     startTestButton.disabled = testInProgress;
