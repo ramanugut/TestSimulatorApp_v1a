@@ -1,0 +1,258 @@
+{
+  "testName": "ICT3621 · Oct/Nov 2025 Exam · structure practice (100 marks)",
+  "module": "ICT3621",
+  "assessment": "October/November 2025 examination structure practice",
+  "totalMarks": 100,
+  "preserveOrder": true,
+  "marking": "ai-assisted-mixed",
+  "sourceType": "Exam-structure practice based on the verified 2025 paper. The original case data is replaced with an equivalent synthetic relation so the learner can practise the same normalisation and ERD skills without reproducing the paper.",
+  "sourceReference": "https://www.scribd.com/document/1009446963/Examination-Paper",
+  "sourceLimitations": "The original paper requires digital database-design diagrams. This practice preserves the 50/25/25 skill structure but uses a new traffic-operations relation. Diagram answers require the app drawing workspace.",
+  "caseStudy": {
+    "title": "Traffic Operations relation for normalisation",
+    "functionalDependencies": [
+      "(OperationID, PillarCode, ChallengeCode) is the composite key of the starting relation.",
+      "OperationID -> OperationDate, Province, OfficerID, Area, RoadName, StartTime, EndTime, FineCount, IssueSummary",
+      "OfficerID -> OfficerName",
+      "PillarCode -> PillarName",
+      "ChallengeCode -> ChallengeName"
+    ]
+  },
+  "questions": [
+    {
+      "number": "1.1",
+      "marks": 10,
+      "grading": "ai",
+      "answerType": "uml-diagram",
+      "diagramRequired": true,
+      "diagramTools": [
+        "entity",
+        "attribute",
+        "relationship",
+        "arrow",
+        "line",
+        "text",
+        "pen"
+      ],
+      "text": "Using the supplied ROADBLOCK relation and functional dependencies, draw a dependency diagram that represents the relation in First Normal Form (1NF). Clearly show the composite key, partial dependencies and the transitive dependency.",
+      "table": {
+        "headers": [
+          "OperationID",
+          "OperationDate",
+          "Province",
+          "OfficerID",
+          "OfficerName",
+          "Area",
+          "RoadName",
+          "StartTime",
+          "EndTime",
+          "PillarCode",
+          "PillarName",
+          "ChallengeCode",
+          "ChallengeName",
+          "FineCount",
+          "IssueSummary"
+        ],
+        "rows": [
+          [
+            "OP101",
+            "2026-08-03",
+            "Gauteng",
+            "OF12",
+            "L. Molefe",
+            "Johannesburg",
+            "M1",
+            "06:00",
+            "09:00",
+            "P01",
+            "Vehicle fitness",
+            "C03",
+            "Unroadworthy vehicles",
+            "17",
+            "Tyre and brake defects"
+          ],
+          [
+            "OP101",
+            "2026-08-03",
+            "Gauteng",
+            "OF12",
+            "L. Molefe",
+            "Johannesburg",
+            "M1",
+            "06:00",
+            "09:00",
+            "P02",
+            "Driver compliance",
+            "C07",
+            "Expired licences",
+            "17",
+            "Tyre and brake defects"
+          ],
+          [
+            "OP205",
+            "2026-08-10",
+            "Limpopo",
+            "OF31",
+            "T. Ramaru",
+            "Polokwane",
+            "N1",
+            "15:00",
+            "18:30",
+            "P02",
+            "Driver compliance",
+            "C09",
+            "Speeding",
+            "23",
+            "High-speed offences"
+          ]
+        ]
+      },
+      "correctAnswer": "1NF relation: ROADBLOCK(OperationID, PillarCode, ChallengeCode, OperationDate, Province, OfficerID, OfficerName, Area, RoadName, StartTime, EndTime, PillarName, ChallengeName, FineCount, IssueSummary), with composite PK (OperationID, PillarCode, ChallengeCode). Show partial dependencies OperationID -> operation details, PillarCode -> PillarName and ChallengeCode -> ChallengeName. Show the transitive dependency OperationID -> OfficerID -> OfficerName.",
+      "aiRubric": [
+        "Shows one 1NF relation with atomic attributes.",
+        "Marks OperationID + PillarCode + ChallengeCode as the composite key.",
+        "Shows OperationID determining operation-specific attributes.",
+        "Shows PillarCode -> PillarName.",
+        "Shows ChallengeCode -> ChallengeName.",
+        "Shows or clearly identifies OperationID -> OfficerID -> OfficerName as a transitive dependency.",
+        "Diagram is actually drawn, not supplied only as prose."
+      ],
+      "explanation": "1NF removes repeating groups and keeps values atomic, but it does not yet remove partial or transitive dependencies. This is why the starting relation can still contain redundancy.\n\nStudent note: In a dependency diagram, mark the key first. Then ask which non-key fields depend on the whole key, only part of the key, or another non-key field."
+    },
+    {
+      "number": "1.2",
+      "marks": 5,
+      "grading": "ai",
+      "answerType": "uml-diagram",
+      "diagramRequired": true,
+      "diagramTools": [
+        "entity",
+        "attribute",
+        "relationship",
+        "arrow",
+        "line",
+        "text",
+        "pen"
+      ],
+      "text": "Transform the 1NF design from Question 1.1 into Second Normal Form (2NF) and draw the resulting relations. Remove partial dependencies, but do not remove the OfficerID-to-OfficerName transitive dependency yet.",
+      "correctAnswer": "A valid 2NF design separates attributes that depend only on parts of the composite key. One acceptable design is OPERATION(OperationID PK, OperationDate, Province, OfficerID, OfficerName, Area, RoadName, StartTime, EndTime, FineCount, IssueSummary), PILLAR(PillarCode PK, PillarName), CHALLENGE(ChallengeCode PK, ChallengeName), and OPERATION_FOCUS(OperationID PK/FK, PillarCode PK/FK, ChallengeCode PK/FK). OfficerName may remain in OPERATION at 2NF because the transitive dependency is handled in 3NF.",
+      "aiRubric": [
+        "Removes PillarName from the composite-key relation into PILLAR.",
+        "Removes ChallengeName into CHALLENGE.",
+        "Separates operation-specific attributes into OPERATION.",
+        "Keeps a bridge/associative relation linking OperationID, PillarCode and ChallengeCode.",
+        "Does not incorrectly claim that 2NF alone removes every transitive dependency."
+      ],
+      "explanation": "2NF is about partial dependency. If a table has a composite key, a non-key attribute must not depend on only one part of that key.\n\nStudent note: 2NF = 1NF + no partial dependencies. Save transitive-dependency cleanup for 3NF."
+    },
+    {
+      "number": "1.3",
+      "marks": 5,
+      "grading": "ai",
+      "answerType": "uml-diagram",
+      "diagramRequired": true,
+      "diagramTools": [
+        "entity",
+        "attribute",
+        "relationship",
+        "arrow",
+        "line",
+        "text",
+        "pen"
+      ],
+      "text": "Transform the 2NF design into Third Normal Form (3NF). Draw the final relations with primary and foreign keys.",
+      "correctAnswer": "A valid 3NF design is OFFICER(OfficerID PK, OfficerName); OPERATION(OperationID PK, OperationDate, Province, OfficerID FK, Area, RoadName, StartTime, EndTime, FineCount, IssueSummary); PILLAR(PillarCode PK, PillarName); CHALLENGE(ChallengeCode PK, ChallengeName); OPERATION_FOCUS(OperationID PK/FK, PillarCode PK/FK, ChallengeCode PK/FK). OfficerName is removed from OPERATION because OfficerID -> OfficerName is transitive through OperationID -> OfficerID.",
+      "aiRubric": [
+        "Creates OFFICER with OfficerID as primary key.",
+        "Keeps OfficerID as a foreign key in OPERATION.",
+        "Removes OfficerName from OPERATION.",
+        "Keeps PILLAR and CHALLENGE lookup relations.",
+        "Keeps a valid associative relation for operation/pillar/challenge links.",
+        "Primary and foreign keys are shown."
+      ],
+      "explanation": "3NF removes transitive dependencies: a non-key field should not depend on another non-key field. OfficerName depends on OfficerID, not directly on OperationID, so OFFICER becomes its own relation.\n\nStudent note: 3NF test: every non-key attribute should depend on the key, the whole key, and nothing but the key."
+    },
+    {
+      "number": "1.4",
+      "marks": 5,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "text": "Write five business rules that are consistent with your 3NF design.",
+      "correctAnswer": "Examples: (1) One officer can lead many operations; each operation is led by one officer. (2) One operation can address many pillars and one pillar can be addressed by many operations. (3) One operation can involve many challenges and one challenge can occur in many operations. (4) Each pillar code identifies one pillar name. (5) Each challenge code identifies one challenge name. Equivalent rules consistent with the ERD are acceptable.",
+      "aiRubric": [
+        "Five distinct rules are supplied.",
+        "Rules match the entities/relationships in the 3NF design.",
+        "Cardinality is clear where relevant.",
+        "Rules are written as business statements, not SQL syntax."
+      ],
+      "explanation": "Business rules describe how the organisation says data may relate. They become the reasoning behind cardinalities and constraints in the ERD.\n\nStudent note: A strong rule often uses 'one', 'many', 'must' or 'may' so the relationship is clear."
+    },
+    {
+      "number": "1.5",
+      "marks": 25,
+      "grading": "ai",
+      "answerType": "uml-diagram",
+      "diagramRequired": true,
+      "diagramTools": [
+        "entity",
+        "attribute",
+        "relationship",
+        "line",
+        "arrow",
+        "text",
+        "pen"
+      ],
+      "text": "Draw an ERD for the 3NF design from Question 1.3. Include entities, primary keys, foreign keys and relationship cardinalities that match your five business rules.",
+      "correctAnswer": "Expected core entities: OFFICER, OPERATION, PILLAR, CHALLENGE and OPERATION_FOCUS. OFFICER has a one-to-many relationship with OPERATION. OPERATION, PILLAR and CHALLENGE participate through OPERATION_FOCUS. PKs and FKs must be shown and cardinalities must be consistent with the stated business rules.",
+      "aiRubric": [
+        "All five core entities are present.",
+        "Primary keys are identified.",
+        "Foreign keys are identified.",
+        "OFFICER 1-to-many OPERATION is represented.",
+        "Associative entity correctly links OPERATION, PILLAR and CHALLENGE.",
+        "Cardinalities are shown and consistent.",
+        "Attributes are placed on the correct entities.",
+        "Diagram is readable and actually drawn."
+      ],
+      "explanation": "An ERD is not only boxes. It communicates entities, their identifiers, relationships and cardinalities. The final ERD should reflect the normalised relations and the business rules together.\n\nStudent note: After drawing, check every foreign key: it should point to a matching parent key and support a business rule."
+    },
+    {
+      "number": "2",
+      "marks": 25,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "text": "Discuss a practical defence-in-depth plan for securing data in a production database.",
+      "correctAnswer": "A strong plan covers least privilege and role-based access, strong authentication, encryption in transit and at rest, patching and secure configuration, network segmentation/firewalls, input validation and parameterised queries, backups and tested recovery, auditing/logging and monitoring, protection of sensitive data through masking/minimisation, separation of duties, physical/cloud platform controls, and an incident-response process.",
+      "aiRubric": [
+        "Access control/least privilege.",
+        "Authentication and account management.",
+        "Encryption in transit and/or at rest.",
+        "Patching and secure configuration.",
+        "Network controls/segmentation.",
+        "Application-layer protection such as parameterised SQL.",
+        "Backups and tested recovery.",
+        "Auditing/logging/monitoring.",
+        "Sensitive-data minimisation/masking or classification.",
+        "Separation of duties and incident response."
+      ],
+      "explanation": "Database security works best in layers. If one control fails, another should still reduce the chance or impact of a breach.\n\nStudent note: Organise a long answer into Prevent → Detect → Recover. This helps you cover more than passwords and permissions."
+    },
+    {
+      "number": "3",
+      "marks": 25,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "text": "You are the DBA responsible for delivering a new database service. Develop a management plan covering planning, organising, testing, monitoring and delivery/operations.",
+      "correctAnswer": "The plan should define requirements, capacity, data model and standards; assign roles and responsibilities; establish environments and change control; test functionality, security, performance, backup/restore and failover; monitor availability, performance, storage, logs and security events; document deployment, rollback and recovery procedures; schedule backups/maintenance; manage access; communicate with stakeholders; and use service metrics and post-implementation review for continual improvement.",
+      "aiRubric": [
+        "Planning covers requirements, capacity, architecture or standards.",
+        "Organising covers roles, environments, documentation and change control.",
+        "Testing covers function plus security/performance/recovery.",
+        "Monitoring covers availability, performance, storage/logs/security.",
+        "Delivery covers deployment, rollback, backup/recovery and support.",
+        "Includes governance/communication/continuous improvement."
+      ],
+      "explanation": "A DBA's managerial role is broader than writing SQL. The DBA must make the database reliable, secure, recoverable and supportable throughout its life cycle.\n\nStudent note: For plan questions, use headings that mirror the question: Planning, Organising, Testing, Monitoring, Delivery."
+    }
+  ]
+}
