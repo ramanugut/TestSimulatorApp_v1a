@@ -146,6 +146,11 @@
     const uploadLabel=el("label","uml-upload",question.imageUploadLabel || "Upload screenshot / image");
     const upload=el("input");upload.type="file";upload.accept="image/png,image/jpeg,image/webp";upload.disabled=Boolean(disabled);
     upload.setAttribute("aria-label",question.imageUploadLabel || "Upload screenshot or image");
+    const removeButton=button("Remove image",()=>{
+      state.image="";preview.removeAttribute("src");preview.hidden=true;
+      removeButton.disabled=Boolean(disabled);
+      onChange({image:"",text:state.text});
+    },disabled||!state.image);
     upload.addEventListener("change",()=>{
       const file=upload.files && upload.files[0];if(!file)return;
       if(!/^image\/(png|jpeg|webp)$/.test(file.type)||file.size>8*1024*1024){
@@ -155,16 +160,14 @@
       reader.onload=()=>{
         state.image=String(reader.result||"");
         preview.src=state.image;preview.hidden=!state.image;
+        removeButton.disabled=Boolean(disabled)||!state.image;
         onChange({image:state.image,text:state.text});upload.value="";
       };
       reader.onerror=()=>{alert("Unable to read this image.");upload.value="";};
       reader.readAsDataURL(file);
     });
     uploadLabel.appendChild(upload);actions.appendChild(uploadLabel);
-    actions.appendChild(button("Remove image",()=>{
-      state.image="";preview.removeAttribute("src");preview.hidden=true;
-      onChange({image:"",text:state.text});
-    },disabled||!state.image));
+    actions.appendChild(removeButton);
     host.appendChild(actions);
     const notes=el("label","editor-label",question.imageNotesLabel || "Optional notes");
     const textarea=el("textarea","text-area-input");textarea.rows=4;
