@@ -6,7 +6,7 @@
   "marking": "ai-assisted-command-and-written",
   "sourceType": "Paraphrased practice based on the indexed Jan/Feb 2025 examination. Command answers are cross-checked against standard Linux/Samba tooling.",
   "sourceReference": "https://www.studocu.com/en-za/document/university-of-south-africa/database-design/ict3631-jan-feb-2025-advanced-operating-systems-exam-paper/142587856",
-  "sourceLimitations": "The indexed copy exposes the practical command topics but some IP addresses are truncated by OCR. The app therefore uses synthetic hostnames/addresses while testing the same commands.",
+  "sourceLimitations": "The indexed copy exposes 55 marks of practical command topics cleanly enough to verify. Some IP/interface values are truncated by OCR and the rest of the 100-mark paper is not reliably visible. Those parts are withheld rather than guessed; synthetic hostnames/addresses are used where needed.",
   "questions": [
     {
       "number": "1.1",
@@ -190,5 +190,7 @@
       ],
       "explanation": "`getfacl` displays the file's access control list, including named user and group entries.\n\nStudent note: setfacl changes ACLs; getfacl reads them."
     }
-  ]
+  ],
+  "totalMarks": 55,
+  "originalTotalMarks": 100
 }
