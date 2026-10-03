@@ -36,6 +36,38 @@ document.addEventListener("DOMContentLoaded", function () {
     return appPreferences;
   }
 
+  // Keep the visible page separately from timed-test progress. Study Mode,
+  // bookmarks and hard refreshes should remember where the student actually is.
+  function getSavedPaperPage(filename) {
+    if (!filename) return null;
+    const pages =
+      appPreferences.paperPagePositions &&
+      typeof appPreferences.paperPagePositions === "object" &&
+      !Array.isArray(appPreferences.paperPagePositions)
+        ? appPreferences.paperPagePositions
+        : {};
+    const page = Number(pages[filename]);
+    return Number.isInteger(page) && page >= 1 ? page : null;
+  }
+
+  function savePaperPage(filename = currentTestFile, page = currentPage) {
+    if (!filename) return;
+    const normalizedPage = Math.max(1, Math.floor(Number(page) || 1));
+    const existing =
+      appPreferences.paperPagePositions &&
+      typeof appPreferences.paperPagePositions === "object" &&
+      !Array.isArray(appPreferences.paperPagePositions)
+        ? appPreferences.paperPagePositions
+        : {};
+    if (Number(existing[filename]) === normalizedPage) return;
+    saveAppPreferences({
+      paperPagePositions: {
+        ...existing,
+        [filename]: normalizedPage,
+      },
+    });
+  }
+
   // Global variables
   let questions = [];
   let originalQuestions = [];
@@ -145,6 +177,7 @@ document.addEventListener("DOMContentLoaded", function () {
         activeQuestionOrderMode
       );
       currentPage = 1;
+      savePaperPage();
       resetStudyGuessSession();
       renderQuestions();
       updatePaginationControls();
@@ -2144,6 +2177,7 @@ document.addEventListener("DOMContentLoaded", function () {
       reviewFilterSelect.value = newFilter;
     }
     currentPage = 1;
+    savePaperPage();
     renderQuestions();
     updatePaginationControls();
     updateBookmarkPanel();
@@ -5306,14 +5340,17 @@ const testFiles = [
         typeof savedProgress.remainingTime === "number"
           ? savedProgress.remainingTime
           : getTimerInputSeconds();
-      currentPage = savedProgress.currentPage || 1;
+      const savedPaperPage = getSavedPaperPage(currentTestFile);
+      currentPage =
+        savedPaperPage ||
+        (currentMode === "study" ? 1 : savedProgress.currentPage || 1);
       testInProgress = !!savedProgress.testInProgress && remainingTime > 0;
       testSubmitted = !!savedProgress.testSubmitted;
       bookmarkedQuestions = new Set(savedProgress.bookmarkedQuestions || []);
       isTimerPaused = !!savedProgress.isTimerPaused;
       showAllQuestions = !!savedProgress.showAllQuestions;
     } else {
-      currentPage = 1;
+      currentPage = getSavedPaperPage(currentTestFile) || 1;
       userAnswers = {};
       testInProgress = false;
       testSubmitted = false;
@@ -6241,6 +6278,7 @@ const testFiles = [
     }
 
     currentPage = Math.floor(position / questionsPerPage) + 1;
+    savePaperPage();
     renderQuestions();
     updatePaginationControls();
     requestAnimationFrame(() => highlightQuestion(questionIndex));
@@ -6357,6 +6395,7 @@ const testFiles = [
     );
     if (currentPage > totalPages) {
       currentPage = totalPages;
+      savePaperPage();
     }
     if (showAllQuestions) {
       pageInfo.textContent =
@@ -6380,6 +6419,7 @@ const testFiles = [
     prevPageButton.addEventListener("click", () => {
       if (currentPage > 1) {
         currentPage--;
+        savePaperPage();
         renderQuestions();
         updatePaginationControls();
         scrollToQuestionsTop();
@@ -6396,6 +6436,7 @@ const testFiles = [
       );
       if (currentPage < totalPages) {
         currentPage++;
+        savePaperPage();
         renderQuestions();
         updatePaginationControls();
         scrollToQuestionsTop();
@@ -6422,6 +6463,7 @@ const testFiles = [
         }
       }
 
+      savePaperPage();
       renderQuestions();
       updatePaginationControls();
       scrollToQuestionsTop();
@@ -6433,6 +6475,7 @@ const testFiles = [
     reviewFilterSelect.addEventListener("change", (event) => {
       reviewFilter = event.target.value;
       currentPage = 1;
+      savePaperPage();
       renderQuestions();
       updatePaginationControls();
     });
@@ -6442,6 +6485,7 @@ const testFiles = [
     reviewSourceFilterSelect.addEventListener("change", (event) => {
       activeSourceFilter = event.target.value;
       currentPage = 1;
+      savePaperPage();
       renderQuestions();
       updatePaginationControls();
       updateBookmarkPanel();
@@ -6640,6 +6684,7 @@ const testFiles = [
           const firstUnanswered = unansweredQuestions[0] - 1;
           showAllQuestions = false;
           currentPage = Math.floor(firstUnanswered / questionsPerPage) + 1;
+          savePaperPage();
           renderQuestions();
           updatePaginationControls();
           closeTestControlsModal(false);
@@ -6966,6 +7011,7 @@ const testFiles = [
       );
     }
     currentPage = 1;
+    savePaperPage();
     renderQuestions();
     updatePaginationControls();
     updateProgress();
@@ -7621,6 +7667,7 @@ const testFiles = [
   }
 
   window.addEventListener("beforeunload", () => {
+    savePaperPage();
     if (testInProgress || timerStarted) {
       saveProgress();
     }
