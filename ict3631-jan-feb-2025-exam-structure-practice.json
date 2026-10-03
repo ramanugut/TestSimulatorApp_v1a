@@ -1,0 +1,196 @@
+{
+  "testName": "ICT3631 · Jan/Feb 2025 Exam · verified command practice",
+  "module": "ICT3631",
+  "assessment": "January/February 2025 examination practice",
+  "preserveOrder": true,
+  "marking": "ai-assisted-command-and-written",
+  "sourceType": "Paraphrased practice based on the indexed Jan/Feb 2025 examination. Command answers are cross-checked against standard Linux/Samba tooling.",
+  "sourceReference": "https://www.studocu.com/en-za/document/university-of-south-africa/database-design/ict3631-jan-feb-2025-advanced-operating-systems-exam-paper/142587856",
+  "sourceLimitations": "The indexed copy exposes 55 marks of practical command topics cleanly enough to verify. Some IP/interface values are truncated by OCR and the rest of the 100-mark paper is not reliably visible. Those parts are withheld rather than guessed; synthetic hostnames/addresses are used where needed.",
+  "questions": [
+    {
+      "number": "1.1",
+      "marks": 4,
+      "grading": "ai",
+      "answerType": "command",
+      "text": "Write one SSH command that logs in as user `johdoe` on `server1.example` and executes `hostname` on the remote machine without first opening an interactive shell.",
+      "correctAnswer": "ssh johdoe@server1.example hostname",
+      "aiRubric": [
+        "Uses ssh.",
+        "Specifies johdoe@server1.example or an equivalent user/host form.",
+        "Executes hostname as the remote command."
+      ],
+      "explanation": "SSH can run a command directly after the remote target. The remote command is executed and its output is returned to the local terminal.\n\nStudent note: The pattern is `ssh user@host command`."
+    },
+    {
+      "number": "1.2",
+      "marks": 13,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "text": "Explain a safe step-by-step method for configuring a Linux log host with rsyslog and sending logs to it from a client.",
+      "correctAnswer": "On the server, install/enable rsyslog, configure an input for the chosen protocol (commonly UDP or TCP on 514), restrict permitted senders where possible, allow the required firewall port, choose rules/templates for received logs, validate the configuration and restart/enable rsyslog. On each client, configure a forwarding rule to the log host (`@host:514` for UDP or `@@host:514` for TCP in traditional rsyslog syntax), validate/restart, generate a test message with logger, and confirm it arrives. Production designs should prefer authenticated/encrypted transport where available.",
+      "aiRubric": [
+        "Configures rsyslog receiver/input on the log host.",
+        "Uses an appropriate transport/port and firewall rule.",
+        "Configures a client forwarding rule.",
+        "Restarts/enables or reloads rsyslog after validation.",
+        "Tests with logger or another controlled message.",
+        "Verifies received logs.",
+        "Mentions access restriction or secure transport as a production safeguard."
+      ],
+      "explanation": "Central logging needs both ends: a server that listens and stores messages, and clients that forward them. Testing matters because a configuration can be syntactically valid but still blocked by a firewall or routing problem.\n\nStudent note: Answer in order: server → firewall → client → restart → test → verify."
+    },
+    {
+      "number": "1.3a",
+      "marks": 3,
+      "grading": "ai",
+      "answerType": "command",
+      "text": "Give a modern Linux command that displays addresses and status for all network interfaces.",
+      "correctAnswer": "ip addr show",
+      "aiRubric": [
+        "Uses `ip addr`, `ip address`, or `ip addr show` to display all interfaces."
+      ],
+      "explanation": "The `ip` command from iproute2 is the modern tool for viewing and managing network interfaces and addresses.\n\nStudent note: `ip addr` is the modern replacement you should know even if older material also teaches `ifconfig`."
+    },
+    {
+      "number": "1.3b",
+      "marks": 1,
+      "grading": "ai",
+      "answerType": "command",
+      "text": "Give a legacy command that can show information for all network interfaces, including inactive ones.",
+      "correctAnswer": "ifconfig -a",
+      "aiRubric": [
+        "Uses `ifconfig -a`."
+      ],
+      "explanation": "`ifconfig -a` displays all interfaces on systems where the legacy net-tools package is available.\n\nStudent note: On modern Linux, prefer `ip addr`; know `ifconfig -a` because older course material and systems may still use it."
+    },
+    {
+      "number": "1.3c",
+      "marks": 2,
+      "grading": "ai",
+      "answerType": "command",
+      "text": "Write a command that tests basic IP reachability to a host named `host1`.",
+      "correctAnswer": "ping host1",
+      "aiRubric": [
+        "Uses ping with host1 (optionally with a safe count such as `-c 4`)."
+      ],
+      "explanation": "`ping` sends ICMP echo requests and is a basic reachability test. A failed ping does not always prove the host is down because ICMP can be filtered.\n\nStudent note: Ping is a first test, not a complete diagnosis."
+    },
+    {
+      "number": "1.3d",
+      "marks": 1,
+      "text": "If you know host1's IP address, may you normally use that IP address instead of the hostname with `ping`?",
+      "options": [
+        "Yes",
+        "No"
+      ],
+      "correctAnswer": "Yes",
+      "explanation": "`ping` can normally target either a resolvable hostname or an IP address. Using the IP can also help separate a DNS problem from a network reachability problem.\n\nStudent note: If IP works but hostname fails, investigate name resolution/DNS."
+    },
+    {
+      "number": "1.3e",
+      "marks": 2,
+      "grading": "ai",
+      "answerType": "command",
+      "text": "Give a Linux command that shows the network path/hops used to reach `google.com`.",
+      "correctAnswer": "traceroute google.com",
+      "aiRubric": [
+        "Uses `traceroute google.com` or a clearly equivalent route-tracing command such as `tracepath google.com`."
+      ],
+      "explanation": "A route-tracing tool sends probes with increasing hop limits so it can reveal routers along the path toward the destination.\n\nStudent note: `ping` asks 'can I reach it?'; `traceroute` asks 'which path is being taken?'."
+    },
+    {
+      "number": "1.4",
+      "marks": 3,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "text": "In a legacy Red Hat-style interface configuration, explain the purpose of `PEERDNS=no`.",
+      "correctAnswer": "It tells the network configuration not to let DNS information learned from the peer/DHCP connection automatically replace or update the system resolver configuration for that interface. It is used when DNS settings should be managed manually or by another mechanism.",
+      "aiRubric": [
+        "Explains that peer/DHCP-provided DNS should not automatically update resolver DNS settings.",
+        "Mentions manual/controlled DNS configuration."
+      ],
+      "explanation": "The setting is about DNS configuration, not whether the interface itself can connect to the network.\n\nStudent note: PEERDNS controls accepting peer-provided DNS information; it does not disable DNS as a service."
+    },
+    {
+      "number": "2",
+      "marks": 12,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "text": "For a traditional Samba file server, list the main SMB/NetBIOS ports, state whether each uses TCP or UDP, and identify whether `smbd` or `nmbd` is mainly associated with it.",
+      "correctAnswer": "The standard set expected in this course context is UDP 137 and UDP 138 for NetBIOS name/datagram functions associated with nmbd, plus TCP 139 and TCP 445 for SMB file/session service associated with smbd. Port 445 is direct SMB without the older NetBIOS session layer.",
+      "aiRubric": [
+        "UDP 137 is included and associated with NetBIOS/nmbd.",
+        "UDP 138 is included and associated with NetBIOS/nmbd.",
+        "TCP 139 is included and associated with SMB/smbd.",
+        "TCP 445 is included and associated with direct SMB/smbd."
+      ],
+      "explanation": "Samba may use the older NetBIOS-related ports as well as direct SMB on TCP 445. Which ports should be exposed in a real network depends on the design and firewall policy.\n\nStudent note: Memorise protocol with port: 137/UDP, 138/UDP, 139/TCP, 445/TCP."
+    },
+    {
+      "number": "3.1a",
+      "marks": 4,
+      "grading": "ai",
+      "answerType": "command",
+      "text": "Write the iptables command that deletes rule number 5 from the INPUT chain.",
+      "correctAnswer": "iptables -D INPUT 5",
+      "aiRubric": [
+        "Uses iptables with `-D INPUT 5`."
+      ],
+      "explanation": "`-D` deletes a rule. When a rule number is supplied, iptables removes that numbered rule from the named chain.\n\nStudent note: List rules with line numbers before deleting in real administration so you do not remove the wrong rule."
+    },
+    {
+      "number": "3.1b",
+      "marks": 4,
+      "grading": "ai",
+      "answerType": "command",
+      "text": "Write the iptables command that changes the default policy of the INPUT chain to ACCEPT.",
+      "correctAnswer": "iptables -P INPUT ACCEPT",
+      "aiRubric": [
+        "Uses iptables with `-P INPUT ACCEPT`."
+      ],
+      "explanation": "`-P` sets the built-in chain policy. This affects packets that reach the end of the chain without matching a rule.\n\nStudent note: Default policy and an appended rule are different things."
+    },
+    {
+      "number": "3.1c",
+      "marks": 4,
+      "grading": "ai",
+      "answerType": "command",
+      "text": "Write an iptables command that appends an INPUT rule to drop TCP traffic destined for port 22.",
+      "correctAnswer": "iptables -A INPUT -p tcp --dport 22 -j DROP",
+      "aiRubric": [
+        "Appends to INPUT with `-A INPUT`.",
+        "Matches TCP.",
+        "Matches destination port 22.",
+        "Uses DROP target."
+      ],
+      "explanation": "The rule matches incoming TCP packets whose destination port is 22 and sends them to the DROP target.\n\nStudent note: Order matters in a firewall ruleset. An earlier ACCEPT rule could match before a later DROP rule."
+    },
+    {
+      "number": "3.2a",
+      "marks": 1,
+      "grading": "ai",
+      "answerType": "command",
+      "text": "Give a command pattern that grants user `sam` read and write ACL permissions on `report.txt`.",
+      "correctAnswer": "setfacl -m u:sam:rw report.txt",
+      "aiRubric": [
+        "Uses setfacl with modify (`-m`) and a user ACL entry granting sam read/write on report.txt."
+      ],
+      "explanation": "`setfacl` modifies access control list entries. The `u:sam:rw` entry gives user sam read and write ACL permissions.\n\nStudent note: ACLs can grant permissions to a named user without changing the file's owner or group."
+    },
+    {
+      "number": "3.2b",
+      "marks": 1,
+      "grading": "ai",
+      "answerType": "command",
+      "text": "Give the command used to display the ACL entries for `report.txt`.",
+      "correctAnswer": "getfacl report.txt",
+      "aiRubric": [
+        "Uses getfacl on report.txt."
+      ],
+      "explanation": "`getfacl` displays the file's access control list, including named user and group entries.\n\nStudent note: setfacl changes ACLs; getfacl reads them."
+    }
+  ],
+  "totalMarks": 55,
+  "originalTotalMarks": 100
+}

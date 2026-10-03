@@ -1,0 +1,139 @@
+{
+  "testName": "ICT3641 · Oct/Nov 2022 Exam · source-verified written practice (46 marks)",
+  "module": "ICT3641",
+  "assessment": "October/November 2022 examination practice",
+  "totalMarks": 46,
+  "originalTotalMarks": 90,
+  "preserveOrder": true,
+  "marking": "ai-assisted-written",
+  "sourceType": "Paraphrased practice based on clearly visible questions from the Oct/Nov 2022 paper. A synthetic small-business context replaces the original case wording.",
+  "sourceReference": "https://www.studocu.com/en-za/document/university-of-south-africa/business-informatics-iiia/ict3641-octnov-2022-online-exam/36480718",
+  "sourceLimitations": "Only question areas visible clearly enough to verify are included. Missing questions and case-specific wording are not reconstructed.",
+  "caseStudy": {
+    "title": "ReThread online pop-up",
+    "text": "ReThread is a small South African business that repairs and upcycles used clothing. It has strong local-community relationships and skilled staff, but limited capital and a small physical reach. The owners want an e-commerce pop-up shop to reach more customers while keeping their personal service advantage."
+  },
+  "questions": [
+    {
+      "number": "1",
+      "marks": 10,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "text": "Apply Porter's value-chain model to ReThread. Explain the primary activities and support activities, showing how each could appear in this small e-commerce business.",
+      "correctAnswer": "Primary activities: inbound logistics (receiving donated/used garments and materials), operations (cleaning, repairing, redesigning and listing products), outbound logistics (packing and delivery/collection), marketing and sales (website/social campaigns, pricing and conversion), and service (returns, repairs, customer support). Support activities: firm infrastructure (finance, planning, legal/admin), human-resource management (recruiting/training staff), technology development (website, analytics, inventory/payment tools), and procurement (sourcing packaging, tools, materials and services).",
+      "aiRubric": [
+        "Explains inbound logistics with case application.",
+        "Explains operations with case application.",
+        "Explains outbound logistics with case application.",
+        "Explains marketing and sales with case application.",
+        "Explains service with case application.",
+        "Explains firm infrastructure.",
+        "Explains human-resource management.",
+        "Explains technology development.",
+        "Explains procurement.",
+        "Shows how value is added rather than only listing names."
+      ],
+      "explanation": "Porter's value chain separates the activities directly involved in creating, selling and supporting the product from the activities that enable the whole business to work.\n\nStudent note: For case questions, do not define the activity and stop. Add one sentence showing exactly what that activity looks like in the business."
+    },
+    {
+      "number": "4",
+      "marks": 8,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "text": "Using the ReThread scenario, propose clear e-commerce objectives and matching strategies that use its strengths/opportunities while reducing its weaknesses/threats.",
+      "correctAnswer": "Possible objective-strategy pairs include: expand geographic reach -> launch a mobile-friendly store with reliable national delivery; preserve personal service -> add chat, sizing help and repair advice; build trust -> show product condition, transparent returns and secure checkout; overcome limited capital -> start with a focused catalogue and scalable hosted platform; use community reputation -> feature local stories, workshops and user content; respond to larger competitors -> differentiate on unique upcycled products, sustainability and service instead of competing only on price.",
+      "aiRubric": [
+        "Provides specific objectives rather than vague goals.",
+        "Pairs each objective with an actionable strategy.",
+        "Uses strengths/opportunities from the scenario.",
+        "Addresses weaknesses/threats from the scenario.",
+        "Includes e-commerce/web presence strategy.",
+        "Includes customer/trust or service strategy.",
+        "Includes competitive differentiation.",
+        "Recommendations fit a small South African business."
+      ],
+      "explanation": "SWOT becomes useful when it changes action. An objective says what the business wants to achieve; a strategy says how it will achieve it.\n\nStudent note: Write answers as pairs: Objective → Strategy. This makes the link easy for a marker to see."
+    },
+    {
+      "number": "5",
+      "marks": 6,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "text": "Explain how ReThread could use electronic CRM for (a) customer targeting, (b) promotions and (c) distribution/channel decisions. Give an example for each.",
+      "correctAnswer": "Targeting: segment customers using consented purchase/browsing/preferences data, e.g. customers interested in vintage jackets. Promotions: tailor messages/offers to relevant segments, e.g. notify repeat repair customers about a repair bundle rather than sending every offer to everyone. Distribution/channels: use channel data to decide whether customers prefer website checkout, social referral, click-and-collect or delivery, and coordinate service across those channels.",
+      "aiRubric": [
+        "Explains targeting and gives an example.",
+        "Explains promotions and gives an example.",
+        "Explains distribution/channel use and gives an example.",
+        "Uses customer data responsibly and does not imply uncontrolled collection."
+      ],
+      "explanation": "eCRM uses customer information to improve how the business finds, serves and keeps customers. The value comes from better decisions, not from collecting data for its own sake.\n\nStudent note: For each eCRM dimension, explain both the data/decision and the customer-facing action."
+    },
+    {
+      "number": "6",
+      "marks": 4,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "text": "Classify ReThread's direct online sales to individual shoppers as B2C, B2B or B2G, then briefly distinguish all three categories.",
+      "correctAnswer": "Direct sales from ReThread to individual shoppers are B2C (business-to-consumer). B2C is business selling to individual consumers; B2B is transactions between businesses; B2G is business transactions or services involving government/public-sector organisations.",
+      "aiRubric": [
+        "Correctly classifies direct consumer sales as B2C.",
+        "Correctly distinguishes B2C.",
+        "Correctly distinguishes B2B.",
+        "Correctly distinguishes B2G."
+      ],
+      "explanation": "The category is determined by who participates in the transaction. The same company can take part in more than one category if it sells to consumers, other firms and government customers.\n\nStudent note: Look at the buyer and seller, not the technology used."
+    },
+    {
+      "number": "7",
+      "marks": 6,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "text": "Recommend two practical online payment approaches for a small South African e-commerce shop, then explain extra issues the owners should consider before accepting orders from customers outside South Africa.",
+      "correctAnswer": "Local options could include card payments through a reputable payment gateway and an electronic bank-payment option such as instant EFT/account-to-account payment, depending on the provider. For international orders consider payment-provider country/currency support, exchange rates and fees, fraud/chargebacks, taxes/customs duties, delivery cost and tracking, returns, consumer rules, privacy/data transfers and clear pricing. The business should not assume a local payment or delivery method works internationally.",
+      "aiRubric": [
+        "Recommends two realistic online payment approaches.",
+        "Explains security/provider considerations.",
+        "Covers currency/exchange-rate or payment fees for international sales.",
+        "Covers delivery/customs/tax or returns.",
+        "Covers fraud/chargeback risk.",
+        "Covers privacy/compliance or clear customer communication."
+      ],
+      "explanation": "Payments are part of a wider order process. International selling adds currency, delivery, tax/customs, fraud and customer-service questions that do not disappear once the card is approved.\n\nStudent note: In scenario answers, avoid naming one provider as if it is the only correct answer. Explain the capability the business needs."
+    },
+    {
+      "number": "8",
+      "marks": 7,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "text": "Give four general personal-information protection practices ReThread should follow and three extra checks that matter especially for its e-commerce site.",
+      "correctAnswer": "General practices can include processing personal information lawfully and only when necessary, collecting it for a clear purpose, keeping it accurate, being transparent with people, protecting it with appropriate security, limiting retention/access, and allowing data-subject rights. E-commerce checks can include a clear online privacy notice and lawful marketing choices, secure/minimised checkout/payment handling, and suitable controls/contracts for hosting, analytics, delivery or other operators that process customer information.",
+      "aiRubric": [
+        "Four distinct general privacy/data-protection practices are explained.",
+        "Includes purpose/necessity or processing limitation.",
+        "Includes transparency/data-subject awareness.",
+        "Includes security safeguards.",
+        "Three e-commerce-specific checks are supplied.",
+        "Online marketing/tracking or privacy notice is addressed.",
+        "Third-party/payment/hosting data handling is addressed."
+      ],
+      "explanation": "Privacy compliance is a business process, not only a website footer. A shop must know what information it collects, why it needs it, who can access it, how long it keeps it and which service providers receive it.\n\nStudent note: Separate general data-protection principles from e-commerce-specific implementation checks."
+    },
+    {
+      "number": "B1",
+      "marks": 5,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "text": "In the context of an e-commerce site, explain what the `S` in HTTPS means and what protection HTTPS provides.",
+      "correctAnswer": "HTTPS means HTTP carried over a secure TLS connection. TLS can authenticate the server using its certificate and protects data in transit with encryption and integrity checks, reducing eavesdropping and tampering. HTTPS does not by itself prove that the business is trustworthy or secure every part of the application.",
+      "aiRubric": [
+        "Identifies HTTPS as HTTP protected by TLS/security.",
+        "Explains encryption/confidentiality in transit.",
+        "Explains integrity/tamper protection.",
+        "Explains server authentication/certificates.",
+        "Does not claim HTTPS makes the whole website automatically safe."
+      ],
+      "explanation": "HTTPS protects the connection between the browser and server. It is essential for e-commerce, but application security, access control and safe data handling are still required.\n\nStudent note: Remember the three connection protections: confidentiality, integrity and authentication."
+    }
+  ]
+}

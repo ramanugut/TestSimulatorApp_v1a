@@ -9,6 +9,9 @@
     ["usecase","Use case ◯"],
     ["actor","Actor"],
     ["class","Class ▣"],
+    ["entity","ERD Entity ▭"],
+    ["attribute","ERD Attribute ◯"],
+    ["relationship","ERD Relationship ◇"],
     ["boundary","Boundary □"],
     ["action","Action ▭"],
     ["decision","Decision ◇"],
@@ -20,7 +23,7 @@
     ["text","Text"],
     ["pen","Pen"]
   ];
-  const NODE_TYPES=new Set(["usecase","actor","class","boundary","action","decision","start","end","text"]);
+  const NODE_TYPES=new Set(["usecase","actor","class","entity","attribute","relationship","boundary","action","decision","start","end","text"]);
   const LINE_TYPES=new Set(["line","arrow","dashed"]);
   const button=(label,callback,disabled)=>{
     const b=document.createElement("button");
@@ -39,7 +42,10 @@
     switch(type){
       case "actor":return [95,154];
       case "usecase":return [195,84];
+      case "attribute":return [175,72];
       case "class":return [195,135];
+      case "entity":return [205,92];
+      case "relationship":return [145,95];
       case "boundary":return [450,310];
       case "action":return [190,78];
       case "decision":return [125,95];
@@ -192,12 +198,15 @@
       const x=o.x,y=o.y,w=o.w,h=o.h,c=centre(o);
       ctx.lineWidth=2.8;ctx.strokeStyle="#172b4d";ctx.fillStyle="#fff";ctx.setLineDash([]);
       switch(o.type){
-        case "usecase":
+        case "usecase":case "attribute":
           ctx.beginPath();ctx.ellipse(c.x,c.y,w/2,h/2,0,0,Math.PI*2);ctx.fill();ctx.stroke();
           drawLabel(o.label,c.x,c.y,w-28);break;
         case "boundary":
           ctx.strokeRect(x,y,w,h);if(o.label){ctx.fillStyle="#172b4d";ctx.textAlign="left";
             ctx.fillText(o.label,x+12,y+18,w-20);}break;
+        case "entity":
+          ctx.fillRect(x,y,w,h);ctx.strokeRect(x,y,w,h);
+          drawLabel(o.label,c.x,c.y,w-18);break;
         case "class":
           ctx.fillRect(x,y,w,h);ctx.strokeRect(x,y,w,h);
           ctx.beginPath();ctx.moveTo(x,y+40);ctx.lineTo(x+w,y+40);
@@ -205,7 +214,7 @@
           drawLabel(o.label,c.x,y+20,w-12);break;
         case "action":
           rectRound(x,y,w,h,13);ctx.fill();ctx.stroke();drawLabel(o.label,c.x,c.y,w-24);break;
-        case "decision":
+        case "decision":case "relationship":
           ctx.beginPath();ctx.moveTo(c.x,y);ctx.lineTo(x+w,c.y);ctx.lineTo(c.x,y+h);
           ctx.lineTo(x,c.y);ctx.closePath();ctx.fill();ctx.stroke();
           drawLabel(o.label,c.x,c.y,w*.65);break;
