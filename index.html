@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Test Simulator | Study &amp; Practise</title>
-    <link rel="stylesheet" href="styles.css?v=20261003-rich-themes1">
+    <link rel="stylesheet" href="styles.css?v=20261003-theme-families1">
     <link rel="stylesheet" href="paper-picker.css?v=20260930-nav-icons1">
     <link
         rel="stylesheet"
@@ -469,14 +469,43 @@
                 <div class="quick-settings-grid">
                     <div class="quick-item quick-item--appearance">
                         <span class="input-label" id="theme-choice-label">Appearance</span>
-                        <div class="theme-choices" role="group" aria-labelledby="theme-choice-label">
-                            <button type="button" class="theme-choice" data-theme="light" aria-pressed="true"><span class="theme-swatch theme-swatch-light" aria-hidden="true"></span>Light</button>
-                            <button type="button" class="theme-choice" data-theme="slate" aria-pressed="false"><span class="theme-swatch theme-swatch-slate" aria-hidden="true"></span>Slate</button>
-                            <button type="button" class="theme-choice" data-theme="deep" aria-pressed="false"><span class="theme-swatch theme-swatch-deep" aria-hidden="true"></span>Deep</button>
-                            <button type="button" class="theme-choice" data-theme="black" aria-pressed="false"><span class="theme-swatch theme-swatch-black" aria-hidden="true"></span>Deep Black</button>
-                            <button type="button" class="theme-choice theme-choice-featured" data-theme="colorpop" aria-pressed="false"><span class="theme-swatch theme-swatch-colorpop" aria-hidden="true"></span>Color Pop</button>
-                            <button type="button" class="theme-choice theme-choice-featured" data-theme="gradient" aria-pressed="false"><span class="theme-swatch theme-swatch-gradient" aria-hidden="true"></span>Gradient Vibes</button>
+                        <div class="rich-theme-families" aria-labelledby="theme-choice-label">
+                            <section class="theme-family-card theme-family-colorful" aria-label="Colorful theme">
+                                <div class="theme-family-preview theme-family-preview-colorful" aria-hidden="true">
+                                    <span></span><span></span><span></span>
+                                </div>
+                                <div class="theme-family-copy">
+                                    <strong>Colorful</strong>
+                                    <small>Teal-led with warm coral and gold accents. Colour guides actions and status, not individual questions.</small>
+                                </div>
+                                <div class="theme-mode-pair" role="group" aria-label="Colorful theme mode">
+                                    <button type="button" class="theme-choice theme-choice-rich" data-theme="colorful-light" aria-pressed="false">Light</button>
+                                    <button type="button" class="theme-choice theme-choice-rich" data-theme="colorful-dark" aria-pressed="false">Dark</button>
+                                </div>
+                            </section>
+                            <section class="theme-family-card theme-family-gradient" aria-label="Gradient Vibes theme">
+                                <div class="theme-family-preview theme-family-preview-gradient" aria-hidden="true">
+                                    <span></span>
+                                </div>
+                                <div class="theme-family-copy">
+                                    <strong>Gradient Vibes</strong>
+                                    <small>Deep navy, cyan and warm gold gradients. Sleek and premium without the purple AI look.</small>
+                                </div>
+                                <div class="theme-mode-pair" role="group" aria-label="Gradient Vibes theme mode">
+                                    <button type="button" class="theme-choice theme-choice-rich" data-theme="gradient-light" aria-pressed="false">Light</button>
+                                    <button type="button" class="theme-choice theme-choice-rich" data-theme="gradient-dark" aria-pressed="false">Dark</button>
+                                </div>
+                            </section>
                         </div>
+                        <details class="classic-theme-details">
+                            <summary>Classic themes</summary>
+                            <div class="theme-choices theme-choices-classic" role="group" aria-label="Classic appearance themes">
+                                <button type="button" class="theme-choice" data-theme="light" aria-pressed="true"><span class="theme-swatch theme-swatch-light" aria-hidden="true"></span>Light</button>
+                                <button type="button" class="theme-choice" data-theme="slate" aria-pressed="false"><span class="theme-swatch theme-swatch-slate" aria-hidden="true"></span>Slate</button>
+                                <button type="button" class="theme-choice" data-theme="deep" aria-pressed="false"><span class="theme-swatch theme-swatch-deep" aria-hidden="true"></span>Deep</button>
+                                <button type="button" class="theme-choice" data-theme="black" aria-pressed="false"><span class="theme-swatch theme-swatch-black" aria-hidden="true"></span>Deep Black</button>
+                            </div>
+                        </details>
                     </div>
                     <div class="quick-item">
                         <label class="input-label" for="pass-mark-input">Pass mark (%)</label>
@@ -543,7 +572,7 @@
     <script src="revision-insights.js?v=20260929-ai-optin1"></script>
     <script src="revision-controller.js?v=20261001-ai-session1"></script>
     <script src="paper-picker.js?v=20261003-modules2"></script>
-    <script src="script.js?v=20261003-rich-themes2"></script>
+    <script src="script.js?v=20261003-theme-families1"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
 </body>
 </html>
