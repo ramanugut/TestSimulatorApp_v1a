@@ -1,0 +1,148 @@
+{
+  "testName": "ICT3641 · 2024 Assessment 1 · verified practice (partial)",
+  "module": "ICT3641",
+  "assessment": "Assessment 1 2024",
+  "totalMarks": 11,
+  "preserveOrder": true,
+  "marking": "automatic-multiple-choice",
+  "sourceType": "Paraphrased from a marked 2024 Assessment 1 review. Only clearly visible items with explicit marked answers are included.",
+  "sourceReference": "https://www.studocu.com/en-za/document/university-of-south-africa/business-informatics-iiia/ict3641-assessment-1-2024/98476406",
+  "sourceLimitations": "The public preview does not expose all 20 questions cleanly. Missing items are withheld.",
+  "questions": [
+    {
+      "number": "1",
+      "marks": 1,
+      "text": "Which networking technique creates a protected logical passage across a public network for private traffic?",
+      "options": [
+        "IP tunneling",
+        "subnetting",
+        "circuit switching",
+        "plain broadcasting"
+      ],
+      "correctAnswer": "IP tunneling",
+      "explanation": "Tunneling encapsulates traffic so it can cross another network; secure tunnel technologies can protect private traffic over public infrastructure.\n\nStudent note: A tunnel is a logical path through another network."
+    },
+    {
+      "number": "2",
+      "marks": 1,
+      "text": "A hierarchical website always forces a reader to move page-by-page in a single serial Next-button sequence, just like a linear paper document.",
+      "options": [
+        "False",
+        "True"
+      ],
+      "correctAnswer": "False",
+      "explanation": "A hierarchy branches into levels and choices. A purely serial Next/Previous flow is linear rather than hierarchical.\n\nStudent note: Hierarchy = branches; linear = one sequence."
+    },
+    {
+      "number": "3",
+      "marks": 1,
+      "text": "Internet data is commonly divided into small units for transmission. What are those units called?",
+      "options": [
+        "packets",
+        "circuits",
+        "switches",
+        "documents"
+      ],
+      "correctAnswer": "packets",
+      "explanation": "Packet-switched networks divide data into packets that can be routed through the network.\n\nStudent note: Packet switching is different from reserving one dedicated circuit."
+    },
+    {
+      "number": "4",
+      "marks": 1,
+      "text": "A value-added network is simply a dedicated leased telephone line directly connecting an organisation to every trading partner.",
+      "options": [
+        "False",
+        "True"
+      ],
+      "correctAnswer": "False",
+      "explanation": "A value-added network is a third-party network/service that can provide managed electronic exchange services; it is not merely a set of direct leased lines to each partner.\n\nStudent note: VAN describes a managed service/network, not one physical line definition."
+    },
+    {
+      "number": "5",
+      "marks": 1,
+      "text": "Which factor makes e-commerce project cost and revenue forecasts harder because the technical base changes quickly?",
+      "options": [
+        "rapid changes in underlying technologies",
+        "the need for a logo",
+        "fixed paper sizes",
+        "warehouse paint colour"
+      ],
+      "correctAnswer": "rapid changes in underlying technologies",
+      "explanation": "Fast-moving platforms, devices, standards and tools can change project assumptions and costs before a project is complete.\n\nStudent note: Technology uncertainty is a planning risk."
+    },
+    {
+      "number": "6",
+      "marks": 1,
+      "text": "Which server's main job is to respond to browser requests for web pages?",
+      "options": [
+        "Web server",
+        "DNS server",
+        "email server",
+        "database server"
+      ],
+      "correctAnswer": "Web server",
+      "explanation": "The web server handles HTTP/HTTPS requests and returns web resources or generated responses.\n\nStudent note: DNS finds names; the web server serves web content."
+    },
+    {
+      "number": "7",
+      "marks": 1,
+      "text": "Are transferring funds, placing orders, sending invoices and shipping goods all examples of business activities/transactions?",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "True",
+      "explanation": "These are operational business transactions that move money, information or goods through a business process.\n\nStudent note: A business transaction is broader than only a payment."
+    },
+    {
+      "number": "8",
+      "marks": 1,
+      "text": "For products that depend heavily on face-to-face persuasion and personal selling skill, which channel may sometimes fit better?",
+      "options": [
+        "Traditional commerce",
+        "E-commerce is always better",
+        "Only social media",
+        "Only mobile commerce"
+      ],
+      "correctAnswer": "Traditional commerce",
+      "explanation": "Some products benefit strongly from direct personal interaction, demonstration or negotiation, so traditional selling can sometimes be more effective.\n\nStudent note: E-commerce is not automatically best for every product or process."
+    },
+    {
+      "number": "9",
+      "marks": 1,
+      "text": "Which is an infrastructure-related challenge in international e-commerce?",
+      "options": [
+        "communication costs",
+        "language differences only",
+        "brand colour",
+        "employee birthdays"
+      ],
+      "correctAnswer": "communication costs",
+      "explanation": "Cross-border infrastructure can involve telecommunications/connectivity costs and varying network quality.\n\nStudent note: Separate infrastructure issues from cultural/language issues."
+    },
+    {
+      "number": "10",
+      "marks": 1,
+      "text": "Can some business processes already work so well through traditional commerce that adding technology does not improve them?",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "True",
+      "explanation": "Technology should solve a real problem or create value. Digitising a process is not automatically an improvement.\n\nStudent note: Ask what value technology adds, not whether it can be added."
+    },
+    {
+      "number": "11",
+      "marks": 1,
+      "text": "What does a browser interpret in HTML to determine the structure/formatting of enclosed content?",
+      "options": [
+        "tags",
+        "database rows",
+        "router tables",
+        "email headers"
+      ],
+      "correctAnswer": "tags",
+      "explanation": "HTML tags/elements describe the structure and meaning of web content that the browser renders.\n\nStudent note: HTML is markup; its tags tell the browser how content is structured."
+    }
+  ]
+}
