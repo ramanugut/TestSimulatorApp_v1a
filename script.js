@@ -3856,7 +3856,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const diagramImage =
       studentAnswer && typeof studentAnswer === "object" &&
       typeof studentAnswer.image === "string" &&
-      (question.answerType === "diagram" || question.answerType === "uml-diagram")
+      (question.answerType === "diagram" || question.answerType === "uml-diagram" ||
+       question.answerType === "image-upload")
         ? studentAnswer.image
         : "";
     const answerText =
@@ -3875,7 +3876,7 @@ document.addEventListener("DOMContentLoaded", function () {
         question: question.text || "",
         studentAnswer: answerText || (diagramImage ? "Answer supplied as a drawn diagram." : ""),
         diagramImage,
-        diagramRequired: question.diagramRequired === true,
+        diagramRequired: question.diagramRequired === true || question.imageRequired === true,
         // A paper may prescribe its own rule for a missing diagram. Older
         // questions retain the existing default when no override is set.
         diagramNoDrawingCapPercent:
@@ -5934,7 +5935,7 @@ const testFiles = [
         note.textContent = "AI will inspect the submitted drawing and your optional calculations.";
         questionElement.appendChild(note);
       } else if (window.AnswerWorkspace &&
-          ["uml-diagram", "table", "command", "code"].includes(question.answerType)) {
+          ["uml-diagram", "table", "command", "code", "image-upload"].includes(question.answerType)) {
         const onChange = value => {
           setInteractiveAnswer(actualIndex, value);
           if (!usesStudyGuessBuffer()) {
@@ -5953,7 +5954,8 @@ const testFiles = [
         };
         const method = question.answerType === "uml-diagram"
           ? "createDiagram" : question.answerType === "table"
-            ? "createTable" : "createEditor";
+            ? "createTable" : question.answerType === "image-upload"
+              ? "createImageEvidence" : "createEditor";
         questionElement.appendChild(window.AnswerWorkspace[method](
           question, getInteractiveAnswer(actualIndex), onChange, testSubmitted
         ));
