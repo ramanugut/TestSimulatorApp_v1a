@@ -4496,18 +4496,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
   //************************ SECTION 3: THEME HANDLING ************************//
 
-  // Three dark intensities plus Light. Preserve existing settings and migrate
-  // the old single "dark" value to Deep so returning users get less glare.
-  const appearanceModes = ["light", "slate", "deep", "black"];
+  // Core neutral themes plus two richer visual themes. Color Pop keeps a
+  // light reading surface; Gradient Vibes uses a dark premium palette.
+  const appearanceModes = ["light", "slate", "deep", "black", "colorpop", "gradient"];
+  const lightAppearanceModes = new Set(["light", "colorpop"]);
 
   function applyAppearanceMode(value) {
     const chosen = appearanceModes.includes(value) ? value : "light";
+    const isLightAppearance = lightAppearanceModes.has(chosen);
     document.body.classList.remove(
-      "light-mode", "dark-mode", "theme-slate", "theme-deep", "theme-black"
+      "light-mode", "dark-mode", "theme-slate", "theme-deep", "theme-black",
+      "theme-colorpop", "theme-gradient"
     );
-    document.body.classList.add(chosen === "light" ? "light-mode" : "dark-mode");
+    document.body.classList.add(isLightAppearance ? "light-mode" : "dark-mode");
     if (chosen !== "light") document.body.classList.add("theme-" + chosen);
-    document.documentElement.style.colorScheme = chosen === "light" ? "light" : "dark";
+    document.documentElement.style.colorScheme = isLightAppearance ? "light" : "dark";
     themeButtons.forEach(function (button) {
       const active = button.dataset.theme === chosen;
       button.setAttribute("aria-pressed", String(active));
