@@ -51,6 +51,36 @@ document.addEventListener("DOMContentLoaded", () => {
       hint: "MIS · data · CRM · enterprise systems",
       keywords: "business informatics management information systems mis data mining olap crm enterprise systems linux unix software platforms saas cloud"
     },
+    ICT3612: {
+      title: "Advanced Internet Programming",
+      hint: "PHP · OOP · SQL · web programming",
+      keywords: "advanced internet programming php functions oop object oriented classes inheritance exceptions regex sql database web"
+    },
+    ICT3621: {
+      title: "Database Design",
+      hint: "Normalisation · dependencies · ERD",
+      keywords: "database design normalization normalisation functional dependency dependencies 1nf 2nf 3nf erd entity relationship business rules"
+    },
+    ICT3631: {
+      title: "Advanced Operating System Practice",
+      hint: "Linux · networking · Samba · firewall",
+      keywords: "advanced operating system linux networking ssh rsyslog samba iptables firewall acl commands administration"
+    },
+    ICT3641: {
+      title: "Business Informatics IIIA",
+      hint: "E-commerce · digital business · marketing",
+      keywords: "business informatics ecommerce e-commerce digital business marketing portals mobile wallets attribution location b2b"
+    },
+    ICT3642: {
+      title: "Business Informatics IIIB",
+      hint: "E-business · entrepreneurship · ventures",
+      keywords: "business informatics e-business entrepreneurship entrepreneur opportunity bootstrapping portfolio venture"
+    },
+    ICT3722: {
+      title: "Database Practice",
+      hint: "Oracle SQL · users · privileges",
+      keywords: "database practice oracle sql user users privileges grant revoke create alter select joins security"
+    },
     "MY UPLOADS": {
       title: "My uploaded papers",
       hint: "Papers you added yourself",
