@@ -1,0 +1,215 @@
+{
+  "testName": "ICT3631 · 2026 Assignment 1 · verified written/practical (40 marks)",
+  "module": "ICT3631",
+  "assessment": "Assignment 1 April/May 2026",
+  "totalMarks": 40,
+  "preserveOrder": true,
+  "marking": "ai-assisted-practical",
+  "sourceType": "Verified 2026 assignment structure. Question wording is paraphrased; answers are cross-checked against Fedora/Linux, Samba and iptables documentation.",
+  "sourceReference": "https://www.studocu.com/en-za/document/university-of-south-africa/information-technology/ict3631-assignment-1-advanced-operating-systems-aprilmay-2026/161912772",
+  "sourceLimitations": "The indexed copy contains injected/corrupted text mixed into several question lines. Only the clearly recoverable question intent and marks are retained. Technical answers are verified independently rather than copied from that corrupted text.",
+  "questions": [
+    {
+      "number": "1.1",
+      "marks": 2,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "text": "Why is SSH preferred when remotely administering a server?",
+      "correctAnswer": "SSH encrypts the remote session, including authentication and commands, and provides server authentication and integrity protection. It is preferred over plaintext remote-login protocols because credentials and administrative traffic are not sent openly across the network.",
+      "aiRubric": [
+        "Explains encryption/confidentiality.",
+        "Mentions authentication and/or integrity.",
+        "Connects SSH to secure remote administration."
+      ],
+      "explanation": "SSH is designed for secure remote administration. It protects the traffic between the administrator and the server instead of sending the session as readable network data.\n\nStudent note: Remember the contrast: SSH is encrypted; classic Telnet is plaintext."
+    },
+    {
+      "number": "1.2",
+      "marks": 1,
+      "text": "Can Telnet provide a remote interactive terminal similar to SSH?",
+      "options": [
+        "Yes, but classic Telnet does not provide SSH-style encrypted protection",
+        "No, Telnet cannot provide a remote terminal"
+      ],
+      "correctAnswer": "Yes, but classic Telnet does not provide SSH-style encrypted protection",
+      "explanation": "Telnet can provide remote terminal access, but its normal traffic is not encrypted. That is why it should not replace SSH for secure administration.\n\nStudent note: The functionality is similar; the security is not."
+    },
+    {
+      "number": "1.3",
+      "marks": 3,
+      "grading": "ai",
+      "answerType": "command",
+      "text": "On a Fedora system using systemd, write the command that checks the current status of the OpenSSH server daemon.",
+      "correctAnswer": "systemctl status sshd",
+      "aiRubric": [
+        "Uses systemctl.",
+        "Uses status.",
+        "Targets sshd."
+      ],
+      "explanation": "Fedora manages the OpenSSH server as the `sshd` systemd service. `systemctl status sshd` shows whether it is active and provides recent service information.\n\nStudent note: `ssh` is the client command; `sshd` is the server daemon."
+    },
+    {
+      "number": "1.4",
+      "marks": 6,
+      "grading": "ai",
+      "answerType": "image-upload",
+      "imageRequired": true,
+      "imageUploadLabel": "Upload Fedora screenshot",
+      "imageInstructions": "Upload a screenshot from your own Fedora/Linux practice environment showing the SSH service-status command and its system feedback. You may add a short note explaining what the output shows.",
+      "text": "Provide screenshot evidence from your Fedora/Linux practice environment showing the SSH service-status command and the resulting system feedback.",
+      "correctAnswer": "The evidence should visibly show a terminal running a suitable service-status command such as `systemctl status sshd` and the resulting status output. The screenshot should be legible enough to identify the command and whether the service is active/inactive.",
+      "aiRubric": [
+        "A screenshot/image is actually supplied.",
+        "The terminal command is visible.",
+        "The command checks sshd/OpenSSH server status.",
+        "System feedback/status is visible and readable.",
+        "The evidence is relevant to the requested Fedora/Linux task."
+      ],
+      "explanation": "This is an evidence question, not a theory question. The paper expects proof that the command was used in a Linux environment.\n\nStudent note: Make the command and the status line readable in the screenshot; do not crop away the important output."
+    },
+    {
+      "number": "1.5",
+      "marks": 3,
+      "grading": "ai",
+      "answerType": "command",
+      "text": "Write the systemd command that configures the SSH server to start automatically when Fedora boots.",
+      "correctAnswer": "systemctl enable sshd",
+      "aiRubric": [
+        "Uses systemctl.",
+        "Uses enable.",
+        "Targets sshd.",
+        "`systemctl enable --now sshd` is also acceptable because it both enables and starts the service."
+      ],
+      "explanation": "`systemctl enable sshd` configures the service to start at boot. `--now` may be added when you also want it started immediately.\n\nStudent note: `start` affects the current session; `enable` controls future boots."
+    },
+    {
+      "number": "2.1",
+      "marks": 2,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "text": "Why would an organisation configure Samba on a Linux server?",
+      "correctAnswer": "Samba lets Linux/Unix systems provide SMB-compatible file and printer sharing and integrate with Windows-style network environments. It can also participate in authentication/domain scenarios depending on the configuration.",
+      "aiRubric": [
+        "Mentions SMB interoperability with Windows clients.",
+        "Mentions file and/or printer sharing.",
+        "May mention authentication/domain integration."
+      ],
+      "explanation": "Samba is the bridge that lets Linux provide services commonly used by Windows SMB clients.\n\nStudent note: The key idea is interoperability: Linux server, SMB/Windows clients."
+    },
+    {
+      "number": "2.2",
+      "marks": 8,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "text": "Discuss the main Samba daemons/services and what each one does.",
+      "correctAnswer": "`smbd` provides SMB file and print services, handles resource locking and authenticates connecting users. `nmbd` provides legacy NetBIOS name/browsing services where those are still required. `winbindd` integrates Windows/AD or NT-domain user and group identities with the local Unix/Linux system. Modern Samba installations may use only the services required by the chosen deployment mode.",
+      "aiRubric": [
+        "Explains smbd correctly.",
+        "Explains nmbd correctly.",
+        "Explains winbindd correctly.",
+        "Distinguishes file/print service, name/browse service and domain identity integration.",
+        "Notes that required services depend on deployment."
+      ],
+      "explanation": "Samba is not one single background process. Different daemons handle SMB sharing, legacy network naming and domain identity integration.\n\nStudent note: Learn the job beside each name: smbd = SMB data/service, nmbd = NetBIOS naming/browsing, winbindd = domain users/groups."
+    },
+    {
+      "number": "3.1",
+      "marks": 2,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "text": "What is the primary purpose of iptables?",
+      "correctAnswer": "iptables is a user-space administration tool for configuring, maintaining and inspecting Linux kernel packet-filtering/NAT rule tables. Rules match network packets and apply targets such as ACCEPT, DROP or other processing.",
+      "aiRubric": [
+        "Explains packet filtering/firewall rules.",
+        "Mentions Linux kernel/netfilter rule tables or equivalent.",
+        "Explains that rules decide how matching packets are handled."
+      ],
+      "explanation": "iptables manages rule tables that control how matching network packets are treated.\n\nStudent note: Think rule = match conditions + action/target."
+    },
+    {
+      "number": "3.2",
+      "marks": 3,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "text": "Explain the purpose of the iptables `filter`, `mangle` and `raw` tables.",
+      "correctAnswer": "`filter` is the default table for ordinary packet filtering such as accepting or dropping traffic. `mangle` is for specialised packet alteration/marking. `raw` is processed early and is used mainly for special handling such as configuring connection-tracking exemptions with NOTRACK.",
+      "aiRubric": [
+        "Correctly explains filter.",
+        "Correctly explains mangle.",
+        "Correctly explains raw."
+      ],
+      "explanation": "iptables has separate tables because different rule types happen at different points and for different purposes.\n\nStudent note: filter = permit/block; mangle = alter/mark; raw = early special handling/connection tracking."
+    },
+    {
+      "number": "4A",
+      "marks": 2,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "text": "A web-server log reports that file permissions prevent access. Explain the likely problem.",
+      "correctAnswer": "The web-server process cannot read or traverse the requested file/directory because Unix file permissions, ownership, ACLs or a parent-directory execute permission do not allow the server account access.",
+      "aiRubric": [
+        "Connects the error to filesystem permissions/ownership/ACLs.",
+        "Mentions server process/account access.",
+        "May mention directory traverse permission."
+      ],
+      "explanation": "Even a correct URL fails when the web-server process cannot read the file or traverse its directory path.\n\nStudent note: Check the permissions from the document root all the way to the requested file."
+    },
+    {
+      "number": "4B",
+      "marks": 2,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "text": "A web-server log says the client was denied by server configuration. Explain the likely cause.",
+      "correctAnswer": "An Apache/httpd access-control rule is denying the request, for example a `Require` rule, directory rule, host/IP restriction or another server configuration directive that rejects that client or location.",
+      "aiRubric": [
+        "Identifies server access-control configuration.",
+        "Gives a suitable example such as Require/IP/directory rule.",
+        "Does not confuse it with simple missing-file error."
+      ],
+      "explanation": "This message points to web-server access rules rather than ordinary file absence.\n\nStudent note: Separate configuration denial from filesystem denial; they are different layers."
+    },
+    {
+      "number": "4C",
+      "marks": 2,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "text": "A web server reports that a directory index is forbidden by rule. What does that normally mean?",
+      "correctAnswer": "The request targets a directory, no permitted index file is available, and directory listing/index generation is disabled by the server configuration (for example Options -Indexes).",
+      "aiRubric": [
+        "Explains directory request/no usable index file.",
+        "Explains that directory listing is disabled.",
+        "Connects it to server configuration."
+      ],
+      "explanation": "When no index page exists, Apache can either list the directory or forbid that listing. A configuration can deliberately disable directory indexes.\n\nStudent note: A missing index file is not always a 404; directory-listing policy also matters."
+    },
+    {
+      "number": "4D",
+      "marks": 2,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "text": "What does a 'premature end of script headers' type web-server error usually indicate?",
+      "correctAnswer": "A CGI/script process ended, crashed or produced invalid/incomplete HTTP headers before the web server received a valid response header block. Causes can include script errors, wrong interpreter/shebang, permissions or runtime failures.",
+      "aiRubric": [
+        "Explains that the server did not receive valid complete script headers.",
+        "Mentions script crash/error or invalid output.",
+        "Gives at least one plausible cause."
+      ],
+      "explanation": "The web server expected valid headers from the script, but the script stopped or produced invalid output first.\n\nStudent note: Debug the script itself as well as its interpreter and permissions."
+    },
+    {
+      "number": "4E",
+      "marks": 2,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "text": "How can SELinux cause a Fedora web server to log access errors even when normal Unix permissions appear correct?",
+      "correctAnswer": "SELinux applies mandatory access-control policy in addition to normal Unix permissions. A file can have readable mode bits but still be blocked because its SELinux type/context or required policy/boolean does not permit the web-server domain to access it. Audit logs and tools such as `ausearch`, `sealert`, `ls -Z` and appropriate relabeling can help diagnose the denial.",
+      "aiRubric": [
+        "Explains SELinux as an additional mandatory-access-control layer.",
+        "Mentions context/type/policy denial.",
+        "Explains that normal permissions can look correct while SELinux still blocks access.",
+        "Mentions a valid diagnostic approach."
+      ],
+      "explanation": "Fedora may enforce SELinux on top of Unix file permissions. Both layers must permit the access.\n\nStudent note: If chmod looks correct but httpd is still denied, check SELinux context and audit logs."
+    }
+  ]
+}
