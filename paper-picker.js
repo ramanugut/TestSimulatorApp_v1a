@@ -189,7 +189,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function paperKind(name, file) {
     const value = name + " " + file;
     if (/practical[\s-]*skills[\s-]*lab|skills[\s-]*lab/i.test(value)) return "practice";
-    if (/assessment/i.test(value)) return "assessments";
+    if (/assessment|assignment/i.test(value)) return "assessments";
     if (/exam|supplementary|jan[\s/_-]*feb|oct[\s/_-]*nov/i.test(value)) return "exams";
     return "practice";
   }
@@ -197,8 +197,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const value = name + " " + file;
     const year = (value.match(/\b20\d{2}\b/) || [""])[0];
     if (kind === "assessments") {
-      const number = (value.match(/assessment[\s_-]*(\d+)/i) || [, ""])[1];
-      return "Assessment " + (number || "") + (year ? " · " + year : "");
+      const number = (value.match(/(?:assessment|assignment)[\s_-]*(\d+)/i) || [, ""])[1];
+      const label = /assignment/i.test(value) ? "Assignment" : "Assessment";
+      return label + " " + (number || "") + (year ? " · " + year : "");
     }
     const period = value.match(/(jan)[\s/_-]*(feb)|(oct)[\s/_-]*(nov)/i);
     if (period) {
