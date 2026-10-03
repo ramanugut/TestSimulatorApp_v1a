@@ -910,7 +910,70 @@ document.addEventListener("DOMContentLoaded", function () {
     return assistantTurn;
   }
 
+  function buildAiTutorReplyVoiceParts(message) {
+    const parts = [];
+    if (!message) return parts;
+    const body = message.querySelector(".ai-tutor-chat-message-body");
+    const note = message.querySelector(".ai-tutor-chat-note");
+    if (body) appendRichStudyVoiceParts(parts, body);
+    if (note) appendStudyVoiceText(parts, visibleStudyVoiceText(note), note);
+    return parts;
+  }
+
+  function createAiTutorReplyVoiceControls(message, replyNumber) {
+    const toolbar = document.createElement("div");
+    toolbar.className = "ai-tutor-reply-voice";
+    toolbar.setAttribute("role", "group");
+    toolbar.setAttribute("aria-label", "Listen to AI tutor reply " + replyNumber);
+
+    const toggleButton = document.createElement("button");
+    toggleButton.type = "button";
+    toggleButton.className = "ai-tutor-reply-play";
+    toggleButton.dataset.voiceAction = "toggle";
+    toggleButton.textContent = "▶";
+    toggleButton.title = "Listen";
+    toggleButton.setAttribute("aria-label", "Listen to AI tutor reply " + replyNumber);
+
+    const status = document.createElement("span");
+    status.className = "study-voice-status sr-only";
+    status.setAttribute("role", "status");
+    status.setAttribute("aria-live", "polite");
+
+    toolbar.append(toggleButton, status);
+
+    if (!studyVoiceAvailable) {
+      toggleButton.disabled = true;
+      toggleButton.title = "Voice reader unavailable in this browser";
+      toggleButton.setAttribute("aria-label", "Voice reader unavailable in this browser");
+      return toolbar;
+    }
+
+    toggleButton.addEventListener("click", function () {
+      const session = activeStudyVoice;
+      if (session && session.root === toolbar) {
+        if (session.paused) resumeStudyVoice(session);
+        else pauseStudyVoice(session);
+        return;
+      }
+
+      startStudyVoice(
+        message,
+        toolbar,
+        replyNumber,
+        buildAiTutorReplyVoiceParts(message),
+        0,
+        "AI tutor reply " + replyNumber,
+        true
+      );
+    });
+
+    return toolbar;
+  }
+
   function renderAiTutorChatHistory(transcript, question, actualIndex, sendPrompt) {
+    if (activeStudyVoice && transcript.contains(activeStudyVoice.root)) {
+      stopStudyVoice();
+    }
     transcript.replaceChildren();
     const history = getAiTutorChatHistory(question, actualIndex);
     if (!history.length) {
@@ -946,6 +1009,15 @@ document.addEventListener("DOMContentLoaded", function () {
         strong.textContent = "Student note: ";
         note.append(strong, document.createTextNode(turn.studentNote));
         message.appendChild(note);
+      }
+
+      if (turn.role === "assistant") {
+        const assistantReplyNumber =
+          history.slice(0, history.indexOf(turn) + 1)
+            .filter(item => item.role === "assistant").length;
+        message.appendChild(
+          createAiTutorReplyVoiceControls(message, assistantReplyNumber)
+        );
       }
 
       if (
@@ -3409,12 +3481,23 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function setStudyVoiceButtonState(session, state) {
-    session.toggleButton.textContent =
-      state === "playing" ? "Pause" : state === "paused" ? "Resume" : "▶ Listen";
+    const targetLabel = session.voiceLabel ||
+      ("study notes for question " + session.questionNumber);
+
+    if (session.compactIcon) {
+      session.toggleButton.textContent =
+        state === "playing" ? "⏸" : state === "paused" ? "▶" : "▶";
+      session.toggleButton.title =
+        state === "playing" ? "Pause" : state === "paused" ? "Resume" : "Listen";
+    } else {
+      session.toggleButton.textContent =
+        state === "playing" ? "Pause" : state === "paused" ? "Resume" : "▶ Listen";
+    }
+
     session.toggleButton.setAttribute("aria-label",
-      (state === "playing" ? "Pause" : state === "paused" ? "Resume" : "Listen to") +
-      " study notes for question " + session.questionNumber);
-    session.stopButton.disabled = state === "idle";
+      (state === "playing" ? "Pause " : state === "paused" ? "Resume " : "Listen to ") +
+      targetLabel);
+    if (session.stopButton) session.stopButton.disabled = state === "idle";
   }
 
   function studyVoiceStatus(session, message, isError) {
@@ -3621,7 +3704,7 @@ document.addEventListener("DOMContentLoaded", function () {
     speakNextStudyVoicePart(session);
   }
 
-  function startStudyVoice(questionElement, toolbar, questionNumber, parts, startIndex) {
+  function startStudyVoice(questionElement, toolbar, questionNumber, parts, startIndex, voiceLabel, compactIcon) {
     stopStudyVoice();
     if (!parts.length) {
       const message = toolbar.querySelector(".study-voice-status");
@@ -3632,8 +3715,10 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     const session = {
       root: toolbar, questionElement: questionElement, questionNumber: questionNumber,
+      voiceLabel: voiceLabel || "",
+      compactIcon: compactIcon === true,
       seekTargets: [],
-      rate: Number(toolbar.querySelector(".study-voice-speed").value),
+      rate: Number(toolbar.querySelector(".study-voice-speed")?.value || 1),
       voice: preferredStudyVoice(), parts: parts,
       nextIndex: Math.max(0, Math.min(startIndex, parts.length - 1)),
       currentIndex: null, activeTarget: null, paused: false, token: 0,

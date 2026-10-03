@@ -6156,3 +6156,48 @@ body.dark-mode .study-hint-formula {
 @media (prefers-reduced-motion: reduce) {
   .study-hint-chevron { transition: none; }
 }
+
+
+/* 2026-10-03: one-button device voice reader on AI tutor replies */
+.ai-tutor-reply-voice {
+  display: flex;
+  align-items: center;
+  min-height: 28px;
+  margin-top: .35rem;
+}
+.ai-tutor-reply-play {
+  display: inline-grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted-text);
+  font: inherit;
+  font-size: .78rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.ai-tutor-reply-play:hover,
+.ai-tutor-reply-play:focus-visible {
+  background: var(--subtle-surface);
+  color: var(--text-color);
+}
+.ai-tutor-reply-play:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 1px;
+}
+.ai-tutor-reply-play:disabled {
+  cursor: not-allowed;
+  opacity: .45;
+}
+.ai-tutor-chat-message.is-assistant.study-voice-active {
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent-secondary) 18%, transparent);
+}
+.ai-tutor-chat-message.is-assistant .study-voice-reading {
+  outline: 2px solid var(--accent-secondary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
