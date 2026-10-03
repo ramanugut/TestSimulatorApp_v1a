@@ -1,0 +1,151 @@
+{
+  "testName": "ICT3641 · 2024 Assessment 3 · verified partial",
+  "module": "ICT3641",
+  "assessment": "Assessment 3 2024",
+  "totalMarks": 11,
+  "originalTotalMarks": 25,
+  "preserveOrder": true,
+  "marking": "automatic-multiple-choice",
+  "sourceType": "Verified partial practice based on a marked May 2024 Assessment 3 review. Suspicious or unclear uploaded answers are excluded.",
+  "sourceReference": "https://www.studocu.com/en-za/document/university-of-south-africa/business-informatics-iiia/ict3641-assessment-3-2024/98476427",
+  "sourceLimitations": "The public review reveals only part of the 25-question quiz. One visibly suspicious marked item ('float' as a PIN-protected payment concept) is deliberately excluded rather than treated as correct.",
+  "questions": [
+    {
+      "number": "2",
+      "marks": 1,
+      "text": "Which organisation has historically published surveys that count websites and report web-server software usage?",
+      "options": [
+        "Netcraft",
+        "CNN",
+        "BBC",
+        "Microsoft News"
+      ],
+      "correctAnswer": "Netcraft",
+      "explanation": "Netcraft is known for its long-running web server and internet infrastructure surveys.\n\nStudent note: This is a named-industry-source question, so remember what Netcraft measures rather than only memorising the word."
+    },
+    {
+      "number": "3",
+      "marks": 1,
+      "text": "Project management is best described as:",
+      "options": [
+        "Formal techniques for planning and controlling work undertaken to achieve a specific goal",
+        "Only monitoring a financial investment portfolio",
+        "Only helping employees accept a new system",
+        "Only conducting a review after a project ends"
+      ],
+      "correctAnswer": "Formal techniques for planning and controlling work undertaken to achieve a specific goal",
+      "explanation": "Project management coordinates planning, execution, monitoring and control so a defined objective can be achieved within constraints.\n\nStudent note: A post-project review and change management are useful activities, but neither alone defines project management."
+    },
+    {
+      "number": "4",
+      "marks": 1,
+      "text": "In the US banking context, a network widely used for electronic transfers such as direct account debits is the:",
+      "options": [
+        "Automated Clearing House (ACH)",
+        "issuing-bank list",
+        "browser cache",
+        "DNS"
+      ],
+      "correctAnswer": "Automated Clearing House (ACH)",
+      "explanation": "ACH is a US electronic funds-transfer network used for transactions such as direct deposits and account debits.\n\nStudent note: Do not generalise ACH as the name of every country's payment network; it is a specific US system."
+    },
+    {
+      "number": "5",
+      "marks": 1,
+      "text": "Testing used to compare the performance of hardware or software against a standard or alternative is:",
+      "options": [
+        "benchmarking",
+        "filtering",
+        "response styling",
+        "content tagging"
+      ],
+      "correctAnswer": "benchmarking",
+      "explanation": "Benchmarking measures performance using comparable workloads or tests so systems can be evaluated against each other or against a baseline.\n\nStudent note: A benchmark needs comparable conditions to be meaningful."
+    },
+    {
+      "number": "6",
+      "marks": 1,
+      "text": "A firewall or gateway that makes filtering decisions using application-level information is commonly called an:",
+      "options": [
+        "application gateway / proxy firewall",
+        "simple hub",
+        "unmanaged switch",
+        "plain repeater"
+      ],
+      "correctAnswer": "application gateway / proxy firewall",
+      "explanation": "Application gateways/proxy firewalls operate with awareness of application protocols rather than relying only on basic packet-header fields.\n\nStudent note: Packet filtering looks mainly at network/transport fields; an application gateway understands higher-level protocol behaviour."
+    },
+    {
+      "number": "7",
+      "marks": 1,
+      "text": "In an HTTP response, can the message body contain the HTML page requested by the client?",
+      "options": [
+        "Yes",
+        "No"
+      ],
+      "correctAnswer": "Yes",
+      "explanation": "For a normal successful HTML response, the response body carries the representation/content returned to the client.\n\nStudent note: Headers describe the response; the body carries the content when a body is present."
+    },
+    {
+      "number": "8",
+      "marks": 1,
+      "text": "An unchanging web page retrieved from a stored file on the server is a:",
+      "options": [
+        "static page",
+        "dynamic page",
+        "personalised query",
+        "database trigger"
+      ],
+      "correctAnswer": "static page",
+      "explanation": "A static page is served largely as stored, instead of being generated for each request from application logic or database data.\n\nStudent note: Static does not mean the browser cannot style or display it interactively; it describes how the server content is produced."
+    },
+    {
+      "number": "9",
+      "marks": 1,
+      "text": "If a user wants to prevent tracking specifically through browser cookies, disabling cookies prevents sites from storing and reading those cookies.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "True",
+      "explanation": "Disabling cookies blocks cookie-based storage/tracking, although websites may still use other tracking techniques.\n\nStudent note: This answer is only about cookies; disabling cookies does not make a browser untrackable by every method."
+    },
+    {
+      "number": "10",
+      "marks": 1,
+      "text": "Which TCP/IP application protocol is specifically designed for transferring files?",
+      "options": [
+        "FTP",
+        "SMTP",
+        "DNS",
+        "ARP"
+      ],
+      "correctAnswer": "FTP",
+      "explanation": "FTP stands for File Transfer Protocol and is designed for transferring files between systems. Modern secure alternatives are often preferred in real deployments.\n\nStudent note: Learn the purpose as well as the abbreviation."
+    },
+    {
+      "number": "11",
+      "marks": 1,
+      "text": "Privacy/security, portability, independence and convenience are recognised concerns when evaluating digital-cash systems.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "True",
+      "explanation": "Digital-cash designs involve trade-offs around security, privacy, ease of use, acceptance/portability and dependence on intermediaries or platforms.\n\nStudent note: Payment technology is evaluated on both technical security and practical usability."
+    },
+    {
+      "number": "12",
+      "marks": 1,
+      "text": "What is the fixed-size result produced by a cryptographic hash function commonly called?",
+      "options": [
+        "message digest",
+        "digital certificate",
+        "private key",
+        "plain text"
+      ],
+      "correctAnswer": "message digest",
+      "explanation": "A cryptographic hash function maps input data to a fixed-size hash value, often called a message digest.\n\nStudent note: A digest is not encryption: you do not decrypt a hash to recover the original message."
+    }
+  ]
+}
