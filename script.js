@@ -103,6 +103,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Guess First must never reuse a saved Test-mode answer. Keep Study-mode
   // attempts in their own temporary buffer so the student starts with a blank choice.
   let studyGuessAnswers = {};
+  let studyGuessSubmitted = false;
   const studyVoiceAvailable = "speechSynthesis" in window &&
     typeof window.SpeechSynthesisUtterance === "function";
   let activeStudyVoice = null;
@@ -813,15 +814,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ).join("\n\n");
 
     const contextNotes = [
-      source.explanation ? "Saved explanation: " + source.explanation : "",
-      source.steps?.length ? "Saved steps:\n- " + source.steps.join("\n- ") : "",
-      source.example ? "Saved example: " + source.example : "",
-      source.pitfall ? "Saved common mistake: " + source.pitfall : "",
-      source.remember ? "Saved memory note: " + source.remember : "",
-      Array.isArray(source.keyTerms) && source.keyTerms.length
-        ? "Saved key terms:\n- " + source.keyTerms
-            .map(entry => entry.term + ": " + entry.meaning).join("\n- ")
-        : "",
+      source.referenceNotes || "",
       recentConversation ? "Recent tutor conversation:\n" + recentConversation : "",
     ].filter(Boolean).join("\n\n");
 
@@ -842,7 +835,7 @@ document.addEventListener("DOMContentLoaded", function () {
       // Required by the live grading endpoint. This is a fixed tutor instruction,
       // never the learner's selected/written test answer.
       studentAnswer: "Tutor chat request. Please answer the learner's question above.",
-      modelAnswer: source.correctAnswer || source.explanation ||
+      modelAnswer: source._correctAnswer || source.referenceNotes ||
         "Use the supplied topic context to teach the learner.",
       referenceNotes: contextNotes,
       rubric: [
@@ -990,10 +983,10 @@ document.addEventListener("DOMContentLoaded", function () {
     header.className = "ai-tutor-chat-heading";
     const copy = document.createElement("div");
     const title = document.createElement("h4");
-    title.textContent = "Ask AI about this topic";
+    title.textContent = "AI study chat";
     const hint = document.createElement("p");
     hint.textContent =
-      "Ask anything the buttons do not cover. The tutor keeps this question and its study notes as context.";
+      "Ask exactly what you want to know. Nothing is generated until you send a message; this question and its study notes are used only as context.";
     copy.append(title, hint);
     header.appendChild(copy);
 
@@ -1008,7 +1001,7 @@ document.addEventListener("DOMContentLoaded", function () {
     input.rows = 2;
     input.maxLength = 1800;
     input.placeholder =
-      "Ask a follow-up… e.g. List the main parts of this topic so I can understand and cram them.";
+      "Ask what you want to understand… e.g. Show me how to calculate this step by step.";
     input.setAttribute("aria-label", "Ask the AI tutor a follow-up question");
 
     const send = document.createElement("button");
@@ -1424,51 +1417,9 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!aiTutorEnabled() || (!isStudyMode && !testSubmitted)) return null;
 
     const wrapper = document.createElement("section");
-    wrapper.className = "ai-tutor-wrap";
-    wrapper.setAttribute("aria-label", "Optional AI tutor");
-
-    const lessonHost = document.createElement("div");
-    lessonHost.className = "ai-tutor-output";
-    const cached = aiTutorCache.get(aiTutorKey(question, actualIndex));
-    if (cached) {
-      renderAiTutorLesson(lessonHost, cached, question, actualIndex);
-      wrapper.appendChild(lessonHost);
-      return wrapper;
-    }
-
-    const actionRow = document.createElement("div");
-    actionRow.className = "ai-tutor-actions";
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = "btn btn-tertiary ai-tutor-button";
-    button.textContent = "✨ Teach me more";
-    const status = document.createElement("p");
-    status.className = "ai-tutor-status";
-    status.setAttribute("role", "status");
-    status.setAttribute("aria-live", "polite");
-
-    button.addEventListener("click", async () => {
-      if (!aiTutorEnabled()) return;
-      button.disabled = true;
-      button.textContent = "Teaching…";
-      status.textContent =
-        "Building a short lesson from this question and its study notes…";
-      try {
-        const lesson = await requestAiTutorLesson(question, actualIndex);
-        if (!aiTutorEnabled() || !document.body.contains(wrapper)) return;
-        renderAiTutorLesson(lessonHost, lesson, question, actualIndex);
-        actionRow.remove();
-        status.remove();
-      } catch (error) {
-        button.disabled = false;
-        button.textContent = "✨ Teach me more";
-        status.textContent =
-          error?.message || "The AI tutor could not load. Please try again.";
-      }
-    });
-
-    actionRow.appendChild(button);
-    wrapper.append(actionRow, status, lessonHost);
+    wrapper.className = "ai-tutor-wrap ai-tutor-chat-only";
+    wrapper.setAttribute("aria-label", "AI study chat");
+    wrapper.appendChild(createAiTutorChatPanel(question, actualIndex));
     return wrapper;
   }
 
@@ -2352,7 +2303,12 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function usesStudyGuessBuffer() {
-    return isStudyMode && studyGuessFirstEnabled && !testSubmitted;
+    return isStudyMode && studyGuessFirstEnabled;
+  }
+
+  function currentAnswersLocked() {
+    return testSubmitted ||
+      (isStudyMode && studyGuessFirstEnabled && studyGuessSubmitted);
   }
 
   function getInteractiveAnswer(actualIndex) {
@@ -2361,9 +2317,44 @@ document.addEventListener("DOMContentLoaded", function () {
       : userAnswers[actualIndex];
   }
 
+  function getFeedbackAnswer(actualIndex) {
+    return isStudyMode && studyGuessFirstEnabled
+      ? studyGuessAnswers[actualIndex]
+      : userAnswers[actualIndex];
+  }
+
+  function hasAnyStudyGuessAnswer() {
+    return Object.values(studyGuessAnswers).some((answer) =>
+      hasProvidedAnswer(answer)
+    );
+  }
+
+  function syncStudyGuessSubmitState() {
+    if (!submitButton) return;
+
+    if (isStudyMode) {
+      if (studyGuessFirstEnabled) {
+        submitButton.textContent = "Submit Study Attempt";
+        submitButton.style.display = studyGuessSubmitted ? "none" : "inline-block";
+        submitButton.disabled = studyGuessSubmitted || !hasAnyStudyGuessAnswer();
+      } else {
+        submitButton.textContent = "Submit Test";
+        submitButton.style.display = "none";
+        submitButton.disabled = true;
+      }
+      return;
+    }
+
+    submitButton.textContent = "Submit Test";
+    submitButton.style.display = testSubmitted ? "none" : "inline-block";
+    submitButton.disabled = testSubmitted || !testInProgress;
+  }
+
   function setInteractiveAnswer(actualIndex, value) {
     if (usesStudyGuessBuffer()) {
       studyGuessAnswers[actualIndex] = value;
+      updateProgress();
+      syncStudyGuessSubmitState();
     } else {
       userAnswers[actualIndex] = value;
     }
@@ -2371,30 +2362,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function resetStudyGuessSession() {
     studyGuessAnswers = {};
+    studyGuessSubmitted = false;
     studyGuessRevealedQuestions.clear();
+    syncStudyGuessSubmitState();
   }
 
   function studyAnswerVisible(actualIndex) {
     return testSubmitted ||
-      !studyGuessFirstEnabled ||
-      studyGuessRevealedQuestions.has(actualIndex);
+      studyGuessSubmitted ||
+      !studyGuessFirstEnabled;
   }
 
   function updateStudyGuessButtonState(actualIndex, root = questionsContainer) {
     if (!root) return;
-    const button = root.querySelector(
-      '[data-study-guess-index="' + actualIndex + '"]'
-    );
-    if (!button) return;
     const attempted = hasMeaningfulStudyAttempt(getInteractiveAnswer(actualIndex));
-    button.disabled = !attempted;
     const status = root.querySelector(
       '[data-study-guess-status="' + actualIndex + '"]'
     );
     if (status) {
       status.textContent = attempted
-        ? "Ready — check your answer to reveal the explanation."
-        : "Choose or enter an answer first.";
+        ? "Answer saved. Submit the Study Attempt when you are ready to be graded."
+        : "Choose or enter an answer. Correct answers stay hidden until you submit.";
     }
   }
 
@@ -2428,19 +2416,15 @@ document.addEventListener("DOMContentLoaded", function () {
     gate.className = "study-guess-gate";
     gate.setAttribute("aria-label", "Guess first");
 
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = "btn btn-primary study-guess-check";
-    button.dataset.studyGuessIndex = String(actualIndex);
-    button.textContent = "Check answer";
-    button.addEventListener("click", () => revealStudyAnswer(actualIndex));
+    const title = document.createElement("strong");
+    title.textContent = "Guess First is on";
 
     const status = document.createElement("p");
     status.className = "study-guess-status";
     status.dataset.studyGuessStatus = String(actualIndex);
     status.setAttribute("aria-live", "polite");
 
-    gate.append(button, status);
+    gate.append(title, status);
     requestAnimationFrame(() => updateStudyGuessButtonState(actualIndex, gate));
     return gate;
   }
@@ -2496,6 +2480,7 @@ document.addEventListener("DOMContentLoaded", function () {
     isStudyMode = checked;
     document.body.classList.toggle("study-mode-active", isStudyMode);
     renderQuestions();
+    syncStudyGuessSubmitState();
   }
 
   function isOptionsModalOpen() {
@@ -3926,7 +3911,7 @@ document.addEventListener("DOMContentLoaded", function () {
     return normalizeAiGrade(payload, question);
   }
 
-  async function gradeAiQuestions() {
+  async function gradeAiQuestions(answers = userAnswers) {
     const pending = [];
 
     questions.forEach((question, index) => {
@@ -3934,7 +3919,7 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
       }
 
-      const answer = userAnswers[index];
+      const answer = answers[index];
       if (!hasProvidedAnswer(answer)) {
         return;
       }
@@ -4274,6 +4259,7 @@ document.addEventListener("DOMContentLoaded", function () {
       stopStudyVoice();
       syncStudyGuessFirstControl();
       if (isStudyMode) renderQuestions();
+      syncStudyGuessSubmitState();
     });
   }
 
@@ -5502,6 +5488,7 @@ const testFiles = [
     } else {
       testInProgress = false;
     }
+    syncStudyGuessSubmitState();
   }
 
   //************************ SECTION 6: RENDERING QUESTIONS ************************//
@@ -5550,7 +5537,7 @@ const testFiles = [
       setInteractiveAnswer(actualIndex, answer);
       if (!usesStudyGuessBuffer()) {
         updateProgress();
-        if (!isStudyMode && !timerStarted && !testSubmitted) {
+        if (!isStudyMode && !timerStarted && !currentAnswersLocked()) {
           startTimer();
           if (startTestButton) startTestButton.disabled = true;
           if (submitButton) submitButton.disabled = false;
@@ -5578,7 +5565,7 @@ const testFiles = [
       existing.src = answer.image;
     }
     canvas.addEventListener("pointerdown", (event) => {
-      if (testSubmitted) return;
+      if (currentAnswersLocked()) return;
       event.preventDefault();
       const point = positions(event);
       drawing = true;
@@ -5590,7 +5577,7 @@ const testFiles = [
       ctx.stroke();
     });
     canvas.addEventListener("pointermove", (event) => {
-      if (!drawing || testSubmitted) return;
+      if (!drawing || currentAnswersLocked()) return;
       event.preventDefault();
       const point = positions(event);
       ctx.lineTo(point.x, point.y);
@@ -5604,7 +5591,7 @@ const testFiles = [
     canvas.addEventListener("pointerup", finishStroke);
     canvas.addEventListener("pointercancel", finishStroke);
     canvas.addEventListener("lostpointercapture", finishStroke);
-    if (testSubmitted) canvas.style.pointerEvents = "none";
+    if (currentAnswersLocked()) canvas.style.pointerEvents = "none";
 
     const controls = document.createElement("div");
     controls.className = "diagram-controls";
@@ -5612,7 +5599,7 @@ const testFiles = [
     clear.type = "button";
     clear.className = "btn btn-secondary";
     clear.textContent = "Clear drawing";
-    clear.disabled = testSubmitted;
+    clear.disabled = currentAnswersLocked();
     clear.addEventListener("click", () => {
       ctx.fillStyle = "#ffffff";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -5629,7 +5616,7 @@ const testFiles = [
     const upload = document.createElement("input");
     upload.type = "file";
     upload.accept = "image/png,image/jpeg,image/webp";
-    upload.disabled = testSubmitted;
+    upload.disabled = currentAnswersLocked();
     upload.setAttribute("aria-label", "Upload a network diagram image");
     upload.addEventListener("change", () => {
       const file = upload.files && upload.files[0];
@@ -5672,7 +5659,7 @@ const testFiles = [
     textarea.placeholder = "For example: node 1 to node 2 = A(7); earliest/latest times ...";
     textarea.rows = 5;
     textarea.value = answer.text || "";
-    textarea.disabled = testSubmitted;
+    textarea.disabled = currentAnswersLocked();
     textarea.addEventListener("input", () => {
       answer.text = textarea.value;
       saveChange();
@@ -5930,7 +5917,7 @@ const testFiles = [
             }
           }
 
-          if (testSubmitted) {
+          if (currentAnswersLocked()) {
             input.disabled = true;
           }
 
@@ -5966,7 +5953,7 @@ const testFiles = [
             ? "createTable" : question.answerType === "image-upload"
               ? "createImageEvidence" : "createEditor";
         questionElement.appendChild(window.AnswerWorkspace[method](
-          question, getInteractiveAnswer(actualIndex), onChange, testSubmitted
+          question, getInteractiveAnswer(actualIndex), onChange, currentAnswersLocked()
         ));
       } else {
         // Handle questions without options (e.g., short answer questions)
@@ -6002,7 +5989,7 @@ const testFiles = [
           textareaElement.value = storedTextAnswer;
         }
 
-        if (testSubmitted) {
+        if (currentAnswersLocked()) {
           textareaElement.disabled = true;
         }
 
@@ -6020,9 +6007,9 @@ const testFiles = [
       const canRevealStudyContent =
         isStudyMode && studyAnswerVisible(actualIndex);
 
-      // Submitted tests always show feedback. Guess First keeps all teaching content hidden
-      // until the student has made an attempt and explicitly checks the answer.
-      if (testSubmitted) {
+      // Submitted tests and submitted Study Guess attempts show grading feedback.
+      // Guess First keeps teaching content hidden until the whole Study attempt is submitted.
+      if (testSubmitted || (isStudyMode && studyGuessFirstEnabled && studyGuessSubmitted)) {
         applyFeedback(questionElement, question, actualIndex);
       } else if (canRevealStudyContent) {
         questionElement.appendChild(createReadablePanel(
@@ -6042,13 +6029,13 @@ const testFiles = [
             questionElement.appendChild(guide);
             voiceHost = guide;
           }
-        } else if (!testSubmitted && question.explanation) {
+        } else if (!currentAnswersLocked() && question.explanation) {
           const explanation = createReadablePanel(
             "Why this answer?", question.explanation, "study-explanation"
           );
           questionElement.appendChild(explanation);
           voiceHost = explanation;
-        } else if (testSubmitted && question.explanation) {
+        } else if (currentAnswersLocked() && question.explanation) {
           voiceHost = questionElement.querySelector(".explanation");
         }
         if (!voiceHost) {
@@ -6768,8 +6755,112 @@ const testFiles = [
 
   //************************ SECTION 9: TEST SUBMISSION ************************//
 
+  async function submitStudyGuessAttempt() {
+    if (!isStudyMode || !studyGuessFirstEnabled || studyGuessSubmitted) {
+      return false;
+    }
+
+    const unansweredQuestions = [];
+    questions.forEach((question, index) => {
+      if (!hasProvidedAnswer(studyGuessAnswers[index])) {
+        unansweredQuestions.push(index + 1);
+      }
+    });
+
+    if (unansweredQuestions.length > 0) {
+      if (masteryModeEnabled()) {
+        const firstUnanswered = unansweredQuestions[0] - 1;
+        showAllQuestions = false;
+        currentPage = Math.floor(firstUnanswered / questionsPerPage) + 1;
+        savePaperPage();
+        renderQuestions();
+        updatePaginationControls();
+        alert(
+          "Mastery Mode is on. Attempt every question before submitting. " +
+          "Question " + unansweredQuestions[0] + " is the first unanswered question."
+        );
+        scrollToQuestionsTop();
+        return true;
+      }
+
+      const proceed = confirm(
+        "You have unanswered questions: " + unansweredQuestions.join(", ") +
+        ".\nDo you want to grade the answers you attempted?"
+      );
+      if (!proceed) return true;
+    }
+
+    aiGrades = {};
+    try {
+      await gradeAiQuestions(studyGuessAnswers);
+    } catch (aiError) {
+      if (submitButton) submitButton.disabled = false;
+      alert(
+        aiError && aiError.message
+          ? aiError.message
+          : "AI marking could not be completed. Please try again."
+      );
+      return true;
+    }
+
+    let score = 0;
+    questionResults = Array.from(
+      { length: questions.length },
+      () => "unanswered"
+    );
+
+    questions.forEach((question, index) => {
+      const answer = studyGuessAnswers[index];
+      const grade = getQuestionGrade(question, index, answer);
+      score += grade.scoreValue;
+      questionResults[index] = grade.isCorrect
+        ? "correct"
+        : grade.hasAnswer
+          ? "incorrect"
+          : "unanswered";
+    });
+
+    const totalMarks = questions.reduce(
+      (total, question) => total + getQuestionMarks(question),
+      0
+    );
+    const scorePercent =
+      totalMarks === 0 ? 0 : Math.round((score / totalMarks) * 100);
+    const scoreForDisplay = Number.isInteger(score)
+      ? score
+      : Number(score.toFixed(1));
+
+    studyGuessSubmitted = true;
+    studyGuessRevealedQuestions.clear();
+
+    if (scoreElement) scoreElement.textContent = scorePercent + "%";
+    if (scoreContainer) {
+      scoreContainer.style.display = "block";
+      scoreContainer.classList.remove("hidden");
+    }
+    if (resultMessageElement) {
+      resultMessageElement.textContent =
+        "Study score: " + scoreForDisplay + "/" + totalMarks + " marks.";
+      resultMessageElement.classList.remove("pass-message", "fail-message");
+    }
+
+    hideResultBanner();
+    syncStudyGuessSubmitState();
+    renderQuestions();
+    updatePaginationControls();
+    updateBookmarkPanel();
+    scrollToQuestionsTop();
+    return true;
+  }
+
   async function submitTest() {
     console.log("submitTest function called");
+
+    if (isStudyMode && studyGuessFirstEnabled) {
+      await submitStudyGuessAttempt();
+      return;
+    }
+
     try {
       let unansweredQuestions = [];
       const timeLeftAtSubmission =
@@ -6957,7 +7048,7 @@ const testFiles = [
   //************************ SECTION 10: APPLY FEEDBACK ************************//
 
   function applyFeedback(questionElement, question, index) {
-    const userAnswer = userAnswers[index];
+    const userAnswer = getFeedbackAnswer(index);
     const grade = getQuestionGrade(question, index, userAnswer);
     const hasAnswer = grade.hasAnswer;
     const isCorrect = grade.isCorrect;
@@ -7136,8 +7227,9 @@ const testFiles = [
 
   function updateProgress() {
     const totalQuestions = questions.length;
-    const answeredQuestions = Object.keys(userAnswers).filter((index) => {
-      const answer = userAnswers[index];
+    const answerSource = usesStudyGuessBuffer() ? studyGuessAnswers : userAnswers;
+    const answeredQuestions = Object.keys(answerSource).filter((index) => {
+      const answer = answerSource[index];
       return hasProvidedAnswer(answer);
     }).length;
     const progressPercent =
