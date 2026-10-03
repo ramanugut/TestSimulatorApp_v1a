@@ -910,7 +910,114 @@ document.addEventListener("DOMContentLoaded", function () {
     return assistantTurn;
   }
 
+  function buildAiTutorReplyVoiceParts(message) {
+    const parts = [];
+    if (!message) return parts;
+    const body = message.querySelector(".ai-tutor-chat-message-body");
+    const note = message.querySelector(".ai-tutor-chat-note");
+    if (body) appendRichStudyVoiceParts(parts, body);
+    if (note) appendStudyVoiceText(parts, visibleStudyVoiceText(note), note);
+    return parts;
+  }
+
+  function createAiTutorReplyVoiceControls(message, replyNumber) {
+    const toolbar = document.createElement("div");
+    toolbar.className = "study-voice-toolbar ai-tutor-reply-voice";
+    toolbar.setAttribute("role", "group");
+    toolbar.setAttribute("aria-label", "Voice reader for AI tutor reply " + replyNumber);
+    toolbar.innerHTML = [
+      '<button type="button" class="btn btn-secondary" data-voice-action="toggle">▶ Listen</button>',
+      '<button type="button" class="btn btn-tertiary" data-voice-action="restart" aria-label="Restart AI reply from the beginning">Restart</button>',
+      '<button type="button" class="btn btn-tertiary" data-voice-action="stop" disabled aria-label="Stop reading AI reply">Stop</button>',
+      '<select class="study-voice-speed" aria-label="Reading speed">',
+      '  <option value="0.75">0.75×</option>',
+      '  <option value="1" selected>1×</option>',
+      '  <option value="1.25">1.25×</option>',
+      '  <option value="1.5">1.5×</option>',
+      '</select>',
+      '<select class="study-voice-voice" aria-label="Choose narrator voice" title="Choose voice">',
+      '  <option value="auto">Voice: Auto</option>',
+      '</select>',
+      '<span class="study-voice-status sr-only" role="status" aria-live="polite"></span>'
+    ].join("");
+
+    const speedSelect = toolbar.querySelector(".study-voice-speed");
+    const voiceSelect = toolbar.querySelector(".study-voice-voice");
+    const toggleButton = toolbar.querySelector('[data-voice-action="toggle"]');
+    const restartButton = toolbar.querySelector('[data-voice-action="restart"]');
+    const stopButton = toolbar.querySelector('[data-voice-action="stop"]');
+    const status = toolbar.querySelector(".study-voice-status");
+    const voiceLabel = "AI tutor reply " + replyNumber;
+
+    if (studyVoiceAvailable) populateStudyVoiceSelect(voiceSelect);
+
+    if (!studyVoiceAvailable) {
+      toolbar.querySelectorAll("button, select").forEach(function (control) {
+        control.disabled = true;
+      });
+      status.classList.remove("sr-only");
+      status.classList.add("study-voice-error");
+      status.textContent = "Voice reader unavailable in this browser.";
+      return toolbar;
+    }
+
+    toggleButton.addEventListener("click", function () {
+      const session = activeStudyVoice;
+      if (session && session.root === toolbar) {
+        if (session.paused) resumeStudyVoice(session);
+        else pauseStudyVoice(session);
+        return;
+      }
+      startStudyVoice(
+        message,
+        toolbar,
+        replyNumber,
+        buildAiTutorReplyVoiceParts(message),
+        0,
+        voiceLabel
+      );
+    });
+
+    restartButton.addEventListener("click", function () {
+      startStudyVoice(
+        message,
+        toolbar,
+        replyNumber,
+        buildAiTutorReplyVoiceParts(message),
+        0,
+        voiceLabel
+      );
+    });
+
+    stopButton.addEventListener("click", function () {
+      if (activeStudyVoice && activeStudyVoice.root === toolbar) {
+        stopStudyVoice();
+      }
+    });
+
+    speedSelect.addEventListener("change", function () {
+      if (activeStudyVoice && activeStudyVoice.root === toolbar) {
+        activeStudyVoice.rate = Number(speedSelect.value);
+      }
+    });
+
+    voiceSelect.addEventListener("change", function () {
+      studyVoicePreference = voiceSelect.value;
+      try {
+        localStorage.setItem("studyVoicePreference", studyVoicePreference);
+      } catch (error) { /* The choice still works for this session. */ }
+      refreshStudyVoiceSelectors();
+    });
+
+    attachLiveStudyVoiceSeeking(message, toolbar, replyNumber);
+    return toolbar;
+  }
+
+
   function renderAiTutorChatHistory(transcript, question, actualIndex, sendPrompt) {
+    if (activeStudyVoice && transcript.contains(activeStudyVoice.root)) {
+      stopStudyVoice();
+    }
     transcript.replaceChildren();
     const history = getAiTutorChatHistory(question, actualIndex);
     if (!history.length) {
@@ -946,6 +1053,15 @@ document.addEventListener("DOMContentLoaded", function () {
         strong.textContent = "Student note: ";
         note.append(strong, document.createTextNode(turn.studentNote));
         message.appendChild(note);
+      }
+
+      if (turn.role === "assistant") {
+        const assistantReplyNumber =
+          history.slice(0, history.indexOf(turn) + 1)
+            .filter(item => item.role === "assistant").length;
+        message.appendChild(
+          createAiTutorReplyVoiceControls(message, assistantReplyNumber)
+        );
       }
 
       if (
@@ -3411,9 +3527,11 @@ document.addEventListener("DOMContentLoaded", function () {
   function setStudyVoiceButtonState(session, state) {
     session.toggleButton.textContent =
       state === "playing" ? "Pause" : state === "paused" ? "Resume" : "▶ Listen";
+    const targetLabel = session.voiceLabel ||
+      ("study notes for question " + session.questionNumber);
     session.toggleButton.setAttribute("aria-label",
-      (state === "playing" ? "Pause" : state === "paused" ? "Resume" : "Listen to") +
-      " study notes for question " + session.questionNumber);
+      (state === "playing" ? "Pause " : state === "paused" ? "Resume " : "Listen to ") +
+      targetLabel);
     session.stopButton.disabled = state === "idle";
   }
 
@@ -3621,7 +3739,7 @@ document.addEventListener("DOMContentLoaded", function () {
     speakNextStudyVoicePart(session);
   }
 
-  function startStudyVoice(questionElement, toolbar, questionNumber, parts, startIndex) {
+  function startStudyVoice(questionElement, toolbar, questionNumber, parts, startIndex, voiceLabel) {
     stopStudyVoice();
     if (!parts.length) {
       const message = toolbar.querySelector(".study-voice-status");
@@ -3632,6 +3750,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     const session = {
       root: toolbar, questionElement: questionElement, questionNumber: questionNumber,
+      voiceLabel: voiceLabel || "",
       seekTargets: [],
       rate: Number(toolbar.querySelector(".study-voice-speed").value),
       voice: preferredStudyVoice(), parts: parts,
