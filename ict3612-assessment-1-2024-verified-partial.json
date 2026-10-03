@@ -1,0 +1,183 @@
+{
+  "testName": "ICT3612 · 2024 Assessment 1 · verified partial",
+  "module": "ICT3612",
+  "assessment": "Assessment 1 2024",
+  "totalMarks": 17,
+  "originalTotalMarks": 36,
+  "preserveOrder": true,
+  "marking": "automatic-multiple-choice",
+  "sourceType": "Verified partial practice based on Tutorial Letter 102/0/2024. Only questions visible clearly enough to check independently are included.",
+  "sourceReference": "https://www.studocu.com/en-za/document/university-of-south-africa/advanced-internet-programming/ict3612-102-0-2024/89242612",
+  "sourceLimitations": "The public preview omits or fragments several Assessment 1 items and diagrams. Those questions are withheld rather than reconstructed.",
+  "questions": [
+    {
+      "number": "1",
+      "marks": 2,
+      "text": "What is displayed by this PHP code?\n\n`function func_1(){ return \"func_1 is executed\"; } function func_2(){ func_1(); echo \"func_2 is executed\"; } func_2();`",
+      "options": [
+        "func_2 is executed",
+        "func_1 is executed",
+        "func_1 is executedfunc_2 is executed",
+        "func_2 is executedfunc_1 is executed"
+      ],
+      "correctAnswer": "func_2 is executed",
+      "explanation": "`func_1()` returns a string, but `func_2()` ignores that returned value. The only text sent to output is the string passed to `echo` inside `func_2()`.\n\nStudent note: Returning a value does not display it automatically. Something must use or echo the returned value."
+    },
+    {
+      "number": "2",
+      "marks": 2,
+      "text": "A PHP function adds 10, 20, 30, 40 and 50, divides the sum by the number of values, and assigns the result by reference to `$num`. What value is displayed?",
+      "options": [
+        "30",
+        "150",
+        "5",
+        "0"
+      ],
+      "correctAnswer": "30",
+      "explanation": "The sum is 150 and there are 5 values, so 150 ÷ 5 = 30. Because `$num` is passed by reference, the caller's variable receives the calculated average.\n\nStudent note: Separate the two ideas: calculate the average, then remember that `&$num` lets the function change the caller's variable."
+    },
+    {
+      "number": "7",
+      "marks": 1,
+      "text": "If class properties are private, what is the normal object-oriented way to make controlled access available to other classes?",
+      "options": [
+        "Public getter and setter methods",
+        "Private getter and setter methods only",
+        "A destructor",
+        "Global variables"
+      ],
+      "correctAnswer": "Public getter and setter methods",
+      "explanation": "Private properties cannot be accessed directly from outside the class. Public methods can provide controlled read/write access while keeping the fields encapsulated.\n\nStudent note: Private data + public methods is a common encapsulation pattern."
+    },
+    {
+      "number": "8",
+      "marks": 1,
+      "text": "Which statement about an abstract class is correct?",
+      "options": [
+        "An abstract class cannot be instantiated directly",
+        "An abstract class cannot contain abstract methods",
+        "No class may inherit from an abstract class",
+        "The keyword `extends` creates an abstract class"
+      ],
+      "correctAnswer": "An abstract class cannot be instantiated directly",
+      "explanation": "An abstract class is intended to be inherited. It may contain abstract methods, but you cannot directly create an object of the abstract class itself.\n\nStudent note: Abstract = incomplete base design; concrete subclass = object you can instantiate."
+    },
+    {
+      "number": "9",
+      "marks": 2,
+      "text": "A subclass `B` inherits protected properties `$name` and `$id` plus methods `getName()` and `getID()` from class `A`, and adds protected `$type` with `getType()`. Which description is correct?",
+      "options": [
+        "A B object has three data properties and access to three get methods",
+        "A B object has only one data property",
+        "B cannot inherit protected properties",
+        "B has no getter methods"
+      ],
+      "correctAnswer": "A B object has three data properties and access to three get methods",
+      "explanation": "The subclass inherits the accessible protected state and public methods of its parent and adds its own `$type` property and getter.\n\nStudent note: Inheritance adds the parent behaviour/state to the subclass; it does not replace it."
+    },
+    {
+      "number": "10",
+      "marks": 1,
+      "text": "Which PHP keyword prevents a class from being inherited?",
+      "options": [
+        "final",
+        "fixed",
+        "last",
+        "noinherit"
+      ],
+      "correctAnswer": "final",
+      "explanation": "A class declared with `final` cannot be extended by a subclass.\n\nStudent note: `final` can also be used on methods to prevent overriding."
+    },
+    {
+      "number": "11",
+      "marks": 1,
+      "text": "A regular expression defines a ______ that can be searched for in a string.",
+      "options": [
+        "pattern",
+        "program",
+        "table",
+        "prototype"
+      ],
+      "correctAnswer": "pattern",
+      "explanation": "A regular expression is a pattern language used to match text according to rules such as character classes, repetition and boundaries.\n\nStudent note: Regex describes what text should look like; it is not the text itself."
+    },
+    {
+      "number": "19",
+      "marks": 1,
+      "text": "What is the formal process of organising data into related tables to reduce redundancy and anomalies?",
+      "options": [
+        "normalisation",
+        "serialization",
+        "data mining",
+        "referential integrity"
+      ],
+      "correctAnswer": "normalisation",
+      "explanation": "Normalisation restructures relational data so facts are stored in appropriate tables and unnecessary repetition is reduced.\n\nStudent note: Referential integrity protects relationships; normalisation designs the table structure."
+    },
+    {
+      "number": "20",
+      "marks": 2,
+      "text": "Which action normally does NOT violate referential integrity?",
+      "options": [
+        "Deleting a child/foreign-key row while leaving its parent row",
+        "Inserting a child row whose foreign key has no matching parent",
+        "Changing a foreign key to a value with no matching parent",
+        "Changing a parent key without handling referencing child rows"
+      ],
+      "correctAnswer": "Deleting a child/foreign-key row while leaving its parent row",
+      "explanation": "A parent row may exist without child rows. Referential integrity is violated when a child points to a parent key that does not exist, unless a defined rule handles the change.\n\nStudent note: The dangerous direction is an orphan child, not a parent with zero children."
+    },
+    {
+      "number": "21",
+      "marks": 1,
+      "text": "Which item is not normally specified as a simple property of one column when defining that column?",
+      "options": [
+        "Cascading deletes",
+        "Data type",
+        "Whether NULL is allowed",
+        "A UNIQUE requirement"
+      ],
+      "correctAnswer": "Cascading deletes",
+      "explanation": "Cascade-on-delete behaviour belongs to a foreign-key relationship/constraint. Data type, NULL rules and uniqueness can be defined for columns.\n\nStudent note: Cascading delete describes what happens across related tables, so think relationship rather than isolated column."
+    },
+    {
+      "number": "22",
+      "marks": 1,
+      "text": "Which SQL statement family is used to change a database user's password in systems that support this syntax?",
+      "options": [
+        "ALTER USER",
+        "DROP TABLE",
+        "SELECT USER",
+        "GRANT TABLE"
+      ],
+      "correctAnswer": "ALTER USER",
+      "explanation": "`ALTER USER` changes properties of an existing database user; the exact password clause depends on the DBMS.\n\nStudent note: Do not confuse changing account properties with granting privileges."
+    },
+    {
+      "number": "23",
+      "marks": 1,
+      "text": "In MySQL-style SQL, which statement selects the current database/schema for subsequent commands?",
+      "options": [
+        "USE",
+        "SELECT",
+        "DROP",
+        "MODIFY"
+      ],
+      "correctAnswer": "USE",
+      "explanation": "`USE database_name` changes the default database for the current MySQL session.\n\nStudent note: This is DBMS-specific syntax; not every database product uses `USE` in the same way."
+    },
+    {
+      "number": "24",
+      "marks": 1,
+      "text": "Which SQL statement removes an entire table definition?",
+      "options": [
+        "DROP TABLE",
+        "DELETE TABLE",
+        "ALTER TABLE",
+        "DESTROY TABLE"
+      ],
+      "correctAnswer": "DROP TABLE",
+      "explanation": "`DROP TABLE` removes the table object itself. `DELETE` removes rows while keeping the table definition.\n\nStudent note: DROP affects structure; DELETE affects data."
+    }
+  ]
+}
