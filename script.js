@@ -4533,6 +4533,14 @@ const testFiles = [
   // tutorial-letter questions are withheld instead of reconstructed by guesswork.
   "ict2613-assessment-1-2026-partial.json",
   "ict2642-assessment-2-2026.json",
+  // Third-year additions. Where a public source is incomplete or copyrighted,
+  // prompts are paraphrased and clearly labelled as source-verified practice.
+  "ict3612-assessment-1-2025-verified-practice.json",
+  "ict3621-oct-nov-2025-exam-structure-practice.json",
+  "ict3631-jan-feb-2025-exam-structure-practice.json",
+  "ict3641-assignment-7-2026-verified-partial.json",
+  "ict3642-oct-nov-2025-section-b-practice.json",
+  "ict3722-oracle-security-sql-verified-practice.json",
 ];
 
 
