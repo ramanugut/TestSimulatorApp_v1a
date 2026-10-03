@@ -3033,6 +3033,182 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
 
+  function cleanStudyHintValue(value) {
+    if (Array.isArray(value)) {
+      return value
+        .map((item) => String(item == null ? "" : item).trim())
+        .filter(Boolean);
+    }
+    const text = String(value == null ? "" : value).trim();
+    return text ? [text] : [];
+  }
+
+  // Hints are deliberately built without reading correctAnswer, explanation,
+  // aiRubric or grading feedback. That keeps Guess First useful: a hint can
+  // guide the learner before submission without quietly revealing the answer.
+  function buildStudyHint(question) {
+    const study =
+      question && question.study && typeof question.study === "object"
+        ? question.study
+        : {};
+    const text = String(question && question.text || "");
+    const lower = text.toLowerCase();
+    const answerType = String(question && question.answerType || "").toLowerCase();
+    const formulas = [
+      ...cleanStudyHintValue(question && question.formula),
+      ...cleanStudyHintValue(study.formula),
+      ...cleanStudyHintValue(question && question.formulas),
+      ...cleanStudyHintValue(study.formulas),
+    ];
+
+    if (!formulas.length) {
+      if (/weighted\s+(score|scoring)|weighted\s+total/.test(lower)) {
+        formulas.push("Weighted total = Σ(weight as a decimal × score)");
+      } else if (/pert|three[- ]point|optimistic.*most likely.*pessimistic|pessimistic.*most likely.*optimistic/.test(lower)) {
+        formulas.push("PERT expected time = (Optimistic + 4 × Most likely + Pessimistic) ÷ 6");
+      } else if (/cost performance index|\bcpi\b/.test(lower)) {
+        formulas.push("CPI = Earned Value (EV) ÷ Actual Cost (AC)");
+      } else if (/schedule performance index|\bspi\b/.test(lower)) {
+        formulas.push("SPI = Earned Value (EV) ÷ Planned Value (PV)");
+      } else if (/cost variance|\bcv\b/.test(lower)) {
+        formulas.push("CV = Earned Value (EV) − Actual Cost (AC)");
+      } else if (/schedule variance|\bsv\b/.test(lower)) {
+        formulas.push("SV = Earned Value (EV) − Planned Value (PV)");
+      } else if (/percentage|percent|\b%\b/.test(lower)) {
+        formulas.push("Percentage = (part ÷ whole) × 100");
+      } else if (/average|arithmetic mean|\bmean\b/.test(lower)) {
+        formulas.push("Mean = sum of the values ÷ number of values");
+      } else if (/compound|repeated.*increase|growth rate|multiplied by .* each|increase.*each (year|month|period|iteration)/.test(lower)) {
+        formulas.push("Repeated growth = starting value × (1 + rate)^number of periods");
+      } else if (/discount|decrease by|reduced by/.test(lower) && /%|percent/.test(lower)) {
+        formulas.push("New value = original value × (1 − rate)");
+      } else if (/increase by|mark[- ]?up/.test(lower) && /%|percent/.test(lower)) {
+        formulas.push("New value = original value × (1 + rate)");
+      }
+    }
+
+    const explicitHints = [
+      ...cleanStudyHintValue(question && question.hint),
+      ...cleanStudyHintValue(study.hint),
+      ...cleanStudyHintValue(question && question.studyHint),
+      ...cleanStudyHintValue(study.studyHint),
+    ];
+    let hint = explicitHints[0] || "";
+
+    if (!hint) {
+      if (/normalis|1nf|2nf|3nf|functional dependenc/.test(lower)) {
+        hint = "Start with the key and functional dependencies. 2NF removes partial dependencies; 3NF removes transitive dependencies.";
+      } else if (/\berd\b|entity relationship|cardinalit|primary key|foreign key/.test(lower) ||
+                 answerType === "uml-diagram" || answerType === "diagram") {
+        hint = "List the required entities or nodes first, then add identifiers/keys, relationships, labels and cardinalities or arrow directions.";
+      } else if (answerType === "code") {
+        hint = "Trace the task as input → processing → output. Check variable values, conditions, loop boundaries and exact syntax before you finish.";
+      } else if (answerType === "command") {
+        hint = "Break the command into action + target + required option/scope. Use the exact service, file, user, table or resource named in the question.";
+      } else if (answerType === "image-upload") {
+        hint = "Make the required action and its result visible in the same screenshot. Keep the command/output readable and avoid cropping away the evidence.";
+      } else if (answerType === "table") {
+        hint = "Use the row and column headings as a checklist. Work one cell at a time and make sure every value belongs to the correct row and column.";
+      } else if (formulas.length || /calculat|work out|compute|determine the (value|score|total|amount)/.test(lower)) {
+        hint = "Write the formula first, substitute the given values, calculate carefully, then check units and rounding only at the end.";
+      } else if (Array.isArray(question && question.options) && question.options.length) {
+        hint = "Define the key term or rule being tested first. Then eliminate choices that contradict that rule instead of choosing by wording alone.";
+      } else if (/\bcompare\b|\bdistinguish\b|difference between/.test(lower)) {
+        hint = "Compare both sides using the same criteria. State the difference clearly instead of writing two unrelated definitions.";
+      } else if (/\bdiscuss\b|evaluate|analyse|analyze/.test(lower)) {
+        hint = "Build several distinct points, explain why each matters, and connect them to the scenario or consequences where possible.";
+      } else if (/justify|recommend|advise/.test(lower)) {
+        hint = "State your choice or position, then support it with relevant criteria and reasons tied directly to the scenario.";
+      } else if (/\bexplain\b|why|how/.test(lower)) {
+        hint = "Give the point, then add the reason or mechanism that makes it true. A definition alone is usually not enough for an explanation.";
+      } else if (/\blist\b|\bname\b|\bstate\b|\bidentify\b|mention/.test(lower)) {
+        hint = "Keep each point short and distinct. Do not spend time explaining more than the command word asks for.";
+      } else {
+        hint = "Identify the main concept being tested, write down what the question is actually asking you to produce, then answer only that requirement.";
+      }
+    }
+
+    let technique = "";
+    const marks = Number(question && question.marks);
+    if (Number.isFinite(marks) && marks > 1) {
+      technique =
+        "Exam check: this question is worth " + marks +
+        " marks. Use the marks as a completeness check, but do not assume every paper awards exactly one mark per sentence.";
+    } else if (Array.isArray(question && question.options) && question.options.length) {
+      technique = "Exam check: read every option before committing; one word can change whether a statement is correct.";
+    } else {
+      technique = "Exam check: match the command word — calculate, explain, discuss, compare, draw or list — before deciding how much to write.";
+    }
+
+    return {
+      formulas: formulas.slice(0, 3),
+      hint,
+      technique,
+    };
+  }
+
+  function createStudyHintElement(question) {
+    const data = buildStudyHint(question);
+    const details = document.createElement("details");
+    details.className = "study-hint-card";
+
+    const summary = document.createElement("summary");
+    summary.className = "study-hint-summary";
+
+    const badge = document.createElement("span");
+    badge.className = "study-hint-badge";
+    badge.textContent = data.formulas.length ? "Formula" : "Hint";
+
+    const copy = document.createElement("span");
+    copy.className = "study-hint-summary-copy";
+    const title = document.createElement("strong");
+    title.textContent = data.formulas.length ? "Need a formula or hint?" : "Need a hint?";
+    const note = document.createElement("small");
+    note.textContent = "Open only if you need a nudge — it does not reveal the stored answer.";
+    copy.append(title, note);
+
+    const chevron = document.createElement("span");
+    chevron.className = "study-hint-chevron";
+    chevron.setAttribute("aria-hidden", "true");
+    chevron.textContent = "⌄";
+
+    summary.append(badge, copy, chevron);
+    details.appendChild(summary);
+
+    const body = document.createElement("div");
+    body.className = "study-hint-body";
+
+    if (data.formulas.length) {
+      const formulaBlock = document.createElement("div");
+      formulaBlock.className = "study-hint-formula";
+      const label = document.createElement("strong");
+      label.textContent = data.formulas.length > 1 ? "Useful formulas" : "Useful formula";
+      formulaBlock.appendChild(label);
+      data.formulas.forEach((formula) => {
+        const code = document.createElement("code");
+        code.textContent = formula;
+        formulaBlock.appendChild(code);
+      });
+      body.appendChild(formulaBlock);
+    }
+
+    const hint = document.createElement("p");
+    hint.className = "study-hint-text";
+    const hintLabel = document.createElement("strong");
+    hintLabel.textContent = "Try this: ";
+    hint.append(hintLabel, document.createTextNode(data.hint));
+    body.appendChild(hint);
+
+    const technique = document.createElement("p");
+    technique.className = "study-hint-technique";
+    technique.textContent = data.technique;
+    body.appendChild(technique);
+
+    details.appendChild(body);
+    return details;
+  }
+
+
   function createStudyGuideElement(study) {
     if (!study || typeof study !== "object") {
       return null;
@@ -6034,6 +6210,12 @@ const testFiles = [
 
       const canRevealStudyContent =
         isStudyMode && studyAnswerVisible(actualIndex);
+
+      // A compact hint/formula helper is always available in Study Mode,
+      // including before a Guess First attempt is submitted.
+      if (isStudyMode) {
+        questionElement.appendChild(createStudyHintElement(question));
+      }
 
       // Submitted tests and submitted Study Guess attempts show grading feedback.
       // Guess First keeps teaching content hidden until the whole Study attempt is submitted.
