@@ -4622,7 +4622,7 @@ const testFiles = [
     const preferredFile = savedProgressFile || savedPreferenceFile;
 
     const fetchPromises = testFiles.map((filename) =>
-      fetch(filename)
+      fetch(filename, { cache: "no-store" })
         .then((response) => {
           if (!response.ok) {
             throw new Error(`Error loading file: ${response.statusText}`);
@@ -5024,7 +5024,7 @@ const testFiles = [
     if (customData) {
       initializeFromQuestions(customData.questions);
     } else {
-      fetch(filename)
+      fetch(filename, { cache: "no-store" })
         .then((response) => {
           if (!response.ok) {
             throw new Error(`Error loading file: ${response.statusText}`);
