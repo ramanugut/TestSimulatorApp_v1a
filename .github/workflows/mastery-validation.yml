@@ -40,6 +40,7 @@ jobs:
         run: npm install --no-save --no-package-lock jsdom@25
       - name: Smoke-test mastery UI
         run: |
+          node tests/ai-tutor-chat-ui.test.cjs
           node tests/mastery-ui.test.cjs
           node tests/answer-workspace-ui.test.cjs
           node tests/paper-picker-ui.test.cjs
