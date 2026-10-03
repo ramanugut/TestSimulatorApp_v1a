@@ -1,0 +1,191 @@
+{
+  "testName": "ICT3722 · 2023/24 Assignment 2 · verified SQL concepts practice",
+  "module": "ICT3722",
+  "assessment": "Assignment 2 2023/2024 practice",
+  "totalMarks": 14,
+  "preserveOrder": true,
+  "marking": "automatic-multiple-choice",
+  "sourceType": "Paraphrased from a marked ICT3722 Assignment 2 review. Answers are independently checked against standard Oracle/SQL behaviour.",
+  "sourceReference": "https://www.studocu.com/en-za/document/university-of-south-africa/database-practice/ict3722-database-practice-assignment-2/100448425",
+  "sourceLimitations": "The source is a student review rather than an official memo. Ambiguous wording from the upload is not reproduced; questions below use corrected, unambiguous SQL wording.",
+  "questions": [
+    {
+      "number": "1",
+      "marks": 1,
+      "text": "Which clause can be added to an Oracle SELECT statement to lock the selected rows for a later update in the same transaction?",
+      "options": [
+        "FOR UPDATE",
+        "WITH SHARE",
+        "LOCK COLUMN",
+        "SET UPDATE"
+      ],
+      "correctAnswer": "FOR UPDATE",
+      "explanation": "`SELECT ... FOR UPDATE` locks the selected rows so another transaction cannot make conflicting changes while your transaction is working with them.\n\nStudent note: It is row-oriented locking of the selected result, not a command for locking one column."
+    },
+    {
+      "number": "2",
+      "marks": 1,
+      "text": "In SQL*Plus-style scripting, what is a placeholder whose value is substituted into a command before execution commonly called?",
+      "options": [
+        "substitution variable",
+        "cursor",
+        "trigger",
+        "savepoint"
+      ],
+      "correctAnswer": "substitution variable",
+      "explanation": "A substitution variable is replaced with a supplied value when the command/script is processed.\n\nStudent note: Substitution happens before SQL execution; bind variables work differently."
+    },
+    {
+      "number": "3",
+      "marks": 1,
+      "text": "Which command explicitly locks a table in Oracle?",
+      "options": [
+        "LOCK TABLE",
+        "HOLD TABLE",
+        "FREEZE TABLE",
+        "SELECT LOCK"
+      ],
+      "correctAnswer": "LOCK TABLE",
+      "explanation": "Oracle provides the `LOCK TABLE` statement to obtain a table lock in a specified lock mode.\n\nStudent note: Explicit table locking is different from the row locks created by ordinary DML."
+    },
+    {
+      "number": "4",
+      "marks": 1,
+      "text": "If an INSERT row violates an enforced constraint, does Oracle normally insert the valid columns of that row and leave only the invalid value for later?",
+      "options": [
+        "No",
+        "Yes"
+      ],
+      "correctAnswer": "No",
+      "explanation": "A row that violates an enforced constraint is not partly inserted. The statement fails for that row/statement according to the operation.\n\nStudent note: Relational constraints protect the row as a valid whole; Oracle does not normally keep half a row."
+    },
+    {
+      "number": "5",
+      "marks": 1,
+      "text": "What happens when a normal UPDATE statement has no WHERE clause?",
+      "options": [
+        "Every row targeted by the table is updated",
+        "Only the first row is updated",
+        "The statement is automatically rejected",
+        "Only NULL rows are updated"
+      ],
+      "correctAnswer": "Every row targeted by the table is updated",
+      "explanation": "WHERE filters rows. Without it, the SET expression applies to every row in the target table.\n\nStudent note: This is why UPDATE and DELETE need extra care."
+    },
+    {
+      "number": "6",
+      "marks": 1,
+      "text": "How are multiple column names separated in an INSERT column list?",
+      "options": [
+        "commas",
+        "semicolons",
+        "slashes",
+        "AND"
+      ],
+      "correctAnswer": "commas",
+      "explanation": "SQL column lists use commas, for example `INSERT INTO t (a, b, c) ...`.\n\nStudent note: The values list must line up with the column list."
+    },
+    {
+      "number": "7",
+      "marks": 1,
+      "text": "Which statement correctly describes the WHERE clause in an UPDATE?",
+      "options": [
+        "It is optional; without it all rows are affected",
+        "It is mandatory in every UPDATE",
+        "It specifies the column being changed",
+        "It commits the transaction"
+      ],
+      "correctAnswer": "It is optional; without it all rows are affected",
+      "explanation": "The SET clause says what to change; WHERE says which rows to change.\n\nStudent note: Optional in syntax does not mean optional in careful administration."
+    },
+    {
+      "number": "8",
+      "marks": 1,
+      "text": "Which form is valid for inserting the result of a query into a table?",
+      "options": [
+        "INSERT INTO target (a,b) SELECT x,y FROM source",
+        "INSERT INTO target AS (SELECT x,y FROM source)",
+        "UPDATE target FROM SELECT x,y",
+        "COPY target QUERY SELECT"
+      ],
+      "correctAnswer": "INSERT INTO target (a,b) SELECT x,y FROM source",
+      "explanation": "`INSERT INTO ... SELECT ...` copies query results into the target table when columns/data types are compatible.\n\nStudent note: Do not put `AS` between the target and SELECT in this form."
+    },
+    {
+      "number": "9",
+      "marks": 1,
+      "text": "Which SQL category contains INSERT, UPDATE and DELETE?",
+      "options": [
+        "DML",
+        "DDL",
+        "DCL only",
+        "TCL only"
+      ],
+      "correctAnswer": "DML",
+      "explanation": "INSERT, UPDATE and DELETE manipulate table data and are commonly grouped as Data Manipulation Language operations.\n\nStudent note: DDL changes structures; DML changes data."
+    },
+    {
+      "number": "10",
+      "marks": 1,
+      "text": "Can Oracle's SYSDATE value be used in an INSERT statement?",
+      "options": [
+        "Yes",
+        "No"
+      ],
+      "correctAnswer": "Yes",
+      "explanation": "`SYSDATE` can be used as an expression in inserted values when the target data type is appropriate.\n\nStudent note: Date/time functions are not limited to UPDATE."
+    },
+    {
+      "number": "11",
+      "marks": 1,
+      "text": "Which command modifies existing row values?",
+      "options": [
+        "UPDATE",
+        "INSERT",
+        "CREATE",
+        "DESCRIBE"
+      ],
+      "correctAnswer": "UPDATE",
+      "explanation": "UPDATE changes values in rows that already exist.\n\nStudent note: INSERT adds; UPDATE changes."
+    },
+    {
+      "number": "12",
+      "marks": 1,
+      "text": "Which clause of UPDATE specifies the new column values?",
+      "options": [
+        "SET",
+        "WHERE",
+        "VALUES",
+        "ORDER BY"
+      ],
+      "correctAnswer": "SET",
+      "explanation": "The SET clause contains assignments such as `SET salary = 5000`.\n\nStudent note: SET = what changes; WHERE = which rows."
+    },
+    {
+      "number": "13",
+      "marks": 1,
+      "text": "Which command makes the current transaction's changes permanent?",
+      "options": [
+        "COMMIT",
+        "SAVEPOINT",
+        "SELECT",
+        "DESCRIBE"
+      ],
+      "correctAnswer": "COMMIT",
+      "explanation": "COMMIT ends the current transaction and makes its changes permanent/visible according to database transaction rules.\n\nStudent note: SAVEPOINT marks a point inside a transaction; it does not finish the transaction."
+    },
+    {
+      "number": "14",
+      "marks": 1,
+      "text": "Which command is designed to explicitly prevent conflicting table changes by acquiring a table lock?",
+      "options": [
+        "LOCK TABLE",
+        "COMMIT TABLE",
+        "SET TABLE",
+        "PROTECT ROWS"
+      ],
+      "correctAnswer": "LOCK TABLE",
+      "explanation": "`LOCK TABLE` requests an explicit table lock in Oracle.\n\nStudent note: Use explicit locking only when the transaction design genuinely needs it."
+    }
+  ]
+}

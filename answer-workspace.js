@@ -129,6 +129,56 @@
     host.appendChild(note);
     return host;
   }
+  function createImageEvidence(question, initial, onChange, disabled) {
+    const state=initial && typeof initial==="object" && !Array.isArray(initial)
+      ? {text:initial.text || "",image:initial.image || ""}:{text:"",image:""};
+    const host=el("section","answer-workspace image-evidence-workspace");
+    host.appendChild(el("p","answer-workspace-help",
+      question.imageInstructions ||
+      "Upload the screenshot or photo requested by the paper. Add a short note if the question also asks you to explain what the image shows."));
+    const previewWrap=el("div","image-evidence-preview-wrap");
+    const preview=el("img","image-evidence-preview");
+    preview.alt=question.imageAlt || "Uploaded answer evidence preview";
+    preview.hidden=!state.image;
+    if(state.image) preview.src=state.image;
+    previewWrap.appendChild(preview);host.appendChild(previewWrap);
+    const actions=el("div","answer-workspace-actions");
+    const uploadLabel=el("label","uml-upload",question.imageUploadLabel || "Upload screenshot / image");
+    const upload=el("input");upload.type="file";upload.accept="image/png,image/jpeg,image/webp";upload.disabled=Boolean(disabled);
+    upload.setAttribute("aria-label",question.imageUploadLabel || "Upload screenshot or image");
+    const removeButton=button("Remove image",()=>{
+      state.image="";preview.removeAttribute("src");preview.hidden=true;
+      removeButton.disabled=Boolean(disabled);
+      onChange({image:"",text:state.text});
+    },disabled||!state.image);
+    upload.addEventListener("change",()=>{
+      const file=upload.files && upload.files[0];if(!file)return;
+      if(!/^image\/(png|jpeg|webp)$/.test(file.type)||file.size>8*1024*1024){
+        alert("Select PNG, JPEG or WebP, maximum 8 MB.");upload.value="";return;
+      }
+      const reader=new FileReader();
+      reader.onload=()=>{
+        state.image=String(reader.result||"");
+        preview.src=state.image;preview.hidden=!state.image;
+        removeButton.disabled=Boolean(disabled)||!state.image;
+        onChange({image:state.image,text:state.text});upload.value="";
+      };
+      reader.onerror=()=>{alert("Unable to read this image.");upload.value="";};
+      reader.readAsDataURL(file);
+    });
+    uploadLabel.appendChild(upload);actions.appendChild(uploadLabel);
+    actions.appendChild(removeButton);
+    host.appendChild(actions);
+    const notes=el("label","editor-label",question.imageNotesLabel || "Optional notes");
+    const textarea=el("textarea","text-area-input");textarea.rows=4;
+    textarea.value=state.text;textarea.disabled=Boolean(disabled);
+    textarea.placeholder=question.imageNotesPlaceholder || "Explain what the screenshot proves, if needed.";
+    textarea.addEventListener("input",()=>{state.text=textarea.value;onChange({image:state.image,text:state.text});});
+    notes.appendChild(textarea);host.appendChild(notes);
+    host.appendChild(el("small","answer-workspace-status",
+      "The image stays with this answer in the browser. PNG, JPEG and WebP are supported up to 8 MB."));
+    return host;
+  }
   function createDiagram(question, initial, onChange, disabled) {
     if (window.EditableDiagram && typeof window.EditableDiagram.create === "function") {
       return window.EditableDiagram.create(question, initial, onChange, disabled);
@@ -277,5 +327,5 @@
       "Shapes are drawn locally. Upload is also available for pen-and-paper diagrams; your work is saved with this question."));
     return host;
   }
-  window.AnswerWorkspace={createTable,createEditor,createDiagram,gradeTable};
+  window.AnswerWorkspace={createTable,createEditor,createImageEvidence,createDiagram,gradeTable};
 }());

@@ -1,0 +1,177 @@
+{
+  "testName": "ICT3641 · 2024 Assessment 2 · verified partial",
+  "module": "ICT3641",
+  "assessment": "Assessment 2 2024",
+  "totalMarks": 13,
+  "originalTotalMarks": 25,
+  "preserveOrder": true,
+  "marking": "automatic-multiple-choice",
+  "sourceType": "Verified partial practice based on a marked 2024 Assessment 2 review. Only clearly visible, independently sensible items are included.",
+  "sourceReference": "https://www.studocu.com/en-za/document/university-of-south-africa/business-informatics-iiia/ict3641-assessment-2-2024/98476423",
+  "sourceLimitations": "The public review exposes only part of the 25-question quiz. Ambiguous or textbook-specific items that could not be independently confirmed are withheld.",
+  "questions": [
+    {
+      "number": "1",
+      "marks": 1,
+      "text": "Have many large organisations created internal websites or platforms that support online social networking among employees?",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "True",
+      "explanation": "Enterprise social platforms and internal collaboration sites can support employee communication, communities and knowledge sharing inside an organisation.\n\nStudent note: Internal social networking is about employee collaboration, not only public social media."
+    },
+    {
+      "number": "3",
+      "marks": 1,
+      "text": "A privacy policy where information is not used for an additional purpose unless the customer actively agrees is called:",
+      "options": [
+        "opt-in",
+        "opt-out",
+        "lock-in",
+        "fair-use"
+      ],
+      "correctAnswer": "opt-in",
+      "explanation": "Opt-in requires a positive choice before the additional use is allowed. Opt-out assumes the use unless the person objects.\n\nStudent note: Opt-in = permission first."
+    },
+    {
+      "number": "4",
+      "marks": 1,
+      "text": "A banner advertisement loading on a web page counts as an advertising:",
+      "options": [
+        "impression",
+        "click",
+        "conversion",
+        "session"
+      ],
+      "correctAnswer": "impression",
+      "explanation": "An impression records that an advert was displayed/served. A click requires the user to interact with it.\n\nStudent note: Impression = seen/served; click = interacted."
+    },
+    {
+      "number": "5",
+      "marks": 1,
+      "text": "In an online auction, which information can help a cautious bidder judge whether a seller has behaved reliably in previous transactions?",
+      "options": [
+        "Seller history/records",
+        "Sniping software",
+        "A random banner advert",
+        "A browser cache"
+      ],
+      "correctAnswer": "Seller history/records",
+      "explanation": "Past seller ratings, feedback and transaction records can help a bidder judge reputation and risk.\n\nStudent note: Reputation information reduces uncertainty; it does not guarantee a future transaction."
+    },
+    {
+      "number": "6",
+      "marks": 1,
+      "text": "Advertising directed to a known recipient through channels such as mail, telephone or email is called:",
+      "options": [
+        "addressable media",
+        "broadcast media",
+        "anonymous media",
+        "mass-only media"
+      ],
+      "correctAnswer": "addressable media",
+      "explanation": "Addressable media targets identifiable recipients rather than broadcasting the same message to an unknown mass audience.\n\nStudent note: The key word is identifiable/addressable recipient."
+    },
+    {
+      "number": "7",
+      "marks": 1,
+      "text": "Rational branding depends mainly on a broad emotional appeal.",
+      "options": [
+        "False",
+        "True"
+      ],
+      "correctAnswer": "False",
+      "explanation": "Rational branding focuses on concrete benefits, features or reasons. Emotional branding is the approach centred more strongly on feelings and identity.\n\nStudent note: Rational = reasons/benefits; emotional = feelings/identity."
+    },
+    {
+      "number": "8",
+      "marks": 1,
+      "text": "An intelligent shopping agent that learns a customer's preferences and recommends products is commonly described as a:",
+      "options": [
+        "personal shopper",
+        "web catalog",
+        "digital directory",
+        "virtual index"
+      ],
+      "correctAnswer": "personal shopper",
+      "explanation": "A personal-shopper agent uses preference information to help filter choices and make recommendations.\n\nStudent note: The important feature is personalised recommendation, not simply listing products."
+    },
+    {
+      "number": "9",
+      "marks": 1,
+      "text": "In behaviour-based categories of website visitors, people whose main goal is to stay in touch through chat, forums and social networking are called:",
+      "options": [
+        "connectors",
+        "routiners",
+        "surfers",
+        "sportsters"
+      ],
+      "correctAnswer": "connectors",
+      "explanation": "The connector category describes visitors focused on communicating and maintaining social contact online.\n\nStudent note: Learn what the category does, not only the label."
+    },
+    {
+      "number": "10",
+      "marks": 1,
+      "text": "Email sent to people who explicitly requested information about a topic or product is called:",
+      "options": [
+        "opt-in email",
+        "spam",
+        "junk email",
+        "unsolicited bulk email"
+      ],
+      "correctAnswer": "opt-in email",
+      "explanation": "Opt-in email is sent after the recipient has actively requested or agreed to receive that type of communication.\n\nStudent note: Consent is what separates opt-in messaging from unsolicited spam."
+    },
+    {
+      "number": "11",
+      "marks": 1,
+      "text": "A hidden identifying code embedded into a digital image or audio file is a digital:",
+      "options": [
+        "watermark",
+        "cookie",
+        "patent",
+        "certificate"
+      ],
+      "correctAnswer": "watermark",
+      "explanation": "A digital watermark embeds identifying or ownership-related information into digital media, often in a way that is difficult to notice visually or audibly.\n\nStudent note: Watermarking is about identifying media; encryption is about making content unreadable without a key."
+    },
+    {
+      "number": "12",
+      "marks": 1,
+      "text": "A symbol adopted with the intention of authenticating a writing is a:",
+      "options": [
+        "signature",
+        "icon",
+        "stamp only",
+        "mark only"
+      ],
+      "correctAnswer": "signature",
+      "explanation": "A signature is used to authenticate or indicate approval of a writing; electronic-signature law can recognise digital forms when requirements are met.\n\nStudent note: The legal idea is intent to authenticate, not whether ink is used."
+    },
+    {
+      "number": "13",
+      "marks": 1,
+      "text": "Online distribution can still cause sales losses or cannibalisation for publishers.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "True",
+      "explanation": "Digital distribution can create new revenue but can also replace sales from another channel, enable unauthorised copying or change pricing pressure.\n\nStudent note: A new channel can add sales and also shift sales away from an old channel."
+    },
+    {
+      "number": "14",
+      "marks": 1,
+      "text": "A seller that builds a brand and then sells through printed information mailed to customers who order by mail or telephone is using the:",
+      "options": [
+        "catalog model",
+        "digital-content model",
+        "mass-media model",
+        "web-only model"
+      ],
+      "correctAnswer": "catalog model",
+      "explanation": "The catalog model uses a product catalog to present offerings and lets customers place orders through supported channels.\n\nStudent note: The defining feature is selling from a catalog, not whether the catalog is digital or printed."
+    }
+  ]
+}
