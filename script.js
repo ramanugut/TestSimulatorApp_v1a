@@ -2307,8 +2307,10 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function currentAnswersLocked() {
-    return testSubmitted ||
-      (isStudyMode && studyGuessFirstEnabled && studyGuessSubmitted);
+    if (isStudyMode && studyGuessFirstEnabled) {
+      return studyGuessSubmitted;
+    }
+    return testSubmitted;
   }
 
   function getInteractiveAnswer(actualIndex) {
@@ -2368,9 +2370,10 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function studyAnswerVisible(actualIndex) {
-    return testSubmitted ||
-      studyGuessSubmitted ||
-      !studyGuessFirstEnabled;
+    if (isStudyMode && studyGuessFirstEnabled) {
+      return studyGuessSubmitted;
+    }
+    return testSubmitted || !studyGuessFirstEnabled;
   }
 
   function updateStudyGuessButtonState(actualIndex, root = questionsContainer) {
@@ -6009,7 +6012,11 @@ const testFiles = [
 
       // Submitted tests and submitted Study Guess attempts show grading feedback.
       // Guess First keeps teaching content hidden until the whole Study attempt is submitted.
-      if (testSubmitted || (isStudyMode && studyGuessFirstEnabled && studyGuessSubmitted)) {
+      const showGradingFeedback =
+        isStudyMode && studyGuessFirstEnabled
+          ? studyGuessSubmitted
+          : testSubmitted;
+      if (showGradingFeedback) {
         applyFeedback(questionElement, question, actualIndex);
       } else if (canRevealStudyContent) {
         questionElement.appendChild(createReadablePanel(
