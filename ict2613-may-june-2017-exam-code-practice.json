@@ -1,0 +1,117 @@
+{
+  "testName": "ICT2613 · May/June 2017 Exam · code practice (verified partial)",
+  "module": "ICT2613",
+  "assessment": "May/June 2017 examination practice",
+  "totalMarks": 27,
+  "preserveOrder": true,
+  "marking": "ai-assisted-code",
+  "sourceType": "Paraphrased code practice from the indexed May/June 2017 examination. Only question parts whose wording and expected result are clear in the public preview are included.",
+  "sourceReference": "https://www.studocu.com/en-za/document/university-of-south-africa/internet-programing/ict2613-s1-may-june-2017-examination-paper/17533261",
+  "sourceLimitations": "The source preview is incomplete and some numbering is lost. Unclear or truncated parts are withheld rather than guessed.",
+  "questions": [
+    {
+      "number": "1",
+      "marks": 4,
+      "grading": "ai",
+      "answerType": "code",
+      "text": "Write PHP that stores `ICT2613` and `Internet Programming` in two camelCase variables, then uses one echo statement to display `Code: ICT2613, Name: Internet Programming` with the labels Code and Name in bold.",
+      "correctAnswer": "<?php\n$moduleCode = \"ICT2613\";\n$moduleName = \"Internet Programming\";\necho \"<b>Code:</b> $moduleCode, <b>Name:</b> $moduleName\";\n?>",
+      "aiRubric": [
+        "Creates two variables with camelCase names.",
+        "Stores ICT2613 and Internet Programming in the correct variables.",
+        "Uses echo.",
+        "Displays both labels in bold using valid HTML.",
+        "Produces the requested text in the correct order."
+      ],
+      "explanation": "PHP variables begin with `$`, and camelCase normally starts with a lowercase word followed by capitalised words, such as `$moduleCode`. HTML tags can be included in the string sent by echo.\n\nStudent note: The paper tests several small skills together: variable naming, assignment, string interpolation/concatenation, echo and simple HTML."
+    },
+    {
+      "number": "2",
+      "marks": 8,
+      "grading": "ai",
+      "answerType": "code",
+      "text": "A POST form contains a text field named `full_name` and three checkboxes named `rone`, `rtwo` and `rthree`. Write PHP that reads the name and stores a clear true/false value for whether each checkbox was selected.",
+      "correctAnswer": "$fullName = $_POST['full_name'] ?? '';\n$resolutionOne = isset($_POST['rone']);\n$resolutionTwo = isset($_POST['rtwo']);\n$resolutionThree = isset($_POST['rthree']);",
+      "aiRubric": [
+        "Reads full_name from $_POST.",
+        "Handles the possibility that full_name is absent.",
+        "Checks rone with isset or an equivalent safe existence test.",
+        "Checks rtwo safely.",
+        "Checks rthree safely.",
+        "Stores the results in four variables."
+      ],
+      "explanation": "Unchecked HTML checkboxes are normally absent from the submitted POST data. Using `isset()` prevents undefined-index warnings and gives a simple boolean result.\n\nStudent note: Do not assume every checkbox name will exist in `$_POST`. An unchecked box usually sends nothing."
+    },
+    {
+      "number": "3",
+      "marks": 2,
+      "grading": "ai",
+      "answerType": "code",
+      "text": "For the older exam style, assume the required module code is already stored in `$moduleCode`. Write one PHP assignment that stores a DELETE SQL statement in `$query` to remove the matching row from table `modules`.",
+      "correctAnswer": "$query = \"DELETE FROM modules WHERE module_code = '$moduleCode'\";",
+      "aiRubric": [
+        "Assigns the SQL text to $query.",
+        "Uses DELETE FROM modules.",
+        "Uses a WHERE condition on the module-code column.",
+        "Uses the supplied $moduleCode value."
+      ],
+      "explanation": "The key idea in the exam question is the DELETE statement plus a WHERE clause that limits the row being removed.\n\nStudent note: For real applications, use a prepared statement with a bound parameter instead of inserting user-controlled data directly into SQL. The simple string here matches the older paper's learning objective."
+    },
+    {
+      "number": "4.1",
+      "marks": 5,
+      "text": "A program assigns `++` for marks 75 or higher, `+` for 50–74, `*` for 40–49 and `-` below 40. What results are produced for 15, 40, 49, 50 and 78, in that order?",
+      "options": [
+        "-, *, *, +, ++",
+        "-, -, *, +, ++",
+        "*, *, +, +, ++",
+        "-, *, +, +, ++"
+      ],
+      "correctAnswer": "-, *, *, +, ++",
+      "explanation": "15 is below 40, 40 and 49 fall in the 40–49 band, 50 falls in 50–74, and 78 is at least 75.\n\nStudent note: Check boundary values carefully. Numbers like 40, 49, 50 and 75 are often used to test whether your conditions overlap or leave gaps."
+    },
+    {
+      "number": "4.2",
+      "marks": 4,
+      "grading": "ai",
+      "answerType": "code",
+      "text": "Rewrite this loop using `do ... while` without changing the output:\n\n`$i = 4; while ($i <= 7) { if ($i % 2 != 0) echo \"$i - Odd number<br>\"; else echo \"$i - Even number<br>\"; $i++; }`",
+      "correctAnswer": "$i = 4;\ndo {\n    if ($i % 2 != 0) {\n        echo \"$i - Odd number<br>\";\n    } else {\n        echo \"$i - Even number<br>\";\n    }\n    $i++;\n} while ($i <= 7);",
+      "aiRubric": [
+        "Initialises $i to 4.",
+        "Uses a do ... while loop.",
+        "Keeps the <= 7 condition.",
+        "Keeps the odd/even modulus test.",
+        "Increments $i once per iteration.",
+        "Produces the same values 4 through 7."
+      ],
+      "explanation": "A `do ... while` loop executes the body first and checks the condition afterward. Because `$i` starts at 4 and the original while loop also runs immediately, the two versions can produce the same sequence.\n\nStudent note: When converting loops, preserve three things: initial value, condition and update step."
+    },
+    {
+      "number": "5.1",
+      "marks": 2,
+      "text": "If `$module = \"ICT2613\"`, what does `strlen($module)` return?",
+      "options": [
+        "7",
+        "6",
+        "8",
+        "2613"
+      ],
+      "correctAnswer": "7",
+      "explanation": "`ICT2613` contains seven characters: I, C, T, 2, 6, 1 and 3.\n\nStudent note: `strlen()` counts characters/bytes in this simple ASCII string; it does not interpret the digits as one number."
+    },
+    {
+      "number": "5.2",
+      "marks": 2,
+      "text": "If `$module = \"ICT2613\"`, what does `substr($module, -2)` return?",
+      "options": [
+        "13",
+        "26",
+        "ICT26",
+        "3"
+      ],
+      "correctAnswer": "13",
+      "explanation": "A negative start position counts from the end. Starting two characters from the end of `ICT2613` gives `13`.\n\nStudent note: With `substr`, a negative start is measured backward from the end of the string."
+    }
+  ]
+}
