@@ -306,7 +306,7 @@
       "explanation": "Net profit is simply what is left after all project expenses are removed from all project income.\n\nHow to reach the marked answer: Add all income or revenue. Add all expenses or costs. Net profit = total income − total expenses.\n\nExample: Income R140 000 minus expenses R90 000 leaves net profit R50 000.\n\nStudent note: Revenue is the money received; profit is what remains after expenses are taken away."
     },
     {
-      "text": "The project team deployed a weighed scoring model as a systematic selection process to select the best project that support the desired deliverables. Study the different criteria and their assigned weights in the table below. Note the numerical scores for each Project that has been assigned to each criteria. Calculate the weighted score for Project 1.\\n\\nNB! Consider rounding off to the nearest whole number to reach the correct answer.",
+      "text": "The project team deployed a weighed scoring model as a systematic selection process to select the best project that support the desired deliverables. Study the different criteria and their assigned weights in the table below. Note the numerical scores for each Project that has been assigned to each criteria. Calculate the weighted score for Project 1.\n\nNB! Consider rounding off to the nearest whole number to reach the correct answer.",
       "options": [
         "66",
         "65",
@@ -585,7 +585,7 @@
       "explanation": "A discount factor tells you how much R1 received in a future year is worth today. The further into the future, the smaller the factor.\n\nHow to reach the marked answer: Formula: discount factor = 1 / (1 + discount rate)^year. At 10%, Year 0 = 1.00. Years 1–4 are approximately 0.91, 0.83, 0.75 and 0.68.\n\nExample: At 10%, Year 2 factor = 1 / 1.10² ≈ 0.8264, rounded to 0.83.\n\nStudent note: The Year 0 factor is 1 because the money is already at today's value. Use the assessment's stated rounded factors consistently."
     },
     {
-      "text": "The project team deployed a weighed scoring model as a systematic selection process to select the best project that support the desired deliverables. Study the different criteria and their assigned weights in the table below. Note the numerical scores for each Project that has been assigned to each criteria. Calculate the weighted score for Project 3.\\n\\nNB! Consider rounding off to the nearest whole number to reach the correct answer.",
+      "text": "The project team deployed a weighed scoring model as a systematic selection process to select the best project that support the desired deliverables. Study the different criteria and their assigned weights in the table below. Note the numerical scores for each Project that has been assigned to each criteria. Calculate the weighted score for Project 3.\n\nNB! Consider rounding off to the nearest whole number to reach the correct answer.",
       "options": [
         "67",
         "66",
