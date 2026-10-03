@@ -1,0 +1,106 @@
+{
+  "testName": "ICT3722 · Oracle user & privilege SQL · verified practice",
+  "module": "ICT3722",
+  "assessment": "Database Practice · source-verified SQL practice",
+  "preserveOrder": true,
+  "marking": "ai-assisted-command",
+  "sourceType": "Practice based on older ICT3722 tutorial-solution topics and cross-checked with Oracle SQL documentation.",
+  "sourceReference": "https://www.studocu.com/en-za/course/university-of-south-africa/database-practice/5166783",
+  "sourceLimitations": "Recent full assessment wording is not reliably public. These tasks use verified Oracle syntax and course topics instead of inventing a current paper.",
+  "questions": [
+    {
+      "number": "1",
+      "marks": 2,
+      "grading": "ai",
+      "answerType": "command",
+      "text": "Write an Oracle SQL statement that changes user `rthomas` to the new password `anew5password`.",
+      "correctAnswer": "ALTER USER rthomas IDENTIFIED BY anew5password;",
+      "aiRubric": [
+        "Uses ALTER USER rthomas.",
+        "Uses IDENTIFIED BY anew5password."
+      ],
+      "explanation": "Oracle changes a database user's password with `ALTER USER ... IDENTIFIED BY ...` when the executing account has the required privilege (or the user changes their own password as permitted).\n\nStudent note: `ALTER USER` changes account properties; it does not grant table privileges."
+    },
+    {
+      "number": "2",
+      "marks": 3,
+      "grading": "ai",
+      "answerType": "command",
+      "text": "Grant user `rthomas` permission to query table `orders`, and allow that user to grant the same object privilege to another user.",
+      "correctAnswer": "GRANT SELECT ON orders TO rthomas WITH GRANT OPTION;",
+      "aiRubric": [
+        "Uses GRANT SELECT ON orders.",
+        "Grants to rthomas.",
+        "Includes WITH GRANT OPTION."
+      ],
+      "explanation": "`GRANT SELECT ON orders` gives an object privilege on that table. `WITH GRANT OPTION` lets the grantee pass that object privilege to another user.\n\nStudent note: The grant option increases authority, so use it only when delegation is intended."
+    },
+    {
+      "number": "3",
+      "marks": 2,
+      "grading": "ai",
+      "answerType": "command",
+      "text": "Create an Oracle database user named `practice_user` with password `StrongPass7`.",
+      "correctAnswer": "CREATE USER practice_user IDENTIFIED BY StrongPass7;",
+      "aiRubric": [
+        "Uses CREATE USER practice_user.",
+        "Uses IDENTIFIED BY StrongPass7."
+      ],
+      "explanation": "`CREATE USER ... IDENTIFIED BY ...` creates the account and defines password authentication. Additional privileges such as CREATE SESSION are normally required before the user can log in.\n\nStudent note: Creating a user and giving that user privileges are separate steps."
+    },
+    {
+      "number": "4",
+      "marks": 2,
+      "grading": "ai",
+      "answerType": "command",
+      "text": "Grant `practice_user` the system privilege needed to create a database session.",
+      "correctAnswer": "GRANT CREATE SESSION TO practice_user;",
+      "aiRubric": [
+        "Uses GRANT CREATE SESSION TO practice_user."
+      ],
+      "explanation": "In Oracle, CREATE SESSION is the system privilege that permits a database user to establish a session.\n\nStudent note: Object privileges such as SELECT and system privileges such as CREATE SESSION solve different access-control needs."
+    },
+    {
+      "number": "5",
+      "marks": 2,
+      "grading": "ai",
+      "answerType": "command",
+      "text": "Revoke `SELECT` privilege on table `orders` from user `rthomas`.",
+      "correctAnswer": "REVOKE SELECT ON orders FROM rthomas;",
+      "aiRubric": [
+        "Uses REVOKE SELECT ON orders FROM rthomas."
+      ],
+      "explanation": "`REVOKE` removes a previously granted privilege. Here it removes rthomas's SELECT object privilege on orders.\n\nStudent note: GRANT adds privilege; REVOKE removes privilege."
+    },
+    {
+      "number": "6",
+      "marks": 3,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "text": "Explain the difference between an Oracle system privilege and an object privilege, and give one example of each.",
+      "correctAnswer": "A system privilege authorises a database-level operation, such as CREATE SESSION or CREATE TABLE. An object privilege authorises an operation on a specific database object, such as SELECT ON orders or UPDATE ON customers.",
+      "aiRubric": [
+        "Defines a system privilege.",
+        "Gives a valid system privilege example.",
+        "Defines an object privilege.",
+        "Gives a valid object privilege example tied to an object."
+      ],
+      "explanation": "System privileges answer 'what kind of database operation may this account perform?'. Object privileges answer 'what may this account do to this specific table, view or other object?'.\n\nStudent note: If the SQL contains `ON table_name`, you are often looking at an object privilege."
+    },
+    {
+      "number": "7",
+      "marks": 4,
+      "grading": "ai",
+      "answerType": "command",
+      "text": "Write one Oracle query that shows `vendor_name`, `invoice_number` and `invoice_total` by joining `vendors` and `invoices` on `vendor_id`, then sorts the results from the highest invoice total to the lowest.",
+      "correctAnswer": "SELECT v.vendor_name, i.invoice_number, i.invoice_total\nFROM vendors v\nJOIN invoices i ON i.vendor_id = v.vendor_id\nORDER BY i.invoice_total DESC;",
+      "aiRubric": [
+        "Selects vendor_name, invoice_number and invoice_total.",
+        "Joins vendors to invoices using vendor_id.",
+        "Sorts invoice_total DESC.",
+        "Equivalent ANSI JOIN syntax is accepted."
+      ],
+      "explanation": "The join combines related vendor and invoice rows through vendor_id. `ORDER BY ... DESC` then places the largest invoice totals first.\n\nStudent note: Build SQL in layers: SELECT columns → FROM/JOIN tables → ON relationship → ORDER BY result."
+    }
+  ]
+}
