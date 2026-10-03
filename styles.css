@@ -6158,49 +6158,46 @@ body.dark-mode .study-hint-formula {
 }
 
 
-/* 2026-10-03: voice controls on each AI tutor reply */
+/* 2026-10-03: one-button device voice reader on AI tutor replies */
 .ai-tutor-reply-voice {
-  margin-top: .55rem;
-  padding-top: .5rem;
-  border-top: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  min-height: 28px;
+  margin-top: .35rem;
 }
-.ai-tutor-reply-voice .btn {
-  min-height: 1.95rem;
-  padding: .28rem .5rem;
-  font-size: .74rem;
+.ai-tutor-reply-play {
+  display: inline-grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted-text);
+  font: inherit;
+  font-size: .78rem;
+  line-height: 1;
+  cursor: pointer;
 }
-.ai-tutor-reply-voice .study-voice-speed,
-.ai-tutor-reply-voice .study-voice-voice {
-  min-height: 1.95rem;
-  font-size: .74rem;
+.ai-tutor-reply-play:hover,
+.ai-tutor-reply-play:focus-visible {
+  background: var(--subtle-surface);
+  color: var(--text-color);
 }
-.ai-tutor-reply-voice .study-voice-voice {
-  width: 6.4rem;
-  max-width: 6.4rem;
+.ai-tutor-reply-play:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 1px;
+}
+.ai-tutor-reply-play:disabled {
+  cursor: not-allowed;
+  opacity: .45;
 }
 .ai-tutor-chat-message.is-assistant.study-voice-active {
-  box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent-secondary) 24%, transparent);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent-secondary) 18%, transparent);
 }
 .ai-tutor-chat-message.is-assistant .study-voice-reading {
   outline: 2px solid var(--accent-secondary);
   outline-offset: 2px;
   border-radius: 4px;
-}
-@media (max-width: 560px) {
-  .ai-tutor-reply-voice {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, auto));
-    justify-content: start;
-    gap: .34rem;
-  }
-  .ai-tutor-reply-voice .study-voice-speed {
-    width: 4.4rem;
-  }
-  .ai-tutor-reply-voice .study-voice-voice {
-    width: min(8.8rem, 44vw);
-    max-width: min(8.8rem, 44vw);
-  }
-  .ai-tutor-reply-voice .study-voice-status {
-    grid-column: 1 / -1;
-  }
 }
