@@ -1,0 +1,159 @@
+{
+  "testName": "ICT3641 · 2026 Assignment 7 (verified partial · 78 of 100 marks)",
+  "module": "ICT3641",
+  "assessment": "Assignment 7 2026",
+  "totalMarks": 78,
+  "originalTotalMarks": 100,
+  "originalQuestionCount": 11,
+  "missingQuestionNumbers": [
+    "8",
+    "9",
+    "10"
+  ],
+  "preserveOrder": true,
+  "marking": "ai-assisted-written",
+  "sourceType": "Source-verified written-assignment practice. Prompts are paraphrased; only questions visible in the indexed 2026 tutorial letter are included.",
+  "sourceReference": "https://www.studocu.com/en-za/document/university-of-south-africa/business-informatics-iiia/ict3641-assignment-7-business-informatics-iiia/170501009",
+  "sourceLimitations": "The public preview exposes the marking focus for Questions 1-7 and 11 but not enough reliable text for Questions 8-10. Those questions are withheld rather than reconstructed.",
+  "questions": [
+    {
+      "number": "1",
+      "marks": 24,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "text": "Explain the eight distinctive features of e-commerce technology. For each feature, state what it means, how it differs from traditional commerce, and give a practical example.",
+      "correctAnswer": "The eight standard features are ubiquity, global reach, universal standards, richness, interactivity, information density, personalisation/customisation, and social technology. A strong answer defines every feature, distinguishes its effect from traditional commerce, and adds a relevant example.",
+      "aiRubric": [
+        "Ubiquity is correctly defined and illustrated.",
+        "Global reach is correctly defined and illustrated.",
+        "Universal standards are correctly defined and illustrated.",
+        "Richness is correctly defined and illustrated.",
+        "Interactivity is correctly defined and illustrated.",
+        "Information density is correctly defined and illustrated.",
+        "Personalisation/customisation is correctly defined and illustrated.",
+        "Social technology is correctly defined and illustrated."
+      ],
+      "explanation": "E-commerce is not only traditional buying moved onto a screen. These eight features change where trade can happen, who can be reached, how much information can be shared, and how businesses can interact with individual customers.\n\nStudent note: For a high-mark answer, use eight clear headings. Under each heading give: definition → difference from traditional commerce → example."
+    },
+    {
+      "number": "2",
+      "marks": 12,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "text": "Discuss how the distinctive features of e-commerce can affect organisations, consumers, markets, competition, efficiency and customer relationships.",
+      "correctAnswer": "E-commerce can reduce search and transaction costs, extend market reach, increase price and product transparency, intensify competition, enable personalised customer relationships, support faster information flows, and create more efficient digital processes. It also gives consumers more choice and easier comparison while forcing organisations to respond faster and manage digital trust.",
+      "aiRubric": [
+        "Explains organisational impact, not only lists features.",
+        "Explains consumer impact such as convenience, choice or information.",
+        "Explains market/competition effects such as transparency or wider reach.",
+        "Explains efficiency or transaction-cost effects.",
+        "Explains customer relationship/personalisation effects.",
+        "Uses clear links between e-commerce features and business consequences."
+      ],
+      "explanation": "The question is about consequences. Do not repeat the eight feature definitions from Question 1. Show what those features change in real business activity.\n\nStudent note: Use cause-and-effect language: 'Because e-commerce has global reach..., this allows/causes...'."
+    },
+    {
+      "number": "3",
+      "marks": 8,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "text": "Describe important factors an organisation should consider when building a strong mobile web presence.",
+      "correctAnswer": "Key factors include responsive design, simple navigation, fast loading, mobile optimisation, security, accessibility, clear user experience, and testing across common devices and screen sizes.",
+      "aiRubric": [
+        "Responsive/mobile-first design.",
+        "Easy navigation and clear interaction.",
+        "Performance/loading speed.",
+        "Security and privacy.",
+        "Accessibility.",
+        "Good user experience/readability.",
+        "Cross-device/browser testing.",
+        "Content and forms are suitable for small screens."
+      ],
+      "explanation": "A mobile site must be usable on a small screen, quick on mobile networks and safe for users. Design quality is not only how the page looks; it includes speed, navigation, accessibility and trust.\n\nStudent note: Think of what frustrates you on a phone: tiny text, slow pages, difficult menus and unsafe forms. Each problem points to a design requirement."
+    },
+    {
+      "number": "4",
+      "marks": 6,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "text": "Compare three common categories of mobile wallets and explain how each normally works.",
+      "correctAnswer": "A closed wallet is mainly usable with the issuer or its own ecosystem. A semi-closed wallet is accepted by a defined network of merchants or services. An open wallet is designed for wider payment use and, where the provider and regulation allow it, may support functions such as transfers or cash withdrawal. The exact services depend on the provider and local rules.",
+      "aiRubric": [
+        "Explains a closed wallet.",
+        "Explains a semi-closed wallet.",
+        "Explains an open wallet.",
+        "Makes the acceptance/use difference clear.",
+        "Avoids claiming every open wallet has identical functions.",
+        "Provides suitable examples or practical context."
+      ],
+      "explanation": "The main difference is where the stored value or payment service can be used. The broader the wallet category, the broader its possible acceptance and services.\n\nStudent note: Do not memorise only product names. Learn the rule that separates closed, semi-closed and open wallets."
+    },
+    {
+      "number": "5",
+      "marks": 5,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "text": "Explain cross-platform attribution in digital marketing and why it is difficult to measure accurately.",
+      "correctAnswer": "Cross-platform attribution tries to determine how marketing contacts across different devices, apps and channels contributed to a conversion. It is difficult because one person may use several devices, identifiers may not match across platforms, privacy controls reduce tracking, platforms may keep data separate, and different attribution models can assign credit differently.",
+      "aiRubric": [
+        "Defines attribution as assigning contribution/credit to touchpoints.",
+        "Recognises multiple devices/platforms/channels.",
+        "Explains identity/device fragmentation.",
+        "Explains privacy or tracking limitations.",
+        "Explains data/platform or attribution-model limitations."
+      ],
+      "explanation": "A customer may see an advert on a phone, research on a laptop and finally buy in an app. Attribution tries to connect those steps without pretending every platform can always identify the same person.\n\nStudent note: Attribution asks 'which touchpoints helped cause the conversion?' It is not the same as simply counting clicks."
+    },
+    {
+      "number": "6",
+      "marks": 5,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "text": "Discuss benefits and risks of location-based marketing.",
+      "correctAnswer": "Location data can make offers timely and relevant, support nearby-store promotions and improve conversion when the context is useful. Risks include privacy invasion, weak consent, insecure location data, excessive tracking and unethical targeting. Organisations should use clear consent, data minimisation, security and transparent purpose limits.",
+      "aiRubric": [
+        "Explains relevance/personalisation benefit.",
+        "Explains real-time/local targeting benefit.",
+        "Connects location marketing to customer action or conversion.",
+        "Explains privacy/consent/security risk.",
+        "Suggests responsible safeguards."
+      ],
+      "explanation": "Location can make marketing more useful because the message matches where the customer is. The same data is sensitive, so usefulness must be balanced with consent, security and responsible use.\n\nStudent note: In scenario questions, include both business value and customer/privacy risk."
+    },
+    {
+      "number": "7",
+      "marks": 8,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "text": "Explain major portal types and common ways a portal can earn revenue.",
+      "correctAnswer": "Portal types can include general/search portals, community portals, vertical or specialised portals, and enterprise portals. Revenue can come from advertising, subscriptions or premium access, commissions/partnerships, transaction or lead fees, and legitimate data or service offerings where privacy rules permit.",
+      "aiRubric": [
+        "Explains a general/search portal.",
+        "Explains a community portal.",
+        "Explains a vertical/specialised portal.",
+        "Explains an enterprise portal.",
+        "Identifies advertising revenue.",
+        "Identifies subscription/premium revenue.",
+        "Identifies partnership/transaction/lead revenue.",
+        "Connects revenue choices to portal users/services."
+      ],
+      "explanation": "A portal is an entry point that organises access to information or services. Portal types differ mainly by audience and purpose, while their revenue depends on the value they provide to users, advertisers or partners.\n\nStudent note: When asked for a portal type, always describe the audience and purpose, not only the name."
+    },
+    {
+      "number": "11",
+      "marks": 10,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "text": "Discuss common barriers to successful B2B e-commerce adoption and practical ways organisations can reduce those barriers.",
+      "correctAnswer": "Barriers include legacy-system integration, implementation cost, lack of trust, resistance to process change, incompatible standards, security concerns, weak skills and poor governance. Responses include phased integration, shared standards, supplier/customer collaboration, training and change management, strong security controls, clear ownership, and governance of data and processes.",
+      "aiRubric": [
+        "Identifies system/integration barrier and a suitable response.",
+        "Identifies cost/resource barrier and a suitable response.",
+        "Identifies trust/security barrier and a suitable response.",
+        "Identifies change/resistance/skills barrier and a suitable response.",
+        "Identifies standards/interoperability or governance barrier and a suitable response."
+      ],
+      "explanation": "B2B e-commerce connects organisations, systems and people. A solution can fail even when the technology works if standards, trust, skills or business processes are not aligned.\n\nStudent note: Pair every barrier with a realistic response. That makes the answer applied rather than a list."
+    }
+  ]
+}
