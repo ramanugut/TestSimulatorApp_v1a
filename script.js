@@ -3856,7 +3856,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const diagramImage =
       studentAnswer && typeof studentAnswer === "object" &&
       typeof studentAnswer.image === "string" &&
-      (question.answerType === "diagram" || question.answerType === "uml-diagram")
+      (question.answerType === "diagram" || question.answerType === "uml-diagram" ||
+       question.answerType === "image-upload")
         ? studentAnswer.image
         : "";
     const answerText =
@@ -3875,7 +3876,7 @@ document.addEventListener("DOMContentLoaded", function () {
         question: question.text || "",
         studentAnswer: answerText || (diagramImage ? "Answer supplied as a drawn diagram." : ""),
         diagramImage,
-        diagramRequired: question.diagramRequired === true,
+        diagramRequired: question.diagramRequired === true || question.imageRequired === true,
         // A paper may prescribe its own rule for a missing diagram. Older
         // questions retain the existing default when no override is set.
         diagramNoDrawingCapPercent:
@@ -4566,16 +4567,22 @@ const testFiles = [
   // Verified 2026 additions. ICT2613 is intentionally partial: missing/truncated
   // tutorial-letter questions are withheld instead of reconstructed by guesswork.
   "ict2613-assessment-1-2026-partial.json",
+  "ict2613-assessment-1-2024-verified-practice.json",
   "ict2613-may-june-2017-exam-code-practice.json",
   "ict2642-assessment-2-2026.json",
   // Third-year additions. Where a public source is incomplete or copyrighted,
   // prompts are paraphrased and clearly labelled as source-verified practice.
   "ict3612-assessment-1-2025-verified-practice.json",
+  "ict3621-assessment-3-2025-practice.json",
   "ict3621-oct-nov-2025-exam-structure-practice.json",
+  "ict3631-assignment-1-2026-verified.json",
   "ict3631-jan-feb-2025-exam-structure-practice.json",
+  "ict3641-assessment-1-2024-verified-practice.json",
   "ict3641-assignment-7-2026-verified-partial.json",
   "ict3641-oct-nov-2022-exam-written-practice.json",
   "ict3642-oct-nov-2025-section-b-practice.json",
+  "ict3722-assignment-2-2023-verified-practice.json",
+  "ict3722-assignment-4-2024-practice.json",
   "ict3722-oracle-security-sql-verified-practice.json",
 ];
 
@@ -5934,7 +5941,7 @@ const testFiles = [
         note.textContent = "AI will inspect the submitted drawing and your optional calculations.";
         questionElement.appendChild(note);
       } else if (window.AnswerWorkspace &&
-          ["uml-diagram", "table", "command", "code"].includes(question.answerType)) {
+          ["uml-diagram", "table", "command", "code", "image-upload"].includes(question.answerType)) {
         const onChange = value => {
           setInteractiveAnswer(actualIndex, value);
           if (!usesStudyGuessBuffer()) {
@@ -5953,7 +5960,8 @@ const testFiles = [
         };
         const method = question.answerType === "uml-diagram"
           ? "createDiagram" : question.answerType === "table"
-            ? "createTable" : "createEditor";
+            ? "createTable" : question.answerType === "image-upload"
+              ? "createImageEvidence" : "createEditor";
         questionElement.appendChild(window.AnswerWorkspace[method](
           question, getInteractiveAnswer(actualIndex), onChange, testSubmitted
         ));
