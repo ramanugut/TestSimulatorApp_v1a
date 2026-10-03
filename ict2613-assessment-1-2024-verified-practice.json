@@ -1,0 +1,169 @@
+{
+  "testName": "ICT2613 · 2024 Assessment 1 · verified practice (partial)",
+  "module": "ICT2613",
+  "assessment": "Assessment 1 2024",
+  "totalMarks": 18,
+  "preserveOrder": true,
+  "marking": "automatic-multiple-choice",
+  "sourceType": "Paraphrased from the 2024 tutorial letter/assessment review. Only items with enough visible context to verify independently are included.",
+  "sourceReference": "https://www.studocu.com/en-za/document/university-of-south-africa/internet-programing/ict2613-102-0-2024/98637712",
+  "sourceLimitations": "The source exposes many but not all quiz pages cleanly. Questions that depend on missing textbook tables/images or unclear OCR are withheld.",
+  "questions": [
+    {
+      "number": "1",
+      "marks": 1,
+      "text": "A typical web application uses a browser/client that communicates with a server. Which architecture best describes this?",
+      "options": [
+        "client-server",
+        "database-only",
+        "client-side only",
+        "standalone desktop"
+      ],
+      "correctAnswer": "client-server",
+      "explanation": "A web browser acts as a client and sends requests to a web server, which returns responses.\n\nStudent note: 'Web application' usually means at least two sides communicating: client and server."
+    },
+    {
+      "number": "2",
+      "marks": 1,
+      "text": "PHP running on a web server normally generates what kind of web page content?",
+      "options": [
+        "dynamic",
+        "static-only",
+        "compiled executable pages",
+        "uninterpreted source pages"
+      ],
+      "correctAnswer": "dynamic",
+      "explanation": "PHP executes on the server and can produce HTML/content that changes based on data, input or program logic.\n\nStudent note: PHP source is executed server-side; the browser normally receives the generated output."
+    },
+    {
+      "number": "3",
+      "marks": 1,
+      "text": "Which product is commonly used as the web server for PHP applications?",
+      "options": [
+        "Apache HTTP Server",
+        "NetBeans",
+        "phpMyAdmin",
+        "Microsoft Outlook"
+      ],
+      "correctAnswer": "Apache HTTP Server",
+      "explanation": "Apache is a web server. NetBeans is an IDE and phpMyAdmin is a database administration application.\n\nStudent note: XAMPP is a package that can include Apache; Apache itself is the server."
+    },
+    {
+      "number": "4",
+      "marks": 1,
+      "text": "When testing a PHP site hosted on your own computer, which host name is commonly used in the browser URL?",
+      "options": [
+        "localhost",
+        "apache",
+        "netbeans",
+        "mysql"
+      ],
+      "correctAnswer": "localhost",
+      "explanation": "`localhost` resolves to the local machine and is commonly used for a locally hosted development web server.\n\nStudent note: localhost identifies the computer; Apache is software running on it."
+    },
+    {
+      "number": "5",
+      "marks": 1,
+      "text": "Which term is not normally a structural part of an HTTP URL?",
+      "options": [
+        "node",
+        "protocol/scheme",
+        "path",
+        "resource/file component"
+      ],
+      "correctAnswer": "node",
+      "explanation": "URLs can contain a scheme/protocol, host, port, path, query and fragment. 'Node' is not a standard URL component name.\n\nStudent note: Learn URL structure using a real example such as `https://example.org/folder/page.php`."
+    },
+    {
+      "number": "6",
+      "marks": 2,
+      "text": "A value starts at 1000 and is multiplied by 1.10 once per loop. What is its value after two iterations?",
+      "options": [
+        "1210",
+        "1200",
+        "1100",
+        "1000"
+      ],
+      "correctAnswer": "1210",
+      "explanation": "After the first iteration: 1000 × 1.10 = 1100. After the second: 1100 × 1.10 = 1210.\n\nStudent note: Compound growth multiplies the updated value again."
+    },
+    {
+      "number": "7",
+      "marks": 2,
+      "text": "Assume the date is 4 January 2024. What does PHP `date('d M Y')` format as?",
+      "options": [
+        "04 Jan 2024",
+        "4 Jan 2024",
+        "04 01 2024",
+        "2024 Jan 04"
+      ],
+      "correctAnswer": "04 Jan 2024",
+      "explanation": "`d` gives a two-digit day, `M` a three-letter month and `Y` a four-digit year.\n\nStudent note: PHP date format letters are case-sensitive."
+    },
+    {
+      "number": "8",
+      "marks": 2,
+      "text": "What does `SELECT balance, number FROM accounts WHERE balance < 0` return?",
+      "options": [
+        "The balance and number columns for rows whose balance is negative",
+        "Every column for negative-balance rows",
+        "Only rows where number is negative",
+        "A new accounts table"
+      ],
+      "correctAnswer": "The balance and number columns for rows whose balance is negative",
+      "explanation": "The SELECT list controls columns; WHERE controls which rows qualify.\n\nStudent note: Read SQL in two dimensions: columns selected and rows filtered."
+    },
+    {
+      "number": "9",
+      "marks": 2,
+      "text": "What does an `INSERT INTO categories (...) VALUES (...)` statement do when the columns and values are valid?",
+      "options": [
+        "Adds a new row to categories",
+        "Adds rows to every related table automatically",
+        "Changes every existing category",
+        "Deletes duplicate categories"
+      ],
+      "correctAnswer": "Adds a new row to categories",
+      "explanation": "INSERT adds a new row to the target table. Relationships do not automatically create matching rows in other tables.\n\nStudent note: Foreign keys validate relationships; they do not invent child/parent rows."
+    },
+    {
+      "number": "10",
+      "marks": 2,
+      "text": "Which situation is a runtime failure rather than a PHP syntax error?",
+      "options": [
+        "The database server is unavailable when the script tries to connect",
+        "A semicolon is missing from PHP source",
+        "A variable is compared with the wrong business rule",
+        "A loop repeats one extra time"
+      ],
+      "correctAnswer": "The database server is unavailable when the script tries to connect",
+      "explanation": "The program can be syntactically valid but fail while running because an external service is unavailable.\n\nStudent note: Syntax error = code cannot be parsed; runtime error = failure during execution."
+    },
+    {
+      "number": "11",
+      "marks": 1,
+      "text": "What is an error called when the program runs but calculates the wrong result?",
+      "options": [
+        "logic error",
+        "syntax error",
+        "compiler error",
+        "connection error"
+      ],
+      "correctAnswer": "logic error",
+      "explanation": "A logic error means the code can execute but the algorithm/conditions produce the wrong outcome.\n\nStudent note: Logic errors are often the hardest because the program appears to work."
+    },
+    {
+      "number": "12",
+      "marks": 2,
+      "text": "A `for` loop line ends with an accidental semicolon before its intended block. What kind of problem is this most likely to create?",
+      "options": [
+        "A logic error because the loop body becomes empty and the following block is no longer controlled by the loop",
+        "A PHP syntax error in every case",
+        "No effect at all",
+        "A database constraint error"
+      ],
+      "correctAnswer": "A logic error because the loop body becomes empty and the following block is no longer controlled by the loop",
+      "explanation": "The semicolon is a valid empty statement, so PHP can parse it. The intended block then runs separately, producing incorrect behaviour and possibly warnings.\n\nStudent note: A tiny semicolon can be valid syntax and still break the algorithm."
+    }
+  ]
+}
