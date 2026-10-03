@@ -41,3 +41,28 @@
   .editable-table-heading {display:none;}
   .uml-label-input {min-height:44px;}
 }
+
+.image-evidence-workspace {
+  display: grid;
+  gap: 0.8rem;
+}
+.image-evidence-preview-wrap {
+  min-height: 120px;
+  border: 1px dashed var(--border-color);
+  border-radius: 12px;
+  background: var(--subtle-surface);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+.image-evidence-preview-wrap:has(.image-evidence-preview[hidden])::before {
+  content: "No screenshot uploaded yet";
+  color: var(--muted-text);
+  font-size: 0.9rem;
+}
+.image-evidence-preview {
+  display: block;
+  max-width: 100%;
+  max-height: 520px;
+  object-fit: contain;
+}
