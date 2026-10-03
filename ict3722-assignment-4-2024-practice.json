@@ -1,0 +1,223 @@
+{
+  "testName": "ICT3722 · 2024 Assignment 4 · ERD & SQL practice (100 marks)",
+  "module": "ICT3722",
+  "assessment": "Assignment 4 2024",
+  "totalMarks": 100,
+  "preserveOrder": true,
+  "marking": "ai-assisted-mixed",
+  "sourceType": "Source-verified assignment structure reconstructed as a clean practice scenario. It preserves the ERD, table-creation, SQL, integrity, normalisation and ethics tasks.",
+  "sourceReference": "https://www.studocu.com/en-za/document/university-of-south-africa/database-practice/ict3722-assignment-4-database-practice-and-sql-queries/139439684",
+  "sourceLimitations": "The available source is a student submission, not an official memorandum. The app uses a fresh fictional care-organisation scenario and independently checked SQL/database principles instead of copying that student's answers.",
+  "caseStudy": {
+    "title": "SilverCare community support database",
+    "entities": [
+      "Beneficiary",
+      "Allergy",
+      "Medication",
+      "Exercise"
+    ],
+    "rules": [
+      "A beneficiary may have zero or many allergy records.",
+      "A beneficiary may have zero or many medication records.",
+      "A beneficiary may have zero or many exercise-plan records.",
+      "Each allergy, medication and exercise record belongs to exactly one beneficiary."
+    ]
+  },
+  "questions": [
+    {
+      "number": "1",
+      "marks": 10,
+      "grading": "ai",
+      "answerType": "uml-diagram",
+      "diagramRequired": true,
+      "diagramTools": [
+        "entity",
+        "attribute",
+        "relationship",
+        "line",
+        "arrow",
+        "text",
+        "pen"
+      ],
+      "text": "Draw an ERD for SilverCare using the four entities Beneficiary, Allergy, Medication and Exercise. Show primary keys, foreign keys and the one-to-many relationships from Beneficiary.",
+      "correctAnswer": "Beneficiary(BeneficiaryID PK, ...); Allergy(AllergyID PK, BeneficiaryID FK, ...); Medication(MedicationID PK, BeneficiaryID FK, ...); Exercise(ExerciseID PK, BeneficiaryID FK, ...). Beneficiary has 1:M relationships to each child entity.",
+      "aiRubric": [
+        "All four entities present.",
+        "Primary keys shown.",
+        "BeneficiaryID foreign key shown in each child table.",
+        "Three 1:M relationships shown.",
+        "Cardinalities readable.",
+        "Diagram is actually drawn."
+      ],
+      "explanation": "The parent entity is Beneficiary. The repeating details belong in child tables and carry the parent's key as a foreign key.\n\nStudent note: One person can have many medications, but one medication record in this design belongs to one person."
+    },
+    {
+      "number": "2",
+      "marks": 40,
+      "grading": "ai",
+      "answerType": "code",
+      "text": "Write SQL DDL to create the four SilverCare tables with suitable data types, primary keys, required fields and foreign-key relationships. Include at least one useful validation constraint where appropriate.",
+      "correctAnswer": "One valid design creates Beneficiary(BeneficiaryID PK, FullName, DateOfBirth, Gender, Address, ContactNo), Allergy(AllergyID PK, BeneficiaryID FK, AllergyType, Severity), Medication(MedicationID PK, BeneficiaryID FK, MedicationName, Dosage, Frequency), and Exercise(ExerciseID PK, BeneficiaryID FK, ExerciseType, DurationMinutes, Intensity). Child BeneficiaryID columns reference Beneficiary(BeneficiaryID). Suitable NOT NULL/CHECK constraints may be added.",
+      "aiRubric": [
+        "Creates Beneficiary table with primary key.",
+        "Creates Allergy table with primary key and Beneficiary FK.",
+        "Creates Medication table with primary key and Beneficiary FK.",
+        "Creates Exercise table with primary key and Beneficiary FK.",
+        "Uses sensible data types.",
+        "Uses valid foreign-key syntax.",
+        "Includes useful integrity constraints.",
+        "SQL is structurally coherent even if exact vendor syntax differs."
+      ],
+      "explanation": "DDL should encode the ERD as tables and constraints. Foreign keys are what enforce the parent-child links.\n\nStudent note: Build the parent table before child tables so the referenced primary key already exists."
+    },
+    {
+      "number": "3",
+      "marks": 5,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "text": "Why is accurate record keeping especially important in an organisation serving older or vulnerable beneficiaries?",
+      "correctAnswer": "Accurate records support correct eligibility/service decisions, safe care, timely benefits or support, reliable contact details, fraud/error prevention, accountability, reporting and legal/regulatory duties. Inaccurate records can directly harm a beneficiary or cause services to be wrongly withheld or duplicated.",
+      "aiRubric": [
+        "Service/benefit accuracy.",
+        "Safety or correct decisions.",
+        "Fraud/error prevention.",
+        "Accountability/compliance.",
+        "Explains harm caused by inaccurate records."
+      ],
+      "explanation": "Poor data quality is not only an IT inconvenience when records affect real people and services.\n\nStudent note: Link data accuracy to consequences for the beneficiary."
+    },
+    {
+      "number": "4",
+      "marks": 5,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "text": "Explain the relationship between Beneficiary and Medication in this schema.",
+      "correctAnswer": "It is one-to-many: one beneficiary can have zero or many medication records, while each medication record belongs to one beneficiary. Medication.BeneficiaryID is a foreign key referencing Beneficiary.BeneficiaryID.",
+      "aiRubric": [
+        "States one-to-many.",
+        "Explains both sides of cardinality.",
+        "Identifies BeneficiaryID as FK in Medication."
+      ],
+      "explanation": "The foreign key sits on the many/child side because each child row must identify its parent.\n\nStudent note: Parent PK becomes child FK."
+    },
+    {
+      "number": "5",
+      "marks": 5,
+      "grading": "ai",
+      "answerType": "code",
+      "text": "Write SQL to return all beneficiary rows and their personal information.",
+      "correctAnswer": "SELECT * FROM Beneficiary;",
+      "aiRubric": [
+        "Uses SELECT.",
+        "Reads from Beneficiary.",
+        "Returns all beneficiary columns, either with * or an explicit complete column list."
+      ],
+      "explanation": "A basic `SELECT` retrieves rows from a table. An explicit column list is often better in production, but `SELECT *` directly satisfies this task.\n\nStudent note: SELECT reads data; it does not change rows."
+    },
+    {
+      "number": "6",
+      "marks": 5,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "text": "Explain why constraints are important in this database and give relevant examples.",
+      "correctAnswer": "Constraints prevent invalid states and preserve integrity. PRIMARY KEY keeps row identifiers unique/non-null; FOREIGN KEY keeps child references valid; NOT NULL requires essential values; UNIQUE prevents unwanted duplicates; CHECK restricts allowed values such as a positive duration or known severity.",
+      "aiRubric": [
+        "Explains integrity purpose.",
+        "Primary key example.",
+        "Foreign key example.",
+        "At least one of NOT NULL/UNIQUE/CHECK with correct purpose."
+      ],
+      "explanation": "Constraints move important data rules into the database so every application must obey them.\n\nStudent note: A constraint is an enforced rule, not only documentation."
+    },
+    {
+      "number": "7",
+      "marks": 5,
+      "grading": "ai",
+      "answerType": "code",
+      "text": "Write SQL that changes the dosage for medication records belonging to BeneficiaryID 1 to `100 mg`.",
+      "correctAnswer": "UPDATE Medication SET Dosage = '100 mg' WHERE BeneficiaryID = 1;",
+      "aiRubric": [
+        "Uses UPDATE Medication.",
+        "Sets Dosage.",
+        "Uses WHERE BeneficiaryID = 1."
+      ],
+      "explanation": "UPDATE changes existing rows, and WHERE limits which rows are changed.\n\nStudent note: Always inspect the WHERE clause before running UPDATE."
+    },
+    {
+      "number": "8",
+      "marks": 5,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "text": "Discuss key ethical and security concerns when storing sensitive health-related information.",
+      "correctAnswer": "Important concerns include lawful purpose and consent where required, confidentiality, least-privilege access, encryption, secure authentication, audit logging, data minimisation, accuracy, retention limits, breach response and respecting applicable privacy/data-protection law. Sensitive health information should not be exposed simply because it is useful to the organisation.",
+      "aiRubric": [
+        "Privacy/confidentiality.",
+        "Access control/authentication.",
+        "Security/encryption.",
+        "Data minimisation/retention.",
+        "Accuracy/accountability.",
+        "Compliance/breach response."
+      ],
+      "explanation": "Sensitive data needs both technical security and ethical limits on why it is collected and who may use it.\n\nStudent note: Security asks 'can someone access it?'; privacy also asks 'should they be allowed to use it for this purpose?'."
+    },
+    {
+      "number": "9",
+      "marks": 5,
+      "grading": "ai",
+      "answerType": "code",
+      "text": "Write SQL that deletes the beneficiary whose BeneficiaryID is 6. Assume related child records have already been handled according to the database's referential rules.",
+      "correctAnswer": "DELETE FROM Beneficiary WHERE BeneficiaryID = 6;",
+      "aiRubric": [
+        "Uses DELETE FROM Beneficiary.",
+        "Uses WHERE BeneficiaryID = 6."
+      ],
+      "explanation": "DELETE removes rows. The WHERE clause prevents deleting every beneficiary.\n\nStudent note: Foreign-key rules may block a parent delete until related child rows are handled."
+    },
+    {
+      "number": "10",
+      "marks": 5,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "text": "Explain normalisation and how the four-table design supports it.",
+      "correctAnswer": "Normalisation organises data to reduce unnecessary duplication and update anomalies. The design keeps beneficiary facts in Beneficiary and repeating allergy, medication and exercise facts in separate child tables linked by keys. This makes each fact stored in a more appropriate place and improves integrity and maintenance.",
+      "aiRubric": [
+        "Defines normalisation.",
+        "Mentions reducing redundancy/anomalies.",
+        "Explains separating repeating child facts.",
+        "Connects keys/relationships to integrity."
+      ],
+      "explanation": "Instead of repeating the same person's name beside every medication or allergy, store the person once and reference the key.\n\nStudent note: Normalisation is mainly about storing each fact in the right place."
+    },
+    {
+      "number": "11",
+      "marks": 5,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "text": "Discuss benefits and limitations of SQL for managing a database like SilverCare.",
+      "correctAnswer": "Benefits include standard declarative querying, strong relational integrity, transactions, joins/aggregation and mature tooling. Limitations include the need for schema/query skills, vendor-specific differences, performance tuning for complex or very large workloads, and the fact that poor permissions or unsafe application SQL can create security risks. SQL is powerful but must be designed and operated well.",
+      "aiRubric": [
+        "At least two genuine benefits.",
+        "At least two genuine limitations.",
+        "Mentions integrity/transactions or querying strength.",
+        "Mentions performance, skills, portability or security trade-off."
+      ],
+      "explanation": "SQL is a strong tool, not an automatic guarantee of a good database. Design, indexes, permissions and application practices still matter.\n\nStudent note: Avoid saying SQL itself causes SQL injection; unsafe application construction of SQL is the problem."
+    },
+    {
+      "number": "12",
+      "marks": 5,
+      "grading": "ai",
+      "answerType": "code",
+      "text": "Write SQL that returns beneficiaries who have an allergy record for `Peanuts`. Use the Beneficiary and Allergy tables rather than assuming allergy data is stored in the Beneficiary table.",
+      "correctAnswer": "SELECT b.*\nFROM Beneficiary b\nJOIN Allergy a ON a.BeneficiaryID = b.BeneficiaryID\nWHERE a.AllergyType = 'Peanuts';",
+      "aiRubric": [
+        "Reads from Beneficiary and Allergy.",
+        "Joins the tables using BeneficiaryID.",
+        "Filters AllergyType for Peanuts.",
+        "Returns beneficiary information.",
+        "Equivalent valid join/subquery solutions are accepted."
+      ],
+      "explanation": "Allergy details are normalised into the child Allergy table, so the query must follow the relationship back to Beneficiary.\n\nStudent note: After normalisation, do not query a column from the old combined table if that fact now belongs in a child table."
+    }
+  ]
+}
