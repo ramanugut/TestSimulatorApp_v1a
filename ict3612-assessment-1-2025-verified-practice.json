@@ -1,0 +1,194 @@
+{
+  "testName": "ICT3612 · 2025 Assessment 1 · source-verified practice",
+  "module": "ICT3612",
+  "assessment": "Assessment 1 2025",
+  "preserveOrder": true,
+  "marking": "automatic-multiple-choice",
+  "sourceType": "Paraphrased practice based on concepts/questions visible in the 2025 assessment review and cross-checked against PHP/SQL language rules.",
+  "sourceReference": "https://www.studocu.com/en-za/document/university-of-south-africa/advanced-internet-programming/ict3612-assessment-1-quiz-attempt-review-and-questions/142286608",
+  "sourceLimitations": "The public assessment review is an uploaded attempt, so the app does not blindly copy its markings. Items below are included only where the answer can be independently checked.",
+  "questions": [
+    {
+      "number": "1",
+      "marks": 1,
+      "text": "A PHP function receives a variable by reference. Which statement is correct?",
+      "options": [
+        "It can modify the original variable without returning it",
+        "It must return the variable before the caller can see any change",
+        "It can never change the caller's variable",
+        "PHP always copies referenced arguments"
+      ],
+      "correctAnswer": "It can modify the original variable without returning it",
+      "explanation": "When a PHP parameter is declared by reference using &, operations on that parameter can change the caller's original variable.\n\nStudent note: Normal parameters are passed by value. The ampersand on the parameter is what changes this behaviour."
+    },
+    {
+      "number": "2",
+      "marks": 1,
+      "text": "What does the PHP spaceship operator expression 12 <=> 12 evaluate to?",
+      "options": [
+        "-1",
+        "0",
+        "1",
+        "It throws because the two values are integers"
+      ],
+      "correctAnswer": "0",
+      "explanation": "The <=> operator returns 0 when the two compared values are equal, a negative value when the left side is smaller, and a positive value when the left side is larger.\n\nStudent note: Remember it as three outcomes: less than → negative, equal → 0, greater than → positive."
+    },
+    {
+      "number": "3",
+      "marks": 1,
+      "text": "Which PHP statement immediately sends a value back from a function to its caller?",
+      "options": [
+        "return",
+        "echo",
+        "break",
+        "include"
+      ],
+      "correctAnswer": "return",
+      "explanation": "return ends the current function execution and can pass a value back to the caller. echo displays output but does not return a function result.\n\nStudent note: 'Display' and 'return' are different jobs."
+    },
+    {
+      "number": "4",
+      "marks": 1,
+      "text": "Where must a variadic parameter such as ...$items appear in a PHP function parameter list?",
+      "options": [
+        "It must be the last parameter",
+        "It must be the first parameter",
+        "It can only appear between two required parameters",
+        "It cannot be combined with normal parameters"
+      ],
+      "correctAnswer": "It must be the last parameter",
+      "explanation": "Normal positional parameters may come before the variadic parameter. The variadic parameter collects the remaining arguments, so nothing can follow it.\n\nStudent note: Think 'collect the rest' — that is why the variadic parameter belongs at the end."
+    },
+    {
+      "number": "5",
+      "marks": 1,
+      "text": "A subclass defines a method with the same compatible signature as an inherited method. What is this called?",
+      "options": [
+        "Method overriding",
+        "Method importing",
+        "Table inheritance",
+        "Argument unpacking"
+      ],
+      "correctAnswer": "Method overriding",
+      "explanation": "Overriding replaces or specialises inherited method behaviour in the subclass while keeping the inheritance relationship.\n\nStudent note: Overriding happens across parent/child classes; overloading is a different concept."
+    },
+    {
+      "number": "6",
+      "marks": 1,
+      "text": "Given `enum Vehicle { case SportsCar; case Bus; }`, which expression refers to the SportsCar case?",
+      "options": [
+        "Vehicle::SportsCar",
+        "Vehicle->SportsCar",
+        "new Vehicle('SportsCar')",
+        "Vehicle.SportsCar"
+      ],
+      "correctAnswer": "Vehicle::SportsCar",
+      "explanation": "PHP enum cases are accessed with the enum type name, the scope-resolution operator ::, and the case name.\n\nStudent note: Enum cases behave as instances of the enum type; use Type::Case."
+    },
+    {
+      "number": "7",
+      "marks": 1,
+      "text": "Which regular-expression token represents a word boundary in PHP-compatible regular expressions?",
+      "options": [
+        "\\b",
+        "\\w",
+        "\\s",
+        "\\d"
+      ],
+      "correctAnswer": "\\b",
+      "explanation": "\\b matches a word boundary. \\w matches a word character, \\s whitespace and \\d a digit.\n\nStudent note: Boundary does not consume a character; it matches a position between word and non-word characters."
+    },
+    {
+      "number": "8",
+      "marks": 1,
+      "text": "Which PHP statement correctly throws a custom exception object called ValidationException?",
+      "options": [
+        "throw new ValidationException(\"Validation error\");",
+        "return ValidationException(\"Validation error\");",
+        "catch new ValidationException(\"Validation error\");",
+        "raise ValidationException(\"Validation error\");"
+      ],
+      "correctAnswer": "throw new ValidationException(\"Validation error\");",
+      "explanation": "PHP uses `throw` to raise an exception object. A custom exception class can be instantiated with `new` and thrown.\n\nStudent note: `catch` handles an exception; `throw` creates the exceptional flow."
+    },
+    {
+      "number": "9",
+      "marks": 1,
+      "text": "In a relational database, a real-world entity such as a customer is normally represented by a:",
+      "options": [
+        "table",
+        "operator",
+        "loop",
+        "CSS rule"
+      ],
+      "correctAnswer": "table",
+      "explanation": "A relational table stores rows describing occurrences of an entity and columns describing its attributes.\n\nStudent note: Entity → table, instance → row, attribute → column is a useful mapping."
+    },
+    {
+      "number": "10",
+      "marks": 1,
+      "text": "What is the main purpose of a primary key?",
+      "options": [
+        "Uniquely identify each row in a table",
+        "Sort every query automatically",
+        "Encrypt the table",
+        "Store only text values"
+      ],
+      "correctAnswer": "Uniquely identify each row in a table",
+      "explanation": "A primary key identifies each row uniquely and cannot contain duplicate key values.\n\nStudent note: Sorting is done with ORDER BY; keys identify and relate data."
+    },
+    {
+      "number": "11",
+      "marks": 1,
+      "text": "In a one-to-many relationship, where is the foreign key normally stored?",
+      "options": [
+        "On the many side",
+        "Only on the one side",
+        "In both primary keys automatically",
+        "Outside both tables"
+      ],
+      "correctAnswer": "On the many side",
+      "explanation": "Each row on the many side needs to identify which parent row on the one side it belongs to, so it stores the parent's key as a foreign key.\n\nStudent note: Parent primary key → copied as foreign key into the child/many table."
+    },
+    {
+      "number": "12",
+      "marks": 1,
+      "text": "Which SQL statement changes the structure of an existing table?",
+      "options": [
+        "ALTER TABLE",
+        "SELECT",
+        "COMMIT",
+        "ORDER BY"
+      ],
+      "correctAnswer": "ALTER TABLE",
+      "explanation": "ALTER TABLE changes table definition, for example by adding or modifying a column or constraint.\n\nStudent note: ALTER changes structure; UPDATE changes data values in existing rows."
+    },
+    {
+      "number": "13",
+      "marks": 1,
+      "text": "Which database constraint enforces a relationship to a key in another table?",
+      "options": [
+        "FOREIGN KEY",
+        "DEFAULT",
+        "CHECKPOINT",
+        "ORDER BY"
+      ],
+      "correctAnswer": "FOREIGN KEY",
+      "explanation": "A foreign-key constraint enforces referential integrity by requiring referenced key values to exist according to the constraint rules.\n\nStudent note: Referential integrity is about keeping relationships between tables valid."
+    },
+    {
+      "number": "14",
+      "marks": 1,
+      "text": "Which SQL clause sorts invoice totals from the highest value to the lowest?",
+      "options": [
+        "ORDER BY invoice_total DESC",
+        "ORDER BY invoice_total ASC",
+        "GROUP BY invoice_total DESC",
+        "LIMIT invoice_total DESC"
+      ],
+      "correctAnswer": "ORDER BY invoice_total DESC",
+      "explanation": "ORDER BY chooses the sort column and DESC requests descending order, which places larger numeric values before smaller ones.\n\nStudent note: ASC is ascending; DESC is descending."
+    }
+  ]
+}
