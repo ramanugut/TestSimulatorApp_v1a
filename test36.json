@@ -6,21 +6,22 @@
       "options": [
         "R27 953",
         "R590 500,00",
-        "R47 800,50",
+        "R28 027,08",
         "R470 800,00"
       ],
-      "correctAnswer": "R27 953",
+      "correctAnswer": "R28 027,08",
       "study": {
         "title": "NPV in simple English",
         "chapter": "Chapter 4 – Project Integration Management",
         "section": "Performing Financial Analyses → Net Present Value (NPV)",
         "pages": "pp. 148–150",
-        "simple": "NPV tells you what the project is worth today after allowing for the fact that money in the future is worth less than money today. Discount the future benefits and costs first, then compare them.",
+        "simple": "NPV is the value today of all project benefits minus the value today of all project costs. Use the full discounting formula for each year rather than multiplying by rounded two-decimal factors.",
         "steps": [
-          "Find the discount factor for each year using 1 / (1 + rate)^year.",
-          "Multiply each future benefit and cost by its discount factor.",
-          "Add all discounted benefits and all discounted costs separately.",
-          "NPV = total discounted benefits − total discounted costs. Here: R457 950 − R429 997 = R27 953."
+          "Project costs are R75 000; R90 550; R106 100; R121 650; R137 200.",
+          "Project benefits are R0; R110 000; R135 000; R160 000; R185 000.",
+          "Discount each future amount with 1 / (1.10)^year.",
+          "Exact discounted costs total R430 111,02 and exact discounted benefits total R458 138,11.",
+          "NPV = R458 138,11 − R430 111,02 = R28 027,08."
         ],
         "remember": "Positive NPV means the discounted benefits are greater than the discounted costs.",
         "stepsTitle": "How to work it out",
@@ -38,10 +39,11 @@
             "meaning": "A multiplier used to express money from a future year in today's value. Formula: 1 / (1 + rate)^year."
           }
         ],
-        "example": "At 10%, R110 received one year later is worth R100 today (R110 / 1.10). Apply this idea to every year's project benefits and expenses before subtracting them.",
-        "pitfall": "The assessment uses rounded yearly discount factors, so its marked NPV may differ slightly from a calculation using full-precision factors."
+        "example": "For Year 2, the benefit is R135 000 / 1.10² = R111 570,25. Do the same for each future benefit and cost, then subtract the two totals.",
+        "pitfall": "Using rounded factors such as 0.91, 0.83, 0.75 and 0.68 produces the assessment-key approximation R27 953. The exact 10% calculation is R28 027,08."
       },
-      "explanation": "NPV tells you what the project is worth today after allowing for the fact that money in the future is worth less than money today. Discount the future benefits and costs first, then compare them.\n\nHow to reach the marked answer: Find the discount factor for each year using 1 / (1 + rate)^year. Multiply each future benefit and cost by its discount factor. Add all discounted benefits and all discounted costs separately. NPV = total discounted benefits − total discounted costs. Here: R457 950 − R429 997 = R27 953.\n\nExample: At 10%, R110 received one year later is worth R100 today (R110 / 1.10). Apply this idea to every year's project benefits and expenses before subtracting them.\n\nStudent note: The assessment uses rounded yearly discount factors, so its marked NPV may differ slightly from a calculation using full-precision factors."
+      "explanation": "Use the full NPV formula, not rounded discount factors.\n\nHow to work it out: Exact discounted benefits = R458 138,11. Exact discounted costs = R430 111,02. Therefore NPV = R458 138,11 − R430 111,02 = R28 027,08.\n\nStudent note: The original assessment answer R27 953 comes from multiplying by rounded factors (0.91, 0.83, 0.75, 0.68). Those rounded factors are useful for a quick approximation, but they do not give the exact NPV at 10%.",
+      "sourceMarkedAnswer": "R27 953"
     },
     {
       "text": "Study the cashflow of Project Y in the table below. Calculate the payback period.",
@@ -120,21 +122,22 @@
       "options": [
         "y0 = R75 000,00; y1 = R90 550,00; y2 = R106 100,00; y3 = R121 650,00; y4 = R137 200,00",
         "y0 = R75 000,00; y1 = R82 400,5; y2 = R88 063; y3 = R91 237,5; y4 = 93 296",
-        "y0 = R75 000,00; y1 = R82 318,18; y2 = R87 685,95; y3 = R91 397,45; y4 = 90 709,45",
+        "y0 = R75 000,00; y1 = R82 318,18; y2 = R87 685,95; y3 = R91 397,45; y4 = R93 709,45",
         "y0 = R75 000,00; y1 = R90 500,00; y2 = R106 100,00; y3 = R121 650,00; y4 = R137 200,00"
       ],
-      "correctAnswer": "y0 = R75 000,00; y1 = R82 400,5; y2 = R88 063; y3 = R91 237,5; y4 = 93 296",
+      "correctAnswer": "y0 = R75 000,00; y1 = R82 318,18; y2 = R87 685,95; y3 = R91 397,45; y4 = R93 709,45",
       "study": {
         "title": "Discounted project costs",
         "chapter": "Chapter 4 – Project Integration Management",
         "section": "Performing Financial Analyses → NPV and discounting",
         "pages": "pp. 148–150",
-        "simple": "Discounting converts future costs into today's value. First calculate the normal cost for each year, then multiply it by that year's discount factor.",
+        "simple": "Discount each year's cost with the full formula cost / (1.10)^year. Do not first round the discount factor to two decimal places.",
         "steps": [
-          "Normal costs are R75 000; R90 550; R106 100; R121 650; R137 200.",
-          "At 10%, use discount factors 1.00; 0.91; 0.83; 0.75; 0.68.",
-          "Multiply cost × discount factor for every year.",
-          "This gives R75 000; R82 400.50; R88 063; R91 237.50; R93 296."
+          "Year 0: R75 000,00.",
+          "Year 1: R90 550 / 1.10 = R82 318,18.",
+          "Year 2: R106 100 / 1.10² = R87 685,95.",
+          "Year 3: R121 650 / 1.10³ = R91 397,45.",
+          "Year 4: R137 200 / 1.10⁴ = R93 709,45."
         ],
         "remember": "Do not discount Year 0. Year 0 is already in today's money.",
         "stepsTitle": "How to work it out",
@@ -152,10 +155,11 @@
             "meaning": "Money used or spent to deliver and operate the project."
           }
         ],
-        "example": "For Year 1, normal cost R90 550 multiplied by the assessment's rounded factor 0.91 gives R82 400.50.",
-        "pitfall": "The supplied answer uses rounded discount factors (1, 0.91, 0.83, 0.75, 0.68), not full-precision 1/(1.10)^year. Keep the method and rounding consistent."
+        "example": "Year 4 uses the full factor 1/(1.10)^4 ≈ 0.683013, so R137 200 becomes R93 709,45.",
+        "pitfall": "The original key used rounded factors and obtained R82 400,50; R88 063; R91 237,50; R93 296. Those are approximations, not the exact discounted costs."
       },
-      "explanation": "Discounting converts future costs into today's value. First calculate the normal cost for each year, then multiply it by that year's discount factor.\n\nHow to reach the marked answer: Normal costs are R75 000; R90 550; R106 100; R121 650; R137 200. At 10%, use discount factors 1.00; 0.91; 0.83; 0.75; 0.68. Multiply cost × discount factor for every year. This gives R75 000; R82 400.50; R88 063; R91 237.50; R93 296.\n\nExample: For Year 1, normal cost R90 550 multiplied by the assessment's rounded factor 0.91 gives R82 400.50.\n\nStudent note: The supplied answer uses rounded discount factors (1, 0.91, 0.83, 0.75, 0.68), not full-precision 1/(1.10)^year. Keep the method and rounding consistent."
+      "explanation": "Use cost / (1.10)^year for each year.\n\nExact discounted costs: y0 = R75 000,00; y1 = R82 318,18; y2 = R87 685,95; y3 = R91 397,45; y4 = R93 709,45.\n\nStudent note: The original assessment option used rounded discount factors. The app now uses the full formula so the yearly values remain mathematically consistent with the exact NPV.",
+      "sourceMarkedAnswer": "y0 = R75 000,00; y1 = R82 400,5; y2 = R88 063; y3 = R91 237,5; y4 = 93 296"
     },
     {
       "text": "The table below lists each activity, its duration, and its predecessor(s) for illustration on an Activity-on-Arrow (AoA) diagram. What is the start time, finish time, and slack of Activity H?",
@@ -970,11 +974,11 @@
       "text": "Using the information in the table, perform the following financial analyses for three possible projects (Project 1, Project 2, and Project 3). At a 6% discount rate, what is the NPV for the three projects?",
       "options": [
         "Project 1: 46900; Project 2: 8850; Project 3: -21000",
-        "Project 1: 84450; Project 2: 102940; Project 3: 135800",
+        "Project 1: 46 676,74; Project 2: 8 725,41; Project 3: -21 169,50",
         "Project 1: 131350; Project 2: 111790; Project 3: -114800",
         "Project 1: 46900; Project 2: 111790; Project 3: -21000"
       ],
-      "correctAnswer": "Project 1: 46900; Project 2: 8850; Project 3: -21000",
+      "correctAnswer": "Project 1: 46 676,74; Project 2: 8 725,41; Project 3: -21 169,50",
       "table": {
         "headerRows": [
           [
@@ -1059,10 +1063,10 @@
         "pages": "pp. 148–150",
         "simple": "To compare projects using NPV, discount every year's benefits and costs to today's value, then subtract discounted costs from discounted benefits.",
         "steps": [
-          "Use the 6% discount factor for each year: 1 / (1.06)^year.",
-          "Discount each benefit and cost.",
-          "For each project, add discounted benefits and subtract discounted costs.",
-          "The assessment results are Project 1 = 46 900; Project 2 = 8 850; Project 3 = -21 000."
+          "For each year, discount the net cash flow with 1 / (1.06)^year.",
+          "Project 1 exact NPV = R46 676,74.",
+          "Project 2 exact NPV = R8 725,41.",
+          "Project 3 exact NPV = -R21 169,50."
         ],
         "remember": "A positive NPV means value is added; a negative NPV means discounted costs are greater than discounted benefits.",
         "stepsTitle": "How to work it out",
@@ -1080,10 +1084,11 @@
             "meaning": "A positive cash inflow or value received from the project; financial assessment questions may use 'benefit' for revenue."
           }
         ],
-        "example": "For each of the three projects, discount each year's benefits and costs at 6% separately, total both columns and subtract cost from benefit.",
-        "pitfall": "A negative NPV means discounted costs exceed discounted benefits. The supplied answer may reflect rounding used in the assessment's table."
+        "example": "For each project, calculate (benefit − cost)/(1.06)^year for Years 1–5 and add the five present values.",
+        "pitfall": "The source answer 46 900; 8 850; -21 000 comes from rounded discount factors. Full-precision 6% discounting gives the values above."
       },
-      "explanation": "To compare projects using NPV, discount every year's benefits and costs to today's value, then subtract discounted costs from discounted benefits.\n\nHow to reach the marked answer: Use the 6% discount factor for each year: 1 / (1.06)^year. Discount each benefit and cost. For each project, add discounted benefits and subtract discounted costs. The assessment results are Project 1 = 46 900; Project 2 = 8 850; Project 3 = -21 000.\n\nExample: For each of the three projects, discount each year's benefits and costs at 6% separately, total both columns and subtract cost from benefit.\n\nStudent note: A negative NPV means discounted costs exceed discounted benefits. The supplied answer may reflect rounding used in the assessment's table."
+      "explanation": "Discount each year's net cash flow using the full 6% formula and add the present values.\n\nExact NPVs: Project 1 = R46 676,74; Project 2 = R8 725,41; Project 3 = -R21 169,50.\n\nStudent note: The original assessment answer is a rounded-factor approximation. The app now grades the full-precision results.",
+      "sourceMarkedAnswer": "Project 1: 46900; Project 2: 8850; Project 3: -21000"
     },
     {
       "text": "You launched Project X that is based on the pre-investor’s model. Pre-investors denote non-professional or non-institutional investors such as friends, family and strangers who help to fund the project. However, they expect to see a return on their investment. Nonetheless, Project X involves a new social media platform that seeks to generate revenue from user subscriptions. To launch the project, the pre-investors need to invest an accumulative amount of R75 000,00 (year 0). As subscribers and pre-investors join your venture, you expect the initial investment of R75000 to grow, increasing with R15 550,00 annually for four years (years 1-4). In the first year, you expect the new social media platform will generate R110 000,00, increasing annually with R25 000,00. Calculate the total project revenue.",
@@ -1244,10 +1249,10 @@
       "options": [
         "R200 000,00 and R275 000,00",
         "R275 000,00 and R200 000,00",
-        "R24 892,62 and -R19 900,66",
+        "R224 892,32 and R255 099,34",
         "R225 290 and R255 700"
       ],
-      "correctAnswer": "R225 290 and R255 700",
+      "correctAnswer": "R224 892,32 and R255 099,34",
       "table": {
         "headers": [
           "Year",
@@ -1295,12 +1300,8 @@
         "pages": "pp. 148–150",
         "simple": "Multiply each year's inflow by the discount factor shown in the table, then add the discounted inflows.",
         "steps": [
-          "Project Y: 85 000×0.93 = 79 050.",
-          "Project Y: 70 000×0.86 = 60 200.",
-          "Project Y: 78 000×0.79 = 61 620.",
-          "Project Y: 33 000×0.74 = 24 420.",
-          "Project Y total = 79 050 + 60 200 + 61 620 + 24 420 = R225 290.",
-          "Project Z total = 70 000×0.93 + 75 000×0.86 + 80 000×0.79 + 85 000×0.74 = R255 700."
+          "Project Y: 85 000/1.08 + 70 000/1.08² + 78 000/1.08³ + 33 000/1.08⁴ = R224 892,32.",
+          "Project Z: 70 000/1.08 + 75 000/1.08² + 80 000/1.08³ + 85 000/1.08⁴ = R255 099,34."
         ],
         "remember": "For discounted cash inflow, do not include the negative Year 0 investment. Discount and add only the future inflows.",
         "stepsTitle": "How to work it out",
@@ -1318,10 +1319,10 @@
             "meaning": "The annual percentage used to reduce future cash amounts to what they are worth today; future money is not treated as identical to money now."
           }
         ],
-        "example": "For Project Y, the four discounted inflows are R79 050, R60 200, R61 620 and R24 420.",
-        "pitfall": "The original assessment key gives Project Y as R224 590. Using the factors printed in the same question gives R225 290, a R700 difference."
+        "example": "Use the exact 8% factor from 1/(1.08)^year rather than the table's two-decimal factor when calculating the precise present value.",
+        "pitfall": "Using the printed rounded factors 0.93, 0.86, 0.79 and 0.74 gives R225 290 and R255 700. Those are approximations."
       },
-      "explanation": "Use the discount factors printed in the table and multiply them by each future cash inflow.\n\nHow to work it out: Project Y = 85 000×0.93 + 70 000×0.86 + 78 000×0.79 + 33 000×0.74 = 79 050 + 60 200 + 61 620 + 24 420 = R225 290. Project Z = 70 000×0.93 + 75 000×0.86 + 80 000×0.79 + 85 000×0.74 = R255 700.\n\nStudent note: The original assessment key says R224 590 for Project Y, but the arithmetic from the question's own table gives R225 290. The app now uses the calculated value.",
+      "explanation": "Use full-precision 8% discounting.\n\nProject Y discounted cash inflow = R224 892,32. Project Z discounted cash inflow = R255 099,34.\n\nStudent note: The table's factors are rounded to two decimals, so multiplying by them gives R225 290 and R255 700. The app now treats those as source approximations and uses the exact formula for the graded answer.",
       "sourceMarkedAnswer": "R224 590 and R255 700"
     },
     {
@@ -1594,10 +1595,10 @@
       "options": [
         "7%",
         "3%",
-        "5.5%",
+        "6.52%",
         "11%"
       ],
-      "correctAnswer": "7%",
+      "correctAnswer": "6.52%",
       "study": {
         "title": "Multi-year ROI using discounted values",
         "chapter": "Chapter 4 – Project Integration Management",
@@ -1605,10 +1606,10 @@
         "pages": "p. 150",
         "simple": "For a multi-year project, the book recommends using discounted benefits and discounted costs so future money is compared fairly.",
         "steps": [
-          "Total discounted benefits = R457 950.",
-          "Total discounted costs = R429 997.",
-          "ROI = (457 950 − 429 997) / 429 997 ≈ 0.065.",
-          "Convert to a percentage and round as the assessment does: about 7%."
+          "Exact discounted benefits = R458 138,11.",
+          "Exact discounted costs = R430 111,02.",
+          "ROI = (458 138,11 − 430 111,02) / 430 111,02 × 100.",
+          "ROI ≈ 6.5162%, which rounds to 6.52%."
         ],
         "remember": "For multi-year ROI, use discounted values when the question gives a discount rate.",
         "stepsTitle": "How to work it out",
@@ -1626,10 +1627,11 @@
             "meaning": "The annual percentage used to reduce future cash amounts to what they are worth today; future money is not treated as identical to money now."
           }
         ],
-        "example": "First compare discounted benefits with discounted costs, then divide the difference by discounted costs and convert to a percentage.",
-        "pitfall": "Using undiscounted totals when the question requires discounted multi-year amounts changes the reported ROI."
+        "example": "The exact NPV gain is R28 027,08. Divide that by exact discounted costs R430 111,02 and multiply by 100.",
+        "pitfall": "Rounding the discount factors first gives an ROI close to 6.5%, which the source rounded to 7%. Full-precision calculation gives 6.52%."
       },
-      "explanation": "For a multi-year project, the book recommends using discounted benefits and discounted costs so future money is compared fairly.\n\nHow to reach the marked answer: Total discounted benefits = R457 950. Total discounted costs = R429 997. ROI = (457 950 − 429 997) / 429 997 ≈ 0.065. Convert to a percentage and round as the assessment does: about 7%.\n\nExample: First compare discounted benefits with discounted costs, then divide the difference by discounted costs and convert to a percentage.\n\nStudent note: Using undiscounted totals when the question requires discounted multi-year amounts changes the reported ROI."
+      "explanation": "Use the exact discounted totals: benefits R458 138,11 and costs R430 111,02.\n\nROI = (R458 138,11 − R430 111,02) / R430 111,02 × 100 ≈ 6.52%.\n\nStudent note: The original assessment answer 7% is a whole-number approximation based on rounded discount factors. The app now grades the full-precision ROI.",
+      "sourceMarkedAnswer": "7%"
     },
     {
       "text": "What is payback period?",
@@ -1819,9 +1821,9 @@
         "R200 000 and R275 000",
         "R275 000 and R200 000",
         "R25 290 and -R19 300",
-        "R24 982 and R13 300"
+        "R24 892,32 and -R19 900,66"
       ],
-      "correctAnswer": "R25 290 and -R19 300",
+      "correctAnswer": "R24 892,32 and -R19 900,66",
       "table": {
         "headers": [
           "Year",
@@ -1869,10 +1871,8 @@
         "pages": "pp. 148–150",
         "simple": "NPV is the discounted cash inflow minus the Year 0 investment.",
         "steps": [
-          "Project Y discounted inflow = R225 290.",
-          "Project Y NPV = R225 290 − R200 000 = R25 290.",
-          "Project Z discounted inflow = R255 700.",
-          "Project Z NPV = R255 700 − R275 000 = -R19 300."
+          "Project Y exact discounted inflow = R224 892,32, so NPV = R224 892,32 − R200 000 = R24 892,32.",
+          "Project Z exact discounted inflow = R255 099,34, so NPV = R255 099,34 − R275 000 = -R19 900,66."
         ],
         "remember": "Keep the sign: a negative NPV means the discounted inflows do not recover the investment.",
         "stepsTitle": "How to work it out",
@@ -1890,10 +1890,10 @@
             "meaning": "The annual percentage used to reduce future cash amounts to what they are worth today; future money is not treated as identical to money now."
           }
         ],
-        "example": "Project Y: R225 290 − R200 000 = R25 290.",
-        "pitfall": "The original assessment key used R224 590 for Project Y's discounted inflow, so it reported R24 590 NPV. That earlier inflow total is arithmetically inconsistent with the table."
+        "example": "Project Y: R224 892,32 present value of inflows less R200 000 initial investment = R24 892,32.",
+        "pitfall": "The table's two-decimal factors produce approximate NPVs R25 290 and -R19 300. Full-precision 8% discounting gives the exact values above."
       },
-      "explanation": "Start with the discounted inflow totals, then subtract the initial investment.\n\nHow to work it out: Project Y = R225 290 − R200 000 = R25 290. Project Z = R255 700 − R275 000 = -R19 300.\n\nStudent note: The source key reported R24 590 for Project Y because it used the incorrect R224 590 discounted-inflow total. The app now carries the corrected arithmetic through to NPV.",
+      "explanation": "Use the exact 8% present values rather than multiplying by the rounded table factors.\n\nProject Y NPV = R24 892,32. Project Z NPV = -R19 900,66.\n\nStudent note: The previous app answer R25 290 and -R19 300 was based on two-decimal discount factors. The app now grades the full-precision values.",
       "sourceMarkedAnswer": "R24 590 and -R19 300"
     },
     {
@@ -1973,9 +1973,9 @@
         "R429 997",
         "R530 000",
         "R560 000",
-        "R430 000"
+        "R430 111,02"
       ],
-      "correctAnswer": "R429 997",
+      "correctAnswer": "R430 111,02",
       "study": {
         "title": "Total discounted costs",
         "chapter": "Chapter 4 – Project Integration Management",
@@ -1983,8 +1983,8 @@
         "pages": "pp. 148–150",
         "simple": "Discount every year's project cost to today's value, then add those discounted costs together.",
         "steps": [
-          "Discounted costs are R75 000; R82 400.50; R88 063; R91 237.50; R93 296.",
-          "Add them: total discounted costs = R429 997."
+          "Discounted costs are R75 000,00; R82 318,18; R87 685,95; R91 397,45; R93 709,45.",
+          "Add them: total discounted costs = R430 111,02."
         ],
         "remember": "Total discounted cost is not the same as total normal project expenses.",
         "stepsTitle": "How to work it out",
@@ -2002,10 +2002,11 @@
             "meaning": "The annual percentage used to reduce future cash amounts to what they are worth today; future money is not treated as identical to money now."
           }
         ],
-        "example": "Discount each of Project X's Year 1–4 costs with the appropriate year factor, include undiscounted Year 0, and add all five today's-value costs.",
-        "pitfall": "The supplied marked total uses rounded 10% factors. Do not confuse it with the sum of normal expenses (R530 500)."
+        "example": "Use the exact formula R137 200/(1.10)^4 = R93 709,45 for Year 4, then add all five years.",
+        "pitfall": "R429 997 is the total obtained from rounded discount factors. The exact total discounted cost is R430 111,02."
       },
-      "explanation": "Discount every year's project cost to today's value, then add those discounted costs together.\n\nHow to reach the marked answer: Discounted costs are R75 000; R82 400.50; R88 063; R91 237.50; R93 296. Add them: total discounted costs = R429 997.\n\nExample: Discount each of Project X's Year 1–4 costs with the appropriate year factor, include undiscounted Year 0, and add all five today's-value costs.\n\nStudent note: The supplied marked total uses rounded 10% factors. Do not confuse it with the sum of normal expenses (R530 500)."
+      "explanation": "Discount every cost with the full 10% formula and add them.\n\nR75 000,00 + R82 318,18 + R87 685,95 + R91 397,45 + R93 709,45 = R430 111,02.\n\nStudent note: The source total R429 997 is a rounded-factor approximation.",
+      "sourceMarkedAnswer": "R429 997"
     },
     {
       "text": "Read the section on the Activity on Node diagram in your textbook, then study the activity list and its network diagram as illustrated in the figure below. Calculate the slack of Activity E.",
@@ -2397,11 +2398,11 @@
       "text": "You launched Project X that is based on the pre-investor’s model. Pre-investors denote non-professional or non-institutional investors such as friends, family and strangers who help to fund the project. However, they expect to see a return on their investment. Nonetheless, Project X involves a new social media platform that seeks to generate revenue from user subscriptions. To launch the project, the pre-investors need to invest an accumulative amount of R75 000,00 (year 0). As subscribers and pre-investors join your venture, you expect the initial investment of R75000 to grow, increasing with R15 550,00 annually for four years (years 1-4). In the first year, you expect the new social media platform will generate R110 000,00, increasing annually with R25 000,00. Calculate the total discounted project benefits (assume a discount rate of 10%)",
       "options": [
         "R457 950",
-        "R430 000",
+        "R458 138,11",
         "R500 000",
         "R400 000"
       ],
-      "correctAnswer": "R457 950",
+      "correctAnswer": "R458 138,11",
       "study": {
         "title": "Total discounted benefits",
         "chapter": "Chapter 4 – Project Integration Management",
@@ -2409,7 +2410,11 @@
         "pages": "pp. 148–150",
         "simple": "After discounting each year's benefit, add the discounted amounts to get the total discounted project benefits.",
         "steps": [
-          "R100 100 + R112 050 + R120 000 + R125 800 = R457 950."
+          "Year 1: R110 000/1.10 = R100 000,00.",
+          "Year 2: R135 000/1.10² = R111 570,25.",
+          "Year 3: R160 000/1.10³ = R120 210,37.",
+          "Year 4: R185 000/1.10⁴ = R126 357,49.",
+          "Total discounted benefits = R458 138,11."
         ],
         "remember": "Discounted benefits are also called discounted cash inflows in these financial-analysis questions.",
         "stepsTitle": "How to work it out",
@@ -2427,10 +2432,11 @@
             "meaning": "Money received by a project, such as subscription income."
           }
         ],
-        "example": "Project X's rounded discounted annual inflows are R100 100, R112 050, R120 000 and R125 800; add them for R457 950.",
-        "pitfall": "Only include incoming benefits in this total. Costs are calculated separately for NPV."
+        "example": "Year 4 benefit: R185 000/(1.10)^4 = R126 357,49.",
+        "pitfall": "R457 950 is obtained by applying rounded factors. Full-precision 10% discounting gives R458 138,11."
       },
-      "explanation": "After discounting each year's benefit, add the discounted amounts to get the total discounted project benefits.\n\nHow to reach the marked answer: R100 100 + R112 050 + R120 000 + R125 800 = R457 950.\n\nExample: Project X's rounded discounted annual inflows are R100 100, R112 050, R120 000 and R125 800; add them for R457 950.\n\nStudent note: Only include incoming benefits in this total. Costs are calculated separately for NPV."
+      "explanation": "Use the full formula benefit/(1.10)^year.\n\nDiscounted benefits are R100 000,00; R111 570,25; R120 210,37; R126 357,49. Total = R458 138,11.\n\nStudent note: The original assessment total R457 950 is a rounded-factor approximation.",
+      "sourceMarkedAnswer": "R457 950"
     },
     {
       "text": "Fill in the missing word:\n\n______________________dependencies, in the context of schedule management, involves relationships between project activities that are generally inside the project team's control. For example, if software is developed by the team, they can create dependencies such as performance unit testing before system testing.",
