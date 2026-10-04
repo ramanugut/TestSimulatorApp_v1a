@@ -31,12 +31,24 @@
     }
 
     function syncButton(button) {
+        if (!button) return;
         const newUiActive = isNewUi();
-        button.textContent = newUiActive ? "Use classic UI" : "Try the new UI";
+        const isHeaderButton = button.id === "ui-variant-header-toggle";
+        button.textContent = isHeaderButton
+            ? (newUiActive ? "Classic UI" : "New UI")
+            : (newUiActive ? "Use classic UI" : "Try the new UI");
         button.setAttribute("aria-pressed", String(newUiActive));
+        button.setAttribute("aria-label", isHeaderButton
+            ? (newUiActive ? "Switch to classic UI" : "Switch to new UI")
+            : (newUiActive ? "Use classic UI" : "Try the new UI"));
         button.title = newUiActive
             ? "Switch back to the classic interface"
             : "Switch to the redesigned study workspace";
+    }
+
+    function syncButtons() {
+        document.querySelectorAll("#ui-variant-toggle, #ui-variant-header-toggle")
+            .forEach(syncButton);
     }
 
     function updateWorkspaceHeading(mode) {
@@ -49,7 +61,7 @@
         if (chip) chip.textContent = copy.chip;
     }
 
-    function setUiVariant(useNewUi, button) {
+    function setUiVariant(useNewUi) {
         const variant = useNewUi ? "new" : "classic";
         root.dataset.uiVariant = variant;
         try {
@@ -57,25 +69,29 @@
         } catch (error) {
             // Keep the selected layout for this page when browser storage is unavailable.
         }
-        syncButton(button);
+        syncButtons();
     }
 
     function init() {
-        const button = document.getElementById("ui-variant-toggle");
-        if (!button) return;
+        const buttons = Array.from(document.querySelectorAll(
+            "#ui-variant-toggle, #ui-variant-header-toggle"
+        ));
+        if (!buttons.length) return;
 
         try {
             root.dataset.uiVariant = localStorage.getItem(STORAGE_KEY) === "new" ? "new" : "classic";
         } catch (error) {
             root.dataset.uiVariant = "classic";
         }
-        syncButton(button);
+        syncButtons();
 
         const selectedMode = document.querySelector(".mode-tab-button.active");
         updateWorkspaceHeading(selectedMode ? selectedMode.dataset.mode : "test");
 
-        button.addEventListener("click", function () {
-            setUiVariant(!isNewUi(), button);
+        buttons.forEach(function (button) {
+            button.addEventListener("click", function () {
+                setUiVariant(!isNewUi());
+            });
         });
 
         document.addEventListener("click", function (event) {
