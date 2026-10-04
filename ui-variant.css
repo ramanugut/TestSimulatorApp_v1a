@@ -1459,3 +1459,52 @@ html[data-ui-variant="new"] #questions-container .question textarea {
         padding-right: 0;
     }
 }
+
+
+/* Final compact navigation override: keep every mode on one short row. */
+html[data-ui-variant="new"] aside.study-sidebar section.mode-tabs {
+    display: flex !important;
+    flex-flow: row nowrap !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 0.2rem !important;
+    width: 100% !important;
+    min-height: 40px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+}
+html[data-ui-variant="new"] aside.study-sidebar section.mode-tabs::-webkit-scrollbar { display: none; }
+html[data-ui-variant="new"] aside.study-sidebar section.mode-tabs > .mode-tab-button {
+    display: inline-flex !important;
+    flex: 0 0 auto !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: auto !important;
+    min-width: 82px;
+    min-height: 38px !important;
+    margin: 0 !important;
+    padding: 0.4rem 0.72rem !important;
+    border: 0 !important;
+    border-bottom: 2px solid transparent !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    color: var(--new-muted) !important;
+    white-space: nowrap;
+    box-shadow: none !important;
+}
+html[data-ui-variant="new"] aside.study-sidebar section.mode-tabs > .mode-tab-button.active,
+html[data-ui-variant="new"] aside.study-sidebar section.mode-tabs > .mode-tab-button[aria-selected="true"] {
+    border-bottom-color: var(--new-gold) !important;
+    color: var(--new-ink) !important;
+}
+html[data-ui-variant="new"] aside.study-sidebar section.mode-tabs > .mode-tab-button .mode-icon {
+    display: block;
+    flex: 0 0 17px;
+    width: 17px;
+    height: 17px;
+}
+@media (max-width: 640px) {
+    html[data-ui-variant="new"] aside.study-sidebar section.mode-tabs > .mode-tab-button { min-width: 76px; }
+}
