@@ -15,6 +15,17 @@
     <link rel="stylesheet" href="learning-engine.css?v=20261001-chapter-mastery1">
     <link rel="stylesheet" href="answer-workspace.css?v=20261003-image2">
     <link rel="stylesheet" href="revision-insights.css?v=20260929-ai-optin1">
+    <link rel="stylesheet" href="ui-variant.css?v=20261004-ui-switch1">
+    <script>
+        (function () {
+            try {
+                document.documentElement.dataset.uiVariant =
+                    localStorage.getItem("testSimulatorUiVariant") === "new" ? "new" : "classic";
+            } catch (error) {
+                document.documentElement.dataset.uiVariant = "classic";
+            }
+        })();
+    </script>
 </head>
 <body>
     <header id="floating-header" class="app-header">
@@ -467,6 +478,14 @@
             <section class="modal-quick-settings" aria-labelledby="modal-quick-settings-title">
                 <h3 id="modal-quick-settings-title" class="sr-only">Test settings</h3>
                 <div class="quick-settings-grid">
+                    <div class="quick-item ui-variant-setting">
+                        <div>
+                            <span class="input-label" id="ui-variant-label">Interface</span>
+                            <small id="ui-variant-description">Choose the refreshed layout or return to the familiar one. Your choice is saved in this browser.</small>
+                        </div>
+                        <button id="ui-variant-toggle" class="btn btn-secondary" type="button"
+                            aria-pressed="false" aria-describedby="ui-variant-description">Try the new UI</button>
+                    </div>
                     <div class="quick-item quick-item--appearance">
                         <span class="input-label" id="theme-choice-label">Appearance</span>
                         <div class="rich-theme-families" aria-labelledby="theme-choice-label">
@@ -573,6 +592,7 @@
     <script src="revision-controller.js?v=20261001-ai-session1"></script>
     <script src="paper-picker.js?v=20261003-modules2"></script>
     <script src="script.js?v=20261003-ai-reply-voice2"></script>
+    <script src="ui-variant.js?v=20261004-ui-switch1"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
 </body>
 </html>
