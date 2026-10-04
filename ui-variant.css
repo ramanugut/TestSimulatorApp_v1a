@@ -1508,3 +1508,25 @@ html[data-ui-variant="new"] aside.study-sidebar section.mode-tabs > .mode-tab-bu
 @media (max-width: 640px) {
     html[data-ui-variant="new"] aside.study-sidebar section.mode-tabs > .mode-tab-button { min-width: 76px; }
 }
+
+
+/* Remove redundant cues in the new study view. */
+html[data-ui-variant="new"] #questions-container .question {
+    grid-template-columns: minmax(0, 1fr);
+}
+html[data-ui-variant="new"] #questions-container .question-number {
+    display: none;
+}
+html[data-ui-variant="new"] #questions-container .question-body {
+    grid-column: 1;
+    padding-right: 7rem;
+}
+html[data-ui-variant="new"] #questions-container .question > :not(.bookmark-button):not(.question-text) {
+    grid-column: 1;
+}
+html[data-ui-variant="new"] #questions-container .ai-answer-note {
+    display: none;
+}
+@media (max-width: 640px) {
+    html[data-ui-variant="new"] #questions-container .question-body { padding-right: 0; }
+}
