@@ -380,7 +380,7 @@ html[data-ui-variant="new"] #questions-container {
 }
 
 html[data-ui-variant="new"] .question {
-    overflow: clip;
+    
     padding: clamp(1.15rem, 1.7vw, 1.65rem);
     border: 1px solid color-mix(in srgb, var(--border-color) 78%, var(--accent-color));
     border-radius: 18px;
@@ -455,7 +455,7 @@ html[data-ui-variant="new"] .review-tools {
 
     html[data-ui-variant="new"] .mode-tabs {
         display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
         gap: 0.35rem;
     }
 
