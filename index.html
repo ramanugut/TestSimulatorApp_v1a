@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="learning-engine.css?v=20261001-chapter-mastery1">
     <link rel="stylesheet" href="answer-workspace.css?v=20261003-image2">
     <link rel="stylesheet" href="revision-insights.css?v=20260929-ai-optin1">
-    <link rel="stylesheet" href="ui-variant.css?v=20261004-ui-switch1">
+    <link rel="stylesheet" href="ui-variant.css?v=20261004-full-redesign1">
     <script>
         (function () {
             try {
@@ -126,7 +126,18 @@
     <main class="page-wrapper">
         <div class="page-container">
             <h1 class="page-title sr-only">Test Simulator</h1>
-            <section class="mode-tabs" role="tablist" aria-label="Test Simulator views">
+            <aside class="study-sidebar" aria-label="Workspace navigation">
+                <div class="study-sidebar__brand">
+                    <span class="study-sidebar__mark" aria-hidden="true">TS</span>
+                    <span><strong>Learning space</strong><small>Choose how you want to work</small></span>
+                </div>
+                <div class="study-sidebar__paper">
+                    <span class="study-sidebar__eyebrow">CURRENT PAPER</span>
+                    <p>Your paper stays selected as you move between modes.</p>
+                    <button class="study-sidebar__paper-button" type="button" data-open-paper-picker>Choose another paper <span aria-hidden="true">→</span></button>
+                </div>
+                <span class="study-sidebar__section-label">WORK MODES</span>
+                <section class="mode-tabs" role="tablist" aria-label="Test Simulator views">
                 <button
                     id="mode-tab-test"
                     class="mode-tab-button active"
@@ -190,6 +201,17 @@
                     <span>Book</span>
                 </button>
             </section>
+            </aside>
+
+            <div class="page-content">
+                <header class="workspace-heading">
+                    <div>
+                        <span class="workspace-heading__eyebrow">YOUR STUDY DESK</span>
+                        <h2 id="workspace-mode-title">Practise with purpose</h2>
+                        <p id="workspace-mode-description">Move between exam practice, study notes and flashcards without losing your selected paper.</p>
+                    </div>
+                    <span id="workspace-mode-chip" class="workspace-heading__chip">TEST MODE</span>
+                </header>
 
             <section id="mode-panel-test" class="mode-panel active" role="tabpanel" aria-labelledby="mode-tab-test">
                 <div id="study-guess-first-bar" class="study-guess-first-bar" aria-label="Study Mode answer reveal setting">
@@ -354,6 +376,7 @@
                     </p>
                 </div>
             </section>
+            </div>
         </div>
     </main>
 
