@@ -922,3 +922,34 @@ html[data-ui-variant="new"] .study-sidebar__paper {
         min-height: 126px;
     }
 }
+
+
+/* Keep compact answer fields compact, while giving written answers room. */
+html[data-ui-variant="new"] #questions-container .question {
+    grid-template-columns: 7rem minmax(0, 1fr);
+}
+
+html[data-ui-variant="new"] #questions-container .question-number {
+    padding: 0.1rem 0;
+    border-radius: 0;
+    background: transparent;
+    font-family: inherit;
+    font-size: 0.86rem;
+    font-weight: 750;
+    letter-spacing: 0;
+    white-space: nowrap;
+}
+
+html[data-ui-variant="new"] #questions-container .question textarea {
+    min-height: 144px;
+}
+
+html[data-ui-variant="new"] #questions-container .question input:not([type="checkbox"]):not([type="radio"]) {
+    min-height: 44px;
+}
+
+@media (max-width: 640px) {
+    html[data-ui-variant="new"] #questions-container .question {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
