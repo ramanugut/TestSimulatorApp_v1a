@@ -5,22 +5,22 @@
     const root = document.documentElement;
     const modeCopy = {
         test: {
-            title: "Exam practice",
+            title: "Test",
             description: "Answer under timed conditions. Your work stays here until you submit the paper.",
             chip: "EXAM PRACTICE"
         },
         study: {
-            title: "Learn as you practise",
+            title: "Study",
             description: "Read the notes, build your answer, then submit it to check your understanding.",
             chip: "STUDY MODE"
         },
         flashcards: {
-            title: "Quick recall, one card at a time",
+            title: "Flashcards",
             description: "Try to recall the answer before flipping each card.",
             chip: "FLASHCARDS"
         },
         book: {
-            title: "Read and learn",
+            title: "Book",
             description: "Read the source material alongside your practice.",
             chip: "TEXTBOOK"
         }
