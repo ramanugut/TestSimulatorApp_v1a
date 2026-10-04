@@ -4825,6 +4825,9 @@ const testFiles = [
   // Curated INF3708 originals and separately labelled ICT2631 original revision
   // packs. Legacy test*.json files stay hidden from the picker and custom builder.
   "inf3708-oct-nov-2021.json",
+  "inf3708-oct-nov-2022-final.json",
+  "inf3708-jan-feb-2023-supplementary.json",
+  "inf3708-oct-nov-2024-final.json",
   "inf3708-jan-feb-2025-supplementary.json",
   "inf3708-assessment-1-2026.json",
   "test36.json", // INF3708 Assessment 2 (14 June 2026)

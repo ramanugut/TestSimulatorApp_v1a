@@ -1,0 +1,1353 @@
+{
+  "testName": "INF3708 – Software Project Management – OCT/NOV 2024 Final Examination (80 marks)",
+  "module": "INF3708",
+  "examSession": "OCT/NOV 2024 FINAL",
+  "totalMarks": 80,
+  "durationMinutes": 120,
+  "preserveOrder": true,
+  "marking": "ai-rubric-weighted",
+  "sourceType": "Transcribed from a user-supplied INF3708 examination PDF; answer guidance independently checked for study practice.",
+  "sourceNote": "Transcribed from the supplied October/November 2024 final-examination PDF dated 22 October 2024 (80 marks, 2 hours). Reference calculations and network timings were independently checked.",
+  "sourceLimitations": "The source table for capsule assembly elides several rows between days 10 and 28; all values needed for questions 4.1–4.3 are present in the day 1–8 rows. The AOA answer supplies one valid event numbering; equivalent valid networks are acceptable.",
+  "questions": [
+    {
+      "number": "1.1",
+      "marks": 16,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "QUESTION 1.1 (16 marks): Perform a SWOT analysis of the E-GREEN project. Give strengths, weaknesses, opportunities and threats, using the case.",
+      "correctAnswer": "Strengths: planned accessible capsules at major retail entrances; partnerships with business and government; clear environmental purpose and potential recovery of valuable materials; awareness and safe disposal goals. Weaknesses: the earlier workshop approach had low user uptake; users may still avoid making an effort; capsule placement, collection and maintenance/logistics require coordination; contamination or incorrect disposal may affect operations. Opportunities: expand collection points through retailers and municipalities; public-awareness campaigns and incentives; build a circular-economy/reuse market for recovered materials; use participation data to improve locations and service. Threats: users continue storing devices or putting them in ordinary waste; vandalism, theft or hazardous contamination; costs or partner permissions delay deployment; other recyclers or weak resale demand reduce revenue.",
+      "aiRubric": [
+        "Strengths: up to 4 distinct, case-linked points (4).",
+        "Weaknesses: up to 4 distinct, case-linked points (4).",
+        "Opportunities: up to 4 distinct, case-linked points (4).",
+        "Threats: up to 4 distinct, plausible points (4)."
+      ],
+      "aiReferenceNotes": "Mark with the method shown in the key, while accepting equivalent valid wording, workings, units and sensible rounding. The reference answer is a study aid, not an official memorandum.",
+      "explanation": "SWOT separates internal strengths and weaknesses from external opportunities and threats. Strong responses apply each category to E-GREEN, the earlier low-uptake experience and the new retail capsule plan.\n\nStudent note: Do not place a future market opportunity under strengths or an external threat under weaknesses.",
+      "studentNote": "Do not place a future market opportunity under strengths or an external threat under weaknesses.",
+      "context": "E-GREEN seeks a sustainable way to dispose of electronic waste. A 2023 workshop drop-off project struggled because users kept old devices at home or put them in household trash rather than driving to workshops. In 2024, E-GREEN plans to work with local businesses and government to raise awareness, provide accessible collection points and recycle materials safely. The example is e-waste capsules beside entrances of major retail stores.",
+      "contextTitle": "E-GREEN e-waste project case"
+    },
+    {
+      "number": "2.1.1",
+      "marks": 6,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "QUESTION 2.1.1 (6 marks): Calculate the annual discounted cash flow of Project-Dropoff from Table 1.",
+      "correctAnswer": "Multiply each cash flow by its discount factor: Year 0 −R200,000; Year 1 R52,000×0.91=R47,320; Year 2 R110,000×0.83=R91,300; Year 3 R133,000×0.75=R99,750; Year 4 R160,000×0.68=R108,800; Year 5 R200,000×0.62=R124,000.",
+      "aiRubric": [
+        "Year 0 −R200 000 (1).",
+        "Years 1–2 discounted values R47 320 and R91 300 (2).",
+        "Years 3–4 discounted values R99 750 and R108 800 (2).",
+        "Year 5 R124 000 (1)."
+      ],
+      "aiReferenceNotes": "Mark with the method shown in the key, while accepting equivalent valid wording, workings, units and sensible rounding. The reference answer is a study aid, not an official memorandum.",
+      "explanation": "Year 0’s factor is 1. Each later annual cash flow is multiplied by the supplied factor.\n\nStudent note: Report the discounted amount for each year, not only their total.",
+      "studentNote": "Report the discounted amount for each year, not only their total.",
+      "context": "E-GREEN seeks a sustainable way to dispose of electronic waste. A 2023 workshop drop-off project struggled because users kept old devices at home or put them in household trash rather than driving to workshops. In 2024, E-GREEN plans to work with local businesses and government to raise awareness, provide accessible collection points and recycle materials safely. The example is e-waste capsules beside entrances of major retail stores.\n\nProject-Dropoff installs capsules at shopping centres. Project-Collect uses scooter drivers with load boxes and a booking/scheduling app to collect devices from homes. Both projects earn revenue from resale or repair. Use the discount factors and cash flows in Table 1.",
+      "contextTitle": "Project-Dropoff and Project-Collect",
+      "table": {
+        "caption": "Table 1 — Project-Dropoff and Project-Collect cash flows",
+        "headers": [
+          "Year",
+          "Discount factor",
+          "Project-Dropoff",
+          "Project-Collect"
+        ],
+        "rows": [
+          [
+            "0",
+            "1.00",
+            "−R200 000",
+            "−R110 000"
+          ],
+          [
+            "1",
+            "0.91",
+            "R52 000",
+            "R52 000"
+          ],
+          [
+            "2",
+            "0.83",
+            "R110 000",
+            "R110 000"
+          ],
+          [
+            "3",
+            "0.75",
+            "R133 000",
+            "R133 000"
+          ],
+          [
+            "4",
+            "0.68",
+            "R160 000",
+            "R160 000"
+          ],
+          [
+            "5",
+            "0.62",
+            "R200 000",
+            "R200 000"
+          ]
+        ]
+      }
+    },
+    {
+      "number": "2.1.2",
+      "marks": 6,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "QUESTION 2.1.2 (6 marks): Calculate the annual discounted cash flow of Project-Collect from Table 1.",
+      "correctAnswer": "Year 0 −R110,000; Year 1 R47,320; Year 2 R91,300; Year 3 R99,750; Year 4 R108,800; Year 5 R124,000. Both projects have the same inflows and discount factors; only the initial investment differs.",
+      "aiRubric": [
+        "Year 0 −R110 000 (1).",
+        "Years 1–2 discounted values R47 320 and R91 300 (2).",
+        "Years 3–4 discounted values R99 750 and R108 800 (2).",
+        "Year 5 R124 000 (1)."
+      ],
+      "aiReferenceNotes": "Mark with the method shown in the key, while accepting equivalent valid wording, workings, units and sensible rounding. The reference answer is a study aid, not an official memorandum.",
+      "explanation": "The positive annual cash flows are identical for both choices; Project-Collect has a smaller initial outlay.\n\nStudent note: Use the Project-Collect Year 0 investment, not Dropoff’s R200,000.",
+      "studentNote": "Use the Project-Collect Year 0 investment, not Dropoff’s R200,000.",
+      "context": "E-GREEN seeks a sustainable way to dispose of electronic waste. A 2023 workshop drop-off project struggled because users kept old devices at home or put them in household trash rather than driving to workshops. In 2024, E-GREEN plans to work with local businesses and government to raise awareness, provide accessible collection points and recycle materials safely. The example is e-waste capsules beside entrances of major retail stores.\n\nProject-Dropoff installs capsules at shopping centres. Project-Collect uses scooter drivers with load boxes and a booking/scheduling app to collect devices from homes. Both projects earn revenue from resale or repair. Use the discount factors and cash flows in Table 1.",
+      "contextTitle": "Project-Dropoff and Project-Collect",
+      "table": {
+        "caption": "Table 1 — Project-Dropoff and Project-Collect cash flows",
+        "headers": [
+          "Year",
+          "Discount factor",
+          "Project-Dropoff",
+          "Project-Collect"
+        ],
+        "rows": [
+          [
+            "0",
+            "1.00",
+            "−R200 000",
+            "−R110 000"
+          ],
+          [
+            "1",
+            "0.91",
+            "R52 000",
+            "R52 000"
+          ],
+          [
+            "2",
+            "0.83",
+            "R110 000",
+            "R110 000"
+          ],
+          [
+            "3",
+            "0.75",
+            "R133 000",
+            "R133 000"
+          ],
+          [
+            "4",
+            "0.68",
+            "R160 000",
+            "R160 000"
+          ],
+          [
+            "5",
+            "0.62",
+            "R200 000",
+            "R200 000"
+          ]
+        ]
+      }
+    },
+    {
+      "number": "2.2",
+      "marks": 2,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "QUESTION 2.2 (2 marks): Calculate the total discounted cash inflow for Projects Dropoff and Collect.",
+      "correctAnswer": "R47,320+R91,300+R99,750+R108,800+R124,000=R471,170 for each project.",
+      "aiRubric": [
+        "Correct sum of discounted inflows (1).",
+        "State that it is R471 170 for both projects (1)."
+      ],
+      "aiReferenceNotes": "Mark with the method shown in the key, while accepting equivalent valid wording, workings, units and sensible rounding. The reference answer is a study aid, not an official memorandum.",
+      "explanation": "Exclude the year-0 investment when asked for discounted cash inflow.\n\nStudent note: The projects share the same inflow schedule; only their initial costs differ.",
+      "studentNote": "The projects share the same inflow schedule; only their initial costs differ.",
+      "context": "E-GREEN seeks a sustainable way to dispose of electronic waste. A 2023 workshop drop-off project struggled because users kept old devices at home or put them in household trash rather than driving to workshops. In 2024, E-GREEN plans to work with local businesses and government to raise awareness, provide accessible collection points and recycle materials safely. The example is e-waste capsules beside entrances of major retail stores.\n\nProject-Dropoff installs capsules at shopping centres. Project-Collect uses scooter drivers with load boxes and a booking/scheduling app to collect devices from homes. Both projects earn revenue from resale or repair. Use the discount factors and cash flows in Table 1.",
+      "contextTitle": "Project-Dropoff and Project-Collect",
+      "table": {
+        "caption": "Table 1 — Project-Dropoff and Project-Collect cash flows",
+        "headers": [
+          "Year",
+          "Discount factor",
+          "Project-Dropoff",
+          "Project-Collect"
+        ],
+        "rows": [
+          [
+            "0",
+            "1.00",
+            "−R200 000",
+            "−R110 000"
+          ],
+          [
+            "1",
+            "0.91",
+            "R52 000",
+            "R52 000"
+          ],
+          [
+            "2",
+            "0.83",
+            "R110 000",
+            "R110 000"
+          ],
+          [
+            "3",
+            "0.75",
+            "R133 000",
+            "R133 000"
+          ],
+          [
+            "4",
+            "0.68",
+            "R160 000",
+            "R160 000"
+          ],
+          [
+            "5",
+            "0.62",
+            "R200 000",
+            "R200 000"
+          ]
+        ]
+      }
+    },
+    {
+      "number": "2.3.1",
+      "marks": 2,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "QUESTION 2.3.1 (2 marks): Calculate the NPV of Project-Dropoff.",
+      "correctAnswer": "NPV = total discounted inflows − initial investment = R471,170−R200,000=R271,170.",
+      "aiRubric": [
+        "Apply discounted inflows minus initial outlay (1).",
+        "NPV=R271 170 (1)."
+      ],
+      "aiReferenceNotes": "Mark with the method shown in the key, while accepting equivalent valid wording, workings, units and sensible rounding. The reference answer is a study aid, not an official memorandum.",
+      "explanation": "The year-0 cost is already in present-value terms, so subtract it from the discounted inflow total.\n\nStudent note: Keep cash outflows negative or subtract the positive investment once, not both.",
+      "studentNote": "Keep cash outflows negative or subtract the positive investment once, not both.",
+      "context": "E-GREEN seeks a sustainable way to dispose of electronic waste. A 2023 workshop drop-off project struggled because users kept old devices at home or put them in household trash rather than driving to workshops. In 2024, E-GREEN plans to work with local businesses and government to raise awareness, provide accessible collection points and recycle materials safely. The example is e-waste capsules beside entrances of major retail stores.\n\nProject-Dropoff installs capsules at shopping centres. Project-Collect uses scooter drivers with load boxes and a booking/scheduling app to collect devices from homes. Both projects earn revenue from resale or repair. Use the discount factors and cash flows in Table 1.",
+      "contextTitle": "Project-Dropoff and Project-Collect",
+      "table": {
+        "caption": "Table 1 — Project-Dropoff and Project-Collect cash flows",
+        "headers": [
+          "Year",
+          "Discount factor",
+          "Project-Dropoff",
+          "Project-Collect"
+        ],
+        "rows": [
+          [
+            "0",
+            "1.00",
+            "−R200 000",
+            "−R110 000"
+          ],
+          [
+            "1",
+            "0.91",
+            "R52 000",
+            "R52 000"
+          ],
+          [
+            "2",
+            "0.83",
+            "R110 000",
+            "R110 000"
+          ],
+          [
+            "3",
+            "0.75",
+            "R133 000",
+            "R133 000"
+          ],
+          [
+            "4",
+            "0.68",
+            "R160 000",
+            "R160 000"
+          ],
+          [
+            "5",
+            "0.62",
+            "R200 000",
+            "R200 000"
+          ]
+        ]
+      }
+    },
+    {
+      "number": "2.3.2",
+      "marks": 2,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "QUESTION 2.3.2 (2 marks): Calculate the NPV of Project-Collect.",
+      "correctAnswer": "NPV = R471,170−R110,000=R361,170.",
+      "aiRubric": [
+        "Apply discounted inflows minus initial outlay (1).",
+        "NPV=R361 170 (1)."
+      ],
+      "aiReferenceNotes": "Mark with the method shown in the key, while accepting equivalent valid wording, workings, units and sensible rounding. The reference answer is a study aid, not an official memorandum.",
+      "explanation": "The lower initial investment gives Project-Collect a larger NPV because both projects have the same forecast inflows.\n\nStudent note: Subtract the Project-Collect initial cost of R110,000.",
+      "studentNote": "Subtract the Project-Collect initial cost of R110,000.",
+      "context": "E-GREEN seeks a sustainable way to dispose of electronic waste. A 2023 workshop drop-off project struggled because users kept old devices at home or put them in household trash rather than driving to workshops. In 2024, E-GREEN plans to work with local businesses and government to raise awareness, provide accessible collection points and recycle materials safely. The example is e-waste capsules beside entrances of major retail stores.\n\nProject-Dropoff installs capsules at shopping centres. Project-Collect uses scooter drivers with load boxes and a booking/scheduling app to collect devices from homes. Both projects earn revenue from resale or repair. Use the discount factors and cash flows in Table 1.",
+      "contextTitle": "Project-Dropoff and Project-Collect",
+      "table": {
+        "caption": "Table 1 — Project-Dropoff and Project-Collect cash flows",
+        "headers": [
+          "Year",
+          "Discount factor",
+          "Project-Dropoff",
+          "Project-Collect"
+        ],
+        "rows": [
+          [
+            "0",
+            "1.00",
+            "−R200 000",
+            "−R110 000"
+          ],
+          [
+            "1",
+            "0.91",
+            "R52 000",
+            "R52 000"
+          ],
+          [
+            "2",
+            "0.83",
+            "R110 000",
+            "R110 000"
+          ],
+          [
+            "3",
+            "0.75",
+            "R133 000",
+            "R133 000"
+          ],
+          [
+            "4",
+            "0.68",
+            "R160 000",
+            "R160 000"
+          ],
+          [
+            "5",
+            "0.62",
+            "R200 000",
+            "R200 000"
+          ]
+        ]
+      }
+    },
+    {
+      "number": "2.3.3",
+      "marks": 2,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "QUESTION 2.3.3 (2 marks): Based on NPV, which project would you recommend?",
+      "correctAnswer": "Recommend Project-Collect because its NPV is R361,170, greater than Project-Dropoff’s R271,170.",
+      "aiRubric": [
+        "Recommend Project-Collect (1).",
+        "Compare the NPVs correctly (1)."
+      ],
+      "aiReferenceNotes": "Mark with the method shown in the key, while accepting equivalent valid wording, workings, units and sensible rounding. The reference answer is a study aid, not an official memorandum.",
+      "explanation": "On the NPV criterion alone, the larger positive NPV is preferred.\n\nStudent note: This recommendation is based on NPV; the separate weighted-scoring question may rank the projects differently.",
+      "studentNote": "This recommendation is based on NPV; the separate weighted-scoring question may rank the projects differently.",
+      "context": "E-GREEN seeks a sustainable way to dispose of electronic waste. A 2023 workshop drop-off project struggled because users kept old devices at home or put them in household trash rather than driving to workshops. In 2024, E-GREEN plans to work with local businesses and government to raise awareness, provide accessible collection points and recycle materials safely. The example is e-waste capsules beside entrances of major retail stores.\n\nProject-Dropoff installs capsules at shopping centres. Project-Collect uses scooter drivers with load boxes and a booking/scheduling app to collect devices from homes. Both projects earn revenue from resale or repair. Use the discount factors and cash flows in Table 1.",
+      "contextTitle": "Project-Dropoff and Project-Collect",
+      "table": {
+        "caption": "Table 1 — Project-Dropoff and Project-Collect cash flows",
+        "headers": [
+          "Year",
+          "Discount factor",
+          "Project-Dropoff",
+          "Project-Collect"
+        ],
+        "rows": [
+          [
+            "0",
+            "1.00",
+            "−R200 000",
+            "−R110 000"
+          ],
+          [
+            "1",
+            "0.91",
+            "R52 000",
+            "R52 000"
+          ],
+          [
+            "2",
+            "0.83",
+            "R110 000",
+            "R110 000"
+          ],
+          [
+            "3",
+            "0.75",
+            "R133 000",
+            "R133 000"
+          ],
+          [
+            "4",
+            "0.68",
+            "R160 000",
+            "R160 000"
+          ],
+          [
+            "5",
+            "0.62",
+            "R200 000",
+            "R200 000"
+          ]
+        ]
+      }
+    },
+    {
+      "number": "2.4.1",
+      "marks": 6,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "QUESTION 2.4.1 (6 marks): Calculate the weighted score of Project-Dropoff using Table 2.",
+      "correctAnswer": "Weighted score = 0.55×70 + 0.25×85 + 0.13×75 + 0.05×20 + 0.02×65 = 38.50+21.25+9.75+1.00+1.30 = 71.80.",
+      "aiRubric": [
+        "Use weight × score for criteria 1–2 (2).",
+        "Use weight × score for criteria 3–5 (2).",
+        "Sum to 71.80 (2)."
+      ],
+      "aiReferenceNotes": "Mark with the method shown in the key, while accepting equivalent valid wording, workings, units and sensible rounding. The reference answer is a study aid, not an official memorandum.",
+      "explanation": "The weights sum to 100%, so multiply each score by its percentage weight as a decimal, then add.\n\nStudent note: Convert percentages to decimal multipliers before summing.",
+      "studentNote": "Convert percentages to decimal multipliers before summing.",
+      "context": "E-GREEN seeks a sustainable way to dispose of electronic waste. A 2023 workshop drop-off project struggled because users kept old devices at home or put them in household trash rather than driving to workshops. In 2024, E-GREEN plans to work with local businesses and government to raise awareness, provide accessible collection points and recycle materials safely. The example is e-waste capsules beside entrances of major retail stores.\n\nProject-Dropoff installs capsules at shopping centres. Project-Collect uses scooter drivers with load boxes and a booking/scheduling app to collect devices from homes. Both projects earn revenue from resale or repair. Use the discount factors and cash flows in Table 1.",
+      "contextTitle": "Project-Dropoff and Project-Collect",
+      "table": {
+        "caption": "Table 2 — Project-selection criteria, weights and scores",
+        "headers": [
+          "Criterion",
+          "Weight",
+          "Dropoff",
+          "Collect"
+        ],
+        "rows": [
+          [
+            "Supports safe, responsible e-waste disposal",
+            "55%",
+            "70",
+            "70"
+          ],
+          [
+            "Tech-users will adopt the method",
+            "25%",
+            "85",
+            "85"
+          ],
+          [
+            "Low maintenance requirement for physical resources",
+            "13%",
+            "75",
+            "35"
+          ],
+          [
+            "Mobile app aids process efficiency",
+            "5%",
+            "20",
+            "75"
+          ],
+          [
+            "Provides positive NPV",
+            "2%",
+            "65",
+            "69"
+          ]
+        ]
+      }
+    },
+    {
+      "number": "2.4.2",
+      "marks": 6,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "QUESTION 2.4.2 (6 marks): Calculate the weighted score of Project-Collect using Table 2.",
+      "correctAnswer": "Weighted score = 0.55×70 + 0.25×85 + 0.13×35 + 0.05×75 + 0.02×69 = 38.50+21.25+4.55+3.75+1.38 = 69.43.",
+      "aiRubric": [
+        "Use weight × score for criteria 1–2 (2).",
+        "Use weight × score for criteria 3–5 (2).",
+        "Sum to 69.43 (2)."
+      ],
+      "aiReferenceNotes": "Mark with the method shown in the key, while accepting equivalent valid wording, workings, units and sensible rounding. The reference answer is a study aid, not an official memorandum.",
+      "explanation": "Collect gains on the app criterion, while Dropoff scores better on low maintenance. Apply all five weights before comparing.\n\nStudent note: Do not average the five scores equally; use the supplied weights.",
+      "studentNote": "Do not average the five scores equally; use the supplied weights.",
+      "context": "E-GREEN seeks a sustainable way to dispose of electronic waste. A 2023 workshop drop-off project struggled because users kept old devices at home or put them in household trash rather than driving to workshops. In 2024, E-GREEN plans to work with local businesses and government to raise awareness, provide accessible collection points and recycle materials safely. The example is e-waste capsules beside entrances of major retail stores.\n\nProject-Dropoff installs capsules at shopping centres. Project-Collect uses scooter drivers with load boxes and a booking/scheduling app to collect devices from homes. Both projects earn revenue from resale or repair. Use the discount factors and cash flows in Table 1.",
+      "contextTitle": "Project-Dropoff and Project-Collect",
+      "table": {
+        "caption": "Table 2 — Project-selection criteria, weights and scores",
+        "headers": [
+          "Criterion",
+          "Weight",
+          "Dropoff",
+          "Collect"
+        ],
+        "rows": [
+          [
+            "Supports safe, responsible e-waste disposal",
+            "55%",
+            "70",
+            "70"
+          ],
+          [
+            "Tech-users will adopt the method",
+            "25%",
+            "85",
+            "85"
+          ],
+          [
+            "Low maintenance requirement for physical resources",
+            "13%",
+            "75",
+            "35"
+          ],
+          [
+            "Mobile app aids process efficiency",
+            "5%",
+            "20",
+            "75"
+          ],
+          [
+            "Provides positive NPV",
+            "2%",
+            "65",
+            "69"
+          ]
+        ]
+      }
+    },
+    {
+      "number": "2.4.3",
+      "marks": 2,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "QUESTION 2.4.3 (2 marks): Which project is most eligible by the weighted scores?",
+      "correctAnswer": "Project-Dropoff is higher by weighted score: 71.80 versus 69.43. This differs from the NPV result, which favored Project-Collect.",
+      "aiRubric": [
+        "Recommend Project-Dropoff on weighted score (1).",
+        "Correctly compare the scores or note the difference from NPV (1)."
+      ],
+      "aiReferenceNotes": "Mark with the method shown in the key, while accepting equivalent valid wording, workings, units and sensible rounding. The reference answer is a study aid, not an official memorandum.",
+      "explanation": "The decision depends on criteria: NPV favors Collect, while the weighted score favors Dropoff.\n\nStudent note: Keep the NPV and weighted-score conclusions distinct; they use different decision rules.",
+      "studentNote": "Keep the NPV and weighted-score conclusions distinct; they use different decision rules.",
+      "context": "E-GREEN seeks a sustainable way to dispose of electronic waste. A 2023 workshop drop-off project struggled because users kept old devices at home or put them in household trash rather than driving to workshops. In 2024, E-GREEN plans to work with local businesses and government to raise awareness, provide accessible collection points and recycle materials safely. The example is e-waste capsules beside entrances of major retail stores.\n\nProject-Dropoff installs capsules at shopping centres. Project-Collect uses scooter drivers with load boxes and a booking/scheduling app to collect devices from homes. Both projects earn revenue from resale or repair. Use the discount factors and cash flows in Table 1.",
+      "contextTitle": "Project-Dropoff and Project-Collect",
+      "table": {
+        "caption": "Table 2 — Project-selection criteria, weights and scores",
+        "headers": [
+          "Criterion",
+          "Weight",
+          "Dropoff",
+          "Collect"
+        ],
+        "rows": [
+          [
+            "Supports safe, responsible e-waste disposal",
+            "55%",
+            "70",
+            "70"
+          ],
+          [
+            "Tech-users will adopt the method",
+            "25%",
+            "85",
+            "85"
+          ],
+          [
+            "Low maintenance requirement for physical resources",
+            "13%",
+            "75",
+            "35"
+          ],
+          [
+            "Mobile app aids process efficiency",
+            "5%",
+            "20",
+            "75"
+          ],
+          [
+            "Provides positive NPV",
+            "2%",
+            "65",
+            "69"
+          ]
+        ]
+      }
+    },
+    {
+      "number": "3.1",
+      "marks": 16,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "diagram",
+      "text": "QUESTION 3.1 (16 marks): Draw an activity-on-arrow (AOA) network for the mobile-app design activities in Table 3. Show activity labels and durations, event numbering and the precedence relationships. Use dummy arrows where needed.",
+      "correctAnswer": "One valid AOA structure: 1→2 A(3); 2→3 B(3); 2→4 C(5); 2→5 D(4); 3→6 E(1); 4→7 F(2); 5→8 G(5); 6→9 dummy; 7→9 dummy; 8→9 dummy; 9→10 H(1). Earliest event times: 1=0, 2=3, 3=6, 4=8, 5=7, 6=7, 7=10, 8=12, 9=12, 10=13. Latest event times: 1=0, 2=3, 3=11, 4=10, 5=7, 6=12, 7=12, 8=12, 9=12, 10=13. Other valid event numbering and dummy-arrow layouts are acceptable if dependencies are preserved.",
+      "aiRubric": [
+        "Represent all eight activities with correct durations and precedence (7).",
+        "Use valid AOA merge logic for H’s three predecessors, with dummy arrows if required (3).",
+        "Correct forward-pass event times (2).",
+        "Correct backward-pass event times and start/finish nodes (2).",
+        "Diagram legible with event numbers, labels and durations (2)."
+      ],
+      "aiReferenceNotes": "Mark with the method shown in the key, while accepting equivalent valid wording, workings, units and sensible rounding. The reference answer is a study aid, not an official memorandum.",
+      "explanation": "H can begin only when E, F and G are all complete. The longest path is A–D–G–H at 13 days; dummy arrows preserve the three incoming dependencies without adding time.\n\nStudent note: AOA places activities on arrows and events at nodes. AON places activities in nodes, so do not reverse the requested notation.",
+      "studentNote": "AOA places activities on arrows and events at nodes. AON places activities in nodes, so do not reverse the requested notation.",
+      "diagramRequired": true,
+      "context": "E-GREEN seeks a sustainable way to dispose of electronic waste. A 2023 workshop drop-off project struggled because users kept old devices at home or put them in household trash rather than driving to workshops. In 2024, E-GREEN plans to work with local businesses and government to raise awareness, provide accessible collection points and recycle materials safely. The example is e-waste capsules beside entrances of major retail stores.\n\nProject-Dropoff installs capsules at shopping centres. Project-Collect uses scooter drivers with load boxes and a booking/scheduling app to collect devices from homes. Both projects earn revenue from resale or repair. Use the discount factors and cash flows in Table 1.\n\nIf Project-Collect is chosen, Table 3 gives the proposed app-design activities and dependencies.",
+      "contextTitle": "Project-Collect mobile-app schedule",
+      "table": {
+        "caption": "Table 3 — Project-Collect mobile-app design schedule",
+        "headers": [
+          "Activity",
+          "Description",
+          "Duration (days)",
+          "Predecessor(s)"
+        ],
+        "rows": [
+          [
+            "A",
+            "Requirement gathering and analysis",
+            "3",
+            "—"
+          ],
+          [
+            "B",
+            "Design wireframes and user interface",
+            "3",
+            "A"
+          ],
+          [
+            "C",
+            "Backend development",
+            "5",
+            "A"
+          ],
+          [
+            "D",
+            "Frontend development",
+            "4",
+            "A"
+          ],
+          [
+            "E",
+            "Integration and testing",
+            "1",
+            "B"
+          ],
+          [
+            "F",
+            "Deployment and launch",
+            "2",
+            "C"
+          ],
+          [
+            "G",
+            "Maintenance and updates",
+            "5",
+            "D"
+          ],
+          [
+            "H",
+            "Live — make app available",
+            "1",
+            "E, F, G"
+          ]
+        ]
+      }
+    },
+    {
+      "number": "3.2",
+      "marks": 2,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "QUESTION 3.2 (2 marks): Which activities have slack?",
+      "correctAnswer": "Activities with positive total slack are B=5 days, C=2 days, E=5 days and F=2 days. Activities A, D, G and H have zero slack.",
+      "aiRubric": [
+        "Identify the positive-float activities (1).",
+        "Give correct float values or identify zero-float activities (1)."
+      ],
+      "aiReferenceNotes": "Mark with the method shown in the key, while accepting equivalent valid wording, workings, units and sensible rounding. The reference answer is a study aid, not an official memorandum.",
+      "explanation": "Slack is latest start minus earliest start (or latest finish minus earliest finish). It measures allowable delay without delaying project completion.\n\nStudent note: F has 2 days of slack, not 7; compare its earliest finish with the latest event at the H merge.",
+      "studentNote": "F has 2 days of slack, not 7; compare its earliest finish with the latest event at the H merge.",
+      "context": "E-GREEN seeks a sustainable way to dispose of electronic waste. A 2023 workshop drop-off project struggled because users kept old devices at home or put them in household trash rather than driving to workshops. In 2024, E-GREEN plans to work with local businesses and government to raise awareness, provide accessible collection points and recycle materials safely. The example is e-waste capsules beside entrances of major retail stores.\n\nProject-Dropoff installs capsules at shopping centres. Project-Collect uses scooter drivers with load boxes and a booking/scheduling app to collect devices from homes. Both projects earn revenue from resale or repair. Use the discount factors and cash flows in Table 1.\n\nIf Project-Collect is chosen, Table 3 gives the proposed app-design activities and dependencies.",
+      "contextTitle": "Project-Collect mobile-app schedule",
+      "table": {
+        "caption": "Table 3 — Project-Collect mobile-app design schedule",
+        "headers": [
+          "Activity",
+          "Description",
+          "Duration (days)",
+          "Predecessor(s)"
+        ],
+        "rows": [
+          [
+            "A",
+            "Requirement gathering and analysis",
+            "3",
+            "—"
+          ],
+          [
+            "B",
+            "Design wireframes and user interface",
+            "3",
+            "A"
+          ],
+          [
+            "C",
+            "Backend development",
+            "5",
+            "A"
+          ],
+          [
+            "D",
+            "Frontend development",
+            "4",
+            "A"
+          ],
+          [
+            "E",
+            "Integration and testing",
+            "1",
+            "B"
+          ],
+          [
+            "F",
+            "Deployment and launch",
+            "2",
+            "C"
+          ],
+          [
+            "G",
+            "Maintenance and updates",
+            "5",
+            "D"
+          ],
+          [
+            "H",
+            "Live — make app available",
+            "1",
+            "E, F, G"
+          ]
+        ]
+      }
+    },
+    {
+      "number": "3.3",
+      "marks": 2,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "QUESTION 3.3 (2 marks): Identify the critical path.",
+      "correctAnswer": "Critical path: A–D–G–H. Duration = 3+4+5+1=13 days.",
+      "aiRubric": [
+        "Identify A–D–G–H (1).",
+        "State 13 days (1)."
+      ],
+      "aiReferenceNotes": "Mark with the method shown in the key, while accepting equivalent valid wording, workings, units and sensible rounding. The reference answer is a study aid, not an official memorandum.",
+      "explanation": "This is the longest precedence path and all its activities have zero total slack.\n\nStudent note: Follow the dependencies and add durations along the path.",
+      "studentNote": "Follow the dependencies and add durations along the path.",
+      "context": "E-GREEN seeks a sustainable way to dispose of electronic waste. A 2023 workshop drop-off project struggled because users kept old devices at home or put them in household trash rather than driving to workshops. In 2024, E-GREEN plans to work with local businesses and government to raise awareness, provide accessible collection points and recycle materials safely. The example is e-waste capsules beside entrances of major retail stores.\n\nProject-Dropoff installs capsules at shopping centres. Project-Collect uses scooter drivers with load boxes and a booking/scheduling app to collect devices from homes. Both projects earn revenue from resale or repair. Use the discount factors and cash flows in Table 1.\n\nIf Project-Collect is chosen, Table 3 gives the proposed app-design activities and dependencies.",
+      "contextTitle": "Project-Collect mobile-app schedule",
+      "table": {
+        "caption": "Table 3 — Project-Collect mobile-app design schedule",
+        "headers": [
+          "Activity",
+          "Description",
+          "Duration (days)",
+          "Predecessor(s)"
+        ],
+        "rows": [
+          [
+            "A",
+            "Requirement gathering and analysis",
+            "3",
+            "—"
+          ],
+          [
+            "B",
+            "Design wireframes and user interface",
+            "3",
+            "A"
+          ],
+          [
+            "C",
+            "Backend development",
+            "5",
+            "A"
+          ],
+          [
+            "D",
+            "Frontend development",
+            "4",
+            "A"
+          ],
+          [
+            "E",
+            "Integration and testing",
+            "1",
+            "B"
+          ],
+          [
+            "F",
+            "Deployment and launch",
+            "2",
+            "C"
+          ],
+          [
+            "G",
+            "Maintenance and updates",
+            "5",
+            "D"
+          ],
+          [
+            "H",
+            "Live — make app available",
+            "1",
+            "E, F, G"
+          ]
+        ]
+      }
+    },
+    {
+      "number": "4.1",
+      "marks": 3,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "QUESTION 4.1 (3 marks): Calculate the percentage of the eight capsules assembled by day 8.",
+      "correctAnswer": "Four of eight capsules are assembled by day 8. Completion = 4/8×100=50%.",
+      "aiRubric": [
+        "Use cumulative assembly count of 4 by day 8 (1).",
+        "Use target of 8 capsules (1).",
+        "Calculate 50% (1)."
+      ],
+      "aiReferenceNotes": "Mark with the method shown in the key, while accepting equivalent valid wording, workings, units and sensible rounding. The reference answer is a study aid, not an official memorandum.",
+      "explanation": "Use the cumulative count at day 8, not the sum of daily assembly rates beyond that date.\n\nStudent note: The denominator is the eight-site pilot target.",
+      "studentNote": "The denominator is the eight-site pilot target.",
+      "context": "E-GREEN seeks a sustainable way to dispose of electronic waste. A 2023 workshop drop-off project struggled because users kept old devices at home or put them in household trash rather than driving to workshops. In 2024, E-GREEN plans to work with local businesses and government to raise awareness, provide accessible collection points and recycle materials safely. The example is e-waste capsules beside entrances of major retail stores.\n\nE-GREEN selected Project-Dropoff and will pilot at eight sites. Capsule assembly began ten days ago and is planned to finish in twenty more days. Budget at completion (BAC) is R55,000. Capsules assembled every eight days are budgeted at planned value (PV) R18,200.",
+      "contextTitle": "E-GREEN capsule assembly — earned value",
+      "table": {
+        "caption": "Table 4 — Capsule assembly and cost data (days 1–10 and the target shown in the source)",
+        "headers": [
+          "Day",
+          "Site",
+          "Assembly rate",
+          "Cumulative assembled",
+          "Completion",
+          "Cost"
+        ],
+        "rows": [
+          [
+            "1",
+            "Sandton City",
+            "1",
+            "1",
+            "—",
+            "R6 500"
+          ],
+          [
+            "2",
+            "Clearwater Mall",
+            "0",
+            "1",
+            "13%",
+            "R5 700"
+          ],
+          [
+            "3",
+            "Clearwater Mall",
+            "1",
+            "2",
+            "—",
+            "R1 400"
+          ],
+          [
+            "4",
+            "Mall of Africa",
+            "0",
+            "2",
+            "—",
+            "R4 780"
+          ],
+          [
+            "5",
+            "Mall of Africa",
+            "1",
+            "3",
+            "38%",
+            "R2 100"
+          ],
+          [
+            "6",
+            "Unisa Florida Campus",
+            "0",
+            "3",
+            "—",
+            "R4 000"
+          ],
+          [
+            "7",
+            "Unisa Florida Campus",
+            "0",
+            "3",
+            "—",
+            "R1 200"
+          ],
+          [
+            "8",
+            "Unisa Florida Campus",
+            "1",
+            "4",
+            "Question 4.1",
+            "R1 160"
+          ],
+          [
+            "9",
+            "University of Johannesburg",
+            "1",
+            "5",
+            "—",
+            "R6 200"
+          ],
+          [
+            "10",
+            "Cosmo Mall",
+            "0",
+            "5",
+            "—",
+            "R3 450"
+          ],
+          [
+            "11–30",
+            "Further sites (source table shows an ellipsis)",
+            "—",
+            "—",
+            "—",
+            "—"
+          ],
+          [
+            "Target",
+            "8 capsules",
+            "—",
+            "8",
+            "100%",
+            "Total incurred R36 490"
+          ]
+        ]
+      }
+    },
+    {
+      "number": "4.2",
+      "marks": 3,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "QUESTION 4.2 (3 marks): Calculate earned value (EV) by day 8. BAC is R55,000.",
+      "correctAnswer": "EV = percent complete × BAC = 0.50×R55,000=R27,500.",
+      "aiRubric": [
+        "Use EV=% complete × BAC (1).",
+        "Substitute 50% and R55 000 correctly (1).",
+        "EV=R27 500 (1)."
+      ],
+      "aiReferenceNotes": "Mark with the method shown in the key, while accepting equivalent valid wording, workings, units and sensible rounding. The reference answer is a study aid, not an official memorandum.",
+      "explanation": "Earned value is the budgeted value of work actually completed, not the actual amount spent.\n\nStudent note: Use the completion percentage from Question 4.1.",
+      "studentNote": "Use the completion percentage from Question 4.1.",
+      "context": "E-GREEN seeks a sustainable way to dispose of electronic waste. A 2023 workshop drop-off project struggled because users kept old devices at home or put them in household trash rather than driving to workshops. In 2024, E-GREEN plans to work with local businesses and government to raise awareness, provide accessible collection points and recycle materials safely. The example is e-waste capsules beside entrances of major retail stores.\n\nE-GREEN selected Project-Dropoff and will pilot at eight sites. Capsule assembly began ten days ago and is planned to finish in twenty more days. Budget at completion (BAC) is R55,000. Capsules assembled every eight days are budgeted at planned value (PV) R18,200.",
+      "contextTitle": "E-GREEN capsule assembly — earned value",
+      "table": {
+        "caption": "Table 4 — Capsule assembly and cost data (days 1–10 and the target shown in the source)",
+        "headers": [
+          "Day",
+          "Site",
+          "Assembly rate",
+          "Cumulative assembled",
+          "Completion",
+          "Cost"
+        ],
+        "rows": [
+          [
+            "1",
+            "Sandton City",
+            "1",
+            "1",
+            "—",
+            "R6 500"
+          ],
+          [
+            "2",
+            "Clearwater Mall",
+            "0",
+            "1",
+            "13%",
+            "R5 700"
+          ],
+          [
+            "3",
+            "Clearwater Mall",
+            "1",
+            "2",
+            "—",
+            "R1 400"
+          ],
+          [
+            "4",
+            "Mall of Africa",
+            "0",
+            "2",
+            "—",
+            "R4 780"
+          ],
+          [
+            "5",
+            "Mall of Africa",
+            "1",
+            "3",
+            "38%",
+            "R2 100"
+          ],
+          [
+            "6",
+            "Unisa Florida Campus",
+            "0",
+            "3",
+            "—",
+            "R4 000"
+          ],
+          [
+            "7",
+            "Unisa Florida Campus",
+            "0",
+            "3",
+            "—",
+            "R1 200"
+          ],
+          [
+            "8",
+            "Unisa Florida Campus",
+            "1",
+            "4",
+            "Question 4.1",
+            "R1 160"
+          ],
+          [
+            "9",
+            "University of Johannesburg",
+            "1",
+            "5",
+            "—",
+            "R6 200"
+          ],
+          [
+            "10",
+            "Cosmo Mall",
+            "0",
+            "5",
+            "—",
+            "R3 450"
+          ],
+          [
+            "11–30",
+            "Further sites (source table shows an ellipsis)",
+            "—",
+            "—",
+            "—",
+            "—"
+          ],
+          [
+            "Target",
+            "8 capsules",
+            "—",
+            "8",
+            "100%",
+            "Total incurred R36 490"
+          ]
+        ]
+      }
+    },
+    {
+      "number": "4.3",
+      "marks": 3,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "QUESTION 4.3 (3 marks): Calculate cost variance (CV) at the end of day 8.",
+      "correctAnswer": "Actual cost by day 8 = R6,500+R5,700+R1,400+R4,780+R2,100+R4,000+R1,200+R1,160=R26,840. CV=EV−AC=R27,500−R26,840=+R660.",
+      "aiRubric": [
+        "Sum the actual costs through day 8 to R26 840 (1).",
+        "Apply CV=EV−AC (1).",
+        "Calculate +R660 (1)."
+      ],
+      "aiReferenceNotes": "Mark with the method shown in the key, while accepting equivalent valid wording, workings, units and sensible rounding. The reference answer is a study aid, not an official memorandum.",
+      "explanation": "A positive cost variance means the budgeted value of completed work exceeds the actual cost spent.\n\nStudent note: Use only costs incurred through day 8; the table’s total through day 10 is R36,490.",
+      "studentNote": "Use only costs incurred through day 8; the table’s total through day 10 is R36,490.",
+      "context": "E-GREEN seeks a sustainable way to dispose of electronic waste. A 2023 workshop drop-off project struggled because users kept old devices at home or put them in household trash rather than driving to workshops. In 2024, E-GREEN plans to work with local businesses and government to raise awareness, provide accessible collection points and recycle materials safely. The example is e-waste capsules beside entrances of major retail stores.\n\nE-GREEN selected Project-Dropoff and will pilot at eight sites. Capsule assembly began ten days ago and is planned to finish in twenty more days. Budget at completion (BAC) is R55,000. Capsules assembled every eight days are budgeted at planned value (PV) R18,200.",
+      "contextTitle": "E-GREEN capsule assembly — earned value",
+      "table": {
+        "caption": "Table 4 — Capsule assembly and cost data (days 1–10 and the target shown in the source)",
+        "headers": [
+          "Day",
+          "Site",
+          "Assembly rate",
+          "Cumulative assembled",
+          "Completion",
+          "Cost"
+        ],
+        "rows": [
+          [
+            "1",
+            "Sandton City",
+            "1",
+            "1",
+            "—",
+            "R6 500"
+          ],
+          [
+            "2",
+            "Clearwater Mall",
+            "0",
+            "1",
+            "13%",
+            "R5 700"
+          ],
+          [
+            "3",
+            "Clearwater Mall",
+            "1",
+            "2",
+            "—",
+            "R1 400"
+          ],
+          [
+            "4",
+            "Mall of Africa",
+            "0",
+            "2",
+            "—",
+            "R4 780"
+          ],
+          [
+            "5",
+            "Mall of Africa",
+            "1",
+            "3",
+            "38%",
+            "R2 100"
+          ],
+          [
+            "6",
+            "Unisa Florida Campus",
+            "0",
+            "3",
+            "—",
+            "R4 000"
+          ],
+          [
+            "7",
+            "Unisa Florida Campus",
+            "0",
+            "3",
+            "—",
+            "R1 200"
+          ],
+          [
+            "8",
+            "Unisa Florida Campus",
+            "1",
+            "4",
+            "Question 4.1",
+            "R1 160"
+          ],
+          [
+            "9",
+            "University of Johannesburg",
+            "1",
+            "5",
+            "—",
+            "R6 200"
+          ],
+          [
+            "10",
+            "Cosmo Mall",
+            "0",
+            "5",
+            "—",
+            "R3 450"
+          ],
+          [
+            "11–30",
+            "Further sites (source table shows an ellipsis)",
+            "—",
+            "—",
+            "—",
+            "—"
+          ],
+          [
+            "Target",
+            "8 capsules",
+            "—",
+            "8",
+            "100%",
+            "Total incurred R36 490"
+          ]
+        ]
+      }
+    },
+    {
+      "number": "4.4",
+      "marks": 1,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "QUESTION 4.4 (1 mark): What does the cost variance indicate about the cost of performing the work?",
+      "correctAnswer": "CV is +R660, so the work is currently under budget (favourable cost performance).",
+      "aiRubric": [
+        "State that positive CV indicates under-budget/favourable cost performance (1)."
+      ],
+      "aiReferenceNotes": "Mark with the method shown in the key, while accepting equivalent valid wording, workings, units and sensible rounding. The reference answer is a study aid, not an official memorandum.",
+      "explanation": "CV=EV−AC. Positive means earned budget value is greater than actual cost.\n\nStudent note: A positive CV does not by itself indicate schedule performance.",
+      "studentNote": "A positive CV does not by itself indicate schedule performance.",
+      "context": "E-GREEN seeks a sustainable way to dispose of electronic waste. A 2023 workshop drop-off project struggled because users kept old devices at home or put them in household trash rather than driving to workshops. In 2024, E-GREEN plans to work with local businesses and government to raise awareness, provide accessible collection points and recycle materials safely. The example is e-waste capsules beside entrances of major retail stores.\n\nE-GREEN selected Project-Dropoff and will pilot at eight sites. Capsule assembly began ten days ago and is planned to finish in twenty more days. Budget at completion (BAC) is R55,000. Capsules assembled every eight days are budgeted at planned value (PV) R18,200.",
+      "contextTitle": "E-GREEN capsule assembly — earned value",
+      "table": {
+        "caption": "Table 4 — Capsule assembly and cost data (days 1–10 and the target shown in the source)",
+        "headers": [
+          "Day",
+          "Site",
+          "Assembly rate",
+          "Cumulative assembled",
+          "Completion",
+          "Cost"
+        ],
+        "rows": [
+          [
+            "1",
+            "Sandton City",
+            "1",
+            "1",
+            "—",
+            "R6 500"
+          ],
+          [
+            "2",
+            "Clearwater Mall",
+            "0",
+            "1",
+            "13%",
+            "R5 700"
+          ],
+          [
+            "3",
+            "Clearwater Mall",
+            "1",
+            "2",
+            "—",
+            "R1 400"
+          ],
+          [
+            "4",
+            "Mall of Africa",
+            "0",
+            "2",
+            "—",
+            "R4 780"
+          ],
+          [
+            "5",
+            "Mall of Africa",
+            "1",
+            "3",
+            "38%",
+            "R2 100"
+          ],
+          [
+            "6",
+            "Unisa Florida Campus",
+            "0",
+            "3",
+            "—",
+            "R4 000"
+          ],
+          [
+            "7",
+            "Unisa Florida Campus",
+            "0",
+            "3",
+            "—",
+            "R1 200"
+          ],
+          [
+            "8",
+            "Unisa Florida Campus",
+            "1",
+            "4",
+            "Question 4.1",
+            "R1 160"
+          ],
+          [
+            "9",
+            "University of Johannesburg",
+            "1",
+            "5",
+            "—",
+            "R6 200"
+          ],
+          [
+            "10",
+            "Cosmo Mall",
+            "0",
+            "5",
+            "—",
+            "R3 450"
+          ],
+          [
+            "11–30",
+            "Further sites (source table shows an ellipsis)",
+            "—",
+            "—",
+            "—",
+            "—"
+          ],
+          [
+            "Target",
+            "8 capsules",
+            "—",
+            "8",
+            "100%",
+            "Total incurred R36 490"
+          ]
+        ]
+      }
+    }
+  ],
+  "examCode": "INF3708-24-Y"
+}

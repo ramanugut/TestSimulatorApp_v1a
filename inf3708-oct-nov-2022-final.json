@@ -1,0 +1,935 @@
+{
+  "testName": "INF3708 – Software Project Management – OCT/NOV 2022 Final Examination (100 marks)",
+  "module": "INF3708",
+  "examSession": "OCT/NOV 2022 FINAL",
+  "totalMarks": 100,
+  "durationMinutes": 180,
+  "preserveOrder": true,
+  "marking": "ai-rubric-weighted",
+  "sourceType": "Transcribed from a user-supplied INF3708 examination PDF; answer guidance independently checked for study practice.",
+  "sourceNote": "Transcribed from the supplied October/November 2022 final-examination PDF (100 marks, 3 hours). The numerical reference answers were recalculated from the paper’s cash flows, discount factors and activity data.",
+  "sourceLimitations": "The supplied scan prints Table 3 weights totaling 105%. The score key reports the arithmetic using those printed weights and also explains normalization. The earned-value question omits planned value, so SV and SPI cannot be determined; the answer guidance flags this instead of assuming a value.",
+  "questions": [
+    {
+      "number": "1.1",
+      "marks": 4,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "QUESTION 1.1 (4 marks): From the case, identify the project stakeholders.",
+      "correctAnswer": "Stakeholders include Car Trace senior management (sponsor/decision-maker), the finance department (project proposer and principal customer), Highway IT (contracted vendor and delivery team), and the procurement, auditing and reimbursement departments that use or depend on the financial system. Also accept finance-system users and affected staff where explained.",
+      "aiRubric": [
+        "Identify Car Trace management/sponsor (1).",
+        "Identify Finance as customer/project proposer (1).",
+        "Identify Highway IT/vendor or project team (1).",
+        "Identify relevant user/support departments such as Procurement, Auditing or Reimbursement (1)."
+      ],
+      "aiReferenceNotes": "Mark with the method shown in the key, while accepting equivalent valid wording, workings, units and sensible rounding. The reference answer is a study aid, not an official memorandum.",
+      "explanation": "A stakeholder is anyone who can affect the project or is affected by its outcome. Include both the people paying for or building the system and the departments whose work depends on it.\n\nStudent note: Name stakeholder groups from the case and connect them to the project; a stakeholder is not limited to a person who writes code.",
+      "studentNote": "Name stakeholder groups from the case and connect them to the project; a stakeholder is not limited to a person who writes code.",
+      "context": "Car Trace is considering an upgrade of its largest financial system through IT vendor Highway IT. Finance needs a better system and must assess the project’s viability. Management is comparing the finance department’s proposal with an alternative. Procurement, auditing and reimbursement teams use or interact with the system and must agree on its scope. Requirements may change during development, so Finance wants a working increment at the end of each iteration for departments to try and comment on.",
+      "contextTitle": "Car Trace financial-system upgrade"
+    },
+    {
+      "number": "1.2",
+      "marks": 4,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "QUESTION 1.2 (4 marks): Is it better for a project to have many or few major stakeholders? Justify your answer using an example from the case.",
+      "correctAnswer": "There is no universally better number. The project needs to identify and involve all relevant stakeholders: a broader set can expose varied requirements and improve adoption, while more stakeholders increase coordination, communication and conflict risks. For example, including Finance plus procurement, auditing and reimbursement helps agree on cross-department system coverage; the project manager should manage their participation rather than exclude affected departments.",
+      "aiRubric": [
+        "Explain that number alone does not determine success / relevant stakeholders must be included (1).",
+        "Describe a benefit of broader representation (1).",
+        "Describe a coordination or conflict cost of many stakeholders (1).",
+        "Apply both ideas to a specific Car Trace department or system example (1)."
+      ],
+      "aiReferenceNotes": "Mark with the method shown in the key, while accepting equivalent valid wording, workings, units and sensible rounding. The reference answer is a study aid, not an official memorandum.",
+      "explanation": "Stakeholder engagement trades broader knowledge and ownership against the effort of communication and decision-making. The practical answer is to include every materially affected group and plan how to engage them.\n\nStudent note: Avoid answering only “many” or “few.” Explain the trade-off and ground it in the departments listed in the case.",
+      "studentNote": "Avoid answering only “many” or “few.” Explain the trade-off and ground it in the departments listed in the case.",
+      "context": "Car Trace is considering an upgrade of its largest financial system through IT vendor Highway IT. Finance needs a better system and must assess the project’s viability. Management is comparing the finance department’s proposal with an alternative. Procurement, auditing and reimbursement teams use or interact with the system and must agree on its scope. Requirements may change during development, so Finance wants a working increment at the end of each iteration for departments to try and comment on.",
+      "contextTitle": "Car Trace financial-system upgrade"
+    },
+    {
+      "number": "1.3",
+      "marks": 2,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "QUESTION 1.3 (2 marks): Which project-management process group includes identifying project stakeholders, and which project-management competence should the Highway IT consultant use to do it effectively?",
+      "correctAnswer": "Stakeholder identification belongs to the Initiating process group. The consultant needs strong people/interpersonal and communication skills to identify, listen to and understand affected groups; accept equivalent stakeholder-engagement competence.",
+      "aiRubric": [
+        "Initiating process group (1).",
+        "A suitable competence such as interpersonal/people skills, listening or communication (1)."
+      ],
+      "aiReferenceNotes": "Mark with the method shown in the key, while accepting equivalent valid wording, workings, units and sensible rounding. The reference answer is a study aid, not an official memorandum.",
+      "explanation": "Identifying stakeholders is an initiating activity. Effective identification relies on people skills because the manager must find and understand people with different interests.\n\nStudent note: Use the formal process-group name, then name a human or communication skill that enables the work.",
+      "studentNote": "Use the formal process-group name, then name a human or communication skill that enables the work.",
+      "context": "Car Trace is considering an upgrade of its largest financial system through IT vendor Highway IT. Finance needs a better system and must assess the project’s viability. Management is comparing the finance department’s proposal with an alternative. Procurement, auditing and reimbursement teams use or interact with the system and must agree on its scope. Requirements may change during development, so Finance wants a working increment at the end of each iteration for departments to try and comment on.",
+      "contextTitle": "Car Trace financial-system upgrade"
+    },
+    {
+      "number": "2.1",
+      "marks": 5,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "QUESTION 2.1 (5 marks): Calculate the net profit of Projects 1 and 2 using Table 1.",
+      "correctAnswer": "Net profit = total cash inflows − initial investment. Project 1: (85 000 + 70 000 + 78 000 + 33 000) − 200 000 = R66 000. Project 2: (70 000 + 75 000 + 80 000 + 85 000) − 275 000 = R35 000.",
+      "aiRubric": [
+        "State or apply net profit = total inflows − initial outlay (1).",
+        "Project 1 total inflows R266 000 (1).",
+        "Project 1 net profit R66 000 (1).",
+        "Project 2 total inflows R310 000 (1).",
+        "Project 2 net profit R35 000 (1)."
+      ],
+      "aiReferenceNotes": "Mark with the method shown in the key, while accepting equivalent valid wording, workings, units and sensible rounding. The reference answer is a study aid, not an official memorandum.",
+      "explanation": "Net profit is the undiscounted sum of the positive cash flows less the initial cost.\n\nStudent note: Keep the initial investment separate from the positive annual inflows and show the subtraction.",
+      "studentNote": "Keep the initial investment separate from the positive annual inflows and show the subtraction.",
+      "table": {
+        "caption": "Table 1 — Projects Cash Flow (South African rand)",
+        "headers": [
+          "Year",
+          "Project 1 — Finance department",
+          "Project 2 — Alternative"
+        ],
+        "rows": [
+          [
+            "0",
+            "−R200 000",
+            "−R275 000"
+          ],
+          [
+            "1",
+            "+R85 000",
+            "+R70 000"
+          ],
+          [
+            "2",
+            "+R70 000",
+            "+R75 000"
+          ],
+          [
+            "3",
+            "+R78 000",
+            "+R80 000"
+          ],
+          [
+            "4",
+            "+R33 000",
+            "+R85 000"
+          ]
+        ]
+      }
+    },
+    {
+      "number": "2.2",
+      "marks": 5,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "QUESTION 2.2 (5 marks): Calculate the return on investment (ROI) for Projects 1 and 2 using Table 1.",
+      "correctAnswer": "ROI = net profit ÷ initial investment × 100. Project 1: 66 000 ÷ 200 000 × 100 = 33.00%. Project 2: 35 000 ÷ 275 000 × 100 = 12.73%.",
+      "aiRubric": [
+        "Use net profit divided by original investment and express as a percentage (1).",
+        "Project 1 uses R66 000 / R200 000 (1).",
+        "Project 1 ROI = 33% (1).",
+        "Project 2 uses R35 000 / R275 000 (1).",
+        "Project 2 ROI ≈ 12.73% (1)."
+      ],
+      "aiReferenceNotes": "Mark with the method shown in the key, while accepting equivalent valid wording, workings, units and sensible rounding. The reference answer is a study aid, not an official memorandum.",
+      "explanation": "ROI expresses net profit relative to the amount initially invested; it is not simply the profit amount.\n\nStudent note: Write the result as a percentage and use each project’s own initial investment.",
+      "studentNote": "Write the result as a percentage and use each project’s own initial investment.",
+      "table": {
+        "caption": "Table 1 — Projects Cash Flow (South African rand)",
+        "headers": [
+          "Year",
+          "Project 1 — Finance department",
+          "Project 2 — Alternative"
+        ],
+        "rows": [
+          [
+            "0",
+            "−R200 000",
+            "−R275 000"
+          ],
+          [
+            "1",
+            "+R85 000",
+            "+R70 000"
+          ],
+          [
+            "2",
+            "+R70 000",
+            "+R75 000"
+          ],
+          [
+            "3",
+            "+R78 000",
+            "+R80 000"
+          ],
+          [
+            "4",
+            "+R33 000",
+            "+R85 000"
+          ]
+        ]
+      }
+    },
+    {
+      "number": "2.3",
+      "marks": 5,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "QUESTION 2.3 (5 marks): Calculate the payback period and year in which each project recovers its initial capital investment.",
+      "correctAnswer": "Project 1 recovers R155 000 by the end of year 2, leaving R45 000; year 3 brings R78 000. Payback = 2 + 45 000/78 000 = 2.58 years, during year 3. Project 2 has received R225 000 by the end of year 3, leaving R50 000; year 4 brings R85 000. Payback = 3 + 50 000/85 000 = 3.59 years, during year 4.",
+      "aiRubric": [
+        "Project 1 cumulative cash flow identifies R45 000 unrecovered after year 2 (1).",
+        "Project 1 payback ≈ 2.58 years / during year 3 (1).",
+        "Project 2 identifies R50 000 unrecovered after year 3 (1).",
+        "Project 2 payback ≈ 3.59 years / during year 4 (1).",
+        "Show the fractional-year method (1)."
+      ],
+      "aiReferenceNotes": "Mark with the method shown in the key, while accepting equivalent valid wording, workings, units and sensible rounding. The reference answer is a study aid, not an official memorandum.",
+      "explanation": "Payback uses cumulative inflows. The fraction of the final year is the amount still unrecovered at the start of that year divided by that year’s cash inflow.\n\nStudent note: Do not divide the initial investment by one annual inflow; track the cumulative balance first.",
+      "studentNote": "Do not divide the initial investment by one annual inflow; track the cumulative balance first.",
+      "table": {
+        "caption": "Table 1 — Projects Cash Flow (South African rand)",
+        "headers": [
+          "Year",
+          "Project 1 — Finance department",
+          "Project 2 — Alternative"
+        ],
+        "rows": [
+          [
+            "0",
+            "−R200 000",
+            "−R275 000"
+          ],
+          [
+            "1",
+            "+R85 000",
+            "+R70 000"
+          ],
+          [
+            "2",
+            "+R70 000",
+            "+R75 000"
+          ],
+          [
+            "3",
+            "+R78 000",
+            "+R80 000"
+          ],
+          [
+            "4",
+            "+R33 000",
+            "+R85 000"
+          ]
+        ]
+      }
+    },
+    {
+      "number": "3.1",
+      "marks": 3,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "QUESTION 3.1 (3 marks): Why use net present value (NPV) rather than net profit as a primary way of projecting a project’s financial viability?",
+      "correctAnswer": "NPV discounts cash flows to reflect the time value of money, so it accounts for when benefits and costs occur. It compares projects on a present-value basis and can incorporate the required return/discount rate. Undiscounted net profit ignores timing and the time value of money.",
+      "aiRubric": [
+        "Explain time value of money / discounting (1).",
+        "Explain that timing of cash flows is reflected (1).",
+        "Explain how the discount rate or present-value comparison improves financial viability assessment (1)."
+      ],
+      "aiReferenceNotes": "Mark with the method shown in the key, while accepting equivalent valid wording, workings, units and sensible rounding. The reference answer is a study aid, not an official memorandum.",
+      "explanation": "Net profit treats a rand received now like a rand received years later. NPV converts each future cash flow to present value before comparing it with the investment.\n\nStudent note: The key contrast is discounted cash-flow timing versus an undiscounted total.",
+      "studentNote": "The key contrast is discounted cash-flow timing versus an undiscounted total.",
+      "context": "Car Trace is considering an upgrade of its largest financial system through IT vendor Highway IT. Finance needs a better system and must assess the project’s viability. Management is comparing the finance department’s proposal with an alternative. Procurement, auditing and reimbursement teams use or interact with the system and must agree on its scope. Requirements may change during development, so Finance wants a working increment at the end of each iteration for departments to try and comment on.",
+      "contextTitle": "Car Trace financial-system upgrade"
+    },
+    {
+      "number": "3.2",
+      "marks": 8,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "QUESTION 3.2 (8 marks): Using the cash flows in Table 1 and the 8% discount factors in Table 2, calculate NPV for both projects. Show your calculations.",
+      "correctAnswer": "Project 1: PV inflows = 85 000(0.9259) + 70 000(0.8573) + 78 000(0.7938) + 33 000(0.7350) = R224 883.90. NPV = 224 883.90 − 200 000 = R24 883.90. Project 2: PV inflows = 70 000(0.9259) + 75 000(0.8573) + 80 000(0.7938) + 85 000(0.7350) = R255 089.50. NPV = 255 089.50 − 275 000 = −R19 910.50.",
+      "aiRubric": [
+        "Use each supplied discount factor for the correct year and project (2).",
+        "Project 1 discounted inflows sum to R224 883.90, with valid working (2).",
+        "Project 1 NPV is R24 883.90 (1).",
+        "Project 2 discounted inflows sum to R255 089.50, with valid working (2).",
+        "Project 2 NPV is −R19 910.50 (1)."
+      ],
+      "aiReferenceNotes": "Mark with the method shown in the key, while accepting equivalent valid wording, workings, units and sensible rounding. The reference answer is a study aid, not an official memorandum.",
+      "explanation": "For each year, multiply the inflow by that year’s factor. Sum the discounted inflows, then subtract the year-0 investment. The year-0 discount factor is 1.\n\nStudent note: The source factors are rounded, so retain two decimals in the cash values and accept only small rounding differences.",
+      "studentNote": "The source factors are rounded, so retain two decimals in the cash values and accept only small rounding differences.",
+      "tables": [
+        {
+          "caption": "Table 1 — Projects Cash Flow (South African rand)",
+          "headers": [
+            "Year",
+            "Project 1 — Finance department",
+            "Project 2 — Alternative"
+          ],
+          "rows": [
+            [
+              "0",
+              "−R200 000",
+              "−R275 000"
+            ],
+            [
+              "1",
+              "+R85 000",
+              "+R70 000"
+            ],
+            [
+              "2",
+              "+R70 000",
+              "+R75 000"
+            ],
+            [
+              "3",
+              "+R78 000",
+              "+R80 000"
+            ],
+            [
+              "4",
+              "+R33 000",
+              "+R85 000"
+            ]
+          ]
+        },
+        {
+          "caption": "Table 2 — Discount factors at 8%",
+          "headers": [
+            "Year",
+            "Discount factor"
+          ],
+          "rows": [
+            [
+              "1",
+              "0.9259"
+            ],
+            [
+              "2",
+              "0.8573"
+            ],
+            [
+              "3",
+              "0.7938"
+            ],
+            [
+              "4",
+              "0.7350"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "number": "3.3",
+      "marks": 4,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "QUESTION 3.3 (4 marks): Based on net profit, ROI, payback and NPV, recommend which project Car Trace should select and explain why.",
+      "correctAnswer": "Recommend Project 1 (the Finance department project). It has greater net profit (R66 000 vs R35 000), greater ROI (33% vs 12.73%), a shorter payback (about 2.58 vs 3.59 years), and positive NPV (R24 883.90 vs −R19 910.50). Project 2’s NPV is negative at the given 8% discount rate.",
+      "aiRubric": [
+        "Recommend Project 1 (1).",
+        "Compare at least two relevant measures correctly (1).",
+        "Explain the positive NPV / financial viability implication (1).",
+        "Give a reasoned conclusion that integrates the measures (1)."
+      ],
+      "aiReferenceNotes": "Mark with the method shown in the key, while accepting equivalent valid wording, workings, units and sensible rounding. The reference answer is a study aid, not an official memorandum.",
+      "explanation": "Project 1 is stronger on each supplied financial measure. Its positive NPV means it is expected to add value at the 8% discount rate, while Project 2’s negative NPV means it does not meet that hurdle.\n\nStudent note: Use more than one measure; the question asks you to integrate the results.",
+      "studentNote": "Use more than one measure; the question asks you to integrate the results.",
+      "table": {
+        "caption": "Table 1 — Projects Cash Flow (South African rand)",
+        "headers": [
+          "Year",
+          "Project 1 — Finance department",
+          "Project 2 — Alternative"
+        ],
+        "rows": [
+          [
+            "0",
+            "−R200 000",
+            "−R275 000"
+          ],
+          [
+            "1",
+            "+R85 000",
+            "+R70 000"
+          ],
+          [
+            "2",
+            "+R70 000",
+            "+R75 000"
+          ],
+          [
+            "3",
+            "+R78 000",
+            "+R80 000"
+          ],
+          [
+            "4",
+            "+R33 000",
+            "+R85 000"
+          ]
+        ]
+      }
+    },
+    {
+      "number": "3.4",
+      "marks": 6,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "QUESTION 3.4 (6 marks): Calculate the weighted scores in Table 3 and use them to support your project-selection decision.",
+      "correctAnswer": "Using the printed weights as percentages: Project 1 = (0.20×50)+(0.35×70)+(0.40×40)+(0.10×90)=59.5. Project 2 = (0.20×45)+(0.35×30)+(0.40×50)+(0.10×60)=45.5. Project 1 ranks higher. The printed weights sum to 105%, so a normalized weighted average would be 59.5/1.05=56.67 and 45.5/1.05=43.33; the ranking is unchanged.",
+      "aiRubric": [
+        "Apply weight × score for all four criteria for Project 1 (2).",
+        "Project 1 printed-weight score = 59.5 (1).",
+        "Apply weight × score for all four criteria for Project 2 (1).",
+        "Project 2 printed-weight score = 45.5 (1).",
+        "Recommend Project 1 from the scores and recognize the printed-weight issue or state a consistent scoring convention (1)."
+      ],
+      "aiReferenceNotes": "Mark with the method shown in the key, while accepting equivalent valid wording, workings, units and sensible rounding. The reference answer is a study aid, not an official memorandum.",
+      "explanation": "The arithmetic uses the weights exactly as printed. Those percentages total 105%; if you normalize by 105%, both scores change scale but Project 1 still ranks higher.\n\nStudent note: The table appears to contain a source typo because its weights total 105%, not 100%. State your convention; do not silently alter a criterion.",
+      "studentNote": "The table appears to contain a source typo because its weights total 105%, not 100%. State your convention; do not silently alter a criterion.",
+      "table": {
+        "caption": "Table 3 — Weighted scoring (weights as printed)",
+        "headers": [
+          "Criterion",
+          "Weight",
+          "Project 1 score",
+          "Project 2 score"
+        ],
+        "rows": [
+          [
+            "A",
+            "20%",
+            "50",
+            "45"
+          ],
+          [
+            "B",
+            "35%",
+            "70",
+            "30"
+          ],
+          [
+            "C",
+            "40%",
+            "40",
+            "50"
+          ],
+          [
+            "D",
+            "10%",
+            "90",
+            "60"
+          ]
+        ]
+      }
+    },
+    {
+      "number": "4.1",
+      "marks": 5,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "QUESTION 4.1 (5 marks): Which development life-cycle approach should Highway IT use? Justify the recommendation from the case.",
+      "correctAnswer": "An adaptive/iterative life cycle is appropriate. Departments must agree system coverage, requirements may change as users interact with modules, and Finance wants a working system at each iteration so users can try it and suggest changes. Iterative feedback lets the team refine the product and priorities as learning occurs.",
+      "aiRubric": [
+        "Recommend an adaptive/iterative approach (1).",
+        "Identify requirements may change (1).",
+        "Identify cross-department stakeholders/users (1).",
+        "Explain working increments and feedback at iteration ends (1).",
+        "Link those features to fit/success in this case (1)."
+      ],
+      "aiReferenceNotes": "Mark with the method shown in the key, while accepting equivalent valid wording, workings, units and sensible rounding. The reference answer is a study aid, not an official memorandum.",
+      "explanation": "Adaptive lifecycles deliver in increments and use feedback to refine requirements. That fits a cross-department system whose needs are expected to evolve.\n\nStudent note: Mention both changing requirements and the requested working increments.",
+      "studentNote": "Mention both changing requirements and the requested working increments.",
+      "context": "Car Trace is considering an upgrade of its largest financial system through IT vendor Highway IT. Finance needs a better system and must assess the project’s viability. Management is comparing the finance department’s proposal with an alternative. Procurement, auditing and reimbursement teams use or interact with the system and must agree on its scope. Requirements may change during development, so Finance wants a working increment at the end of each iteration for departments to try and comment on.",
+      "contextTitle": "Car Trace financial-system upgrade"
+    },
+    {
+      "number": "4.2",
+      "marks": 5,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "QUESTION 4.2 (5 marks): Briefly describe a prescriptive system-development life cycle you would not recommend and justify the choice using the case.",
+      "correctAnswer": "Waterfall is a prescriptive, sequential life cycle: requirements and design are defined early, followed by implementation, testing and deployment in ordered phases. It is a poor fit here if treated as rigid because multiple departments still need to agree scope, requirements may change during development, and users want working increments and feedback. Accept another clearly described prescriptive model with a sound case-linked reason.",
+      "aiRubric": [
+        "Name a prescriptive lifecycle, such as Waterfall (1).",
+        "Describe its sequential/stage-gated nature (1).",
+        "Explain that it expects early/fixed requirements (1).",
+        "Link the mismatch to evolving departmental requirements (1).",
+        "Link the mismatch to the desire for working iteration increments/feedback (1)."
+      ],
+      "aiReferenceNotes": "Mark with the method shown in the key, while accepting equivalent valid wording, workings, units and sensible rounding. The reference answer is a study aid, not an official memorandum.",
+      "explanation": "A prescriptive model establishes substantial plans and phase outputs up front. That can work when requirements are stable, but it is less responsive to the frequent changes described here.\n\nStudent note: Compare the life cycle’s assumptions with the case instead of merely listing its phases.",
+      "studentNote": "Compare the life cycle’s assumptions with the case instead of merely listing its phases.",
+      "context": "Car Trace is considering an upgrade of its largest financial system through IT vendor Highway IT. Finance needs a better system and must assess the project’s viability. Management is comparing the finance department’s proposal with an alternative. Procurement, auditing and reimbursement teams use or interact with the system and must agree on its scope. Requirements may change during development, so Finance wants a working increment at the end of each iteration for departments to try and comment on.",
+      "contextTitle": "Car Trace financial-system upgrade"
+    },
+    {
+      "number": "5.1",
+      "marks": 15,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "diagram",
+      "text": "QUESTION 5.1 (15 marks): Draw an activity-on-arrow (AOA) network for Table 4. Show activity durations, event numbers, earliest and latest event dates, and float; complete a forward and backward pass.",
+      "correctAnswer": "One valid AOA network uses these activity arcs: 1→2 A(2); 2→3 B(6); 2→4 C(6); 3→5 D(4); 3→6 E(3); 4→7 F(4); 5→8 G(1); 5→9 H(2); 8→10 I(3); 6→11 dummy, 7→11 dummy, 9→11 dummy, 10→11 dummy; 11→12 J(2). Event earliest/latest times are: 1 0/0; 2 2/2; 3 8/8; 4 8/12; 5 12/12; 6 11/16; 7 12/16; 8 13/13; 9 14/16; 10 16/16; 11 16/16; 12 18/18. Activity total floats: A0, B0, C4, D0, E5, F4, G0, H2, I0, J0 days. Other valid AOA event numbering and dummy-arrow placements are acceptable if dependencies and calculations are correct.",
+      "aiRubric": [
+        "Represent all A–J activities with correct durations and precedence (5).",
+        "Use a valid AOA structure, including dummy arrows where needed to merge E, F, H and I before J (3).",
+        "Correct forward-pass event dates (2).",
+        "Correct backward-pass event dates (2).",
+        "Show event/activity floats and start/finish events (3)."
+      ],
+      "aiReferenceNotes": "Mark with the method shown in the key, while accepting equivalent valid wording, workings, units and sensible rounding. The reference answer is a study aid, not an official memorandum.",
+      "explanation": "The project finishes at day 18. J must wait for E, F, H and I, so the AOA network needs a merge that preserves all four precedence links; dummy arrows carry precedence but have zero duration.\n\nStudent note: Check both the network logic and the forward/backward passes. Several AOA drawings are valid; event numbers do not need to match the example.",
+      "studentNote": "Check both the network logic and the forward/backward passes. Several AOA drawings are valid; event numbers do not need to match the example.",
+      "diagramRequired": true,
+      "table": {
+        "caption": "Table 4 — Activity precedents and durations (days)",
+        "headers": [
+          "Activity",
+          "Duration",
+          "Predecessor(s)"
+        ],
+        "rows": [
+          [
+            "A",
+            "2",
+            "—"
+          ],
+          [
+            "B",
+            "6",
+            "A"
+          ],
+          [
+            "C",
+            "6",
+            "A"
+          ],
+          [
+            "D",
+            "4",
+            "B"
+          ],
+          [
+            "E",
+            "3",
+            "B"
+          ],
+          [
+            "F",
+            "4",
+            "C"
+          ],
+          [
+            "G",
+            "1",
+            "D"
+          ],
+          [
+            "H",
+            "2",
+            "D"
+          ],
+          [
+            "I",
+            "3",
+            "G"
+          ],
+          [
+            "J",
+            "2",
+            "E, F, H, I"
+          ]
+        ]
+      }
+    },
+    {
+      "number": "5.2",
+      "marks": 3,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "QUESTION 5.2 (3 marks): Indicate the critical path and its duration on the network.",
+      "correctAnswer": "Critical path: A–B–D–G–I–J. Duration = 2+6+4+1+3+2 = 18 days.",
+      "aiRubric": [
+        "Identify A–B–D–G–I–J (2).",
+        "State 18 days (1)."
+      ],
+      "aiReferenceNotes": "Mark with the method shown in the key, while accepting equivalent valid wording, workings, units and sensible rounding. The reference answer is a study aid, not an official memorandum.",
+      "explanation": "The critical path is the longest dependent path and determines the earliest possible project completion time.\n\nStudent note: Add durations along the full path; the project duration is not the sum of all activities.",
+      "studentNote": "Add durations along the full path; the project duration is not the sum of all activities.",
+      "table": {
+        "caption": "Table 4 — Activity precedents and durations (days)",
+        "headers": [
+          "Activity",
+          "Duration",
+          "Predecessor(s)"
+        ],
+        "rows": [
+          [
+            "A",
+            "2",
+            "—"
+          ],
+          [
+            "B",
+            "6",
+            "A"
+          ],
+          [
+            "C",
+            "6",
+            "A"
+          ],
+          [
+            "D",
+            "4",
+            "B"
+          ],
+          [
+            "E",
+            "3",
+            "B"
+          ],
+          [
+            "F",
+            "4",
+            "C"
+          ],
+          [
+            "G",
+            "1",
+            "D"
+          ],
+          [
+            "H",
+            "2",
+            "D"
+          ],
+          [
+            "I",
+            "3",
+            "G"
+          ],
+          [
+            "J",
+            "2",
+            "E, F, H, I"
+          ]
+        ]
+      }
+    },
+    {
+      "number": "5.3",
+      "marks": 2,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "QUESTION 5.3 (2 marks): Indicate total and/or free slack for the activities.",
+      "correctAnswer": "Total float by activity: A0, B0, C4, D0, E5, F4, G0, H2, I0, J0 days. Critical-path activities have zero total float. Free float may differ; for example C has 0 days of free float although it has 4 days total float.",
+      "aiRubric": [
+        "Give correct total float for critical/non-critical activities (1).",
+        "Give remaining float values or distinguish total from free float correctly (1)."
+      ],
+      "aiReferenceNotes": "Mark with the method shown in the key, while accepting equivalent valid wording, workings, units and sensible rounding. The reference answer is a study aid, not an official memorandum.",
+      "explanation": "Total float is the time an activity can slip without delaying project completion. Free float is the time it can slip without delaying an immediate successor.\n\nStudent note: Do not call total float and free float interchangeable; name the type you report.",
+      "studentNote": "Do not call total float and free float interchangeable; name the type you report.",
+      "table": {
+        "caption": "Table 4 — Activity precedents and durations (days)",
+        "headers": [
+          "Activity",
+          "Duration",
+          "Predecessor(s)"
+        ],
+        "rows": [
+          [
+            "A",
+            "2",
+            "—"
+          ],
+          [
+            "B",
+            "6",
+            "A"
+          ],
+          [
+            "C",
+            "6",
+            "A"
+          ],
+          [
+            "D",
+            "4",
+            "B"
+          ],
+          [
+            "E",
+            "3",
+            "B"
+          ],
+          [
+            "F",
+            "4",
+            "C"
+          ],
+          [
+            "G",
+            "1",
+            "D"
+          ],
+          [
+            "H",
+            "2",
+            "D"
+          ],
+          [
+            "I",
+            "3",
+            "G"
+          ],
+          [
+            "J",
+            "2",
+            "E, F, H, I"
+          ]
+        ]
+      }
+    },
+    {
+      "number": "6.1",
+      "marks": 4,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "QUESTION 6.1 (4 marks): From the Car Trace case, identify two critical risks, a technique to address each, and the stakeholder(s) who would apply the technique.",
+      "correctAnswer": "Examples: (1) Changing or conflicting requirements across Finance, Procurement, Auditing and Reimbursement: use facilitated workshops, prototypes and a controlled change process; the project manager, users and sponsor participate. (2) Integration/data migration or disruption during the large financial-system upgrade: use technical assessments, migration rehearsals, backups and staged testing; Highway IT, Finance system owners and relevant department representatives participate. Other well-mitigated case-specific risks are acceptable.",
+      "aiRubric": [
+        "Two distinct project risks grounded in the case (2; one each).",
+        "A suitable mitigation technique for each risk (1).",
+        "Identify plausible responsible stakeholders for applying the techniques (1)."
+      ],
+      "aiReferenceNotes": "Mark with the method shown in the key, while accepting equivalent valid wording, workings, units and sensible rounding. The reference answer is a study aid, not an official memorandum.",
+      "explanation": "Good risk answers connect a specific uncertainty to an action and an owner. Risks may be technical, organisational, financial or stakeholder-related.\n\nStudent note: Avoid generic risks without a mitigation or named owner.",
+      "studentNote": "Avoid generic risks without a mitigation or named owner.",
+      "context": "Car Trace is considering an upgrade of its largest financial system through IT vendor Highway IT. Finance needs a better system and must assess the project’s viability. Management is comparing the finance department’s proposal with an alternative. Procurement, auditing and reimbursement teams use or interact with the system and must agree on its scope. Requirements may change during development, so Finance wants a working increment at the end of each iteration for departments to try and comment on.",
+      "contextTitle": "Car Trace financial-system upgrade"
+    },
+    {
+      "number": "6.2",
+      "marks": 4,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "QUESTION 6.2 (4 marks): Calculate the PERT expected duration (te) for each activity in Table 5. Use Table 4 durations as the most-likely estimates.",
+      "correctAnswer": "PERT formula: te=(a+4m+b)/6. A: (4+4×2+5)/6=2.83 days. B: (3+4×6+6)/6=5.50 days. C: (2+4×6+4)/6=5.00 days. D: (5+4×4+7)/6=4.67 days.",
+      "aiRubric": [
+        "State/apply te=(a+4m+b)/6 (1).",
+        "A ≈2.83 (1).",
+        "B=5.50 and C=5.00 (1).",
+        "D≈4.67 (1)."
+      ],
+      "aiReferenceNotes": "Mark with the method shown in the key, while accepting equivalent valid wording, workings, units and sensible rounding. The reference answer is a study aid, not an official memorandum.",
+      "explanation": "PERT weights the most-likely estimate four times more than either extreme. For this question, m is the activity duration from Table 4.\n\nStudent note: Keep a, m and b in the correct positions and round the final estimate to two decimals.",
+      "studentNote": "Keep a, m and b in the correct positions and round the final estimate to two decimals.",
+      "tables": [
+        {
+          "caption": "Table 4 — Activity precedents and durations (days)",
+          "headers": [
+            "Activity",
+            "Duration",
+            "Predecessor(s)"
+          ],
+          "rows": [
+            [
+              "A",
+              "2",
+              "—"
+            ],
+            [
+              "B",
+              "6",
+              "A"
+            ],
+            [
+              "C",
+              "6",
+              "A"
+            ],
+            [
+              "D",
+              "4",
+              "B"
+            ],
+            [
+              "E",
+              "3",
+              "B"
+            ],
+            [
+              "F",
+              "4",
+              "C"
+            ],
+            [
+              "G",
+              "1",
+              "D"
+            ],
+            [
+              "H",
+              "2",
+              "D"
+            ],
+            [
+              "I",
+              "3",
+              "G"
+            ],
+            [
+              "J",
+              "2",
+              "E, F, H, I"
+            ]
+          ]
+        },
+        {
+          "caption": "Table 5 — PERT estimates; most-likely values come from Table 4",
+          "headers": [
+            "Activity",
+            "Optimistic (a)",
+            "Most likely (m)",
+            "Pessimistic (b)"
+          ],
+          "rows": [
+            [
+              "A",
+              "4",
+              "2",
+              "5"
+            ],
+            [
+              "B",
+              "3",
+              "6",
+              "6"
+            ],
+            [
+              "C",
+              "2",
+              "6",
+              "4"
+            ],
+            [
+              "D",
+              "5",
+              "4",
+              "7"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "number": "6.3",
+      "marks": 4,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "QUESTION 6.3 (4 marks): Describe two project-management knowledge areas where the PERT weighted-average formula can be used.",
+      "correctAnswer": "Schedule Management uses PERT to estimate activity durations and support schedule planning. Cost Management can use analogous three-point estimates to estimate activity or work-package costs. Award other correctly explained applications if they align with the course.",
+      "aiRubric": [
+        "Identify Schedule Management and connect PERT to duration estimates (2).",
+        "Identify Cost Management and connect three-point estimates to cost estimates (2)."
+      ],
+      "aiReferenceNotes": "Mark with the method shown in the key, while accepting equivalent valid wording, workings, units and sensible rounding. The reference answer is a study aid, not an official memorandum.",
+      "explanation": "Three-point estimates address uncertainty in an estimate. Duration estimation directly supports schedule planning; an analogous three-point technique can estimate costs.\n\nStudent note: Name the knowledge area and explain what is being estimated there.",
+      "studentNote": "Name the knowledge area and explain what is being estimated there.",
+      "context": "Car Trace is considering an upgrade of its largest financial system through IT vendor Highway IT. Finance needs a better system and must assess the project’s viability. Management is comparing the finance department’s proposal with an alternative. Procurement, auditing and reimbursement teams use or interact with the system and must agree on its scope. Requirements may change during development, so Finance wants a working increment at the end of each iteration for departments to try and comment on.",
+      "contextTitle": "Car Trace financial-system upgrade"
+    },
+    {
+      "number": "6.4(a)",
+      "marks": 4,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "QUESTION 6.4(a) (4 marks): Given BAC = R120 000, actual cost (AC) = R90 000 and earned value (EV) = R100 000, calculate schedule variance (SV) and cost variance (CV).",
+      "correctAnswer": "CV=EV−AC=R100 000−R90 000=+R10 000, which is favourable. SV=EV−planned value (PV), but the question supplies no PV; therefore SV cannot be calculated from the supplied data.",
+      "aiRubric": [
+        "State SV=EV−PV (1).",
+        "Recognize PV is not supplied, so SV is indeterminate (1).",
+        "Calculate CV=EV−AC (1).",
+        "CV=+R10 000 and interpret as favourable/under budget (1)."
+      ],
+      "aiReferenceNotes": "Mark with the method shown in the key, while accepting equivalent valid wording, workings, units and sensible rounding. The reference answer is a study aid, not an official memorandum.",
+      "explanation": "Earned-value schedule variance requires planned value at the same status date. Cost variance uses earned value minus actual cost; positive CV is favourable.\n\nStudent note: The scan’s question omits planned value (PV). Do not invent PV or calculate SV from BAC; explain the missing input.",
+      "studentNote": "The scan’s question omits planned value (PV). Do not invent PV or calculate SV from BAC; explain the missing input."
+    },
+    {
+      "number": "6.4(b)",
+      "marks": 4,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "QUESTION 6.4(b) (4 marks): Calculate SPI and CPI for the project using the supplied earned-value data.",
+      "correctAnswer": "CPI=EV/AC=100 000/90 000=1.11 (approximately). SPI=EV/PV cannot be calculated because planned value (PV) is not given.",
+      "aiRubric": [
+        "State SPI=EV/PV (1).",
+        "Recognize SPI is unavailable without PV (1).",
+        "State CPI=EV/AC (1).",
+        "Calculate CPI≈1.11 (1)."
+      ],
+      "aiReferenceNotes": "Mark with the method shown in the key, while accepting equivalent valid wording, workings, units and sensible rounding. The reference answer is a study aid, not an official memorandum.",
+      "explanation": "CPI above 1 means the project has earned more budgeted value per rand spent than planned. SPI needs a planned-value baseline for the status date.\n\nStudent note: An index above one is favourable; do not calculate SPI without PV.",
+      "studentNote": "An index above one is favourable; do not calculate SPI without PV."
+    },
+    {
+      "number": "6.4(c)",
+      "marks": 2,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "QUESTION 6.4(c) (2 marks): Describe the project’s performance and justify your answer.",
+      "correctAnswer": "The project is favourable on cost because CV is +R10 000 and CPI≈1.11. Schedule performance cannot be determined from the information supplied because PV is missing, so SV and SPI are unavailable.",
+      "aiRubric": [
+        "State cost performance is favourable and support with CV/CPI (1).",
+        "State schedule status cannot be assessed without PV (1)."
+      ],
+      "aiReferenceNotes": "Mark with the method shown in the key, while accepting equivalent valid wording, workings, units and sensible rounding. The reference answer is a study aid, not an official memorandum.",
+      "explanation": "Cost and schedule performance are separate. The data support a cost conclusion, but no planned value is available for a schedule conclusion.\n\nStudent note: Do not claim the project is ahead of schedule based only on EV and AC.",
+      "studentNote": "Do not claim the project is ahead of schedule based only on EV and AC."
+    },
+    {
+      "number": "6.4(d)",
+      "marks": 2,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "QUESTION 6.4(d) (2 marks): Use CPI to calculate the estimate at completion (EAC) and indicate what the result means.",
+      "correctAnswer": "Assuming current cost efficiency continues, EAC=BAC/CPI=R120 000/(100 000/90 000)=R108 000. This forecasts final cost about R12 000 below budget.",
+      "aiRubric": [
+        "Use EAC=BAC/CPI (1).",
+        "Calculate approximately R108 000 and interpret as under the R120 000 BAC (1)."
+      ],
+      "aiReferenceNotes": "Mark with the method shown in the key, while accepting equivalent valid wording, workings, units and sensible rounding. The reference answer is a study aid, not an official memorandum.",
+      "explanation": "This EAC method assumes the cost efficiency observed so far continues for the remaining work.\n\nStudent note: State the assumption behind the forecast; other EAC formulas use different assumptions.",
+      "studentNote": "State the assumption behind the forecast; other EAC formulas use different assumptions."
+    }
+  ]
+}

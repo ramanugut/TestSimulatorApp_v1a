@@ -28,6 +28,7 @@ jobs:
       - name: Validate subject schema and activities
         run: |
           node tests/mastery-content.test.cjs
+          node tests/inf3708-papers.test.cjs
           node tests/ict2631-content.test.cjs
           node tests/ict2622-content.test.cjs
           node tests/revision-insights.test.cjs

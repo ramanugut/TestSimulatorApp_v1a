@@ -61,6 +61,9 @@
     name: "INF3708",
     sourceFiles: [
       "inf3708-oct-nov-2021.json",
+      "inf3708-oct-nov-2022-final.json",
+      "inf3708-jan-feb-2023-supplementary.json",
+      "inf3708-oct-nov-2024-final.json",
       "inf3708-jan-feb-2025-supplementary.json",
       "inf3708-assessment-1-2026.json",
       "test36.json"
