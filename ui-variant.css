@@ -1140,3 +1140,124 @@ html[data-ui-variant="new"] .header-variant-toggle:hover {
         font-weight: 800;
     }
 }
+
+
+/* Compact study-first layout: keep the questions high on the page. */
+html[data-ui-variant="new"] .page-wrapper {
+    padding-top: 0.8rem;
+    padding-bottom: 2rem;
+}
+
+html[data-ui-variant="new"] .page-container {
+    grid-template-columns: 190px minmax(0, 1fr);
+    gap: 1rem;
+}
+
+html[data-ui-variant="new"] .study-sidebar {
+    position: sticky;
+    top: 82px;
+    gap: 0;
+    padding: 0.55rem;
+    border-radius: 12px;
+    box-shadow: none;
+}
+
+html[data-ui-variant="new"] .study-sidebar__brand,
+html[data-ui-variant="new"] .study-sidebar__paper,
+html[data-ui-variant="new"] .study-sidebar__section-label,
+html[data-ui-variant="new"] .study-sidebar__footnote {
+    display: none;
+}
+
+html[data-ui-variant="new"] .mode-tabs {
+    gap: 0.2rem;
+}
+
+html[data-ui-variant="new"] .mode-tab-button {
+    min-height: 42px;
+    padding: 0.55rem 0.65rem;
+    border-radius: 9px;
+    font-size: 0.88rem;
+}
+
+html[data-ui-variant="new"] .page-content {
+    gap: 0.65rem;
+}
+
+html[data-ui-variant="new"] .workspace-heading {
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 0;
+    padding: 0.2rem 0 0.55rem;
+    border: 0;
+    border-bottom: 1px solid var(--new-line);
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+}
+
+html[data-ui-variant="new"] .workspace-heading::after,
+html[data-ui-variant="new"] .workspace-heading__eyebrow,
+html[data-ui-variant="new"] .workspace-heading p,
+html[data-ui-variant="new"] .workspace-heading__chip {
+    display: none;
+}
+
+html[data-ui-variant="new"] .workspace-heading h2 {
+    margin: 0;
+    color: var(--new-ink);
+    font-size: 1.08rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.35;
+}
+
+html[data-ui-variant="new"] #questions-container {
+    gap: 0.7rem;
+}
+
+html[data-ui-variant="new"] #questions-container .question {
+    row-gap: 0.8rem;
+    padding: 1rem 1.2rem;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(26, 58, 48, 0.035);
+}
+
+html[data-ui-variant="new"] #questions-container .question-body {
+    font-size: 1rem;
+    line-height: 1.62;
+}
+
+html[data-ui-variant="new"] #questions-container .question textarea {
+    min-height: 120px;
+}
+
+@media (max-width: 980px) {
+    html[data-ui-variant="new"] .page-container {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0.65rem;
+    }
+
+    html[data-ui-variant="new"] .study-sidebar {
+        position: static;
+        padding: 0.45rem;
+    }
+}
+
+@media (max-width: 640px) {
+    html[data-ui-variant="new"] .page-wrapper {
+        padding-top: 0.55rem;
+    }
+
+    html[data-ui-variant="new"] .workspace-heading {
+        padding-bottom: 0.45rem;
+    }
+
+    html[data-ui-variant="new"] .workspace-heading h2 {
+        font-size: 1rem;
+    }
+
+    html[data-ui-variant="new"] #questions-container .question {
+        padding: 0.9rem;
+    }
+}
