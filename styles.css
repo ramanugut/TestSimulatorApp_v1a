@@ -4932,6 +4932,44 @@ body.modal-open {
   font-size: .8rem;
 }
 
+.ai-tutor-chat-message.is-pending {
+  opacity: .72;
+}
+
+.ai-tutor-chat-message.is-user.is-failed {
+  border-color: color-mix(in srgb, var(--danger-color) 45%, var(--border-color));
+}
+
+.ai-tutor-chat-failed-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: .45rem;
+  padding-top: .3rem;
+  color: var(--danger-color);
+  font-size: .72rem;
+  font-weight: 650;
+}
+
+.ai-tutor-chat-retry {
+  min-height: 28px;
+  padding: .2rem .55rem;
+  border: 1px solid color-mix(in srgb, var(--danger-color) 45%, var(--border-color));
+  border-radius: 999px;
+  background: var(--surface-color);
+  color: var(--text-color);
+  font: inherit;
+  font-size: .72rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.ai-tutor-chat-retry:hover,
+.ai-tutor-chat-retry:focus-visible {
+  border-color: var(--danger-color);
+  color: var(--danger-color);
+}
+
 .ai-tutor-chat-suggestions {
   display: flex;
   gap: .35rem;
