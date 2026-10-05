@@ -1884,6 +1884,39 @@ document.addEventListener("DOMContentLoaded", function () {
     return availableTestsMetadata.find((item) => item.file === file) || null;
   }
 
+  function deriveModuleCode({ file = "", name = "", module = "" } = {}) {
+    const explicit = String(module || "").match(/\b(?:ICT|INF)\d{4}\b/i);
+    if (explicit) return explicit[0].toUpperCase();
+
+    const label = String(name || "").match(/\b(?:ICT|INF)\d{4}\b/i);
+    if (label) return label[0].toUpperCase();
+
+    const filename = String(file || "").match(/(?:ICT|INF)\d{4}/i);
+    if (filename) return filename[0].toUpperCase();
+
+    // Legacy INF3708 Assessment 2 filename.
+    if (file === "test36.json") return "INF3708";
+    return "";
+  }
+
+  function getCustomTestModuleCode() {
+    if (isCustomSessionActive()) {
+      if (currentCustomSession?.moduleCode) {
+        return currentCustomSession.moduleCode;
+      }
+      const firstSource = currentCustomSession?.sources?.[0];
+      const fromSource = deriveModuleCode(firstSource || {});
+      if (fromSource) return fromSource;
+    }
+
+    const currentMeta = getTestMetadataByFile(currentTestFile);
+    return deriveModuleCode({
+      file: currentTestFile,
+      name: currentMeta?.name || testSelect?.selectedOptions?.[0]?.textContent || "",
+      module: currentMeta?.module || "",
+    });
+  }
+
   function populateDefineTestModal() {
     if (!defineTestList) {
       return;
@@ -1897,16 +1930,30 @@ document.addEventListener("DOMContentLoaded", function () {
 
     defineTestList.innerHTML = "";
 
-    if (!availableTestsMetadata.length) {
+    const moduleCode = getCustomTestModuleCode();
+    const moduleTests = moduleCode
+      ? availableTestsMetadata.filter((test) => test.module === moduleCode)
+      : [];
+
+    if (!moduleCode) {
       const emptyState = document.createElement("p");
-      emptyState.textContent = "No tests available to combine.";
+      emptyState.textContent = "Choose a module paper first, then build a custom test from that module.";
       emptyState.classList.add("define-test-empty");
       defineTestList.appendChild(emptyState);
       updateDefineTestSummary();
       return;
     }
 
-    availableTestsMetadata.forEach((test, index) => {
+    if (!moduleTests.length) {
+      const emptyState = document.createElement("p");
+      emptyState.textContent = `No papers are available for ${moduleCode}.`;
+      emptyState.classList.add("define-test-empty");
+      defineTestList.appendChild(emptyState);
+      updateDefineTestSummary();
+      return;
+    }
+
+    moduleTests.forEach((test, index) => {
       const item = document.createElement("div");
       item.className = "define-test-item";
 
@@ -1921,6 +1968,7 @@ document.addEventListener("DOMContentLoaded", function () {
       checkbox.value = test.file;
       checkbox.dataset.questionCount = String(test.questionCount || 0);
       checkbox.dataset.name = test.name || test.file;
+      checkbox.dataset.module = test.module || moduleCode;
       if (previouslySelected.has(test.file)) {
         checkbox.checked = true;
       }
@@ -1963,7 +2011,8 @@ document.addEventListener("DOMContentLoaded", function () {
       const file = input.value;
       const questionCount = parseInt(input.dataset.questionCount || "0", 10);
       const name = input.dataset.name || file;
-      return { file, questionCount: Math.max(questionCount, 0), name };
+      const module = input.dataset.module || deriveModuleCode({ file, name });
+      return { file, questionCount: Math.max(questionCount, 0), name, module };
     });
   }
 
@@ -1992,10 +2041,11 @@ document.addEventListener("DOMContentLoaded", function () {
       defineTestQuestionInput.max = String(Math.min(80,totalAvailable||80));
       if(totalAvailable && requestedCount>Math.min(80,totalAvailable)) { requestedCount=Math.min(80,totalAvailable); defineTestQuestionInput.value=String(requestedCount); }
     }
+    const moduleCode = getCustomTestModuleCode();
     const selectionLabel =
       selectedTests.length === 0
-        ? "Select at least one test to begin."
-        : `${selectedTests.length} test${
+        ? `Select at least one ${moduleCode || "module"} paper to begin.`
+        : `${moduleCode} • ${selectedTests.length} paper${
             selectedTests.length === 1 ? "" : "s"
           } selected • ${totalAvailable} question${
             totalAvailable === 1 ? "" : "s"
@@ -2046,7 +2096,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (selectedTests.length === 0) {
       if (defineTestError) {
-        defineTestError.textContent = "Select at least one test.";
+        defineTestError.textContent = "Select at least one paper from this module.";
       }
       updateDefineTestSummary();
       return;
@@ -5034,7 +5084,17 @@ const testFiles = [
         option.textContent = data.testName || filename.replace(".json", "").replace(/_/g, " ");
         const questionCount = Array.isArray(data.questions) ? data.questions.length : 0;
         option.dataset.questionCount = String(questionCount);
-        availableTestsMetadata.push({ file: filename, name: option.textContent, questionCount });
+        const module = deriveModuleCode({
+          file: filename,
+          name: option.textContent,
+          module: data.module || data.moduleCode || "",
+        });
+        availableTestsMetadata.push({
+          file: filename,
+          name: option.textContent,
+          questionCount,
+          module,
+        });
         available.set(filename, data);
       }
       testSelect.appendChild(option);
@@ -5478,8 +5538,18 @@ const testFiles = [
     timerMinutes = null,
   }) {
     if (!Array.isArray(selectedTests) || selectedTests.length === 0) {
-      throw new Error("Select at least one test.");
+      throw new Error("Select at least one paper.");
     }
+
+    const selectedModules = new Set(
+      selectedTests
+        .map((test) => test.module || deriveModuleCode(test))
+        .filter(Boolean)
+    );
+    if (selectedModules.size !== 1) {
+      throw new Error("A custom test can only use papers from one module.");
+    }
+    const moduleCode = Array.from(selectedModules)[0];
 
     const fetchPromises = selectedTests.map((test) =>
       fetch(test.file)
@@ -5554,6 +5624,7 @@ const testFiles = [
 
     currentCustomSession = {
       id: `custom-${Date.now()}`,
+      moduleCode,
       sources,
       requestedCount: effectiveRequested,
       questionCount: activeQuestions.length,
@@ -5647,13 +5718,21 @@ const testFiles = [
 
     const sources = Array.isArray(session.sources) ? session.sources : [];
 
-    // Do not restore a previously saved custom mix containing hidden modules.
+    // Do not restore hidden papers or legacy custom mixes that combine modules.
     if (!sources.length || sources.some((source) => !source || !testFiles.includes(source.file))) {
       return false;
     }
+    const restoredModules = new Set(
+      sources.map((source) => deriveModuleCode(source)).filter(Boolean)
+    );
+    if (restoredModules.size !== 1) {
+      return false;
+    }
+    const restoredModuleCode = Array.from(restoredModules)[0];
 
     currentCustomSession = {
       id: session.id || `custom-${Date.now()}`,
+      moduleCode: session.moduleCode || restoredModuleCode,
       sources,
       requestedCount:
         typeof session.requestedCount === "number"
