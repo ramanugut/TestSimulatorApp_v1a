@@ -7,7 +7,7 @@
   "preserveOrder": true,
   "marking": "ai-rubric-weighted",
   "sourceType": "Transcribed from a user-supplied INF3708 examination PDF; answer guidance independently checked for study practice.",
-  "sourceNote": "Transcribed from the supplied October/November 2022 final-examination PDF (100 marks, 3 hours). The numerical reference answers were recalculated from the paper’s cash flows, discount factors and activity data.",
+  "sourceNote": "Transcribed from the supplied October/November 2022 final-examination PDF. Original question wording is preserved; answer keys, explanations and student notes are study aids.",
   "sourceLimitations": "The supplied scan prints Table 3 weights totaling 105%. The score key reports the arithmetic using those printed weights and also explains normalization. The earned-value question omits planned value, so SV and SPI cannot be determined; the answer guidance flags this instead of assuming a value.",
   "questions": [
     {
@@ -16,7 +16,7 @@
       "grading": "ai",
       "aiPassScore": 70,
       "answerType": "ai-text",
-      "text": "QUESTION 1.1 (4 marks): From the case, identify the project stakeholders.",
+      "text": "1.1 Given the information on the case scenario identify who the project stakeholders are. (4)",
       "correctAnswer": "Stakeholders include Car Trace senior management (sponsor/decision-maker), the finance department (project proposer and principal customer), Highway IT (contracted vendor and delivery team), and the procurement, auditing and reimbursement departments that use or depend on the financial system. Also accept finance-system users and affected staff where explained.",
       "aiRubric": [
         "Identify Car Trace management/sponsor (1).",
@@ -36,7 +36,7 @@
       "grading": "ai",
       "aiPassScore": 70,
       "answerType": "ai-text",
-      "text": "QUESTION 1.2 (4 marks): Is it better for a project to have many or few major stakeholders? Justify your answer using an example from the case.",
+      "text": "1.2 Often there is more than one major stakeholder in the project. Is it better for a project to have many or few stakeholders? Justify your answer by using a possible example from the exam case scenario. (4)",
       "correctAnswer": "There is no universally better number. The project needs to identify and involve all relevant stakeholders: a broader set can expose varied requirements and improve adoption, while more stakeholders increase coordination, communication and conflict risks. For example, including Finance plus procurement, auditing and reimbursement helps agree on cross-department system coverage; the project manager should manage their participation rather than exclude affected departments.",
       "aiRubric": [
         "Explain that number alone does not determine success / relevant stakeholders must be included (1).",
@@ -56,7 +56,7 @@
       "grading": "ai",
       "aiPassScore": 70,
       "answerType": "ai-text",
-      "text": "QUESTION 1.3 (2 marks): Which project-management process group includes identifying project stakeholders, and which project-management competence should the Highway IT consultant use to do it effectively?",
+      "text": "1.3 Which project management process group would you be engaging in by identifying the project stakeholder? Which project management competence should you have as a project manager consultant from Highway IT to enable you to achieve this? (2)",
       "correctAnswer": "Stakeholder identification belongs to the Initiating process group. The consultant needs strong people/interpersonal and communication skills to identify, listen to and understand affected groups; accept equivalent stakeholder-engagement competence.",
       "aiRubric": [
         "Initiating process group (1).",
@@ -74,7 +74,7 @@
       "grading": "ai",
       "aiPassScore": 70,
       "answerType": "ai-text",
-      "text": "QUESTION 2.1 (5 marks): Calculate the net profit of Projects 1 and 2 using Table 1.",
+      "text": "2.1 Calculate the net profit for the two projects. (5)",
       "correctAnswer": "Net profit = total cash inflows − initial investment. Project 1: (85 000 + 70 000 + 78 000 + 33 000) − 200 000 = R66 000. Project 2: (70 000 + 75 000 + 80 000 + 85 000) − 275 000 = R35 000.",
       "aiRubric": [
         "State or apply net profit = total inflows − initial outlay (1).",
@@ -128,7 +128,7 @@
       "grading": "ai",
       "aiPassScore": 70,
       "answerType": "ai-text",
-      "text": "QUESTION 2.2 (5 marks): Calculate the return on investment (ROI) for Projects 1 and 2 using Table 1.",
+      "text": "2.2 Calculate the Return on Investment (ROI) for the two projects. (5)",
       "correctAnswer": "ROI = net profit ÷ initial investment × 100. Project 1: 66 000 ÷ 200 000 × 100 = 33.00%. Project 2: 35 000 ÷ 275 000 × 100 = 12.73%.",
       "aiRubric": [
         "Use net profit divided by original investment and express as a percentage (1).",
@@ -182,7 +182,7 @@
       "grading": "ai",
       "aiPassScore": 70,
       "answerType": "ai-text",
-      "text": "QUESTION 2.3 (5 marks): Calculate the payback period and year in which each project recovers its initial capital investment.",
+      "text": "2.3 Calculate which year each of the projects will payback its capital investment. (5)",
       "correctAnswer": "Project 1 recovers R155 000 by the end of year 2, leaving R45 000; year 3 brings R78 000. Payback = 2 + 45 000/78 000 = 2.58 years, during year 3. Project 2 has received R225 000 by the end of year 3, leaving R50 000; year 4 brings R85 000. Payback = 3 + 50 000/85 000 = 3.59 years, during year 4.",
       "aiRubric": [
         "Project 1 cumulative cash flow identifies R45 000 unrecovered after year 2 (1).",
@@ -236,7 +236,7 @@
       "grading": "ai",
       "aiPassScore": 70,
       "answerType": "ai-text",
-      "text": "QUESTION 3.1 (3 marks): Why use net present value (NPV) rather than net profit as a primary way of projecting a project’s financial viability?",
+      "text": "3.1 Why would you consider Net Present Value (NPV) over net profit as one of the primary methods for projecting financial viability of a project? (3)",
       "correctAnswer": "NPV discounts cash flows to reflect the time value of money, so it accounts for when benefits and costs occur. It compares projects on a present-value basis and can incorporate the required return/discount rate. Undiscounted net profit ignores timing and the time value of money.",
       "aiRubric": [
         "Explain time value of money / discounting (1).",
@@ -255,7 +255,7 @@
       "grading": "ai",
       "aiPassScore": 70,
       "answerType": "ai-text",
-      "text": "QUESTION 3.2 (8 marks): Using the cash flows in Table 1 and the 8% discount factors in Table 2, calculate NPV for both projects. Show your calculations.",
+      "text": "3.2 Given a discount rate of 8% in Table 2 below; calculate the Net Present Value (NPV) for projects 1 and 2. Use the cash flow in Table 1 above. Please show all your calculations. (8)",
       "correctAnswer": "Project 1: PV inflows = 85 000(0.9259) + 70 000(0.8573) + 78 000(0.7938) + 33 000(0.7350) = R224 883.90. NPV = 224 883.90 − 200 000 = R24 883.90. Project 2: PV inflows = 70 000(0.9259) + 75 000(0.8573) + 80 000(0.7938) + 85 000(0.7350) = R255 089.50. NPV = 255 089.50 − 275 000 = −R19 910.50.",
       "aiRubric": [
         "Use each supplied discount factor for the correct year and project (2).",
@@ -336,7 +336,7 @@
       "grading": "ai",
       "aiPassScore": 70,
       "answerType": "ai-text",
-      "text": "QUESTION 3.3 (4 marks): Based on net profit, ROI, payback and NPV, recommend which project Car Trace should select and explain why.",
+      "text": "3.3 Based on your calculations in questions 2.1 – 2.3 and 3.2, write a paragraph explaining to the company management which of the projects you recommend for the company to invests in (that is a project that is most financially viable). State a detailed reason/s for your advice. (4)",
       "correctAnswer": "Recommend Project 1 (the Finance department project). It has greater net profit (R66 000 vs R35 000), greater ROI (33% vs 12.73%), a shorter payback (about 2.58 vs 3.59 years), and positive NPV (R24 883.90 vs −R19 910.50). Project 2’s NPV is negative at the given 8% discount rate.",
       "aiRubric": [
         "Recommend Project 1 (1).",
@@ -389,7 +389,7 @@
       "grading": "ai",
       "aiPassScore": 70,
       "answerType": "ai-text",
-      "text": "QUESTION 3.4 (6 marks): Calculate the weighted scores in Table 3 and use them to support your project-selection decision.",
+      "text": "3.4 Assuming the management of Car Trace has many criteria that are necessary for them to make decision on project selection. Using the information in table 3, calculate the weighted scoring for the project and use the result to support your decision in question 3.3. (6)",
       "correctAnswer": "Using the printed weights as percentages: Project 1 = (0.20×50)+(0.35×70)+(0.40×40)+(0.10×90)=59.5. Project 2 = (0.20×45)+(0.35×30)+(0.40×50)+(0.10×60)=45.5. Project 1 ranks higher. The printed weights sum to 105%, so a normalized weighted average would be 59.5/1.05=56.67 and 45.5/1.05=43.33; the ranking is unchanged.",
       "aiRubric": [
         "Apply weight × score for all four criteria for Project 1 (2).",
@@ -443,7 +443,7 @@
       "grading": "ai",
       "aiPassScore": 70,
       "answerType": "ai-text",
-      "text": "QUESTION 4.1 (5 marks): Which development life-cycle approach should Highway IT use? Justify the recommendation from the case.",
+      "text": "4.1 Which development life cycle approach would you recommend as the most appropriate for Highway IT to use? Justify your answer using information provided in the case study. (5)",
       "correctAnswer": "An adaptive/iterative life cycle is appropriate. Departments must agree system coverage, requirements may change as users interact with modules, and Finance wants a working system at each iteration so users can try it and suggest changes. Iterative feedback lets the team refine the product and priorities as learning occurs.",
       "aiRubric": [
         "Recommend an adaptive/iterative approach (1).",
@@ -464,7 +464,7 @@
       "grading": "ai",
       "aiPassScore": 70,
       "answerType": "ai-text",
-      "text": "QUESTION 4.2 (5 marks): Briefly describe a prescriptive system-development life cycle you would not recommend and justify the choice using the case.",
+      "text": "4.2 Provide a brief description of the prescriptive system development life cycle model you will not recommend for the Highway IT development team. Justify your choice in the light of information from the case study. (5)",
       "correctAnswer": "Waterfall is a prescriptive, sequential life cycle: requirements and design are defined early, followed by implementation, testing and deployment in ordered phases. It is a poor fit here if treated as rigid because multiple departments still need to agree scope, requirements may change during development, and users want working increments and feedback. Accept another clearly described prescriptive model with a sound case-linked reason.",
       "aiRubric": [
         "Name a prescriptive lifecycle, such as Waterfall (1).",
@@ -485,7 +485,7 @@
       "grading": "ai",
       "aiPassScore": 70,
       "answerType": "diagram",
-      "text": "QUESTION 5.1 (15 marks): Draw an activity-on-arrow (AOA) network for Table 4. Show activity durations, event numbers, earliest and latest event dates, and float; complete a forward and backward pass.",
+      "text": "5.1 Construct a network diagram (Activity-on-Arrow). Indicate the activity duration, the event number, earliest date, latest date, and float on each node by completing both a forward and backward pass. (15)\n\n(N:B) Marks will be deducted from any student who fails to draw the current activity diagram and/or did not include the calculations on the node.",
       "correctAnswer": "One valid AOA network uses these activity arcs: 1→2 A(2); 2→3 B(6); 2→4 C(6); 3→5 D(4); 3→6 E(3); 4→7 F(4); 5→8 G(1); 5→9 H(2); 8→10 I(3); 6→11 dummy, 7→11 dummy, 9→11 dummy, 10→11 dummy; 11→12 J(2). Event earliest/latest times are: 1 0/0; 2 2/2; 3 8/8; 4 8/12; 5 12/12; 6 11/16; 7 12/16; 8 13/13; 9 14/16; 10 16/16; 11 16/16; 12 18/18. Activity total floats: A0, B0, C4, D0, E5, F4, G0, H2, I0, J0 days. Other valid AOA event numbering and dummy-arrow placements are acceptable if dependencies and calculations are correct.",
       "aiRubric": [
         "Represent all A–J activities with correct durations and precedence (5).",
@@ -565,7 +565,7 @@
       "grading": "ai",
       "aiPassScore": 70,
       "answerType": "ai-text",
-      "text": "QUESTION 5.2 (3 marks): Indicate the critical path and its duration on the network.",
+      "text": "5.2 Indicate the critical path on the network diagram and its durations. (3)",
       "correctAnswer": "Critical path: A–B–D–G–I–J. Duration = 2+6+4+1+3+2 = 18 days.",
       "aiRubric": [
         "Identify A–B–D–G–I–J (2).",
@@ -641,7 +641,7 @@
       "grading": "ai",
       "aiPassScore": 70,
       "answerType": "ai-text",
-      "text": "QUESTION 5.3 (2 marks): Indicate total and/or free slack for the activities.",
+      "text": "5.3 Indicate the total and/or the free slack. (2)",
       "correctAnswer": "Total float by activity: A0, B0, C4, D0, E5, F4, G0, H2, I0, J0 days. Critical-path activities have zero total float. Free float may differ; for example C has 0 days of free float although it has 4 days total float.",
       "aiRubric": [
         "Give correct total float for critical/non-critical activities (1).",
@@ -717,7 +717,7 @@
       "grading": "ai",
       "aiPassScore": 70,
       "answerType": "ai-text",
-      "text": "QUESTION 6.1 (4 marks): From the Car Trace case, identify two critical risks, a technique to address each, and the stakeholder(s) who would apply the technique.",
+      "text": "6.1 In relation to the exam case scenario, identify two critical risks that are likely to occur in the development of this project. What techniques are likely to be used to address the risks and which stakeholders would apply the techniques? (4)",
       "correctAnswer": "Examples: (1) Changing or conflicting requirements across Finance, Procurement, Auditing and Reimbursement: use facilitated workshops, prototypes and a controlled change process; the project manager, users and sponsor participate. (2) Integration/data migration or disruption during the large financial-system upgrade: use technical assessments, migration rehearsals, backups and staged testing; Highway IT, Finance system owners and relevant department representatives participate. Other well-mitigated case-specific risks are acceptable.",
       "aiRubric": [
         "Two distinct project risks grounded in the case (2; one each).",
@@ -736,7 +736,7 @@
       "grading": "ai",
       "aiPassScore": 70,
       "answerType": "ai-text",
-      "text": "QUESTION 6.2 (4 marks): Calculate the PERT expected duration (te) for each activity in Table 5. Use Table 4 durations as the most-likely estimates.",
+      "text": "6.2 Calculate the expected (te) values for all the activities in Table 5. (4)",
       "correctAnswer": "PERT formula: te=(a+4m+b)/6. A: (4+4×2+5)/6=2.83 days. B: (3+4×6+6)/6=5.50 days. C: (2+4×6+4)/6=5.00 days. D: (5+4×4+7)/6=4.67 days.",
       "aiRubric": [
         "State/apply te=(a+4m+b)/6 (1).",
@@ -851,7 +851,7 @@
       "grading": "ai",
       "aiPassScore": 70,
       "answerType": "ai-text",
-      "text": "QUESTION 6.3 (4 marks): Describe two project-management knowledge areas where the PERT weighted-average formula can be used.",
+      "text": "6.3 Describe two project management knowledge areas where PERT weighted average formula calculation can be used. (4)",
       "correctAnswer": "Schedule Management uses PERT to estimate activity durations and support schedule planning. Cost Management can use analogous three-point estimates to estimate activity or work-package costs. Award other correctly explained applications if they align with the course.",
       "aiRubric": [
         "Identify Schedule Management and connect PERT to duration estimates (2).",
@@ -869,7 +869,7 @@
       "grading": "ai",
       "aiPassScore": 70,
       "answerType": "ai-text",
-      "text": "QUESTION 6.4(a) (4 marks): Given BAC = R120 000, actual cost (AC) = R90 000 and earned value (EV) = R100 000, calculate schedule variance (SV) and cost variance (CV).",
+      "text": "6.4 Assuming the budget that Car Trace management assigned for the finance department project is R120, 000. Presume the actual cost and earn value of the project are R90, 000 and R100, 000 respectively. Answer the following questions:\n\n(a) Calculate schedule variance and cost variance. (4)",
       "correctAnswer": "CV=EV−AC=R100 000−R90 000=+R10 000, which is favourable. SV=EV−planned value (PV), but the question supplies no PV; therefore SV cannot be calculated from the supplied data.",
       "aiRubric": [
         "State SV=EV−PV (1).",
@@ -887,7 +887,7 @@
       "grading": "ai",
       "aiPassScore": 70,
       "answerType": "ai-text",
-      "text": "QUESTION 6.4(b) (4 marks): Calculate SPI and CPI for the project using the supplied earned-value data.",
+      "text": "6.4 Assuming the budget that Car Trace management assigned for the finance department project is R120, 000. Presume the actual cost and earn value of the project are R90, 000 and R100, 000 respectively. Answer the following questions:\n\n(b) Calculate SPI and CPI. (4)",
       "correctAnswer": "CPI=EV/AC=100 000/90 000=1.11 (approximately). SPI=EV/PV cannot be calculated because planned value (PV) is not given.",
       "aiRubric": [
         "State SPI=EV/PV (1).",
@@ -905,7 +905,7 @@
       "grading": "ai",
       "aiPassScore": 70,
       "answerType": "ai-text",
-      "text": "QUESTION 6.4(c) (2 marks): Describe the project’s performance and justify your answer.",
+      "text": "6.4 Assuming the budget that Car Trace management assigned for the finance department project is R120, 000. Presume the actual cost and earn value of the project are R90, 000 and R100, 000 respectively. Answer the following questions:\n\n(c) How would you describe the performance of the project? Justify your answer. (2)",
       "correctAnswer": "The project is favourable on cost because CV is +R10 000 and CPI≈1.11. Schedule performance cannot be determined from the information supplied because PV is missing, so SV and SPI are unavailable.",
       "aiRubric": [
         "State cost performance is favourable and support with CV/CPI (1).",
@@ -921,7 +921,7 @@
       "grading": "ai",
       "aiPassScore": 70,
       "answerType": "ai-text",
-      "text": "QUESTION 6.4(d) (2 marks): Use CPI to calculate the estimate at completion (EAC) and indicate what the result means.",
+      "text": "6.4 Assuming the budget that Car Trace management assigned for the finance department project is R120, 000. Presume the actual cost and earn value of the project are R90, 000 and R100, 000 respectively. Answer the following questions:\n\n(d) Use the CPI to calculate estimate at completion for this project. Indicate how the project is performing. (2)",
       "correctAnswer": "Assuming current cost efficiency continues, EAC=BAC/CPI=R120 000/(100 000/90 000)=R108 000. This forecasts final cost about R12 000 below budget.",
       "aiRubric": [
         "Use EAC=BAC/CPI (1).",
