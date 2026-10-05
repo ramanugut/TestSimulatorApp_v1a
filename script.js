@@ -1183,6 +1183,8 @@ document.addEventListener("DOMContentLoaded", function () {
       message.className =
         "ai-tutor-chat-message " +
         (turn.role === "assistant" ? "is-assistant" : "is-user");
+      if (turn.pending) message.classList.add("is-pending");
+      if (turn.failed) message.classList.add("is-failed");
 
       const label = document.createElement("span");
       label.className = "ai-tutor-chat-label";
@@ -1197,6 +1199,20 @@ document.addEventListener("DOMContentLoaded", function () {
         body.textContent = turn.content;
       }
       message.append(label, body);
+
+      if (turn.role === "user" && turn.failed) {
+        const failedRow = document.createElement("div");
+        failedRow.className = "ai-tutor-chat-failed-row";
+        const failedText = document.createElement("span");
+        failedText.textContent = "Not sent";
+        const retry = document.createElement("button");
+        retry.type = "button";
+        retry.className = "ai-tutor-chat-retry";
+        retry.textContent = "Retry";
+        retry.addEventListener("click", () => sendPrompt(turn.content, turn.id));
+        failedRow.append(failedText, retry);
+        message.appendChild(failedRow);
+      }
 
       if (turn.role === "assistant" && turn.studentNote) {
         const note = document.createElement("div");
@@ -1289,32 +1305,55 @@ document.addEventListener("DOMContentLoaded", function () {
     const privacy = document.createElement("p");
     privacy.className = "ai-tutor-privacy";
     privacy.textContent =
-      "What you type in this chat is sent to AI. Your real selected/written test answer is not sent.";
+      "What you type here is sent to AI. Chat history is saved only in this browser and is cleared after this module is unused for 7 days or when the local chat storage limit is reached. Your real selected/written test answer is not sent.";
 
     let busy = false;
-    const sendPrompt = async text => {
+    const sendPrompt = async (text, retryTurnId = "") => {
       const prompt = String(text || "").trim();
       if (!prompt || busy) return;
       busy = true;
       input.disabled = true;
       send.disabled = true;
-      status.textContent = "Thinking about your question…";
-      if (input.value.trim() === prompt) input.value = "";
+      status.textContent = retryTurnId ? "Retrying…" : "Thinking about your question…";
+      if (!retryTurnId && input.value.trim() === prompt) input.value = "";
 
-      // Show the learner's message immediately while the tutor is thinking.
       const history = getAiTutorChatHistory(question, actualIndex);
-      const optimistic = { role: "user", content: prompt, pending: true };
-      history.push(optimistic);
+      let userTurn = retryTurnId
+        ? history.find(turn => turn.role === "user" && turn.id === retryTurnId)
+        : null;
+
+      if (!userTurn) {
+        userTurn = {
+          id: "u-" + Date.now() + "-" + Math.random().toString(36).slice(2, 8),
+          role: "user",
+          content: prompt,
+          createdAt: Date.now(),
+        };
+        history.push(userTurn);
+      }
+
+      userTurn.pending = true;
+      userTurn.failed = false;
       renderAiTutorChatHistory(transcript, question, actualIndex, sendPrompt);
-      history.pop();
 
       try {
-        await requestAiTutorChat(question, actualIndex, prompt);
+        const assistantTurn = await requestAiTutorChat(question, actualIndex, prompt);
+        userTurn.pending = false;
+        userTurn.failed = false;
+        history.push(assistantTurn);
+        if (history.length > AI_TUTOR_CHAT_MAX_TURNS_PER_THREAD) {
+          history.splice(0, history.length - AI_TUTOR_CHAT_MAX_TURNS_PER_THREAD);
+        }
+        persistAiTutorChatHistory(question, actualIndex, history);
         status.textContent = "";
         renderAiTutorChatHistory(transcript, question, actualIndex, sendPrompt);
       } catch (error) {
+        userTurn.pending = false;
+        userTurn.failed = true;
+        persistAiTutorChatHistory(question, actualIndex, history);
         status.textContent =
-          error?.message || "The AI tutor could not answer that. Please try again.";
+          "Send failed. Your message was kept — use Retry on the message.";
+        renderAiTutorChatHistory(transcript, question, actualIndex, sendPrompt);
       } finally {
         busy = false;
         input.disabled = false;
@@ -5654,6 +5693,7 @@ const testFiles = [
     stopStudyVoice();
     resetStudyGuessSession();
     currentTestFile = filename;
+    markAiTutorModuleUsed(getAiTutorModuleCode());
     syncBookAvailability();
     if (window.MasteryEngine) {
       syncMasteryEngineContext(currentMode, filename);
