@@ -524,6 +524,16 @@ document.addEventListener("DOMContentLoaded", function () {
     writeAiTutorChatStore(store);
   }
 
+  function clearAiTutorChatHistory(question, actualIndex) {
+    const key = aiTutorChatKey(question, actualIndex);
+    aiTutorChatHistory.delete(key);
+    const store = readAiTutorChatStore();
+    if (store.threads && Object.prototype.hasOwnProperty.call(store.threads, key)) {
+      delete store.threads[key];
+      writeAiTutorChatStore(store);
+    }
+  }
+
   function aiTutorEnabled() {
     return Boolean(aiStudyToolsSetting && aiStudyToolsSetting.checked);
   }
@@ -1191,6 +1201,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     transcript.replaceChildren();
     const history = getAiTutorChatHistory(question, actualIndex);
+    const clearButton = transcript.closest(".ai-tutor-chat")?.querySelector(".ai-tutor-chat-clear");
+    if (clearButton) clearButton.hidden = history.length === 0;
     if (!history.length) {
       transcript.classList.add("is-empty");
       return;
@@ -1291,7 +1303,15 @@ document.addEventListener("DOMContentLoaded", function () {
     hint.textContent =
       "Ask exactly what you want to know. Nothing is generated until you send a message; this question and its study notes are used only as context.";
     copy.append(title, hint);
-    header.appendChild(copy);
+
+    const clearChat = document.createElement("button");
+    clearChat.type = "button";
+    clearChat.className = "ai-tutor-chat-clear";
+    clearChat.textContent = "Clear chat";
+    clearChat.hidden = true;
+    clearChat.setAttribute("aria-label", "Clear this AI chat");
+
+    header.append(copy, clearChat);
 
     const transcript = document.createElement("div");
     transcript.className = "ai-tutor-chat-transcript";
@@ -1387,6 +1407,18 @@ document.addEventListener("DOMContentLoaded", function () {
         event.preventDefault();
         sendPrompt(input.value);
       }
+    });
+
+    clearChat.addEventListener("click", () => {
+      const history = getAiTutorChatHistory(question, actualIndex);
+      if (!history.length) return;
+      const confirmed = window.confirm("Clear this AI chat? This removes the saved browser copy too.");
+      if (!confirmed) return;
+      stopStudyVoice();
+      clearAiTutorChatHistory(question, actualIndex);
+      status.textContent = "Chat cleared.";
+      renderAiTutorChatHistory(transcript, question, actualIndex, sendPrompt);
+      input.focus({ preventScroll: true });
     });
 
     composer.append(input, send);
