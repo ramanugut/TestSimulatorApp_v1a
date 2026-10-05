@@ -3370,18 +3370,80 @@ document.addEventListener("DOMContentLoaded", function () {
     };
   }
 
+  function formatStudyAnswerMarkup(answer) {
+    const text = formatAnswerForDisplay(answer).replace(/\r\n?/g, "\n").trim();
+    if (!text) return '<p class="rich-paragraph">No answer supplied.</p>';
+
+    // Many saved answers are correct but stored as one compact paragraph, for
+    // example "Strengths: ... Weaknesses: ...". Detect labelled sections for
+    // display only; never rewrite the stored/reference answer itself.
+    const sectionMatcher = /(^|[.!?;]\s+)([A-Z][A-Za-z0-9 /&()\u2013\u2014-]{0,38}):\s*/g;
+    const sections = [];
+    let match;
+    while ((match = sectionMatcher.exec(text)) !== null) {
+      const labelStart = match.index + match[1].length;
+      sections.push({
+        label: match[2].trim(),
+        start: labelStart,
+        contentStart: sectionMatcher.lastIndex,
+      });
+    }
+
+    if (sections.length >= 2) {
+      const output = [];
+      const intro = text.slice(0, sections[0].start).trim();
+      if (intro) output.push(formatRichText(intro));
+
+      sections.forEach((section, index) => {
+        const end = index + 1 < sections.length ? sections[index + 1].start : text.length;
+        let body = text.slice(section.contentStart, end).trim();
+        body = body.replace(/[.!?;]\s*$/, "").trim();
+
+        const items = body
+          .split(/;\s+/)
+          .map(item => item.trim())
+          .filter(Boolean);
+
+        const title = '<strong class="answer-section-title">' +
+          escapeHTML(section.label) + '</strong>';
+
+        if (items.length >= 2) {
+          output.push(
+            '<section class="answer-section">' + title +
+            '<ul class="rich-list answer-section-list">' +
+            items.map(item => '<li>' + formatInlineRichText(item) + '</li>').join("") +
+            '</ul></section>'
+          );
+        } else {
+          output.push(
+            '<section class="answer-section">' + title +
+            '<p class="rich-paragraph">' + formatInlineRichText(body) + '</p></section>'
+          );
+        }
+      });
+
+      return output.join("");
+    }
+
+    return formatRichText(text);
+  }
+
   function createStudyHintElement(question) {
     const data = buildStudyHint(question);
     if (isNewLook()) {
       const host = document.createElement("div"); host.className = "mockup-aids";
-      function aid(label, text) {
+      function aid(label, text, { rich = false } = {}) {
         const button = document.createElement("button"); button.type = "button"; button.textContent = label;
-        const panel = document.createElement("div"); panel.className = "mockup-aid-panel"; panel.hidden = true; panel.textContent = text;
+        const panel = document.createElement("div");
+        panel.className = "mockup-aid-panel" + (rich ? " rich-content study-answer-rich" : "");
+        panel.hidden = true;
+        if (rich) panel.innerHTML = formatStudyAnswerMarkup(text);
+        else panel.textContent = text;
         button.setAttribute("aria-expanded", "false");
         button.addEventListener("click", () => { panel.hidden = !panel.hidden; button.setAttribute("aria-expanded", String(!panel.hidden)); });
         host.append(button, panel);
       }
-      aid("Show answer", formatAnswerForDisplay(question.correctAnswer));
+      aid("Show answer", question.correctAnswer, { rich: true });
       if (data.formulas.length) aid("Formula", data.formulas.join("\n"));
       return host;
     }
