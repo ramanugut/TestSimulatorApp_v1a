@@ -6,12 +6,12 @@
   "totalMarks": 80,
   "preserveOrder": true,
   "marking": "ai-rubric-weighted",
-  "sourceNote": "Transcribed from supplied exam screenshots; the original paper did not show an exam duration in those screenshots.",
+  "sourceNote": "Transcribed from the supplied INF3708 JAN/FEB-2025 supplementary examination PDF. Original question wording is preserved; answer keys, marking guidance, explanations and student notes are study aids.",
   "questions": [
     {
       "number": "1.1",
       "marks": 20,
-      "text": "QUESTION 1 (20 marks): In the Project Vision business case, correlate the needs of Project Vision's end-users (students with visual impairments) with ALL FIVE levels of Maslow's hierarchy of needs. Give a specific Project Vision example for each level. (5 × 4 marks.)",
+      "text": "1.1. Correlate the needs of Project Vision’s end-users to Maslow’s hierarchy of needs. (5 x 4)",
       "grading": "ai",
       "aiPassScore": 70,
       "correctAnswer": "1. Physiological (4): reliable access to transport and facilities enables Noma and other students to attend teaching, obtain basic necessities (including food/water/rest) and sustain everyday living. 2. Safety (4): certified drivers, safe door-to-door assistance, real-time ride updates, TWO EYES obstacle recognition and corridor/stairway navigation increase physical security and predictability. 3. Social/belonging (4): attending face-to-face/hybrid classes lets visually impaired students interact with classmates and teachers and participate in the campus community rather than being isolated by transport barriers. 4. Esteem (4): independence in travelling, studying and navigating campus builds confidence, self-respect, achievement and recognition, and lets students be treated as capable participants. 5. Self-actualisation (4): full engagement with Honours or other educational goals, learning, innovation and personal potential becomes possible when accessibility barriers are reduced. Accept other clear, case-linked examples at each of the correct five Maslow levels.",
@@ -35,7 +35,7 @@
     {
       "number": "2.1",
       "marks": 2,
-      "text": "QUESTION 2.1 (2 marks): Your Project Vision labour rate is R120/hour. Full-time work would average 160 hours per month. Explain WHY the Project Manager's hours in Table 1 are divided by 2 in the calculation (160 ÷ 2) × 10 months = 800 hours.",
+      "text": "2.1. he suggested labour rate is R120.00/hour for each team member. You (the Project Manager) are working an average of 160 hours per month, full time. Your total hours were calculated as follow: (160/2) * 10 = 800. Why are the average working hours per month divided by 2? (2)",
       "grading": "ai",
       "aiPassScore": 70,
       "correctAnswer": "The project manager only works PART-TIME on Project Vision, as described in the case study. Assuming half of a full-time monthly workload, 160/2 = 80 hours/month; across 10 months this is 80 × 10 = 800 hours. This is not 800 per month.",
@@ -199,7 +199,7 @@
     {
       "number": "2.2",
       "marks": 4,
-      "text": "QUESTION 2.2 (4 marks): Calculate the WBS Level 2 TOTAL of hardware to be procured in Table 1 (air pods and smart glasses). Show both component costs and the total.",
+      "text": "2.2. Calculate the work breakdown structure (WBS) level 2 total of the hardware that will be procured (see Table 1). (4)",
       "grading": "ai",
       "aiPassScore": 70,
       "correctAnswer": "Air pods: 50 × R2 500 = R125 000. Smart glasses: 50 × R4 000 = R200 000. Total hardware = R125 000 + R200 000 = R325 000.",
@@ -363,7 +363,7 @@
     {
       "number": "2.3.1",
       "marks": 2,
-      "text": "QUESTION 2.3.1 (2 marks): Using Table 2, calculate the TOTAL LABOUR cost estimate for TWO AUDIRE and TWO EYES software development.",
+      "text": "2.3. The cost estimate of Software Development in Table 1 is calculated using two approaches: a labour estimate and a function point estimate (see Table 2). The higher estimate is used.\n\n2.3.1. In Table 2, labour cost estimation involves calculating the total cost of human resources required to complete a project. Calculate the total labour estimate. (2)",
       "grading": "ai",
       "aiPassScore": 70,
       "correctAnswer": "AI developers: 1 920 hours × R160 = R307 200. Project team: 1 600 hours × R120 = R192 000. Total labour cost estimate = R499 200.",
@@ -489,7 +489,7 @@
     {
       "number": "2.3.2",
       "marks": 2,
-      "text": "QUESTION 2.3.2 (2 marks): Calculate the TOTAL FUNCTION POINT software-development cost estimate from Table 2. The table gives 345 function points, 45 labour hours per function point and R120 per labour hour.",
+      "text": "2.3. The cost estimate of Software Development in Table 1 is calculated using two approaches: a labour estimate and a function point estimate (see Table 2). The higher estimate is used.\n\n2.3.2. Function point estimation measures software size based on what the software does for the end users. For example, the external inputs functional point determines the effort required to implement the external input processes. Table 2 shows that external inputs account for the largest quantity of activities. Some involve TWO AUDIRE extracting information from the BOLT app, such as current driver location and estimated time of arrival, each treated as a separate quantity. The conversion factor quantifies the complexity in effort to complete the external input. Conversion factor typically assign values based on three complexity standards: Low complexity – 3 function points; medium complexity – 4 function points; high complexity – 6 function points. Calculate the total function point estimate. (2)",
       "grading": "ai",
       "aiPassScore": 70,
       "correctAnswer": "30×6 + 20×3 + 15×3 + 15×3 + 5×3 = 345 function points. Labour hours = 345 × 45 = 15 525 hours. Total function point cost estimate = 15 525 × R120 = R1 863 000.",
@@ -615,7 +615,7 @@
     {
       "number": "2.3.3",
       "marks": 2,
-      "text": "QUESTION 2.3.3 (2 marks): The HIGHER of the labour-based and function-point software-development estimates must be used in Table 1. Determine the software-development cost to enter in the blank cell.",
+      "text": "2.3. The cost estimate of Software Development in Table 1 is calculated using two approaches: a labour estimate and a function point estimate (see Table 2). The higher estimate is used.\n\n2.3.3. Based on the values that Questions 2.3.1 and 2.3.2 produced, determine the software development estimate as presented in Table 1? (2)",
       "grading": "ai",
       "aiPassScore": 70,
       "correctAnswer": "Labour cost R499 200; function-point cost R1 863 000. The higher is R1 863 000, so the software-development subtotal in Table 1 is R1 863 000. Along with two R25 000 licences, this yields the provided software WBS total of R1 913 000.",
@@ -892,7 +892,7 @@
     {
       "number": "2.4",
       "marks": 2,
-      "text": "QUESTION 2.4 (2 marks): Based on previous projects, testing (item 4 in Table 1) is estimated at 10% of the COMBINED hardware and software cost. Calculate testing cost.",
+      "text": "2.4. Based on previous projects, testing (item 4 in Table 1) is estimated as 10% of the total hardware and software cost. Calculate the testing cost. (2)",
       "grading": "ai",
       "aiPassScore": 70,
       "correctAnswer": "Hardware = R325 000 and software = R1 913 000. Testing = 10% × (R325 000 + R1 913 000) = 0.10 × R2 238 000 = R223 800.",
@@ -1054,7 +1054,7 @@
     {
       "number": "2.5",
       "marks": 2,
-      "text": "QUESTION 2.5 (2 marks): Calculate the TOTAL PROJECT COST estimate in Table 1, including reserves. Show the subtotal and addition of reserves.",
+      "text": "2.5. Calculate the total project cost estimate as presented in Table 1. (2)",
       "grading": "ai",
       "aiPassScore": 70,
       "correctAnswer": "Subtotal for project management, hardware, software, testing and training = R326 400 + R325 000 + R1 913 000 + R223 800 + R110 000 = R2 898 200. Reserves = 20% × R2 898 200 = R579 640. Total project cost = R2 898 200 + R579 640 = R3 477 840.",
@@ -1216,7 +1216,7 @@
     {
       "number": "2.6.1",
       "marks": 1,
-      "text": "QUESTION 2.6.1 (1 mark): Calculate what percentage of the TOTAL project cost estimate is contributed by PROJECT MANAGEMENT (R326 400).",
+      "text": "2.6. Calculate the percentage that each cost item below is contributing to the total project cost estimate as presented in Table 1.\n\n2.6.1. project management (1)",
       "grading": "ai",
       "aiPassScore": 70,
       "correctAnswer": "(R326 400 ÷ R3 477 840) × 100 = 9.385...% ≈ 9.39%, or 9% rounded to the nearest whole percentage.",
@@ -1377,7 +1377,7 @@
     {
       "number": "2.6.2",
       "marks": 1,
-      "text": "QUESTION 2.6.2 (1 mark): Calculate what percentage of TOTAL project cost is contributed by SOFTWARE (R1 913 000).",
+      "text": "2.6. Calculate the percentage that each cost item below is contributing to the total project cost estimate as presented in Table 1.\n\n2.6.2. software (1)",
       "grading": "ai",
       "aiPassScore": 70,
       "correctAnswer": "(R1 913 000 ÷ R3 477 840) × 100 = 55.005...% ≈ 55%.",
@@ -1538,7 +1538,7 @@
     {
       "number": "2.6.3",
       "marks": 1,
-      "text": "QUESTION 2.6.3 (1 mark): Calculate what percentage of TOTAL project cost is contributed by TESTING (R223 800).",
+      "text": "2.6. Calculate the percentage that each cost item below is contributing to the total project cost estimate as presented in Table 1.\n\n2.6.3. testing (1)",
       "grading": "ai",
       "aiPassScore": 70,
       "correctAnswer": "(R223 800 ÷ R3 477 840) × 100 ≈ 6.435% ≈ 6.44%, or 6% to nearest whole percentage.",
@@ -1699,7 +1699,7 @@
     {
       "number": "2.6.4",
       "marks": 1,
-      "text": "QUESTION 2.6.4 (1 mark): Calculate what percentage of TOTAL project cost is contributed by RESERVES (R579 640).",
+      "text": "2.6. Calculate the percentage that each cost item below is contributing to the total project cost estimate as presented in Table 1.\n\n2.6.4. reserves (1)",
       "grading": "ai",
       "aiPassScore": 70,
       "correctAnswer": "(R579 640 ÷ R3 477 840) × 100 = 16.666...% ≈ 16.67%, or 17% rounded to the nearest whole percentage. It is 20% of the PRE-RESERVE subtotal but 16.67% of the final cost.",
@@ -1860,7 +1860,7 @@
     {
       "number": "2.7.1",
       "marks": 10,
-      "text": "QUESTION 2.7.1 (10 marks): Using the cash flows in Table 3, calculate Project Vision's payback period to the closest approximate YEAR, MONTH and DAY. Show annual cumulative cash flows and the fractional-year calculation.",
+      "text": "2.7. Examine the cash flow of Project Vision as illustrated in Table 3.\n\n2.7.1. Calculate the payback period to the closest approximate year, month, and day. (10)",
       "grading": "ai",
       "aiPassScore": 70,
       "correctAnswer": "Year 0 initial cost R3 477 840. Annual inflows years 1–4: R480 000 + R650 000 + R799 000 + R970 000 = R2 899 000. Amount unrecovered at end of year 4 = R3 477 840 − R2 899 000 = R578 840. Year 5 inflow = R1 220 000, so payback occurs during year 5. Fraction of year 5 = 578 840 / 1 220 000 = 0.474459 year. Total payback period = 4.474459 years ≈ 4 years, 5 months and 21 days using 12 months/year and 30 days/month (0.474459×12=5.69351 months; 0.69351×30≈20.81 days). A 365-day calendar convention gives approximately 4 years and 173 days, or about 4 years, 5 months and 22–23 days depending on month lengths. Accept clearly stated consistent approximation conventions.",
@@ -1916,7 +1916,7 @@
     {
       "number": "3.1",
       "marks": 24,
-      "text": "QUESTION 3.1 (24 marks; 12 × 2): Create an ACTIVITY-ON-NODE (AoN) network diagram of activities A–J in Table 4. Add separate START and END nodes (12 nodes in total). Follow Figure 2's node legend: earliest start (top-left), earliest finish (top-right), activity label and duration (centre), latest start (bottom-left), FREE SLACK (bottom-centre), and latest finish (bottom-right). Draw the diagram or upload a legible image; optional written calculations can support it.",
+      "text": "3.1. Adopt the legend system illustrated in Figure 2 to create an activity-on-node (AoN) diagram of the activities listed in Table 4. Add start and end nodes. (12 x 2)",
       "grading": "ai",
       "aiPassScore": 70,
       "correctAnswer": "Correct AoN precedence: START→A; A→B and E; B→C and D; E→F→G; C, D and G all precede H; H→I→J→END. Durations (weeks): A2 B3 C2 D2 E4 F3 G3 H2 I4 J1. Project duration 19 weeks. Correct node values as ES/EF/LS/LF, TOTAL float and FREE float respectively: A 0/2/0/2, 0,0; B 2/5/7/10,5,0; C 5/7/10/12,5,5; D 5/7/10/12,5,5; E 2/6/2/6,0,0; F 6/9/6/9,0,0; G 9/12/9/12,0,0; H 12/14/12/14,0,0; I 14/18/14/18,0,0; J 18/19/18/19,0,0. START occurs at 0, END at 19. If using total slack rather than free slack, B=5, C=5, D=5. The legend specifically asks for FREE slack: B free slack=0, C and D free slack=5. Accept topologically equivalent diagrams.",
@@ -2011,7 +2011,7 @@
     {
       "number": "3.2",
       "marks": 4,
-      "text": "QUESTION 3.2 (4 marks): From the Project Vision activity network (Table 4), identify the activities with slack and state the NUMBER OF WEEKS of slack. Clarify whether you mean TOTAL slack or FREE slack if relevant.",
+      "text": "3.2. Identify the activities with slack and the number of weeks slack. (4)",
       "grading": "ai",
       "aiPassScore": 70,
       "correctAnswer": "TOTAL slack (late start − early start): activities B, C and D each have 5 weeks. Values: B ES2 LS7 => 5; C ES5 LS10 => 5; D ES5 LS10 => 5. All other activities have total slack 0. The node legend in Question 3.1 also mentions FREE slack: B has zero FREE slack (because C and D begin at week 5), while C and D each have 5 weeks FREE slack (because H cannot begin until week 12).",
@@ -2098,7 +2098,7 @@
     {
       "number": "3.3",
       "marks": 2,
-      "text": "QUESTION 3.3 (2 marks): Identify the CRITICAL PATH of Project Vision using Table 4 and state the total project duration.",
+      "text": "3.3. Identify the critical path. (2)",
       "grading": "ai",
       "aiPassScore": 70,
       "correctAnswer": "START → A → E → F → G → H → I → J → END. Duration = 2 + 4 + 3 + 3 + 2 + 4 + 1 = 19 weeks. This path has zero total float.",
