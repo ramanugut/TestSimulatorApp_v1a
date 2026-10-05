@@ -7,7 +7,7 @@
   "preserveOrder": true,
   "marking": "ai-rubric-weighted",
   "sourceType": "Transcribed from a user-supplied INF3708 examination PDF; answer guidance independently checked for study practice.",
-  "sourceNote": "Transcribed from the supplied January/February 2023 supplementary examination PDF, which includes a solutions section. The reference answers were independently checked; arithmetic and percentage errors in the supplied solution section are flagged in the relevant questions.",
+  "sourceNote": "Transcribed from the supplied January/February 2023 supplementary examination PDF. Original question wording is preserved; answer keys, explanations and student notes are study aids.",
   "sourceLimitations": "The source Table 2 lists activity H as its own predecessor, which makes a valid schedule impossible; the requested PERT estimate remains computable. The supplied solution gives an incorrect expected duration for B and mislabels ROI ratios as percentages. Corrected calculations are shown with transparent notes.",
   "questions": [
     {
@@ -16,7 +16,7 @@
       "grading": "ai",
       "aiPassScore": 70,
       "answerType": "ai-text",
-      "text": "QUESTION 1.1 (2 marks): Explain why the time dimension matters when distinguishing a business case from a project charter.",
+      "text": "1.1. Judge the importance of time dimension when making a difference between the business case and the project charter. (2)",
       "correctAnswer": "A business case is prepared before project authorization to justify feasibility and expected value. The project charter is created at initiation to formally authorize the project and the project manager. Their purpose and timing differ: business case supports the decision to invest; the charter authorizes the chosen project.",
       "aiRubric": [
         "Business case is a pre-authorization justification/feasibility document (1).",
@@ -34,7 +34,7 @@
       "grading": "ai",
       "aiPassScore": 70,
       "answerType": "ai-text",
-      "text": "QUESTION 1.2 (4 marks): Justify the recommendation of an adaptive life cycle to guide the project’s schedule-management strategy.",
+      "text": "1.2. You recommend the adaptive life cycle as the most appropriate product life cycle to guide and facilitate the schedule management strategy. Justify your recommendation. (4)",
       "correctAnswer": "An adaptive life cycle fits because requirements for the artist-booking/content-sales platform may develop as users and the team learn. Work can be prioritized and delivered in short increments, with regular demonstrations and stakeholder feedback used to refine requirements and the schedule. This supports change while producing useful functionality.",
       "aiRubric": [
         "Identify changing/uncertain requirements or learning (1).",
@@ -54,7 +54,7 @@
       "grading": "ai",
       "aiPassScore": 70,
       "answerType": "diagram",
-      "text": "QUESTION 1.3.1 (20 marks): Draw an activity-on-node (AON) diagram for Table 1. Include Start and End nodes and each activity’s earliest start (ES), earliest finish (EF), latest start (LS) and latest finish (LF). Do not draw an activity-on-arrow diagram.",
+      "text": "1.3. Table 1 provides a summary of the durations assigned to activities of the project integration knowledge area.\n\n1.3.1. Depict the activities depicted in Table 1 on an activity-on-node diagram. For each node, indicate the activity earliest start, earliest finish, latest start and latest finish. Also illustrate start and end nodes. (20)\n\nNote to examination candidate: do NOT draw an activity-on-arrow diagram. Please produce an activity-on-node diagram.",
       "correctAnswer": "Use Start→A→B; B branches to C and D; C and D both lead to E; then E→F→G→End. CPM values (ES, EF, LS, LF): Start=(0,0,0,0); A=(0,1,0,1); B=(1,2,1,2); C=(2,4,14,16); D=(2,16,2,16); E=(16,21,16,21); F=(21,22,21,22); G=(22,24,22,24); End=(24,24,24,24). Project duration is 24 time units; critical path A–B–D–E–F–G.",
       "aiRubric": [
         "Correct AON network, Start and End, all seven activities/durations and dependencies (7).",
@@ -129,7 +129,7 @@
       "grading": "ai",
       "aiPassScore": 70,
       "answerType": "ai-text",
-      "text": "QUESTION 1.3.2 (10 marks): Predict five critical risks likely in developing this project and recommend one technique to address each.",
+      "text": "1.3.2. Activity C indicates that the project manager engages in identifying potential risks and risk reduction techniques to better the project’s chances of success. Predict five critical risks that are likely to occur in the development of this project. For each risk, recommend a technique to address it. (10)",
       "correctAnswer": "Examples (any five distinct risk–response pairs): (1) Key developers resign or are overtasked → capacity planning, cross-training, realistic workload and retention incentives. (2) Unrealistic time/cost estimates → estimate with historical data and several-point estimates, then replan incrementally. (3) Wrong functionality or misunderstood artist/client needs → prototypes, requirements workshops and user validation. (4) Poor usability/interface → test wireframes and prototypes with artists and clients. (5) Scope changes disrupt the schedule → backlog prioritization and formal change control. (6) External platform/API integration fails → early integration spikes, vendor specifications, contracts and testing. (7) Technical difficulty building booking/content-sales services → feasibility prototype and targeted training.",
       "aiRubric": [
         "Award up to 2 marks per distinct risk paired with a suitable mitigation, to a maximum of five pairs (10).",
@@ -148,7 +148,7 @@
       "grading": "ai",
       "aiPassScore": 70,
       "answerType": "ai-text",
-      "text": "QUESTION 1.3.3 (2 marks): Propose an incentive plan for team members working on the schedule-management plan, given concerns about overtasking and absent performance rewards.",
+      "text": "1.3.3. Activity D indicates that the service manager identifies preliminary human and physical resources. In resource management plan, the service manager expresses his concern about the resignation of two project team members who worked on the schedule management team, citing overtasking (specifically, questioning the need for a schedule management plan for each project management process group) and the absence of incentives to reward performance. To avoid further resignations, decide on an appropriate incentive plan for team members who work on the schedule management plan. (2)",
       "correctAnswer": "Offer a fair, transparent team incentive for completing agreed schedule-management deliverables by the target date while meeting quality and workload expectations—for example, a small team bonus or recognition after an approved plan, with workload reviewed and no reward for rushed, low-quality work.",
       "aiRubric": [
         "Propose a concrete reward/recognition plan tied to performance (1).",
@@ -166,7 +166,7 @@
       "grading": "ai",
       "aiPassScore": 70,
       "answerType": "ai-text",
-      "text": "QUESTION 1.3.4 (2 marks): Debate a phenomenon likely to emerge after one year that could reduce artist subscriptions to e-beats_Africa.",
+      "text": "1.3.4. Activity E indicates that project manager engages in financial analysis. Life cycle costing analysis indicates that it will take 1 year to complete the project, and that the system will be in place/active for a 1 year before a reduction in the number of TikTok artists subscribing for e-beats_Africa’s service occurs. Debate a phenomenon that is prevalent or likely to emerge, resulting in a reduction of subscriptions to e-beats_Africa’s services. (2)",
       "correctAnswer": "A direct-to-market competitor could emerge—for example, TikTok or another platform could let artists sell/promote content and book campaigns directly, or a rival agency could offer lower fees and better reach. Artists may then see less value in subscribing to e-beats_Africa, reducing subscriptions.",
       "aiRubric": [
         "Identify a plausible competitive/disruptive phenomenon (1).",
@@ -184,7 +184,7 @@
       "grading": "ai",
       "aiPassScore": 70,
       "answerType": "ai-text",
-      "text": "QUESTION 1.3.5 (5 marks): Formulate five important topics/issues for the project kick-off meeting agenda.",
+      "text": "1.3.5. Activity F indicates that the project manager is hosting a kick-off meeting. Formulate five important topics/issues to appear on the agenda. (5)",
       "correctAnswer": "Suitable topics include: project purpose, scope and success criteria; key stakeholders, roles and responsibilities; deliverables, milestones and schedule; communication, collaboration and decision-making arrangements; risks, assumptions, dependencies and issue escalation; ways of working/tools; immediate actions and questions.",
       "aiRubric": [
         "Award 1 mark for each distinct relevant agenda topic, up to 5.",
@@ -202,7 +202,7 @@
       "grading": "ai",
       "aiPassScore": 70,
       "answerType": "ai-text",
-      "text": "QUESTION 1.4.1 (1 mark): Calculate the PERT expected duration (te) for activity A in Table 2.",
+      "text": "1.4.1. Calculate the expected duration (te) for activity A. (1)",
       "correctAnswer": "te=(a+4m+b)/6=(2.2+4×3+3.5)/6=17.7/6=2.95 time units (approximately 3.0 to one decimal).",
       "aiRubric": [
         "Apply the PERT formula and obtain 2.95 (or 3.0 rounded to one decimal)."
@@ -217,7 +217,7 @@
       "grading": "ai",
       "aiPassScore": 70,
       "answerType": "ai-text",
-      "text": "QUESTION 1.4.2 (1 mark): Calculate the PERT expected duration (te) for activity B in Table 2.",
+      "text": "1.4.2. Calculate the expected duration (te) for activity B. (1)",
       "correctAnswer": "te=(5+4×6+6.5)/6=35.5/6=5.9167, approximately 5.92 time units or 5.9 to one decimal.",
       "aiRubric": [
         "Apply the formula and obtain approximately 5.92 (or 5.9 to one decimal)."
@@ -309,7 +309,7 @@
       "grading": "ai",
       "aiPassScore": 70,
       "answerType": "ai-text",
-      "text": "QUESTION 1.4.3 (1 mark): Calculate the PERT expected duration (te) for activity C in Table 2.",
+      "text": "1.4.3. Calculate the expected duration (te) for activity C. (1)",
       "correctAnswer": "te=(8.5+4×9+9.5)/6=54/6=9.0 time units.",
       "aiRubric": [
         "Apply the formula and obtain 9.0."
@@ -401,7 +401,7 @@
       "grading": "ai",
       "aiPassScore": 70,
       "answerType": "ai-text",
-      "text": "QUESTION 1.4.4 (1 mark): Calculate the PERT expected duration (te) for activity D in Table 2.",
+      "text": "1.4.4. Calculate the expected duration (te) for activity D. (1)",
       "correctAnswer": "te=(1+4×3+4)/6=17/6=2.8333, approximately 2.83 time units or 2.8 to one decimal.",
       "aiRubric": [
         "Apply the formula and obtain approximately 2.83 (or 2.8 to one decimal)."
@@ -493,7 +493,7 @@
       "grading": "ai",
       "aiPassScore": 70,
       "answerType": "ai-text",
-      "text": "QUESTION 1.4.5 (1 mark): Calculate the PERT expected duration (te) for activity H in Table 2.",
+      "text": "1.4.5. Calculate the expected duration (te) for activity H. (1)",
       "correctAnswer": "te=(66+4×66.5+67)/6=399/6=66.5 time units.",
       "aiRubric": [
         "Apply the formula and obtain 66.5."
@@ -585,7 +585,7 @@
       "grading": "ai",
       "aiPassScore": 70,
       "answerType": "ai-text",
-      "text": "QUESTION 2.1.1 (4 marks): Calculate total expenses for Projects X and Y and show the formula.",
+      "text": "2.1. Calculation of the Net Profit for Project X and Project Y.\n\n2.1.1. Calculate the total expenses of each project. Show the formula used. (4)",
       "correctAnswer": "Project X expenses = 10,000+10,200+10,400+10,600+10,800=R52,000. Project Y expenses = 30,000+31,000+32,000+33,000+34,000=R160,000.",
       "aiRubric": [
         "Sum all five yearly costs for X (1).",
@@ -652,7 +652,7 @@
       "grading": "ai",
       "aiPassScore": 70,
       "answerType": "ai-text",
-      "text": "QUESTION 2.1.2 (4 marks): Calculate total income for Projects X and Y and show the formula.",
+      "text": "2.1. Calculation of the Net Profit for Project X and Project Y.\n\n2.1.2. Calculate the total income of each project. Show the formula used. (4)",
       "correctAnswer": "Project X income = 20,000+23,000+28,000+34,000=R105,000. Project Y income = 40,000+48,000+60,000+66,000=R214,000.",
       "aiRubric": [
         "Sum four annual income values for X (1).",
@@ -719,7 +719,7 @@
       "grading": "ai",
       "aiPassScore": 70,
       "answerType": "ai-text",
-      "text": "QUESTION 2.1.3 (4 marks): Calculate net profit for Projects X and Y and show the formula.",
+      "text": "2.1. Calculation of the Net Profit for Project X and Project Y.\n\n2.1.3. Calculate net profit of each project. Show the formula used. (4)",
       "correctAnswer": "Net profit = total income − total expenses. Project X: R105,000−R52,000=R53,000. Project Y: R214,000−R160,000=R54,000.",
       "aiRubric": [
         "State net profit formula (1).",
@@ -786,7 +786,7 @@
       "grading": "ai",
       "aiPassScore": 70,
       "answerType": "ai-text",
-      "text": "QUESTION 2.2.1 (4 marks): At a 10% discount rate, calculate the discount factor for each year.",
+      "text": "2.2. Net Present Value (NPV) is one of the factors that you will take into consideration when deciding whether to choose Project X or Project Y.\n\nNote to examination candidate: In response to the sub questions below, only writing down the amount/value will suffice, you are not required to display the formula.\n\n2.2.1. Assuming a discount rate of 10%, calculate the discount factor for each year. (4)",
       "correctAnswer": "For year n, factor=1/(1.10)^n. Year 0=1.0000; Year 1=0.9091; Year 2=0.8264; Year 3=0.7513; Year 4=0.6830 (approximately).",
       "aiRubric": [
         "Use 1/(1+0.10)^n (1).",
@@ -851,7 +851,7 @@
       "grading": "ai",
       "aiPassScore": 70,
       "answerType": "ai-text",
-      "text": "QUESTION 2.2.2 (6 marks): Calculate total discounted cost for Projects X and Y.",
+      "text": "2.2. Net Present Value (NPV) is one of the factors that you will take into consideration when deciding whether to choose Project X or Project Y.\n\nNote to examination candidate: In response to the sub questions below, only writing down the amount/value will suffice, you are not required to display the formula.\n\n2.2.2. Calculate the total discounted cost amount of each project. (6)",
       "correctAnswer": "Using factors 1/(1.1)^n for Years 0–4: X=10,000+10,200/1.1+10,400/1.1²+10,600/1.1³+10,800/1.1⁴=R43,208.25. Y=30,000+31,000/1.1+32,000/1.1²+33,000/1.1³+34,000/1.1⁴=R132,643.95.",
       "aiRubric": [
         "Discount costs in each year (2).",
@@ -918,7 +918,7 @@
       "grading": "ai",
       "aiPassScore": 70,
       "answerType": "ai-text",
-      "text": "QUESTION 2.2.3 (6 marks): Calculate total discounted benefits for Projects X and Y.",
+      "text": "2.2. Net Present Value (NPV) is one of the factors that you will take into consideration when deciding whether to choose Project X or Project Y.\n\nNote to examination candidate: In response to the sub questions below, only writing down the amount/value will suffice, you are not required to display the formula.\n\n2.2.3. Calculate the total discounted benefits amount. (6)",
       "correctAnswer": "Discount the Year 1–4 incomes at 10%. X=20,000/1.1+23,000/1.1²+28,000/1.1³+34,000/1.1⁴=R81,449.35. Y=40,000/1.1+48,000/1.1²+60,000/1.1³+66,000/1.1⁴=R166,190.83.",
       "aiRubric": [
         "Discount X income for Years 1–4 (2).",
@@ -985,7 +985,7 @@
       "grading": "ai",
       "aiPassScore": 70,
       "answerType": "ai-text",
-      "text": "QUESTION 2.2.4 (8 marks): Calculate NPV for Projects X and Y.",
+      "text": "2.2. Net Present Value (NPV) is one of the factors that you will take into consideration when deciding whether to choose Project X or Project Y.\n\nNote to examination candidate: In response to the sub questions below, only writing down the amount/value will suffice, you are not required to display the formula.\n\n2.2.4. Calculate the NPV value for each project. (8)",
       "correctAnswer": "NPV = discounted benefits − discounted costs. X=R81,449.35−R43,208.25=R38,241.10. Y=R166,190.83−R132,643.95=R33,546.89.",
       "aiRubric": [
         "State/apply NPV formula (2).",
@@ -1053,7 +1053,7 @@
       "grading": "ai",
       "aiPassScore": 70,
       "answerType": "ai-text",
-      "text": "QUESTION 2.2.5 (2 marks): Based on the calculated NPVs, which project do you recommend for e-beats_Africa and why?",
+      "text": "2.2. Net Present Value (NPV) is one of the factors that you will take into consideration when deciding whether to choose Project X or Project Y.\n\n2.2.5. Based on the NPVs calculated in question 2.2.4, which project do you recommend for e-beats_Africa? Justify your answer. (2)",
       "correctAnswer": "Recommend Project X because its NPV is higher (R38,241.10 versus R33,546.89), so it produces the greater net present value at the 10% discount rate.",
       "aiRubric": [
         "Recommend Project X (1).",
@@ -1118,7 +1118,7 @@
       "grading": "ai",
       "aiPassScore": 70,
       "answerType": "ai-text",
-      "text": "QUESTION 2.3.1 (2 marks): State the multiyear-project ROI formula.",
+      "text": "2.3. The project manager instructs you to use the ROI formula for multiyear projects to calculate the ROI for Project X and Project Y.\n\n2.3.1. Start the calculation by stating the ROI formula for multiyear projects. (2)",
       "correctAnswer": "ROI = (total discounted benefits − total discounted costs) ÷ total discounted costs × 100%.",
       "aiRubric": [
         "Subtract discounted costs from discounted benefits (1).",
@@ -1136,7 +1136,7 @@
       "grading": "ai",
       "aiPassScore": 70,
       "answerType": "ai-text",
-      "text": "QUESTION 2.3.2 (8 marks): Use the multiyear-project ROI formula to calculate ROI for Projects X and Y.",
+      "text": "2.3. The project manager instructs you to use the ROI formula for multiyear projects to calculate the ROI for Project X and Project Y.\n\n2.3.2. Use the ROI formula for multiyear projects to calculate the ROI for Project X and Project Y. (8)",
       "correctAnswer": "X ROI=(81,449.35−43,208.25)/43,208.25×100=88.50% (about 88.5%). Y ROI=(166,190.83−132,643.95)/132,643.95×100=25.29%.",
       "aiRubric": [
         "Use discounted totals and correct ROI formula (2).",
@@ -1204,7 +1204,7 @@
       "grading": "ai",
       "aiPassScore": 70,
       "answerType": "ai-text",
-      "text": "QUESTION 2.3.3 (2 marks): Based on the ROI values, which project do you recommend and why?",
+      "text": "2.3. The project manager instructs you to use the ROI formula for multiyear projects to calculate the ROI for Project X and Project Y.\n\n2.3.3. Based on the ROIs calculated in question 2.3.2, which project do you recommend for e-beats_Africa? Justify your answer. (2)",
       "correctAnswer": "Recommend Project X because its multiyear ROI is higher (about 88.50% versus 25.29%). Both ROI values are positive.",
       "aiRubric": [
         "Recommend Project X (1).",
