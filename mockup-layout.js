@@ -351,8 +351,8 @@
     }
     new MutationObserver(decorateQuestions).observe(get('questions-container'), { childList: true });
     window.MockupLayout = { closeMap };
-    let look = 'new';
-    try { look = localStorage.getItem(key) || 'new'; } catch (_) {}
+    let look = 'old';
+    try { look = localStorage.getItem(key) || 'old'; } catch (_) {}
     applyLook(look, true);
   });
 }());
