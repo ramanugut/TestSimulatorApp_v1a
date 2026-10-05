@@ -31,6 +31,14 @@ const settle=async()=>{for(let i=0;i<20;i++)await new Promise(r=>setImmediate(r)
  d.getElementById('mode-tab-study').click();await settle();
  assert.equal(d.querySelector('.question .study-guide-card'),null,'Notes wait for a check when Guess First is on');
  assert.equal(d.querySelector('.mockup-check').disabled,true);
+ const reveal=[...d.querySelectorAll('.mockup-aids button')].find(el=>el.textContent==='Show answer');
+ assert.ok(reveal,'New look has Show answer instead of Hint');
+ assert.equal([...d.querySelectorAll('.mockup-aids button')].some(el=>el.textContent==='Hint'),false);
+ const reference=reveal.nextElementSibling;assert.equal(reference.hidden,true);reveal.click();
+ assert.equal(reference.hidden,false);assert.equal(reference.textContent,'WBS');
+ assert.equal(d.querySelector('.feedback'),null,'Show answer does not grade an unattempted question');
+ assert.equal(requests.length,1,'Showing the stored answer does not call AI');
+ reveal.click();assert.equal(reference.hidden,true);
  const option=d.querySelector('.option-item input');option.checked=true;option.dispatchEvent(new w.Event('change',{bubbles:true}));
  assert.equal(d.querySelector('.mockup-check').disabled,false);d.querySelector('.mockup-check').click();await settle();
  assert.ok(d.querySelector('.feedback').textContent.includes('Correct'));assert.ok(d.querySelector('.study-voice-toolbar'),'Study voice reader remains available');

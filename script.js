@@ -3331,7 +3331,7 @@ document.addEventListener("DOMContentLoaded", function () {
         button.addEventListener("click", () => { panel.hidden = !panel.hidden; button.setAttribute("aria-expanded", String(!panel.hidden)); });
         host.append(button, panel);
       }
-      aid("Hint", data.hint);
+      aid("Show answer", formatAnswerForDisplay(question.correctAnswer));
       if (data.formulas.length) aid("Formula", data.formulas.join("\n"));
       return host;
     }
@@ -6408,8 +6408,7 @@ const testFiles = [
       const canRevealStudyContent =
         isStudyMode && studyAnswerVisible(actualIndex);
 
-      // A compact hint/formula helper is always available in Study Mode,
-      // including before a Guess First attempt is submitted.
+      // New look offers the reference answer; Old look keeps its hint helper.
       if (isStudyMode) {
         questionElement.appendChild(createStudyHintElement(question));
       }
