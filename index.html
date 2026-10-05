@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="mockup-layout.css?v=20261005-answer-format1">
 </head>
 <body>
-    <script>try { document.body.classList.toggle('new-look', localStorage.getItem('testSimulatorLook') !== 'old'); } catch (_) { document.body.classList.add('new-look'); }</script>
+    <script>try { document.body.classList.toggle('new-look', localStorage.getItem('testSimulatorLook') === 'new'); } catch (_) { document.body.classList.remove('new-look'); }</script>
     <header id="floating-header" class="app-header">
         <div class="header-top">
             <div class="logo" aria-label="Test Simulator">
@@ -482,7 +482,7 @@
                 <button id="close-options" class="modal-close" type="button" aria-label="Close tools">&times;</button>
             </header>
 
-            <div class="look-setting"><span>App look</span><div class="look-choices" role="group" aria-label="App look"><button type="button" data-look="new" aria-pressed="true">New look</button><button type="button" data-look="old" aria-pressed="false">Old look</button></div></div>
+            <div class="look-setting"><span>App look</span><div class="look-choices" role="group" aria-label="App look"><button type="button" data-look="new" aria-pressed="false">New look</button><button type="button" data-look="old" aria-pressed="true">Old look</button></div></div>
             <div class="new-look-only mockup-setting"><label for="questions-per-page">Questions per page</label><select id="questions-per-page"><option value="1">1</option><option value="5">5</option><option value="10">10</option><option value="all">All</option></select></div>
             <div id="mockup-timer-setting" class="new-look-only mockup-setting"></div>
             <div id="mockup-guess-setting" class="new-look-only mockup-setting"></div>
@@ -598,7 +598,7 @@
     <script src="revision-controller.js?v=20261001-ai-session1"></script>
     <script src="paper-picker.js?v=20261005-dual-look1"></script>
     <script src="script.js?v=20261005-show-answer1"></script>
-    <script src="mockup-layout.js?v=20261005-mockup-features1"></script>
+    <script src="mockup-layout.js?v=20261005-old-default1"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
 </body>
 </html>
