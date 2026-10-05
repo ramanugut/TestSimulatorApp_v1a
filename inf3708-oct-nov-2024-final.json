@@ -7,7 +7,7 @@
   "preserveOrder": true,
   "marking": "ai-rubric-weighted",
   "sourceType": "Transcribed from a user-supplied INF3708 examination PDF; answer guidance independently checked for study practice.",
-  "sourceNote": "Transcribed from the supplied October/November 2024 final-examination PDF dated 22 October 2024 (80 marks, 2 hours). Reference calculations and network timings were independently checked.",
+  "sourceNote": "Transcribed from the supplied October/November 2024 final-examination PDF. Original question wording is preserved; answer keys, explanations and student notes are study aids.",
   "sourceLimitations": "The source table for capsule assembly elides several rows between days 10 and 28; all values needed for questions 4.1–4.3 are present in the day 1–8 rows. The AOA answer supplies one valid event numbering; equivalent valid networks are acceptable.",
   "questions": [
     {
@@ -16,7 +16,7 @@
       "grading": "ai",
       "aiPassScore": 70,
       "answerType": "ai-text",
-      "text": "QUESTION 1.1 (16 marks): Perform a SWOT analysis of the E-GREEN project. Give strengths, weaknesses, opportunities and threats, using the case.",
+      "text": "1.1. Perform a SWOT (strength, weakness, opportunities and threats) analysis of the project. (4 x 4 = 16)",
       "correctAnswer": "Strengths: planned accessible capsules at major retail entrances; partnerships with business and government; clear environmental purpose and potential recovery of valuable materials; awareness and safe disposal goals. Weaknesses: the earlier workshop approach had low user uptake; users may still avoid making an effort; capsule placement, collection and maintenance/logistics require coordination; contamination or incorrect disposal may affect operations. Opportunities: expand collection points through retailers and municipalities; public-awareness campaigns and incentives; build a circular-economy/reuse market for recovered materials; use participation data to improve locations and service. Threats: users continue storing devices or putting them in ordinary waste; vandalism, theft or hazardous contamination; costs or partner permissions delay deployment; other recyclers or weak resale demand reduce revenue.",
       "aiRubric": [
         "Strengths: up to 4 distinct, case-linked points (4).",
@@ -36,7 +36,7 @@
       "grading": "ai",
       "aiPassScore": 70,
       "answerType": "ai-text",
-      "text": "QUESTION 2.1.1 (6 marks): Calculate the annual discounted cash flow of Project-Dropoff from Table 1.",
+      "text": "2.1. Calculate…\n\n2.1.1. …the annual discounted cash flow of Project-Dropoff. (6)",
       "correctAnswer": "Multiply each cash flow by its discount factor: Year 0 −R200,000; Year 1 R52,000×0.91=R47,320; Year 2 R110,000×0.83=R91,300; Year 3 R133,000×0.75=R99,750; Year 4 R160,000×0.68=R108,800; Year 5 R200,000×0.62=R124,000.",
       "aiRubric": [
         "Year 0 −R200 000 (1).",
@@ -103,7 +103,7 @@
       "grading": "ai",
       "aiPassScore": 70,
       "answerType": "ai-text",
-      "text": "QUESTION 2.1.2 (6 marks): Calculate the annual discounted cash flow of Project-Collect from Table 1.",
+      "text": "2.1. Calculate…\n\n2.1.2. … the annual discounted cash flow of Project-Collect. (6)",
       "correctAnswer": "Year 0 −R110,000; Year 1 R47,320; Year 2 R91,300; Year 3 R99,750; Year 4 R108,800; Year 5 R124,000. Both projects have the same inflows and discount factors; only the initial investment differs.",
       "aiRubric": [
         "Year 0 −R110 000 (1).",
@@ -170,7 +170,7 @@
       "grading": "ai",
       "aiPassScore": 70,
       "answerType": "ai-text",
-      "text": "QUESTION 2.2 (2 marks): Calculate the total discounted cash inflow for Projects Dropoff and Collect.",
+      "text": "2.2. Calculate the total discounted cash inflow of Project-Dropoff and Project-Collect. (2)",
       "correctAnswer": "R47,320+R91,300+R99,750+R108,800+R124,000=R471,170 for each project.",
       "aiRubric": [
         "Correct sum of discounted inflows (1).",
@@ -235,7 +235,7 @@
       "grading": "ai",
       "aiPassScore": 70,
       "answerType": "ai-text",
-      "text": "QUESTION 2.3.1 (2 marks): Calculate the NPV of Project-Dropoff.",
+      "text": "2.3. Calculate the net present value (NPV) of:\n\n2.3.1. Project-Dropoff. (2)",
       "correctAnswer": "NPV = total discounted inflows − initial investment = R471,170−R200,000=R271,170.",
       "aiRubric": [
         "Apply discounted inflows minus initial outlay (1).",
@@ -300,7 +300,7 @@
       "grading": "ai",
       "aiPassScore": 70,
       "answerType": "ai-text",
-      "text": "QUESTION 2.3.2 (2 marks): Calculate the NPV of Project-Collect.",
+      "text": "2.3. Calculate the net present value (NPV) of:\n\n2.3.2. Project-Collect. (2)",
       "correctAnswer": "NPV = R471,170−R110,000=R361,170.",
       "aiRubric": [
         "Apply discounted inflows minus initial outlay (1).",
@@ -365,7 +365,7 @@
       "grading": "ai",
       "aiPassScore": 70,
       "answerType": "ai-text",
-      "text": "QUESTION 2.3.3 (2 marks): Based on NPV, which project would you recommend?",
+      "text": "2.3.3. Based on the respective NPVs, which project would you recommend? (2)",
       "correctAnswer": "Recommend Project-Collect because its NPV is R361,170, greater than Project-Dropoff’s R271,170.",
       "aiRubric": [
         "Recommend Project-Collect (1).",
@@ -430,7 +430,7 @@
       "grading": "ai",
       "aiPassScore": 70,
       "answerType": "ai-text",
-      "text": "QUESTION 2.4.1 (6 marks): Calculate the weighted score of Project-Dropoff using Table 2.",
+      "text": "2.4.1. Calculate the weighted score of Project-Dropoff. (6)",
       "correctAnswer": "Weighted score = 0.55×70 + 0.25×85 + 0.13×75 + 0.05×20 + 0.02×65 = 38.50+21.25+9.75+1.00+1.30 = 71.80.",
       "aiRubric": [
         "Use weight × score for criteria 1–2 (2).",
@@ -490,7 +490,7 @@
       "grading": "ai",
       "aiPassScore": 70,
       "answerType": "ai-text",
-      "text": "QUESTION 2.4.2 (6 marks): Calculate the weighted score of Project-Collect using Table 2.",
+      "text": "2.4.2. Calculate the weighted score of Project-Collect. (6)",
       "correctAnswer": "Weighted score = 0.55×70 + 0.25×85 + 0.13×35 + 0.05×75 + 0.02×69 = 38.50+21.25+4.55+3.75+1.38 = 69.43.",
       "aiRubric": [
         "Use weight × score for criteria 1–2 (2).",
@@ -550,7 +550,7 @@
       "grading": "ai",
       "aiPassScore": 70,
       "answerType": "ai-text",
-      "text": "QUESTION 2.4.3 (2 marks): Which project is most eligible by the weighted scores?",
+      "text": "2.4.3. Which project is the most eligible when comparing the weighted scores? (2)",
       "correctAnswer": "Project-Dropoff is higher by weighted score: 71.80 versus 69.43. This differs from the NPV result, which favored Project-Collect.",
       "aiRubric": [
         "Recommend Project-Dropoff on weighted score (1).",
@@ -609,7 +609,7 @@
       "grading": "ai",
       "aiPassScore": 70,
       "answerType": "diagram",
-      "text": "QUESTION 3.1 (16 marks): Draw an activity-on-arrow (AOA) network for the mobile-app design activities in Table 3. Show activity labels and durations, event numbering and the precedence relationships. Use dummy arrows where needed.",
+      "text": "3.1. Illustrate the mobile app design activities listed in Table 3 in an activity-on-arrow (AoA) diagram. Adopt the layout illustrated in Figure 1. (16)",
       "correctAnswer": "One valid AOA structure: 1→2 A(3); 2→3 B(3); 2→4 C(5); 2→5 D(4); 3→6 E(1); 4→7 F(2); 5→8 G(5); 6→9 dummy; 7→9 dummy; 8→9 dummy; 9→10 H(1). Earliest event times: 1=0, 2=3, 3=6, 4=8, 5=7, 6=7, 7=10, 8=12, 9=12, 10=13. Latest event times: 1=0, 2=3, 3=11, 4=10, 5=7, 6=12, 7=12, 8=12, 9=12, 10=13. Other valid event numbering and dummy-arrow layouts are acceptable if dependencies are preserved.",
       "aiRubric": [
         "Represent all eight activities with correct durations and precedence (7).",
@@ -690,7 +690,7 @@
       "grading": "ai",
       "aiPassScore": 70,
       "answerType": "ai-text",
-      "text": "QUESTION 3.2 (2 marks): Which activities have slack?",
+      "text": "3.2. Which activities have slack? (2)",
       "correctAnswer": "Activities with positive total slack are B=5 days, C=2 days, E=5 days and F=2 days. Activities A, D, G and H have zero slack.",
       "aiRubric": [
         "Identify the positive-float activities (1).",
@@ -767,7 +767,7 @@
       "grading": "ai",
       "aiPassScore": 70,
       "answerType": "ai-text",
-      "text": "QUESTION 3.3 (2 marks): Identify the critical path.",
+      "text": "3.3. Identify the critical path. (2)",
       "correctAnswer": "Critical path: A–D–G–H. Duration = 3+4+5+1=13 days.",
       "aiRubric": [
         "Identify A–D–G–H (1).",
@@ -844,7 +844,7 @@
       "grading": "ai",
       "aiPassScore": 70,
       "answerType": "ai-text",
-      "text": "QUESTION 4.1 (3 marks): Calculate the percentage of the eight capsules assembled by day 8.",
+      "text": "4.1. Calculate the % of capsules assembled by day 8. (3)",
       "correctAnswer": "Four of eight capsules are assembled by day 8. Completion = 4/8×100=50%.",
       "aiRubric": [
         "Use cumulative assembly count of 4 by day 8 (1).",
@@ -972,7 +972,7 @@
       "grading": "ai",
       "aiPassScore": 70,
       "answerType": "ai-text",
-      "text": "QUESTION 4.2 (3 marks): Calculate earned value (EV) by day 8. BAC is R55,000.",
+      "text": "4.2. Calculate the earned value (EV) by day 8. (3)",
       "correctAnswer": "EV = percent complete × BAC = 0.50×R55,000=R27,500.",
       "aiRubric": [
         "Use EV=% complete × BAC (1).",
@@ -1100,7 +1100,7 @@
       "grading": "ai",
       "aiPassScore": 70,
       "answerType": "ai-text",
-      "text": "QUESTION 4.3 (3 marks): Calculate cost variance (CV) at the end of day 8.",
+      "text": "4.3. Calculate the cost variance (CV) by the end of day 8. (3)",
       "correctAnswer": "Actual cost by day 8 = R6,500+R5,700+R1,400+R4,780+R2,100+R4,000+R1,200+R1,160=R26,840. CV=EV−AC=R27,500−R26,840=+R660.",
       "aiRubric": [
         "Sum the actual costs through day 8 to R26 840 (1).",
@@ -1228,7 +1228,7 @@
       "grading": "ai",
       "aiPassScore": 70,
       "answerType": "ai-text",
-      "text": "QUESTION 4.4 (1 mark): What does the cost variance indicate about the cost of performing the work?",
+      "text": "4.4. What does the CV calculated in Question 4.3 indicates about the cost of performing the work? (1)",
       "correctAnswer": "CV is +R660, so the work is currently under budget (favourable cost performance).",
       "aiRubric": [
         "State that positive CV indicates under-budget/favourable cost performance (1)."
