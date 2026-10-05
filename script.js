@@ -971,7 +971,19 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function aiTutorChatKey(question, actualIndex) {
-    return aiTutorKey(question, actualIndex) + "::chat";
+    const sourceFile = String(question?.sourceTestId || currentTestFile || "paper");
+    const sourceQuestionId =
+      question && question.sourceQuestionIndex != null
+        ? "source-" + String(question.sourceQuestionIndex)
+        : question && question.number != null
+          ? "number-" + String(question.number)
+          : "index-" + String(actualIndex);
+    return [
+      "chat",
+      sourceFile,
+      sourceQuestionId,
+      String(question?.text || "").slice(0, 220),
+    ].join("::");
   }
 
   function getAiTutorChatHistory(question, actualIndex) {
