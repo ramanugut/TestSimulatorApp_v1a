@@ -583,9 +583,16 @@ document.addEventListener("DOMContentLoaded", function () {
   syncMasteryModeUi();
 
   function aiTutorKey(question, actualIndex) {
+    const sourceFile = String(question?.sourceTestId || currentTestFile || "paper");
+    const sourceQuestion =
+      question && question.sourceQuestionIndex !== undefined
+        ? String(question.sourceQuestionIndex)
+        : question && question.number !== undefined
+          ? String(question.number)
+          : String(actualIndex);
     return [
-      currentTestFile || "paper",
-      actualIndex,
+      sourceFile,
+      sourceQuestion,
       String(question && question.text || "").slice(0, 500),
     ].join("::");
   }
