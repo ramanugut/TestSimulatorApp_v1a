@@ -969,7 +969,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function getAiTutorChatHistory(question, actualIndex) {
     const key = aiTutorChatKey(question, actualIndex);
-    if (!aiTutorChatHistory.has(key)) aiTutorChatHistory.set(key, []);
+    if (!aiTutorChatHistory.has(key)) {
+      const store = readAiTutorChatStore();
+      const savedTurns = Array.isArray(store.threads?.[key]?.turns)
+        ? store.threads[key].turns
+            .filter(turn => turn && (turn.role === "user" || turn.role === "assistant"))
+            .map(turn => ({
+              id: String(turn.id || ""),
+              role: turn.role,
+              content: String(turn.content || ""),
+              studentNote: String(turn.studentNote || ""),
+              suggestedQuestions: Array.isArray(turn.suggestedQuestions)
+                ? turn.suggestedQuestions.slice(0, 4).map(String)
+                : [],
+              failed: turn.role === "user" && turn.failed === true,
+              pending: false,
+              createdAt: Number(turn.createdAt || Date.now()),
+            }))
+        : [];
+      aiTutorChatHistory.set(key, savedTurns);
+    }
+    markAiTutorModuleUsed(getAiTutorModuleCode(question));
     return aiTutorChatHistory.get(key);
   }
 
@@ -984,9 +1004,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const source = buildAiTutorRequest(question);
     const history = getAiTutorChatHistory(question, actualIndex);
-    const recentConversation = history.slice(-8).map(turn =>
-      (turn.role === "assistant" ? "AI tutor: " : "Learner: ") + String(turn.content || "")
-    ).join("\n\n");
+    const recentConversation = history
+      .filter(turn => !turn.pending && !turn.failed)
+      .slice(-8)
+      .map(turn =>
+        (turn.role === "assistant" ? "AI tutor: " : "Learner: ") + String(turn.content || "")
+      ).join("\n\n");
 
     const contextNotes = [
       source.referenceNotes || "",
@@ -1071,18 +1094,16 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
 
-    const userTurn = { role: "user", content: prompt };
-    const assistantTurn = {
+    return {
+      id: "a-" + Date.now() + "-" + Math.random().toString(36).slice(2, 8),
       role: "assistant",
       content: answer,
       studentNote:
         studentNote ||
         "Use the saved answer and textbook notes as the final check for course-specific wording.",
       suggestedQuestions: [],
+      createdAt: Date.now(),
     };
-    history.push(userTurn, assistantTurn);
-    if (history.length > 16) history.splice(0, history.length - 16);
-    return assistantTurn;
   }
 
   function buildAiTutorReplyVoiceParts(message) {
