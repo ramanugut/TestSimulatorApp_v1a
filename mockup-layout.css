@@ -389,3 +389,36 @@ body.new-look .table-workspace .editable-table { overflow:auto; margin:0; paddin
  body.new-look :is(.page-wrapper,.page-container,#study-scroll,.study-scroll-content) { display:block; height:auto; overflow:visible; width:auto; max-width:none; padding:0; }
  body.new-look .mockup-result-actions { display:none; }
 }
+
+
+/* Readable Show answer formatting: keep stored answers unchanged, improve display only. */
+body.new-look .mockup-aid-panel.study-answer-rich {
+  white-space: normal;
+  line-height: 1.65;
+}
+body.new-look .study-answer-rich .answer-section + .answer-section {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border-color);
+}
+body.new-look .study-answer-rich .answer-section-title {
+  display: block;
+  margin: 0 0 6px;
+  color: var(--text-color);
+  font-size: 14px;
+  line-height: 1.35;
+}
+body.new-look .study-answer-rich .answer-section-list {
+  margin: 0;
+  padding-left: 20px;
+}
+body.new-look .study-answer-rich .answer-section-list li {
+  margin: 0 0 6px;
+  line-height: 1.55;
+}
+body.new-look .study-answer-rich .answer-section-list li:last-child {
+  margin-bottom: 0;
+}
+body.new-look .study-answer-rich .rich-paragraph {
+  margin: 0;
+}
