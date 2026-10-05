@@ -42,7 +42,7 @@ async function open(look='new', prefs={}) {
  assert.equal(d.querySelectorAll('.question').length,5);
  d.getElementById('mode-tab-mastery').click();
  assert.equal(d.body.dataset.activeMode,'mastery');assert.equal(d.getElementById('mastery-panel').hidden,false);
- assert.ok(d.getElementById('mastery-root').textContent.includes('Learn by chapter'));
+ assert.ok(d.querySelector('.mockup-mastery-chapter'),'New Mastery uses the mockup chapter rows');
  d.getElementById('toggle-app-look').click();
  assert.equal(d.body.dataset.activeMode,'study','Old layout returns from the separate mastery view to Study');
  d.getElementById('mode-tab-test').click();d.getElementById('toggle-app-look').click();

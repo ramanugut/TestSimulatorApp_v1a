@@ -222,3 +222,170 @@ body.new-look .header-paper-context { max-width:min(34vw,calc(100vw - 470px)); }
 @media(max-width:760px) { body.new-look .header-paper-context { max-width:calc(100vw - 185px); } }
 /* Let the original paper label shrink to leave room for its new look toggle. */
 body:not(.new-look) .app-header .header-paper-context { min-width:0; }
+/* New look follows the mockup's feature set; legacy controls stay in Old look. */
+body.new-look #options-modal .look-setting,
+body.new-look #options-modal > .tools-modal-content > .mockup-setting,
+body.new-look #options-modal .modal-quick-settings,
+body.new-look #options-modal .tools-bookmarks,
+body.new-look #mockup-settings-actions > :is(#pause-timer,#define-test,#download-results),
+body.new-look #mockup-settings-rows ~ .new-look-only:not(#mockup-settings-actions),
+body.new-look #questions-per-page,
+body.new-look #result-banner,
+body.new-look #revision-insights,
+body.new-look #score-container,
+body.new-look .ai-answer-note,
+body.new-look .question-group-heading,
+body.new-look .ai-tutor-chat-heading,
+body.new-look .ai-tutor-privacy,
+body.new-look .ai-tutor-chat-suggestions,
+body.new-look .answer-workspace-help,
+body.new-look .answer-workspace-status,
+body.new-look .uml-label-row,
+body.new-look .editable-uml-workspace > .editor-label,
+body.new-look .mockup-extra-tool,
+body.new-look .book-reader-heading-copy,
+body.new-look .book-reader-help,
+body.new-look .flashcard-reveal-hint,
+body.new-look .flashcard-study-tip,
+body.new-look #flashcard-tally,
+body.new-look .flashcard-complete,
+body.new-look #define-test-modal .modal-card-description { display:none !important; }
+body.new-look #mockup-settings-rows { flex:1; overflow:auto; min-height:0; }
+body.new-look #options-modal .tools-modal-content { overflow:hidden; }
+body.new-look #mockup-settings-rows .mockup-setting { font-size:14px; }
+body.new-look #mockup-settings-rows .mockup-setting:first-child .look-choices { flex-wrap:nowrap; gap:2px; }
+body.new-look #mockup-settings-rows .mockup-setting:first-child button { padding:4px 7px; border:0; }
+body.new-look #mockup-settings-rows input[type=checkbox] { width:18px; height:18px; margin:0; accent-color:var(--accent-color); }
+body.new-look #mockup-settings-rows :is(input[type=number],select) { max-width:136px; }
+body.new-look #mockup-settings-rows .mockup-setting-stack { flex-direction:column; align-items:flex-start; gap:6px; }
+body.new-look #mockup-settings-actions { flex:none; margin:0; padding:12px 0; border-top:1px solid var(--border-color); }
+body.new-look #mockup-settings-actions > :is(button,#reset-test) { font:inherit; padding:8px; background:none; border:1px solid var(--border-color); border-radius:6px; cursor:pointer; }
+body.new-look #mockup-settings-actions #reset-test { color:var(--danger-color); border-color:var(--danger-color); }
+.mockup-upload { font-size:13px; padding:4px 10px; border:1px solid var(--border-color); border-radius:6px; cursor:pointer; position:relative; }
+.mockup-upload input { position:absolute; width:1px; height:1px; opacity:0; }
+.mockup-swatch { display:inline-block; width:10px; height:10px; border-radius:50%; margin-right:6px; }
+body.new-look .look-choices button { padding:4px 10px; }
+body.new-look .mockup-check { margin-top:12px; padding:6px 16px; font-weight:600; }
+body.new-look .mockup-guess-note { color:var(--muted-text); font-size:12px; margin:10px 0 0; }
+body.new-look .mockup-check-error { color:var(--danger-color); margin:6px 0; }
+body.new-look .mockup-aids { display:flex; flex-wrap:wrap; gap:6px; margin-top:10px; }
+body.new-look .mockup-aids button { font:inherit; font-size:13px; padding:4px 10px; border:1px solid var(--border-color); background:none; color:var(--muted-text); border-radius:6px; cursor:pointer; }
+body.new-look .mockup-aid-panel { flex-basis:100%; order:1; white-space:pre-wrap; background:var(--surface-color); border-left:3px solid var(--warning-color); border-radius:0 8px 8px 0; padding:8px 12px; }
+body.new-look .ai-tutor-wrap { padding:0; margin-top:10px; border:0; background:none; box-shadow:none; }
+body.new-look .ai-tutor-chat { margin:0; padding:0; border:0; background:none; border-radius:0; box-shadow:none; }
+body.new-look .ai-tutor-chat-composer { display:flex; gap:6px; margin:0; align-items:center; }
+body.new-look .ai-tutor-chat-input { min-height:34px; height:34px; margin:0; padding:6px 10px; resize:vertical; font:inherit; background:var(--surface-color); border:1px solid var(--border-color); border-radius:6px; }
+body.new-look .ai-tutor-chat-send { padding:6px 10px; font-weight:400; border:1px solid var(--border-color); background:none; color:var(--text-color); }
+body.new-look .ai-tutor-chat-status:empty { display:none; }
+body.new-look .ai-tutor-chat-transcript { max-height:340px; margin:0 0 6px; padding:0; border:0; background:none; }
+body.new-look .ai-tutor-chat-transcript.is-empty { display:none; }
+body.new-look .ai-tutor-chat-message { padding:8px 12px; border:1px solid var(--border-color); border-radius:8px; background:var(--surface-color); }
+body.new-look .ai-tutor-chat-message.is-user { background:var(--subtle-surface); }
+body.new-look .ai-tutor-chat-label { font-size:12px; }
+body.new-look .answer-workspace { margin-top:12px; border:1px solid var(--border-color); border-radius:8px; padding:0; background:var(--surface-color); }
+body.new-look .editor-workspace { border:0; background:none; }
+body.new-look .editor-label { display:block; font-size:0; }
+body.new-look .answer-code-input { font-size:14px; margin:0; min-height:84px; padding:9px 12px; background:var(--surface-color); color:var(--text-color); border:1px solid var(--border-color); border-radius:8px; }
+body.new-look .uml-tool-strip { display:flex; flex-wrap:wrap; gap:4px; margin:0; padding:6px; border-bottom:1px solid var(--border-color); }
+body.new-look .uml-tool-strip .answer-tool-button { font-size:13px; padding:4px 10px; border-radius:6px; }
+body.new-look .uml-upload { display:inline-flex; width:auto; margin:0 0 0 auto; font-size:13px; padding:4px 10px; border:1px solid var(--border-color); border-radius:6px; cursor:pointer; position:relative; }
+body.new-look .uml-upload input { position:absolute; width:1px; height:1px; opacity:0; }
+body.new-look .uml-canvas { display:block; height:260px; width:100%; margin:0; border:0; border-radius:0; }
+body.new-look .editable-uml-workspace > .answer-workspace-actions { display:none; }
+body.new-look .feedback { padding:8px 12px; margin-top:10px; background:var(--surface-color); border:0; border-left:3px solid var(--ok-color); border-radius:0 8px 8px 0; }
+body.new-look .question.incorrect .feedback { border-left-color:var(--danger-color); }
+body.new-look .question.incorrect .option-item.selected { border-color:var(--danger-color); }
+body.new-look .mockup-check-gate [hidden] { display:none; }
+body.new-look .mockup-chips { display:flex; flex-wrap:wrap; gap:4px; font-size:12px; color:var(--muted-text); }
+body.new-look .mockup-chips button { min-width:34px; padding:0 10px; height:28px; color:var(--accent-color); border:1px solid var(--accent-color); border-radius:4px; background:none; cursor:pointer; font:inherit; }
+body.new-look #mockup-results { padding-bottom:16px; }
+body.new-look.mockup-results-open :is(#mode-panel-test,#question-map,#question-map-toggle,#pagination-controls) { display:none !important; }
+body.new-look #mockup-results h3 { font-size:14px; font-weight:600; margin:18px 0 6px; }
+.mockup-result-summary { display:flex; align-items:center; gap:18px; margin-bottom:18px; }
+.mockup-result-score { font-size:56px; line-height:1; font-weight:700; font-variant-numeric:tabular-nums; }
+.mockup-mute { font-size:13px; color:var(--muted-text); }
+.mockup-topic-mark { display:grid; grid-template-columns:130px 1fr 40px; gap:10px; align-items:center; margin:7px 0; font-size:13px; }
+.mockup-mark-track { height:8px; background:var(--border-color); border-radius:4px; overflow:hidden; }
+.mockup-mark-track i { display:block; height:100%; }
+body.new-look .mockup-missed button { width:34px; padding:0; color:var(--danger-color); border-color:var(--danger-color); }
+.mockup-result-actions { display:flex; flex-wrap:wrap; gap:8px; margin-top:16px; }
+.mockup-result-actions button { font:inherit; padding:4px 10px; background:none; color:var(--text-color); border:1px solid var(--border-color); border-radius:6px; cursor:pointer; }
+body.new-look .flashcard-status { display:flex; flex-wrap:wrap; align-items:center; gap:10px; }
+body.new-look #mockup-card-filters { display:flex; gap:2px; }
+body.new-look #mockup-card-filters button { padding:4px 8px; border:0; }
+body.new-look .flashcard-status-labels { margin-left:auto; }
+body.new-look .flashcard-progress-track { flex:1; min-width:60px; margin:0; }
+body.new-look .flashcard-heading { float:right; margin-left:8px; }
+body.new-look #flashcard-restart { font-size:13px; font-weight:400; padding:4px; }
+body.new-look .mockup-card-hint { text-align:center; color:var(--muted-text); font-size:12px; margin-top:8px; }
+body.new-look #flashcard-answer-panel > h4 { display:none; }
+body.new-look #define-test-modal .modal-content { width:min(420px,92vw); padding:18px; border-radius:10px; }
+body.new-look #define-test-modal .define-test-section h3 { display:none; }
+body.new-look #define-test-modal .define-test-form { gap:10px; }
+body.new-look #define-test-modal .define-test-list { max-height:34vh; }
+body.new-look #define-test-modal .define-test-option { padding:5px 0; border:0; background:none; }
+body.new-look #define-test-modal .define-test-settings { grid-template-columns:1fr 1fr; }
+body.new-look #define-test-modal .modal-header h2 { font-size:14px; }
+body.new-look #define-test-modal .define-test-summary { font-size:13px; color:var(--muted-text); margin:6px 0; }
+.mockup-book-empty { display:none; }
+body.new-look.mockup-no-book .book-reader-workspace { display:none; }
+body.new-look.mockup-no-book .mockup-book-empty { display:grid; place-items:center; height:60vh; color:var(--muted-text); border:1px dashed var(--border-color); border-radius:8px; }
+@media(max-width:400px) { .mockup-topic-mark { grid-template-columns:105px 1fr 36px; gap:6px; } body.new-look #mockup-card-filters button { padding:4px 6px; } }
+body.new-look .mockup-mastery-stats { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; margin-bottom:10px; }
+body.new-look .mockup-stat { padding:10px 12px; border:1px solid var(--border-color); border-radius:10px; background:var(--surface-color); font-size:13px; }
+body.new-look .mockup-stat b { display:block; font-size:20px; color:var(--accent-color); }
+body.new-look .mockup-badges { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:14px; }
+body.new-look .mockup-badge { padding:2px 10px; font-size:12px; color:var(--muted-text); border:1px dashed var(--border-color); border-radius:999px; }
+body.new-look .mockup-badge.on { border-style:solid; border-color:var(--warning-color); color:var(--warning-color); }
+body.new-look .mockup-mastery-due { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px 14px; margin-bottom:14px; border:1px solid var(--accent-color); border-radius:8px; background:var(--subtle-surface); }
+body.new-look .mockup-mastery-due .mastery-action { white-space:nowrap; padding:5px 10px; }
+body.new-look .mockup-mastery-chapter { border:1px solid var(--border-color); border-radius:8px; margin-bottom:8px; overflow:hidden; background:var(--surface-color); }
+body.new-look .mockup-chapter-toggle { display:flex; align-items:center; gap:12px; width:100%; border:0; border-radius:0; padding:11px 14px; background:none; color:var(--text-color); text-align:left; }
+body.new-look .mockup-chapter-name { flex:1; font-weight:600; }
+body.new-look .mockup-mastery-bars { display:flex; flex-wrap:wrap; justify-content:flex-end; gap:3px; max-width:100px; }
+body.new-look .mockup-mastery-bars i { width:14px; height:6px; border-radius:2px; background:var(--border-color); }
+body.new-look .mockup-mastery-bars i[data-level=learning] { background:var(--warning-color); }
+body.new-look .mockup-mastery-bars i[data-level=practising] { background:var(--accent-color); }
+body.new-look .mockup-mastery-bars i[data-level=mastered] { background:var(--ok-color); }
+body.new-look .mockup-mastery-topic { display:flex; align-items:center; flex-wrap:wrap; gap:10px; padding:9px 14px; border-top:1px solid var(--border-color); }
+body.new-look .mockup-topic-name { flex:1; min-width:140px; }
+body.new-look .mockup-level { font-size:12px; color:var(--muted-text); min-width:76px; }
+body.new-look .mockup-review-pips { display:flex; gap:3px; }
+body.new-look .mockup-review-pips i { width:8px; height:8px; border:1.5px solid var(--muted-text); border-radius:50%; }
+body.new-look .mockup-review-pips i.on { border-color:var(--ok-color); background:var(--ok-color); }
+body.new-look .mockup-due-chip { font-size:12px; color:var(--warning-color); border:1px solid var(--warning-color); border-radius:4px; padding:0 6px; }
+body.new-look :is(.mastery-topic-nav > span,.mastery-reference,.mastery-chapter-intro,.mastery-revision-tip,.mastery-helper,.mastery-guide > h4,.mastery-practice-title,[data-mastery-action=variant]) { display:none; }
+body.new-look .mastery-action { font:inherit; border-radius:6px; box-shadow:none; padding:4px 10px; }
+body.new-look .mastery-exercise { padding:14px; border-radius:8px; }
+body.new-look .mastery-topic-title { font-size:16px; margin:12px 0; }
+body.new-look #map-actions #start-test { display:none; }
+body.new-look .book-reader-heading { padding:0; border:0; background:none; }
+body.new-look .book-reader-frame-wrap { margin:0; }
+body.new-look #custom-session-chip { display:none; }
+body.new-look #mockup-settings-rows .mockup-setting > button { padding:4px 10px; font:inherit; color:var(--text-color); background:none; border:1px solid var(--border-color); border-radius:6px; cursor:pointer; }
+body.new-look .mockup-theme-setting .look-choices button { min-height:0; border:0; padding:4px 10px; font-size:14px; background:none; color:var(--muted-text); }
+body.new-look .mockup-theme-setting .look-choices button[aria-pressed=true] { background:var(--subtle-surface); color:var(--text-color); }
+body.new-look .table-workspace > .answer-workspace-actions { display:none; }
+body.new-look #define-test-modal .define-test-item { display:flex; align-items:center; gap:6px; border:0; padding:5px 0; border-radius:0; background:none; }
+body.new-look #define-test-modal .define-test-item label { flex:1; padding:0; gap:8px; font-size:13px; }
+body.new-look #define-test-modal .define-test-name { font-weight:400; }
+body.new-look #define-test-modal .define-test-meta { padding:0; margin:0; color:var(--muted-text); font-size:12px; white-space:nowrap; }
+body.new-look #define-test-modal .define-test-settings { display:grid; grid-template-columns:1fr 1fr; gap:6px 10px; }
+body.new-look #define-test-modal label[for=define-test-question-count] { grid-column:1;grid-row:1; }
+body.new-look #define-test-modal #define-test-question-count { grid-column:1;grid-row:2; }
+body.new-look #define-test-modal label[for=define-test-timer] { grid-column:2;grid-row:1; }
+body.new-look #define-test-modal #define-test-timer { grid-column:2;grid-row:2; }
+body.new-look #define-test-modal .modal-footer { flex-wrap:wrap; gap:8px; }
+body.new-look #define-test-modal .modal-footer > button { font:inherit; padding:5px 10px; border:1px solid var(--border-color); border-radius:6px; color:var(--text-color); background:none; cursor:pointer; }
+body.new-look #define-test-modal #define-test-start { background:var(--accent-color); color:var(--acc-ink); border-color:var(--accent-color); font-weight:600; }
+body.new-look .mockup-answer-table { width:100%; min-width:360px; border-collapse:collapse; font-size:13px; }
+body.new-look .mockup-answer-table th,body.new-look .mockup-answer-table td { padding:6px 10px; border-bottom:1px solid var(--border-color); }
+body.new-look .mockup-answer-table th { color:var(--muted-text); font-weight:600; text-align:left; }
+body.new-look .mockup-answer-table input { width:100%; min-width:70px; padding:6px 8px; font:inherit; background:var(--surface-color); color:var(--text-color); border:1px solid var(--border-color); border-radius:6px; }
+body.new-look .table-workspace .editable-table { overflow:auto; margin:0; padding:0; }
+@media print {
+ body.new-look { display:block; height:auto; overflow:visible; }
+ body.new-look :is(.app-header,.mockup-progress,.mode-tabs,.question-map,#question-map-toggle,.pagination,#options-modal) { display:none !important; }
+ body.new-look :is(.page-wrapper,.page-container,#study-scroll,.study-scroll-content) { display:block; height:auto; overflow:visible; width:auto; max-width:none; padding:0; }
+ body.new-look .mockup-result-actions { display:none; }
+}

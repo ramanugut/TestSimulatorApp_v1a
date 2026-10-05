@@ -46,6 +46,7 @@ jobs:
           node tests/paper-refresh-ui.test.cjs
           node tests/mastery-ui.test.cjs
           node tests/dual-look-ui.test.cjs
+          node tests/mockup-features-ui.test.cjs
           node tests/answer-workspace-ui.test.cjs
           node tests/paper-picker-ui.test.cjs
           node tests/editable-diagram-ui.test.cjs

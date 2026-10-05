@@ -26,6 +26,6 @@ Then follow hedzi instructions.
 5. Right clieck and open with Live Server.
 6. Enjoy
 
-Appearance: use the Old look / New look button in the top bar to switch with one click. It is also available in Settings → App look. Each browser remembers its choice. Both use the same papers, answers and progress. The new layout follows Marven’s mockup; the original layout remains available.
+Appearance: use the Old look / New look button in the top bar to switch with one click. Old look also has it in Settings → App look. Each browser remembers its choice. Both use the same papers, answers and progress. The new layout follows Marven’s mockup; the original layout remains available. New look uses the mockup’s settings rows, per-question Ask and Check answer, card filters, chapter progress, and results summary. The device voice reader remains available.
 
 This is a static HTML, CSS and JavaScript app served directly by GitHub Pages. No build step or hosting migration is required.

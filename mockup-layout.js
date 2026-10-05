@@ -55,6 +55,143 @@
     pickerFooter.append(custom);
     document.querySelector('.paper-picker-shell').append(pickerFooter);
     settings.append(get('mockup-settings-actions'));
+    const settingRows = document.createElement('div');
+    settingRows.id = 'mockup-settings-rows';
+    settingRows.className = 'new-look-only';
+    settings.querySelector('.modal-header').after(settingRows);
+    function row(label, control, id) {
+      const node = document.createElement('div'); node.className = 'mockup-setting';
+      node.dataset.setting = label;
+      const text = document.createElement(id ? 'label' : 'span'); text.textContent = label;
+      if (id) text.htmlFor = id;
+      node.append(text, control); settingRows.append(node); return node;
+    }
+    function button(label, callback, className = '') {
+      const node = document.createElement('button'); node.type = 'button'; node.textContent = label;
+      node.className = className; node.addEventListener('click', callback); return node;
+    }
+    const pageChoices = document.createElement('div'); pageChoices.className = 'look-choices';
+    ['1','5','10','all'].forEach(value => {
+      const choice = button(value === 'all' ? 'All' : value, () => { ui.setPageSize(value); syncControls(); });
+      choice.dataset.pageSize = value; pageChoices.append(choice);
+    });
+    row('Questions per page', pageChoices);
+    const timerSlot = document.createElement('div');
+    row('Timer (min)', timerSlot, 'timer-input'); relocate(get('timer-input'), timerSlot);
+    const passSlot = document.createElement('div');
+    row('Pass mark (%)', passSlot, 'pass-mark-input'); relocate(get('pass-mark-input'), passSlot);
+    const orderSlot = document.createElement('div');
+    row('Order', orderSlot, 'question-order-select'); relocate(get('question-order-select'), orderSlot);
+    const theme = document.querySelector('.mockup-theme-setting');
+    settingRows.append(theme);
+    theme.dataset.setting = 'Theme';
+    const swatches = {auto:'linear-gradient(90deg,#4f4bd8,#14162b)',light:'#4f4bd8','mockup-dark':'#8e8cff',sunrise:'#0f6f73',focus:'#ffd23f'};
+    theme.querySelectorAll('button').forEach(choice => {
+      const dot = document.createElement('i'); dot.className = 'mockup-swatch'; dot.style.background = swatches[choice.dataset.theme]; choice.prepend(dot);
+    });
+    const guess = document.createElement('input'); guess.id = 'mockup-guess-first'; guess.type = 'checkbox';
+    guess.addEventListener('change', () => { if (guess.checked !== ui.snapshot().guessFirst) get('study-guess-first-toggle').click(); });
+    row('Guess first in Study', guess, guess.id);
+    const bookmarks = document.createElement('div'); bookmarks.id = 'mockup-bookmarks'; bookmarks.className = 'mockup-chips';
+    const bookmarksRow = row('Bookmarks', bookmarks); bookmarksRow.classList.add('mockup-setting-stack');
+    const aiSlot = document.createElement('div');
+    row('AI tutor', aiSlot, 'ai-revision-enabled'); relocate(get('ai-revision-enabled'), aiSlot);
+    const uploadLabel = document.createElement('label'); uploadLabel.className = 'mockup-upload'; uploadLabel.textContent = 'Upload'; uploadLabel.htmlFor = 'upload-test-input';
+    relocate(get('upload-test-input'), uploadLabel); row('Import JSON test', uploadLabel);
+    row('Custom test', button('Define', () => { ui.closeOptions(); get('define-test').click(); }));
+    const actions = get('mockup-settings-actions');
+    const exportButton = button('Download results (PDF)', () => get('download-results').click(), 'mockup-export');
+    actions.prepend(exportButton);
+    const resultView = document.createElement('section'); resultView.id = 'mockup-results'; resultView.className = 'new-look-only'; resultView.hidden = true;
+    content.append(resultView);
+    const bookEmpty=document.createElement('div');bookEmpty.className='new-look-only mockup-book-empty';bookEmpty.textContent='Textbook reader';get('mode-panel-book').append(bookEmpty);
+    const cardFilters = document.createElement('div'); cardFilters.id = 'mockup-card-filters'; cardFilters.className = 'new-look-only look-choices';
+    get('flashcard-status').prepend(cardFilters);
+    const cardHint = document.createElement('p'); cardHint.className = 'new-look-only mockup-card-hint'; cardHint.textContent = '← again · space flip · → known';
+    get('flashcard-controls').after(cardHint);
+    const customCopy=document.createElement('p'); customCopy.className='new-look-only mockup-mute';customCopy.textContent='Mix questions from several papers. Each question keeps its source.';
+    document.querySelector('#define-test-modal .modal-header').after(customCopy);
+    const customExit=button('Exit custom',()=>{get('close-define-test').click();get('exit-custom-session').click();},'new-look-only');
+    get('define-test-start').after(customExit);
+    get('define-test').addEventListener('click',()=>{customExit.disabled=!ui.snapshot().paper.includes('__custom_session__');});
+    let pendingResults = false, lastMode = null, uiFrame = null;
+    let oldAiConsent = get('ai-revision-enabled').checked;
+    let newAiConsent = true;
+    try { const value = sessionStorage.getItem('testSimulatorNewAiTutor'); if (value !== null) newAiConsent = value === 'true'; } catch (_) {}
+    get('ai-revision-enabled').addEventListener('change', () => {
+      if (body.classList.contains('new-look')) {
+        newAiConsent = get('ai-revision-enabled').checked;
+        try { sessionStorage.setItem('testSimulatorNewAiTutor', String(newAiConsent)); } catch (_) {}
+      } else oldAiConsent = get('ai-revision-enabled').checked;
+    });
+    function hideResults() { resultView.hidden = true; body.classList.remove('mockup-results-open'); }
+    function showResults(state) {
+      resultView.replaceChildren();
+      const total = state.graded.reduce((n,q)=>n+q.marks,0), earned = state.graded.reduce((n,q)=>n+q.scoreValue,0);
+      const pct = total ? Math.round(earned/total*100) : 0, pass = Number(get('pass-mark-input').value);
+      const summary = document.createElement('div'); summary.className = 'mockup-result-summary';
+      const score = document.createElement('b'); score.className = 'mockup-result-score'; score.textContent = pct+'%'; score.style.color = pct>=pass ? 'var(--ok-color)' : 'var(--danger-color)';
+      const copy = document.createElement('div'); const verdict = document.createElement('b'); verdict.textContent = pct>=pass ? 'Passed' : 'Not passed yet';
+      const marks = document.createElement('div'); marks.className = 'mockup-mute'; marks.textContent = Number(earned.toFixed(1))+' of '+total+' marks. Pass mark '+pass+'%.';
+      copy.append(verdict,marks); summary.append(score,copy); resultView.append(summary);
+      const heading = text => { const h = document.createElement('h3'); h.textContent=text; resultView.append(h); };
+      heading('Where you lost marks');
+      const topics = new Map(); state.graded.forEach(q=>{ const item = topics.get(q.topic)||{earned:0,total:0}; item.earned+=q.scoreValue; item.total+=q.marks; topics.set(q.topic,item); });
+      Array.from(topics.entries()).sort((a,b)=>a[1].earned/a[1].total-b[1].earned/b[1].total).forEach(([name,item])=>{
+        const percent = Math.round(item.earned/item.total*100);
+        const line = document.createElement('div'); line.className='mockup-topic-mark';
+        const label=document.createElement('span'); label.textContent=name;
+        const track=document.createElement('span'); track.className='mockup-mark-track'; const fill=document.createElement('i'); fill.style.width=percent+'%'; fill.style.background=percent<50?'var(--danger-color)':percent<70?'var(--warning-color)':'var(--ok-color)'; track.append(fill);
+        const value=document.createElement('span'); value.textContent=percent+'%'; line.append(label,track,value); resultView.append(line);
+      });
+      const missed=state.graded.filter(q=>q.scoreValue<q.marks);
+      heading('Missed questions ('+missed.length+')');
+      const chips=document.createElement('div'); chips.className='mockup-chips mockup-missed';
+      missed.forEach(q=>chips.append(button(String(q.number),()=>{hideResults();ui.reviewQuestion(q.index);scroll.scrollTop=0;})));
+      if(!missed.length) chips.textContent='Nothing missed.';
+      resultView.append(chips);
+      const controls=document.createElement('div'); controls.className='mockup-result-actions';
+      if(missed.length) {
+        controls.append(button('Review missed',()=>{hideResults();ui.reviewQuestion(missed[0].index);scroll.scrollTop=0;}));
+        controls.append(button('Retry missed as mini-test',()=>{hideResults();ui.retryMissed();}));
+      }
+      if(state.aiEnabled && missed.length) controls.append(button('Generate 5 practice questions',()=>ui.generatePractice()));
+      controls.append(button('Download PDF',()=>get('download-results').click()));
+      resultView.append(controls);
+      relocateRevisionStatus();
+      resultView.hidden=false;body.classList.add('mockup-results-open');closeMap();scroll.scrollTop=0;
+    }
+    function relocateRevisionStatus() {
+      const source=get('revision-insights');
+      if(!source) return;
+      const proxy=document.createElement('p'); proxy.className='mockup-generation-status mockup-mute'; proxy.setAttribute('role','status');
+      const sync=()=>{proxy.textContent=source.querySelector('.revision-feedback')?.textContent||'';};
+      if(relocateRevisionStatus.observer) relocateRevisionStatus.observer.disconnect();
+      relocateRevisionStatus.observer=new MutationObserver(sync);
+      relocateRevisionStatus.observer.observe(source,{childList:true,subtree:true,characterData:true});
+      sync();resultView.append(proxy);
+    }
+    function syncControls() {
+      if (!body.classList.contains('new-look')) return;
+      const state = ui.snapshot(); guess.checked = state.guessFirst;
+      body.classList.toggle('mockup-no-book', !state.bookAvailable);
+      pageChoices.querySelectorAll('button').forEach(choice=>choice.setAttribute('aria-pressed',String(choice.dataset.pageSize===ui.pageSize())));
+      const flagStamp = JSON.stringify(state.flags);
+      if(bookmarks.dataset.stamp!==flagStamp) {
+        bookmarks.dataset.stamp=flagStamp;bookmarks.replaceChildren();
+        state.flags.forEach(q=>bookmarks.append(button('Q'+q.number,()=>{ui.closeOptions();hideResults();ui.reviewQuestion(q.index);})));
+        if(!state.flags.length) bookmarks.textContent='No bookmarks yet.';
+      }
+      if(lastMode!==state.mode) {hideResults();lastMode=state.mode;}
+      if(!state.submitted) hideResults();
+      else if(pendingResults) {pendingResults=false;showResults(state);}
+    }
+    document.addEventListener('simulator-ui-update',()=>{
+      if(uiFrame!==null) return;
+      uiFrame=requestAnimationFrame(()=>{uiFrame=null;syncControls();});
+    });
+    document.addEventListener('simulator-results-ready',()=>{pendingResults=true;requestAnimationFrame(syncControls);});
+    tabs.addEventListener('click',()=>{pendingResults=false;hideResults();});
     const cardsLabel = document.querySelector('.cards-tab-label');
     const size = get('questions-per-page');
     let previousLook = null;
@@ -87,6 +224,13 @@
     get('open-options').addEventListener('click', () => closeMap());
     get('open-paper-picker').addEventListener('click', () => closeMap());
     get('submit-test').addEventListener('click', () => closeMap());
+    let touchStart=null;
+    get('questions-container').addEventListener('touchstart',event=>{touchStart=event.touches[0];},{passive:true});
+    get('questions-container').addEventListener('touchend',event=>{
+      if(!touchStart || !body.classList.contains('new-look') || window.innerWidth>760 || event.target.closest('canvas,input,textarea,table,.option-item,button,.answer-workspace'))return;
+      const last=event.changedTouches[0],dx=last.clientX-touchStart.clientX,dy=last.clientY-touchStart.clientY;
+      touchStart=null;if(Math.abs(dx)>80 && Math.abs(dy)<45)get(dx<0?'next-page':'prev-page').click();
+    },{passive:true});
     size.addEventListener('change', () => ui.setPageSize(size.value));
     const headerTimer = document.querySelector('.header-timer');
     function timerAction() {
@@ -116,7 +260,25 @@
       quickLook.textContent = fresh ? 'Old look' : 'New look';
       quickLook.setAttribute('aria-label', fresh ? 'Switch to old look' : 'Switch to new look');
       document.querySelector(`.theme-choice[data-theme="${appearance}"]`)?.click();
+      const ai = get('ai-revision-enabled');
+      ai.checked = fresh ? newAiConsent : oldAiConsent;
+      ai.dispatchEvent(new Event('change'));
       previousLook = fresh;
+      get('question-order-select').querySelectorAll('option').forEach(option => {
+        const labels={paper:'Paper',random:'Shuffled',type:'By type',chapter:'By topic'};
+        if(!option.dataset.oldLabel) option.dataset.oldLabel=option.textContent;
+        option.hidden=fresh && option.value==='auto';
+        option.textContent=fresh ? labels[option.value]||'Paper' : option.dataset.oldLabel;
+      });
+      if(fresh && get('question-order-select').value==='auto') {
+        get('question-order-select').value='paper';
+        get('question-order-select').dispatchEvent(new Event('change'));
+      }
+      hideResults();
+      [['#define-test-title','Custom test'],['label[for="define-test-question-count"]','Questions'],['label[for="define-test-timer"]','Minutes'],['#define-test-start','Start test']].forEach(([selector,label])=>{
+        const node=document.querySelector(selector);if(!node.dataset.originalLabel)node.dataset.originalLabel=node.textContent;node.textContent=fresh?label:node.dataset.originalLabel;
+      });
+      if(!fresh){get('define-test-question-count').min='1';get('define-test-question-count').removeAttribute('max');}
       placements.forEach(({ node, anchor, destination, before }) => {
         if (fresh) destination.insertBefore(node, before || null);
         else anchor.after(node);
@@ -140,10 +302,13 @@
         get('mastery-empty').after(mastery);
         mastery.open = body.dataset.activeMode === 'mastery';
       }
+      get('flashcard-restart').textContent = fresh ? 'Restart' : 'Start over';
       get('prev-page').textContent = fresh ? '←' : 'Previous';
       get('prev-page').setAttribute('aria-label', 'Previous page');
       try { localStorage.setItem(key, fresh ? 'new' : 'old'); } catch (_) {}
       decorateQuestions();
+      if (fresh && ui.snapshot().submitted) pendingResults=true;
+      syncControls();
     }
     document.querySelectorAll('[data-look]').forEach(button => {
       button.addEventListener('click', () => applyLook(button.dataset.look));
@@ -159,6 +324,16 @@
       get('questions-container').querySelectorAll('.question').forEach(question => {
         const flag = question.querySelector('.bookmark-button');
         if (flag) flag.setAttribute('aria-label', flag.classList.contains('active') ? 'Unflag question' : 'Flag question');
+        const diagrams=question.querySelectorAll('.editable-uml-workspace');
+        diagrams.forEach(diagram=>{
+          const strip=diagram.querySelector('.uml-tool-strip'), controls=diagram.querySelector('.answer-workspace-actions');
+          if(strip && controls && !strip.dataset.compact) {
+            strip.dataset.compact='true';
+            strip.querySelectorAll('[data-tool]').forEach(b=>{const names={move:'Move',class:'Box',usecase:'Oval',arrow:'Arrow',pen:'Draw'};if(names[b.dataset.tool]) b.textContent=names[b.dataset.tool];});
+            Array.from(controls.children).forEach(b=>{if(b.textContent==='Clear') b.classList.add('mockup-extra-tool');else {if(b.textContent==='Delete selected') b.textContent='Delete';strip.append(b);}});
+            const upload=strip.querySelector('.uml-upload');if(upload)upload.firstChild.textContent='Upload image';
+          }
+        });
         const chat = question.querySelector('.ai-tutor-wrap');
         if (!chat || question.querySelector('.mockup-ask')) return;
         const ask = document.createElement('button');

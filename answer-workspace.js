@@ -68,6 +68,19 @@
     }
     function render() {
       grid.replaceChildren();
+      if (document.body.classList.contains('new-look')) {
+        const table=el('table','mockup-answer-table');
+        const head=el('thead'), header=el('tr');
+        columns.forEach(col=>header.appendChild(el('th','',col.label||col.key)));head.append(header);table.append(head);
+        const body=el('tbody');
+        rows.forEach((row,index)=>{
+          const tr=el('tr');
+          columns.forEach(col=>{
+            const td=el('td'),input=el('input','editable-cell-input');input.type='text';input.value=String(row[col.key]||'');input.disabled=Boolean(disabled);input.autocomplete='off';input.setAttribute('aria-label',(col.label||col.key)+' row '+(index+1));
+            input.addEventListener('input',()=>{row[col.key]=input.value;emit();});td.append(input);tr.append(td);
+          });body.append(tr);
+        });table.append(body);grid.append(table);return;
+      }
       const heading=el("div","editable-table-heading");
       heading.textContent=columns.map(c=>c.label||c.key).join("  ·  ");
       grid.appendChild(heading);

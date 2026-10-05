@@ -107,6 +107,12 @@ document.addEventListener("DOMContentLoaded", function () {
   // attempts in their own temporary buffer so the student starts with a blank choice.
   let studyGuessAnswers = {};
   let studyGuessSubmitted = false;
+  const mockupCheckedAnswers = new Map();
+  const mockupStudyGrades = new Map();
+  let mockupCardFilter = "all";
+  let flashcardLook = null;
+  const isNewLook = () => document.body.classList.contains("new-look");
+  let previousUiLook = null;
   const studyVoiceAvailable = "speechSynthesis" in window &&
     typeof window.SpeechSynthesisUtterance === "function";
   let activeStudyVoice = null;
@@ -164,7 +170,8 @@ document.addEventListener("DOMContentLoaded", function () {
         timerStarted ||
         testSubmitted ||
         bookmarkedQuestions.size > 0 ||
-        Object.values(userAnswers).some((answer) => hasProvidedAnswer(answer));
+        Object.values(userAnswers).some((answer) => hasProvidedAnswer(answer)) ||
+        Object.values(studyGuessAnswers).some((answer) => hasProvidedAnswer(answer));
 
       if (!originalQuestions.length || hasExistingWork) {
         if (hasExistingWork && questionOrderNote) {
@@ -357,7 +364,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function masteryModeEnabled() {
-    return Boolean(masteryModeSetting && masteryModeSetting.checked);
+    return !isNewLook() && Boolean(masteryModeSetting && masteryModeSetting.checked);
   }
 
   function syncMasteryEngineContext(mode = currentMode, testFile = currentTestFile) {
@@ -1073,7 +1080,7 @@ document.addEventListener("DOMContentLoaded", function () {
     composer.className = "ai-tutor-chat-composer";
     const input = document.createElement("textarea");
     input.className = "ai-tutor-chat-input";
-    input.rows = 2;
+    input.rows = isNewLook() ? 1 : 2;
     input.maxLength = 1800;
     input.placeholder =
       "Ask what you want to understand… e.g. Show me how to calculate this step by step.";
@@ -1082,7 +1089,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const send = document.createElement("button");
     send.type = "button";
     send.className = "btn btn-primary ai-tutor-chat-send";
-    send.textContent = "Ask AI";
+    send.textContent = isNewLook() ? "Send" : "Ask AI";
+    if (isNewLook()) {
+      input.placeholder = "Ask about this question";
+      input.setAttribute("aria-label", "Ask about this question");
+    }
 
     const status = document.createElement("p");
     status.className = "ai-tutor-status ai-tutor-chat-status";
@@ -1128,7 +1139,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     send.addEventListener("click", () => sendPrompt(input.value));
     input.addEventListener("keydown", event => {
-      if ((event.ctrlKey || event.metaKey) && event.key === "Enter") {
+      if ((isNewLook() && !event.shiftKey || event.ctrlKey || event.metaKey) && event.key === "Enter") {
         event.preventDefault();
         sendPrompt(input.value);
       }
@@ -1489,7 +1500,9 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function createAiTutorBlock(question, actualIndex) {
-    if (!aiTutorEnabled() || (!isStudyMode && !testSubmitted)) return null;
+    if (!isNewLook()) {
+      if (!aiTutorEnabled() || (!isStudyMode && !testSubmitted)) return null;
+    } else if (!aiTutorEnabled()) return null;
 
     const wrapper = document.createElement("section");
     wrapper.className = "ai-tutor-wrap ai-tutor-chat-only";
@@ -1705,6 +1718,7 @@ document.addEventListener("DOMContentLoaded", function () {
         resultBanner.focus();
       });
     }
+    document.dispatchEvent(new CustomEvent("simulator-results-ready"));
   }
 
   function isCustomSessionActive() {
@@ -1973,6 +1987,11 @@ document.addEventListener("DOMContentLoaded", function () {
       defineTestQuestionInput.value = String(requestedCount);
     }
 
+    if (isNewLook()) {
+      defineTestQuestionInput.min = String(Math.min(5,totalAvailable||5));
+      defineTestQuestionInput.max = String(Math.min(80,totalAvailable||80));
+      if(totalAvailable && requestedCount>Math.min(80,totalAvailable)) { requestedCount=Math.min(80,totalAvailable); defineTestQuestionInput.value=String(requestedCount); }
+    }
     const selectionLabel =
       selectedTests.length === 0
         ? "Select at least one test to begin."
@@ -2314,8 +2333,8 @@ document.addEventListener("DOMContentLoaded", function () {
   function syncBookAvailability() {
     const source = getCurrentBookSource();
     if (modeTabBook) {
-      modeTabBook.hidden = !source;
-      modeTabBook.classList.toggle("hidden", !source);
+      modeTabBook.hidden = !source && !isNewLook();
+      modeTabBook.classList.toggle("hidden", !source && !isNewLook());
     }
 
     if (bookReaderTitle) {
@@ -2338,7 +2357,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
 
-    if (!source && currentMode === "book") {
+    if (!source && currentMode === "book" && !isNewLook()) {
       setMode("test");
     }
   }
@@ -2378,10 +2397,11 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function usesStudyGuessBuffer() {
-    return isStudyMode && studyGuessFirstEnabled;
+    return isStudyMode && (studyGuessFirstEnabled || isNewLook());
   }
 
   function currentAnswersLocked() {
+    if (isNewLook() && isStudyMode) return studyGuessSubmitted || testSubmitted;
     if (isStudyMode && studyGuessFirstEnabled) {
       return studyGuessSubmitted;
     }
@@ -2395,7 +2415,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function getFeedbackAnswer(actualIndex) {
-    return isStudyMode && studyGuessFirstEnabled
+    return isStudyMode && (studyGuessFirstEnabled || isNewLook())
       ? studyGuessAnswers[actualIndex]
       : userAnswers[actualIndex];
   }
@@ -2410,8 +2430,8 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!submitButton) return;
 
     if (isStudyMode) {
-      if (studyGuessFirstEnabled) {
-        submitButton.textContent = "Submit Study Attempt";
+      if (studyGuessFirstEnabled || isNewLook()) {
+        submitButton.textContent = isNewLook() ? "Submit test" : "Submit Study Attempt";
         submitButton.style.display = studyGuessSubmitted ? "none" : "inline-block";
         submitButton.disabled = studyGuessSubmitted || !hasAnyStudyGuessAnswer();
       } else {
@@ -2428,6 +2448,8 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function setInteractiveAnswer(actualIndex, value) {
+    mockupCheckedAnswers.delete(actualIndex);
+    mockupStudyGrades.delete(actualIndex);
     if (usesStudyGuessBuffer()) {
       studyGuessAnswers[actualIndex] = value;
       updateProgress();
@@ -2435,16 +2457,32 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
       userAnswers[actualIndex] = value;
     }
+    if (isNewLook() && isStudyMode) {
+      const node = questionsContainer.querySelector(`[data-question-index="${actualIndex}"]`);
+      if (node?.querySelector(".feedback")) {
+        stopStudyVoice();
+        node.querySelectorAll(".feedback,.correct-answer,.explanation,.study-guide-card,.study-explanation,.ai-grade-feedback").forEach(el=>el.remove());
+        node.classList.remove("correct","incorrect");
+        node.querySelectorAll(".option-correct").forEach(el=>el.classList.remove("option-correct"));
+        node.appendChild(createStudyGuessGate(actualIndex));
+      }
+    }
   }
 
   function resetStudyGuessSession() {
     studyGuessAnswers = {};
     studyGuessSubmitted = false;
     studyGuessRevealedQuestions.clear();
+    mockupCheckedAnswers.clear();
+    mockupStudyGrades.clear();
     syncStudyGuessSubmitState();
   }
 
   function studyAnswerVisible(actualIndex) {
+    if (isNewLook() && isStudyMode) {
+      return testSubmitted || studyGuessSubmitted || mockupCheckedAnswers.has(actualIndex) ||
+        (!studyGuessFirstEnabled && questions[actualIndex]?.options?.length > 0 && hasProvidedAnswer(getInteractiveAnswer(actualIndex)));
+    }
     if (isStudyMode && studyGuessFirstEnabled) {
       return studyGuessSubmitted;
     }
@@ -2454,6 +2492,13 @@ document.addEventListener("DOMContentLoaded", function () {
   function updateStudyGuessButtonState(actualIndex, root = questionsContainer) {
     if (!root) return;
     const attempted = hasMeaningfulStudyAttempt(getInteractiveAnswer(actualIndex));
+    if (isNewLook()) {
+      const button = root.querySelector(".mockup-check");
+      if (button) button.disabled = !attempted;
+      const note = root.querySelector(".mockup-guess-note");
+      if (note) note.hidden = attempted;
+      return;
+    }
     const status = root.querySelector(
       '[data-study-guess-status="' + actualIndex + '"]'
     );
@@ -2489,7 +2534,49 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  async function checkMockupAnswer(actualIndex, button) {
+    const question = questions[actualIndex];
+    const answer = getInteractiveAnswer(actualIndex);
+    if (!question || !hasProvidedAnswer(answer)) return;
+    const paper = currentTestFile, request = questionLoadRequest;
+    const fingerprint = JSON.stringify(answer);
+    button.disabled = true;
+    button.textContent = "Checking…";
+    try {
+      const grade = isAiGradedQuestion(question) ? await requestAiGrade(question, answer) : null;
+      if (request !== questionLoadRequest || paper !== currentTestFile ||
+          fingerprint !== JSON.stringify(getInteractiveAnswer(actualIndex))) return;
+      if (grade) mockupStudyGrades.set(actualIndex, grade);
+      mockupCheckedAnswers.set(actualIndex, fingerprint);
+      const scroll = document.getElementById("study-scroll");
+      const top = scroll?.scrollTop;
+      renderQuestions();
+      if (scroll) scroll.scrollTop = top;
+    } catch (error) {
+      button.textContent = "Check answer";
+      button.disabled = false;
+      let status = button.parentElement.querySelector(".mockup-check-error");
+      if (!status) { status = document.createElement("p"); status.className = "mockup-check-error"; status.setAttribute("role", "status"); button.after(status); }
+      status.textContent = error.message || "Could not check this answer. Try again.";
+    }
+  }
+
   function createStudyGuessGate(actualIndex) {
+    if (isNewLook()) {
+      const gate = document.createElement("div");
+      gate.className = "mockup-check-gate";
+      const button = document.createElement("button");
+      button.type = "button"; button.className = "btn btn-primary mockup-check";
+      button.textContent = "Check answer";
+      button.disabled = !hasProvidedAnswer(getInteractiveAnswer(actualIndex));
+      button.addEventListener("click", () => checkMockupAnswer(actualIndex, button));
+      gate.append(button);
+      if (studyGuessFirstEnabled) {
+        const note = document.createElement("p"); note.className = "mockup-guess-note";
+        note.textContent = "Guess first. Answer, then check."; note.hidden = !button.disabled; gate.append(note);
+      }
+      return gate;
+    }
     const gate = document.createElement("section");
     gate.className = "study-guess-gate";
     gate.setAttribute("aria-label", "Guess first");
@@ -3235,6 +3322,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function createStudyHintElement(question) {
     const data = buildStudyHint(question);
+    if (isNewLook()) {
+      const host = document.createElement("div"); host.className = "mockup-aids";
+      function aid(label, text) {
+        const button = document.createElement("button"); button.type = "button"; button.textContent = label;
+        const panel = document.createElement("div"); panel.className = "mockup-aid-panel"; panel.hidden = true; panel.textContent = text;
+        button.setAttribute("aria-expanded", "false");
+        button.addEventListener("click", () => { panel.hidden = !panel.hidden; button.setAttribute("aria-expanded", String(!panel.hidden)); });
+        host.append(button, panel);
+      }
+      aid("Hint", data.hint);
+      if (data.formulas.length) aid("Formula", data.formulas.join("\n"));
+      return host;
+    }
     const details = document.createElement("details");
     details.className = "study-hint-card";
 
@@ -4202,6 +4302,11 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
       }
 
+      if (isNewLook() && isStudyMode && mockupStudyGrades.has(index) &&
+          mockupCheckedAnswers.get(index) === JSON.stringify(answer)) {
+        aiGrades[index] = mockupStudyGrades.get(index);
+        return;
+      }
       pending.push({ question, index, answer });
     });
 
@@ -4249,7 +4354,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     if (isAiGradedQuestion(question)) {
-      const aiGrade = aiGrades[index];
+      const aiGrade = isNewLook() && isStudyMode && mockupStudyGrades.has(index)
+        ? mockupStudyGrades.get(index) : aiGrades[index];
       if (!aiGrade) {
         return {
           hasAnswer: true,
@@ -4530,7 +4636,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if (studyGuessFirstToggle) {
     studyGuessFirstToggle.addEventListener("click", () => {
       studyGuessFirstEnabled = !studyGuessFirstEnabled;
-      if (studyGuessFirstEnabled) {
+      if (studyGuessFirstEnabled && !isNewLook()) {
         resetStudyGuessSession();
       }
       saveAppPreferences({ studyGuessFirst: studyGuessFirstEnabled });
@@ -4626,7 +4732,9 @@ document.addEventListener("DOMContentLoaded", function () {
   if (aiStudyToolsSetting) {
     aiStudyToolsSetting.addEventListener("change", () => {
       try {
-        if (aiStudyToolsSetting.checked) {
+        if (isNewLook()) {
+          sessionStorage.setItem("testSimulatorNewAiTutor", String(aiStudyToolsSetting.checked));
+        } else if (aiStudyToolsSetting.checked) {
           sessionStorage.setItem(AI_STUDY_SESSION_KEY, "true");
         } else {
           sessionStorage.removeItem(AI_STUDY_SESSION_KEY);
@@ -5655,6 +5763,8 @@ const testFiles = [
 
   // Initialize test variables and UI
   function initializeTest() {
+    mockupCheckedAnswers.clear();
+    mockupStudyGrades.clear();
     resetReviewState();
     if (revisionController) revisionController.reset();
     aiGrades = {};
@@ -5816,7 +5926,7 @@ const testFiles = [
         }
         saveProgress();
       }
-      if (isStudyMode && studyGuessFirstEnabled && !studyAnswerVisible(actualIndex)) {
+      if (isStudyMode && (studyGuessFirstEnabled || isNewLook()) && !studyAnswerVisible(actualIndex)) {
         updateStudyGuessButtonState(actualIndex);
       }
     };
@@ -6181,7 +6291,8 @@ const testFiles = [
               }
               saveProgress();
             }
-            if (isStudyMode && studyGuessFirstEnabled && !studyAnswerVisible(actualIndex)) {
+            if (isNewLook() && isStudyMode && !studyGuessFirstEnabled) renderQuestions();
+            else if (isStudyMode && (studyGuessFirstEnabled || isNewLook()) && !studyAnswerVisible(actualIndex)) {
               updateStudyGuessButtonState(actualIndex, questionElement);
             }
           });
@@ -6212,14 +6323,14 @@ const testFiles = [
           optionsList.appendChild(optionElement);
         });
         questionElement.appendChild(optionsList);
-      } else if (question.answerType === "diagram") {
+      } else if (question.answerType === "diagram" && !isNewLook()) {
         questionElement.appendChild(createDiagramAnswerInput(actualIndex));
         const note = document.createElement("div");
         note.className = "ai-answer-note";
         note.textContent = "AI will inspect the submitted drawing and your optional calculations.";
         questionElement.appendChild(note);
       } else if (window.AnswerWorkspace &&
-          ["uml-diagram", "table", "command", "code", "image-upload"].includes(question.answerType)) {
+          ["diagram", "uml-diagram", "table", "command", "code", "image-upload"].includes(question.answerType)) {
         const onChange = value => {
           setInteractiveAnswer(actualIndex, value);
           if (!usesStudyGuessBuffer()) {
@@ -6232,16 +6343,18 @@ const testFiles = [
             }
             saveProgress();
           }
-          if (isStudyMode && studyGuessFirstEnabled && !studyAnswerVisible(actualIndex)) {
+          if (isStudyMode && (studyGuessFirstEnabled || isNewLook()) && !studyAnswerVisible(actualIndex)) {
             updateStudyGuessButtonState(actualIndex, questionElement);
           }
         };
-        const method = question.answerType === "uml-diagram"
+        const method = ["uml-diagram", "diagram"].includes(question.answerType)
           ? "createDiagram" : question.answerType === "table"
             ? "createTable" : question.answerType === "image-upload"
               ? "createImageEvidence" : "createEditor";
+        const workspaceQuestion = isNewLook() && method === "createDiagram"
+          ? {...question, diagramTools:["move","box","usecase","arrow","pen"]} : question;
         questionElement.appendChild(window.AnswerWorkspace[method](
-          question, getInteractiveAnswer(actualIndex), onChange, currentAnswersLocked()
+          workspaceQuestion, getInteractiveAnswer(actualIndex), onChange, currentAnswersLocked()
         ));
       } else {
         // Handle questions without options (e.g., short answer questions)
@@ -6267,7 +6380,7 @@ const testFiles = [
             }
             saveProgress();
           }
-          if (isStudyMode && studyGuessFirstEnabled && !studyAnswerVisible(actualIndex)) {
+          if (isStudyMode && (studyGuessFirstEnabled || isNewLook()) && !studyAnswerVisible(actualIndex)) {
             updateStudyGuessButtonState(actualIndex, questionElement);
           }
         });
@@ -6304,6 +6417,7 @@ const testFiles = [
       // Submitted tests and submitted Study Guess attempts show grading feedback.
       // Guess First keeps teaching content hidden until the whole Study attempt is submitted.
       const showGradingFeedback =
+        isNewLook() && isStudyMode ? mockupCheckedAnswers.has(actualIndex) || studyGuessSubmitted || testSubmitted || (!studyGuessFirstEnabled && question.options?.length > 0 && hasProvidedAnswer(getInteractiveAnswer(actualIndex))) :
         isStudyMode && studyGuessFirstEnabled
           ? studyGuessSubmitted
           : testSubmitted;
@@ -6314,7 +6428,7 @@ const testFiles = [
           isAiGradedQuestion(question) ? "Reference answer" : "Correct answer",
           formatAnswerForDisplay(question.correctAnswer), "study-correct-answer"
         ));
-      } else if (isStudyMode && studyGuessFirstEnabled) {
+      } else if (isStudyMode && (studyGuessFirstEnabled || isNewLook())) {
         questionElement.appendChild(createStudyGuessGate(actualIndex));
       }
 
@@ -6348,7 +6462,7 @@ const testFiles = [
       }
 
       const aiTutorBlock =
-        (!isStudyMode || canRevealStudyContent)
+        (isNewLook() || !isStudyMode || canRevealStudyContent)
           ? createAiTutorBlock(question, actualIndex)
           : null;
       if (aiTutorBlock) {
@@ -6362,12 +6476,26 @@ const testFiles = [
   }
 
   // Flashcards show one question at a time. Switching tabs preserves the revision position.
+  function renderMockupCardFilters() {
+    const host = document.getElementById("mockup-card-filters");
+    if (!host) return;
+    host.replaceChildren();
+    const counts = {again:Array.from(flashcardRatings.values()).filter(v=>v==="again").length, flag:bookmarkedQuestions.size};
+    [["all","All"],["again","Again "+counts.again],["flag","Flagged "+counts.flag]].forEach(([value,label])=>{
+      const button = document.createElement("button"); button.type="button"; button.textContent=label;
+      button.setAttribute("aria-pressed",String(mockupCardFilter===value));
+      button.addEventListener("click",()=>{mockupCardFilter=value;flashcardPosition=0;flashcardRevealed=false;renderFlashcards();});
+      host.append(button);
+    });
+  }
+
   function resetFlashcardDeck() {
     flashcardDeckSource = questions;
     flashcardOrder = questions.map((_, index) => index);
     flashcardPosition = 0;
     flashcardRevealed = false;
     flashcardRatings = new Map();
+    mockupCardFilter = "all";
   }
 
   function nextFlashcard() {
@@ -6387,8 +6515,14 @@ const testFiles = [
   function rateFlashcard(rating) {
     if (!flashcardRevealed || flashcardPosition >= flashcardOrder.length) return;
     if (rating !== "known" && rating !== "again") return;
+    const next = flashcardOrder[(flashcardPosition + 1) % flashcardOrder.length];
     flashcardRatings.set(flashcardOrder[flashcardPosition], rating);
-    nextFlashcard();
+    if (isNewLook()) {
+      flashcardOrder = questions.map((_,i) => i).filter(i => mockupCardFilter === "again" ? flashcardRatings.get(i) === "again" : mockupCardFilter === "flag" ? bookmarkedQuestions.has(i) : true);
+      flashcardPosition = Math.max(0, flashcardOrder.indexOf(next));
+      flashcardRevealed = false;
+      renderFlashcards();
+    } else nextFlashcard();
   }
 
   function updateFlashcardControls() {
@@ -6444,6 +6578,13 @@ const testFiles = [
 
   function renderFlashcards() {
     if (!flashcardsGrid || !flashcardsEmptyState) return;
+    const look = isNewLook();
+    if (flashcardLook !== look) {
+      const previous = flashcardOrder[flashcardPosition];
+      flashcardOrder = questions.map((_,i) => i);
+      flashcardPosition = Math.max(0, flashcardOrder.indexOf(previous));
+      flashcardLook = look;
+    }
     if (flashcardDeckSource !== questions ||
         (questions.length && flashcardOrder.length === 0)) {
       resetFlashcardDeck();
@@ -6453,6 +6594,11 @@ const testFiles = [
       flashcardResizeObserver = null;
     }
     flashcardsGrid.replaceChildren();
+    if (isNewLook()) {
+      flashcardOrder = questions.map((_,i) => i).filter(i => mockupCardFilter === "again" ? flashcardRatings.get(i) === "again" : mockupCardFilter === "flag" ? bookmarkedQuestions.has(i) : true);
+      if (flashcardPosition >= flashcardOrder.length) flashcardPosition = 0;
+      renderMockupCardFilters();
+    }
     const total = flashcardOrder.length;
     const hasCards = total > 0;
     flashcardsGrid.classList.toggle("hidden", !hasCards);
@@ -6461,12 +6607,12 @@ const testFiles = [
     if (flashcardRestartButton) flashcardRestartButton.classList.toggle("hidden", !hasCards);
     const complete = flashcardPosition >= total;
     if (flashcardControls) flashcardControls.classList.toggle("hidden", !hasCards || complete);
-    if (!hasCards) return;
+    if (!hasCards) { if (isNewLook()) flashcardsEmptyState.textContent = "Nothing here."; return; }
 
     const known = flashcardOrder.filter(index => flashcardRatings.get(index) === "known").length;
     const again = flashcardOrder.filter(index => flashcardRatings.get(index) === "again").length;
     if (flashcardCount) flashcardCount.textContent =
-      complete ? "Round complete" : "Card " + (flashcardPosition + 1) + " of " + total;
+      complete ? "Round complete" : isNewLook() ? (flashcardPosition + 1) + "/" + total : "Card " + (flashcardPosition + 1) + " of " + total;
     if (flashcardTally) flashcardTally.textContent =
       "Known " + known + " · Study again " + again;
     const progress = complete ? total : flashcardPosition + 1;
@@ -6637,10 +6783,10 @@ const testFiles = [
     if (focused && (focused.isContentEditable || /^(INPUT|TEXTAREA|SELECT|BUTTON|SUMMARY|A)$/.test(focused.tagName))) return;
     if (event.key === "ArrowRight") {
       event.preventDefault();
-      nextFlashcard();
+      isNewLook() ? rateFlashcard("known") : nextFlashcard();
     } else if (event.key === "ArrowLeft") {
       event.preventDefault();
-      previousFlashcard();
+      isNewLook() ? rateFlashcard("again") : previousFlashcard();
     } else if (event.code === "Space" && flashcardPosition < flashcardOrder.length) {
       event.preventDefault();
       flipCurrentFlashcard();
@@ -6902,12 +7048,14 @@ const testFiles = [
   }
 
   function startMasteryRetry() {
-    if (!masteryModeEnabled() || !testSubmitted) {
+    if ((!masteryModeEnabled() && !isNewLook()) || (!testSubmitted && !studyGuessSubmitted)) {
       return;
     }
 
     const missedQuestions = questions
-      .filter((question, index) => questionResults[index] !== "correct")
+      .filter((question, index) => isNewLook()
+        ? getQuestionGrade(question,index,studyGuessSubmitted?studyGuessAnswers[index]:userAnswers[index]).scoreValue < getQuestionMarks(question)
+        : questionResults[index] !== "correct")
       .map((question) => cloneQuestionData(question));
 
     if (!missedQuestions.length) {
@@ -7071,7 +7219,7 @@ const testFiles = [
   //************************ SECTION 9: TEST SUBMISSION ************************//
 
   async function submitStudyGuessAttempt() {
-    if (!isStudyMode || !studyGuessFirstEnabled || studyGuessSubmitted) {
+    if (!isStudyMode || (!studyGuessFirstEnabled && !isNewLook()) || studyGuessSubmitted) {
       return false;
     }
 
@@ -7159,7 +7307,10 @@ const testFiles = [
       resultMessageElement.classList.remove("pass-message", "fail-message");
     }
 
-    hideResultBanner();
+    if (isNewLook()) {
+      if (revisionController) revisionController.showResults({ questions, getGrade: (q,i) => getQuestionGrade(q,i,studyGuessAnswers[i]), moduleName: getCurrentModuleCode() || "Mixed modules" });
+      showResultBanner({status:scorePercent >= Number(passMarkInput.value) ? "pass" : "fail",scorePercent,scoreBreakdown:scoreForDisplay+"/"+totalMarks+" marks",missedCount:questionResults.filter(x=>x!=="correct").length});
+    } else hideResultBanner();
     syncStudyGuessSubmitState();
     renderQuestions();
     updatePaginationControls();
@@ -7171,7 +7322,7 @@ const testFiles = [
   async function submitTest() {
     console.log("submitTest function called");
 
-    if (isStudyMode && studyGuessFirstEnabled) {
+    if (isStudyMode && (studyGuessFirstEnabled || isNewLook())) {
       await submitStudyGuessAttempt();
       return;
     }
@@ -7430,7 +7581,7 @@ const testFiles = [
           // Handle single answer (radio)
           input.checked = answerValuesEqual(userAnswer, input.value);
         }
-        input.disabled = true; // Disable input to prevent changes after submission
+        input.disabled = !isNewLook() || !isStudyMode || currentAnswersLocked();
         const optionItem = input.closest("li");
         if (optionItem) {
           optionItem.classList.toggle("selected", input.checked);
@@ -7443,14 +7594,14 @@ const testFiles = [
         if (typeof userAnswer === "string") {
           textInput.value = userAnswer;
         }
-        textInput.disabled = true; // Disable text input after submission
+        textInput.disabled = !isNewLook() || !isStudyMode || currentAnswersLocked();
       }
     }
 
     // Disable bookmark button after submission
     const bookmarkButton = questionElement.querySelector(".bookmark-button");
     if (bookmarkButton) {
-      bookmarkButton.disabled = true;
+      bookmarkButton.disabled = !isNewLook();
     }
 
     return isCorrect;
@@ -7593,6 +7744,7 @@ const testFiles = [
     if (toggle) toggle.textContent = indexes.length
       ? `${indexes[0] + 1}${indexes.length > 1 ? "–" + (indexes[indexes.length - 1] + 1) : ""} / ${questions.length}`
       : "Questions";
+    document.dispatchEvent(new CustomEvent("simulator-ui-update"));
   }
 
   //************************ SECTION 13: DOWNLOAD RESULTS ************************//
@@ -7641,6 +7793,7 @@ const testFiles = [
   }
 
   function downloadResultsAsPDF() {
+    if (isNewLook() && !window.jspdf?.jsPDF) { window.print(); return; }
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();
 
@@ -7675,7 +7828,7 @@ const testFiles = [
 
     const resultsData = questions.map((question, index) => {
       const questionText = `Question ${index + 1}: ${question.text}`;
-      const rawUserAnswer = userAnswers[index];
+      const rawUserAnswer = isNewLook() ? getFeedbackAnswer(index) : userAnswers[index];
       const hasUserAnswer = hasProvidedAnswer(rawUserAnswer);
       const userAnswer = hasUserAnswer
         ? formatAnswerForDisplay(rawUserAnswer)
@@ -8228,7 +8381,14 @@ const testFiles = [
   // A small UI bridge keeps the optional layout separate from assessment logic.
   window.TestSimulatorUi = {
     refreshLayout() {
+      const fresh = isNewLook();
+      if (previousUiLook !== null && previousUiLook !== fresh && isStudyMode && !studyGuessFirstEnabled) {
+        if (fresh) studyGuessAnswers = {...userAnswers}; else userAnswers = {...studyGuessAnswers};
+      }
+      previousUiLook = fresh;
       if (!document.body.classList.contains("new-look") && currentMode === "mastery") setMode("study");
+      syncBookAvailability();
+      syncStudyGuessSubmitState();
       renderQuestions();
       updatePaginationControls();
       updateModePanels(currentMode);
@@ -8245,6 +8405,15 @@ const testFiles = [
       updatePaginationControls();
       savePaperPage();
     },
+    snapshot() {
+      const source = isStudyMode && (studyGuessFirstEnabled || isNewLook()) ? studyGuessAnswers : userAnswers;
+      const graded = questions.map((q,i)=>({index:i,number:q.number||i+1,marks:getQuestionMarks(q),topic:q.study?.title||q.topic||q.study?.section||q.section||q.study?.chapter||q.chapter||"General",...getQuestionGrade(q,i,source[i])}));
+      return {mode:currentMode,paper:currentTestFile,submitted:testSubmitted||studyGuessSubmitted,guessFirst:studyGuessFirstEnabled,graded,flags:Array.from(bookmarkedQuestions).map(i=>({index:i,number:questions[i]?.number||i+1})),stats:{taken:testStats.testsTaken,passed:testStats.testsPassed,streak:streakData.count},badges:achievementDefinitions.map(x=>({...x,unlocked:unlockedAchievements.has(x.id)})),aiEnabled:aiTutorEnabled(),bookAvailable:Boolean(getCurrentBookSource())};
+    },
+    setMode,
+    reviewQuestion(index) { if(testSubmitted && !studyGuessSubmitted) studyGuessAnswers={...userAnswers}; reviewFilter="all"; if(reviewFilterSelect) reviewFilterSelect.value="all"; setMode("study"); jumpToQuestion(index); },
+    retryMissed: startMasteryRetry,
+    generatePractice() { document.querySelector("#revision-insights .revision-actions button")?.click(); },
     jumpToQuestion,
     closeOptions: closeOptionsModal,
     closeControls: closeTestControlsModal,

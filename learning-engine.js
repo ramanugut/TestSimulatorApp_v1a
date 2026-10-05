@@ -14,6 +14,9 @@
   var versions = {};
   var speaking = false;
   var reviewDays = [1, 3, 7, 14];
+  var mockupOpenChapter = -1;
+  var mockupReviewQueue = [];
+  var newLook = function () { return document.body.classList.contains("new-look"); };
 
   function element(tag, className, label) {
     var result = document.createElement(tag);
@@ -136,6 +139,8 @@
       progress = readProgress(match);
       currentTopic = null;
       currentChapter = null;
+      mockupOpenChapter = -1;
+      mockupReviewQueue = [];
       versions = {};
       selectedNodes = {};
     }
@@ -162,7 +167,7 @@
     if (currentTopic && findTopic(currentTopic)) {
       renderTopic(findTopic(currentTopic));
     } else if (
-      useChapterMastery &&
+      !newLook() && useChapterMastery &&
       Number.isInteger(currentChapter) &&
       chapters()[currentChapter]
     ) {
@@ -171,7 +176,47 @@
       renderHome();
     }
   }
+  function renderMockupHome() {
+    var snapshot = window.TestSimulatorUi ? window.TestSimulatorUi.snapshot() : null;
+    if (snapshot) {
+      var stats = append(root, "div", "mockup-mastery-stats");
+      [[snapshot.stats.streak+" days","Study streak"],[snapshot.stats.taken,"Tests attempted"],[snapshot.stats.passed,"Passed"]].forEach(function(pair) {
+        var card=append(stats,"div", "mockup-stat"); append(card,"b","",pair[0]);append(card,"span","",pair[1]);
+      });
+      var badges=append(root,"div","mockup-badges");
+      var items=[['First test',snapshot.stats.taken>0],['Passed 3 tests',snapshot.stats.passed>=3],['Scored 100%',snapshot.badges.some(function(b){return b.id==='perfect-score'&&b.unlocked;})],['Quick finish',snapshot.badges.some(function(b){return b.id==='speedster'&&b.unlocked;})],['5 bookmarks',snapshot.flags.length>=5]];
+      items.forEach(function(pair){append(badges,"span","mockup-badge"+(pair[1]?" on":""),(pair[1]?"★ ":"☆ ")+pair[0]);});
+    }
+    var all=topics(), due=dueExercises();
+    var dueTopics=Array.from(new Set(due.map(function(e){return e.topic.id;})));
+    var mastered=all.filter(function(e){return status(e.topic)==='Mastered';}).length;
+    var overview=append(root,"div","mockup-mastery-due"), copy=append(overview,"div","");
+    append(copy,"b","",dueTopics.length+' topics due for review');
+    append(copy,"div","mockup-mute",mastered+' of '+all.length+' topics mastered.');
+    var start=action(overview,'Start review','mockup-review',null,'mastery-primary');start.disabled=!dueTopics.length;
+    chapters().forEach(function(chapter,index){
+      var section=append(root,"section","mockup-mastery-chapter");
+      var header=action(section,'','mockup-chapter',index,'mockup-chapter-toggle');
+      header.setAttribute('aria-expanded',String(mockupOpenChapter===index));
+      append(header,'span','mockup-chapter-name',chapter.title);
+      var bars=append(header,'span','mockup-mastery-bars');
+      (chapter.topics||[]).forEach(function(topic){var bar=append(bars,'i','');bar.dataset.level=status(topic).toLowerCase().replace(/\s+/g,'-');});
+      var info=chapterProgress(chapter);append(header,'small','',info.mastered+'/'+info.total);
+      if(mockupOpenChapter===index) (chapter.topics||[]).forEach(function(topic){
+        var row=append(section,'div','mockup-mastery-topic');append(row,'span','mockup-topic-name',topic.title);append(row,'span','mockup-level',status(topic));
+        var pips=append(row,'span','mockup-review-pips');
+        var exercises=topic.exercises||[];
+        var passes=exercises.length?Math.min.apply(null,exercises.map(function(e){return (progress.items[e.id]||{}).reviewPasses||0;})):0;
+        pips.setAttribute('aria-label',passes+' of 4 spaced reviews completed');
+        [0,1,2,3].forEach(function(i){append(pips,'i',i<passes?'on':'');});
+        if(dueTopics.includes(topic.id)) append(row,'span','mockup-due-chip','Due');
+        action(row,'Practise','open-topic',topic.id,'mastery-subtle');
+      });
+    });
+  }
+
   function renderHome() {
+    if(newLook()) { renderMockupHome(); return; }
     var header = append(root, "div", "mastery-heading");
     append(header, "h3", "", useChapterMastery ? "Learn by chapter" : "Learn by topic");
     append(
@@ -279,7 +324,7 @@
   function renderTopic(entry) {
     var topic = entry.topic;
     var nav = append(root, "div", "mastery-topic-nav");
-    if (useChapterMastery) {
+    if (useChapterMastery && !newLook()) {
       action(nav, "← Chapter", "open-chapter", entry.chapterIndex, "mastery-back");
     } else {
       action(nav, "← All topics", "home", null, "mastery-back");
@@ -310,6 +355,7 @@
     (topic.exercises || []).forEach(function (exercise, index) {
       renderExercise(root, exercise, index);
     });
+    if(newLook() && mockupReviewQueue.length) action(root,"Next review","mockup-next-review",null,"mastery-subtle");
     append(root, "p", "mastery-revision-tip",
       "Mastery requires correct practice and a later successful review. Your progress is saved on this device.");
   }
@@ -506,6 +552,12 @@
     var control = event.target.closest("[data-mastery-action]");
     if (!control || !root.contains(control)) return;
     var operation = control.dataset.masteryAction;
+    if(operation === 'mockup-chapter') { mockupOpenChapter=mockupOpenChapter===Number(control.dataset.value)?-1:Number(control.dataset.value);render();return; }
+    if(operation === 'mockup-review') {
+      mockupReviewQueue=Array.from(new Set(dueExercises().map(function(e){return e.topic.id;})));
+      if(mockupReviewQueue.length) showTopic(mockupReviewQueue.shift());return;
+    }
+    if(operation === 'mockup-next-review') { if(mockupReviewQueue.length) showTopic(mockupReviewQueue.shift());else {currentTopic=null;currentChapter=null;render();}return; }
     var value = control.dataset.value;
     if (operation === "home") {
       stopNarration();

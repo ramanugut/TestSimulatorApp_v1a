@@ -6,6 +6,7 @@
   const W=960,H=560;
   const TYPES=[
     ["move","Move"],
+    ["box","Box"],
     ["usecase","Use case ◯"],
     ["actor","Actor"],
     ["class","Class ▣"],
@@ -23,7 +24,7 @@
     ["text","Text"],
     ["pen","Pen"]
   ];
-  const NODE_TYPES=new Set(["usecase","actor","class","entity","attribute","relationship","boundary","action","decision","start","end","text"]);
+  const NODE_TYPES=new Set(["box","usecase","actor","class","entity","attribute","relationship","boundary","action","decision","start","end","text"]);
   const LINE_TYPES=new Set(["line","arrow","dashed"]);
   const button=(label,callback,disabled)=>{
     const b=document.createElement("button");
@@ -76,7 +77,7 @@
     host.appendChild(bar);
     const toolButtons=new Map();
     const tools=Array.isArray(question.diagramTools) && question.diagramTools.length
-      ? TYPES.filter(([id])=>question.diagramTools.includes(id)||id==="move") : TYPES;
+      ? ["move",...question.diagramTools.filter(id=>id!=="move")].map(id=>TYPES.find(type=>type[0]===id)).filter(Boolean) : TYPES.filter(([id])=>id!=="box");
     function setTool(next){
       if(next!=="move"&&selected){
         selected=null;
@@ -204,7 +205,7 @@
         case "boundary":
           ctx.strokeRect(x,y,w,h);if(o.label){ctx.fillStyle="#172b4d";ctx.textAlign="left";
             ctx.fillText(o.label,x+12,y+18,w-20);}break;
-        case "entity":
+        case "box":case "entity":
           ctx.fillRect(x,y,w,h);ctx.strokeRect(x,y,w,h);
           drawLabel(o.label,c.x,c.y,w-18);break;
         case "class":
@@ -405,6 +406,13 @@
     canvas.addEventListener("pointerup",finish);
     canvas.addEventListener("pointercancel",finish);
     canvas.addEventListener("lostpointercapture",()=>{ /* pointerup/pointercancel performs commit */ });
+    canvas.addEventListener("dblclick",event=>{
+      if(disabled || !document.body.classList.contains('new-look')) return;
+      const position=point(event), object=objectAt(position);
+      if(!object || LINE_TYPES.has(object.type) || object.type==='pen') return;
+      const label=prompt('Label',object.label||'');
+      if(label!==null){pushUndo();object.label=label;selected=object.id;labelInput.value=label;paint(true);persist();}
+    });
     const undoButton=button("Undo",()=>{
       if(!undo.length)return;redo.push(clone(model));model=undo.pop();selected=null;
       setBackground(model.backgroundSrc,true);updateControls();
