@@ -359,6 +359,171 @@ document.addEventListener("DOMContentLoaded", function () {
   const aiTutorFocusCache = new Map();
   const aiTutorChatHistory = new Map();
 
+  // Tutor chats are browser-local until user accounts/sync exist.
+  // Chats stay while their module is being used, then expire after 7 days of
+  // module inactivity. A storage cap prevents one browser from growing forever.
+  const AI_TUTOR_CHAT_STORAGE_KEY = "testSimulatorAiTutorChats";
+  const AI_TUTOR_CHAT_RETENTION_MS = 7 * 24 * 60 * 60 * 1000;
+  const AI_TUTOR_CHAT_MAX_BYTES = 1024 * 1024;
+  const AI_TUTOR_CHAT_MAX_THREADS = 40;
+  const AI_TUTOR_CHAT_MAX_TURNS_PER_THREAD = 60;
+  let aiTutorChatStoreCache = null;
+
+  function emptyAiTutorChatStore() {
+    return { version: 1, moduleActivity: {}, threads: {} };
+  }
+
+  function aiTutorChatStoreBytes(store) {
+    try {
+      return new Blob([JSON.stringify(store)]).size;
+    } catch (_) {
+      return JSON.stringify(store).length * 2;
+    }
+  }
+
+  function cleanupAiTutorChatStore(store, now = Date.now()) {
+    const cutoff = now - AI_TUTOR_CHAT_RETENTION_MS;
+    const activity = store.moduleActivity && typeof store.moduleActivity === "object"
+      ? store.moduleActivity
+      : {};
+    const threads = store.threads && typeof store.threads === "object"
+      ? store.threads
+      : {};
+    store.moduleActivity = activity;
+    store.threads = threads;
+
+    Object.entries(threads).forEach(([key, thread]) => {
+      if (!thread || typeof thread !== "object") {
+        delete threads[key];
+        return;
+      }
+      const moduleCode = String(thread.moduleCode || "").toUpperCase();
+      const lastModuleUse = Number(activity[moduleCode] || thread.updatedAt || 0);
+      if (!lastModuleUse || lastModuleUse < cutoff) {
+        delete threads[key];
+        return;
+      }
+      if (Array.isArray(thread.turns) && thread.turns.length > AI_TUTOR_CHAT_MAX_TURNS_PER_THREAD) {
+        thread.turns = thread.turns.slice(-AI_TUTOR_CHAT_MAX_TURNS_PER_THREAD);
+      }
+    });
+
+    Object.entries(activity).forEach(([moduleCode, timestamp]) => {
+      if (Number(timestamp || 0) < cutoff) delete activity[moduleCode];
+    });
+
+    let ordered = Object.entries(threads)
+      .sort((a, b) => Number(a[1]?.updatedAt || 0) - Number(b[1]?.updatedAt || 0));
+
+    while (ordered.length > AI_TUTOR_CHAT_MAX_THREADS) {
+      const [key] = ordered.shift();
+      delete threads[key];
+    }
+
+    while (ordered.length && aiTutorChatStoreBytes(store) > AI_TUTOR_CHAT_MAX_BYTES) {
+      const [key] = ordered.shift();
+      delete threads[key];
+    }
+
+    return store;
+  }
+
+  function readAiTutorChatStore() {
+    if (aiTutorChatStoreCache) return aiTutorChatStoreCache;
+    let store = emptyAiTutorChatStore();
+    try {
+      const parsed = JSON.parse(localStorage.getItem(AI_TUTOR_CHAT_STORAGE_KEY) || "null");
+      if (parsed && typeof parsed === "object" && !Array.isArray(parsed)) {
+        store.moduleActivity =
+          parsed.moduleActivity && typeof parsed.moduleActivity === "object" && !Array.isArray(parsed.moduleActivity)
+            ? parsed.moduleActivity
+            : {};
+        store.threads =
+          parsed.threads && typeof parsed.threads === "object" && !Array.isArray(parsed.threads)
+            ? parsed.threads
+            : {};
+      }
+    } catch (error) {
+      console.warn("Unable to read saved AI tutor chats:", error);
+    }
+    aiTutorChatStoreCache = cleanupAiTutorChatStore(store);
+    try {
+      localStorage.setItem(AI_TUTOR_CHAT_STORAGE_KEY, JSON.stringify(aiTutorChatStoreCache));
+    } catch (_) {}
+    return aiTutorChatStoreCache;
+  }
+
+  function writeAiTutorChatStore(store) {
+    aiTutorChatStoreCache = cleanupAiTutorChatStore(store || emptyAiTutorChatStore());
+    try {
+      localStorage.setItem(AI_TUTOR_CHAT_STORAGE_KEY, JSON.stringify(aiTutorChatStoreCache));
+    } catch (error) {
+      console.warn("Unable to save AI tutor chats:", error);
+    }
+  }
+
+  function getAiTutorModuleCode(question = null) {
+    const fromQuestion = deriveModuleCode({
+      file: question?.sourceTestId || "",
+      name: question?.sourceTestName || "",
+      module: question?.module || question?.moduleCode || "",
+    });
+    if (fromQuestion) return fromQuestion;
+    if (currentCustomSession?.moduleCode) return String(currentCustomSession.moduleCode).toUpperCase();
+    try {
+      const current = getCurrentModuleCode();
+      if (current) return current;
+    } catch (_) {}
+    return deriveModuleCode({
+      file: currentTestFile || "",
+      name: testSelect?.selectedOptions?.[0]?.textContent || "",
+    });
+  }
+
+  function markAiTutorModuleUsed(moduleCode) {
+    const code = String(moduleCode || "").toUpperCase();
+    if (!code) return;
+    const store = readAiTutorChatStore();
+    const previous = Number(store.moduleActivity[code] || 0);
+    const now = Date.now();
+    store.moduleActivity[code] = now;
+    // Avoid unnecessary localStorage writes while the same page is repeatedly rendered.
+    if (!previous || now - previous > 60 * 1000) writeAiTutorChatStore(store);
+  }
+
+  function persistAiTutorChatHistory(question, actualIndex, history) {
+    const moduleCode = getAiTutorModuleCode(question);
+    if (!moduleCode) return;
+    const store = readAiTutorChatStore();
+    const key = aiTutorChatKey(question, actualIndex);
+    const turns = (Array.isArray(history) ? history : [])
+      .filter(turn => turn && (turn.role === "user" || turn.role === "assistant") && !turn.pending)
+      .slice(-AI_TUTOR_CHAT_MAX_TURNS_PER_THREAD)
+      .map(turn => ({
+        id: String(turn.id || ""),
+        role: turn.role,
+        content: String(turn.content || ""),
+        studentNote: turn.role === "assistant" ? String(turn.studentNote || "") : "",
+        suggestedQuestions:
+          turn.role === "assistant" && Array.isArray(turn.suggestedQuestions)
+            ? turn.suggestedQuestions.slice(0, 4).map(String)
+            : [],
+        failed: turn.role === "user" && turn.failed === true,
+        createdAt: Number(turn.createdAt || Date.now()),
+      }));
+
+    const now = Date.now();
+    store.moduleActivity[moduleCode] = now;
+    store.threads[key] = {
+      moduleCode,
+      paper: String(question?.sourceTestId || currentTestFile || ""),
+      questionNumber: String(question?.number ?? actualIndex + 1),
+      updatedAt: now,
+      turns,
+    };
+    writeAiTutorChatStore(store);
+  }
+
   function aiTutorEnabled() {
     return Boolean(aiStudyToolsSetting && aiStudyToolsSetting.checked);
   }
