@@ -4,7 +4,7 @@
 <head>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <title>Test Simulator | Study &amp; Practise</title>
     <link rel="stylesheet" href="styles.css?v=20261003-ai-reply-voice2">
     <link rel="stylesheet" href="paper-picker.css?v=20260930-nav-icons1">
@@ -15,8 +15,10 @@
     <link rel="stylesheet" href="learning-engine.css?v=20261001-chapter-mastery1">
     <link rel="stylesheet" href="answer-workspace.css?v=20261003-image2">
     <link rel="stylesheet" href="revision-insights.css?v=20260929-ai-optin1">
+    <link rel="stylesheet" href="mockup-layout.css?v=20261005-quick-switch2">
 </head>
 <body>
+    <script>try { document.body.classList.toggle('new-look', localStorage.getItem('testSimulatorLook') !== 'old'); } catch (_) { document.body.classList.add('new-look'); }</script>
     <header id="floating-header" class="app-header">
         <div class="header-top">
             <div class="logo" aria-label="Test Simulator">
@@ -56,6 +58,7 @@
                 <span id="mobile-time">00:00</span>
             </div>
 
+            <button id="toggle-app-look" class="look-quick-button" type="button" aria-label="Switch to old look">Old look</button>
             <div class="header-top-actions">
                 <button id="open-options" class="header-options-btn" type="button"
                     aria-label="Settings" title="Settings" aria-expanded="false" aria-controls="options-modal">
@@ -113,6 +116,14 @@
     </dialog>
 
     <main class="page-wrapper">
+        <aside id="question-map" class="new-look-only question-map" aria-label="Question navigation" tabindex="-1">
+            <button id="close-question-map" class="map-close" type="button" aria-label="Close question navigation">×</button>
+            <div id="question-map-grid" class="question-map-grid"></div>
+            <div class="map-legend"><span><i class="done"></i>done</span><span><i class="flag"></i>flag</span></div>
+            <div id="map-actions" class="map-actions"></div>
+        </aside>
+        <button id="question-map-toggle" class="new-look-only" type="button" aria-controls="question-map" aria-expanded="false" aria-label="Open question navigation">Questions</button>
+        <button id="question-map-scrim" class="new-look-only" type="button" aria-label="Close question navigation" hidden></button>
         <div class="page-container">
             <h1 class="page-title sr-only">Test Simulator</h1>
             <section class="mode-tabs" role="tablist" aria-label="Test Simulator views">
@@ -159,7 +170,10 @@
                         <rect x="5" y="5" width="14" height="14" rx="2"/>
                         <path d="M8 9h8M8 13h5M3 9V5a2 2 0 0 1 2-2h10"/>
                     </svg>
-                    <span>Flashcards</span>
+                    <span class="cards-tab-label">Flashcards</span>
+                </button>
+                <button id="mode-tab-mastery" class="mode-tab-button new-look-only" type="button" role="tab" aria-selected="false" aria-controls="mode-panel-mastery" data-mode="mastery">
+                    <svg class="mode-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.8 5.7 6.3.9-4.5 4.4 1.1 6.2-5.7-3-5.7 3 1.1-6.2L3 9.6l6.2-.9Z"/></svg><span>Mastery</span>
                 </button>
                 <button
                     id="mode-tab-book"
@@ -178,6 +192,10 @@
                     </svg>
                     <span>Book</span>
                 </button>
+            </section>
+
+            <section id="mode-panel-mastery" class="mode-panel new-look-only" role="tabpanel" aria-labelledby="mode-tab-mastery" aria-hidden="true">
+                <p id="mastery-empty" hidden>No mastery topics are available for this module yet. Use Study or Cards to revise this paper.</p>
             </section>
 
             <section id="mode-panel-test" class="mode-panel active" role="tabpanel" aria-labelledby="mode-tab-test">
@@ -464,6 +482,13 @@
                 <button id="close-options" class="modal-close" type="button" aria-label="Close tools">&times;</button>
             </header>
 
+            <div class="look-setting"><span>App look</span><div class="look-choices" role="group" aria-label="App look"><button type="button" data-look="new" aria-pressed="true">New look</button><button type="button" data-look="old" aria-pressed="false">Old look</button></div></div>
+            <div class="new-look-only mockup-setting"><label for="questions-per-page">Questions per page</label><select id="questions-per-page"><option value="1">1</option><option value="5">5</option><option value="10">10</option><option value="all">All</option></select></div>
+            <div id="mockup-timer-setting" class="new-look-only mockup-setting"></div>
+            <div id="mockup-guess-setting" class="new-look-only mockup-setting"></div>
+            <div class="new-look-only mockup-setting mockup-theme-setting"><span>Theme</span><div class="look-choices" role="group" aria-label="Mockup theme"><button type="button" class="theme-choice" data-theme="auto">Auto</button><button type="button" class="theme-choice" data-theme="light">Light</button><button type="button" class="theme-choice" data-theme="mockup-dark">Dark</button><button type="button" class="theme-choice" data-theme="sunrise">Sunrise</button><button type="button" class="theme-choice" data-theme="focus">Focus</button></div></div>
+            <div id="mockup-settings-actions" class="new-look-only"></div>
+
             <section class="modal-quick-settings" aria-labelledby="modal-quick-settings-title">
                 <h3 id="modal-quick-settings-title" class="sr-only">Test settings</h3>
                 <div class="quick-settings-grid">
@@ -566,18 +591,17 @@
     <script src="modules/inf3708-mastery.js?v=20260928-mastery1"></script>
     <script src="modules/ict2631-mastery.js?v=20260929-ict2631"></script>
     <script src="modules/ict2622-mastery.js?v=20260929-ict2622"></script>
-    <script src="learning-engine.js?v=20261001-chapter-mastery1"></script>
+    <script src="learning-engine.js?v=20261005-dual-look1"></script>
     <script src="editable-diagram.js?v=20261003-erd2"></script>
     <script src="answer-workspace.js?v=20261003-image2"></script>
     <script src="revision-insights.js?v=20260929-ai-optin1"></script>
     <script src="revision-controller.js?v=20261001-ai-session1"></script>
-    <script src="paper-picker.js?v=20261003-modules2"></script>
-    <script src="script.js?v=20261003-ai-reply-voice2"></script>
+    <script src="paper-picker.js?v=20261005-dual-look1"></script>
+    <script src="script.js?v=20261005-paper-refresh2"></script>
+    <script src="mockup-layout.js?v=20261005-quick-switch2"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
 </body>
 </html>
-
-
 
 
 

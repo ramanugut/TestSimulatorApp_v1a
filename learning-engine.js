@@ -123,7 +123,7 @@
       return (entry.sourceFiles || []).indexOf(context.testFile) !== -1 ||
         (context.moduleId && entry.id === context.moduleId);
     });
-    var available = context.enabled === true && context.mode === "study" && !!match;
+    var available = context.enabled === true && ["study", "mastery"].includes(context.mode) && !!match;
     panel.hidden = !available;
     if (!available) {
       panel.open = false;
@@ -153,6 +153,7 @@
     if (name) name.textContent = match.name;
     var summaryTitle = document.getElementById("mastery-summary-title");
     if (summaryTitle) summaryTitle.textContent = useChapterMastery ? "Chapter mastery" : "Topic mastery";
+    if (context.mode === "mastery") panel.open = true;
     if (panel.open) render();
   }
   function render() {

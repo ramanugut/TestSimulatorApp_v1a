@@ -15,6 +15,7 @@ jobs:
       - name: Check JavaScript syntax
         run: |
           node --check script.js
+          node --check mockup-layout.js
           node --check paper-picker.js
           node --check learning-engine.js
           node --check learning-modules.js
@@ -42,7 +43,9 @@ jobs:
       - name: Smoke-test mastery UI
         run: |
           node tests/ai-tutor-chat-ui.test.cjs
+          node tests/paper-refresh-ui.test.cjs
           node tests/mastery-ui.test.cjs
+          node tests/dual-look-ui.test.cjs
           node tests/answer-workspace-ui.test.cjs
           node tests/paper-picker-ui.test.cjs
           node tests/editable-diagram-ui.test.cjs

@@ -254,8 +254,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const name = option.textContent.trim();
         const module = paperModule(name, option.value);
         const title = paperTitle(name, option.value, module, paperKind(name, option.value));
-        moduleText = "Module: " + module;
-        paperText = "Paper: " + title;
+        const compact = document.body.classList.contains("new-look");
+        moduleText = compact ? module : "Module: " + module;
+        paperText = compact ? title : "Paper: " + title;
         titleText = subject(module).title + " — " + name;
       }
     }

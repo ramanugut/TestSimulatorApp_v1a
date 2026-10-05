@@ -1,0 +1,56 @@
+/* Exercise the real assessment engine in both DOM layouts. No network or AI calls. */
+'use strict';
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const { JSDOM, VirtualConsole } = require('jsdom');
+const paper = { testName:'INF3708 Assessment 2',preserveOrder:true,questions:Array.from({length:12},(_,i)=>({text:'Question '+(i+1),options:['Yes','No'],correctAnswer:'Yes',marks:2,explanation:'Yes is correct.'})) };
+const settle = async () => { for(let i=0;i<15;i++) await new Promise(r=>setImmediate(r)); };
+async function open(look='new', prefs={}) {
+ const errors=[];
+ const vc=new VirtualConsole();vc.on('jsdomError',e=>errors.push(e));
+ const dom=new JSDOM(fs.readFileSync('index.html','utf8'),{url:'https://example.test/TestSimulatorApp_v1a/',runScripts:'outside-only',pretendToBeVisual:true,virtualConsole:vc});
+ const w=dom.window;
+ w.localStorage.setItem('testSimulatorLook',look);
+ w.localStorage.setItem('testSimulatorPreferences',JSON.stringify({lastSelectedPaper:'test36.json',questionOrder:'paper',...prefs}));
+ w.scrollTo=()=>{}; w.HTMLElement.prototype.scrollIntoView=()=>{};w.HTMLElement.prototype.scrollTo=()=>{};
+ w.confirm=()=>true;w.alert=()=>{};
+ w.fetch=async()=>({ok:true,json:async()=>paper});
+ for(const file of ['learning-modules.js','modules/inf3708-mastery.js','learning-engine.js','script.js','mockup-layout.js']) w.eval(fs.readFileSync(file,'utf8'));
+ await new Promise(r=>w.document.addEventListener('DOMContentLoaded',r,{once:true}));await settle();
+ assert.deepEqual(errors,[],'Initialization completes without browser errors');
+ return dom;
+}
+(async()=>{
+ let dom=await open();const w=dom.window,d=w.document;
+ assert.ok(d.body.classList.contains('new-look'));
+ assert.equal(d.querySelectorAll('.question').length,1,'New layout defaults to one real question');
+ assert.equal(d.querySelectorAll('#question-map-grid button').length,12);
+ assert.equal(d.getElementById('submit-test').parentElement.id,'map-actions');
+ assert.equal(d.getElementById('mastery-panel').parentElement.id,'mode-panel-mastery');
+ const answer=d.querySelector('.option-item input');answer.checked=true;answer.dispatchEvent(new w.Event('change',{bubbles:true}));
+ assert.ok(d.querySelector('#question-map-grid button').classList.contains('answered'));
+ d.querySelector('.bookmark-button').click();assert.ok(d.querySelector('#question-map-grid button').classList.contains('flagged'));
+ d.getElementById('toggle-app-look').click();
+ assert.ok(!d.body.classList.contains('new-look'));
+ assert.equal(d.getElementById('submit-test').parentElement.className,'test-controls-primary');
+ assert.equal(d.querySelector('.option-item input').checked,true,'Answer survives switch to old look');
+ d.getElementById('toggle-app-look').click();
+ assert.equal(d.querySelector('.option-item input').checked,true,'Answer survives switch back');
+ d.querySelector('#question-map-grid button[data-index="7"]').click();
+ assert.equal(d.querySelector('.question').dataset.questionIndex,'7','Question map opens actual index');
+ const size=d.getElementById('questions-per-page');size.value='5';size.dispatchEvent(new w.Event('change'));
+ assert.equal(d.querySelectorAll('.question').length,5);
+ d.getElementById('mode-tab-mastery').click();
+ assert.equal(d.body.dataset.activeMode,'mastery');assert.equal(d.getElementById('mastery-panel').hidden,false);
+ assert.ok(d.getElementById('mastery-root').textContent.includes('Learn by chapter'));
+ d.getElementById('toggle-app-look').click();
+ assert.equal(d.body.dataset.activeMode,'study','Old layout returns from the separate mastery view to Study');
+ d.getElementById('mode-tab-test').click();d.getElementById('toggle-app-look').click();
+ d.getElementById('submit-test').click();await settle();
+ assert.ok(!d.getElementById('result-banner').classList.contains('hidden'),'Real grading runs from new sidebar');
+ assert.equal(d.getElementById('score').textContent,'8%');
+ dom.window.close();
+ dom=await open('old');assert.ok(!dom.window.document.body.classList.contains('new-look'));assert.equal(dom.window.document.querySelectorAll('.question').length,10);dom.window.close();
+ dom=await open('new',{questionsPerPage:'all'});assert.equal(dom.window.document.querySelectorAll('.question').length,12,'All preference survives paper loading');dom.window.close();
+ console.log('Dual-look checks passed: shared answers and grading, saved appearance, real navigation, page sizes, mastery, old layout restoration.');
+})().catch(e=>{console.error(e);process.exitCode=1});

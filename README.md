@@ -8,7 +8,7 @@ More modules will be added either on request or as time goes on.
 
 EASY ACCESS:
 Just go to this link to access the app, either from your phone or computer.
-App Link: https://ramanugut.github.io/TestSimulatorApp/
+App Link: https://ramanugut.github.io/TestSimulatorApp_v1a/
 
 ----------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------
@@ -25,3 +25,7 @@ Then follow hedzi instructions.
 4. CLick on the index.html file from the folder i gave your
 5. Right clieck and open with Live Server.
 6. Enjoy
+
+Appearance: use the Old look / New look button in the top bar to switch with one click. It is also available in Settings → App look. Each browser remembers its choice. Both use the same papers, answers and progress. The new layout follows Marven’s mockup; the original layout remains available.
+
+This is a static HTML, CSS and JavaScript app served directly by GitHub Pages. No build step or hosting migration is required.

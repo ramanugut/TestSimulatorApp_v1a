@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function savePaperPage(filename = currentTestFile, page = currentPage) {
-    if (!filename) return;
+    if (!filename || (filename === currentTestFile && loadedTestFile !== filename)) return;
     const normalizedPage = Math.max(1, Math.floor(Number(page) || 1));
     const existing =
       appPreferences.paperPagePositions &&
@@ -72,7 +72,8 @@ document.addEventListener("DOMContentLoaded", function () {
   let questions = [];
   let originalQuestions = [];
   let currentPage = 1;
-  const questionsPerPage = 10;
+  let questionsPerPage = [1, 5, 10].includes(appPreferences.questionsPerPage)
+    ? appPreferences.questionsPerPage : 10;
   let userAnswers = {};
   let timer;
   let remainingTime;
@@ -82,6 +83,8 @@ document.addEventListener("DOMContentLoaded", function () {
   let testInProgress = false;
   let testSubmitted = false;
   let currentTestFile = "";
+  let loadedTestFile = null;
+  let questionLoadRequest = 0;
   let currentTestPreserveOrder = false;
   const QUESTION_ORDER_MODES = new Set(["auto", "random", "paper", "type", "chapter"]);
   let questionOrderMode =
@@ -95,7 +98,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let bookmarkCycleIndex = 0;
   let lastMotivationIndex = null;
   const savedMode = typeof appPreferences.mode === "string" ? appPreferences.mode : "";
-  let currentMode = ["test", "study", "flashcards", "book"].includes(savedMode)
+  let currentMode = ["test", "study", "flashcards", "book", "mastery"].includes(savedMode)
     ? savedMode
     : "test";
   let studyGuessFirstEnabled = appPreferences.studyGuessFirst !== false;
@@ -379,7 +382,7 @@ document.addEventListener("DOMContentLoaded", function () {
     window.MasteryEngine.setContext({
       mode,
       testFile,
-      enabled: masteryModeEnabled(),
+      enabled: masteryModeEnabled() || mode === "mastery",
       bookAvailable,
       bookTitle,
     });
@@ -2520,7 +2523,14 @@ document.addEventListener("DOMContentLoaded", function () {
   function updateModePanels(activeMode) {
     const showFlashcards = activeMode === "flashcards";
     const showBook = activeMode === "book";
-    const showQuestions = !showFlashcards && !showBook;
+    const showMastery = activeMode === "mastery";
+    const showQuestions = !showFlashcards && !showBook && !showMastery;
+    document.body.dataset.activeMode = activeMode;
+    const masteryView = document.getElementById("mode-panel-mastery");
+    if (masteryView) {
+      masteryView.classList.toggle("active", showMastery);
+      masteryView.setAttribute("aria-hidden", String(!showMastery));
+    }
 
     if (modePanelTest) {
       modePanelTest.classList.toggle("active", showQuestions);
@@ -2544,6 +2554,10 @@ document.addEventListener("DOMContentLoaded", function () {
     if (window.MasteryEngine) {
       syncMasteryEngineContext(activeMode, currentTestFile);
     }
+    const empty = document.getElementById("mastery-empty");
+    const masteryPanel = document.getElementById("mastery-panel");
+    if (empty) empty.hidden = !showMastery || (masteryPanel && !masteryPanel.hidden);
+    updateQuestionMap();
   }
 
   function applyStudyModeState(checked) {
@@ -2644,7 +2658,7 @@ document.addEventListener("DOMContentLoaded", function () {
         studyModeToggle.checked = true;
       }
       applyStudyModeState(true);
-    } else if (mode === "test" || mode === "book") {
+    } else if (mode === "test" || mode === "book" || mode === "mastery") {
       if (studyModeToggle && studyModeToggle.checked) {
         studyModeToggle.checked = false;
       }
@@ -4760,11 +4774,11 @@ document.addEventListener("DOMContentLoaded", function () {
   // Neutral themes plus two distinct rich theme families. Each rich family
   // has its own light and dark mode; the exact variant is saved in the browser.
   const appearanceModes = [
-    "light", "slate", "deep", "black",
+    "auto", "light", "slate", "deep", "black", "mockup-dark", "sunrise", "focus",
     "colorful-light", "colorful-dark",
     "gradient-light", "gradient-dark"
   ];
-  const lightAppearanceModes = new Set(["light", "colorful-light", "gradient-light"]);
+  const lightAppearanceModes = new Set(["light", "sunrise", "colorful-light", "gradient-light"]);
   const legacyAppearanceMap = {
     dark: "deep",
     colorpop: "colorful-light",
@@ -4774,7 +4788,9 @@ document.addEventListener("DOMContentLoaded", function () {
   function applyAppearanceMode(value) {
     const migrated = legacyAppearanceMap[value] || value;
     const chosen = appearanceModes.includes(migrated) ? migrated : "light";
-    const isLightAppearance = lightAppearanceModes.has(chosen);
+    const isLightAppearance = chosen === "auto"
+      ? !window.matchMedia?.("(prefers-color-scheme: dark)").matches
+      : lightAppearanceModes.has(chosen);
     const themeFamily = chosen.startsWith("colorful-")
       ? "colorful"
       : chosen.startsWith("gradient-")
@@ -4783,7 +4799,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.body.classList.remove(
       "light-mode", "dark-mode", "theme-slate", "theme-deep", "theme-black",
-      "theme-colorpop", "theme-colorful", "theme-gradient"
+      "theme-colorpop", "theme-colorful", "theme-gradient", "theme-auto",
+      "theme-mockup-dark", "theme-sunrise", "theme-focus"
     );
     document.body.classList.add(isLightAppearance ? "light-mode" : "dark-mode");
 
@@ -4794,6 +4811,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     document.documentElement.style.colorScheme = isLightAppearance ? "light" : "dark";
+    document.body.dataset.appearance = chosen;
     themeButtons.forEach(function (button) {
       const active = button.dataset.theme === chosen;
       button.setAttribute("aria-pressed", String(active));
@@ -4816,6 +4834,9 @@ document.addEventListener("DOMContentLoaded", function () {
     button.addEventListener("click", function () {
       applyAppearanceMode(button.dataset.theme);
     });
+  });
+  window.matchMedia?.("(prefers-color-scheme: dark)").addEventListener?.("change", () => {
+    if (document.body.dataset.appearance === "auto") applyAppearanceMode("auto");
   });
 
   //************************ SECTION 4: TEST FILE LOADING ************************//
@@ -4869,118 +4890,69 @@ const testFiles = [
 
 
   // Load test files into the select element
-  function loadTestFiles() {
+  async function loadTestFiles() {
     testSelect.innerHTML = "";
     availableTestsMetadata = [];
-    let firstTestLoaded = false;
-    let savedProgressFile = null;
     let savedProgressData = null;
-    let savedPreferenceFile =
-      typeof appPreferences.lastSelectedPaper === "string"
-        ? appPreferences.lastSelectedPaper
-        : null;
-
     try {
       savedProgressData = JSON.parse(localStorage.getItem("testProgress"));
-      if (savedProgressData && savedProgressData.currentTestFile) {
-        savedProgressFile = savedProgressData.currentTestFile;
-      }
-      if (
-        savedProgressData &&
-        typeof savedProgressData.lastRegularTestValue === "string"
-      ) {
+      if (testFiles.includes(savedProgressData?.lastRegularTestValue)) {
         lastRegularTestValue = savedProgressData.lastRegularTestValue;
       }
     } catch (error) {
       console.warn("Unable to read saved progress metadata:", error);
     }
 
-    // An older saved exam must not reopen a module that is currently hidden.
-    if (savedProgressFile !== CUSTOM_TEST_VALUE && !testFiles.includes(savedProgressFile)) {
-      savedProgressFile = null;
+    // Build the picker in paper-list order, independent of network timing.
+    // Open exactly one session after the library is ready.
+    const papers = await Promise.all(testFiles.map(async filename => {
+      try {
+        const response = await fetch(filename, { cache: "no-store" });
+        if (!response.ok) throw new Error(`Error loading file: ${response.statusText}`);
+        return { filename, data: await response.json() };
+      } catch (error) {
+        console.error("Error loading test name:", error);
+        return { filename, error };
+      }
+    }));
+    const available = new Map();
+    papers.forEach(({ filename, data, error }) => {
+      const option = document.createElement("option");
+      option.value = filename;
+      if (error) {
+        option.textContent = `Error loading ${filename}`;
+        option.disabled = true;
+      } else {
+        option.textContent = data.testName || filename.replace(".json", "").replace(/_/g, " ");
+        const questionCount = Array.isArray(data.questions) ? data.questions.length : 0;
+        option.dataset.questionCount = String(questionCount);
+        availableTestsMetadata.push({ file: filename, name: option.textContent, questionCount });
+        available.set(filename, data);
+      }
+      testSelect.appendChild(option);
+    });
+    populateDefineTestModal();
+
+    const selectedSession = appPreferences.lastSelectedSession;
+    const progressFile = savedProgressData?.currentTestFile;
+    // Custom mixes created before this preference existed can still resume.
+    const restoreCustom = selectedSession === CUSTOM_TEST_VALUE ||
+      (!selectedSession && progressFile === CUSTOM_TEST_VALUE);
+    if (restoreCustom && savedProgressData?.customSession &&
+        restoreCustomSessionFromProgress(savedProgressData)) return;
+
+    // The last choice wins over an unrelated old attempt. Answers only resume
+    // when getSavedProgress() finds progress for this exact paper.
+    const preferredFile = [selectedSession, appPreferences.lastSelectedPaper,
+      progressFile, lastRegularTestValue].find(file => available.has(file)) ||
+      available.keys().next().value;
+    if (!preferredFile) {
+      questionsContainer.textContent = "Unable to load papers. Please refresh and try again.";
+      return;
     }
-    if (!testFiles.includes(lastRegularTestValue)) {
-      lastRegularTestValue = null;
-    }
-    if (!testFiles.includes(savedPreferenceFile)) {
-      savedPreferenceFile = null;
-    }
-
-    // Active progress wins. Otherwise reopen the paper the student last chose.
-    const preferredFile = savedProgressFile || savedPreferenceFile;
-
-    const fetchPromises = testFiles.map((filename) =>
-      fetch(filename, { cache: "no-store" })
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error(`Error loading file: ${response.statusText}`);
-          }
-          return response.json();
-        })
-        .then((data) => {
-          const option = document.createElement("option");
-          option.value = filename;
-          option.textContent = data.testName
-            ? data.testName
-            : filename.replace(".json", "").replace(/_/g, " ");
-          testSelect.appendChild(option);
-
-          const questionCount = Array.isArray(data.questions)
-            ? data.questions.length
-            : 0;
-          option.dataset.questionCount = String(questionCount);
-          availableTestsMetadata.push({
-            file: filename,
-            name: option.textContent,
-            questionCount,
-          });
-
-          const shouldLoadThisFile = preferredFile
-            ? preferredFile !== CUSTOM_TEST_VALUE &&
-              filename === preferredFile
-            : !firstTestLoaded;
-
-          if (!firstTestLoaded && shouldLoadThisFile) {
-            firstTestLoaded = true;
-            testSelect.value = filename;
-            loadQuestions(filename);
-          }
-        })
-        .catch((error) => {
-          console.error("Error loading test name:", error);
-          const errorOption = document.createElement("option");
-          errorOption.textContent = `Error loading ${filename}`;
-          errorOption.disabled = true;
-          testSelect.appendChild(errorOption);
-        })
-    );
-
-    Promise.all(fetchPromises)
-      .then(() => {
-        console.log("All test files loaded");
-        populateDefineTestModal();
-
-        if (
-          savedProgressFile === CUSTOM_TEST_VALUE &&
-          savedProgressData &&
-          savedProgressData.customSession
-        ) {
-          const restored = restoreCustomSessionFromProgress(savedProgressData);
-          if (restored) {
-            testSelect.dataset.previousValue = testSelect.value;
-            return;
-          }
-        }
-
-        if (!firstTestLoaded && testFiles.length > 0) {
-          testSelect.value = testFiles[0];
-          loadQuestions(testFiles[0]);
-        }
-        testSelect.dataset.previousValue = testSelect.value;
-      })
-      .catch((error) => {
-        console.error("Error loading test files:", error);
-      });
+    testSelect.value = preferredFile;
+    testSelect.dataset.previousValue = preferredFile;
+    loadQuestions(preferredFile, available.get(preferredFile));
   }
 
   // Load the test files into the dropdown on page load
@@ -5260,6 +5232,9 @@ const testFiles = [
   }
 
   function loadQuestions(filename, customData = null) {
+    const request = ++questionLoadRequest;
+    loadedTestFile = null;
+    saveAppPreferences({ lastSelectedSession: filename });
     stopStudyVoice();
     resetStudyGuessSession();
     currentTestFile = filename;
@@ -5273,6 +5248,8 @@ const testFiles = [
     }
 
     const initializeFromQuestions = (rawQuestions, preserveOrder = false) => {
+      if (request !== questionLoadRequest) return;
+      loadedTestFile = filename;
       originalQuestions = cloneQuestionsData(rawQuestions || []);
       currentTestPreserveOrder = preserveOrder;
 
@@ -5310,7 +5287,7 @@ const testFiles = [
     };
 
     if (customData) {
-      initializeFromQuestions(customData.questions);
+      initializeFromQuestions(customData.questions, customData.preserveOrder === true);
     } else {
       fetch(filename, { cache: "no-store" })
         .then((response) => {
@@ -5320,6 +5297,7 @@ const testFiles = [
           return response.json();
         })
         .then((data) => {
+          if (request !== questionLoadRequest) return;
           if (Number.isFinite(Number(data.durationMinutes)) &&
               Number(data.durationMinutes) > 0 && timerInput) {
             timerInput.value = String(data.durationMinutes);
@@ -5327,6 +5305,7 @@ const testFiles = [
           initializeFromQuestions(data.questions, data.preserveOrder === true);
         })
         .catch((error) => {
+          if (request !== questionLoadRequest) return;
           console.error("Error loading questions:", error);
           originalQuestions = [];
           questions = [];
@@ -5718,7 +5697,7 @@ const testFiles = [
       bookmarkedQuestions = new Set();
       isTimerPaused = false;
       remainingTime = getTimerInputSeconds();
-      showAllQuestions = false;
+      showAllQuestions = document.body.classList.contains("new-look") && appPreferences.questionsPerPage === "all";
     }
 
     // A corrected assessment can remove or replace an old option. Do not keep a
@@ -6042,6 +6021,7 @@ const testFiles = [
         updateBookmarkPanel();
         checkBookmarkAchievements();
         saveProgress();
+        updateQuestionMap();
       });
       questionElement.appendChild(bookmarkButton);
 
@@ -6052,19 +6032,35 @@ const testFiles = [
       const questionNumberElement = document.createElement("span");
       questionNumberElement.classList.add("question-number");
       const displayMarks = getQuestionMarks(question);
-      questionNumberElement.textContent = question.number
+      questionNumberElement.textContent = document.body.classList.contains("new-look")
+        ? (question.number || actualIndex + 1) + "."
+        : question.number
         ? question.number + ". (" + displayMarks + (displayMarks === 1 ? " mark) " : " marks) ")
         : (actualIndex + 1) + ".";
       questionTextElement.appendChild(questionNumberElement);
 
       const questionBodyElement = document.createElement("div");
       questionBodyElement.classList.add("question-body", "rich-content");
+      const displayQuestionText = document.body.classList.contains("new-look")
+        ? question.text.replace(/^QUESTION\s+[\d.]+\s*(?:\(\d+\s+marks?\))?\s*:\s*/i, "")
+        : question.text;
       const questionBodyMarkup =
-        formatRichText(question.text) || escapeHTML(question.text);
+        formatRichText(displayQuestionText) || escapeHTML(displayQuestionText);
       questionBodyElement.innerHTML = questionBodyMarkup;
       questionTextElement.appendChild(questionBodyElement);
 
       questionElement.appendChild(questionTextElement);
+
+      const compactMeta = document.createElement("div");
+      compactMeta.className = "question-meta new-look-only";
+      const marksTag = document.createElement("span");
+      marksTag.textContent = displayMarks + (displayMarks === 1 ? " mark" : " marks");
+      const typeTag = document.createElement("span");
+      typeTag.textContent = question.options?.length ? "Multiple choice"
+        : ({ "uml-diagram": "Diagram", diagram: "Diagram", table: "Table", command: "Command", code: "Code", "image-upload": "Upload" }[question.answerType] || "Written");
+      if (isAiGradedQuestion(question)) typeTag.textContent += " · AI-marked";
+      compactMeta.append(marksTag, typeTag);
+      questionElement.appendChild(compactMeta);
 
       if (question.sourceTestName) {
         const questionMetaElement = document.createElement("div");
@@ -6397,18 +6393,28 @@ const testFiles = [
 
   function updateFlashcardControls() {
     if (flashcardRevealButton) {
-      flashcardRevealButton.textContent = flashcardRevealed ? "Flip to question ↻" : "Flip to answer ↻";
+      flashcardRevealButton.textContent = document.body.classList.contains("new-look") ? "Flip"
+        : flashcardRevealed ? "Flip to question ↻" : "Flip to answer ↻";
       flashcardRevealButton.setAttribute("aria-pressed", String(flashcardRevealed));
       flashcardRevealButton.setAttribute("aria-controls", "flashcards-grid");
     }
-    if (flashcardAgainButton) flashcardAgainButton.classList.toggle("hidden", !flashcardRevealed);
-    if (flashcardKnownButton) flashcardKnownButton.classList.toggle("hidden", !flashcardRevealed);
+    [flashcardAgainButton, flashcardKnownButton].forEach(button => {
+      if (!button) return;
+      button.classList.toggle("hidden", !flashcardRevealed && !document.body.classList.contains("new-look"));
+      button.disabled = !flashcardRevealed;
+    });
+    if (flashcardAgainButton) flashcardAgainButton.textContent = document.body.classList.contains("new-look") ? "Again" : "Study again";
+    if (flashcardKnownButton) flashcardKnownButton.textContent = document.body.classList.contains("new-look") ? "Known" : "Got it ✓";
   }
 
   function sizeFlashcard(card) {
     if (!card || !card.isConnected) return;
     const visibleFace = card.querySelector(flashcardRevealed ? ".flashcard-back" : ".flashcard-front");
-    if (visibleFace) card.style.height = Math.max(250, Math.ceil(visibleFace.scrollHeight) + 2) + "px";
+    if (visibleFace) {
+      card.style.height = document.body.classList.contains("new-look")
+        ? Math.min(Math.max(280, visibleFace.scrollHeight), Math.max(280, Math.min(480, window.innerHeight * .6))) + "px"
+        : Math.max(250, Math.ceil(visibleFace.scrollHeight) + 2) + "px";
+    }
   }
 
   function syncFlashcardFace(card) {
@@ -6717,6 +6723,11 @@ const testFiles = [
   }
 
   function scrollToQuestionsTop() {
+    const studyScroll = document.getElementById("study-scroll");
+    if (document.body.classList.contains("new-look") && studyScroll) {
+      studyScroll.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
     if (!questionsContainer) {
       window.scrollTo({ top: 0, behavior: "smooth" });
       return;
@@ -6805,7 +6816,9 @@ const testFiles = [
     } else {
       prevPageButton.classList.remove("hidden");
       nextPageButton.classList.remove("hidden");
-      pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
+      pageInfo.textContent = document.body.classList.contains("new-look")
+        ? `${(currentPage - 1) * questionsPerPage + 1}${questionsPerPage > 1 ? "–" + Math.min(currentPage * questionsPerPage, totalFiltered) : ""} / ${totalFiltered}`
+        : `Page ${currentPage} of ${totalPages}`;
       prevPageButton.disabled = currentPage === 1;
       nextPageButton.disabled = currentPage === totalPages;
     }
@@ -7544,6 +7557,42 @@ const testFiles = [
     if (progressBarElement) {
       progressBarElement.style.width = `${progressPercent}%`;
     }
+    updateQuestionMap();
+  }
+
+  // Both appearances use the same question indexes and answer buffers.
+  function updateQuestionMap() {
+    const grid = document.getElementById("question-map-grid");
+    if (!grid) return;
+    const visible = new Set(Array.from(questionsContainer.querySelectorAll("[data-question-index]"),
+      node => Number(node.dataset.questionIndex)));
+    const nodes = Array.from(grid.children);
+    if (nodes.length !== questions.length) {
+      grid.replaceChildren();
+      questions.forEach((question, index) => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.dataset.index = String(index);
+        button.textContent = question.number || index + 1;
+        grid.appendChild(button);
+      });
+    }
+    Array.from(grid.children).forEach((button, index) => {
+      const done = hasProvidedAnswer(getInteractiveAnswer(index));
+      const flagged = bookmarkedQuestions.has(index);
+      const current = visible.has(index);
+      button.classList.toggle("answered", done);
+      button.classList.toggle("flagged", flagged);
+      button.classList.toggle("current", current);
+      button.setAttribute("aria-label", `Question ${button.textContent}${done ? ", answered" : ""}${flagged ? ", flagged" : ""}`);
+      if (current) button.setAttribute("aria-current", "true");
+      else button.removeAttribute("aria-current");
+    });
+    const toggle = document.getElementById("question-map-toggle");
+    const indexes = Array.from(visible);
+    if (toggle) toggle.textContent = indexes.length
+      ? `${indexes[0] + 1}${indexes.length > 1 ? "–" + (indexes[indexes.length - 1] + 1) : ""} / ${questions.length}`
+      : "Questions";
   }
 
   //************************ SECTION 13: DOWNLOAD RESULTS ************************//
@@ -8105,6 +8154,8 @@ const testFiles = [
   //************************ SECTION 19: SAVE AND RESUME PROGRESS ************************//
 
   function saveProgress() {
+    // Do not save the previous paper's answers under a newly selected filename.
+    if (!loadedTestFile || loadedTestFile !== currentTestFile) return;
     const progressData = {
       userAnswers,
       remainingTime,
@@ -8174,6 +8225,38 @@ const testFiles = [
     }
   });
 
+  // A small UI bridge keeps the optional layout separate from assessment logic.
+  window.TestSimulatorUi = {
+    refreshLayout() {
+      if (!document.body.classList.contains("new-look") && currentMode === "mastery") setMode("study");
+      renderQuestions();
+      updatePaginationControls();
+      updateModePanels(currentMode);
+      updateModeButtons(currentMode);
+      if (currentMode === "flashcards") renderFlashcards();
+    },
+    setPageSize(value, persist = true) {
+      const visibleIndex = (currentPage - 1) * questionsPerPage;
+      showAllQuestions = value === "all";
+      if (!showAllQuestions) questionsPerPage = [1, 5, 10].includes(Number(value)) ? Number(value) : 1;
+      currentPage = Math.floor(visibleIndex / questionsPerPage) + 1;
+      if (persist) saveAppPreferences({ questionsPerPage: showAllQuestions ? "all" : questionsPerPage });
+      renderQuestions();
+      updatePaginationControls();
+      savePaperPage();
+    },
+    jumpToQuestion,
+    closeOptions: closeOptionsModal,
+    closeControls: closeTestControlsModal,
+    pageSize() { return showAllQuestions ? "all" : String(questionsPerPage); },
+  };
+  const mapGrid = document.getElementById("question-map-grid");
+  if (mapGrid) mapGrid.addEventListener("click", event => {
+    const button = event.target.closest("button[data-index]");
+    if (button) {
+      jumpToQuestion(Number(button.dataset.index));
+      window.MockupLayout?.closeMap();
+    }
+  });
   // Load progress on page load will be handled when questions are initialized
 });
-
