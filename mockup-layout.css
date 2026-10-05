@@ -279,9 +279,17 @@ body.new-look .ai-tutor-chat-send { padding:6px 10px; font-weight:400; border:1p
 body.new-look .ai-tutor-chat-status:empty { display:none; }
 body.new-look .ai-tutor-chat-transcript { max-height:340px; margin:0 0 6px; padding:0; border:0; background:none; }
 body.new-look .ai-tutor-chat-transcript.is-empty { display:none; }
-body.new-look .ai-tutor-chat-message { padding:8px 12px; border:1px solid var(--border-color); border-radius:8px; background:var(--surface-color); }
-body.new-look .ai-tutor-chat-message.is-user { background:var(--subtle-surface); }
-body.new-look .ai-tutor-chat-label { font-size:12px; }
+body.new-look .ai-tutor-chat-message { width:fit-content; max-width:86%; padding:8px 12px; box-shadow:none; }
+body.new-look .ai-tutor-chat-message.is-user { align-self:flex-end; margin-left:12%; border:1px solid color-mix(in srgb,var(--accent-color) 28%,var(--border-color)); border-radius:16px 16px 4px 16px; background:color-mix(in srgb,var(--accent-color) 12%,var(--surface-color)); }
+body.new-look .ai-tutor-chat-message.is-assistant { align-self:flex-start; margin-right:8%; border:1px solid var(--border-color); border-radius:16px 16px 16px 4px; background:var(--subtle-surface); }
+body.new-look .ai-tutor-chat-message.is-user .ai-tutor-chat-label { text-align:right; color:var(--accent-color); }
+body.new-look .ai-tutor-chat-message.is-assistant .ai-tutor-chat-label { text-align:left; color:var(--muted-text); }
+body.new-look .ai-tutor-chat-label { display:block; font-size:11px; font-weight:700; letter-spacing:.02em; text-transform:none; }
+@media(max-width:760px) {
+  body.new-look .ai-tutor-chat-message { max-width:92%; }
+  body.new-look .ai-tutor-chat-message.is-user { margin-left:8%; }
+  body.new-look .ai-tutor-chat-message.is-assistant { margin-right:5%; }
+}
 body.new-look .answer-workspace { margin-top:12px; border:1px solid var(--border-color); border-radius:8px; padding:0; background:var(--surface-color); }
 body.new-look .editor-workspace { border:0; background:none; }
 body.new-look .editor-label { display:block; font-size:0; }
