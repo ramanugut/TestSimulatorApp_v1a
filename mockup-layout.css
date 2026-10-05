@@ -215,8 +215,9 @@ body.new-look .flashcard-workspace { border:0; border-radius:0; background:none;
 body.new-look .flashcard-controls { flex-wrap:nowrap; }
 body.new-look .flashcard-controls .btn { min-width:0; width:auto; }
 body.new-look .flashcard-answer-panel { border:0; padding:0; background:none; }
-.look-quick-button { flex:none; border:1px solid var(--border-color); border-radius:6px; background:var(--surface-color); color:var(--text-color); padding:4px 7px; font:12px/1.5 Inter,"Segoe UI",system-ui,sans-serif; cursor:pointer; white-space:nowrap; }
-.look-quick-button:focus-visible { outline:2px solid var(--accent-color); outline-offset:2px; }
+.look-quick-button { flex:none; border:1px solid #b91c1c; border-radius:6px; background:#b91c1c; color:#fff; padding:4px 7px; font:600 12px/1.5 Inter,"Segoe UI",system-ui,sans-serif; cursor:pointer; white-space:nowrap; }
+.look-quick-button:hover, .look-quick-button:active { border-color:#991b1b; background:#991b1b; color:#fff; }
+.look-quick-button:focus-visible { outline:2px solid #b91c1c; outline-offset:2px; }
 body.new-look .header-paper-context { max-width:min(34vw,calc(100vw - 470px)); }
 @media(max-width:760px) { body.new-look .header-paper-context { max-width:calc(100vw - 185px); } }
 /* Let the original paper label shrink to leave room for its new look toggle. */
