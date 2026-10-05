@@ -4846,6 +4846,41 @@ body.modal-open {
   background: var(--surface-color);
 }
 
+.ai-tutor-chat-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: .75rem;
+}
+
+.ai-tutor-chat-heading > div {
+  min-width: 0;
+}
+
+.ai-tutor-chat-clear {
+  flex: 0 0 auto;
+  min-height: 30px;
+  padding: .3rem .6rem;
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted-text);
+  font: inherit;
+  font-size: .72rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.ai-tutor-chat-clear:hover,
+.ai-tutor-chat-clear:focus-visible {
+  border-color: var(--danger-color);
+  color: var(--danger-color);
+}
+
+.ai-tutor-chat-clear[hidden] {
+  display: none;
+}
+
 .ai-tutor-chat-heading h4 {
   margin: 0;
   color: var(--text-color);
