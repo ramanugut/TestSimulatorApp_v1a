@@ -1,0 +1,289 @@
+{
+  "testName": "ICT2631 – Operating Systems Practice – OCT/NOV 2022 Examination (100 marks)",
+  "module": "ICT2631",
+  "examSession": "OCT/NOV 2022",
+  "totalMarks": 100,
+  "durationMinutes": 120,
+  "preserveOrder": true,
+  "marking": "ai-rubric-weighted",
+  "sourceType": "Exact question transcription from the ICT2631 October/November 2022 paper held in the project files.",
+  "sourceNote": "Original question wording, spelling and awkward phrasing are preserved. Reference answers, explanations and student notes are study aids and are not an official UNISA memorandum.",
+  "questions": [
+    {
+      "number": "1.1",
+      "marks": 6,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "1.1 Discuss virtualization as an advanced feature of Linux that is often used in large enterprises. (6)",
+      "correctAnswer": "Virtualisation allows multiple isolated virtual machines/guest operating systems to run on one physical host using a hypervisor/virtualisation layer. Linux can act as host or guest. Enterprise benefits include server consolidation, better hardware utilisation, isolation, easier provisioning/testing, snapshots/recovery and flexible resource allocation.",
+      "aiRubric": [
+        "Define virtualisation/multiple VMs on one physical system (2).",
+        "Explain hypervisor/isolation or Linux host/guest role (2).",
+        "Give valid enterprise benefits (2)."
+      ],
+      "aiReferenceNotes": "Use the reference answer as a study marking guide. Accept equivalent technically correct Linux wording and commands. Do not penalise harmless command-option ordering differences.",
+      "explanation": "Virtualisation separates logical computers from the underlying physical hardware.",
+      "studentNote": "Student note: A strong answer says what it is, how the hypervisor separates guests, and why enterprises use it."
+    },
+    {
+      "number": "1.2",
+      "marks": 2,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "1.2 One of the key elements that formed the foundation of Linux was portability. Explain how this was\nachieved. (2)",
+      "correctAnswer": "Linux was written largely in the portable C programming language with hardware-specific code isolated to architecture-dependent parts, allowing the kernel and tools to be adapted and recompiled for many processor architectures.",
+      "aiRubric": [
+        "Explain use of portable high-level C / limited architecture-specific code and ability to port/recompile across hardware (2)."
+      ],
+      "aiReferenceNotes": "Use the reference answer as a study marking guide. Accept equivalent technically correct Linux wording and commands. Do not penalise harmless command-option ordering differences.",
+      "explanation": "Writing most of the system in C instead of processor-specific assembly made Linux easier to move between hardware platforms.",
+      "studentNote": "Student note: Portability means the same operating-system design can be adapted to different hardware architectures."
+    },
+    {
+      "number": "1.3",
+      "marks": 4,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "1.3 How would you go about switching between virtual consoles? (4)",
+      "correctAnswer": "On a traditional Linux setup, switch among virtual text consoles using Ctrl+Alt+F1 through the appropriate function keys when leaving a graphical session, or Alt+Fn while already on a text console. Exact function-key assignments vary by distribution and desktop.",
+      "aiRubric": [
+        "Give the relevant Ctrl+Alt+Fn/Alt+Fn method (2).",
+        "Explain choosing the function key for the desired virtual console / note graphical-console variation (2)."
+      ],
+      "aiReferenceNotes": "Use the reference answer as a study marking guide. Accept equivalent technically correct Linux wording and commands. Do not penalise harmless command-option ordering differences.",
+      "explanation": "Linux can provide several independent virtual terminals on one physical screen and keyboard.",
+      "studentNote": "Student note: The important pattern is Ctrl+Alt+function key from the GUI; exact F-key assignments may differ on modern distributions."
+    },
+    {
+      "number": "1.4",
+      "marks": 6,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "1.4 Explain how Linux finds a command which you typed at the shell prompt to execute it. (6)",
+      "correctAnswer": "The shell first interprets the command name and resolves shell constructs such as aliases/functions/builtins as applicable. For an external command without a slash, it searches the directories listed in PATH in order and executes the first matching executable it can use. If the command contains a slash, the supplied path is used instead of a PATH search.",
+      "aiRubric": [
+        "Explain shell/internal resolution (2).",
+        "Explain PATH directory search in order for external commands (2).",
+        "Explain path containing slash / first executable or command-not-found outcome (2)."
+      ],
+      "aiReferenceNotes": "Use the reference answer as a study marking guide. Accept equivalent technically correct Linux wording and commands. Do not penalise harmless command-option ordering differences.",
+      "explanation": "PATH is an ordered list of directories used to find external programs when no explicit pathname is supplied.",
+      "studentNote": "Student note: If a command name includes '/', the shell already has a path and does not need the normal PATH search."
+    },
+    {
+      "number": "1.5",
+      "marks": 10,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "1.5 Commands can receive data from standard input and send data to standard output. Such input \nand output can be redirected. Explain what each of the file redirection metacharacters does. (10)",
+      "correctAnswer": "Common Bash redirection metacharacters include > to redirect standard output and overwrite/create a file; >> to append standard output; < to take standard input from a file; 2> to redirect standard error; and constructs such as 2>&1 or &> to combine/redirect error output with standard output. The course may also accept << for a here-document where prescribed.",
+      "aiRubric": [
+        "Award marks for correctly identifying and explaining the redirection metacharacters required by the prescribed material, up to 10 marks. Typical core items are >, >>, < and standard-error/combined redirection."
+      ],
+      "aiReferenceNotes": "Use the reference answer as a study marking guide. Accept equivalent technically correct Linux wording and commands. Do not penalise harmless command-option ordering differences.",
+      "explanation": "Redirection changes where a command reads input from or sends output/error messages.",
+      "studentNote": "Student note: Do not confuse the pipe | with file redirection: a pipe connects one command's output to another command's input."
+    },
+    {
+      "number": "1.6",
+      "marks": 8,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "1.6 One of the programming constructs in shell scripts is “If...then” which can be used to test a \ncondition. What does the following conditional expressions test for?\n a) -d file (2)\n b) -h file (2)\n c) -w file (2)\n d) -x file (2)",
+      "correctAnswer": "a) -d file: true if file exists and is a directory. b) -h file: true if file exists and is a symbolic link. c) -w file: true if the file is writable by the effective user. d) -x file: true if the file is executable/searchable by the effective user.",
+      "aiRubric": [
+        "-d directory (2).",
+        "-h symbolic link (2).",
+        "-w writable (2).",
+        "-x executable/searchable (2)."
+      ],
+      "aiReferenceNotes": "Use the reference answer as a study marking guide. Accept equivalent technically correct Linux wording and commands. Do not penalise harmless command-option ordering differences.",
+      "explanation": "Shell test operators ask specific questions about a path's type or permissions.",
+      "studentNote": "Student note: d=directory, h=link, w=write, x=execute."
+    },
+    {
+      "number": "2.1",
+      "marks": 8,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "2.1 What does the following keystrokes do when the command line is edited?\n a) Ctrl+D (2)\n b) Backspace (2)\n c) Ctrl+T (2)\n d) Alt+T (2)",
+      "correctAnswer": "a) Ctrl+D deletes the character under the cursor (or sends EOF on an empty input line). b) Backspace deletes the character before the cursor. c) Ctrl+T transposes characters around the cursor. d) Alt+T transposes words.",
+      "aiRubric": [
+        "Ctrl+D (2).",
+        "Backspace (2).",
+        "Ctrl+T (2).",
+        "Alt+T (2)."
+      ],
+      "aiReferenceNotes": "Use the reference answer as a study marking guide. Accept equivalent technically correct Linux wording and commands. Do not penalise harmless command-option ordering differences.",
+      "explanation": "These are Bash Readline command-line editing shortcuts.",
+      "studentNote": "Student note: Ctrl+T is characters; Alt+T is words."
+    },
+    {
+      "number": "2.2",
+      "marks": 12,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "2.2 Permissions apply to both files and directories. Re-create the table below in your exam script and \ncomplete the blank columns to indicate what operations are possible with regards to a file or directory.\n(12)",
+      "correctAnswer": "Read: file—read contents; directory—list names. Write: file—modify contents; directory—create/delete/rename entries. Execute: file—run it when valid; directory—traverse/search it and access entries by name.",
+      "aiRubric": [
+        "File read (2).",
+        "Directory read (2).",
+        "File write (2).",
+        "Directory write (2).",
+        "File execute (2).",
+        "Directory execute/traverse (2)."
+      ],
+      "aiReferenceNotes": "Use the reference answer as a study marking guide. Accept equivalent technically correct Linux wording and commands. Do not penalise harmless command-option ordering differences.",
+      "explanation": "Directory permissions control operations on directory entries, not the contents of the files themselves.",
+      "studentNote": "Student note: Directory x means traverse/search, which is one of the most common exam traps.",
+      "table": {
+        "caption": "Permissions",
+        "headers": [
+          "Permission",
+          "File",
+          "Directory"
+        ],
+        "rows": [
+          [
+            "Read",
+            "",
+            ""
+          ],
+          [
+            "Write",
+            "",
+            ""
+          ],
+          [
+            "Execute",
+            "",
+            ""
+          ]
+        ]
+      }
+    },
+    {
+      "number": "2.3",
+      "marks": 8,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "2.3 What is contained in the following administrative configuration files?\n a) csh.cshrc (2)\n b) gshadow (2)\n c) mtab (2)\n d) crontab (2)",
+      "correctAnswer": "a) csh.cshrc: system-wide C shell startup/configuration commands and settings. b) gshadow: secure group information such as group passwords and administrators/members. c) mtab: information about currently mounted filesystems (on many modern systems it is linked to /proc/self/mounts). d) crontab: scheduled commands/jobs and their execution times; /etc/crontab is the system crontab.",
+      "aiRubric": [
+        "csh.cshrc purpose/content (2).",
+        "gshadow purpose/content (2).",
+        "mtab mounted-filesystem information (2).",
+        "crontab scheduled jobs/times (2)."
+      ],
+      "aiReferenceNotes": "Use the reference answer as a study marking guide. Accept equivalent technically correct Linux wording and commands. Do not penalise harmless command-option ordering differences.",
+      "explanation": "These files relate to shell startup, group security, mounted filesystems and scheduled tasks.",
+      "studentNote": "Student note: Link each filename to one job: csh startup, secure groups, mounts, scheduled jobs."
+    },
+    {
+      "number": "3.1",
+      "marks": 4,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "3.1 Explain in detail what happens if you type the command below at the shell prompt. (4)\n setfacl –m u:Jane:rx /tmp/memo.txt",
+      "correctAnswer": "setfacl modifies the access-control list on /tmp/memo.txt. -m means modify ACL entries; u:Jane:rx adds or changes the named-user ACL entry for user Jane, granting read (r) and execute (x) permissions to that file, subject to the ACL mask/effective permissions.",
+      "aiRubric": [
+        "Explain setfacl/ACL modification (1).",
+        "-m means modify (1).",
+        "u:Jane selects named user Jane (1).",
+        "rx grants read and execute on /tmp/memo.txt (1)."
+      ],
+      "aiReferenceNotes": "Use the reference answer as a study marking guide. Accept equivalent technically correct Linux wording and commands. Do not penalise harmless command-option ordering differences.",
+      "explanation": "POSIX ACLs can grant permissions to named users in addition to the normal owner/group/other mode bits.",
+      "studentNote": "Student note: Read the command left to right: modify ACL → user Jane → rx → target file."
+    },
+    {
+      "number": "3.2",
+      "marks": 10,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "3.2 The sudo command can be used to gain administrative access and using the sudoers facility is a \nway of granting access to administrative commands to user that need to use it. Explain what options \nyou can set by using the sudoers facility. (10)",
+      "correctAnswer": "sudoers rules can control which users or groups may use sudo, on which hosts, as which target user/group, and which commands they may run. They can also set authentication/password behaviour (for example NOPASSWD where appropriate), environment/default settings, aliases and command restrictions. The goal is delegated, least-privilege administrative access rather than unrestricted root access.",
+      "aiRubric": [
+        "Award credit for distinct sudoers controls such as invoking user/group, host, run-as identity, command list/restrictions and authentication/default options, up to 10 marks."
+      ],
+      "aiReferenceNotes": "Use the reference answer as a study marking guide. Accept equivalent technically correct Linux wording and commands. Do not penalise harmless command-option ordering differences.",
+      "explanation": "sudoers is a policy file: it defines who may do what, where, and as whom.",
+      "studentNote": "Student note: A useful memory line is WHO + WHERE + AS WHOM + WHICH COMMANDS + AUTHENTICATION."
+    },
+    {
+      "number": "3.3",
+      "marks": 6,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "3.3 Explain why you may want multiple partitions on one disk. (6)",
+      "correctAnswer": "Reasons include isolating data and growth, preventing a full /home or /var from filling the root filesystem, applying different mount options/filesystem types, simplifying backup/recovery/reinstallation, and improving security/administration by separating system and user data.",
+      "aiRubric": [
+        "Award credit for three valid explained reasons, up to 6 marks."
+      ],
+      "aiReferenceNotes": "Use the reference answer as a study marking guide. Accept equivalent technically correct Linux wording and commands. Do not penalise harmless command-option ordering differences.",
+      "explanation": "Partitioning lets different parts of the system be managed separately even when they share one physical disk.",
+      "studentNote": "Student note: Use concrete examples such as separate /, /home and /var."
+    },
+    {
+      "number": "3.4",
+      "marks": 6,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "3.4 Describe the following centralized database types:\n a) LDAP\n b) Winbind",
+      "correctAnswer": "a) LDAP is a protocol/service model for accessing a central directory containing structured identity and configuration information such as users and groups. b) Winbind is a Samba component that lets Linux/Unix systems resolve and authenticate Windows/Active Directory users and groups and map them into Unix identity mechanisms.",
+      "aiRubric": [
+        "LDAP definition and central-directory use (3).",
+        "Winbind definition and Windows/AD integration use (3)."
+      ],
+      "aiReferenceNotes": "Use the reference answer as a study marking guide. Accept equivalent technically correct Linux wording and commands. Do not penalise harmless command-option ordering differences.",
+      "explanation": "Both support central identity information, but Winbind is specifically tied to Samba/Windows-domain integration.",
+      "studentNote": "Student note: LDAP = directory protocol; Winbind = Samba bridge to Windows-domain identities."
+    },
+    {
+      "number": "3.5",
+      "marks": 4,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "3.5 Write the fdisk command down you would use to:\n a) list the partitions that are on /dev/sda. (2)\n b) list the partitions on /dev/sda with dos-mode disabled. The size must be given as sectors rather\nthan cylinders. (2)",
+      "correctAnswer": "a) fdisk -l /dev/sda . b) On the older util-linux fdisk versions reflected by the course material, use options that disable DOS compatibility mode and use sector units, e.g. fdisk -c=dos? / fdisk -u ... depending on the exact version syntax. The expected legacy form should match the prescribed textbook/version; modern fdisk versions have changed these options.",
+      "aiRubric": [
+        "Correct partition-listing command for /dev/sda (2).",
+        "Correct legacy fdisk options from the prescribed version for non-DOS mode and sector units (2)."
+      ],
+      "aiReferenceNotes": "Use the reference answer as a study marking guide. Accept equivalent technically correct Linux wording and commands. Do not penalise harmless command-option ordering differences.",
+      "explanation": "fdisk syntax changed across util-linux versions, so legacy -c/-u questions should be answered from the version used in the prescribed material.",
+      "studentNote": "Student note: For part (b), learn the exact legacy syntax from your textbook rather than assuming a modern fdisk behaves the same."
+    },
+    {
+      "number": "3.6",
+      "marks": 6,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "3.6 Processes can launch other processes, but the newly spawned process does not have the \nrestrictions that applied to the original process in terms of resources. Explain what you would do to \nalso control the processes that were launched from the original process to prevent these new \nprocesses from taking over. (6)",
+      "correctAnswer": "Place the service/process and its descendants in a resource-control group such as a Linux control group (cgroup), then apply CPU, memory or other controller limits to the group. Child processes remain associated with the managed service/group so the limits apply collectively and cannot be avoided simply by spawning more processes.",
+      "aiRubric": [
+        "Identify a process-group/resource-control mechanism such as cgroups (2).",
+        "Explain applying CPU/memory/resource limits to the group (2).",
+        "Explain descendants/child processes are controlled as part of the group (2)."
+      ],
+      "aiReferenceNotes": "Use the reference answer as a study marking guide. Accept equivalent technically correct Linux wording and commands. Do not penalise harmless command-option ordering differences.",
+      "explanation": "cgroups are designed to control resource use by groups of related processes, not just one PID.",
+      "studentNote": "Student note: When a question says 'children escape the parent's individual limit', think group-based resource control such as cgroups."
+    }
+  ]
+}
