@@ -1,0 +1,374 @@
+{
+  "testName": "ICT2631 – Operating Systems Practice – JAN/FEB 2025 Examination (100 marks)",
+  "module": "ICT2631",
+  "examSession": "JAN/FEB 2025",
+  "totalMarks": 100,
+  "durationMinutes": 120,
+  "preserveOrder": true,
+  "marking": "ai-rubric-weighted",
+  "sourceType": "Exact question transcription from the ICT2631 January/February 2025 paper held in the project files.",
+  "sourceNote": "Original question wording, spelling and inconsistencies are preserved. Reference answers, explanations and student notes are study aids and are not an official UNISA memorandum.",
+  "sourceLimitations": "The printed line 'Total for Question 3: 35 marks' conflicts with the visible Question 3 subparts, which sum to 32; Questions 1 + 2 + visible Question 3 subparts total 100. The app keeps the original question wording and uses the visible subpart marks.",
+  "questions": [
+    {
+      "number": "1.1",
+      "marks": 5,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "1.1 Explain how Linux will find a command that is not in the PATH. (5)",
+      "correctAnswer": "If a command's directory is not in PATH, entering only the command name will not find that external executable through the PATH search. Run it by giving a pathname containing a slash, such as an absolute path (/home/user/bin/tool) or a relative path (./tool when it is in the current directory). Shell aliases/functions/builtins are resolved separately.",
+      "aiRubric": [
+        "Explain that PATH search cannot find an external executable outside PATH (2).",
+        "Use an explicit absolute or relative pathname containing / (2).",
+        "Show a valid example or note shell internal commands are resolved separately (1)."
+      ],
+      "aiReferenceNotes": "Use the reference answer as a study marking guide. Accept equivalent technically correct Linux wording and commands. Do not penalise harmless command-option ordering differences.",
+      "explanation": "PATH is the list of directories the shell searches for external commands. A pathname bypasses the normal PATH search.",
+      "studentNote": "Student note: If a program is in the current folder but '.' is not in PATH, use ./program."
+    },
+    {
+      "number": "1.2",
+      "marks": 3,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "1.2 Name three ways to get a shell interface in Linux. (3)",
+      "correctAnswer": "Examples: open a graphical terminal emulator, switch to a text virtual console/TTY, log in remotely using SSH, or log in on a local text console.",
+      "aiRubric": [
+        "Award 1 mark each for any three valid ways of obtaining a shell interface."
+      ],
+      "aiReferenceNotes": "Use the reference answer as a study marking guide. Accept equivalent technically correct Linux wording and commands. Do not penalise harmless command-option ordering differences.",
+      "explanation": "A shell can be reached locally in a GUI terminal, on a text console, or remotely.",
+      "studentNote": "Student note: 'Shell' means the command interpreter; a terminal is one way to access it."
+    },
+    {
+      "number": "1.3",
+      "marks": 4,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "1.3 Name four ways to get help about a command. (4)",
+      "correctAnswer": "Examples: man command; info command; command --help (or -h where supported); help builtin for Bash builtins; apropos/whatis for searching manual descriptions.",
+      "aiRubric": [
+        "Award 1 mark each for four valid help methods."
+      ],
+      "aiReferenceNotes": "Use the reference answer as a study marking guide. Accept equivalent technically correct Linux wording and commands. Do not penalise harmless command-option ordering differences.",
+      "explanation": "Linux offers several help sources because some commands are external programs and some are shell builtins.",
+      "studentNote": "Student note: A safe set to remember is man, info, --help and help."
+    },
+    {
+      "number": "1.4",
+      "marks": 8,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "1.4 Copy the following table to your script and complete the blank column. (8)",
+      "correctAnswer": "Ctrl+D: delete the character under the cursor (or signal EOF on an empty line); Backspace: delete the character before the cursor; Ctrl+T: transpose the current/previous character pair; Alt+T: transpose words; Alt+U: uppercase the current/next word; Alt+L: lowercase the current/next word; Alt+C: capitalise the current/next word; Ctrl+V: insert/quote the next character literally.",
+      "aiRubric": [
+        "Ctrl+D correct meaning (1).",
+        "Backspace correct meaning (1).",
+        "Ctrl+T correct meaning (1).",
+        "Alt+T correct meaning (1).",
+        "Alt+U correct meaning (1).",
+        "Alt+L correct meaning (1).",
+        "Alt+C correct meaning (1).",
+        "Ctrl+V correct meaning (1)."
+      ],
+      "aiReferenceNotes": "Use the reference answer as a study marking guide. Accept equivalent technically correct Linux wording and commands. Do not penalise harmless command-option ordering differences.",
+      "explanation": "These are Bash Readline editing keys, normally in Emacs editing mode.",
+      "studentNote": "Student note: Alt+U/L/C change word case; Ctrl+V quotes the next character.",
+      "table": {
+        "caption": "Keystrokes for editing command lines",
+        "headers": [
+          "Keystroke",
+          "Meaning"
+        ],
+        "rows": [
+          [
+            "Ctrl+D",
+            ""
+          ],
+          [
+            "Backspace",
+            ""
+          ],
+          [
+            "Ctrl+T",
+            ""
+          ],
+          [
+            "Alt+T",
+            ""
+          ],
+          [
+            "Alt+U",
+            ""
+          ],
+          [
+            "Alt+L",
+            ""
+          ],
+          [
+            "Alt+C",
+            ""
+          ],
+          [
+            "Ctrl+V",
+            ""
+          ]
+        ]
+      }
+    },
+    {
+      "number": "1.5",
+      "marks": 6,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "1.5 You prefer to use the rm command with the –r and –verbose options whenever you use it. You \nfind it tedious to type the options every time you use the rm command and would prefer if the options \ncould be added automatically. Using an alias, give the command you would use to make this possible.\n(6)",
+      "correctAnswer": "A valid Bash alias is: alias rm='rm -r --verbose' . Equivalent forms such as alias rm='rm -rv' are acceptable. To make it permanent, put the alias in the appropriate shell startup file such as ~/.bashrc.",
+      "aiRubric": [
+        "Use the alias command correctly (2).",
+        "Alias name is rm and expands to rm with recursive option (2).",
+        "Include verbose option correctly (2)."
+      ],
+      "aiReferenceNotes": "Use the reference answer as a study marking guide. Accept equivalent technically correct Linux wording and commands. Do not penalise harmless command-option ordering differences.",
+      "explanation": "An alias substitutes a preferred command string when you type the alias name.",
+      "studentNote": "Student note: The exam asks for the alias command. If permanence is discussed, ~/.bashrc is the normal Bash place."
+    },
+    {
+      "number": "1.6",
+      "marks": 5,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "1.6 You can type part of username and press tab and Linux will attempt to complete the value you \nare typing. What other values may be partially typed for auto completion? (5)",
+      "correctAnswer": "Depending on Bash configuration and context, completion can expand command names, filenames, directory names, variable names, hostnames, aliases/functions and other programmable-completion values.",
+      "aiRubric": [
+        "Award 1 mark each for five valid completion targets other than usernames."
+      ],
+      "aiReferenceNotes": "Use the reference answer as a study marking guide. Accept equivalent technically correct Linux wording and commands. Do not penalise harmless command-option ordering differences.",
+      "explanation": "Tab completion is context-sensitive and can complete more than files.",
+      "studentNote": "Student note: Easy five: command, filename, directory, variable and hostname."
+    },
+    {
+      "number": "2.1",
+      "marks": 7,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "2.1 In what directories do you expect find files relating to the following: (7)\n a) User commands like sort, ls and date.\n b) A bootable Linux kernel and loader files.\n c) Files representing access points to devices on your system.\n d) Administrative configuration files.\n e) Directories assigned to each regular user with a login account.\n f) Information about system resources.\n g) Directory structure available to store add-on software.",
+      "correctAnswer": "a) /bin or commonly /usr/bin on modern merged-/usr systems; b) /boot; c) /dev; d) /etc; e) /home; f) /proc (also /sys contains kernel/device information, but /proc is the expected traditional answer for system resources); g) /opt.",
+      "aiRubric": [
+        "Correct conventional directory for each item, 1 mark each."
+      ],
+      "aiReferenceNotes": "Use the reference answer as a study marking guide. Accept equivalent technically correct Linux wording and commands. Do not penalise harmless command-option ordering differences.",
+      "explanation": "The Linux filesystem hierarchy assigns standard purposes to important top-level directories.",
+      "studentNote": "Student note: Remember the chain /boot, /dev, /etc, /home, /proc, /opt, with user commands in /bin or /usr/bin."
+    },
+    {
+      "number": "2.2",
+      "marks": 8,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "2.2 Assume the current directory is unknown. Create a new directory named personal below your \nhome directory. What command would you use to:\n a) Change your current directory to your home directory. (1)\n b) Prove that you have actually changed to your home directory. (1)\n c) Create the directory called test. (2)\n d) Check the permission of the directory just created. (4)",
+      "correctAnswer": "a) cd ~ (or cd with no argument); b) pwd; c) mkdir test; d) ls -ld test (or an equivalent command that displays the directory's mode/permissions itself, such as stat test). Note that the paper says 'personal' in the introduction but asks for directory 'test' in part (c); the question wording is preserved.",
+      "aiRubric": [
+        "cd ~ or cd (1).",
+        "pwd (1).",
+        "mkdir test as explicitly asked in part c (2).",
+        "A correct command such as ls -ld test and explanation/usage sufficient to display the directory's permissions (4)."
+      ],
+      "aiReferenceNotes": "Use the reference answer as a study marking guide. Accept equivalent technically correct Linux wording and commands. Do not penalise harmless command-option ordering differences.",
+      "explanation": "Use a home-directory shortcut, verify with pwd, create the requested directory, then display the directory entry rather than listing its contents.",
+      "studentNote": "Student note: Use ls -ld for the directory itself. The paper contains a personal/test naming inconsistency, so follow the explicit sub-question when answering."
+    },
+    {
+      "number": "2.3",
+      "marks": 10,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "2.3 You have a directory containing files named:\n potato\n banana\n grape\n garapefruit\n watermelon\nWhat would the result be if you typed the following commands at the prompt?\n a) ls a* (1)\n b) ls g* (2)\n c) ls g*t (1)\n d) ls *e* (4)\n e) ls *n* (2)",
+      "correctAnswer": "Assuming normal Bash globbing and only the listed files: a) no listed filename starts with a, so the glob has no match and ls will normally report that a* cannot be accessed (unless shell options change unmatched-glob behaviour); b) garapefruit and grape; c) garapefruit; d) garapefruit, grape and watermelon; e) banana and watermelon.",
+      "aiRubric": [
+        "a) no match / normal ls error for a* (1).",
+        "b) both g-starting files (2).",
+        "c) garapefruit (1).",
+        "d) identify all listed names containing e; award according to the paper's marks while recognising the supplied filename spelling (4).",
+        "e) banana and watermelon (2)."
+      ],
+      "aiReferenceNotes": "Use the reference answer as a study marking guide. Accept equivalent technically correct Linux wording and commands. Do not penalise harmless command-option ordering differences.",
+      "explanation": "The * wildcard matches any sequence of characters, including an empty sequence.",
+      "studentNote": "Student note: Work directly from the exact filenames shown in the paper; 'garapefruit' is preserved exactly as printed in the available transcription."
+    },
+    {
+      "number": "2.4",
+      "marks": 12,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "2.4 Copy the table below to your script and complete the blank columns to indicate the possible \noperations for each kind of permission with regards to a file or directory. (12)",
+      "correctAnswer": "Read: file—read/view contents; directory—list directory entries/names. Write: file—modify/truncate file contents; directory—create, delete or rename entries (subject to other permissions). Execute: file—execute the file as a program/script when valid; directory—traverse/search the directory and access entries by name.",
+      "aiRubric": [
+        "File read (2).",
+        "Directory read (2).",
+        "File write (2).",
+        "Directory write (2).",
+        "File execute (2).",
+        "Directory execute/traverse (2)."
+      ],
+      "aiReferenceNotes": "Use the reference answer as a study marking guide. Accept equivalent technically correct Linux wording and commands. Do not penalise harmless command-option ordering differences.",
+      "explanation": "The same r, w and x letters mean different operations for regular files and directories.",
+      "studentNote": "Student note: For a directory, x means traversal/search; w controls changing directory entries; r allows listing names.",
+      "table": {
+        "caption": "Permissions",
+        "headers": [
+          "Permission",
+          "File",
+          "Directory"
+        ],
+        "rows": [
+          [
+            "Read",
+            "",
+            ""
+          ],
+          [
+            "Write",
+            "",
+            ""
+          ],
+          [
+            "Execute",
+            "",
+            ""
+          ]
+        ]
+      }
+    },
+    {
+      "number": "3.1",
+      "marks": 2,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "3.1 Give the grep command you would use to search for the word lanstart in the /etc/services \ndirectory? The search must be case insensitive. (2)",
+      "correctAnswer": "grep -i 'lanstart' /etc/services . The paper calls /etc/services a directory, but on normal Linux systems /etc/services is a file; the command above matches the likely intended target.",
+      "aiRubric": [
+        "Use grep with case-insensitive option -i (1).",
+        "Use lanstart and /etc/services correctly (1)."
+      ],
+      "aiReferenceNotes": "Use the reference answer as a study marking guide. Accept equivalent technically correct Linux wording and commands. Do not penalise harmless command-option ordering differences.",
+      "explanation": "grep -i performs a case-insensitive text search.",
+      "studentNote": "Student note: Preserve the paper wording, but remember /etc/services is normally a file."
+    },
+    {
+      "number": "3.2",
+      "marks": 6,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "3.2 You used the ps command to get a process listing, as you are busy analyzing the machine’s \nperformance. Under which columns would you look if you wanted to know: (6)\n a) the virtual set size?\n b) the resident set size?\n c) if a process was currently running or sleeping?",
+      "correctAnswer": "a) VSZ; b) RSS; c) STAT (or S depending on the ps output format; STAT is the common column showing states such as R for running and S for sleeping).",
+      "aiRubric": [
+        "VSZ (2).",
+        "RSS (2).",
+        "STAT/state column (2)."
+      ],
+      "aiReferenceNotes": "Use the reference answer as a study marking guide. Accept equivalent technically correct Linux wording and commands. Do not penalise harmless command-option ordering differences.",
+      "explanation": "ps columns use short names for process memory sizes and process state.",
+      "studentNote": "Student note: VSZ = virtual size, RSS = resident memory, STAT = state."
+    },
+    {
+      "number": "3.3",
+      "marks": 6,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "3.3 Explain how you would control the nice values for child processes. (6)",
+      "correctAnswer": "A child process normally inherits its parent's nice value. Set the desired niceness on the parent/shell before it launches children, start a command with nice, or adjust a running process with renice where permissions allow. Because inherited niceness affects descendants initially, controlling the parent is a practical way to influence child-process CPU scheduling priority.",
+      "aiRubric": [
+        "State that child processes inherit niceness from the parent initially (2).",
+        "Explain setting/starting the parent or command with nice (2).",
+        "Mention renice/permissions or explain the scheduling effect correctly (2)."
+      ],
+      "aiReferenceNotes": "Use the reference answer as a study marking guide. Accept equivalent technically correct Linux wording and commands. Do not penalise harmless command-option ordering differences.",
+      "explanation": "Niceness affects CPU scheduling priority, and child processes begin with the parent's niceness.",
+      "studentNote": "Student note: Higher nice number generally means the process is nicer to others and receives lower CPU priority."
+    },
+    {
+      "number": "3.4",
+      "marks": 3,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "3.4 How would you justify the variety of administrative logins when root can do everything? (3)",
+      "correctAnswer": "Separate administrative accounts/roles support least privilege, accountability/auditing and safer delegation. Users can perform only the administrative tasks they need, actions can be traced to an individual account, and accidental or malicious use of unrestricted root access is reduced.",
+      "aiRubric": [
+        "Least privilege / limited rights (1).",
+        "Accountability/auditing (1).",
+        "Safer delegation or reduced risk from shared/unrestricted root use (1)."
+      ],
+      "aiReferenceNotes": "Use the reference answer as a study marking guide. Accept equivalent technically correct Linux wording and commands. Do not penalise harmless command-option ordering differences.",
+      "explanation": "Root can do everything, which is exactly why routine administration should not always use unrestricted root access.",
+      "studentNote": "Student note: Think security: least privilege, traceability and reduced damage."
+    },
+    {
+      "number": "3.5",
+      "marks": 6,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "3.5 How would you do a Linux installation when you need to disable the hardware for DMA support, \nmultipath devices, SCSI support and IPV6 networking? (6)",
+      "correctAnswer": "Use the installer/boot loader's documented boot-time kernel or installer options to disable those hardware/network features for that installation attempt. The exact option names are distribution- and installer-version-specific, so they must be taken from the installation media/help for the version being used. A valid answer should identify the boot prompt/options mechanism and suitable disable parameters for DMA, multipath, SCSI and IPv6 where the prescribed material specifies them.",
+      "aiRubric": [
+        "Explain supplying installer/kernel boot options before installation (2).",
+        "Address disabling the requested hardware/network features with the appropriate documented parameters (3).",
+        "Recognise that exact parameter names must match the installer/version (1)."
+      ],
+      "aiReferenceNotes": "Use the reference answer as a study marking guide. Accept equivalent technically correct Linux wording and commands. Do not penalise harmless command-option ordering differences.",
+      "explanation": "Hardware-detection problems can often be worked around by passing boot options to the Linux installer.",
+      "studentNote": "Student note: Do not invent modern kernel parameters if your prescribed book gives specific installer switches; learn the switches used in your course material."
+    },
+    {
+      "number": "3.6",
+      "marks": 5,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "3.6 Assume that you will use the yum command. (5)\n a) How would you find out what editors are available to be installed?\n b) How would you reinstall a package called delta?\n c) How would you determine which package the dvdrecord command is in?\n d) How would you determine what packages emacs is dependent on?\n e) How would you check for updates?",
+      "correctAnswer": "Typical yum commands: a) yum search editor (or yum list available with suitable filtering); b) yum reinstall delta; c) yum provides '*/dvdrecord' (or a valid provides form); d) yum deplist emacs; e) yum check-update.",
+      "aiRubric": [
+        "Valid yum command for editor search/listing (1).",
+        "yum reinstall delta (1).",
+        "yum provides for dvdrecord (1).",
+        "yum deplist emacs (1).",
+        "yum check-update (1)."
+      ],
+      "aiReferenceNotes": "Use the reference answer as a study marking guide. Accept equivalent technically correct Linux wording and commands. Do not penalise harmless command-option ordering differences.",
+      "explanation": "yum has separate subcommands for searching, reinstalling, finding package providers, viewing dependencies and checking updates.",
+      "studentNote": "Student note: Match the yum verb to the task: search, reinstall, provides, deplist, check-update."
+    },
+    {
+      "number": "3.7",
+      "marks": 4,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "3.7 Which usermod command would you use to: (4)\n a) change the login name for the account?\n b) lock the account?\n c) move/copy the content of the home directory to a new location?\n d) remove the restriction that UID’s must be unique?",
+      "correctAnswer": "The relevant usermod options are: a) -l new_login; b) -L; c) -d new_home -m (with -m moving the home contents when changing the home directory); d) -o, used with -u when assigning a non-unique UID.",
+      "aiRubric": [
+        "-l (1).",
+        "-L (1).",
+        "-m together with -d new home as needed (1).",
+        "-o with UID change context (1)."
+      ],
+      "aiReferenceNotes": "Use the reference answer as a study marking guide. Accept equivalent technically correct Linux wording and commands. Do not penalise harmless command-option ordering differences.",
+      "explanation": "usermod uses short options for login name, lock state, home movement and allowing a non-unique UID.",
+      "studentNote": "Student note: Lowercase -l changes login; uppercase -L locks. -m moves home contents, and -o allows a non-unique UID with -u."
+    }
+  ]
+}
