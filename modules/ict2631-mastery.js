@@ -15,8 +15,9 @@
   window.MasteryModules.push({
     id:"ict2631",name:"ICT2631",
     sourceFiles:[
-      "ict2631-oct-nov-2025-inspired.json",
-      "ict2631-jan-feb-2025-inspired.json",
+      "ict2631-oct-nov-2025-exam.json",
+      "ict2631-jan-feb-2025-exam.json",
+      "ict2631-oct-nov-2022-exam.json",
       "ict2631-assessment-1-2026-practice.json",
       "ict2631-assessment-2-2026-practice.json"
     ],
