@@ -1,0 +1,231 @@
+{
+  "testName": "ICT2631 – Operating Systems Practice – OCT/NOV 2025 Examination (100 marks)",
+  "module": "ICT2631",
+  "examSession": "OCT/NOV 2025",
+  "totalMarks": 100,
+  "durationMinutes": 120,
+  "preserveOrder": true,
+  "marking": "ai-rubric-weighted",
+  "sourceType": "Exact question transcription from the ICT2631 October/November 2025 paper held in the project files.",
+  "sourceNote": "Original question wording, spelling and awkward phrasing are preserved. Reference answers, explanations and student notes are study aids and are not an official UNISA memorandum.",
+  "questions": [
+    {
+      "number": "1.1",
+      "marks": 16,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "1.1 Answer the following questions regarding AIGLX.\n a) What is the goal with AIGLX? (4)\n b) Name the effects that you can get with AIGLX. (12)",
+      "correctAnswer": "AIGLX (Accelerated Indirect GLX) allows hardware-accelerated OpenGL rendering in an X.Org desktop, including indirect rendering used by compositing window managers. Typical effects include desktop/workspace cube or rotation, transparency/translucency, shadows, window fading, zoom/magnification, window scaling/exposé-style views, animations when opening/closing/minimising windows, wobbly windows and other compositing effects.",
+      "aiRubric": [
+        "Explain the goal of accelerated OpenGL/3D rendering through X.Org/AIGLX (4).",
+        "Name valid AIGLX/compositing desktop effects, awarding credit up to the 12 marks available."
+      ],
+      "aiReferenceNotes": "Use the reference answer as a study marking guide. Accept equivalent technically correct Linux wording and commands. Do not penalise harmless command-option ordering differences.",
+      "explanation": "AIGLX is about accelerated 3D/OpenGL graphics in the X desktop. A compositing window manager can then create visual desktop effects.",
+      "studentNote": "Student note: Separate the goal of AIGLX from the examples of visual effects. Do not describe AIGLX as a desktop environment itself."
+    },
+    {
+      "number": "1.2",
+      "marks": 4,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "1.2 Describe what you would do if your Gnome 3 desktop could not do everything you wanted. (4)",
+      "correctAnswer": "Extend or customise GNOME 3 rather than replacing the operating system: install suitable GNOME Shell extensions and use GNOME Tweaks/extension settings to enable and configure the required desktop behaviour.",
+      "aiRubric": [
+        "Mention GNOME Shell extensions or equivalent extension mechanism (2).",
+        "Explain enabling/configuring suitable extensions or GNOME Tweaks/customisation (2)."
+      ],
+      "aiReferenceNotes": "Use the reference answer as a study marking guide. Accept equivalent technically correct Linux wording and commands. Do not penalise harmless command-option ordering differences.",
+      "explanation": "GNOME 3 can be extended with GNOME Shell extensions and configuration tools.",
+      "studentNote": "Student note: The key idea is extending/customising GNOME, not reinstalling Linux."
+    },
+    {
+      "number": "1.3",
+      "marks": 10,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "1.3 Indicate which keys you would use to edit the command line if you want to _____.\n a) cut to the end of the line. (2)\n b) cut the text to the beginning of the line. (2)\n c) cut the previous word. (2)\n d) cut the next word. (2)\n e) paste recent text. (2)",
+      "correctAnswer": "Using Bash/Readline Emacs-style keys: a) Ctrl+K; b) Ctrl+U; c) Ctrl+W; d) Alt+D; e) Ctrl+Y.",
+      "aiRubric": [
+        "Ctrl+K (2).",
+        "Ctrl+U (2).",
+        "Ctrl+W (2).",
+        "Alt+D (2).",
+        "Ctrl+Y (2)."
+      ],
+      "aiReferenceNotes": "Use the reference answer as a study marking guide. Accept equivalent technically correct Linux wording and commands. Do not penalise harmless command-option ordering differences.",
+      "explanation": "These are standard Bash Readline editing shortcuts in Emacs mode.",
+      "studentNote": "Student note: Ctrl+K cuts forward, Ctrl+U cuts backward, and Ctrl+Y pastes (yanks) the last cut text."
+    },
+    {
+      "number": "1.4",
+      "marks": 6,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "1.4 Discuss what PXE is and what it is used for. (6)",
+      "correctAnswer": "PXE (Preboot eXecution Environment) lets a computer boot using the network before a local operating system starts. The firmware/network card obtains network boot information, commonly by DHCP, and downloads boot files from a network server such as TFTP. It is used for remote or automated operating-system installation, imaging, recovery and diskless/network booting.",
+      "aiRubric": [
+        "Define PXE/network boot before the local OS (2).",
+        "Explain the network boot process/services such as DHCP plus TFTP/boot server (2).",
+        "State valid uses such as automated installation, imaging, recovery or diskless boot (2)."
+      ],
+      "aiReferenceNotes": "Use the reference answer as a study marking guide. Accept equivalent technically correct Linux wording and commands. Do not penalise harmless command-option ordering differences.",
+      "explanation": "PXE allows a machine to start from network-provided boot files, which is useful when installing or recovering many computers.",
+      "studentNote": "Student note: Remember the flow: network boot information first, then boot files, then the installer or operating system."
+    },
+    {
+      "number": "1.5",
+      "marks": 6,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "1.5 What is the difference when you use a variable called CITY proceeded by a $-sign as opposed to \njust the variable name? (6)",
+      "correctAnswer": "CITY without a dollar sign is treated as the literal text/name CITY in normal shell text. $CITY asks the shell to perform parameter expansion and substitute the value stored in the variable CITY. For example, after CITY=Pretoria, echo CITY prints CITY while echo $CITY prints Pretoria.",
+      "aiRubric": [
+        "Explain CITY as literal text/name when not expanded (2).",
+        "Explain $CITY as parameter expansion/value substitution (2).",
+        "Give a correct example/output or equivalent distinction (2)."
+      ],
+      "aiReferenceNotes": "Use the reference answer as a study marking guide. Accept equivalent technically correct Linux wording and commands. Do not penalise harmless command-option ordering differences.",
+      "explanation": "The dollar sign tells the shell to expand the variable and use its stored value.",
+      "studentNote": "Student note: Think 'CITY is the label; $CITY is what is inside the box.'"
+    },
+    {
+      "number": "2.1",
+      "marks": 7,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "2.1 Describe what it means if the permissions of a file or directory listing entry ends with a ____.\n a) t. Why is this useful? (4)\n b) +. Give an example. (3)",
+      "correctAnswer": "a) A final t indicates the sticky bit is set on a directory together with execute permission for others. In a shared writable directory it prevents users from deleting or renaming files they do not own (apart from the file owner, directory owner or root). b) A trailing + indicates additional access-control information, commonly POSIX ACL entries beyond the normal owner/group/other mode bits; for example an ACL granting user Jane read access.",
+      "aiRubric": [
+        "Explain sticky bit meaning (2).",
+        "Explain why sticky bit is useful in shared directories (2).",
+        "Explain + as extended ACL/additional access controls (2).",
+        "Give a valid ACL example (1)."
+      ],
+      "aiReferenceNotes": "Use the reference answer as a study marking guide. Accept equivalent technically correct Linux wording and commands. Do not penalise harmless command-option ordering differences.",
+      "explanation": "The final permission character can signal special access controls beyond ordinary rwx bits.",
+      "studentNote": "Student note: Sticky bit is most commonly remembered with shared directories such as /tmp. A '+' normally points you to ACLs."
+    },
+    {
+      "number": "2.2",
+      "marks": 4,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "2.2 Why would you consider using a filesystem type other than the native types? (4)",
+      "correctAnswer": "A non-native filesystem may be needed for compatibility/interoperability with other operating systems or devices, removable-media exchange, existing storage that must be read without reformatting, or a feature/workload requirement better served by another supported filesystem.",
+      "aiRubric": [
+        "Give two valid reasons, typically 2 marks each: interoperability/compatibility, removable media/data exchange, existing storage, or a required filesystem feature."
+      ],
+      "aiReferenceNotes": "Use the reference answer as a study marking guide. Accept equivalent technically correct Linux wording and commands. Do not penalise harmless command-option ordering differences.",
+      "explanation": "Filesystem choice is sometimes driven by who or what must read the disk, not only by what Linux prefers natively.",
+      "studentNote": "Student note: A strong exam example is a removable drive that must work on both Linux and Windows."
+    },
+    {
+      "number": "2.3",
+      "marks": 7,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "2.3 Explain what could happen if you used a locate command to find files and state why it can \nhappen. (7)",
+      "correctAnswer": "locate normally searches a prebuilt filename database rather than walking the live filesystem. If the database is stale, newly created files may not appear and files that were moved or deleted may still be listed. Updating the locate database (commonly with updatedb) refreshes the information.",
+      "aiRubric": [
+        "State that locate searches an index/database (2).",
+        "Explain a new file may be missing (2).",
+        "Explain a deleted/moved file may still appear (2).",
+        "Link the behaviour to database update timing / mention updatedb (1)."
+      ],
+      "aiReferenceNotes": "Use the reference answer as a study marking guide. Accept equivalent technically correct Linux wording and commands. Do not penalise harmless command-option ordering differences.",
+      "explanation": "locate is fast because it searches an index, but the index may not match the filesystem until it is refreshed.",
+      "studentNote": "Student note: If the question says 'locate gives an old result', think 'stale database'."
+    },
+    {
+      "number": "2.4",
+      "marks": 5,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "2.4 Normally only the root user can mount a filesystem using the mount command. What would you \ndo to enable any user to mount such a file system. (5)",
+      "correctAnswer": "Create or edit the appropriate /etc/fstab entry for that filesystem and include an option that permits non-root mounting, such as user (the mounting user may unmount) or users (users may mount/unmount as allowed). Then the user can mount the preconfigured filesystem by its mount point/device without needing a full root mount command.",
+      "aiRubric": [
+        "Identify /etc/fstab configuration (2).",
+        "Use a suitable option such as user/users (2).",
+        "Explain that the filesystem/mount point is preconfigured and can then be mounted by an ordinary user (1)."
+      ],
+      "aiReferenceNotes": "Use the reference answer as a study marking guide. Accept equivalent technically correct Linux wording and commands. Do not penalise harmless command-option ordering differences.",
+      "explanation": "Non-root mounting is normally enabled through a controlled /etc/fstab entry instead of giving broad root access.",
+      "studentNote": "Student note: Do not answer only 'use sudo' when the question asks how to enable a user to mount that filesystem."
+    },
+    {
+      "number": "2.5",
+      "marks": 6,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "2.5 Why is it desirable to have multiple partitions with Linux? (6)",
+      "correctAnswer": "Separate partitions/filesystems isolate growth and failures, allow different mount options/filesystem types, protect system areas from a full /home or /var, make backup/recovery/reinstallation easier, and can improve security or administration by separating data from the root filesystem.",
+      "aiRubric": [
+        "Award credit for three well-explained valid reasons, up to 6 marks."
+      ],
+      "aiReferenceNotes": "Use the reference answer as a study marking guide. Accept equivalent technically correct Linux wording and commands. Do not penalise harmless command-option ordering differences.",
+      "explanation": "Multiple partitions separate parts of the system so one area can be managed without affecting everything else.",
+      "studentNote": "Student note: Good examples are /home, /var and / on separate filesystems."
+    },
+    {
+      "number": "3.1",
+      "marks": 8,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "3.1 Discuss the functionality of:\n a) LDAP (6)\n b) Winbind (2)",
+      "correctAnswer": "a) LDAP is a protocol for accessing and managing a central directory of structured information such as users, groups and authentication/identity attributes. Linux clients can query a directory service so accounts and related information are administered centrally. b) Winbind is a Samba component that lets Unix/Linux systems obtain Windows/Active Directory user and group information and map those identities for authentication and access.",
+      "aiRubric": [
+        "LDAP: define directory-access protocol (2), central directory/identity data (2), centralised lookup/authentication use (2).",
+        "Winbind: explain Linux/Samba integration with Windows/AD users/groups (2)."
+      ],
+      "aiReferenceNotes": "Use the reference answer as a study marking guide. Accept equivalent technically correct Linux wording and commands. Do not penalise harmless command-option ordering differences.",
+      "explanation": "LDAP provides central directory information; Winbind helps Linux participate in a Windows/Active Directory identity environment.",
+      "studentNote": "Student note: LDAP is the directory protocol. Winbind is specifically associated with Samba/Windows-domain identity integration."
+    },
+    {
+      "number": "3.2",
+      "marks": 11,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "3.2 What are the limitations of 3rd party repositories? (11)",
+      "correctAnswer": "Third-party repositories may be outside the distribution vendor's support and quality-control process. Risks include untrusted or compromised packages, weak signing practices, incompatible package versions, dependency conflicts, replacement of official packages, delayed or missing security updates, repositories disappearing, inconsistent testing, upgrade problems, licensing/policy concerns and unclear maintenance/support responsibility.",
+      "aiRubric": [
+        "Award marks for distinct valid limitations/risks of third-party repositories, up to 11 marks. Do not require the exact wording of the reference list."
+      ],
+      "aiReferenceNotes": "Use the reference answer as a study marking guide. Accept equivalent technically correct Linux wording and commands. Do not penalise harmless command-option ordering differences.",
+      "explanation": "A third-party repository can provide useful software, but it adds a separate trust, compatibility and maintenance source to the system.",
+      "studentNote": "Student note: Think in groups: security/trust, compatibility/dependencies, updates/support, availability/maintenance and policy/licensing."
+    },
+    {
+      "number": "3.3",
+      "marks": 10,
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "text": "3.3 What are the rules, as defined by OSI, that apply to each of the following aspects of open source \nlicenses?\n a) Source code (2)\n b) Derived works (2)\n c) No discrimination against persons or groups (2)\n d) License must not be specific to a product (2)\n e) License must be technology neutral (2)",
+      "correctAnswer": "a) Source code: the program must include source code and allow distribution in source as well as compiled form; deliberately obscured source is not acceptable. b) Derived works: the licence must allow modifications and derived works and allow them to be distributed under the same terms as the original licence. c) No discrimination: the licence must not discriminate against any person or group. d) Not product-specific: rights attached to the program must not depend on it being part of a particular software distribution/product. e) Technology neutral: the licence must not require or depend on a particular technology, interface or method of use.",
+      "aiRubric": [
+        "Correct source-code rule (2).",
+        "Correct derived-works rule (2).",
+        "Correct no-discrimination rule (2).",
+        "Correct not-specific-to-product rule (2).",
+        "Correct technology-neutral rule (2)."
+      ],
+      "aiReferenceNotes": "Use the reference answer as a study marking guide. Accept equivalent technically correct Linux wording and commands. Do not penalise harmless command-option ordering differences.",
+      "explanation": "These items come from the Open Source Definition and describe what an open-source licence is allowed to require.",
+      "studentNote": "Student note: Learn the rule idea, not only the heading. In the exam, state what the licence must or must not do."
+    }
+  ]
+}
