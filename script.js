@@ -5348,8 +5348,9 @@ const testFiles = [
   "inf3708-jan-feb-2025-supplementary.json",
   "inf3708-assessment-1-2026.json",
   "test36.json", // INF3708 Assessment 2 (14 June 2026)
-  "ict2631-oct-nov-2025-inspired.json",
-  "ict2631-jan-feb-2025-inspired.json",
+  "ict2631-oct-nov-2025-exam.json",
+  "ict2631-jan-feb-2025-exam.json",
+  "ict2631-oct-nov-2022-exam.json",
   "ict2631-assessment-1-2026-practice.json",
   "ict2631-assessment-2-2026-practice.json",
   // ICT2622 original, clearly-labelled revision packs and mixed-format lab.
