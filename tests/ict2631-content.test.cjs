@@ -49,9 +49,11 @@ for (const name of names) {
     numbers.add(q.number);
     assert.ok(q.text && q.marks > 0, "Question and marks are required");
     assert.ok(q.explanation, "Explanation required");
-    assert.ok(q.studentNote, "Extra student note required");
 
-    if (practiceNames.includes(name)) {
+    if (officialNames.includes(name)) {
+      assert.ok(q.studentNote, "Exact papers require a separate student note");
+    } else {
+      assert.ok(q.explanation.includes("Student note:"), "Practice explanation must include a student note");
       assert.ok(q.study && q.study.title && q.study.simple && q.study.steps.length &&
         q.study.example && q.study.pitfall && q.study.keyTerms?.length,
         "Practice Study mode must explain every question");
