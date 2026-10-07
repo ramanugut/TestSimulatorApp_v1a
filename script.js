@@ -1390,8 +1390,12 @@ document.addEventListener("DOMContentLoaded", function () {
         userTurn.pending = false;
         userTurn.failed = true;
         persistAiTutorChatHistory(question, actualIndex, history);
+        const reason =
+          error && typeof error.message === "string" && error.message.trim()
+            ? error.message.trim()
+            : "AI tutor request failed.";
         status.textContent =
-          "Send failed. Your message was kept — use Retry on the message.";
+          reason + " Your message was kept — use Retry on the message.";
         renderAiTutorChatHistory(transcript, question, actualIndex, sendPrompt);
       } finally {
         busy = false;
