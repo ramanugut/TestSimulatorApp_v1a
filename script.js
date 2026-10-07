@@ -3880,7 +3880,14 @@ document.addEventListener("DOMContentLoaded", function () {
       whyUsesSteps = true;
     }
     if (!whyCorrect.length && parsed.plain[0]) {
-      whyCorrect = ["This answer is correct because " + parsed.plain[0]];
+      const answerLabel = String(formatAnswerForDisplay(question.correctAnswer) || "")
+        .replace(/\s+/g, " ")
+        .trim();
+      const prefix =
+        answerLabel && answerLabel.length <= 180
+          ? '"' + answerLabel + '" fits because '
+          : "This answer is correct because ";
+      whyCorrect = [prefix + parsed.plain[0]];
     }
     study.whyCorrect = whyCorrect;
     study._whyUsesSteps = whyUsesSteps;
