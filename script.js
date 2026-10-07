@@ -3787,6 +3787,159 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
 
+  function parseStudyExplanation(explanation) {
+    const result = {
+      plain: [],
+      why: [],
+      example: "",
+      studentNote: "",
+      remember: "",
+    };
+    String(explanation || "")
+      .split(/\n\s*\n|\n/)
+      .map((part) => part.trim())
+      .filter(Boolean)
+      .forEach((part) => {
+        let match = part.match(/^why\s*:\s*(.+)$/i);
+        if (match) {
+          result.why.push(match[1].trim());
+          return;
+        }
+        match = part.match(/^example\s*:\s*(.+)$/i);
+        if (match) {
+          result.example = match[1].trim();
+          return;
+        }
+        match = part.match(/^student\s+note\s*:\s*(.+)$/i);
+        if (match) {
+          result.studentNote = match[1].trim();
+          return;
+        }
+        match = part.match(/^remember\s*:\s*(.+)$/i);
+        if (match) {
+          result.remember = match[1].trim();
+          return;
+        }
+        result.plain.push(part);
+      });
+    return result;
+  }
+
+  function normaliseStudyTextList(value) {
+    if (Array.isArray(value)) {
+      return value.map((item) => String(item || "").trim()).filter(Boolean);
+    }
+    if (typeof value === "string" && value.trim()) {
+      return [value.trim()];
+    }
+    return [];
+  }
+
+  // Build one consistent Study Mode lesson for every module. Question JSON may
+  // provide rich study fields, or older papers may only have an explanation.
+  // The original question text and answer are never rewritten here.
+  function buildStudyGuideData(question) {
+    if (!question || typeof question !== "object") return null;
+
+    const sourceStudy =
+      question.study && typeof question.study === "object"
+        ? question.study
+        : {};
+    const parsed = parseStudyExplanation(question.explanation);
+    const study = { ...sourceStudy };
+
+    study.title = String(
+      sourceStudy.title ||
+      question.topic ||
+      question.section ||
+      question.chapter ||
+      "Understand this answer"
+    ).trim();
+
+    study.simple = String(
+      sourceStudy.meaning ||
+      sourceStudy.simple ||
+      parsed.plain[0] ||
+      ""
+    ).trim();
+
+    let whyCorrect = normaliseStudyTextList(sourceStudy.whyCorrect);
+    let whyUsesSteps = false;
+    if (!whyCorrect.length && parsed.why.length) {
+      whyCorrect = parsed.why;
+    }
+    if (!whyCorrect.length && Array.isArray(sourceStudy.steps) && sourceStudy.steps.length) {
+      whyCorrect = normaliseStudyTextList(sourceStudy.steps);
+      whyUsesSteps = true;
+    }
+    study.whyCorrect = whyCorrect;
+    study._whyUsesSteps = whyUsesSteps;
+
+    const notes = normaliseStudyTextList(sourceStudy.notes);
+    if (!notes.length && parsed.plain.length > 1) {
+      notes.push(...parsed.plain.slice(1));
+    }
+    study.notes = notes;
+
+    study.example = String(sourceStudy.example || parsed.example || "").trim();
+    study.studentNote = String(
+      sourceStudy.studentNote ||
+      question.studentNote ||
+      parsed.studentNote ||
+      ""
+    ).trim();
+    study.pitfall = String(sourceStudy.pitfall || "").trim();
+    study.remember = String(sourceStudy.remember || parsed.remember || "").trim();
+
+    if (
+      !study.simple &&
+      !study.whyCorrect.length &&
+      !study.notes.length &&
+      !study.example &&
+      !study.studentNote &&
+      !study.pitfall &&
+      !study.remember &&
+      !(Array.isArray(study.keyTerms) && study.keyTerms.length) &&
+      !(Array.isArray(study.steps) && study.steps.length)
+    ) {
+      return null;
+    }
+
+    return study;
+  }
+
+  function appendStudyTextSection(card, title, text, className = "study-guide-simple") {
+    const value = String(text || "").trim();
+    if (!value) return;
+    const heading = document.createElement("div");
+    heading.className = "study-guide-subtitle";
+    heading.textContent = title;
+    card.appendChild(heading);
+
+    const body = document.createElement("p");
+    body.className = className;
+    body.textContent = value;
+    card.appendChild(body);
+  }
+
+  function appendStudyListSection(card, title, items, ordered = false) {
+    const values = normaliseStudyTextList(items);
+    if (!values.length) return;
+    const heading = document.createElement("div");
+    heading.className = "study-guide-subtitle";
+    heading.textContent = title;
+    card.appendChild(heading);
+
+    const list = document.createElement(ordered ? "ol" : "ul");
+    list.className = "study-guide-steps";
+    values.forEach((value) => {
+      const item = document.createElement("li");
+      item.textContent = value;
+      list.appendChild(item);
+    });
+    card.appendChild(list);
+  }
+
   function createStudyGuideElement(study) {
     if (!study || typeof study !== "object") {
       return null;
@@ -3820,14 +3973,9 @@ document.addEventListener("DOMContentLoaded", function () {
       card.appendChild(reference);
     }
 
-    if (study.simple) {
-      const simple = document.createElement("p");
-      simple.className = "study-guide-simple";
-      simple.textContent = study.simple;
-      card.appendChild(simple);
-    }
+    appendStudyTextSection(card, "What this means", study.simple);
 
-    // Explain abbreviations and specialist terms before asking students to follow a method.
+    // Explain abbreviations and specialist terms before the reason.
     if (Array.isArray(study.keyTerms) && study.keyTerms.length) {
       const termsHeading = document.createElement("div");
       termsHeading.className = "study-guide-subtitle";
@@ -3848,21 +3996,29 @@ document.addEventListener("DOMContentLoaded", function () {
       if (termsList.childElementCount) card.appendChild(termsList);
     }
 
-    if (Array.isArray(study.steps) && study.steps.length) {
-      const stepsHeading = document.createElement("div");
-      stepsHeading.className = "study-guide-subtitle";
-      stepsHeading.textContent = study.stepsTitle || "How to work it out";
-      card.appendChild(stepsHeading);
+    appendStudyListSection(
+      card,
+      "Why this answer is correct",
+      study.whyCorrect,
+      false
+    );
 
-      const list = document.createElement("ol");
-      list.className = "study-guide-steps";
-      study.steps.forEach((step) => {
-        const item = document.createElement("li");
-        item.textContent = step;
-        list.appendChild(item);
-      });
-      card.appendChild(list);
+    if (
+      Array.isArray(study.steps) &&
+      study.steps.length &&
+      !study._whyUsesSteps &&
+      normaliseStudyTextList(study.steps).join("\n") !==
+        normaliseStudyTextList(study.whyCorrect).join("\n")
+    ) {
+      appendStudyListSection(
+        card,
+        study.stepsTitle || "How to work it out",
+        study.steps,
+        true
+      );
     }
+
+    appendStudyListSection(card, "Study notes", study.notes, false);
 
     if (study.example) {
       const example = document.createElement("p");
@@ -3874,11 +4030,21 @@ document.addEventListener("DOMContentLoaded", function () {
       card.appendChild(example);
     }
 
+    if (study.studentNote) {
+      const note = document.createElement("div");
+      note.className = "study-guide-remember";
+      const label = document.createElement("strong");
+      label.textContent = "Student note: ";
+      note.appendChild(label);
+      note.appendChild(document.createTextNode(study.studentNote));
+      card.appendChild(note);
+    }
+
     if (study.pitfall) {
       const pitfall = document.createElement("div");
       pitfall.className = "study-guide-remember";
       const label = document.createElement("strong");
-      label.textContent = "Student note: ";
+      label.textContent = study.studentNote ? "Common mistake: " : "Student note: ";
       pitfall.appendChild(label);
       pitfall.appendChild(document.createTextNode(study.pitfall));
       card.appendChild(pitfall);
@@ -3896,7 +4062,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     return card;
   }
-
 
 
   // Device speech only. Short sentence-sized parts make pause/resume predictable.
@@ -7046,8 +7211,9 @@ const testFiles = [
       if (canRevealStudyContent) {
         let voiceHost = null;
         // Keep the reader in the existing heading instead of adding another card.
-        if (question.study) {
-          const guide = createStudyGuideElement(question.study);
+        const studyGuideData = buildStudyGuideData(question);
+        if (studyGuideData) {
+          const guide = createStudyGuideElement(studyGuideData);
           if (guide) {
             questionElement.appendChild(guide);
             voiceHost = guide;
