@@ -1,4 +1,4 @@
-// Redeploy after Netlify environment configuration
+// Netlify AI grader/tutor backend — redeploy marker 2026-10-07
 const ALLOWED_ORIGINS = new Set([
   "https://ramanugut.github.io",
   "http://localhost:8888",
@@ -43,6 +43,35 @@ function cleanStringArray(value: unknown, maxItems = 12, maxItemLength = 600) {
     .map((item) => item.trim().slice(0, maxItemLength))
     .filter(Boolean)
     .slice(0, maxItems);
+}
+
+function publicGroqError(status: number) {
+  if (status === 429) {
+    return {
+      status: 429,
+      message:
+        "The AI service has reached a temporary free-plan limit. Please wait a little and press Retry.",
+    };
+  }
+  if (status === 401 || status === 403) {
+    return {
+      status: 503,
+      message:
+        "The AI service authentication needs attention. Please try again later.",
+    };
+  }
+  if (status === 400) {
+    return {
+      status: 502,
+      message:
+        "The AI provider rejected this request. Please retry; if it continues, the backend request format needs attention.",
+    };
+  }
+  return {
+    status: 502,
+    message:
+      "The AI provider is temporarily unavailable. Your message was kept; please press Retry.",
+  };
 }
 
 export default async (req: Request) => {
@@ -218,92 +247,136 @@ export default async (req: Request) => {
   );
 
   try {
-    const model =
-      requestMode === "grade" && diagramImage
-        ? "qwen/qwen3.8-27b"
-        : "openai/gpt-oss-120b";
-    const userContent = requestMode === "grade" && diagramImage
+    const diagramRequest = requestMode === "grade" && Boolean(diagramImage);
+    const modelCandidates = diagramRequest
+      ? ["qwen/qwen3.8-27b"]
+      : ["openai/gpt-oss-120b", "openai/gpt-oss-20b"];
+    const userContent = diagramRequest
       ? [
           { type: "text", text: userPrompt },
           { type: "image_url", image_url: { url: diagramImage } },
         ]
       : userPrompt;
-    const groqResponse = await fetch(
-      "https://api.groq.com/openai/v1/chat/completions",
-      {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${apiKey}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          model,
-          ...(requestMode === "grade" && diagramImage
-            ? { max_completion_tokens: 1600 }
-            : { reasoning_effort: "low" }),
-          temperature: 0,
-          messages: [
-            { role: "system", content: systemPrompt },
-            { role: "user", content: userContent },
-          ],
-          response_format: requestMode === "grade" && diagramImage ? { type: "json_object" } : {
-            type: "json_schema",
-            json_schema: {
-              name: "answer_grade",
-              strict: true,
-              schema: {
-                type: "object",
-                additionalProperties: false,
-                properties: {
-                  score: {
-                    type: "number",
-                    minimum: 0,
-                    maximum: 100,
+
+    let groqResponse: Response | null = null;
+    let groqPayload: any = null;
+    let model = modelCandidates[0];
+
+    for (const candidate of modelCandidates) {
+      model = candidate;
+      const attempt = await fetch(
+        "https://api.groq.com/openai/v1/chat/completions",
+        {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${apiKey}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            model: candidate,
+            ...(diagramRequest
+              ? { max_completion_tokens: 1600 }
+              : { reasoning_effort: "low" }),
+            temperature: 0,
+            messages: [
+              { role: "system", content: systemPrompt },
+              { role: "user", content: userContent },
+            ],
+            response_format: diagramRequest ? { type: "json_object" } : {
+              type: "json_schema",
+              json_schema: {
+                name: "answer_grade",
+                strict: true,
+                schema: {
+                  type: "object",
+                  additionalProperties: false,
+                  properties: {
+                    score: {
+                      type: "number",
+                      minimum: 0,
+                      maximum: 100,
+                    },
+                    verdict: {
+                      type: "string",
+                      enum: [
+                        "correct",
+                        "mostly_correct",
+                        "partially_correct",
+                        "incorrect",
+                      ],
+                    },
+                    feedback: { type: "string" },
+                    strengths: {
+                      type: "array",
+                      items: { type: "string" },
+                      maxItems: 5,
+                    },
+                    missingPoints: {
+                      type: "array",
+                      items: { type: "string" },
+                      maxItems: 5,
+                    },
+                    bookAlignment: { type: "string" },
                   },
-                  verdict: {
-                    type: "string",
-                    enum: [
-                      "correct",
-                      "mostly_correct",
-                      "partially_correct",
-                      "incorrect",
-                    ],
-                  },
-                  feedback: { type: "string" },
-                  strengths: {
-                    type: "array",
-                    items: { type: "string" },
-                    maxItems: 5,
-                  },
-                  missingPoints: {
-                    type: "array",
-                    items: { type: "string" },
-                    maxItems: 5,
-                  },
-                  bookAlignment: { type: "string" },
+                  required: [
+                    "score",
+                    "verdict",
+                    "feedback",
+                    "strengths",
+                    "missingPoints",
+                    "bookAlignment",
+                  ],
                 },
-                required: [
-                  "score",
-                  "verdict",
-                  "feedback",
-                  "strengths",
-                  "missingPoints",
-                  "bookAlignment",
-                ],
               },
             },
-          },
-        }),
+          }),
+        }
+      );
+
+      let attemptPayload: any = null;
+      try {
+        attemptPayload = await attempt.json();
+      } catch {
+        attemptPayload = null;
       }
-    );
 
-    const groqPayload = await groqResponse.json();
+      groqResponse = attempt;
+      groqPayload = attemptPayload;
 
-    if (!groqResponse.ok) {
-      console.error("Groq grading error", groqResponse.status, groqPayload);
+      if (attempt.ok) break;
+
+      console.error("Groq request error", {
+        status: attempt.status,
+        model: candidate,
+        error:
+          typeof attemptPayload?.error?.message === "string"
+            ? attemptPayload.error.message.slice(0, 500)
+            : typeof attemptPayload?.error === "string"
+              ? attemptPayload.error.slice(0, 500)
+              : "Unknown upstream error",
+      });
+
+      // A second text model gives tutor/marking requests a useful fallback for
+      // temporary provider or per-model free-plan limits. Do not duplicate
+      // diagram requests because the fallback text model cannot inspect images.
+      if (
+        diagramRequest ||
+        ![429, 500, 502, 503, 504].includes(attempt.status)
+      ) {
+        break;
+      }
+    }
+
+    if (!groqResponse || !groqResponse.ok) {
+      const upstreamStatus = groqResponse?.status || 502;
+      const publicError = publicGroqError(upstreamStatus);
       return jsonResponse(
-        { error: "AI marking service could not grade this answer." },
-        502,
+        {
+          error: publicError.message,
+          upstreamStatus,
+          model,
+        },
+        publicError.status,
         origin
       );
     }
