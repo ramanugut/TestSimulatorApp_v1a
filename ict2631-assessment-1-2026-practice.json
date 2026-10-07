@@ -37,6 +37,14 @@
             "term": "Kernel",
             "meaning": "The kernel is the core of an operating system that manages processes, memory and hardware access."
           }
+        ],
+        "whyCorrect": [
+          "The kernel is the privileged core that sits between applications and the hardware. It decides how CPU time, memory, devices and other resources are shared, and programs request those services through system calls. That is exactly why managing hardware resources and providing core services is the best answer."
+        ],
+        "notes": [
+          "Applications normally run in user space and cannot directly control protected hardware whenever they want.",
+          "Process scheduling, virtual memory, device drivers and access control are major kernel responsibilities.",
+          "A shell such as Bash is a user program that accepts commands; it uses kernel services rather than replacing the kernel."
         ]
       }
     },
@@ -67,6 +75,14 @@
             "term": "Linux distribution",
             "meaning": "A distribution combines the Linux kernel with user-space software and package management."
           }
+        ],
+        "whyCorrect": [
+          "Linux by itself refers to the kernel. A usable distribution packages that kernel together with user-space commands, libraries, installers, a package manager, defaults and configuration. Therefore the answer correctly describes the complete system people install as Ubuntu, Fedora and similar distributions."
+        ],
+        "notes": [
+          "Different distributions can use the same Linux kernel family but provide different package formats and administration tools.",
+          "Debian/Ubuntu commonly use APT and .deb packages; Fedora/RHEL-family systems commonly use DNF/RPM.",
+          "When an exam asks about a distribution, think: kernel + software + package management + configuration."
         ]
       }
     },
@@ -97,6 +113,14 @@
             "term": "Open source",
             "meaning": "Open-source licences give specified rights to inspect, use, change and redistribute software."
           }
+        ],
+        "whyCorrect": [
+          "Open-source software makes its source code available under a licence that grants defined rights such as inspection, modification and redistribution. Those rights come from the licence, so the freedom is not permission to ignore copyright or licence conditions."
+        ],
+        "notes": [
+          "Open source does not automatically mean 'no cost'; software may still be sold.",
+          "The exact rights and obligations depend on the specific licence.",
+          "Copyright still exists; the licence tells users what they are allowed to do with the copyrighted work."
         ]
       }
     },
@@ -127,6 +151,14 @@
             "term": "Licence models",
             "meaning": "Open-source licences vary in how they require notices and downstream licensing."
           }
+        ],
+        "whyCorrect": [
+          "MIT-style licences are permissive: they generally allow broad reuse, including in proprietary products, as long as required notices are kept. GPL-style licences are copyleft: when covered derivative work is distributed, stronger source-code and same-licence obligations can apply. That is the key contrast in the correct option."
+        ],
+        "notes": [
+          "Permissive licence = few downstream restrictions compared with strong copyleft.",
+          "Copyleft does not ban commercial use; GPL software can be sold.",
+          "Always distinguish using software privately from distributing a modified or combined work, because distribution often triggers licence obligations."
         ]
       }
     },
@@ -157,6 +189,14 @@
             "term": "Package indexes",
             "meaning": "Package managers use repository metadata to learn which versions are available."
           }
+        ],
+        "whyCorrect": [
+          "APT uses package indexes to know what packages and versions repositories currently offer. apt update downloads fresh repository metadata; it does not itself install all available upgrades. That is why 'refresh available package indexes' is correct."
+        ],
+        "notes": [
+          "Typical sequence: apt update first, then apt upgrade or apt install as needed.",
+          "The package index is metadata about packages, not the installed package files themselves.",
+          "If the index is stale, the system may not know about newly published versions."
         ]
       }
     },
@@ -187,6 +227,14 @@
             "term": "pwd",
             "meaning": "The working directory is the location a shell treats as the base for relative paths."
           }
+        ],
+        "whyCorrect": [
+          "pwd means 'print working directory'. The shell always has a current working directory, and pwd displays its absolute path, so it directly answers the question."
+        ],
+        "notes": [
+          "The working directory is the starting point used to resolve relative paths.",
+          "cd changes the working directory; pwd reports it.",
+          "A command such as pwd may return a path like /home/student/projects."
         ]
       }
     },
@@ -217,6 +265,14 @@
             "term": "Absolute paths",
             "meaning": "An absolute path begins at the root directory /; a relative path begins from the current location."
           }
+        ],
+        "whyCorrect": [
+          "An absolute path starts from the filesystem root, written as /. /var/log/syslog starts with /, so it identifies the same location regardless of the current directory. The other options are relative forms whose meaning depends on where you are."
+        ],
+        "notes": [
+          "../ means the parent of the current directory.",
+          "./ means the current directory.",
+          "A path that begins with / is the quickest exam clue that it is absolute."
         ]
       }
     },
@@ -247,6 +303,14 @@
             "term": "mkdir -p",
             "meaning": "mkdir creates directories; -p creates missing parent directories as needed."
           }
+        ],
+        "whyCorrect": [
+          "mkdir creates directories and the -p option tells it to create missing parent directories too. Therefore mkdir -p work/2026/notes can create the whole path even when work and work/2026 do not yet exist."
+        ],
+        "notes": [
+          "Without -p, mkdir normally fails if a required parent directory does not exist.",
+          "With -p, existing parent directories are not treated as an error.",
+          "Creating a directory only creates a folder entry; it does not create or mount a new filesystem."
         ]
       }
     },
@@ -277,6 +341,14 @@
             "term": "Hidden files",
             "meaning": "Unix-like systems normally hide names beginning with a dot in basic ls output."
           }
+        ],
+        "whyCorrect": [
+          "Linux and other Unix-like systems treat names beginning with . as hidden from the normal ls display. The -a option means 'all', so ls -a includes dotfiles as well as ordinary entries."
+        ],
+        "notes": [
+          "Examples of dotfiles include .bashrc and .profile.",
+          "Hidden files are not protected merely because they begin with a dot.",
+          "ls -la combines hidden entries with the detailed long-listing format."
         ]
       }
     },
@@ -307,6 +379,14 @@
             "term": "chmod 640",
             "meaning": "Numeric modes combine read=4, write=2 and execute=1 for owner, group and others."
           }
+        ],
+        "whyCorrect": [
+          "Numeric permissions are read=4, write=2 and execute=1. For 640, owner gets 6 = 4+2 = read/write, group gets 4 = read only, and others get 0 = no permissions. That exactly matches the correct option."
+        ],
+        "notes": [
+          "Read the three digits as owner, group, others.",
+          "7=rwx, 6=rw-, 5=r-x, 4=r--, 0=--- are useful patterns to memorise.",
+          "For directories, read/write/execute have different practical meanings from regular files, especially execute meaning traversal."
         ]
       }
     },
@@ -337,6 +417,14 @@
             "term": "chown",
             "meaning": "A Linux file records an owning user and an owning group."
           }
+        ],
+        "whyCorrect": [
+          "chown means 'change owner'. chown student report.txt changes the owning user of report.txt to student when the caller has sufficient privilege. The other commands inspect, print or search data rather than changing ownership."
+        ],
+        "notes": [
+          "chown user:group file can change both owner and group in one command.",
+          "chmod changes permission bits; chown changes ownership.",
+          "Changing ownership normally requires root or suitable administrative privilege."
         ]
       }
     },
@@ -367,6 +455,14 @@
             "term": "Inodes",
             "meaning": "An inode records metadata such as ownership, permissions and data locations."
           }
+        ],
+        "whyCorrect": [
+          "An inode stores filesystem metadata such as owner, permissions, timestamps and references to the file's data blocks. The filename is stored in a directory entry that maps a name to an inode number, so the correct option describes the separation accurately."
+        ],
+        "notes": [
+          "A file can have more than one filename through hard links because multiple directory entries can reference the same inode.",
+          "The inode normally does not contain the ordinary filename itself.",
+          "A filesystem can run out of inodes even when some disk space remains."
         ]
       }
     },
@@ -397,6 +493,14 @@
             "term": "Symbolic links",
             "meaning": "A symbolic link points to a pathname rather than sharing exactly the same inode like a typical hard link."
           }
+        ],
+        "whyCorrect": [
+          "A symbolic link stores a pathname to another object. If that target path no longer exists, the symlink remains but becomes dangling. A hard link instead creates another directory entry for the same inode, which is why the correct answer focuses on the stored path and possible dangling link."
+        ],
+        "notes": [
+          "Symlinks can usually point across filesystems; ordinary hard links cannot.",
+          "Deleting the original filename does not destroy file data if another hard link still references the inode.",
+          "ln -s target linkname creates a symbolic link."
         ]
       }
     },
@@ -427,6 +531,14 @@
             "term": "Exported variables",
             "meaning": "Shell variables are not automatically passed to every child process; exported variables join the environment."
           }
+        ],
+        "whyCorrect": [
+          "A normal shell variable belongs to the current shell. export marks the variable for inclusion in the environment passed to commands launched afterwards, so child processes can read NAME=value. That inheritance is the key reason the answer is correct."
+        ],
+        "notes": [
+          "Parent-to-child environment inheritance happens when a process starts a child.",
+          "A child process normally cannot change the already-running parent's environment.",
+          "export NAME=value both assigns the value and exports it in Bash."
         ]
       }
     },
@@ -457,6 +569,14 @@
             "term": "Long listing",
             "meaning": "The -l form of ls displays file type, mode bits, ownership, size and timestamps."
           }
+        ],
+        "whyCorrect": [
+          "ls -l requests the long listing format, which displays the file type/mode string, link count, owner, group, size and timestamp. Those are exactly the ownership, mode and size details asked for."
+        ],
+        "notes": [
+          "The first character indicates file type; the next nine characters show owner/group/other mode bits.",
+          "Use ls -la when you also need hidden entries.",
+          "A trailing + after mode bits can indicate additional ACL information."
         ]
       }
     },
@@ -487,6 +607,14 @@
             "term": "Shared-directory sticky bit",
             "meaning": "The sticky bit adds deletion restrictions on shared writable directories."
           }
+        ],
+        "whyCorrect": [
+          "On a world- or group-writable shared directory, the sticky bit restricts deletion or renaming so ordinary users cannot freely remove other users' files. It keeps shared creation possible while protecting ownership boundaries, which matches the scenario."
+        ],
+        "notes": [
+          "The classic example is /tmp, commonly shown with a final t in its permission string.",
+          "The sticky bit acts on directory entry deletion/renaming, not on file encryption.",
+          "It is different from setgid, which is mainly used to make new entries inherit the directory's group."
         ]
       }
     },
@@ -524,6 +652,14 @@
             "term": "Lab setup scenario",
             "meaning": "Reliable Linux setup involves more than the initial operating-system installation."
           }
+        ],
+        "whyCorrect": [
+          "The scenario asks for a safe lab deployment, so the answer covers the major dependencies in the right order: supported OS/desktop and hardware first, then updates, accounts and least privilege, then storage/backups, required software and licence compliance, followed by testing and rollback. A checklist that ignores any of these leaves a real operational risk."
+        ],
+        "notes": [
+          "Start with one pilot laptop before repeating the build across all 12 machines.",
+          "Least privilege means normal learners should not receive administrator rights unless they genuinely need them.",
+          "Document the build so another technician can reproduce, support or roll back the setup."
         ]
       }
     },
@@ -561,6 +697,14 @@
             "term": "Shared-folder permissions",
             "meaning": "Unix permissions and ACLs help control who may read, change or enter a shared folder."
           }
+        ],
+        "whyCorrect": [
+          "The requirement is role-based: tutors need write access while learners need read/traverse only. Linux groups provide the broad roles, setgid can preserve the shared group on new files, and ACL/default ACL entries can provide precise and inherited permissions. Testing with representative tutor and learner accounts proves the effective permissions rather than trusting the configuration alone."
+        ],
+        "notes": [
+          "Directory execute permission means the ability to traverse/access entries; directory read controls listing names.",
+          "Default ACLs affect newly created entries inside a directory; normal ACLs affect the directory or file itself.",
+          "The ACL mask can reduce the effective permissions granted to named users or groups, so check getfacl output."
         ]
       }
     }
