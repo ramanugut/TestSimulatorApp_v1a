@@ -1,7 +1,7 @@
 'use strict';
 const assert=require('node:assert/strict'),fs=require('node:fs');
 const {JSDOM,VirtualConsole}=require('jsdom');
-const oldPaper='test36.json',exam='ict2631-oct-nov-2025-inspired.json',second='ict2622-oct-nov-2025-practice.json',custom='__custom_session__';
+const oldPaper='test36.json',exam='ict2631-oct-nov-2025-exam.json',second='ict2622-oct-nov-2025-practice.json',custom='__custom_session__';
 const preferenceKey='testSimulatorPreferences';
 function paper(file){return {testName:file,preserveOrder:true,questions:Array.from({length:12},(_,i)=>({text:file+' question '+(i+1),options:['Yes','No'],correctAnswer:'Yes',marks:1}))};}
 const settle=async()=>{for(let i=0;i<16;i++)await new Promise(r=>setImmediate(r));};
