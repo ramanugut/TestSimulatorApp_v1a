@@ -5654,24 +5654,214 @@ const testFiles = [
     }
   }
 
+  const OPTION_SHUFFLE_HISTORY_KEY = "testSimulatorOptionShuffleHistoryV1";
+  const OPTION_SHUFFLE_HISTORY_LIMIT = 600;
+  let optionShuffleHistory = {};
+
+  try {
+    const savedOptionHistory = JSON.parse(
+      localStorage.getItem(OPTION_SHUFFLE_HISTORY_KEY) || "{}"
+    );
+    if (
+      savedOptionHistory &&
+      typeof savedOptionHistory === "object" &&
+      !Array.isArray(savedOptionHistory)
+    ) {
+      optionShuffleHistory = savedOptionHistory;
+    }
+  } catch (error) {
+    optionShuffleHistory = {};
+  }
+
+  function getOptionShuffleHistoryKey(question, fallbackIndex = "") {
+    const source =
+      question?.sourceTestId ||
+      question?.sourceTestName ||
+      currentTestFile ||
+      "paper";
+    const identity =
+      question?.sourceQuestionIndex ??
+      question?.number ??
+      fallbackIndex;
+    const text = String(question?.text || "").trim().slice(0, 220);
+    return [String(source), String(identity), text].join("::");
+  }
+
+  function getCorrectOptionPositionSignature(question, options) {
+    if (!Array.isArray(options) || !options.length) return "";
+
+    const correctAnswers = Array.isArray(question?.correctAnswer)
+      ? question.correctAnswer
+      : [question?.correctAnswer];
+    const canonicalCorrectAnswers = correctAnswers
+      .map((value) => canonicalizeAnswerValue(value))
+      .filter((value) => value !== "");
+
+    if (!canonicalCorrectAnswers.length) return "";
+
+    const positions = [];
+    options.forEach((option, index) => {
+      if (
+        canonicalCorrectAnswers.some((correctValue) =>
+          answerValuesEqual(correctValue, option)
+        )
+      ) {
+        positions.push(index);
+      }
+    });
+    return positions.join(",");
+  }
+
+  function optionOrdersEqual(first, second) {
+    if (!Array.isArray(first) || !Array.isArray(second)) return false;
+    if (first.length !== second.length) return false;
+    return first.every((value, index) =>
+      answerValuesEqual(value, second[index])
+    );
+  }
+
+  function rotateOptions(options) {
+    if (!Array.isArray(options) || options.length < 2) {
+      return Array.isArray(options) ? [...options] : [];
+    }
+    return [...options.slice(1), options[0]];
+  }
+
+  function shuffleQuestionOptions(
+    question,
+    previousOptions = null,
+    fallbackIndex = ""
+  ) {
+    if (!Array.isArray(question?.options)) return question?.options;
+    const sourceOptions = [...question.options];
+    if (sourceOptions.length < 2) return sourceOptions;
+
+    const historyKey = getOptionShuffleHistoryKey(question, fallbackIndex);
+    const historyEntry = optionShuffleHistory[historyKey];
+    const rememberedSignature =
+      historyEntry && typeof historyEntry.signature === "string"
+        ? historyEntry.signature
+        : "";
+
+    const comparablePreviousOptions =
+      Array.isArray(previousOptions) &&
+      previousOptions.length === sourceOptions.length
+        ? previousOptions
+        : null;
+
+    const previousSignature = comparablePreviousOptions
+      ? getCorrectOptionPositionSignature(question, comparablePreviousOptions)
+      : rememberedSignature ||
+        getCorrectOptionPositionSignature(question, sourceOptions);
+
+    let shuffledOptions = sourceOptions;
+    let shuffledSignature = "";
+    let attempts = 0;
+
+    do {
+      shuffledOptions = shuffleArray([...sourceOptions]);
+      shuffledSignature = getCorrectOptionPositionSignature(
+        question,
+        shuffledOptions
+      );
+      attempts += 1;
+    } while (
+      attempts < 24 &&
+      (
+        optionOrdersEqual(shuffledOptions, comparablePreviousOptions || sourceOptions) ||
+        (
+          previousSignature &&
+          shuffledSignature &&
+          shuffledSignature === previousSignature
+        )
+      )
+    );
+
+    // With very small option sets, random retries can still land on the same
+    // correct-answer position. Rotate as a deterministic fallback so the next
+    // load cannot train the student to remember A/B/C/D.
+    if (
+      previousSignature &&
+      shuffledSignature &&
+      shuffledSignature === previousSignature
+    ) {
+      const rotationBase = comparablePreviousOptions || shuffledOptions;
+      shuffledOptions = rotateOptions(rotationBase);
+      shuffledSignature = getCorrectOptionPositionSignature(
+        question,
+        shuffledOptions
+      );
+    }
+
+    if (optionOrdersEqual(shuffledOptions, comparablePreviousOptions || sourceOptions)) {
+      shuffledOptions = rotateOptions(comparablePreviousOptions || sourceOptions);
+      shuffledSignature = getCorrectOptionPositionSignature(
+        question,
+        shuffledOptions
+      );
+    }
+
+    optionShuffleHistory[historyKey] = {
+      signature: shuffledSignature,
+      updatedAt: Date.now(),
+    };
+
+    return shuffledOptions;
+  }
+
+  function persistOptionShuffleHistory() {
+    try {
+      const entries = Object.entries(optionShuffleHistory)
+        .sort(
+          (a, b) =>
+            Number(b[1]?.updatedAt || 0) - Number(a[1]?.updatedAt || 0)
+        )
+        .slice(0, OPTION_SHUFFLE_HISTORY_LIMIT);
+      optionShuffleHistory = Object.fromEntries(entries);
+      localStorage.setItem(
+        OPTION_SHUFFLE_HISTORY_KEY,
+        JSON.stringify(optionShuffleHistory)
+      );
+    } catch (error) {
+      console.warn("Unable to save answer-option shuffle history:", error);
+    }
+  }
+
   function prepareQuestionsForSession(
     baseQuestions,
     preserveOrder = false,
-    orderMode = questionOrderMode
+    orderMode = questionOrderMode,
+    previousQuestions = null
   ) {
     if (!Array.isArray(baseQuestions)) {
       return [];
     }
 
-    const questionsWithShuffledOptions = baseQuestions.map((question) => {
+    const previousOptionBuckets = new Map();
+    if (Array.isArray(previousQuestions)) {
+      previousQuestions.forEach((question, index) => {
+        const key = getOptionShuffleHistoryKey(question, index);
+        if (!previousOptionBuckets.has(key)) previousOptionBuckets.set(key, []);
+        previousOptionBuckets.get(key).push(question);
+      });
+    }
+
+    const questionsWithShuffledOptions = baseQuestions.map((question, index) => {
       const clonedQuestion = cloneQuestionData(question);
-      // Question ordering and option ordering are separate. Some papers need
-      // their answer choices kept exactly as supplied even when questions move.
-      if (!preserveOrder && Array.isArray(clonedQuestion.options)) {
-        clonedQuestion.options = shuffleArray([...clonedQuestion.options]);
+      if (Array.isArray(clonedQuestion.options)) {
+        const key = getOptionShuffleHistoryKey(clonedQuestion, index);
+        const bucket = previousOptionBuckets.get(key);
+        const previousQuestion = bucket && bucket.length ? bucket.shift() : null;
+        clonedQuestion.options = shuffleQuestionOptions(
+          clonedQuestion,
+          previousQuestion?.options || null,
+          index
+        );
       }
       return clonedQuestion;
     });
+
+    persistOptionShuffleHistory();
 
     return orderQuestionsForSession(
       questionsWithShuffledOptions,
@@ -5707,28 +5897,17 @@ const testFiles = [
       if (latestQuestion) {
         const fresh = cloneQuestionData(latestQuestion);
 
-        // Preserve the student's session option order where those options still
-        // exist, then append newly corrected/added options. Removed stale options
-        // are deliberately dropped.
-        if (Array.isArray(fresh.options) && Array.isArray(savedQuestion?.options)) {
-          const ordered = [];
-          savedQuestion.options.forEach((savedOption) => {
-            const match = fresh.options.find((freshOption) =>
-              answerValuesEqual(freshOption, savedOption)
-            );
-            if (
-              match !== undefined &&
-              !ordered.some((value) => answerValuesEqual(value, match))
-            ) {
-              ordered.push(match);
-            }
-          });
-          fresh.options.forEach((freshOption) => {
-            if (!ordered.some((value) => answerValuesEqual(value, freshOption))) {
-              ordered.push(freshOption);
-            }
-          });
-          fresh.options = ordered;
+        // Keep the saved QUESTION order so answers still belong to the same
+        // question, but reshuffle MCQ options on every load. Answers are stored
+        // by their canonical value, not by A/B/C/D position, so a saved choice
+        // remains selected even after its option moves.
+        if (Array.isArray(fresh.options)) {
+          fresh.options = shuffleQuestionOptions(
+            fresh,
+            Array.isArray(savedQuestion?.options)
+              ? savedQuestion.options
+              : null
+          );
         }
 
         reconciled.push(fresh);
@@ -5736,7 +5915,11 @@ const testFiles = [
     }
 
     // If matching failed for any reason, do not risk dropping questions.
-    return reconciled.length === latestQuestions.length ? reconciled : null;
+    if (reconciled.length === latestQuestions.length) {
+      persistOptionShuffleHistory();
+      return reconciled;
+    }
+    return null;
   }
 
   function loadQuestions(filename, customData = null) {
@@ -8090,7 +8273,8 @@ const testFiles = [
       questions = prepareQuestionsForSession(
         originalQuestions,
         currentTestPreserveOrder,
-        activeQuestionOrderMode
+        activeQuestionOrderMode,
+        questions
       );
     }
     currentPage = 1;
