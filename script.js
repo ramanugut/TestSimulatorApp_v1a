@@ -5745,7 +5745,12 @@ const testFiles = [
 
     const comparablePreviousOptions =
       Array.isArray(previousOptions) &&
-      previousOptions.length === sourceOptions.length
+      previousOptions.length === sourceOptions.length &&
+      previousOptions.every((previousOption) =>
+        sourceOptions.some((sourceOption) =>
+          answerValuesEqual(sourceOption, previousOption)
+        )
+      )
         ? previousOptions
         : null;
 
@@ -5945,9 +5950,9 @@ const testFiles = [
       originalQuestions = cloneQuestionsData(rawQuestions || []);
       currentTestPreserveOrder = preserveOrder;
 
-      // Resume the exact question/option order saved with an active attempt.
-      // This prevents a refresh from attaching saved answers to different
-      // questions when Random order is selected.
+      // Resume the saved QUESTION order for an active attempt so answers stay
+      // attached to the same questions. MCQ options are intentionally reshuffled
+      // on every load and saved answers follow their canonical answer value.
       const savedProgress = getSavedProgress();
       const savedActiveQuestions =
         savedProgress &&
