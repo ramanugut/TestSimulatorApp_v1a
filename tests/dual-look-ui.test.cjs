@@ -27,7 +27,8 @@ async function open(look='new', prefs={}) {
  assert.equal(d.querySelectorAll('#question-map-grid button').length,12);
  assert.equal(d.getElementById('submit-test').parentElement.id,'map-actions');
  assert.equal(d.getElementById('mastery-panel').parentElement.id,'mode-panel-mastery');
- const answer=d.querySelector('.option-item input');answer.checked=true;answer.dispatchEvent(new w.Event('change',{bubbles:true}));
+ const answer=Array.from(d.querySelectorAll('.option-item')).find(item=>/\bYes\b/.test(item.textContent)).querySelector('input');
+ answer.checked=true;answer.dispatchEvent(new w.Event('change',{bubbles:true}));
  assert.ok(d.querySelector('#question-map-grid button').classList.contains('answered'));
  d.querySelector('.bookmark-button').click();assert.ok(d.querySelector('#question-map-grid button').classList.contains('flagged'));
  d.getElementById('toggle-app-look').click();
