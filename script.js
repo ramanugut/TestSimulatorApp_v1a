@@ -3872,6 +3872,9 @@ document.addEventListener("DOMContentLoaded", function () {
       whyCorrect = normaliseStudyTextList(sourceStudy.steps);
       whyUsesSteps = true;
     }
+    if (!whyCorrect.length && parsed.plain[0]) {
+      whyCorrect = ["This answer is correct because " + parsed.plain[0]];
+    }
     study.whyCorrect = whyCorrect;
     study._whyUsesSteps = whyUsesSteps;
 
@@ -3887,7 +3890,9 @@ document.addEventListener("DOMContentLoaded", function () {
       question.studentNote ||
       parsed.studentNote ||
       ""
-    ).trim();
+    )
+      .replace(/^student\s+note\s*:\s*/i, "")
+      .trim();
     study.pitfall = String(sourceStudy.pitfall || "").trim();
     study.remember = String(sourceStudy.remember || parsed.remember || "").trim();
 
