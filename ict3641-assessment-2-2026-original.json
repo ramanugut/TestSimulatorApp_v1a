@@ -1,0 +1,635 @@
+{
+  "testName": "ICT3641 · 2026 Assessment 2 · original marked review",
+  "module": "ICT3641",
+  "assessment": "Assessment 2 2026",
+  "totalMarks": 50,
+  "originalTotalMarks": 50,
+  "originalQuestionCount": 50,
+  "preserveOrder": true,
+  "marking": "automatic-multiple-choice",
+  "sourceType": "Exact question wording and marked answers transcribed from the user-provided UNISA Assessment 2 attempt-review screenshots.",
+  "sourceReference": "User-provided marked Assessment 2 review screenshots dated 17 June 2026.",
+  "sourceLimitations": "The source review contains repeated questions and a few answer keys that may differ from general industry terminology. The app preserves the marked review exactly instead of silently changing the source.",
+  "questions": [
+    {
+      "number": "1",
+      "marks": 1,
+      "text": "The term latency refers to a delay that can be experienced in packet-switched networks.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "False",
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: False.\n\nStudent note: Keep the marked answer for this exact paper. In general networking usage, latency is commonly described as delay, so this item is source-specific and should not be silently 'corrected' in the app."
+    },
+    {
+      "number": "2",
+      "marks": 1,
+      "text": "Which of the following are central directories that list all domain names currently in use for specific domains?",
+      "options": [
+        "web servers",
+        "root servers",
+        "client servers",
+        "DNS servers"
+      ],
+      "correctAnswer": "root servers",
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: root servers.\n\nStudent note: For this paper, remember the answer as root servers."
+    },
+    {
+      "number": "3",
+      "marks": 1,
+      "text": "Which of the following is rarely used today, due to security concerns.",
+      "options": [
+        "Telnet",
+        "SFTP",
+        "TCP",
+        "TLS"
+      ],
+      "correctAnswer": "Telnet",
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: Telnet.\n\nStudent note: Telnet sends traffic without the protection normally expected from modern secure remote-access tools."
+    },
+    {
+      "number": "4",
+      "marks": 1,
+      "text": "Which of the following is the core communications protocol for the Internet?",
+      "options": [
+        "Telnet",
+        "FTP",
+        "TCP/IP",
+        "TLS"
+      ],
+      "correctAnswer": "TCP/IP",
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: TCP/IP.\n\nStudent note: TCP/IP is the protocol suite used for Internet communication."
+    },
+    {
+      "number": "5",
+      "marks": 1,
+      "text": "Edge computing improves response time and saves bandwidth.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "False",
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: False.\n\nStudent note: Keep the marked answer for this exact paper. The statement may look surprising compared with common edge-computing descriptions, so treat this as a source-specific answer key."
+    },
+    {
+      "number": "6",
+      "marks": 1,
+      "text": "In which region of the world is Internet access growing the fastest?",
+      "options": [
+        "United States",
+        "Western Europe",
+        "Middle East/Africa",
+        "Asia Pacific"
+      ],
+      "correctAnswer": "Middle East/Africa",
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: Middle East/Africa.\n\nStudent note: For this assessment, the marked region is Middle East/Africa."
+    },
+    {
+      "number": "7",
+      "marks": 1,
+      "text": "A private cloud is operated for the benefit of multiple firms.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "True",
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: True.\n\nStudent note: Keep the marked answer for this exact paper. Standard cloud terminology can distinguish private and community clouds differently, so do not rewrite the uploaded paper."
+    },
+    {
+      "number": "8",
+      "marks": 1,
+      "text": "Which of the following is not an advantage of client/server computing over centralized mainframe computing?",
+      "options": [
+        "It is easy to expand capacity by adding servers and clients.",
+        "Each client added to the network increases the network's overall capacity and transmission speeds.",
+        "Client/server networks are less vulnerable, in part because the processing load is balanced over many powerful smaller computers rather than concentrated in a single huge computer.",
+        "There is less risk that a system will completely malfunction because backup or mirror servers can pick up the slack if one server goes down."
+      ],
+      "correctAnswer": "Each client added to the network increases the network's overall capacity and transmission speeds.",
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: Each client added to the network increases the network's overall capacity and transmission speeds..\n\nStudent note: The marked answer identifies the statement that is not an advantage."
+    },
+    {
+      "number": "9",
+      "marks": 1,
+      "text": "Which of the following is the most popular mobile web browser?",
+      "options": [
+        "Edge",
+        "Safari",
+        "Chrome",
+        "Firefox"
+      ],
+      "correctAnswer": "Chrome",
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: Chrome.\n\nStudent note: For this paper, Chrome is the marked answer."
+    },
+    {
+      "number": "10",
+      "marks": 1,
+      "text": "Which of the following statements about fiber-optic cable is not true?",
+      "options": [
+        "Fiber-optic cable transmits more data at faster speeds than coaxial or twisted copper cable.",
+        "Fiber-optic cable is thinner and lighter than coaxial or twisted copper cable.",
+        "Most U.S. homes have fiber-optic cable connections.",
+        "FiOS uses fiber-optic cable."
+      ],
+      "correctAnswer": "Most U.S. homes have fiber-optic cable connections.",
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: Most U.S. homes have fiber-optic cable connections..\n\nStudent note: The question asks for the statement that is not true."
+    },
+    {
+      "number": "11",
+      "marks": 1,
+      "text": "In the United States, about ______ of Internet traffic now occurs over Internet Protocol version 6 (IPv6).",
+      "options": [
+        "10%",
+        "20%",
+        "40%",
+        "60%"
+      ],
+      "correctAnswer": "40%",
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: 40%.\n\nStudent note: The uploaded review marks 40%."
+    },
+    {
+      "number": "12",
+      "marks": 1,
+      "text": "Which of the following statements about DSL is not true?",
+      "options": [
+        "DSL is a telephone technology.",
+        "DSL service levels range from about 1 Mbps to 35 Mbps.",
+        "DSL requires that customers live within two miles of a neighborhood telephone switching center.",
+        "DSL provides guaranteed throughput."
+      ],
+      "correctAnswer": "DSL provides guaranteed throughput.",
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: DSL provides guaranteed throughput..\n\nStudent note: The question asks for the DSL statement that is not true."
+    },
+    {
+      "number": "13",
+      "marks": 1,
+      "text": "In the United States, about ______ of Internet traffic now occurs over Internet Protocol version 6 (IPv6).",
+      "options": [
+        "10%",
+        "20%",
+        "40%",
+        "60%"
+      ],
+      "correctAnswer": "40%",
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: 40%.\n\nStudent note: This item repeats the IPv6 percentage question in the uploaded review; the marked answer is again 40%."
+    },
+    {
+      "number": "14",
+      "marks": 1,
+      "text": "Metaverse-like experiences are being used primarily for gaming and advertising.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "False",
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: False.\n\nStudent note: Use False for this exact assessment item."
+    },
+    {
+      "number": "15",
+      "marks": 1,
+      "text": "During which phase of the development of the Internet was the Domain Name System (DNS) introduced?",
+      "options": [
+        "Commercialization phase",
+        "Institutionalization phase",
+        "Innovation phase",
+        "Consolidation phase"
+      ],
+      "correctAnswer": "Institutionalization phase",
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: Institutionalization phase.\n\nStudent note: Remember DNS introduction here under the Institutionalization phase."
+    },
+    {
+      "number": "16",
+      "marks": 1,
+      "text": "The protocol that enables the transmission of voice and other forms of audio communication over the Internet is called:",
+      "options": [
+        "VoIP.",
+        "IPTP.",
+        "VTP.",
+        "IP."
+      ],
+      "correctAnswer": "VoIP.",
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: VoIP..\n\nStudent note: VoIP stands for Voice over Internet Protocol."
+    },
+    {
+      "number": "17",
+      "marks": 1,
+      "text": "HTTP/3 uses QUIC rather than TCP as its transport protocol.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "True",
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: True.\n\nStudent note: HTTP/3 is built on QUIC rather than directly using TCP."
+    },
+    {
+      "number": "18",
+      "marks": 1,
+      "text": "Which layer of Internet architecture includes security, authentication/identity management, file systems, and storage repositories?",
+      "options": [
+        "Network Technology Substrate layer.",
+        "Middleware Services layer.",
+        "Transport Services and Representation Standards layer.",
+        "Applications layer."
+      ],
+      "correctAnswer": "Middleware Services layer.",
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: Middleware Services layer..\n\nStudent note: The paper places these shared services in the Middleware Services layer."
+    },
+    {
+      "number": "19",
+      "marks": 1,
+      "text": "Which of the following protocols provides an alternative to TCP when the error-checking and correction functionality of TCP is not necessary?",
+      "options": [
+        "UDP",
+        "IP",
+        "BPG",
+        "TLS"
+      ],
+      "correctAnswer": "UDP",
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: UDP.\n\nStudent note: UDP is the lightweight transport alternative listed in this question."
+    },
+    {
+      "number": "20",
+      "marks": 1,
+      "text": "In which region of the world is Internet access growing the fastest?",
+      "options": [
+        "United States",
+        "Western Europe",
+        "Middle East/Africa",
+        "Asia Pacific"
+      ],
+      "correctAnswer": "Middle East/Africa",
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: Middle East/Africa.\n\nStudent note: This repeats Question 6; the marked answer is Middle East/Africa."
+    },
+    {
+      "number": "21",
+      "marks": 1,
+      "text": "The term latency refers to a delay that can be experienced in packet-switched networks.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "False",
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: False.\n\nStudent note: This repeats Question 1. Keep the uploaded assessment's marked answer even though general networking terminology commonly uses latency to mean delay."
+    },
+    {
+      "number": "22",
+      "marks": 1,
+      "text": "Which of the following enables Internet users to communicate with each other, although not in real time?",
+      "options": [
+        "mobile messaging",
+        "online message board",
+        "SMS messaging",
+        "VoIP"
+      ],
+      "correctAnswer": "online message board",
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: online message board.\n\nStudent note: A message board supports asynchronous communication, so users do not need to be online at the same time."
+    },
+    {
+      "number": "23",
+      "marks": 1,
+      "text": "The major hubs in the United States where the Internet backbone intersects with regional and local networks are now commonly referred to as Internet Exchange Points (IXPs).",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "False",
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: False.\n\nStudent note: Keep the marked answer for this exact paper. The terminology can look surprising, so this item is preserved exactly from the review."
+    },
+    {
+      "number": "24",
+      "marks": 1,
+      "text": "All of the following statements about HTML5 are true except:",
+      "options": [
+        "HTML5 has become the de facto web page development standard.",
+        "HTML5 is an important tool for both responsive web design and adaptive web delivery.",
+        "HTML5 apps work just like web pages.",
+        "HTML5 stores page content in a mobile device's hardware rather loading it into the browser from a web server."
+      ],
+      "correctAnswer": "HTML5 stores page content in a mobile device's hardware rather loading it into the browser from a web server.",
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: HTML5 stores page content in a mobile device's hardware rather loading it into the browser from a web server..\n\nStudent note: Because the question says except, choose the statement the paper marks as not true."
+    },
+    {
+      "number": "25",
+      "marks": 1,
+      "text": "Tier 1 ISPs provide Internet access to consumers and businesses.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "True",
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: True.\n\nStudent note: Use True for this assessment item."
+    },
+    {
+      "number": "26",
+      "marks": 1,
+      "text": "Which of the following typically includes a data flow diagram to describe the flow of information for an e-commerce site?",
+      "options": [
+        "physical design",
+        "logical design",
+        "testing plan",
+        "co-location plan"
+      ],
+      "correctAnswer": "logical design",
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: logical design.\n\nStudent note: A data flow diagram is part of describing how information logically moves through the system."
+    },
+    {
+      "number": "27",
+      "marks": 1,
+      "text": "Which of the following is a simple but powerful method for describing a firm's strengths and weaknesses?",
+      "options": [
+        "benchmarking",
+        "SLDC",
+        "SWOT analysis",
+        "DevOps"
+      ],
+      "correctAnswer": "SWOT analysis",
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: SWOT analysis.\n\nStudent note: SWOT is used to examine strengths, weaknesses, opportunities and threats."
+    },
+    {
+      "number": "28",
+      "marks": 1,
+      "text": "In order from beginning to end, the major steps in the SDLC are:",
+      "options": [
+        "systems analysis/planning; systems design; building the system; testing; and implementation.",
+        "systems design; testing; building the system; and implementation.",
+        "systems analysis/planning; systems design; building the system; implementation; and testing.",
+        "systems analysis/planning; implementation; building the system; and testing."
+      ],
+      "correctAnswer": "systems analysis/planning; systems design; building the system; testing; and implementation.",
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: systems analysis/planning; systems design; building the system; testing; and implementation..\n\nStudent note: Remember the sequence: analyse/plan, design, build, test, implement."
+    },
+    {
+      "number": "29",
+      "marks": 1,
+      "text": "Native web apps need to be developed for different mobile platforms.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "True",
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: True.\n\nStudent note: Keep the marked answer and the original wording from the uploaded assessment."
+    },
+    {
+      "number": "30",
+      "marks": 1,
+      "text": "In order from beginning to end, the major steps in the SDLC are:",
+      "options": [
+        "systems analysis/planning; systems design; building the system; testing; and implementation.",
+        "systems design; testing; building the system; and implementation.",
+        "systems analysis/planning; systems design; building the system; implementation; and testing.",
+        "systems analysis/planning; implementation; building the system; and testing."
+      ],
+      "correctAnswer": "systems analysis/planning; systems design; building the system; testing; and implementation.",
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: systems analysis/planning; systems design; building the system; testing; and implementation..\n\nStudent note: This repeats Question 28; use the same SDLC order."
+    },
+    {
+      "number": "31",
+      "marks": 1,
+      "text": "In general, the annual system maintenance cost will roughly parallel the development cost.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "True",
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: True.\n\nStudent note: Use True for this assessment item."
+    },
+    {
+      "number": "32",
+      "marks": 1,
+      "text": "Upgrading a server from a single processor to multiple processors is an example of scaling a site vertically.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "True",
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: True.\n\nStudent note: Vertical scaling means increasing the power or resources of the existing server."
+    },
+    {
+      "number": "33",
+      "marks": 1,
+      "text": "The primary way a website is able to personalize the content presented to a visitor is through the use of:",
+      "options": [
+        "privacy policies.",
+        "cookies.",
+        "accessibility rules.",
+        "site management tools."
+      ],
+      "correctAnswer": "cookies.",
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: cookies..\n\nStudent note: Cookies can store or connect visitor/session information used for personalization."
+    },
+    {
+      "number": "34",
+      "marks": 1,
+      "text": "The web server software used has a significant impact on how a website's web pages look on a user's computer.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "False",
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: False.\n\nStudent note: The paper marks this False; page appearance is mainly determined by the delivered page content, styles and browser rendering rather than the brand of web-server software."
+    },
+    {
+      "number": "35",
+      "marks": 1,
+      "text": "Which of the following basic system functionalities is used to display goods on a website?",
+      "options": [
+        "product database",
+        "digital catalog",
+        "shopping cart system",
+        "customer database system"
+      ],
+      "correctAnswer": "digital catalog",
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: digital catalog.\n\nStudent note: The digital catalog is the customer-facing function used to present products."
+    },
+    {
+      "number": "36",
+      "marks": 1,
+      "text": "Which of the following is a server-side technique that detects the attributes of the device making the request, and using predefined templates, loads a version of a site optimized for the device?",
+      "options": [
+        "LAMP",
+        "AWD",
+        "mobile first design",
+        "RoR"
+      ],
+      "correctAnswer": "AWD",
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: AWD.\n\nStudent note: The marked answer is AWD, referring here to adaptive web delivery."
+    },
+    {
+      "number": "37",
+      "marks": 1,
+      "text": "What are the two most important management challenges in building a successful e-commerce presence?",
+      "options": [
+        "developing a clear understanding of business objectives and knowing how to choose the right technology to achieve those objectives",
+        "having an accurate understanding of your business environment and an achievable business plan",
+        "building a team with the right skill sets and closely managing the development process",
+        "identifying the key components of your business plan and selecting the right software, hardware, and infrastructure for your site"
+      ],
+      "correctAnswer": "developing a clear understanding of business objectives and knowing how to choose the right technology to achieve those objectives",
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: developing a clear understanding of business objectives and knowing how to choose the right technology to achieve those objectives.\n\nStudent note: Link the business objective first, then choose technology that supports it."
+    },
+    {
+      "number": "38",
+      "marks": 1,
+      "text": "Which of the following cannot be used to retrieve objects from a database?",
+      "options": [
+        "Node.js",
+        "ASP.NET",
+        "JSP",
+        "HTML"
+      ],
+      "correctAnswer": "HTML",
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: HTML.\n\nStudent note: HTML structures page content; the other listed technologies can participate in server-side database retrieval."
+    },
+    {
+      "number": "39",
+      "marks": 1,
+      "text": "All of the following are basic information requirements for a product database except:",
+      "options": [
+        "product descriptions.",
+        "stock numbers.",
+        "customer ID numbers.",
+        "inventory levels."
+      ],
+      "correctAnswer": "customer ID numbers.",
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: customer ID numbers..\n\nStudent note: Customer IDs belong to customer data rather than the core product record."
+    },
+    {
+      "number": "40",
+      "marks": 1,
+      "text": "Which of the following types of e-commerce presence is best suited for creating an ongoing conversation with one's customers?",
+      "options": [
+        "website",
+        "e-mail",
+        "social media",
+        "offline media"
+      ],
+      "correctAnswer": "social media",
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: social media.\n\nStudent note: Social media is designed for ongoing two-way interaction and conversation."
+    },
+    {
+      "number": "41",
+      "marks": 1,
+      "text": "Which of the following is the preferred method of implementing a service-oriented architecture?",
+      "options": [
+        "prototyping",
+        "Scrum",
+        "web services",
+        "DevOps"
+      ],
+      "correctAnswer": "web services",
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: web services.\n\nStudent note: The assessment links service-oriented architecture implementation with web services."
+    },
+    {
+      "number": "42",
+      "marks": 1,
+      "text": "Which of the following is the preferred method of implementing a service-oriented architecture?",
+      "options": [
+        "prototyping",
+        "Scrum",
+        "web services",
+        "DevOps"
+      ],
+      "correctAnswer": "web services",
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: web services.\n\nStudent note: This repeats Question 41; the marked answer is web services."
+    },
+    {
+      "number": "43",
+      "marks": 1,
+      "text": "Which of the following statements about mobile websites is not true?",
+      "options": [
+        "Mobile websites run on a firm's servers, just like a traditional website.",
+        "Mobile websites can be built using standard web tools such as server-side HTML, Linux, PHP and SQL.",
+        "Generally, mobile websites operate more quickly than traditional websites viewed on a desktop computer connected to a broadband office network.",
+        "Most large firms today have mobile websites."
+      ],
+      "correctAnswer": "Generally, mobile websites operate more quickly than traditional websites viewed on a desktop computer connected to a broadband office network.",
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: Generally, mobile websites operate more quickly than traditional websites viewed on a desktop computer connected to a broadband office network..\n\nStudent note: Because the question asks what is not true, choose the third statement."
+    },
+    {
+      "number": "44",
+      "marks": 1,
+      "text": "Which of the following cannot be used to retrieve objects from a database?",
+      "options": [
+        "Node.js",
+        "ASP.NET",
+        "JSP",
+        "HTML"
+      ],
+      "correctAnswer": "HTML",
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: HTML.\n\nStudent note: This repeats Question 38; the marked answer is HTML."
+    },
+    {
+      "number": "45",
+      "marks": 1,
+      "text": "Objects can be retrieved from a database using Java Server Pages.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "True",
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: True.\n\nStudent note: JSP can be used in a server-side Java web application that retrieves data from a database."
+    },
+    {
+      "number": "46",
+      "marks": 1,
+      "text": "All of the following are open-source programming or scripting languages except:",
+      "options": [
+        "PHP",
+        "Django",
+        "Python",
+        "ColdFusion"
+      ],
+      "correctAnswer": "ColdFusion",
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: ColdFusion.\n\nStudent note: Use ColdFusion for this paper. The wording groups technologies broadly, so preserve the source exactly rather than rewriting the options."
+    },
+    {
+      "number": "47",
+      "marks": 1,
+      "text": "Which of the following types of sites typically require a high percentage of secure pages?",
+      "options": [
+        "web services",
+        "customer self-service",
+        "trading",
+        "publishing/subscription"
+      ],
+      "correctAnswer": "trading",
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: trading.\n\nStudent note: Trading sites handle sensitive transactions and therefore need many secure pages."
+    },
+    {
+      "number": "48",
+      "marks": 1,
+      "text": "The current versions of most web browsers no longer support Java applets.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "True",
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: True.\n\nStudent note: Modern mainstream browsers no longer provide the old Java applet plug-in support."
+    },
+    {
+      "number": "49",
+      "marks": 1,
+      "text": "Dynamic page generation enables price discrimination.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "True",
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: True.\n\nStudent note: Dynamic pages can vary displayed offers or prices based on rules or information available to the site."
+    },
+    {
+      "number": "50",
+      "marks": 1,
+      "text": "Which of the following typically includes a data flow diagram to describe the flow of information for an e-commerce site?",
+      "options": [
+        "physical design",
+        "logical design",
+        "testing plan",
+        "co-location plan"
+      ],
+      "correctAnswer": "logical design",
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: logical design.\n\nStudent note: This repeats Question 26; the marked answer is logical design."
+    }
+  ]
+}
