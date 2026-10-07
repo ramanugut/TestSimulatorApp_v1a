@@ -608,14 +608,18 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function buildAiTutorRequest(question) {
-    const study = question && question.study && typeof question.study === "object"
-      ? question.study
-      : {};
+    const study = buildStudyGuideData(question) || (
+      question && question.study && typeof question.study === "object"
+        ? question.study
+        : {}
+    );
     const topic =
       study.title || question.topic || study.section || question.section ||
       study.chapter || question.chapter || "Topic from this question";
     const correctAnswer = formatAnswerForDisplay(question.correctAnswer);
     const steps = Array.isArray(study.steps) ? study.steps.slice(0, 6).map(String) : [];
+    const whyCorrect = normaliseStudyTextList(study.whyCorrect).slice(0, 6);
+    const studyNotes = normaliseStudyTextList(study.notes).slice(0, 8);
     const keyTerms = Array.isArray(study.keyTerms)
       ? study.keyTerms
           .filter(entry => entry && entry.term && entry.meaning)
@@ -624,9 +628,12 @@ document.addEventListener("DOMContentLoaded", function () {
       : [];
 
     const referenceNotes = [
-      study.simple ? "Plain explanation: " + study.simple : "",
-      steps.length ? "Method / steps:\n- " + steps.join("\n- ") : "",
+      study.simple ? "What this means: " + study.simple : "",
+      whyCorrect.length ? "Why the answer is correct:\n- " + whyCorrect.join("\n- ") : "",
+      studyNotes.length ? "Study notes:\n- " + studyNotes.join("\n- ") : "",
+      steps.length && !study._whyUsesSteps ? "Method / steps:\n- " + steps.join("\n- ") : "",
       study.example ? "Example: " + study.example : "",
+      study.studentNote ? "Student note: " + study.studentNote : "",
       study.pitfall ? "Common mistake: " + study.pitfall : "",
       study.remember ? "Remember: " + study.remember : "",
       keyTerms.length ? "Key terms:\n- " + keyTerms.join("\n- ") : "",
