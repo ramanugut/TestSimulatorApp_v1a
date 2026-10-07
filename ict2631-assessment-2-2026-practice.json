@@ -37,6 +37,14 @@
             "term": "PID",
             "meaning": "A PID identifies a process during its lifetime."
           }
+        ],
+        "whyCorrect": [
+          "A PID is the numeric identifier the operating system assigns to a running process. Process-management tools use that number to distinguish one running instance from another, which is why 'a number identifying a running process' is correct."
+        ],
+        "notes": [
+          "A process is a program that is currently executing, together with its runtime state and resources.",
+          "Commands such as ps show PIDs so you can inspect or signal the correct process.",
+          "A PID is not permanently tied to one program; the number may be reused after a process exits."
         ]
       }
     },
@@ -67,6 +75,14 @@
             "term": "top",
             "meaning": "top refreshes a running view of process/resource usage."
           }
+        ],
+        "whyCorrect": [
+          "top continuously refreshes process information and system resource usage, so you can watch CPU and memory activity change in real time. That makes it the best answer when the question asks for a live view rather than a one-time snapshot."
+        ],
+        "notes": [
+          "ps is mainly a snapshot of processes at the moment the command runs.",
+          "top can help identify a process consuming unusually high CPU or memory.",
+          "Interactive tools may allow sorting or filtering so the busiest processes are easier to see."
         ]
       }
     },
@@ -97,6 +113,14 @@
             "term": "Clean termination",
             "meaning": "SIGTERM requests termination and allows many programs to handle cleanup."
           }
+        ],
+        "whyCorrect": [
+          "SIGTERM is a request for a process to terminate. Many applications can catch it and perform cleanup such as closing files or saving state before exiting. SIGKILL stops a process immediately and cannot be handled, so SIGTERM is normally the safer first choice."
+        ],
+        "notes": [
+          "kill sends a signal; despite its name it does not always mean immediate forced termination.",
+          "SIGKILL is useful when a process will not respond, but it should not be the first option when clean shutdown matters.",
+          "Always confirm the PID before signalling a process."
         ]
       }
     },
@@ -127,6 +151,14 @@
             "term": "Service management",
             "meaning": "systemd-based Linux systems manage service units with systemctl."
           }
+        ],
+        "whyCorrect": [
+          "On systemd-based systems, systemctl is the management command for service units. systemctl status service-name reports whether the unit is active, failed or inactive and usually includes recent diagnostic information, so it directly matches the request for service status."
+        ],
+        "notes": [
+          "A service unit describes a background service managed by systemd.",
+          "systemctl start, stop and restart change service state; status mainly inspects it.",
+          "The exact unit name matters, for example nginx.service may be referred to as nginx."
         ]
       }
     },
@@ -157,6 +189,14 @@
             "term": "Service logs",
             "meaning": "journalctl can query logs collected by systemd-journald."
           }
+        ],
+        "whyCorrect": [
+          "journalctl reads logs collected by systemd-journald, and the -u option filters those logs to one systemd unit. Therefore journalctl -u nginx is specifically useful for seeing messages related to the nginx service."
+        ],
+        "notes": [
+          "Service logs often explain why a unit failed even when systemctl status only gives a short summary.",
+          "Time filters such as --since today can narrow a large log.",
+          "Some applications also maintain their own log files, so journald is not always the only source of evidence."
         ]
       }
     },
@@ -187,6 +227,14 @@
             "term": "cron",
             "meaning": "A cron job describes a command and when it should run."
           }
+        ],
+        "whyCorrect": [
+          "cron is designed to run commands automatically according to time-based schedules. A cron entry combines timing fields with a command, which is why 'run specified jobs according to time rules' is the correct description."
+        ],
+        "notes": [
+          "Cron is useful for repeated jobs such as backups, cleanup and report generation.",
+          "A cron job may run with a smaller environment than your interactive shell, so PATH and permissions can matter.",
+          "Scheduling a job is not enough; you should also monitor whether the job actually succeeds."
         ]
       }
     },
@@ -217,6 +265,14 @@
             "term": "Swap reporting",
             "meaning": "Swap is disk-backed backing space available to the memory manager."
           }
+        ],
+        "whyCorrect": [
+          "Swap provides disk-backed space the memory manager can use when appropriate, and swapon --show lists the swap areas currently enabled. That is why it directly answers a question asking which command reports active swap."
+        ],
+        "notes": [
+          "free -h shows a summary of RAM and swap usage but does not replace detailed swap-area information.",
+          "Swap is much slower than RAM, so heavy swapping can indicate memory pressure.",
+          "Changing swap configuration on a live system should be done carefully."
         ]
       }
     },
@@ -247,6 +303,14 @@
             "term": "df versus du",
             "meaning": "The tools answer different disk-usage questions."
           }
+        ],
+        "whyCorrect": [
+          "df reports space usage at the filesystem level, such as total, used and available space. du walks selected files or directories and totals the storage they consume. The correct option identifies this different scope."
+        ],
+        "notes": [
+          "Use df when asking 'which filesystem is full?' and du when asking 'which files or folders are using the space?'.",
+          "The numbers can differ because of filesystem overhead, permissions and deleted files that are still open.",
+          "df -h and du -h use human-readable sizes."
         ]
       }
     },
@@ -277,6 +341,14 @@
             "term": "lsblk -f",
             "meaning": "lsblk -f lists block devices and known filesystem metadata."
           }
+        ],
+        "whyCorrect": [
+          "lsblk lists block devices, and the -f option adds filesystem information such as filesystem type, label and UUID. Those identifiers are exactly the details an administrator often needs before mounting or editing /etc/fstab."
+        ],
+        "notes": [
+          "Block devices include disks and partitions such as /dev/sda and /dev/sda1.",
+          "The UUID identifies a filesystem independently of a changing /dev/sdX order.",
+          "Confirm device identity before making destructive storage changes."
         ]
       }
     },
@@ -307,6 +379,14 @@
             "term": "UUID mounting",
             "meaning": "/etc/fstab can use a filesystem UUID as a stable reference."
           }
+        ],
+        "whyCorrect": [
+          "Device names such as /dev/sdb can change when hardware is added or discovered in a different order. A filesystem UUID is stored with the filesystem and is therefore usually a more stable reference for /etc/fstab across reboots."
+        ],
+        "notes": [
+          "blkid and lsblk -f can display filesystem UUIDs.",
+          "A wrong UUID or malformed fstab entry can cause mount failures and may affect boot.",
+          "UUID stability is about identifying the filesystem, not guaranteeing the device itself is healthy."
         ]
       }
     },
@@ -337,6 +417,14 @@
             "term": "Directory setgid",
             "meaning": "Shared group inheritance helps files created by different team members remain in a useful group."
           }
+        ],
+        "whyCorrect": [
+          "The setgid bit on a directory causes newly created entries to inherit that directory's group on common Linux filesystems. This keeps collaborative files in the shared team group instead of switching to each creator's primary group."
+        ],
+        "notes": [
+          "setgid helps with group ownership inheritance but does not itself grant all required permissions.",
+          "Default ACLs can be combined with setgid to control the permissions new entries receive.",
+          "chmod g+s directory sets the directory setgid bit."
         ]
       }
     },
@@ -367,6 +455,14 @@
             "term": "ACL",
             "meaning": "Access control lists provide finer-grained permission entries."
           }
+        ],
+        "whyCorrect": [
+          "Traditional mode bits only describe owner, group and others. An ACL can add entries for extra named users or groups, giving finer-grained access without changing the basic owner/group model. That is why the correct answer focuses on additional named identities."
+        ],
+        "notes": [
+          "getfacl displays ACL entries; setfacl changes them on systems that support POSIX ACLs.",
+          "The ACL mask can limit the effective permissions of named users and groups.",
+          "A trailing + in an ls -l permission display often indicates extended ACL information."
         ]
       }
     },
@@ -397,6 +493,14 @@
             "term": "chmod 750",
             "meaning": "Numeric mode 750 gives owner 7=rwx, group 5=r-x, others 0=---."
           }
+        ],
+        "whyCorrect": [
+          "Permission digits are calculated with read=4, write=2 and execute=1. In 750, owner gets 7=rwx, group gets 5=r-x and others get 0=---, which is exactly the requested rwxr-x--- mode."
+        ],
+        "notes": [
+          "Read the digits in owner-group-others order.",
+          "On a directory, execute means traversal and write controls creating/removing directory entries when other required permissions are present.",
+          "chmod changes permissions, not ownership."
         ]
       }
     },
@@ -427,6 +531,14 @@
             "term": "id command",
             "meaning": "Linux has user IDs and group IDs for access decisions."
           }
+        ],
+        "whyCorrect": [
+          "The id command asks the system for account identity information. id username shows the user's UID, primary GID and supplementary groups, which is why it is the right tool for checking group membership."
+        ],
+        "notes": [
+          "Linux access decisions are based on numeric UIDs and GIDs even though commands usually display names.",
+          "Supplementary groups give a user membership in additional groups beyond the primary group.",
+          "A newly changed group membership may require a fresh login session before it appears in that process environment."
         ]
       }
     },
@@ -457,6 +569,14 @@
             "term": "Backups",
             "meaning": "A backup should survive expected failure scenarios and be restorable."
           }
+        ],
+        "whyCorrect": [
+          "A useful backup must survive the failure it is meant to protect against and must be restorable. Keeping an independent safe copy and testing recovery proves those two properties, whereas merely creating an archive does not guarantee either one."
+        ],
+        "notes": [
+          "A backup on the same failing disk may disappear with the original data.",
+          "Restore testing checks both the backup data and the recovery procedure.",
+          "Retention, access control and off-site/off-system copies are part of a real backup strategy."
         ]
       }
     },
@@ -487,6 +607,14 @@
             "term": "DHCP",
             "meaning": "Dynamic Host Configuration Protocol commonly provides network settings to clients."
           }
+        ],
+        "whyCorrect": [
+          "DHCP is the protocol commonly used to automatically provide network configuration to a client when it joins a network. It can supply an IP address, subnet information, default gateway and DNS settings, so it matches the scenario."
+        ],
+        "notes": [
+          "DHCP reduces the need to configure each client manually.",
+          "PXE boot environments often rely on DHCP for network and boot-related information, but DHCP and PXE are not the same thing.",
+          "The client usually leases the address for a period rather than owning it permanently."
         ]
       }
     },
@@ -524,6 +652,14 @@
             "term": "Post-reboot troubleshooting",
             "meaning": "A service may fail because its data filesystem did not mount or is inaccessible."
           }
+        ],
+        "whyCorrect": [
+          "The service depends on its data volume, so troubleshooting should start by collecting evidence from the service and logs, then verifying the storage dependency before changing anything. Checking mounts, device identifiers, capacity, fstab and permissions follows that dependency chain and avoids risky guesswork."
+        ],
+        "notes": [
+          "Troubleshoot from evidence: record the exact error before restarting or changing configuration.",
+          "A stale UUID or failed mount can make a service appear broken even though the service software itself is fine.",
+          "After fixing the root cause, verify both the mount and the client-facing service; one successful command is not enough proof."
         ]
       }
     },
@@ -561,6 +697,14 @@
             "term": "Backup and restore workflow",
             "meaning": "A backup is valuable only when it can be recovered within the required time."
           }
+        ],
+        "whyCorrect": [
+          "A complete backup solution needs more than a scheduled archive command. The answer covers scope, schedule, protected storage, logging, retention and actual restore tests, which together show that the organisation can recover the project data rather than merely create backup files."
+        ],
+        "notes": [
+          "Decide recovery needs first: what must be restored, how much data loss is acceptable and how quickly recovery is required.",
+          "Automated jobs should produce logs or alerts so silent failures are noticed.",
+          "Regular sample restores are the practical proof that backups are usable."
         ]
       }
     }
