@@ -20,7 +20,26 @@
         "False"
       ],
       "correctAnswer": "False",
-      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: False.\n\nStudent note: Keep the marked answer for this exact paper. In general networking usage, latency is commonly described as delay, so this item is source-specific and should not be silently 'corrected' in the app."
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: False.\n\nStudent note: Keep the marked answer for this exact paper. In general networking usage, latency is commonly described as delay, so this item is source-specific and should not be silently 'corrected' in the app.",
+      "study": {
+        "title": "Latency in packet-switched networks",
+        "simple": "Latency normally means the time delay between sending data and the data being received or acted on.",
+        "whyCorrect": [
+          "The uploaded assessment review marks this statement False, so False must remain the scoring answer for this exact paper. However, standard networking terminology normally does define latency as delay, so this is a source-key anomaly rather than a concept you should learn incorrectly."
+        ],
+        "notes": [
+          "Packet-switched data may be delayed by propagation, transmission, processing and queuing.",
+          "Lower latency means less delay; bandwidth is how much data can be carried, which is a different idea."
+        ],
+        "pitfall": "Do not rewrite the paper's marked answer, but do not memorise 'latency is not delay' as a networking rule.",
+        "remember": "For the paper: False. For the concept: latency = delay.",
+        "keyTerms": [
+          {
+            "term": "Latency in packet-switched networks",
+            "meaning": "Latency normally means the time delay between sending data and the data being received or acted on."
+          }
+        ]
+      }
     },
     {
       "number": "2",
@@ -33,7 +52,26 @@
         "DNS servers"
       ],
       "correctAnswer": "root servers",
-      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: root servers.\n\nStudent note: For this paper, remember the answer as root servers."
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: root servers.\n\nStudent note: For this paper, remember the answer as root servers.",
+      "study": {
+        "title": "DNS root servers",
+        "simple": "DNS is a hierarchical naming system that translates domain names into information such as IP addresses.",
+        "whyCorrect": [
+          "The marked answer is root servers. Root servers sit at the top of the DNS hierarchy and direct resolvers toward the correct top-level-domain name servers, so they are central to locating domain information."
+        ],
+        "notes": [
+          "DNS hierarchy: root → top-level domain such as .com or .za → authoritative name server for the domain.",
+          "Root servers do not store every website's full DNS record; they mainly point queries to the next level."
+        ],
+        "pitfall": "The wording 'central directories that list all domain names' is simplified; learn the DNS hierarchy rather than imagining one giant domain list.",
+        "remember": "Root servers are the starting point at the top of DNS.",
+        "keyTerms": [
+          {
+            "term": "DNS root servers",
+            "meaning": "DNS is a hierarchical naming system that translates domain names into information such as IP addresses."
+          }
+        ]
+      }
     },
     {
       "number": "3",
@@ -46,7 +84,26 @@
         "TLS"
       ],
       "correctAnswer": "Telnet",
-      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: Telnet.\n\nStudent note: Telnet sends traffic without the protection normally expected from modern secure remote-access tools."
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: Telnet.\n\nStudent note: Telnet sends traffic without the protection normally expected from modern secure remote-access tools.",
+      "study": {
+        "title": "Telnet and secure remote access",
+        "simple": "Telnet is an old remote-terminal protocol that sends session data without modern transport encryption.",
+        "whyCorrect": [
+          "Telnet is rarely chosen for Internet-based administration because usernames, passwords and commands can be exposed in readable form. SSH provides encrypted remote access and largely replaced Telnet for administration."
+        ],
+        "notes": [
+          "Telnet commonly uses TCP port 23; SSH commonly uses TCP port 22.",
+          "Encryption protects confidentiality and helps prevent credentials being read in transit."
+        ],
+        "pitfall": "Do not confuse Telnet with SSH: they can provide similar remote-login use cases, but their security is very different.",
+        "remember": "Remote administration: prefer SSH over plaintext Telnet.",
+        "keyTerms": [
+          {
+            "term": "Telnet and secure remote access",
+            "meaning": "Telnet is an old remote-terminal protocol that sends session data without modern transport encryption."
+          }
+        ]
+      }
     },
     {
       "number": "4",
@@ -59,7 +116,26 @@
         "TLS"
       ],
       "correctAnswer": "TCP/IP",
-      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: TCP/IP.\n\nStudent note: TCP/IP is the protocol suite used for Internet communication."
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: TCP/IP.\n\nStudent note: TCP/IP is the protocol suite used for Internet communication.",
+      "study": {
+        "title": "TCP/IP protocol suite",
+        "simple": "TCP/IP is the family of protocols that underpins communication across the Internet.",
+        "whyCorrect": [
+          "The Internet is built around the TCP/IP suite: IP handles addressing and routing between networks, while transport protocols such as TCP or UDP carry application data. Therefore TCP/IP is the core communications protocol suite."
+        ],
+        "notes": [
+          "IP moves packets between network addresses.",
+          "TCP provides reliable ordered delivery; UDP offers lighter connectionless delivery."
+        ],
+        "pitfall": "TCP/IP is a suite, not one single protocol doing every networking job.",
+        "remember": "Internet communication is organised around the TCP/IP suite.",
+        "keyTerms": [
+          {
+            "term": "TCP/IP protocol suite",
+            "meaning": "TCP/IP is the family of protocols that underpins communication across the Internet."
+          }
+        ]
+      }
     },
     {
       "number": "5",
@@ -70,7 +146,26 @@
         "False"
       ],
       "correctAnswer": "False",
-      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: False.\n\nStudent note: Keep the marked answer for this exact paper. The statement may look surprising compared with common edge-computing descriptions, so treat this as a source-specific answer key."
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: False.\n\nStudent note: Keep the marked answer for this exact paper. The statement may look surprising compared with common edge-computing descriptions, so treat this as a source-specific answer key.",
+      "study": {
+        "title": "Edge computing",
+        "simple": "Edge computing moves processing closer to users, devices or data sources instead of sending every task to a distant central cloud.",
+        "whyCorrect": [
+          "The uploaded review marks this statement False, so False remains the scoring answer for the exact assessment. In standard computing descriptions, edge computing is commonly promoted precisely because it can reduce response time and backbone bandwidth use, so the marked key appears source-specific."
+        ],
+        "notes": [
+          "Processing near the source can reduce round trips to distant data centres.",
+          "Filtering or analysing data at the edge can reduce the amount sent across the network."
+        ],
+        "pitfall": "Do not learn the source anomaly as a general definition of edge computing.",
+        "remember": "Paper answer: False. General concept: edge often reduces latency and bandwidth use.",
+        "keyTerms": [
+          {
+            "term": "Edge computing",
+            "meaning": "Edge computing moves processing closer to users, devices or data sources instead of sending every task to a distant central cloud."
+          }
+        ]
+      }
     },
     {
       "number": "6",
@@ -83,7 +178,26 @@
         "Asia Pacific"
       ],
       "correctAnswer": "Middle East/Africa",
-      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: Middle East/Africa.\n\nStudent note: For this assessment, the marked region is Middle East/Africa."
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: Middle East/Africa.\n\nStudent note: For this assessment, the marked region is Middle East/Africa.",
+      "study": {
+        "title": "Internet-access growth by region",
+        "simple": "Internet-access growth statistics compare how quickly populations in different regions are coming online over a particular period.",
+        "whyCorrect": [
+          "The assessment marks Middle East/Africa. This is a dated statistical fact from the course source, so the answer is tied to the dataset or publication period used by the module."
+        ],
+        "notes": [
+          "Fastest growth is not the same as highest total number of users or highest penetration rate.",
+          "Regional Internet statistics change over time as infrastructure and adoption change."
+        ],
+        "pitfall": "Do not treat a historical percentage or ranking as timeless.",
+        "remember": "For this assessment's source period: Middle East/Africa.",
+        "keyTerms": [
+          {
+            "term": "Internet-access growth by region",
+            "meaning": "Internet-access growth statistics compare how quickly populations in different regions are coming online over a particular period."
+          }
+        ]
+      }
     },
     {
       "number": "7",
@@ -94,7 +208,26 @@
         "False"
       ],
       "correctAnswer": "True",
-      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: True.\n\nStudent note: Keep the marked answer for this exact paper. Standard cloud terminology can distinguish private and community clouds differently, so do not rewrite the uploaded paper."
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: True.\n\nStudent note: Keep the marked answer for this exact paper. Standard cloud terminology can distinguish private and community clouds differently, so do not rewrite the uploaded paper.",
+      "study": {
+        "title": "Private cloud terminology",
+        "simple": "A private cloud is normally cloud infrastructure dedicated to one organisation, while a community cloud can be shared by organisations with common requirements.",
+        "whyCorrect": [
+          "The uploaded review marks True, so True must remain the scoring answer for this exact item. Standard cloud terminology often describes a private cloud as being for one organisation, making this another source-specific wording/key issue."
+        ],
+        "notes": [
+          "Private cloud emphasises dedicated organisational control.",
+          "Public cloud serves many unrelated customers; community cloud is the term often used for a shared group of organisations."
+        ],
+        "pitfall": "Preserve the assessment key, but study the standard distinction separately.",
+        "remember": "Paper answer: True; standard terminology may differ.",
+        "keyTerms": [
+          {
+            "term": "Private cloud terminology",
+            "meaning": "A private cloud is normally cloud infrastructure dedicated to one organisation, while a community cloud can be shared by organisations with common requirements."
+          }
+        ]
+      }
     },
     {
       "number": "8",
@@ -107,7 +240,26 @@
         "There is less risk that a system will completely malfunction because backup or mirror servers can pick up the slack if one server goes down."
       ],
       "correctAnswer": "Each client added to the network increases the network's overall capacity and transmission speeds.",
-      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: Each client added to the network increases the network's overall capacity and transmission speeds..\n\nStudent note: The marked answer identifies the statement that is not an advantage."
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: Each client added to the network increases the network's overall capacity and transmission speeds..\n\nStudent note: The marked answer identifies the statement that is not an advantage.",
+      "study": {
+        "title": "Client/server versus centralized mainframe computing",
+        "simple": "Client/server computing divides work between client machines and servers rather than placing almost all processing in one central mainframe.",
+        "whyCorrect": [
+          "Adding a client creates more demand; it does not automatically increase the network's transmission capacity or speed. Therefore that statement is not a genuine client/server advantage."
+        ],
+        "notes": [
+          "Advantages can include distributed processing, flexibility and using client resources.",
+          "Network capacity depends on links, switches, routers and server/network design—not simply on adding clients."
+        ],
+        "pitfall": "The word 'not' changes the task: choose the claimed advantage that is actually false.",
+        "remember": "More clients do not magically make the network faster.",
+        "keyTerms": [
+          {
+            "term": "Client/server versus centralized mainframe computing",
+            "meaning": "Client/server computing divides work between client machines and servers rather than placing almost all processing in one central mainframe."
+          }
+        ]
+      }
     },
     {
       "number": "9",
@@ -120,7 +272,26 @@
         "Firefox"
       ],
       "correctAnswer": "Chrome",
-      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: Chrome.\n\nStudent note: For this paper, Chrome is the marked answer."
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: Chrome.\n\nStudent note: For this paper, Chrome is the marked answer.",
+      "study": {
+        "title": "Mobile browser market share",
+        "simple": "A mobile web browser is software used on phones or tablets to retrieve and render web content.",
+        "whyCorrect": [
+          "The course source marks Chrome as the most popular mobile browser. This is a market-share fact based on the period used in the material rather than a permanent technical rule."
+        ],
+        "notes": [
+          "Browser popularity changes by country, device ecosystem and year.",
+          "Market-share questions should be learned with the source period in mind."
+        ],
+        "pitfall": "Do not confuse browser market share with mobile operating-system market share.",
+        "remember": "For this paper: Chrome.",
+        "keyTerms": [
+          {
+            "term": "Mobile browser market share",
+            "meaning": "A mobile web browser is software used on phones or tablets to retrieve and render web content."
+          }
+        ]
+      }
     },
     {
       "number": "10",
@@ -133,7 +304,26 @@
         "FiOS uses fiber-optic cable."
       ],
       "correctAnswer": "Most U.S. homes have fiber-optic cable connections.",
-      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: Most U.S. homes have fiber-optic cable connections..\n\nStudent note: The question asks for the statement that is not true."
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: Most U.S. homes have fiber-optic cable connections..\n\nStudent note: The question asks for the statement that is not true.",
+      "study": {
+        "title": "Fiber-optic access",
+        "simple": "Fiber-optic cable carries data as light and supports very high bandwidth over long distances with low signal loss.",
+        "whyCorrect": [
+          "The statement that most U.S. homes have fiber connections is the one marked not true. Fiber deployment has grown, but historically many homes used cable, DSL or other access technologies rather than direct fiber."
+        ],
+        "notes": [
+          "Fiber is resistant to electromagnetic interference compared with copper.",
+          "A technology can be technically superior without being deployed to most homes."
+        ],
+        "pitfall": "Because the question says 'not true', identify the false deployment claim rather than a fiber capability.",
+        "remember": "Fiber capability and fiber availability are different ideas.",
+        "keyTerms": [
+          {
+            "term": "Fiber-optic access",
+            "meaning": "Fiber-optic cable carries data as light and supports very high bandwidth over long distances with low signal loss."
+          }
+        ]
+      }
     },
     {
       "number": "11",
@@ -146,7 +336,26 @@
         "60%"
       ],
       "correctAnswer": "40%",
-      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: 40%.\n\nStudent note: The uploaded review marks 40%."
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: 40%.\n\nStudent note: The uploaded review marks 40%.",
+      "study": {
+        "title": "IPv6 adoption statistic",
+        "simple": "IPv6 is the newer Internet Protocol version designed with a much larger address space than IPv4.",
+        "whyCorrect": [
+          "The uploaded review marks 40% for U.S. Internet traffic using IPv6. This is a dated adoption statistic from the course material, so it should be remembered as a source-specific figure."
+        ],
+        "notes": [
+          "IPv6 uses 128-bit addresses; IPv4 uses 32-bit addresses.",
+          "Adoption percentages change continuously as networks migrate."
+        ],
+        "pitfall": "Do not treat 40% as a permanent current statistic.",
+        "remember": "For this paper's source: 40%.",
+        "keyTerms": [
+          {
+            "term": "IPv6 adoption statistic",
+            "meaning": "IPv6 is the newer Internet Protocol version designed with a much larger address space than IPv4."
+          }
+        ]
+      }
     },
     {
       "number": "12",
@@ -159,7 +368,26 @@
         "DSL provides guaranteed throughput."
       ],
       "correctAnswer": "DSL provides guaranteed throughput.",
-      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: DSL provides guaranteed throughput..\n\nStudent note: The question asks for the DSL statement that is not true."
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: DSL provides guaranteed throughput..\n\nStudent note: The question asks for the DSL statement that is not true.",
+      "study": {
+        "title": "DSL performance",
+        "simple": "DSL sends digital data over telephone-line copper and its real performance depends on line quality, distance and provider/network conditions.",
+        "whyCorrect": [
+          "DSL does not normally promise a fixed guaranteed throughput to every user at all times, so 'DSL provides guaranteed throughput' is the statement that is not true."
+        ],
+        "notes": [
+          "Different DSL technologies offer different upstream/downstream rates.",
+          "Distance from equipment and line conditions can affect achievable speed."
+        ],
+        "pitfall": "Advertised maximum speed is not the same as guaranteed throughput.",
+        "remember": "DSL performance can vary.",
+        "keyTerms": [
+          {
+            "term": "DSL performance",
+            "meaning": "DSL sends digital data over telephone-line copper and its real performance depends on line quality, distance and provider/network conditions."
+          }
+        ]
+      }
     },
     {
       "number": "13",
@@ -172,7 +400,26 @@
         "60%"
       ],
       "correctAnswer": "40%",
-      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: 40%.\n\nStudent note: This item repeats the IPv6 percentage question in the uploaded review; the marked answer is again 40%."
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: 40%.\n\nStudent note: This item repeats the IPv6 percentage question in the uploaded review; the marked answer is again 40%.",
+      "study": {
+        "title": "IPv6 adoption statistic",
+        "simple": "IPv6 is the newer Internet Protocol version with a much larger address space than IPv4.",
+        "whyCorrect": [
+          "This item repeats the earlier IPv6 statistic. The uploaded review again marks 40%, so the duplicate must score the same way."
+        ],
+        "notes": [
+          "The percentage belongs to the course source period.",
+          "IPv6 adoption changes over time and should not be treated as a timeless constant."
+        ],
+        "pitfall": "Recognise exact repeated questions and keep the same source answer.",
+        "remember": "For this paper: 40%.",
+        "keyTerms": [
+          {
+            "term": "IPv6 adoption statistic",
+            "meaning": "IPv6 is the newer Internet Protocol version with a much larger address space than IPv4."
+          }
+        ]
+      }
     },
     {
       "number": "14",
@@ -183,7 +430,26 @@
         "False"
       ],
       "correctAnswer": "False",
-      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: False.\n\nStudent note: Use False for this exact assessment item."
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: False.\n\nStudent note: Use False for this exact assessment item.",
+      "study": {
+        "title": "Metaverse use cases",
+        "simple": "Metaverse-like environments combine persistent or immersive digital spaces with social, commercial, entertainment or work activities.",
+        "whyCorrect": [
+          "The uploaded review marks False, so False remains the paper answer. The broad statement 'primarily for gaming and advertising' may be considered too narrow because metaverse-style platforms also support social interaction, events, commerce, training and collaboration."
+        ],
+        "notes": [
+          "A technology can have several major use cases rather than one narrow purpose.",
+          "Course true/false items may depend on how the prescribed text characterises the market."
+        ],
+        "pitfall": "Do not convert the marked answer just because gaming is a visible use case.",
+        "remember": "Paper answer: False; learn the broader range of uses.",
+        "keyTerms": [
+          {
+            "term": "Metaverse use cases",
+            "meaning": "Metaverse-like environments combine persistent or immersive digital spaces with social, commercial, entertainment or work activities."
+          }
+        ]
+      }
     },
     {
       "number": "15",
@@ -196,7 +462,26 @@
         "Consolidation phase"
       ],
       "correctAnswer": "Institutionalization phase",
-      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: Institutionalization phase.\n\nStudent note: Remember DNS introduction here under the Institutionalization phase."
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: Institutionalization phase.\n\nStudent note: Remember DNS introduction here under the Institutionalization phase.",
+      "study": {
+        "title": "DNS and Internet institutionalization",
+        "simple": "DNS replaced reliance on a single hosts file with a scalable distributed naming system.",
+        "whyCorrect": [
+          "The assessment places the introduction of DNS in the Internet's Institutionalization phase, when formal institutions, standards and scalable infrastructure were developing to support wider network growth."
+        ],
+        "notes": [
+          "DNS was developed in the 1980s as the Internet expanded.",
+          "Institutionalization refers to the period when organisations and formal systems helped turn the network into a stable large-scale infrastructure."
+        ],
+        "pitfall": "Do not confuse a technology's invention date with a later commercialisation phase.",
+        "remember": "DNS is associated here with the Institutionalization phase.",
+        "keyTerms": [
+          {
+            "term": "DNS and Internet institutionalization",
+            "meaning": "DNS replaced reliance on a single hosts file with a scalable distributed naming system."
+          }
+        ]
+      }
     },
     {
       "number": "16",
@@ -209,7 +494,26 @@
         "IP."
       ],
       "correctAnswer": "VoIP.",
-      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: VoIP..\n\nStudent note: VoIP stands for Voice over Internet Protocol."
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: VoIP..\n\nStudent note: VoIP stands for Voice over Internet Protocol.",
+      "study": {
+        "title": "Voice over Internet Protocol",
+        "simple": "VoIP carries voice or other audio as digital packets over IP networks.",
+        "whyCorrect": [
+          "VoIP literally means Voice over Internet Protocol, so it is the technology used for voice communication over the Internet rather than the traditional circuit-switched telephone network."
+        ],
+        "notes": [
+          "Voice is digitised, packetised and transported using IP networking.",
+          "Applications may add signalling, codecs and quality-of-service mechanisms around the IP transport."
+        ],
+        "pitfall": "VoIP is the concept; individual apps such as Teams or WhatsApp are implementations/services using Internet communication.",
+        "remember": "VoIP = voice carried over IP.",
+        "keyTerms": [
+          {
+            "term": "Voice over Internet Protocol",
+            "meaning": "VoIP carries voice or other audio as digital packets over IP networks."
+          }
+        ]
+      }
     },
     {
       "number": "17",
@@ -220,7 +524,26 @@
         "False"
       ],
       "correctAnswer": "True",
-      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: True.\n\nStudent note: HTTP/3 is built on QUIC rather than directly using TCP."
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: True.\n\nStudent note: HTTP/3 is built on QUIC rather than directly using TCP.",
+      "study": {
+        "title": "HTTP/3 and QUIC",
+        "simple": "HTTP/3 is the newer HTTP version designed to run over QUIC.",
+        "whyCorrect": [
+          "The statement is True because HTTP/3 uses QUIC as its transport foundation instead of using TCP directly as HTTP/1.1 and HTTP/2 traditionally do."
+        ],
+        "notes": [
+          "QUIC runs over UDP but adds features such as secure connections and stream management.",
+          "Avoiding TCP head-of-line effects is one reason QUIC was adopted for HTTP/3."
+        ],
+        "pitfall": "Do not say HTTP/3 simply 'uses UDP'; the key protocol named by the question is QUIC.",
+        "remember": "HTTP/3 → QUIC.",
+        "keyTerms": [
+          {
+            "term": "HTTP/3 and QUIC",
+            "meaning": "HTTP/3 is the newer HTTP version designed to run over QUIC."
+          }
+        ]
+      }
     },
     {
       "number": "18",
@@ -233,7 +556,26 @@
         "Applications layer."
       ],
       "correctAnswer": "Middleware Services layer.",
-      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: Middleware Services layer..\n\nStudent note: The paper places these shared services in the Middleware Services layer."
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: Middleware Services layer..\n\nStudent note: The paper places these shared services in the Middleware Services layer.",
+      "study": {
+        "title": "Middleware Services layer",
+        "simple": "Middleware provides shared services between lower-level infrastructure and higher-level applications.",
+        "whyCorrect": [
+          "Security, authentication/identity management, file systems and storage repositories are shared support capabilities used by many applications, so the course architecture places them in the Middleware Services layer."
+        ],
+        "notes": [
+          "Middleware helps different applications use common infrastructure services consistently.",
+          "Authentication answers 'who are you?'; authorization then controls what that identity may do."
+        ],
+        "pitfall": "Do not confuse middleware services with the user-facing application layer.",
+        "remember": "Middleware supplies reusable common services.",
+        "keyTerms": [
+          {
+            "term": "Middleware Services layer",
+            "meaning": "Middleware provides shared services between lower-level infrastructure and higher-level applications."
+          }
+        ]
+      }
     },
     {
       "number": "19",
@@ -246,7 +588,26 @@
         "TLS"
       ],
       "correctAnswer": "UDP",
-      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: UDP.\n\nStudent note: UDP is the lightweight transport alternative listed in this question."
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: UDP.\n\nStudent note: UDP is the lightweight transport alternative listed in this question.",
+      "study": {
+        "title": "UDP versus TCP",
+        "simple": "UDP is a connectionless transport protocol with less built-in reliability machinery than TCP.",
+        "whyCorrect": [
+          "When an application does not need TCP's acknowledgement, retransmission and ordered-delivery behaviour, UDP offers a lighter transport alternative. That is why UDP fits the question."
+        ],
+        "notes": [
+          "UDP has lower protocol overhead but the application may need to handle loss or ordering itself.",
+          "Real-time media and DNS are examples of areas where UDP is commonly used."
+        ],
+        "pitfall": "UDP is not 'better' than TCP; it is suitable when different trade-offs are needed.",
+        "remember": "TCP emphasises reliable delivery; UDP emphasises low overhead.",
+        "keyTerms": [
+          {
+            "term": "UDP versus TCP",
+            "meaning": "UDP is a connectionless transport protocol with less built-in reliability machinery than TCP."
+          }
+        ]
+      }
     },
     {
       "number": "20",
@@ -259,7 +620,26 @@
         "Asia Pacific"
       ],
       "correctAnswer": "Middle East/Africa",
-      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: Middle East/Africa.\n\nStudent note: This repeats Question 6; the marked answer is Middle East/Africa."
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: Middle East/Africa.\n\nStudent note: This repeats Question 6; the marked answer is Middle East/Africa.",
+      "study": {
+        "title": "Internet-access growth by region",
+        "simple": "Regional Internet growth measures change in adoption over a defined time period.",
+        "whyCorrect": [
+          "This repeats Question 6, and the uploaded assessment again marks Middle East/Africa."
+        ],
+        "notes": [
+          "Fastest growth and highest penetration are different measures.",
+          "The ranking is tied to the course source date."
+        ],
+        "pitfall": "Repeated source-statistic questions should keep the same answer.",
+        "remember": "For this paper: Middle East/Africa.",
+        "keyTerms": [
+          {
+            "term": "Internet-access growth by region",
+            "meaning": "Regional Internet growth measures change in adoption over a defined time period."
+          }
+        ]
+      }
     },
     {
       "number": "21",
@@ -270,7 +650,26 @@
         "False"
       ],
       "correctAnswer": "False",
-      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: False.\n\nStudent note: This repeats Question 1. Keep the uploaded assessment's marked answer even though general networking terminology commonly uses latency to mean delay."
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: False.\n\nStudent note: This repeats Question 1. Keep the uploaded assessment's marked answer even though general networking terminology commonly uses latency to mean delay.",
+      "study": {
+        "title": "Latency in packet-switched networks",
+        "simple": "Latency normally describes network delay.",
+        "whyCorrect": [
+          "This repeats Question 1. The assessment marks False, so the scoring key must remain False even though standard networking usage generally treats latency as delay."
+        ],
+        "notes": [
+          "Delay can come from propagation, transmission, processing and queueing.",
+          "Latency and bandwidth are separate properties."
+        ],
+        "pitfall": "Preserve the source answer without learning the anomalous statement as a general rule.",
+        "remember": "Paper answer: False; concept: latency = delay.",
+        "keyTerms": [
+          {
+            "term": "Latency in packet-switched networks",
+            "meaning": "Latency normally describes network delay."
+          }
+        ]
+      }
     },
     {
       "number": "22",
@@ -283,7 +682,26 @@
         "VoIP"
       ],
       "correctAnswer": "online message board",
-      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: online message board.\n\nStudent note: A message board supports asynchronous communication, so users do not need to be online at the same time."
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: online message board.\n\nStudent note: A message board supports asynchronous communication, so users do not need to be online at the same time.",
+      "study": {
+        "title": "Asynchronous online communication",
+        "simple": "Asynchronous communication does not require participants to be present at the same time.",
+        "whyCorrect": [
+          "An online message board stores posts and replies so users can read and respond later, which matches communication 'although not in real time'."
+        ],
+        "notes": [
+          "Email and forums/message boards are common asynchronous examples.",
+          "Live chat and voice/video calls are synchronous because participants interact in real time."
+        ],
+        "pitfall": "Look for the phrase 'not in real time' as the clue for asynchronous communication.",
+        "remember": "Message board = asynchronous discussion.",
+        "keyTerms": [
+          {
+            "term": "Asynchronous online communication",
+            "meaning": "Asynchronous communication does not require participants to be present at the same time."
+          }
+        ]
+      }
     },
     {
       "number": "23",
@@ -294,7 +712,26 @@
         "False"
       ],
       "correctAnswer": "False",
-      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: False.\n\nStudent note: Keep the marked answer for this exact paper. The terminology can look surprising, so this item is preserved exactly from the review."
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: False.\n\nStudent note: Keep the marked answer for this exact paper. The terminology can look surprising, so this item is preserved exactly from the review.",
+      "study": {
+        "title": "Internet backbone interconnection terminology",
+        "simple": "Large network interconnection locations allow networks and providers to exchange traffic.",
+        "whyCorrect": [
+          "The uploaded review marks False, so False remains the exact-paper answer. The wording is terminology-sensitive: older course material may distinguish Network Access Points or other backbone hubs from modern IXPs even though IXP is a widely used current term."
+        ],
+        "notes": [
+          "IXPs are facilities where independent networks exchange traffic directly.",
+          "Internet infrastructure terminology has changed over time and textbooks may use historical classifications."
+        ],
+        "pitfall": "Do not overwrite a verified paper key with newer terminology; flag the difference instead.",
+        "remember": "For this assessment: False.",
+        "keyTerms": [
+          {
+            "term": "Internet backbone interconnection terminology",
+            "meaning": "Large network interconnection locations allow networks and providers to exchange traffic."
+          }
+        ]
+      }
     },
     {
       "number": "24",
@@ -307,7 +744,26 @@
         "HTML5 stores page content in a mobile device's hardware rather loading it into the browser from a web server."
       ],
       "correctAnswer": "HTML5 stores page content in a mobile device's hardware rather loading it into the browser from a web server.",
-      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: HTML5 stores page content in a mobile device's hardware rather loading it into the browser from a web server..\n\nStudent note: Because the question says except, choose the statement the paper marks as not true."
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: HTML5 stores page content in a mobile device's hardware rather loading it into the browser from a web server..\n\nStudent note: Because the question says except, choose the statement the paper marks as not true.",
+      "study": {
+        "title": "HTML5 and local storage",
+        "simple": "HTML5 defines modern web markup and browser APIs; web pages are normally delivered to a browser, which then renders them.",
+        "whyCorrect": [
+          "The claim that HTML5 stores page content in a mobile device's hardware instead of loading it from a web server is the false statement. HTML5 can support browser-side storage, but that is not the same as permanently storing the whole page in device hardware."
+        ],
+        "notes": [
+          "Browser caching/local storage can keep some data locally.",
+          "HTML defines page structure; CSS styles it and JavaScript can add behaviour."
+        ],
+        "pitfall": "Do not confuse HTML5 local-storage capabilities with how websites are normally delivered.",
+        "remember": "'Except' means choose the false HTML5 statement.",
+        "keyTerms": [
+          {
+            "term": "HTML5 and local storage",
+            "meaning": "HTML5 defines modern web markup and browser APIs; web pages are normally delivered to a browser, which then renders them."
+          }
+        ]
+      }
     },
     {
       "number": "25",
@@ -318,7 +774,26 @@
         "False"
       ],
       "correctAnswer": "True",
-      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: True.\n\nStudent note: Use True for this assessment item."
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: True.\n\nStudent note: Use True for this assessment item.",
+      "study": {
+        "title": "Tier 1 Internet service providers",
+        "simple": "Tier 1 networks are large backbone providers that can reach the global Internet through settlement-free peering and extensive interconnection.",
+        "whyCorrect": [
+          "The uploaded assessment marks True. In the course's classification, Tier 1 providers are treated as part of the provider chain that supplies Internet connectivity to businesses/consumers, directly or through lower-tier relationships."
+        ],
+        "notes": [
+          "Tier 1 providers are primarily associated with Internet backbone/transit infrastructure.",
+          "Access-provider classifications can be simplified differently by textbooks."
+        ],
+        "pitfall": "Use the module's provider hierarchy for this exact true/false item.",
+        "remember": "Paper answer: True.",
+        "keyTerms": [
+          {
+            "term": "Tier 1 Internet service providers",
+            "meaning": "Tier 1 networks are large backbone providers that can reach the global Internet through settlement-free peering and extensive interconnection."
+          }
+        ]
+      }
     },
     {
       "number": "26",
@@ -331,7 +806,26 @@
         "co-location plan"
       ],
       "correctAnswer": "logical design",
-      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: logical design.\n\nStudent note: A data flow diagram is part of describing how information logically moves through the system."
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: logical design.\n\nStudent note: A data flow diagram is part of describing how information logically moves through the system.",
+      "study": {
+        "title": "Logical design and data-flow diagrams",
+        "simple": "Logical design describes what information a system needs and how processes/data should flow without committing to specific hardware or implementation details.",
+        "whyCorrect": [
+          "A data flow diagram models logical movement of data among processes, stores and external entities, so it belongs naturally to logical design."
+        ],
+        "notes": [
+          "Logical design focuses on functions and information requirements.",
+          "Physical design focuses on the actual technologies, servers, software and implementation configuration."
+        ],
+        "pitfall": "DFD = flow of information/process logic, not a screen-layout drawing.",
+        "remember": "Data flow diagrams support logical design.",
+        "keyTerms": [
+          {
+            "term": "Logical design and data-flow diagrams",
+            "meaning": "Logical design describes what information a system needs and how processes/data should flow without committing to specific hardware or implementation details."
+          }
+        ]
+      }
     },
     {
       "number": "27",
@@ -344,7 +838,26 @@
         "DevOps"
       ],
       "correctAnswer": "SWOT analysis",
-      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: SWOT analysis.\n\nStudent note: SWOT is used to examine strengths, weaknesses, opportunities and threats."
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: SWOT analysis.\n\nStudent note: SWOT is used to examine strengths, weaknesses, opportunities and threats.",
+      "study": {
+        "title": "SWOT analysis",
+        "simple": "SWOT stands for Strengths, Weaknesses, Opportunities and Threats.",
+        "whyCorrect": [
+          "SWOT explicitly identifies internal strengths and weaknesses while also considering external opportunities and threats, making it a simple structured method for describing a firm's position."
+        ],
+        "notes": [
+          "Strengths/weaknesses are usually internal factors.",
+          "Opportunities/threats are usually external environmental factors."
+        ],
+        "pitfall": "Do not treat SWOT as only a list of weaknesses; it covers four perspectives.",
+        "remember": "SWOT = S W O T.",
+        "keyTerms": [
+          {
+            "term": "SWOT analysis",
+            "meaning": "SWOT stands for Strengths, Weaknesses, Opportunities and Threats."
+          }
+        ]
+      }
     },
     {
       "number": "28",
@@ -357,7 +870,26 @@
         "systems analysis/planning; implementation; building the system; and testing."
       ],
       "correctAnswer": "systems analysis/planning; systems design; building the system; testing; and implementation.",
-      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: systems analysis/planning; systems design; building the system; testing; and implementation..\n\nStudent note: Remember the sequence: analyse/plan, design, build, test, implement."
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: systems analysis/planning; systems design; building the system; testing; and implementation..\n\nStudent note: Remember the sequence: analyse/plan, design, build, test, implement.",
+      "study": {
+        "title": "Systems Development Life Cycle",
+        "simple": "The SDLC organises the work of creating and introducing an information system into major stages.",
+        "whyCorrect": [
+          "The marked sequence follows the logical progression: understand and plan the need, design the solution, build it, test that it works, then implement/deploy it for use."
+        ],
+        "notes": [
+          "Analysis asks what is needed; design decides how the solution should work.",
+          "Testing should occur before full implementation so faults can be found before release."
+        ],
+        "pitfall": "Different methodologies may iterate, but the exam is asking for the textbook stage order.",
+        "remember": "Analyse/plan → design → build → test → implement.",
+        "keyTerms": [
+          {
+            "term": "Systems Development Life Cycle",
+            "meaning": "The SDLC organises the work of creating and introducing an information system into major stages."
+          }
+        ]
+      }
     },
     {
       "number": "29",
@@ -368,7 +900,26 @@
         "False"
       ],
       "correctAnswer": "True",
-      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: True.\n\nStudent note: Keep the marked answer and the original wording from the uploaded assessment."
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: True.\n\nStudent note: Keep the marked answer and the original wording from the uploaded assessment.",
+      "study": {
+        "title": "Native mobile development",
+        "simple": "Native mobile software targets a particular mobile platform and its platform-specific APIs/tooling.",
+        "whyCorrect": [
+          "The assessment marks True because native applications normally require platform-specific development or builds for environments such as Android and iOS. The wording says 'native web apps', but the tested idea is platform-specific native development."
+        ],
+        "notes": [
+          "Native apps differ from browser-based web apps that can share more code across platforms.",
+          "Cross-platform frameworks can reduce duplicated work but still produce platform-targeted applications."
+        ],
+        "pitfall": "Treat the phrase 'native web apps' as source wording; focus on the platform-specific concept.",
+        "remember": "Native development is tied to target platforms.",
+        "keyTerms": [
+          {
+            "term": "Native mobile development",
+            "meaning": "Native mobile software targets a particular mobile platform and its platform-specific APIs/tooling."
+          }
+        ]
+      }
     },
     {
       "number": "30",
@@ -381,7 +932,26 @@
         "systems analysis/planning; implementation; building the system; and testing."
       ],
       "correctAnswer": "systems analysis/planning; systems design; building the system; testing; and implementation.",
-      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: systems analysis/planning; systems design; building the system; testing; and implementation..\n\nStudent note: This repeats Question 28; use the same SDLC order."
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: systems analysis/planning; systems design; building the system; testing; and implementation..\n\nStudent note: This repeats Question 28; use the same SDLC order.",
+      "study": {
+        "title": "Systems Development Life Cycle",
+        "simple": "The SDLC provides an ordered framework for analysing, designing, constructing, testing and introducing systems.",
+        "whyCorrect": [
+          "This repeats Question 28, so the same stage sequence is correct: systems analysis/planning; systems design; building; testing; implementation."
+        ],
+        "notes": [
+          "The stages move from understanding the problem toward delivering the working solution.",
+          "Iterative methods may revisit stages, but the textbook sequence remains useful for exam questions."
+        ],
+        "pitfall": "Recognise duplicate questions and use the same stage logic.",
+        "remember": "Analyse/plan → design → build → test → implement.",
+        "keyTerms": [
+          {
+            "term": "Systems Development Life Cycle",
+            "meaning": "The SDLC provides an ordered framework for analysing, designing, constructing, testing and introducing systems."
+          }
+        ]
+      }
     },
     {
       "number": "31",
@@ -392,7 +962,26 @@
         "False"
       ],
       "correctAnswer": "True",
-      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: True.\n\nStudent note: Use True for this assessment item."
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: True.\n\nStudent note: Use True for this assessment item.",
+      "study": {
+        "title": "System maintenance cost",
+        "simple": "Maintenance includes correcting faults, adapting to changed environments and improving a system after it has been delivered.",
+        "whyCorrect": [
+          "The course statement is True: systems that are expensive or complex to develop generally also create substantial ongoing maintenance effort, so maintenance cost tends to track development complexity/cost."
+        ],
+        "notes": [
+          "Maintenance continues throughout the operational life of the system.",
+          "Poor design and technical debt can make maintenance disproportionately expensive."
+        ],
+        "pitfall": "Do not think cost ends at launch; lifecycle cost includes operation and maintenance.",
+        "remember": "Development decisions affect long-term maintenance cost.",
+        "keyTerms": [
+          {
+            "term": "System maintenance cost",
+            "meaning": "Maintenance includes correcting faults, adapting to changed environments and improving a system after it has been delivered."
+          }
+        ]
+      }
     },
     {
       "number": "32",
@@ -403,7 +992,26 @@
         "False"
       ],
       "correctAnswer": "True",
-      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: True.\n\nStudent note: Vertical scaling means increasing the power or resources of the existing server."
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: True.\n\nStudent note: Vertical scaling means increasing the power or resources of the existing server.",
+      "study": {
+        "title": "Vertical scaling",
+        "simple": "Vertical scaling means making one existing machine more powerful.",
+        "whyCorrect": [
+          "Changing a server from one processor to multiple processors adds resources to the same server, so it is a classic scale-up/vertical-scaling example."
+        ],
+        "notes": [
+          "Vertical scaling: more CPU, RAM or storage in one machine.",
+          "Horizontal scaling: add more machines/nodes and distribute the workload."
+        ],
+        "pitfall": "Remember 'up' = stronger server; 'out' = more servers.",
+        "remember": "Multiple processors in one server = vertical scaling.",
+        "keyTerms": [
+          {
+            "term": "Vertical scaling",
+            "meaning": "Vertical scaling means making one existing machine more powerful."
+          }
+        ]
+      }
     },
     {
       "number": "33",
@@ -416,7 +1024,26 @@
         "site management tools."
       ],
       "correctAnswer": "cookies.",
-      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: cookies..\n\nStudent note: Cookies can store or connect visitor/session information used for personalization."
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: cookies..\n\nStudent note: Cookies can store or connect visitor/session information used for personalization.",
+      "study": {
+        "title": "Cookies and personalization",
+        "simple": "A cookie is small data associated with a website and stored by the browser, often carrying a session identifier or preferences.",
+        "whyCorrect": [
+          "Cookies let a site recognise a returning browser/session and connect it with stored preferences or behaviour, making personalised content possible."
+        ],
+        "notes": [
+          "A cookie may hold an identifier rather than all personal data itself.",
+          "Sites can use sessions, accounts and server-side databases together with cookies."
+        ],
+        "pitfall": "Cookies are not executable programs by themselves and should not be confused with browser cache files.",
+        "remember": "Cookies help a site remember/recognise a visitor.",
+        "keyTerms": [
+          {
+            "term": "Cookies and personalization",
+            "meaning": "A cookie is small data associated with a website and stored by the browser, often carrying a session identifier or preferences."
+          }
+        ]
+      }
     },
     {
       "number": "34",
@@ -427,7 +1054,26 @@
         "False"
       ],
       "correctAnswer": "False",
-      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: False.\n\nStudent note: The paper marks this False; page appearance is mainly determined by the delivered page content, styles and browser rendering rather than the brand of web-server software."
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: False.\n\nStudent note: The paper marks this False; page appearance is mainly determined by the delivered page content, styles and browser rendering rather than the brand of web-server software.",
+      "study": {
+        "title": "Web server versus page appearance",
+        "simple": "A web server receives requests and sends web resources; the browser renders HTML, CSS and other front-end content.",
+        "whyCorrect": [
+          "The statement is False because the brand of web-server software does not by itself decide how the page looks. Appearance is mainly determined by the content/styles/scripts delivered and how the browser renders them."
+        ],
+        "notes": [
+          "Apache, Nginx or another server can often deliver the same HTML/CSS.",
+          "CSS is the main technology used to control presentation and layout."
+        ],
+        "pitfall": "Server software matters for performance/configuration, but not directly for visual design.",
+        "remember": "Browser + HTML/CSS determine appearance more directly.",
+        "keyTerms": [
+          {
+            "term": "Web server versus page appearance",
+            "meaning": "A web server receives requests and sends web resources; the browser renders HTML, CSS and other front-end content."
+          }
+        ]
+      }
     },
     {
       "number": "35",
@@ -440,7 +1086,26 @@
         "customer database system"
       ],
       "correctAnswer": "digital catalog",
-      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: digital catalog.\n\nStudent note: The digital catalog is the customer-facing function used to present products."
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: digital catalog.\n\nStudent note: The digital catalog is the customer-facing function used to present products.",
+      "study": {
+        "title": "Digital catalog",
+        "simple": "A digital catalog is the e-commerce function that presents products or services with information such as names, descriptions, images and prices.",
+        "whyCorrect": [
+          "Because the requirement is to display goods on a website, the digital catalog is the direct customer-facing system function that meets it."
+        ],
+        "notes": [
+          "A shopping cart stores selected items; a catalog presents items available for selection.",
+          "Good catalogs often support categories, search, filtering and product details."
+        ],
+        "pitfall": "Do not confuse displaying products with processing payment or storing customer accounts.",
+        "remember": "Catalog = show the goods.",
+        "keyTerms": [
+          {
+            "term": "Digital catalog",
+            "meaning": "A digital catalog is the e-commerce function that presents products or services with information such as names, descriptions, images and prices."
+          }
+        ]
+      }
     },
     {
       "number": "36",
@@ -453,7 +1118,26 @@
         "RoR"
       ],
       "correctAnswer": "AWD",
-      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: AWD.\n\nStudent note: The marked answer is AWD, referring here to adaptive web delivery."
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: AWD.\n\nStudent note: The marked answer is AWD, referring here to adaptive web delivery.",
+      "study": {
+        "title": "Adaptive Web Design / Delivery",
+        "simple": "Adaptive delivery chooses a suitable predesigned layout or template based on detected device characteristics.",
+        "whyCorrect": [
+          "The marked answer AWD fits because the question describes server-side detection of a requesting device followed by delivery of a device-optimised template, which is the adaptive approach."
+        ],
+        "notes": [
+          "Adaptive design uses defined layouts/templates for device classes.",
+          "Responsive design usually relies more on flexible client-side layout/CSS that adapts within one design."
+        ],
+        "pitfall": "Do not use AWD and responsive design as exact synonyms in this course.",
+        "remember": "Device detected → matching template delivered = adaptive.",
+        "keyTerms": [
+          {
+            "term": "Adaptive Web Design / Delivery",
+            "meaning": "Adaptive delivery chooses a suitable predesigned layout or template based on detected device characteristics."
+          }
+        ]
+      }
     },
     {
       "number": "37",
@@ -466,7 +1150,26 @@
         "identifying the key components of your business plan and selecting the right software, hardware, and infrastructure for your site"
       ],
       "correctAnswer": "developing a clear understanding of business objectives and knowing how to choose the right technology to achieve those objectives",
-      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: developing a clear understanding of business objectives and knowing how to choose the right technology to achieve those objectives.\n\nStudent note: Link the business objective first, then choose technology that supports it."
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: developing a clear understanding of business objectives and knowing how to choose the right technology to achieve those objectives.\n\nStudent note: Link the business objective first, then choose technology that supports it.",
+      "study": {
+        "title": "Business objectives before technology",
+        "simple": "An e-commerce presence should be designed to achieve defined business goals rather than to use technology simply because it is available.",
+        "whyCorrect": [
+          "The answer identifies the two linked management tasks: first know what the business is trying to achieve, then choose technology that can deliver those objectives within constraints."
+        ],
+        "notes": [
+          "Business objectives might include increasing sales, reducing service cost or improving customer retention.",
+          "Technology selection should consider capability, cost, skills, security, scalability and maintainability."
+        ],
+        "pitfall": "Starting with a fashionable technology and searching for a business purpose afterwards reverses the logic.",
+        "remember": "Objective first, technology second.",
+        "keyTerms": [
+          {
+            "term": "Business objectives before technology",
+            "meaning": "An e-commerce presence should be designed to achieve defined business goals rather than to use technology simply because it is available."
+          }
+        ]
+      }
     },
     {
       "number": "38",
@@ -479,7 +1182,26 @@
         "HTML"
       ],
       "correctAnswer": "HTML",
-      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: HTML.\n\nStudent note: HTML structures page content; the other listed technologies can participate in server-side database retrieval."
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: HTML.\n\nStudent note: HTML structures page content; the other listed technologies can participate in server-side database retrieval.",
+      "study": {
+        "title": "HTML versus database access",
+        "simple": "HTML is a markup language used to structure content displayed in a web page.",
+        "whyCorrect": [
+          "HTML by itself does not execute database queries or retrieve database objects. Server-side technologies or application code perform database access and then generate HTML for the browser."
+        ],
+        "notes": [
+          "Typical database access happens in server-side application code using SQL or data-access libraries.",
+          "HTML describes headings, forms, tables, links and other page structure."
+        ],
+        "pitfall": "A form written in HTML can collect input, but backend code is still needed to query the database.",
+        "remember": "HTML structures pages; backend code retrieves database data.",
+        "keyTerms": [
+          {
+            "term": "HTML versus database access",
+            "meaning": "HTML is a markup language used to structure content displayed in a web page."
+          }
+        ]
+      }
     },
     {
       "number": "39",
@@ -492,7 +1214,26 @@
         "inventory levels."
       ],
       "correctAnswer": "customer ID numbers.",
-      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: customer ID numbers..\n\nStudent note: Customer IDs belong to customer data rather than the core product record."
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: customer ID numbers..\n\nStudent note: Customer IDs belong to customer data rather than the core product record.",
+      "study": {
+        "title": "Product database information",
+        "simple": "A product database stores attributes that describe products being sold.",
+        "whyCorrect": [
+          "Customer ID numbers identify customers, not products, so they do not belong to the basic information requirements of the product database. Product records instead need fields such as product ID, description, price and inventory-related data."
+        ],
+        "notes": [
+          "Separate entities/tables reduce mixing unrelated customer and product information.",
+          "Relationships such as orders can connect customers to products without putting customer IDs into every product record."
+        ],
+        "pitfall": "Ask 'what does this field describe?' to decide which database entity it belongs to.",
+        "remember": "Customer ID → customer data, not product master data.",
+        "keyTerms": [
+          {
+            "term": "Product database information",
+            "meaning": "A product database stores attributes that describe products being sold."
+          }
+        ]
+      }
     },
     {
       "number": "40",
@@ -505,7 +1246,26 @@
         "offline media"
       ],
       "correctAnswer": "social media",
-      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: social media.\n\nStudent note: Social media is designed for ongoing two-way interaction and conversation."
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: social media.\n\nStudent note: Social media is designed for ongoing two-way interaction and conversation.",
+      "study": {
+        "title": "Social media presence",
+        "simple": "Social media platforms are designed around ongoing publishing, responses, comments, sharing and community interaction.",
+        "whyCorrect": [
+          "Because the goal is an ongoing conversation with customers, social media fits better than a mostly one-way or static presence."
+        ],
+        "notes": [
+          "Two-way engagement can support service, feedback and community building.",
+          "A website may also support interaction, but social platforms are specifically built around continuous social exchange."
+        ],
+        "pitfall": "Conversation means interaction over time, not merely publishing advertisements.",
+        "remember": "Ongoing customer conversation → social media.",
+        "keyTerms": [
+          {
+            "term": "Social media presence",
+            "meaning": "Social media platforms are designed around ongoing publishing, responses, comments, sharing and community interaction."
+          }
+        ]
+      }
     },
     {
       "number": "41",
@@ -518,7 +1278,26 @@
         "DevOps"
       ],
       "correctAnswer": "web services",
-      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: web services.\n\nStudent note: The assessment links service-oriented architecture implementation with web services."
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: web services.\n\nStudent note: The assessment links service-oriented architecture implementation with web services.",
+      "study": {
+        "title": "Service-oriented architecture and web services",
+        "simple": "SOA structures software as reusable services with clear interfaces that other systems can call.",
+        "whyCorrect": [
+          "Web services are a standard way to expose interoperable service interfaces over networks, so the course identifies them as the preferred implementation method for SOA."
+        ],
+        "notes": [
+          "Services reduce tight coupling by exposing defined contracts/interfaces.",
+          "Web-service technologies may use REST/HTTP, SOAP or other service mechanisms depending on architecture."
+        ],
+        "pitfall": "SOA is the architectural idea; web services are an implementation approach.",
+        "remember": "SOA can be implemented through web services.",
+        "keyTerms": [
+          {
+            "term": "Service-oriented architecture and web services",
+            "meaning": "SOA structures software as reusable services with clear interfaces that other systems can call."
+          }
+        ]
+      }
     },
     {
       "number": "42",
@@ -531,7 +1310,26 @@
         "DevOps"
       ],
       "correctAnswer": "web services",
-      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: web services.\n\nStudent note: This repeats Question 41; the marked answer is web services."
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: web services.\n\nStudent note: This repeats Question 41; the marked answer is web services.",
+      "study": {
+        "title": "Service-oriented architecture and web services",
+        "simple": "SOA organises capabilities as reusable network-accessible services.",
+        "whyCorrect": [
+          "This is a duplicate of Question 41. The marked answer is again web services because they provide a common way to expose and consume service interfaces."
+        ],
+        "notes": [
+          "Keep architecture and implementation distinct: SOA is the style, web services are a common mechanism.",
+          "Reusable services can be composed into larger business processes."
+        ],
+        "pitfall": "Duplicate question, same concept and same answer.",
+        "remember": "SOA → commonly implemented with web services.",
+        "keyTerms": [
+          {
+            "term": "Service-oriented architecture and web services",
+            "meaning": "SOA organises capabilities as reusable network-accessible services."
+          }
+        ]
+      }
     },
     {
       "number": "43",
@@ -544,7 +1342,26 @@
         "Most large firms today have mobile websites."
       ],
       "correctAnswer": "Generally, mobile websites operate more quickly than traditional websites viewed on a desktop computer connected to a broadband office network.",
-      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: Generally, mobile websites operate more quickly than traditional websites viewed on a desktop computer connected to a broadband office network..\n\nStudent note: Because the question asks what is not true, choose the third statement."
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: Generally, mobile websites operate more quickly than traditional websites viewed on a desktop computer connected to a broadband office network..\n\nStudent note: Because the question asks what is not true, choose the third statement.",
+      "study": {
+        "title": "Mobile website performance",
+        "simple": "Mobile-site performance depends on device capability, network quality, page weight and optimisation.",
+        "whyCorrect": [
+          "The claim that mobile websites generally operate faster than traditional sites on a desktop connected to a broadband office network is the statement marked not true. Mobile networks/devices can introduce constraints that make performance slower unless the site is carefully optimised."
+        ],
+        "notes": [
+          "Mobile design often reduces asset size and complexity to compensate for device/network limits.",
+          "A smaller mobile page can be efficient, but that does not mean mobile is inherently faster than broadband desktop access."
+        ],
+        "pitfall": "The question asks for 'not true'; do not select a real mobile-design benefit by mistake.",
+        "remember": "Mobile optimisation helps performance; mobile is not automatically faster.",
+        "keyTerms": [
+          {
+            "term": "Mobile website performance",
+            "meaning": "Mobile-site performance depends on device capability, network quality, page weight and optimisation."
+          }
+        ]
+      }
     },
     {
       "number": "44",
@@ -557,7 +1374,26 @@
         "HTML"
       ],
       "correctAnswer": "HTML",
-      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: HTML.\n\nStudent note: This repeats Question 38; the marked answer is HTML."
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: HTML.\n\nStudent note: This repeats Question 38; the marked answer is HTML.",
+      "study": {
+        "title": "HTML versus database access",
+        "simple": "HTML defines page structure but does not itself perform database queries.",
+        "whyCorrect": [
+          "This repeats Question 38. HTML cannot directly retrieve database objects; server-side application logic performs the query and returns results to the page."
+        ],
+        "notes": [
+          "Database access typically uses SQL through backend code.",
+          "HTML can display returned data once the application has generated the page."
+        ],
+        "pitfall": "Do not confuse displaying database results with retrieving them.",
+        "remember": "HTML is presentation/structure, not database query logic.",
+        "keyTerms": [
+          {
+            "term": "HTML versus database access",
+            "meaning": "HTML defines page structure but does not itself perform database queries."
+          }
+        ]
+      }
     },
     {
       "number": "45",
@@ -568,7 +1404,26 @@
         "False"
       ],
       "correctAnswer": "True",
-      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: True.\n\nStudent note: JSP can be used in a server-side Java web application that retrieves data from a database."
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: True.\n\nStudent note: JSP can be used in a server-side Java web application that retrieves data from a database.",
+      "study": {
+        "title": "Java Server Pages and database-backed sites",
+        "simple": "JSP is a server-side Java technology used to generate dynamic web content.",
+        "whyCorrect": [
+          "A JSP-based application can execute server-side Java code that communicates with a database, retrieve records and use them to generate the response, so the statement is True."
+        ],
+        "notes": [
+          "In well-designed applications, database logic is often placed in separate classes/services rather than directly inside the page.",
+          "The important point is that JSP executes on the server, unlike plain static HTML."
+        ],
+        "pitfall": "JSP can participate in database retrieval; HTML alone cannot query a database.",
+        "remember": "JSP = server-side Java web technology.",
+        "keyTerms": [
+          {
+            "term": "Java Server Pages and database-backed sites",
+            "meaning": "JSP is a server-side Java technology used to generate dynamic web content."
+          }
+        ]
+      }
     },
     {
       "number": "46",
@@ -581,7 +1436,26 @@
         "ColdFusion"
       ],
       "correctAnswer": "ColdFusion",
-      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: ColdFusion.\n\nStudent note: Use ColdFusion for this paper. The wording groups technologies broadly, so preserve the source exactly rather than rewriting the options."
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: ColdFusion.\n\nStudent note: Use ColdFusion for this paper. The wording groups technologies broadly, so preserve the source exactly rather than rewriting the options.",
+      "study": {
+        "title": "Open-source web technologies",
+        "simple": "Open-source technologies make source code available under licences that permit defined forms of use, inspection, modification and redistribution.",
+        "whyCorrect": [
+          "The course marks ColdFusion as the exception. In this textbook classification, ColdFusion is treated as a proprietary Adobe server-side platform/language environment rather than one of the listed open-source languages."
+        ],
+        "notes": [
+          "PHP, Python and similar languages commonly have open-source implementations/ecosystems.",
+          "Technology ownership/licensing can be more nuanced than a simple product name, so follow the course classification for the exam."
+        ],
+        "pitfall": "Do not generalise from the word 'language' alone; this is a licensing/classification question.",
+        "remember": "For this paper: ColdFusion is the exception.",
+        "keyTerms": [
+          {
+            "term": "Open-source web technologies",
+            "meaning": "Open-source technologies make source code available under licences that permit defined forms of use, inspection, modification and redistribution."
+          }
+        ]
+      }
     },
     {
       "number": "47",
@@ -594,7 +1468,26 @@
         "publishing/subscription"
       ],
       "correctAnswer": "trading",
-      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: trading.\n\nStudent note: Trading sites handle sensitive transactions and therefore need many secure pages."
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: trading.\n\nStudent note: Trading sites handle sensitive transactions and therefore need many secure pages.",
+      "study": {
+        "title": "Secure pages for trading sites",
+        "simple": "Trading sites handle high-value and sensitive operations such as account access, orders, financial data and transactions.",
+        "whyCorrect": [
+          "Because much of the user journey involves sensitive authenticated or transactional data, trading sites require a high proportion of pages to use secure encrypted connections."
+        ],
+        "notes": [
+          "HTTPS protects data in transit and authenticates the server certificate identity.",
+          "Security also needs authentication, authorisation and secure server-side design; HTTPS alone is not enough."
+        ],
+        "pitfall": "A secure page is about protecting the connection and transaction, not merely showing a padlock graphic.",
+        "remember": "Sensitive trading activity demands extensive secure pages.",
+        "keyTerms": [
+          {
+            "term": "Secure pages for trading sites",
+            "meaning": "Trading sites handle high-value and sensitive operations such as account access, orders, financial data and transactions."
+          }
+        ]
+      }
     },
     {
       "number": "48",
@@ -605,7 +1498,26 @@
         "False"
       ],
       "correctAnswer": "True",
-      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: True.\n\nStudent note: Modern mainstream browsers no longer provide the old Java applet plug-in support."
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: True.\n\nStudent note: Modern mainstream browsers no longer provide the old Java applet plug-in support.",
+      "study": {
+        "title": "Java applets in modern browsers",
+        "simple": "Java applets were small Java programs embedded in web pages through browser plug-in technology.",
+        "whyCorrect": [
+          "The statement is True because mainstream browsers removed the old plug-in mechanisms required to run Java applets, making them effectively unsupported in current browser versions."
+        ],
+        "notes": [
+          "Modern web apps use HTML5, JavaScript and Web APIs instead of Java applets.",
+          "Java as a server/desktop language still exists; it is specifically browser applet support that disappeared."
+        ],
+        "pitfall": "Do not conclude that 'Java is obsolete'; only the applet/browser model is being discussed.",
+        "remember": "Modern browsers no longer support classic Java applets.",
+        "keyTerms": [
+          {
+            "term": "Java applets in modern browsers",
+            "meaning": "Java applets were small Java programs embedded in web pages through browser plug-in technology."
+          }
+        ]
+      }
     },
     {
       "number": "49",
@@ -616,7 +1528,26 @@
         "False"
       ],
       "correctAnswer": "True",
-      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: True.\n\nStudent note: Dynamic pages can vary displayed offers or prices based on rules or information available to the site."
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: True.\n\nStudent note: Dynamic pages can vary displayed offers or prices based on rules or information available to the site.",
+      "study": {
+        "title": "Dynamic pages and price discrimination",
+        "simple": "Dynamic page generation creates page content at request time using data and business rules.",
+        "whyCorrect": [
+          "A site can generate different offers or prices for different users, segments, times or conditions, so dynamic generation can technically enable price discrimination."
+        ],
+        "notes": [
+          "Personalisation uses data/rules to vary what different visitors see.",
+          "Price discrimination means charging different prices to different buyers or segments for comparable offerings under defined conditions."
+        ],
+        "pitfall": "Dynamic generation enables the capability; whether it is lawful or ethical depends on context and implementation.",
+        "remember": "Dynamic content can vary prices by rule or segment.",
+        "keyTerms": [
+          {
+            "term": "Dynamic pages and price discrimination",
+            "meaning": "Dynamic page generation creates page content at request time using data and business rules."
+          }
+        ]
+      }
     },
     {
       "number": "50",
@@ -629,7 +1560,26 @@
         "co-location plan"
       ],
       "correctAnswer": "logical design",
-      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: logical design.\n\nStudent note: This repeats Question 26; the marked answer is logical design."
+      "explanation": "Marked answer from the uploaded 2026 Assessment 2 review: logical design.\n\nStudent note: This repeats Question 26; the marked answer is logical design.",
+      "study": {
+        "title": "Logical design and data-flow diagrams",
+        "simple": "Logical design models what information a system needs and how it flows between processes, stores and external entities.",
+        "whyCorrect": [
+          "This repeats Question 26. A data flow diagram is used during logical design because it describes information movement without requiring a particular technical implementation."
+        ],
+        "notes": [
+          "Logical design focuses on requirements/processes; physical design chooses implementation technology.",
+          "DFDs show flows, processes, data stores and external entities."
+        ],
+        "pitfall": "Do not confuse a data-flow diagram with a physical network topology.",
+        "remember": "DFD → logical design.",
+        "keyTerms": [
+          {
+            "term": "Logical design and data-flow diagrams",
+            "meaning": "Logical design models what information a system needs and how it flows between processes, stores and external entities."
+          }
+        ]
+      }
     }
   ]
 }
