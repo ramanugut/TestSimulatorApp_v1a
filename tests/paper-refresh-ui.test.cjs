@@ -31,7 +31,9 @@ function chosen(w){return w.document.getElementById('test-select').value;}
  app=await open({storage,reverse:true});assert.equal(chosen(app.w),exam,'A cold reload stays on the chosen exam');app.dom.window.close();
  // Ordinary exam answers and question order still resume for the matching paper.
  app=await open({preferences:{lastSelectedPaper:exam},progress:{currentTestFile:exam,userAnswers:{0:'Yes'},testInProgress:false,activeQuestions:paper(exam).questions}});
- assert.equal(app.w.document.querySelector('.option-item input').checked,true);
+ const resumedChoice=app.w.document.querySelector('.option-item input:checked');
+ assert.ok(resumedChoice,'Matching paper answer should resume even when answer options are shuffled');
+ assert.match(resumedChoice.closest('.option-item').textContent,/Yes/,'The saved answer value, not its old option position, must resume');
  // A refresh during a paper fetch must not store the previous paper under its new name.
  app.delayed.set(oldPaper,[]);app.delayed.set(second,[]);
  const select=app.w.document.getElementById('test-select');
