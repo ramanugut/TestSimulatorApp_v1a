@@ -5574,6 +5574,33 @@ const testFiles = [
   "ict3722-oracle-security-sql-verified-practice.json",
 ];
 
+// Verified ICT2622 paper archive.
+// These are real-paper records discovered from public source listings.
+// They are deliberately NOT loaded as tests until the exact paper text is
+// supplied/verified. This prevents reconstructed or paraphrased questions from
+// being presented as original UNISA questions.
+const ict2622VerifiedPaperArchive = [
+  { session: "May/June 2015", source: "https://www.studocu.com/en-za/document/university-of-south-africa/object-oriented-analysis/ict2622-2015-6-e-1-memo/4829457" },
+  { session: "May/June 2016", source: "https://www.studocu.com/en-za/document/university-of-south-africa/ict-project-management/ict2622-exams-questions-1-1723/25435961" },
+  { session: "Oct/Nov 2016", source: "https://www.studocu.com/en-za/document/university-of-south-africa/object-oriented-analysis/exam-31-october-2016-questions/2230725" },
+  { session: "Oct/Nov 2017", source: "https://www.studocu.com/en-za/course/university-of-south-africa/object-oriented-analysis/practice-materials/2325444/4" },
+  { session: "May/June 2018", source: "https://www.studocu.com/en-za/course/university-of-south-africa/object-oriented-analysis/2325444" },
+  { session: "Oct/Nov 2018", source: "https://www.studocu.com/en-za/course/university-of-south-africa/object-oriented-analysis/2325444" },
+  { session: "Oct/Nov 2019", source: "https://www.studocu.com/en-za/course/university-of-south-africa/object-oriented-analysis/practice-materials/2325444/4" },
+  { session: "Oct/Nov 2020", source: "https://www.coursehero.com/file/72012838/ICT2622-ExamPDF/" },
+  { session: "June/July 2021", source: "https://www.studocu.com/en-za/document/university-of-south-africa/object-oriented-analysis/ict2622-june-july-2021-exam-paper/107514889" },
+  { session: "Oct/Nov 2021", source: "https://www.numerade.com/notes/directory/school/4647/courses/282152/files/4526273" },
+  { session: "Jan/Feb 2022", source: "https://www.studocu.com/en-za/document/university-of-south-africa/bcom-business-informatics/ict2622-jan-feb-2022-exam-paper/84371675" },
+  { session: "Oct/Nov 2022", source: "https://www.studocu.com/en-za/document/university-of-south-africa/business-informatics-iib/ict2622-oct-nov-2022-exam-paper/36554312" },
+  { session: "Jan/Feb 2023", source: "https://www.numerade.com/notes/directory/school/4647/courses/295020/files/3884764" },
+  { session: "Oct/Nov 2023", source: "https://www.studocu.com/en-za/document/university-of-south-africa/digital-logic/ict2622-exam-oct-nov-2023/71892923" },
+  { session: "Jan/Feb 2024", source: "https://www.studocu.com/en-za/document/university-of-south-africa/object-oriented-analysis/ict2622-jan-feb-2024-exam-paper/116544270" },
+  { session: "Oct/Nov 2024", source: "https://www.studocu.com/en-za/document/studocu-university-south-africa/business-informatics/ict2622-oct-nov-2024-exam-paper/108025848" },
+  { session: "Jan/Feb 2025", source: "https://www.studocu.com/en-za/document/university-of-south-africa/object-oriented-analysis/ict2622-jan-feb-2025-exam-paper/116820025" },
+  { session: "Oct/Nov 2025", source: "https://www.scribd.com/document/971232190/ICT2622-Oct-Nov-2025-Exam-Paper" },
+  { session: "Jan/Feb 2026", source: "https://www.studocu.com/en-za/document/university-of-south-africa/object-oriented-analysis/ict2622-final-exam-paper-januaryfebruary-2026/152215087" }
+];
+
 
   // Load test files into the select element
   async function loadTestFiles() {
@@ -5627,6 +5654,24 @@ const testFiles = [
       }
       testSelect.appendChild(option);
     });
+
+    // Show the complete verified ICT2622 paper history without turning source
+    // listings into fake tests. Disabled archive items are informational until
+    // the exact original question text is available for import.
+    if (ict2622VerifiedPaperArchive.length) {
+      const archiveGroup = document.createElement("optgroup");
+      archiveGroup.label = "ICT2622 · Verified paper archive (exact questions pending)";
+      ict2622VerifiedPaperArchive.forEach(record => {
+        const option = document.createElement("option");
+        option.disabled = true;
+        option.textContent = `ICT2622 · ${record.session} · verified source — exact questions pending`;
+        option.title = record.source;
+        option.dataset.sourceReference = record.source;
+        option.dataset.module = "ICT2622";
+        archiveGroup.appendChild(option);
+      });
+      testSelect.appendChild(archiveGroup);
+    }
     populateDefineTestModal();
 
     const selectedSession = appPreferences.lastSelectedSession;
