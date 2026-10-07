@@ -19,6 +19,14 @@ const index = fs.readFileSync("index.html", "utf8");
 const mastery = fs.readFileSync("modules/ict2631-mastery.js", "utf8");
 
 assert.ok(index.includes('src="modules/ict2631-mastery.js'), "Load ICT2631 mastery before engine");
+assert.ok(script.includes("buildStudyGuideData(question)"),
+  "Study mode must build structured notes for every module, including explanation-only papers");
+assert.ok(script.includes('"What this means"'),
+  "Study mode must explain the meaning of the concept");
+assert.ok(script.includes('"Why this answer is correct"'),
+  "Study mode must explicitly explain why the answer is correct");
+assert.ok(script.includes('"Study notes"'),
+  "Study mode must include topic-specific study notes");
 
 let questionCount = 0;
 let objectiveCount = 0;
@@ -57,6 +65,11 @@ for (const name of names) {
       assert.ok(q.study && q.study.title && q.study.simple && q.study.steps.length &&
         q.study.example && q.study.pitfall && q.study.keyTerms?.length,
         "Practice Study mode must explain every question");
+      assert.ok(Array.isArray(q.study.whyCorrect) && q.study.whyCorrect.length &&
+        q.study.whyCorrect.join(" ").length >= 80,
+        "Practice Study mode must clearly explain why the fixed answer is correct");
+      assert.ok(Array.isArray(q.study.notes) && q.study.notes.length >= 2,
+        "Practice Study mode must include topic-specific study notes");
     }
 
     if (Array.isArray(q.options)) {
