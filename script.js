@@ -5562,6 +5562,12 @@ const testFiles = [
   "ict3621-oct-nov-2025-exam-structure-practice.json",
   "ict3631-assignment-1-2026-verified.json",
   "ict3631-jan-feb-2025-exam-structure-practice.json",
+  // Exact short excerpts. The source links and Partial labels distinguish
+  // these previews from complete 100-mark papers and reconstructed practice.
+  "ict3631-oct-nov-2023-exam-excerpts.json",
+  "ict3631-oct-nov-2022-exam-excerpts.json",
+  "ict3631-sep-nov-2021-exam-excerpts.json",
+  "ict3631-oct-nov-2020-exam-excerpts.json",
   "ict3641-assessment-2-2026-original.json",
   "ict3641-assessment-1-2024-verified-practice.json",
   "ict3641-assessment-2-2024-verified-partial.json",
@@ -5639,6 +5645,13 @@ const ict2622VerifiedPaperArchive = [
         option.textContent = data.testName || filename.replace(".json", "").replace(/_/g, " ");
         const questionCount = Array.isArray(data.questions) ? data.questions.length : 0;
         option.dataset.questionCount = String(questionCount);
+        if (data.paperStatus === "partial") {
+          option.dataset.paperStatus = "partial";
+          option.dataset.availableMarks = String(data.totalMarks || 0);
+          option.dataset.originalTotalMarks = String(data.originalTotalMarks || 0);
+          option.dataset.sourceLimitations = String(data.sourceLimitations || "");
+          option.dataset.sourceReference = String(data.sourceReference || "");
+        }
         const module = deriveModuleCode({
           file: filename,
           name: option.textContent,
@@ -6898,6 +6911,26 @@ const ict2622VerifiedPaperArchive = [
     }
 
     questionsContainer.innerHTML = "";
+    const paperOption = testSelect?.selectedOptions?.[0];
+    if (loadedTestFile === currentTestFile && paperOption?.dataset.paperStatus === "partial") {
+      const notice = document.createElement("p");
+      notice.className = "paper-preview-notice";
+      notice.setAttribute("role", "note");
+      const count = Number(paperOption.dataset.questionCount);
+      notice.textContent = "Partial preview · " + count + (count === 1 ? " question" : " questions") +
+        " · " + paperOption.dataset.availableMarks + "/" + paperOption.dataset.originalTotalMarks +
+        " marks. Model answers; not an official memo. ";
+      notice.title = paperOption.dataset.sourceLimitations;
+      if (/^https?:\/\//i.test(paperOption.dataset.sourceReference || "")) {
+        const link = document.createElement("a");
+        link.href = paperOption.dataset.sourceReference;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        link.textContent = "View source paper ↗";
+        notice.appendChild(link);
+      }
+      questionsContainer.appendChild(notice);
+    }
     if (filterEmptyStateElement) {
       filterEmptyStateElement.classList.add("hidden");
     }

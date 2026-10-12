@@ -31,6 +31,7 @@ jobs:
           node tests/mastery-content.test.cjs
           node tests/inf3708-papers.test.cjs
           node tests/ict2631-content.test.cjs
+          node tests/ict3631-content.test.cjs
           node tests/ict2622-content.test.cjs
           node tests/revision-insights.test.cjs
           node tests/book-reader-ui.test.cjs
@@ -49,5 +50,6 @@ jobs:
           node tests/mockup-features-ui.test.cjs
           node tests/answer-workspace-ui.test.cjs
           node tests/paper-picker-ui.test.cjs
+          node tests/ict3631-papers-ui.test.cjs
           node tests/editable-diagram-ui.test.cjs
           node tests/revision-controller-ui.test.cjs

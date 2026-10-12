@@ -1,0 +1,57 @@
+{
+  "module": "ICT3631",
+  "preserveOrder": true,
+  "paperStatus": "partial",
+  "sourceType": "Exact short question excerpts from a previous UNISA paper; incomplete preview, not a full examination.",
+  "sourceNote": "Original question wording is preserved. Line wrapping is normalised. Model answers and student notes are separate and are not an official memorandum.",
+  "originalTotalMarks": 100,
+  "marking": "ai-assisted-written-and-command",
+  "testName": "ICT3631 · Oct/Nov 2023 Exam · Partial preview",
+  "assessment": "Oct/Nov 2023 examination excerpts",
+  "sourceReference": "https://www.studocu.com/en-za/document/university-of-south-africa/advanced-operating-system-practice/ict3631-exam-oct-2023/71677321",
+  "sourceLimitations": "Short exact excerpt from Question 2 only. The public preview omits the final page and cuts off data in other questions. The subquestion number is not readable, so the app uses a section/excerpt label rather than inventing a number.",
+  "questions": [
+    {
+      "number": "Q2 excerpt",
+      "marks": 6,
+      "text": "What command would you use to make the CUPS service persistent at runlevel 3 in SysVinit? (6)",
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "command",
+      "correctAnswer": "chkconfig --level 3 cups on",
+      "aiRubric": [
+        "Uses chkconfig for the SysVinit service configuration (2).",
+        "Specifies runlevel 3 using --level 3 or an equivalent list that includes 3 (2).",
+        "Selects the cups service (1).",
+        "Uses on to enable it persistently (1). Do not require sudo when the answer assumes a root shell."
+      ],
+      "aiReferenceNotes": "These are model study answers, not an official UNISA memorandum. Award partial credit using the rubric. Accept equivalent correct explanations and harmless command-option order changes. The question wording is kept separate from all explanations.",
+      "answerReferences": [
+        "https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/6/html/deployment_guide/s2-services-chkconfig"
+      ],
+      "explanation": "CUPS manages printing. A persistent service is configured to start when the system enters the required runlevel.\n\nWhy: chkconfig changes the saved SysVinit startup setting. --level 3 chooses the runlevel, cups chooses printing, and on enables its startup. It does not merely start CUPS for the current session.\n\nStudent note: Remember the four parts: chkconfig, --level 3, cups, on. Use the init system named in the question.",
+      "studentNote": "Remember the four parts: chkconfig, --level 3, cups, on. Use the init system named in the question.",
+      "study": {
+        "title": "CUPS persistence in SysVinit",
+        "simple": "CUPS manages printing. A persistent service is configured to start when the system enters the required runlevel.",
+        "whyCorrect": [
+          "chkconfig changes the saved SysVinit startup setting. --level 3 chooses the runlevel, cups chooses printing, and on enables its startup. It does not merely start CUPS for the current session."
+        ],
+        "notes": [
+          "SysVinit uses runlevels to decide which services should run.",
+          "Runlevel 3 is normally multi-user text mode with networking in the Red Hat/Fedora course context.",
+          "Enabling startup and starting a service now are separate actions."
+        ],
+        "steps": [
+          "SysVinit uses runlevels to decide which services should run.",
+          "Runlevel 3 is normally multi-user text mode with networking in the Red Hat/Fedora course context.",
+          "Enabling startup and starting a service now are separate actions."
+        ],
+        "example": "To check the saved setting: chkconfig --list cups. To start it immediately: service cups start.",
+        "pitfall": "systemctl is the systemd tool. The question specifically asks for SysVinit.",
+        "studentNote": "Remember the four parts: chkconfig, --level 3, cups, on. Use the init system named in the question."
+      }
+    }
+  ],
+  "totalMarks": 6
+}

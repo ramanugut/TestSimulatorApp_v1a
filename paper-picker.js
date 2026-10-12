@@ -207,6 +207,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const prefix = term + (year ? " " + year : "");
       if (/topic[\s-]*based/i.test(value)) return prefix + " · Topic-based mock";
       if (/supplementary/i.test(value)) return prefix + " · Supplementary exam";
+      if (/partial/i.test(value)) return prefix + " · Partial exam preview";
       return prefix + (/original|style|inspired|practice/i.test(value)
         ? " · Exam practice" : " · Exam");
     }
@@ -228,12 +229,16 @@ document.addEventListener("DOMContentLoaded", () => {
       const questionCount = Number.isFinite(rawCount) && rawCount > 0 ? rawCount : null;
       const practice = /original|style|mock|inspired|practice/i.test(name) ||
         /inspired|practice/i.test(file);
-      const note = /AI marked/i.test(name) ? "AI marked" :
+      const partial = option.dataset.paperStatus === "partial";
+      const note = partial ? "Partial preview · " + option.dataset.availableMarks + "/" +
+        option.dataset.originalTotalMarks + " marks" : /AI marked/i.test(name) ? "AI marked" :
         /original/i.test(name) ? "Original practice" :
         practice ? "Practice version" : "";
       const year = (name.match(/\b20\d{2}\b/) || [""])[0];
       return {
         file, name, module, kind, year, questionCount, note,
+        sourceReference: option.dataset.sourceReference || "",
+        sourceLimitations: option.dataset.sourceLimitations || "",
         title: paperTitle(name, file, module, kind)
       };
     });
@@ -326,7 +331,20 @@ document.addEventListener("DOMContentLoaded", () => {
     heading.className = "paper-picker-section-title";
     heading.textContent = label;
     section.appendChild(heading);
-    items.forEach(paper => section.appendChild(makePaperRow(paper, showModule)));
+    items.forEach(paper => {
+      section.appendChild(makePaperRow(paper, showModule));
+      if (/^https?:\/\//i.test(paper.sourceReference)) {
+        const link = document.createElement("a");
+        link.className = "paper-picker-source-link";
+        link.href = paper.sourceReference;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        link.textContent = "View source paper ↗";
+        link.setAttribute("aria-label", "View source for " + paper.name + " (opens in a new tab)");
+        link.title = paper.sourceLimitations;
+        section.appendChild(link);
+      }
+    });
     return section;
   }
 
@@ -420,6 +438,31 @@ document.addEventListener("DOMContentLoaded", () => {
         searching ? key + " · " + subject(key).title : categoryNames[key], members, searching
       ));
     });
+    // Listings and answers-only documents remain usable source links without
+    // being counted as imported exams or mixed into a custom test.
+    if (!searching && state.module === "ICT3631") {
+      const section = document.createElement("section");
+      section.className = "paper-picker-section";
+      const heading = document.createElement("h4");
+      heading.className = "paper-picker-section-title";
+      heading.textContent = "More online sources · questions pending";
+      section.appendChild(heading);
+      [
+        ["Oct/Nov 2017 · Paper source", "https://www.coursehero.com/file/28090051/ICT3631-2017-10-E-1pdf/"],
+        ["May/June 2017 · Answers only", "https://www.studocu.com/en-za/document/university-of-south-africa/advanced-operating-system-practice/exam-14-may-2017-answers/4766731"],
+        ["October 2016 · Unreadable preview", "https://www.studocu.com/en-za/document/university-of-south-africa/advanced-operating-system-practice/exam-october-2016-questions/6825358"]
+      ].forEach(([label, url]) => {
+        const link = document.createElement("a");
+        link.className = "paper-picker-source-link paper-pending-source";
+        link.href = url;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        link.textContent = label + " ↗";
+        link.setAttribute("aria-label", label + " (opens in a new tab)");
+        section.appendChild(link);
+      });
+      results.appendChild(section);
+    }
   }
 
   function render() {
