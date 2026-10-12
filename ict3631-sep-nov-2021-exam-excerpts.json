@@ -1,0 +1,103 @@
+{
+  "module": "ICT3631",
+  "preserveOrder": true,
+  "paperStatus": "partial",
+  "sourceType": "Exact short question excerpts from a previous UNISA paper; incomplete preview, not a full examination.",
+  "sourceNote": "Original question wording is preserved. Line wrapping is normalised. Model answers and student notes are separate and are not an official memorandum.",
+  "originalTotalMarks": 100,
+  "marking": "ai-assisted-written-and-command",
+  "testName": "ICT3631 · Sep/Nov 2021 Exam · Partial preview",
+  "assessment": "Sep/Nov 2021 examination excerpts",
+  "sourceReference": "https://www.coursehero.com/file/106967036/ICT3631-EXAMINATIONpdf/",
+  "sourceLimitations": "Two short exact questions from Section A only. The public preview shows only 2 of the 4 pages. Sections B and C are not imported.",
+  "questions": [
+    {
+      "number": "1.1",
+      "marks": 5,
+      "text": "Name the systemd initialisation types. (5)",
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "correctAnswer": "Five examples are service, socket, target, mount and automount. Other valid types include device, path, timer, swap, slice and scope. Historical systemd versions in older course material also included snapshot units.",
+      "aiRubric": [
+        "Award 1 mark for each distinct valid systemd unit type, up to 5 marks.",
+        "Accept the historical snapshot unit type when answering in the old course context.",
+        "Do not award marks for SysVinit, Upstart and systemd: those are init systems rather than systemd unit types."
+      ],
+      "aiReferenceNotes": "These are model study answers, not an official UNISA memorandum. Award partial credit using the rubric. Accept equivalent correct explanations and harmless command-option order changes. The question wording is kept separate from all explanations.",
+      "answerReferences": [
+        "https://www.freedesktop.org/software/systemd/man/systemd.unit.html"
+      ],
+      "explanation": "systemd describes the things it manages using units. Different unit types describe different kinds of work.\n\nWhy: The listed names are actual unit types. For example, a service unit manages a process and a mount unit describes a mounted file system. The question asks for types inside systemd, not the names of different init systems.\n\nStudent note: Learn five unit names and what each does. Snapshot units belong to older systemd material and are not a current unit type.",
+      "studentNote": "Learn five unit names and what each does. Snapshot units belong to older systemd material and are not a current unit type.",
+      "study": {
+        "title": "systemd unit types",
+        "simple": "systemd describes the things it manages using units. Different unit types describe different kinds of work.",
+        "whyCorrect": [
+          "The listed names are actual unit types. For example, a service unit manages a process and a mount unit describes a mounted file system. The question asks for types inside systemd, not the names of different init systems."
+        ],
+        "notes": [
+          "service: manages a service process.",
+          "socket: describes a socket that can trigger a service.",
+          "target: groups units for a chosen system state.",
+          "mount: describes a file-system mount.",
+          "automount: triggers a mount when a path is accessed."
+        ],
+        "steps": [
+          "service: manages a service process.",
+          "socket: describes a socket that can trigger a service.",
+          "target: groups units for a chosen system state.",
+          "mount: describes a file-system mount.",
+          "automount: triggers a mount when a path is accessed."
+        ],
+        "example": "cups.service is a service unit; multi-user.target is a target unit.",
+        "pitfall": "SysVinit, Upstart and systemd name different init systems, not systemd unit types.",
+        "studentNote": "Learn five unit names and what each does. Snapshot units belong to older systemd material and are not a current unit type."
+      }
+    },
+    {
+      "number": "1.5",
+      "marks": 9,
+      "text": "Name and discuss the two main services that are associated with a Samba server. (9)",
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "correctAnswer": "smb (smbd): provides SMB file and printer sharing for clients, including Windows clients. It handles client sessions, authentication and permissions for shared resources. nmb (nmbd): provides the traditional NetBIOS name service and browsing support. It helps map NetBIOS names to IP addresses and can provide WINS when configured. Service names vary by distribution; the daemon names smbd and nmbd identify the roles.",
+      "aiRubric": [
+        "Names smb/smbd and identifies SMB file and printer sharing (3).",
+        "Explains client sessions and authentication or access to shared resources (1).",
+        "Names nmb/nmbd and explains NetBIOS name resolution or mapping names to IP addresses (3).",
+        "Explains browsing support or optional WINS service (1).",
+        "Clearly distinguishes resource sharing from name discovery (1)."
+      ],
+      "aiReferenceNotes": "These are model study answers, not an official UNISA memorandum. Award partial credit using the rubric. Accept equivalent correct explanations and harmless command-option order changes. The question wording is kept separate from all explanations.",
+      "answerReferences": [
+        "https://www.samba.org/samba/docs/current/man-html/smbd.8.html",
+        "https://www.samba.org/samba/docs/current/man-html/nmbd.8.html"
+      ],
+      "explanation": "Samba lets computers share files and printers using SMB. Its traditional daemons divide sharing and NetBIOS name discovery into different jobs.\n\nWhy: smbd handles access to shared resources. nmbd helps clients find and resolve traditional NetBIOS names. Naming both and explaining their separate roles answers the discussion part of the question.\n\nStudent note: Remember: smb = sharing; nmb = NetBIOS names. Explain the role as well as giving the service name.",
+      "studentNote": "Remember: smb = sharing; nmb = NetBIOS names. Explain the role as well as giving the service name.",
+      "study": {
+        "title": "Samba sharing and name discovery",
+        "simple": "Samba lets computers share files and printers using SMB. Its traditional daemons divide sharing and NetBIOS name discovery into different jobs.",
+        "whyCorrect": [
+          "smbd handles access to shared resources. nmbd helps clients find and resolve traditional NetBIOS names. Naming both and explaining their separate roles answers the discussion part of the question."
+        ],
+        "notes": [
+          "smbd is responsible for file and printer sharing.",
+          "nmbd supports older NetBIOS name resolution and browsing.",
+          "Direct SMB over TCP 445 can work without the old NetBIOS discovery layer."
+        ],
+        "steps": [
+          "smbd is responsible for file and printer sharing.",
+          "nmbd supports older NetBIOS name resolution and browsing.",
+          "Direct SMB over TCP 445 can work without the old NetBIOS discovery layer."
+        ],
+        "example": "smbd serves a shared folder. nmbd can help a legacy client resolve the server's NetBIOS name.",
+        "pitfall": "Do not swap the daemons: nmbd does not serve the shared file contents.",
+        "studentNote": "Remember: smb = sharing; nmb = NetBIOS names. Explain the role as well as giving the service name."
+      }
+    }
+  ],
+  "totalMarks": 14
+}

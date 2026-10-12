@@ -1,0 +1,57 @@
+{
+  "module": "ICT3631",
+  "preserveOrder": true,
+  "paperStatus": "partial",
+  "sourceType": "Exact short question excerpts from a previous UNISA paper; incomplete preview, not a full examination.",
+  "sourceNote": "Original question wording is preserved. Line wrapping is normalised. Model answers and student notes are separate and are not an official memorandum.",
+  "originalTotalMarks": 100,
+  "marking": "ai-assisted-written-and-command",
+  "testName": "ICT3631 · Oct/Nov 2022 Exam · Partial preview",
+  "assessment": "Oct/Nov 2022 examination excerpts",
+  "sourceReference": "https://www.studocu.com/en-za/document/university-of-south-africa/advanced-operating-system-practice/ict3631-oct-nov-22-paper-final/45206717",
+  "sourceLimitations": "Short exact excerpt from Question 1 only. Other pages and subquestion digits are missing in the public transcription. The section/excerpt label does not claim an unreadable original subquestion number.",
+  "questions": [
+    {
+      "number": "Q1 excerpt",
+      "marks": 4,
+      "text": "Currently the CUPS service is not running. However, you type a restart command by accident. Explain what will happen. (4)",
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "correctAnswer": "A restart normally requests a stop followed by a start. Because CUPS is already stopped, there is no running service to stop. A legacy init script may report a failed stop attempt; whether it continues to start depends on that script. With systemctl restart cups, systemd starts an inactive CUPS service if its startup succeeds. The question does not specify the init system, so the exact result must be explained in that context.",
+      "aiRubric": [
+        "Explains stop followed by start (1).",
+        "Recognises that CUPS is already stopped, so there is no running service to stop (1).",
+        "Explains that a legacy script may report a failed stop and that the final result depends on its implementation, or correctly explains systemd restart behaviour (2).",
+        "Do not treat FAILED as a universal result across init systems. Accept a technically correct answer that states its init-system assumption."
+      ],
+      "aiReferenceNotes": "These are model study answers, not an official UNISA memorandum. Award partial credit using the rubric. Accept equivalent correct explanations and harmless command-option order changes. The question wording is kept separate from all explanations.",
+      "answerReferences": [
+        "https://manpages.debian.org/testing/systemd/systemctl.1.en.html"
+      ],
+      "explanation": "Restart asks the service manager to stop a service and start it again. Its behaviour depends on the manager or init script used.\n\nWhy: The stop part cannot stop a process that is not running. A legacy script can report that situation as a failed stop. systemd restart still starts an inactive service; this is why an answer must identify the init system instead of claiming every restart fails.\n\nStudent note: Some older course answers describe a FAILED stop stage. State that legacy assumption; do not confuse it with systemd behaviour.",
+      "studentNote": "Some older course answers describe a FAILED stop stage. State that legacy assumption; do not confuse it with systemd behaviour.",
+      "study": {
+        "title": "Restarting an inactive service",
+        "simple": "Restart asks the service manager to stop a service and start it again. Its behaviour depends on the manager or init script used.",
+        "whyCorrect": [
+          "The stop part cannot stop a process that is not running. A legacy script can report that situation as a failed stop. systemd restart still starts an inactive service; this is why an answer must identify the init system instead of claiming every restart fails."
+        ],
+        "notes": [
+          "CUPS is the printing service.",
+          "start requests a running service; stop requests a stopped service; restart requests a new run.",
+          "systemd try-restart differs from restart: it does nothing when the service is inactive."
+        ],
+        "steps": [
+          "CUPS is the printing service.",
+          "start requests a running service; stop requests a stopped service; restart requests a new run.",
+          "systemd try-restart differs from restart: it does nothing when the service is inactive."
+        ],
+        "example": "With systemd: systemctl restart cups; then systemctl status cups to check the outcome.",
+        "pitfall": "Do not memorise that restart always fails on a stopped service. That is not true for systemd.",
+        "studentNote": "Some older course answers describe a FAILED stop stage. State that legacy assumption; do not confuse it with systemd behaviour."
+      }
+    }
+  ],
+  "totalMarks": 4
+}

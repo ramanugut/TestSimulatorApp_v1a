@@ -1,0 +1,56 @@
+{
+  "module": "ICT3631",
+  "preserveOrder": true,
+  "paperStatus": "partial",
+  "sourceType": "Exact short question excerpts from a previous UNISA paper; incomplete preview, not a full examination.",
+  "sourceNote": "Original question wording is preserved. Line wrapping is normalised. Model answers and student notes are separate and are not an official memorandum.",
+  "originalTotalMarks": 100,
+  "marking": "ai-assisted-written-and-command",
+  "testName": "ICT3631 · Oct/Nov 2020 Exam · Partial preview",
+  "assessment": "Oct/Nov 2020 examination excerpts",
+  "sourceReference": "https://www.studocu.com/en-za/document/university-of-south-africa/advanced-operating-system-practice/octnov-2020-ict3631-paper-final/17639529",
+  "sourceLimitations": "Short exact excerpt from Question 1 only. The public transcription omits a page and truncates routing-table values and subquestion numbers. Those parts are not reconstructed.",
+  "questions": [
+    {
+      "number": "Q1 excerpt",
+      "marks": 2,
+      "text": "What would motivate you to use the vim editor for configuration files rather than vi? (2)",
+      "grading": "ai",
+      "aiPassScore": 70,
+      "answerType": "ai-text",
+      "correctAnswer": "Vim adds syntax highlighting, which makes different parts of a configuration file easier to recognise and can help reveal typing mistakes. It also offers editing improvements such as multiple undo levels, completion and better search support. Syntax highlighting does not prove that a configuration is valid.",
+      "aiRubric": [
+        "Explains syntax highlighting and how it helps when editing configuration files (1).",
+        "Gives another valid Vim improvement or clearly explains the benefit of spotting configuration mistakes more easily (1).",
+        "Do not require or reward the claim that Vim fully validates every configuration file."
+      ],
+      "aiReferenceNotes": "These are model study answers, not an official UNISA memorandum. Award partial credit using the rubric. Accept equivalent correct explanations and harmless command-option order changes. The question wording is kept separate from all explanations.",
+      "answerReferences": [
+        "https://www.vim.org/viusers.php"
+      ],
+      "explanation": "Vim is an extended vi editor. Its extra features can make configuration files easier to read and edit.\n\nWhy: Syntax highlighting separates comments, keywords and values visually, making mistakes easier to notice. Features such as multiple undo levels make correcting an edit easier. These are concrete improvements over traditional vi.\n\nStudent note: Give a feature and its benefit. For example: syntax highlighting helps me spot a misspelled setting.",
+      "studentNote": "Give a feature and its benefit. For example: syntax highlighting helps me spot a misspelled setting.",
+      "study": {
+        "title": "Vim for configuration files",
+        "simple": "Vim is an extended vi editor. Its extra features can make configuration files easier to read and edit.",
+        "whyCorrect": [
+          "Syntax highlighting separates comments, keywords and values visually, making mistakes easier to notice. Features such as multiple undo levels make correcting an edit easier. These are concrete improvements over traditional vi."
+        ],
+        "notes": [
+          "Configuration files control how a service behaves.",
+          "Syntax highlighting helps you read the structure of a file.",
+          "Use the service's own validation command to check whether the saved configuration is actually valid."
+        ],
+        "steps": [
+          "Configuration files control how a service behaves.",
+          "Syntax highlighting helps you read the structure of a file.",
+          "Use the service's own validation command to check whether the saved configuration is actually valid."
+        ],
+        "example": "In Vim, :syntax on enables highlighting when the file type and installed syntax support are available.",
+        "pitfall": "Colouring is a reading aid, not a complete configuration test.",
+        "studentNote": "Give a feature and its benefit. For example: syntax highlighting helps me spot a misspelled setting."
+      }
+    }
+  ],
+  "totalMarks": 2
+}

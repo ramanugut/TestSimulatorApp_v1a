@@ -34,9 +34,9 @@ async function open(look='new', prefs={}) {
  d.getElementById('toggle-app-look').click();
  assert.ok(!d.body.classList.contains('new-look'));
  assert.equal(d.getElementById('submit-test').parentElement.className,'test-controls-primary');
- assert.equal(d.querySelector('.option-item input').checked,true,'Answer survives switch to old look');
+ assert.equal(d.querySelector('.option-item input:checked')?.value,'Yes','Answer value survives switch to old look regardless of shuffled position');
  d.getElementById('toggle-app-look').click();
- assert.equal(d.querySelector('.option-item input').checked,true,'Answer survives switch back');
+ assert.equal(d.querySelector('.option-item input:checked')?.value,'Yes','Answer value survives switch back regardless of shuffled position');
  d.querySelector('#question-map-grid button[data-index="7"]').click();
  assert.equal(d.querySelector('.question').dataset.questionIndex,'7','Question map opens actual index');
  const size=d.getElementById('questions-per-page');size.value='5';size.dispatchEvent(new w.Event('change'));
