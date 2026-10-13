@@ -356,7 +356,9 @@
         {
           "category": [
             "Design detail",
-            "Implementation detail"
+            "Design details",
+            "Implementation detail",
+            "Implementation details"
           ],
           "tag": "database indexing"
         }
