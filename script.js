@@ -4883,7 +4883,13 @@ document.addEventListener("DOMContentLoaded", function () {
         aiGrades[index] = mockupStudyGrades.get(index);
         return;
       }
-      pending.push({ question, index, answer });
+      const answerKey = JSON.stringify(answer);
+      // Keep successful AI marks when a later question fails. This also
+      // prevents paying for the same marking request again on Retry.
+      if (aiGrades[index] && aiGrades[index].answerKey === answerKey) {
+        return;
+      }
+      pending.push({ question, index, answer, answerKey });
     });
 
     if (!pending.length) {
@@ -4901,10 +4907,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
     try {
       for (const item of pending) {
-        aiGrades[item.index] = await requestAiGrade(
-          item.question,
-          item.answer
-        );
+        try {
+          const grade = await requestAiGrade(item.question, item.answer);
+          aiGrades[item.index] = { ...grade, answerKey: item.answerKey };
+        } catch (error) {
+          const detail = error && error.message
+            ? error.message
+            : "The AI service could not return a mark.";
+          throw new Error(
+            "Question " + (item.index + 1) + " could not be AI marked. " +
+            detail + " Earlier AI marks from this attempt are kept. " +
+            "Press Submit Test to retry."
+          );
+        }
       }
     } finally {
       if (submitButton) {
@@ -8094,7 +8109,7 @@ const ict2622VerifiedPaperArchive = [
       if (!proceed) return true;
     }
 
-    aiGrades = {};
+    // Do not clear successfully graded answers when retrying an AI failure.
     try {
       await gradeAiQuestions(studyGuessAnswers);
     } catch (aiError) {
@@ -8635,6 +8650,18 @@ const ict2622VerifiedPaperArchive = [
   }
 
   function downloadResultsAsPDF() {
+    const unmarked = questions.flatMap((question, index) => {
+      const answer = isNewLook() ? getFeedbackAnswer(index) : userAnswers[index];
+      return isAiGradedQuestion(question) && hasProvidedAnswer(answer) &&
+          !getQuestionGrade(question, index, answer).aiGrade
+        ? [index + 1]
+        : [];
+    });
+    if (unmarked.length) {
+      alert("AI marking is not complete for question(s): " +
+        unmarked.join(", ") + ". Retry submission before downloading a final result.");
+      return;
+    }
     if (isNewLook() && !window.jspdf?.jsPDF) { window.print(); return; }
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();
@@ -8678,6 +8705,7 @@ const ict2622VerifiedPaperArchive = [
       const correctAnswer = formatAnswerForDisplay(question.correctAnswer);
       const grade = getQuestionGrade(question, index, rawUserAnswer);
       const isCorrect = grade.isCorrect;
+      const partialCredit = grade.hasAnswer && grade.scoreValue > 0 && !isCorrect;
       earnedMarks += grade.scoreValue;
 
       doc.setFont("helvetica", "bold");
@@ -8691,7 +8719,11 @@ const ict2622VerifiedPaperArchive = [
         (grade.aiGrade ? " | AI mark: " +
           Number(grade.scoreValue.toFixed(2)) + "/" +
           getQuestionMarks(question) + " marks (" +
-          Math.round(grade.aiGrade.score) + "%)" : "");
+          Math.round(grade.aiGrade.score) + "%)" : "") +
+        (grade.tableGrade ? " | Table mark: " +
+          Number(grade.scoreValue.toFixed(2)) + "/" +
+          getQuestionMarks(question) + " marks (" +
+          grade.tableGrade.details + ")" : "");
       const userAnswerLines = doc.splitTextToSize(userAnswerText, maxLineWidth);
       const userAnswerDimensions = doc.getTextDimensions(userAnswerLines, {
         maxWidth: maxLineWidth,
@@ -8735,6 +8767,7 @@ const ict2622VerifiedPaperArchive = [
         explanationLines,
         explanationHeight: explanationDimensions.h,
         isCorrect,
+        partialCredit,
         hasUserAnswer,
         aiGrade: grade.aiGrade || null,
         diagramImage: rawUserAnswer && typeof rawUserAnswer === "object" &&
@@ -8937,14 +8970,14 @@ const ict2622VerifiedPaperArchive = [
 
       if (entry.hasUserAnswer) {
         drawBlock(entry.userAnswerLines, entry.userAnswerHeight, {
-          fillColor: entry.isCorrect ? correctFill : incorrectFill,
-          textColor: entry.isCorrect ? correctTextColor : incorrectTextColor,
+          fillColor: entry.isCorrect ? correctFill : entry.partialCredit ? explanationFill : incorrectFill,
+          textColor: entry.isCorrect ? correctTextColor : entry.partialCredit ? explanationTextColor : incorrectTextColor,
           spacingAfter: 4,
           badge: {
             label: entry.aiGrade
               ? "AI " + Math.round(entry.aiGrade.score) + "%"
-              : entry.isCorrect ? "Correct" : "Incorrect",
-            fillColor: entry.isCorrect ? correctTextColor : incorrectTextColor,
+              : entry.isCorrect ? "Correct" : entry.partialCredit ? "Partial" : "Incorrect",
+            fillColor: entry.isCorrect ? correctTextColor : entry.partialCredit ? explanationTextColor : incorrectTextColor,
             textColor: { r: 255, g: 255, b: 255 },
           },
         });
