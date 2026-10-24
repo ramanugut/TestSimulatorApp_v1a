@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const triggerTitle = document.getElementById("current-paper-title");
   const dialog = document.getElementById("paper-picker");
   const description = document.getElementById("paper-picker-description");
+  const originalLink = document.getElementById("paper-picker-original-link");
   const closeButton = document.getElementById("close-paper-picker");
   const search = document.getElementById("paper-picker-search");
   const back = document.getElementById("paper-picker-back");
@@ -264,6 +265,14 @@ document.addEventListener("DOMContentLoaded", () => {
     triggerModule.textContent = moduleText;
     triggerTitle.textContent = paperText;
     trigger.title = titleText;
+    // Show a source link only when this paper has a verified source URL.
+    if (originalLink) {
+      const url = option?.dataset.sourceReference || "";
+      const safe = /^https:\/\//i.test(url);
+      originalLink.hidden = !safe;
+      if (safe) originalLink.href = url;
+      else originalLink.removeAttribute("href");
+    }
   }
 
   function sortedPapers(items) {
