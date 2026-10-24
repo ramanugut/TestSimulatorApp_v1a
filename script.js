@@ -6646,8 +6646,33 @@ const ict2622VerifiedPaperArchive = [
     const savedProgress = getSavedProgress();
     const hasSavedProgress = Boolean(savedProgress);
 
+    // When a previously partial paper is replaced with its complete original,
+    // saved numeric indexes no longer identify the same questions. Preserve only
+    // responses whose question number AND exact wording still match the new set.
+    const oldQuestions = Array.isArray(savedProgress?.activeQuestions)
+      ? savedProgress.activeQuestions : null;
+    const paperQuestionCountChanged = oldQuestions !== null &&
+      oldQuestions.length !== questions.length;
+    let safelyMigratedAnswers = null;
+    let safelyMigratedBookmarks = null;
+    if (paperQuestionCountChanged) {
+      const identity = (question) => String(question?.number ?? "") + "::" + String(question?.text || "").trim();
+      const updatedIndexes = new Map(questions.map((question, index) => [identity(question), index]));
+      safelyMigratedAnswers = {};
+      safelyMigratedBookmarks = new Set();
+      const oldBookmarks = new Set(savedProgress.bookmarkedQuestions || []);
+      oldQuestions.forEach((oldQuestion, oldIndex) => {
+        const newIndex = updatedIndexes.get(identity(oldQuestion));
+        if (newIndex === undefined) return;
+        if (Object.prototype.hasOwnProperty.call(savedProgress.userAnswers || {}, oldIndex)) {
+          safelyMigratedAnswers[newIndex] = savedProgress.userAnswers[oldIndex];
+        }
+        if (oldBookmarks.has(oldIndex)) safelyMigratedBookmarks.add(newIndex);
+      });
+    }
+
     if (hasSavedProgress) {
-      userAnswers = savedProgress.userAnswers || {};
+      userAnswers = paperQuestionCountChanged ? safelyMigratedAnswers : savedProgress.userAnswers || {};
       remainingTime =
         typeof savedProgress.remainingTime === "number"
           ? savedProgress.remainingTime
@@ -6656,10 +6681,15 @@ const ict2622VerifiedPaperArchive = [
       currentPage =
         savedPaperPage ||
         (currentMode === "study" ? 1 : savedProgress.currentPage || 1);
-      testInProgress = !!savedProgress.testInProgress && remainingTime > 0;
-      testSubmitted = !!savedProgress.testSubmitted;
-      bookmarkedQuestions = new Set(savedProgress.bookmarkedQuestions || []);
-      isTimerPaused = !!savedProgress.isTimerPaused;
+      // A longer restored paper is a new attempt: never carry its former
+      // submitted state or active timer across different question counts.
+      testInProgress = !paperQuestionCountChanged &&
+        !!savedProgress.testInProgress && remainingTime > 0;
+      testSubmitted = !paperQuestionCountChanged && !!savedProgress.testSubmitted;
+      bookmarkedQuestions = paperQuestionCountChanged
+        ? safelyMigratedBookmarks : new Set(savedProgress.bookmarkedQuestions || []);
+      isTimerPaused = !paperQuestionCountChanged && !!savedProgress.isTimerPaused;
+      if (paperQuestionCountChanged) remainingTime = getTimerInputSeconds();
       showAllQuestions = !!savedProgress.showAllQuestions;
     } else {
       currentPage = getSavedPaperPage(currentTestFile) || 1;
