@@ -1,0 +1,30 @@
+"use strict";
+const assert = require("node:assert/strict");
+const fs = require("node:fs");
+const path = "ict2613-assessment-4-2026-original.json";
+const paper = JSON.parse(fs.readFileSync(path, "utf8"));
+const sourceJS = fs.readFileSync("script.js","utf8");
+assert.ok(sourceJS.includes('"' + path + '"'), "Assessment 4 is in the active paper selector");
+assert.equal(paper.module, "ICT2613");
+assert.equal(paper.questions.length,30);
+assert.equal(paper.totalMarks,48);
+assert.deepEqual(paper.missingQuestionNumbers,[]);
+assert.deepEqual(paper.questions.map(q=>+q.number),Array.from({length:30},(_,i)=>i+1));
+assert.equal(paper.questions.reduce((n,q)=>n+q.marks,0),48);
+for (const q of paper.questions) {
+ assert.ok(q.text && q.text.length > 12,"Original wording present for Q"+q.number);
+ assert.equal(q.options?.length,4,"Four original answer choices for Q"+q.number);
+ assert.ok(q.options.includes(q.correctAnswer),"Correct answer must match one original choice for Q"+q.number);
+ assert.ok(q.explanation?.includes("Student note:"),"Extra student notes for Q"+q.number);
+}
+const q8=paper.questions[7],q27=paper.questions[26];
+assert.match(q8.text,/while \(\$count < 10\)/);
+assert.equal(q8.options.indexOf(q8.correctAnswer),3,"Ten-iteration loop can result in value 3");
+assert.equal(q8.options.indexOf(q8.originalFeedbackAnswer),2,"Keep incorrect official feedback for transparency");
+assert.match(q8.explanation,/exactly 10 times/);
+assert.equal(q27.options.indexOf(q27.originalFeedbackAnswer),3,"Keep original erroneous $_COOKIES key");
+assert.equal(q27.options.indexOf(q27.correctAnswer),2,"Avoid teaching a nonexistent PHP superglobal");
+assert.match(q27.explanation,/\$_COOKIE/);
+assert.equal(paper.questions[29].text,"Which parameter of the session_set_cookie_params() can be set so the cookie is only available on an HTTPS connection?");
+assert.equal(paper.questions[29].correctAnswer.trim(),"$secure");
+console.log("ICT2613 Assessment 4 verified: 30 original questions, 48 marks, corrections to flawed Q8/Q27 source feedback.");
