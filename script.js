@@ -5568,6 +5568,9 @@ const testFiles = [
   "ict2613-assessment-1-2026-partial.json",
   "ict2613-assessment-1-2024-verified-practice.json",
   "ict2613-may-june-2017-exam-code-practice.json",
+  "ict2613-oct-nov-2017-exam-verified-practice.json",
+  "ict2613-may-june-2018-exam-verified-practice.json",
+  "ict2613-2022-exam-preview-verified-practice.json",
   "ict2642-assessment-2-2026.json",
   // Third-year additions. Where a public source is incomplete or copyrighted,
   // prompts are paraphrased and clearly labelled as source-verified practice.
@@ -5654,6 +5657,9 @@ const ict2622VerifiedPaperArchive = [
         option.textContent = data.testName || filename.replace(".json", "").replace(/_/g, " ");
         const questionCount = Array.isArray(data.questions) ? data.questions.length : 0;
         option.dataset.questionCount = String(questionCount);
+        if (typeof data.sourceReference === "string" && /^https:\/\//.test(data.sourceReference)) {
+          option.dataset.sourceReference = data.sourceReference;
+        }
         const module = deriveModuleCode({
           file: filename,
           name: option.textContent,
