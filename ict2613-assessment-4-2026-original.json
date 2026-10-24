@@ -1,0 +1,410 @@
+{
+  "testName": "ICT2613 · 2026 Assessment 4 · Original 30 questions",
+  "module": "ICT2613",
+  "assessment": "Assessment 4 (2026)",
+  "totalMarks": 48,
+  "originalTotalMarks": 48,
+  "originalQuestionCount": 30,
+  "missingQuestionNumbers": [],
+  "preserveOrder": true,
+  "marking": "automatic",
+  "sourceType": "Original questions and answer options from the user's 2026 ICT2613 Assessment 4 review. The two incorrect feedback answers (Q8 and Q27) are kept as source metadata and clearly corrected in explanations.",
+  "sourceReference": "User-provided ICT2613 Assessment 4 2026 completion review (21 August 2026), 30 questions, 48 marks.",
+  "sourceLimitations": "Original review includes wrong or misleading marked feedback for Q8 and Q27. Original questions and answer options are unchanged; technically correct answers are provided with notes about the discrepancy.",
+  "questions": [
+    {
+      "number": "1",
+      "marks": 1,
+      "text": "Which method of the form appends values to the URL to pass data?",
+      "options": [
+        "GET",
+        "POST",
+        "ACTION",
+        "APPEND"
+      ],
+      "correctAnswer": "GET",
+      "explanation": "GET submits form fields as a query string appended to the request URL.\n\nStudent note: Use GET for search and simple filters. Avoid it for passwords or private information because URLs can be logged and shared."
+    },
+    {
+      "number": "2",
+      "marks": 1,
+      "text": "Which PHP function can be used to determine if a checkbox is checked?",
+      "options": [
+        "is_checked()",
+        "boolean()",
+        "value()",
+        "isset()"
+      ],
+      "correctAnswer": "isset()",
+      "explanation": "When a checkbox is not selected, its name is normally absent from the submitted data. isset() can check whether the submitted field exists.\n\nStudent note: For POST forms, isset($_POST['field_name']) returns false when the unchecked checkbox was not sent."
+    },
+    {
+      "number": "3",
+      "marks": 2,
+      "text": "Which of the following is the difference between the echo and print statements?",
+      "options": [
+        "The echo statement converts non-string values to strings, but the print statement doesn’t.",
+        "The parentheses are optional for the echo statement, but not for the print statement.",
+        "The echo statement can accept more than one string, but the print statement can’t.",
+        "The echo statement returns a value, but the print statement doesn’t."
+      ],
+      "correctAnswer": "The echo statement can accept more than one string, but the print statement can’t.",
+      "explanation": "echo can output multiple comma-separated expressions, but print accepts only one expression and returns 1.\n\nStudent note: Both echo and print can be used without parentheses. This difference is about how many arguments they accept."
+    },
+    {
+      "number": "4",
+      "marks": 2,
+      "text": "Study the code below: \n\n<form action=\"processcode.php\" method=\"get\">           \n\n<label> Module code: </label>\n\n<input type=\"text\" name=\"code\">         \n\n<input type=\"submit\" value=\"Submit\">                   \n\n</form> \n\nWhich of the following is incorrect about the code?",
+      "options": [
+        "The code is written in HTML",
+        "processcode.php can access the data submitted in the form from the POST array",
+        "The data entered in the form will be processed by a PHP script",
+        "action and method are called attributes of <form> tag"
+      ],
+      "correctAnswer": "processcode.php can access the data submitted in the form from the POST array",
+      "explanation": "The form uses method=\"get\", so processcode.php receives its value in $_GET['code'], not $_POST.\n\nStudent note: The action attribute identifies the destination PHP script; the method attribute chooses GET or POST."
+    },
+    {
+      "number": "5",
+      "marks": 1,
+      "text": "Which PHP function converts some special characters into character entities?",
+      "options": [
+        "substr()",
+        "convertchars()",
+        "double_encode()",
+        "htmlspecialchars()"
+      ],
+      "correctAnswer": "htmlspecialchars()",
+      "explanation": "htmlspecialchars() converts HTML-sensitive characters, such as <, > and &, into HTML entities to display text safely.\n\nStudent note: Use htmlspecialchars($value, ENT_QUOTES, 'UTF-8') when displaying untrusted text inside HTML."
+    },
+    {
+      "number": "6",
+      "marks": 1,
+      "text": "The ________________ operator is a logical operator that returns a TRUE value only when the expressions on both sides of the operator are TRUE.",
+      "options": [
+        "OR",
+        "NOT",
+        "AND",
+        "GREATER THAN"
+      ],
+      "correctAnswer": "AND",
+      "explanation": "Logical AND is true only when both conditions are true. It can be written as && or and in PHP, but operator precedence differs.\n\nStudent note: With &&, true && true gives true; true && false gives false. Test each condition separately."
+    },
+    {
+      "number": "7",
+      "marks": 2,
+      "text": "Study the code below:\n\nif ( $age >= 21 && $score >= 700 ) {\n\n    $message = 'Loan approved';\n\n} else if ( $age >= 21 && $score >= 650 ) {\n\n    $message = 'Cosigner needed.';\n\n} else if ( $age >= 18 && $score >= 680 ) {\n\n    $message = 'Two cosigners needed.';\n\n} else {\n\n    $message = 'Loan denied.';\n\n}\n\nWhich values for $age and $score will result in Two cosigners needed. stored in $message?",
+      "options": [
+        "$age = 25; $score = 500;",
+        "$age = 19; $score = 750;",
+        "$age = 21; $score = 695;",
+        "$age = 22; $score = 750;"
+      ],
+      "correctAnswer": "$age = 19; $score = 750;",
+      "explanation": "For age 19 and score 750, the first two conditions fail because they require age 21 or older. The third condition succeeds because age is at least 18 and score is at least 680.\n\nStudent note: An if / else if chain stops at the first true condition. Always test the branches in the order they appear."
+    },
+    {
+      "number": "8",
+      "marks": 2,
+      "text": "Study the code below: \n\n$count = 0;\n\n$result = 0;\n\nwhile ($count < 10){\n\n     $num = mt_rand(1,4);\n\n     $result = $num; \n\n     $count++;\n\n} \n\nWhich of the following is correct about the code below?",
+      "options": [
+        "The while loop has a syntax error",
+        "The while loop iterates 9 times",
+        "The number of times this while loop executes is unknown",
+        "The value stored in $result can be 3 after the execution of the code"
+      ],
+      "correctAnswer": "The value stored in $result can be 3 after the execution of the code",
+      "explanation": "The while loop always executes exactly 10 times: $count starts at 0 and increases by 1 until it reaches 10. mt_rand(1,4) changes the randomly chosen number, not how often the loop runs. As a result, $result can be 3.\n\nStudent note: The original assessment feedback incorrectly says the number of iterations is unknown. The technically correct option is the one saying $result can be 3. Count iterations by tracing $count: 0,1,2,...,9.",
+      "originalFeedbackAnswer": "The number of times this while loop executes is unknown",
+      "answerKeyCorrection": "The assessment review's marked key is factually incorrect: this while loop runs 10 times, and the last random result can be 3."
+    },
+    {
+      "number": "9",
+      "marks": 2,
+      "text": "Study the code below: \n\nswitch($mark){\n\n     case ($mark < 40): $result = 'Fail'; break;\n\n     case ($mark >=40): $result = 'Supplementary Exam'; break;\n\n     case ($mark >=50): $result = 'Pass'; break;\n\n     case ($mark >=75): $result = 'Pass with distinction'; break;\n\n   } \n\nWhat is stored in $result if $mark is 40?",
+      "options": [
+        "Pass",
+        "Supplementary Exam",
+        "Pass with distinction",
+        "Fail"
+      ],
+      "correctAnswer": "Supplementary Exam",
+      "explanation": "At $mark = 40, the first condition is false and the second is true, so Supplementary Exam is assigned and break exits the switch.\n\nStudent note: This switch compares $mark against boolean case expressions through loose comparisons. It is clearer in real PHP to use an if / elseif chain for numeric ranges."
+    },
+    {
+      "number": "10",
+      "marks": 2,
+      "text": "All the statements are correct except one about the OR (||) operator. Choose the incorrect statement.",
+      "options": [
+        "It returns a TRUE value when the expressions on both sides of the operator returns FALSE values",
+        "It returns a TRUE value when the expression on the left hand side of the operator returns a TRUE value",
+        "It returns a TRUE value when the expression on the right hand side of the operator returns a TRUE value",
+        "It is a logical operator."
+      ],
+      "correctAnswer": "It returns a TRUE value when the expressions on both sides of the operator returns FALSE values",
+      "explanation": "Logical OR (||) returns false only when both operands are false. Therefore the statement claiming it returns true when both are false is the incorrect statement.\n\nStudent note: For OR, true || false, false || true, and true || true are all true. false || false is false."
+    },
+    {
+      "number": "11",
+      "marks": 2,
+      "text": "What is the output generated by the following code?\n\n$fullName = \"Mahaye Nkosi\";\n\n$age = 24;\n\n$fullSentence = <<<SENT\n\n$fullName is $age years old.\n\nSENT;\n\necho $fullSentence;",
+      "options": [
+        "$fullName is $age years old.",
+        "<<<SENT $fullName is $age years old.",
+        "Mahaye Nkosi is 24 years old.",
+        "<<<SENT $fullName is $age years old. SENT"
+      ],
+      "correctAnswer": "Mahaye Nkosi is 24 years old.",
+      "explanation": "The <<<SENT syntax starts a heredoc string. Heredoc expands variables, so $fullName and $age become their stored values before echo displays the message.\n\nStudent note: Heredoc behaves much like a double-quoted PHP string for variable interpolation. It differs from a nowdoc string."
+    },
+    {
+      "number": "12",
+      "marks": 2,
+      "text": "What is the output generated by the following code?\n\n$result = \"limpopo\";\n\nucfirst($result);\n\n$result = str_replace(\"o\", \"*\", $result);\n\necho $result;",
+      "options": [
+        "Limp*p*",
+        "limp*p*",
+        "limpopo",
+        "Limpopo"
+      ],
+      "correctAnswer": "limp*p*",
+      "explanation": "ucfirst($result) returns a new string but the result is not assigned back, so the original remains lowercase. str_replace() does get assigned, replacing every o with *.\n\nStudent note: String functions frequently return a changed value rather than modifying the variable in place. Use $result = ucfirst($result) to keep that change."
+    },
+    {
+      "number": "13",
+      "marks": 2,
+      "text": "Study the code below: \n\n$strings = explode(':', $sentence); //line 1\n\necho count($strings); // line 2 \n\nWhich of the following string value assigned to $sentence in the code above (line 1) will display 5 as the output in line 2?",
+      "options": [
+        "a:b",
+        "a:b:c",
+        "a:b:c:d",
+        "a:b:c:d:e"
+      ],
+      "correctAnswer": "a:b:c:d:e",
+      "explanation": "explode(':', $sentence) divides text each time it finds a colon. Four colons create five array elements, so count() returns 5.\n\nStudent note: For a sequence without leading or trailing delimiters, N separators create N+1 pieces."
+    },
+    {
+      "number": "14",
+      "marks": 1,
+      "text": "Which function can be used to obtain the absolute value of a number?",
+      "options": [
+        "abs()",
+        "sprint()",
+        "floor()",
+        "round()"
+      ],
+      "correctAnswer": "abs()",
+      "explanation": "abs() returns the absolute value, which is the number's distance from zero without its sign.\n\nStudent note: Examples: abs(-9) = 9 and abs(9) = 9. floor() rounds down and round() rounds."
+    },
+    {
+      "number": "15",
+      "marks": 1,
+      "text": "The________________ function returns the smallest value of the two or more arguments that are passed to it.",
+      "options": [
+        "max()",
+        "minimum()",
+        "min()",
+        "pow()"
+      ],
+      "correctAnswer": "min()",
+      "explanation": "min() returns the smallest argument from the supplied values.\n\nStudent note: min(4, -2, 8) returns -2; max() instead returns the largest."
+    },
+    {
+      "number": "16",
+      "marks": 1,
+      "text": "Study the code below: \n\n$current_date = new DateTime();\n\n$due_days_diff = $current_date->diff($due_date);\n\nif ($current_date > $due_date) {\n\n    $overdue_message = $due_days_diff->format('%y years, %m months, and %d days overdue.');\n\n} \n\nIf $due_date contains a DateTime object, $due_date_diff will contain a _________ object.",
+      "options": [
+        "DateInterval",
+        "TimeStamp",
+        "DateTime",
+        "TimeInterval"
+      ],
+      "correctAnswer": "DateInterval",
+      "explanation": "DateTime::diff() returns a DateInterval object describing the difference between two dates.\n\nStudent note: There is a variable-name mistake in the original question: the code stores $due_days_diff, but the question asks about $due_date_diff. The intended answer is DateInterval."
+    },
+    {
+      "number": "17",
+      "marks": 1,
+      "text": "Study the code below: \n\n$date = new DateTime('2026-01-01');\n\n$interval = new DateInterval('P1M'); \n\nWhich of the following will correctly increase $date from the current date by the time period specified in $interval?",
+      "options": [
+        "$date->add($interval);",
+        "$date->modify($interval);",
+        "$date = $date + $interval;",
+        "$date->addOn($interval);"
+      ],
+      "correctAnswer": "$date->add($interval);",
+      "explanation": "DateTime::add() changes a DateTime object by the amount given in a DateInterval. P1M represents a period of one month.\n\nStudent note: The method is called as $date->add($interval); PHP's modify() instead accepts a date/time modification string."
+    },
+    {
+      "number": "18",
+      "marks": 2,
+      "text": "Study the code below:\n\n$d1 = strtotime('next friday');\n\n$date = date('d M', $d1);\n\necho $date;    \n\nWhich of the following is correct?",
+      "options": [
+        "The number of days to next Friday is displayed",
+        "$d1 is a DateTime object",
+        "The date of next Friday is displayed",
+        "$d1 is a DateInterval object"
+      ],
+      "correctAnswer": "The date of next Friday is displayed",
+      "explanation": "strtotime('next friday') calculates the timestamp for the next Friday; date('d M', $d1) formats that timestamp as day and abbreviated month.\n\nStudent note: strtotime() returns a timestamp, not a DateTime object. The exact date displayed depends on the current date when the code runs."
+    },
+    {
+      "number": "19",
+      "marks": 2,
+      "text": "Study the statement below: \n\n$interval = new DateInterval('PT39S'); \n\nAssume that you want to display $interval as 0:0:39. Which statement will produce the desired output?",
+      "options": [
+        "echo $interval->format('%nh:%ni:%ns');",
+        "echo $interval->format('%nh:%nm:%ns');",
+        "echo $interval->format('%h %m %s');",
+        "echo $interval->format('%h:%i:%s');"
+      ],
+      "correctAnswer": "echo $interval->format('%h:%i:%s');",
+      "explanation": "The format string '%h:%i:%s' retrieves the hours, minutes and seconds fields of a DateInterval. PT39S represents 39 seconds.\n\nStudent note: DateInterval format tokens begin with %. In the interval ISO format, P starts the period, T begins the time part, and S stands for seconds."
+    },
+    {
+      "number": "20",
+      "marks": 2,
+      "text": "Study the lines of code below: \n\n$d1 = new DateTime('2026-01-01'); //line 1\n\n$d1->modify('+25 days'); //line 2 \n\nWhich of the following statements is correct?",
+      "options": [
+        "After the execution of this code $d1 will store 1 May 2026",
+        "After the execution of this code $d1 will store 26 January 2026",
+        "Line 2 has a syntax error relating to the use of modify()",
+        "The DateTime object is created with an incorrect date in line 1"
+      ],
+      "correctAnswer": "After the execution of this code $d1 will store 26 January 2026",
+      "explanation": "A DateTime starting on 1 January 2026 and modified by +25 days becomes 26 January 2026.\n\nStudent note: The ->modify() method updates the DateTime object. Remember that adding 1 day to 1 January gives 2 January."
+    },
+    {
+      "number": "21",
+      "marks": 2,
+      "text": "What output would be produced by the code below? \n\n$bigFive = array('Lion', 'Leopord', 'Rhino', 'Elephant', 'Buffalo');\n\necho $bigFive[2];",
+      "options": [
+        "Lion",
+        "Rhino",
+        "Elephant",
+        "Buffalo"
+      ],
+      "correctAnswer": "Rhino",
+      "explanation": "PHP indexed arrays start at position zero. The values are Lion at [0], Leopord at [1] and Rhino at [2].\n\nStudent note: The spelling 'Leopord' is preserved from the paper. The important skill is the zero-based index."
+    },
+    {
+      "number": "22",
+      "marks": 1,
+      "text": "Which one of the following options will create an array with odd numbers between 1 and 20?",
+      "options": [
+        "$numbers = range(1,20,2);",
+        "$numbers = range(1,20,1);",
+        "$numbers = array_fill(1,20,2);",
+        "$numbers = array_fill(1,20,1);"
+      ],
+      "correctAnswer": "$numbers = range(1,20,2);",
+      "explanation": "range(1,20,2) starts at 1 and increases by two, giving 1, 3, 5, ..., 19.\n\nStudent note: range() accepts start, end and step. array_fill() instead repeats one value a specified number of times."
+    },
+    {
+      "number": "23",
+      "marks": 2,
+      "text": "What are the contents of $numbers after the following lines of code have been executed?\n\n$numbers = array(34, 45, 89, 65, 45);\n\narray_unique($numbers);",
+      "options": [
+        "34, 89, 65, 45",
+        "34, 45, 65, 89",
+        "89, 65, 45, 45, 34",
+        "34, 45, 89, 65, 45"
+      ],
+      "correctAnswer": "34, 45, 89, 65, 45",
+      "explanation": "array_unique($numbers) creates and returns a new array, but this code ignores its return value. The original $numbers stays unchanged.\n\nStudent note: To store unique numbers you must assign the result: $numbers = array_unique($numbers). Duplicate entries are not automatically removed from the original array."
+    },
+    {
+      "number": "24",
+      "marks": 2,
+      "text": "Given the code \n\n$employees = array();\n\n$employee[\"name\"] = \"Thando Mkhize\";\n\n$employee[\"age\"] = 34; \n\nwhich of these statements assigns \"Thando Mkhize is 34\" to $message?",
+      "options": [
+        "$message = $employee[0] . \"  is  \" . $employee[1];",
+        "$message = $employee[1] . \"  is  \" . $employee[2];",
+        "$message = $employee[\"name\"] . \"  is  \" . $employee[\"age\"];",
+        "$message = $employees[0][\"name\"] . \"  is  \" .   $employees[0][\"age\"];"
+      ],
+      "correctAnswer": "$message = $employee[\"name\"] . \"  is  \" . $employee[\"age\"];",
+      "explanation": "The code assigns name and age using associative keys, so $employee['name'] and $employee['age'] retrieve those values. The dot operator joins strings.\n\nStudent note: PHP variable names are different: $employee and $employees are not the same variable. Read the names carefully even if they look similar."
+    },
+    {
+      "number": "25",
+      "marks": 2,
+      "text": "Suppose an array of country codes and country names is created with a statement like this: \n\n$country_codes = array('DEU' => 'Germany', 'SA' => 'South Africa','ARG' => 'Argentina', 'USA' => 'United States'); \n\nIf you want to use echo statements to display a table of all of the codes and names, you could code those statements within a loop that starts like this:",
+      "options": [
+        "foreach ($country_codes as $name[code]) {",
+        "foreach ($country_codes as $code => $name) {",
+        "for ($country_codes as $name[code]) {",
+        "for ($country_codes as $code => $name) {"
+      ],
+      "correctAnswer": "foreach ($country_codes as $code => $name) {",
+      "explanation": "foreach ($country_codes as $code => $name) iterates an associative array and supplies its key and value for each entry.\n\nStudent note: In foreach ($array as $key => $value), the arrow associates the array key with its value. Ordinary for loops have a different structure."
+    },
+    {
+      "number": "26",
+      "marks": 1,
+      "text": "A ______________ is a name-value pair that is stored in a browser.",
+      "options": [
+        "cookie",
+        "array",
+        "file",
+        "query"
+      ],
+      "correctAnswer": "cookie",
+      "explanation": "A cookie is a small name-value pair stored in a user's browser and usually sent back with requests to its website.\n\nStudent note: Cookies can hold preferences or session identifiers. The actual session data may be stored on the server."
+    },
+    {
+      "number": "27",
+      "marks": 2,
+      "text": "Which of the following is correct about cookies?",
+      "options": [
+        "A cookie is saved on the server side",
+        "A web server can enable and disable cookies",
+        "If you do not specify a lifespan for a session cookie, the lifespan will be set to 0 seconds automatically",
+        "$_COOKIES is an associative array of PHP that can be used to access cookies"
+      ],
+      "correctAnswer": "If you do not specify a lifespan for a session cookie, the lifespan will be set to 0 seconds automatically",
+      "explanation": "The source's marked answer uses $_COOKIES, which is not the PHP superglobal. The correct PHP superglobal is $_COOKIE (singular). A zero cookie lifetime conventionally means a session cookie, which expires at the end of the browser session.\n\nStudent note: The original feedback is incorrect. Of the supplied answers, option 3 is the most technically defensible under PHP's default session cookie lifetime; '0' does NOT mean it disappears immediately. Read the assessment wording critically.",
+      "originalFeedbackAnswer": "$_COOKIES is an associative array of PHP that can be used to access cookies",
+      "answerKeyCorrection": "The official answer refers to nonexistent PHP superglobal $_COOKIES. The PHP superglobal is $_COOKIE. Option 3 describes session-cookie zero lifetime and is the best technical answer, though the assessment wording is imprecise."
+    },
+    {
+      "number": "28",
+      "marks": 2,
+      "text": "Given the statement \n\nsetcookie(\"cookie_1\", \"1\"); \n\nwhich one of the following statements is correct?",
+      "options": [
+        "The statement is syntactically incorrect as the function needs at least four arguments",
+        "The cookie set by this statement is a persistent cookie",
+        "If a PHP file containing this statement is executed on the local host, this cookie will be stored in the same directory in the htdocs directory where the PHP file is stored.",
+        "When executed, this statement creates a cookie with the information cookie_1 = 1"
+      ],
+      "correctAnswer": "When executed, this statement creates a cookie with the information cookie_1 = 1",
+      "explanation": "setcookie('cookie_1','1') asks the browser to set a cookie named cookie_1 with the value 1. An expiry is optional.\n\nStudent note: Without an explicit future expiry, it is normally a session cookie rather than a persistent cookie. Set cookie headers before HTML output."
+    },
+    {
+      "number": "29",
+      "marks": 1,
+      "text": "The $_SESSION variable for a session is a/an _____________.",
+      "options": [
+        "object",
+        "cookie",
+        "regular array",
+        "associative array"
+      ],
+      "correctAnswer": "associative array",
+      "explanation": "$_SESSION is a PHP associative array whose keys identify values stored for the current session.\n\nStudent note: After session_start(), code may use $_SESSION['user_id'] or $_SESSION['cart'] to keep session data across requests."
+    },
+    {
+      "number": "30",
+      "marks": 1,
+      "text": "Which parameter of the session_set_cookie_params() can be set so the cookie is only available on an HTTPS connection?",
+      "options": [
+        "$path",
+        "$domain",
+        "$secure",
+        "$session"
+      ],
+      "correctAnswer": "$secure",
+      "explanation": "Setting the $secure flag for a session cookie restricts the cookie to secure HTTPS connections.\n\nStudent note: Modern PHP lets you provide options to session_set_cookie_params(), including secure, httponly and samesite. HTTPS is essential for sensitive sessions."
+    }
+  ]
+}
