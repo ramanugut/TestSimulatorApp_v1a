@@ -1,25 +1,16 @@
 {
-  "testName": "ICT2613 · 2026 Assessment 1 (verified partial · 18 questions)",
+  "testName": "ICT2613 · 2026 Assessment 1 · Original 30 questions",
   "module": "ICT2613",
-  "assessment": "Assessment 1 2026",
-  "totalMarks": 23,
+  "assessment": "Assessment 1 (2026)",
+  "totalMarks": 41,
   "originalTotalMarks": 41,
-  "originalQuestionCount": 26,
-  "missingQuestionNumbers": [
-    5,
-    6,
-    7,
-    8,
-    16,
-    17,
-    19,
-    26
-  ],
+  "originalQuestionCount": 30,
+  "missingQuestionNumbers": [],
   "preserveOrder": true,
   "marking": "automatic-multiple-choice",
-  "sourceType": "Verified questions recovered from ICT2613/102/0/2026; incomplete questions were not guessed",
-  "sourceReference": "https://www.studocu.com/en-za/document/university-of-south-africa/internet-programing/tutorial-letter-for-ict2613-internet-programming-year-module-important-info/171030055",
-  "sourceLimitations": "The public preview omits or truncates Questions 5-8, 16-17 and 26. Question 19 is visible but its listed choices do not cleanly describe the PDO constructor arguments, so it is withheld rather than guessed.",
+  "sourceType": "Original assessment question wording and answer options transcribed from the user's completed 2026 Assessment 1 review. Weather table images supplied by user and represented in accessible tables for Q16 and Q17.",
+  "sourceReference": "User-provided ICT2613 Assessment 1 2026 review, 30 questions (41 marks), with separate Q16 and Q17 weather images.",
+  "sourceLimitations": "Question and option text follow user-provided assessment review. Weather images are transcribed into accessible tables; explanations and student notes are newly written and kept separate.",
   "questions": [
     {
       "number": "1",
@@ -32,7 +23,7 @@
         "PHP interpreter"
       ],
       "correctAnswer": "PHP interpreter",
-      "explanation": "PHP is server-side code. When a PHP page is requested, the web server passes the PHP code to the PHP interpreter so it can execute the script and produce output, usually HTML, for the browser.\n\nStudent note: Apache is the web server; PHP is the interpreter that executes the PHP script. Keep those two roles separate."
+      "explanation": "The web server passes PHP code to the PHP interpreter to execute before sending the result back to the browser.\n\nStudent note: The browser receives the generated HTML. It does not normally execute server-side PHP."
     },
     {
       "number": "2",
@@ -45,7 +36,7 @@
         "Apache"
       ],
       "correctAnswer": "Google Chrome",
-      "explanation": "Google Chrome is a web browser used by a client to request and display web pages. phpMyAdmin is a database administration tool, Outlook is an email application, and Apache is a web server.\n\nStudent note: A browser runs on the client side; a web server such as Apache responds to browser requests."
+      "explanation": "Google Chrome is a web browser. phpMyAdmin manages databases, Microsoft Outlook is an email application, and Apache is a web server.\n\nStudent note: Know the job of each tool in a PHP development setup: browser, web server, PHP interpreter and database server."
     },
     {
       "number": "3",
@@ -58,7 +49,7 @@
         "protocol"
       ],
       "correctAnswer": "protocol",
-      "explanation": "A URL normally starts with the protocol or scheme, such as http:// or https://. It tells the browser how to communicate with the resource.\n\nStudent note: In https://example.com/page.php, https is the protocol, example.com is the domain, and page.php is the file or resource path."
+      "explanation": "The URL begins with its protocol or scheme, for example https://.\n\nStudent note: In https://example.com/page, https is the scheme and example.com is the domain."
     },
     {
       "number": "4",
@@ -71,25 +62,77 @@
         "Oracle"
       ],
       "correctAnswer": "Python",
-      "explanation": "MySQL, Microsoft SQL Server and Oracle are database management systems. Python is a programming language, not a database server.\n\nStudent note: A programming language can connect to a database, but that does not make the language itself a database server."
+      "explanation": "MySQL, SQL Server and Oracle are database systems. Python is a programming language.\n\nStudent note: A language can query a database without being a database server."
+    },
+    {
+      "number": "5",
+      "marks": 1,
+      "text": "What type of request does a Web browser typically send to a server?",
+      "options": [
+        "FTP",
+        "IPsec",
+        "HTTP",
+        "TCP/IP"
+      ],
+      "correctAnswer": "HTTP",
+      "explanation": "Browsers request webpages through HTTP or its encrypted form HTTPS.\n\nStudent note: FTP handles file transfers. HTTP is the application protocol of the web."
+    },
+    {
+      "number": "6",
+      "marks": 2,
+      "text": "If $total_months has a value of 15, what does $message contain after this if statement is executed?\n\n$years = intval($total_months / 12);\n\n$months = $total_months % 12;\n\nif ( $years == 0 ) {\n\n    $message = $months . \" months\";\n\n} else if ( $months == 0 ) {\n\n    $message = $years . \" years\";\n\n} else {\n\n    $message = $years . \" years and \" . $months . \" months\";\n\n}",
+      "options": [
+        "1 years and 3 months",
+        "1 year and 3 months",
+        "1 years",
+        "3 months"
+      ],
+      "correctAnswer": "1 years and 3 months",
+      "explanation": "intval(15 / 12) is 1 and 15 % 12 is 3, so the else branch creates '1 years and 3 months'.\n\nStudent note: Follow what the code actually prints, even if the grammar is imperfect. The program uses 'years' for both one and many."
+    },
+    {
+      "number": "7",
+      "marks": 2,
+      "text": "How many times will the following for loop be executed? \n\n$years = 10;\n\n$future_value = 100;\n\n$interest_rate = 0.09;\n\nfor ($i = 1; $i < $years; $i++) {\n\n    $future_value = ($future_value + ($future_value *  $interest_rate));\n\n}",
+      "options": [
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
+      "correctAnswer": "9",
+      "explanation": "The for loop runs at i = 1 through i = 9 because its condition is i < 10.\n\nStudent note: Count the values included by the condition; starting at 1 with < 10 means nine passes."
+    },
+    {
+      "number": "8",
+      "marks": 2,
+      "text": "Assume that today is 24th of February 2026. What will be displayed when $date is echoed out? \n\n$date = date('d/m/y');",
+      "options": [
+        "24/02/26",
+        "24/2/2026",
+        "26/02/24",
+        "26/2/2024"
+      ],
+      "correctAnswer": "24/02/26",
+      "explanation": "In PHP's date() pattern, d means two-digit day, m means two-digit month and y means two-digit year.\n\nStudent note: Lowercase y gives 26; uppercase Y would give 2026. This question tells you to assume 24 February 2026."
     },
     {
       "number": "9",
       "marks": 2,
-      "text": "What is the output produced by the following code?\n\n```php\n$num_1 = 10;\n$num_2 = \"10\";\n$result_1 = var_export(($num_1 == 10), true);\n$result_2 = var_export(($num_2 == 10), true);\n$result_3 = var_export(($num_1 === \"10\"), true);\necho \"$result_1, $result_2, $result_3\";\n```",
+      "text": "What is the output produced by the following code?    \n\n$num_1 = 10;\n\n$num_2 = \"10\";\n\n$result_1 = var_export(($num_1 == 10), true);\n\n$result_2 = var_export(($num_2 == 10), true);\n\n$result_3 = var_export(($num_1 === \"10\"), true);\n\necho \"$result_1, $result_2, $result_3\";",
       "options": [
         "1, 0, 1",
-        "1,1,",
+        "1,1,1",
         "true, true, false",
         "true, false, false"
       ],
       "correctAnswer": "true, true, false",
-      "explanation": "The == operator compares values after PHP type juggling, so 10 == 10 and \"10\" == 10 are both true. The === operator compares both value and type, so integer 10 is not identical to string \"10\". var_export(..., true) returns the words true or false.\n\nStudent note: == means equal value; === means equal value AND equal data type."
+      "explanation": "== checks equality after type conversion, whereas === checks both type and value. var_export(..., true) turns booleans into the strings 'true' and 'false'.\n\nStudent note: An integer 10 and string '10' may compare equal with == but not with ===."
     },
     {
       "number": "10",
       "marks": 2,
-      "text": "Which one of the following statements stores 0 in $result after execution?",
+      "text": "Which one of the following statements store 0 in $result after execution?",
       "options": [
         "$result = 6 + 2 * 2;",
         "$result = 2 + 2 + 1 * 2;",
@@ -97,12 +140,12 @@
         "$result = 11 - 1 / 2;"
       ],
       "correctAnswer": "$result = 10 % 2 * 2;",
-      "explanation": "The modulus operator % gives the remainder. 10 % 2 is 0 because 10 divides exactly by 2. Then 0 * 2 remains 0.\n\nStudent note: Remember normal operator precedence: multiplication, division and modulus are evaluated before addition and subtraction."
+      "explanation": "The modulus operator % returns the remainder. 10 % 2 is 0; multiplying by 2 still gives 0.\n\nStudent note: Arithmetic order matters. Use % for the remainder, not for a percentage."
     },
     {
       "number": "11",
       "marks": 2,
-      "text": "Study the SQL query below:\n\n```sql\nSELECT vendorName, invoiceNumber, invoiceDate, invoiceTotal\nFROM vendors INNER JOIN invoices\nON vendors = invoices\nWHERE invoiceTotal >= 500\nORDER BY vendorName\n```\n\nIf vendorName contains string data and invoiceTotal contains decimal values, how will the result set be ordered?",
+      "text": "Study the SQL query below: \n\nSELECT vendorName, invoiceNumber, invoiceDate, invoiceTotal\n\nFROM vendors INNER JOIN invoices\n\nON vendors.vendorID = invoices.vendorID\n\nWHERE invoiceTotal >= 500\n\nORDER BY vendorName\n\n If vendorName contains string data and invoiceTotal contains decimal values, how will the result set be ordered?",
       "options": [
         "alphabetically starting with A",
         "alphabetically starting with Z",
@@ -110,7 +153,7 @@
         "numerically starting with 0"
       ],
       "correctAnswer": "alphabetically starting with A",
-      "explanation": "ORDER BY vendorName sorts by the vendorName column. Because no DESC keyword is supplied, SQL uses ascending order by default, so text values are arranged alphabetically from A onward.\n\nStudent note: ASC is the default. DESC must be written when you want the reverse order."
+      "explanation": "The query filters invoices using invoiceTotal >= 500 but sorts by vendorName. Without DESC, ORDER BY normally sorts ascending, beginning with A.\n\nStudent note: WHERE decides which rows appear; ORDER BY decides their sequence. Do not confuse invoiceTotal filtering with sorting."
     },
     {
       "number": "12",
@@ -123,7 +166,7 @@
         "an outer join"
       ],
       "correctAnswer": "a WHERE clause",
-      "explanation": "A WHERE clause limits which rows are deleted. Without it, a DELETE statement can remove every row in the table.\n\nStudent note: Before running DELETE or UPDATE, always check the WHERE condition carefully because it controls which records are affected."
+      "explanation": "A WHERE clause limits which rows a DELETE statement removes. Without it, DELETE may remove every row in the table.\n\nStudent note: For deletion tasks, always check the WHERE condition before running the query."
     },
     {
       "number": "13",
@@ -136,7 +179,7 @@
         "A database table can have many rows and columns"
       ],
       "correctAnswer": "A database table can have many primary keys",
-      "explanation": "A table has one primary-key constraint, although that primary key may be made from more than one column. A table may contain many foreign keys and many rows and columns.\n\nStudent note: Do not confuse a composite primary key with 'many primary keys'. A composite key is still one primary key made from several columns."
+      "explanation": "A relational table has one primary-key definition, although it can contain more than one column (a composite primary key).\n\nStudent note: A table may have many foreign keys but only one declared primary key constraint."
     },
     {
       "number": "14",
@@ -149,7 +192,7 @@
         "INDEX"
       ],
       "correctAnswer": "INT",
-      "explanation": "INT is a database data type used for whole numbers. PRIMARY, FOREIGN and INDEX describe keys or indexing concepts rather than column data types.\n\nStudent note: Common SQL data types include INT, VARCHAR, DATE and DECIMAL."
+      "explanation": "INT is a SQL data type for whole numbers. PRIMARY, FOREIGN and INDEX describe database constraints or structures, not column data types.\n\nStudent note: Other common data types include VARCHAR, DATE and DECIMAL."
     },
     {
       "number": "15",
@@ -162,7 +205,140 @@
         "SELECT"
       ],
       "correctAnswer": "SELECT",
-      "explanation": "SELECT retrieves rows and columns from a database and returns them as a result set. INSERT adds data, UPDATE changes data, and CREATE defines database objects.\n\nStudent note: Think SELECT = read, INSERT = add, UPDATE = change, DELETE = remove."
+      "explanation": "SELECT asks the database for matching records and returns a result set.\n\nStudent note: INSERT adds rows, UPDATE changes data, CREATE defines objects, and SELECT reads data."
+    },
+    {
+      "number": "16",
+      "marks": 2,
+      "text": "Study the database table named weather given below, where record_number is the primary key: \n\n\n\n Which one of the following SQL queries will retrieve the following data set?",
+      "options": [
+        "SELECT place FROM weather WHERE rainfall > 10",
+        "SELECT place FROM weather WHERE rainfall > 10 ORDER BY place ASC",
+        "SELECT place FROM weather WHERE rainfall > 10 ORDER BY place DESC",
+        "SELECT * FROM weather WHERE rainfall < 10"
+      ],
+      "correctAnswer": "SELECT place FROM weather WHERE rainfall > 10 ORDER BY place DESC",
+      "explanation": "SELECT place returns only the place column; WHERE rainfall > 10 selects Gordons Bay (12), Johannesburg (25) and Roodepoort (25). DESC sorts their names from Z to A.\n\nStudent note: Do the query in three steps: SELECT the columns, apply WHERE to rows, then ORDER BY. The image for Q16 has six records, including Roodepoort.",
+      "tables": [
+        {
+          "caption": "Weather table (Question 16 – original screenshot)",
+          "headers": [
+            "record_number",
+            "place",
+            "date",
+            "rainfall"
+          ],
+          "rows": [
+            [
+              "1",
+              "Gordons Bay",
+              "2019-03-01",
+              "12"
+            ],
+            [
+              "2",
+              "Johannesburg",
+              "2019-01-30",
+              "25"
+            ],
+            [
+              "3",
+              "Hammanskral",
+              "2019-04-12",
+              "7"
+            ],
+            [
+              "4",
+              "Mamelodi",
+              "2019-06-23",
+              "10"
+            ],
+            [
+              "5",
+              "Port Elizabeth",
+              "2019-10-19",
+              "3"
+            ],
+            [
+              "6",
+              "Roodepoort",
+              "2019-12-27",
+              "25"
+            ]
+          ]
+        },
+        {
+          "caption": "Requested result set (Question 16 – original screenshot)",
+          "headers": [
+            "place"
+          ],
+          "rows": [
+            [
+              "Roodepoort"
+            ],
+            [
+              "Johannesburg"
+            ],
+            [
+              "Gordons Bay"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "number": "17",
+      "marks": 2,
+      "text": "Study the database table named weather given below, where record_number is the primary key: \n\n \n\nWhich one of the following options will result in $result storing the following result?\n\nGordons Bay,12\n\nJohannesburg,25\n\nHammanskral,7\n\nMamelodi,1\n\nPort Elizabeth,3 \n\nAssume that a PDO object named $db is correctly connected to the relevant database.",
+      "options": [
+        "$query = 'SELECT place, rainfall FROM weather';\n\n$statement = $db->prepare($query);\n\n$statement->execute();\n\n$records = $statement->fetchAll();\n\n$statement->closeCursor(); \n\n$result = \"\";\n\nforeach($records as $record){\n\n     $result = $result. $record[1]. \",\" . $record[3]. \"<br>\";\n\n}",
+        "$query = 'SELECT * FROM weather';\n\n$statement = $db->prepare($query);\n\n$statement->execute();\n\n$records = $statement->fetchAll();\n\n$statement->closeCursor(); \n\n$result = \"\";\n\nforeach($records as $record){\n\n     $result = $result. $record[1]. \",\" . $record[3]. \"<br>\";\n\n}",
+        "$query = 'SELECT * FROM weather';\n\n$statement->execute();\n\n$records = $statement->fetchAll();\n\n$statement->closeCursor(); \n\n$result = \"\";\n\nforeach($records as $record){\n\n     $result = $result. $record[1]. \",\" . $record[3]. \"<br>\";\n\n}",
+        "$query = 'SELECT place, rainfall FROM weather';\n\n$statement = $db->prepare($query);\n\n$records = $statement->fetchAll();\n\n$statement->closeCursor(); \n\n$result = \"\";\n\nforeach($records as $record){\n\n     $result = $result. $record['place']. \",\" .\n\n     $record['rainfall']. \"<br>\";\n\n}"
+      ],
+      "correctAnswer": "$query = 'SELECT * FROM weather';\n\n$statement = $db->prepare($query);\n\n$statement->execute();\n\n$records = $statement->fetchAll();\n\n$statement->closeCursor(); \n\n$result = \"\";\n\nforeach($records as $record){\n\n     $result = $result. $record[1]. \",\" . $record[3]. \"<br>\";\n\n}",
+      "explanation": "SELECT * fetches every column in table order. With default PDO::FETCH_BOTH, $record[1] is place and $record[3] is rainfall. prepare(), execute() and fetchAll() must run before the foreach loop.\n\nStudent note: Index 0 is record_number, 1 is place, 2 is date and 3 is rainfall. The Q17 image has five rows and Mamelodi rainfall is 1, not 10.",
+      "table": {
+        "caption": "Weather table (Question 17 – original screenshot)",
+        "headers": [
+          "record_number",
+          "place",
+          "date",
+          "rainfall"
+        ],
+        "rows": [
+          [
+            "1",
+            "Gordons Bay",
+            "2019-03-01",
+            "12"
+          ],
+          [
+            "2",
+            "Johannesburg",
+            "2019-01-30",
+            "25"
+          ],
+          [
+            "3",
+            "Hammanskral",
+            "2019-04-12",
+            "7"
+          ],
+          [
+            "4",
+            "Mamelodi",
+            "2019-06-23",
+            "1"
+          ],
+          [
+            "5",
+            "Port Elizabeth",
+            "2019-10-19",
+            "3"
+          ]
+        ]
+      }
     },
     {
       "number": "18",
@@ -170,12 +346,25 @@
       "text": "Which one of the following is incorrect about PDO?",
       "options": [
         "PDO facilitates database access in PHP",
-        "Creation of a PDO object can result in errors that can be handled using a try/catch statement",
+        "Creation of PDO object can result in errors that can be handled using try catch statement",
         "One can specify the name of the database table when creating a PDO object",
         "A PDO object can be created using three arguments"
       ],
       "correctAnswer": "One can specify the name of the database table when creating a PDO object",
-      "explanation": "A PDO connection is created for a database connection, normally using a DSN plus username and password. You do not choose a particular table in the PDO constructor; tables are referenced later in SQL statements.\n\nStudent note: PDO connects PHP to the database. SQL statements decide which table and rows you work with."
+      "explanation": "PDO creates a connection to a database server/database, not directly to a particular table.\n\nStudent note: A table name belongs inside an SQL statement, such as SELECT ... FROM weather, not the PDO connection string."
+    },
+    {
+      "number": "19",
+      "marks": 2,
+      "text": "Study the statement below:\n$db = new PDO($a, $b, $c); \n\nWhich one of the following is correct about this statement?",
+      "options": [
+        "$a contains the database name",
+        "$b contains the password",
+        "$c contains the username",
+        "$a, $b and $c contains the exception handling code"
+      ],
+      "correctAnswer": "$a contains the database name",
+      "explanation": "In new PDO($a, $b, $c), $a is the DSN containing connection details including the database name, $b is the username and $c is the password.\n\nStudent note: The assessment calls $a the database name, but technically it is a DSN such as mysql:host=localhost;dbname=testdb."
     },
     {
       "number": "20",
@@ -188,7 +377,7 @@
         "PDOException object"
       ],
       "correctAnswer": "PDOException object",
-      "explanation": "Database connection or PDO errors can be represented by a PDOException. Calling getMessage() on that exception object returns the error message.\n\nStudent note: The catch variable represents the exception that was thrown; getMessage() is called on that exception object."
+      "explanation": "PDO database errors can be caught as PDOException objects. getMessage() supplies the error explanation.\n\nStudent note: Inside catch (PDOException $e), use $e->getMessage() when handling errors."
     },
     {
       "number": "21",
@@ -201,7 +390,7 @@
         "Must-Verify-Constraints"
       ],
       "correctAnswer": "Model-View-Controller",
-      "explanation": "MVC stands for Model-View-Controller. It separates data and business logic (Model), the user interface (View), and request coordination (Controller).\n\nStudent note: Learn the responsibility of each part, not only the three words."
+      "explanation": "MVC means Model–View–Controller, a design pattern for separating data, presentation and application control.\n\nStudent note: Model = data and business rules; View = presentation; Controller = request handling."
     },
     {
       "number": "22",
@@ -214,7 +403,7 @@
         "Model"
       ],
       "correctAnswer": "Model",
-      "explanation": "The Model represents application data and business rules and normally contains or calls the data-access logic. The View presents information and the Controller handles requests and coordinates work.\n\nStudent note: Database work belongs with the model/data layer, not directly inside the page used to display the interface."
+      "explanation": "The Model is the MVC layer that handles application data and commonly works with the database.\n\nStudent note: A model may use a separate repository/service for database calls in larger applications; the key exam distinction is Model versus View."
     },
     {
       "number": "23",
@@ -227,7 +416,7 @@
         "Constraints"
       ],
       "correctAnswer": "View",
-      "explanation": "The View is the presentation part of MVC. It contains the interface that the user sees and interacts with, often built with HTML and presentation-focused PHP.\n\nStudent note: View = what the user sees; Model = data/business logic; Controller = request coordinator."
+      "explanation": "The View produces the user-facing interface, typically through HTML and template/PHP files.\n\nStudent note: A View displays information. It should not become the main place for database logic."
     },
     {
       "number": "24",
@@ -240,7 +429,7 @@
         "the model, the view and the user interface"
       ],
       "correctAnswer": "the model and the view",
-      "explanation": "The Controller receives the request, calls the appropriate Model logic, and selects or coordinates the View used to return a response.\n\nStudent note: In MVC the controller coordinates the model and view; it should not replace them."
+      "explanation": "The Controller receives HTTP requests and decides how to use the Model and View to respond.\n\nStudent note: Controller receives a request, asks the Model for data, and chooses the View."
     },
     {
       "number": "25",
@@ -253,7 +442,72 @@
         "it is easier to test and debug the application"
       ],
       "correctAnswer": "it is easier to test and debug the application",
-      "explanation": "MVC separates responsibilities, which makes parts of the application easier to understand, change, test and debug independently.\n\nStudent note: MVC improves structure and maintainability; it does not automatically guarantee faster execution."
+      "explanation": "Keeping concerns separate makes MVC applications easier to test, debug and maintain.\n\nStudent note: MVC is an organisation pattern; it does not automatically make software faster."
+    },
+    {
+      "number": "26",
+      "marks": 1,
+      "text": "Which type of error is considered the easiest to find?",
+      "options": [
+        "runtime",
+        "logic",
+        "invisible",
+        "syntax"
+      ],
+      "correctAnswer": "syntax",
+      "explanation": "Syntax errors break the grammar rules of PHP, so the interpreter usually reports them clearly.\n\nStudent note: Examples include missing quotation marks and badly formed PHP expressions."
+    },
+    {
+      "number": "27",
+      "marks": 1,
+      "text": "Which type of error does not violate the rules for how PHP statements must be written but will cause the PHP interpreter to display errors?",
+      "options": [
+        "syntax",
+        "runtime",
+        "complex",
+        "logic"
+      ],
+      "correctAnswer": "runtime",
+      "explanation": "Runtime errors happen while valid PHP code is running, such as a failed connection or unavailable resource.\n\nStudent note: A syntax error stops the code being parsed; a runtime failure occurs during execution."
+    },
+    {
+      "number": "28",
+      "marks": 1,
+      "text": "An error that lets the application run but produces the wrong results is known as a _________.",
+      "options": [
+        "runtime error",
+        "user error",
+        "logic error",
+        "syntax error"
+      ],
+      "correctAnswer": "logic error",
+      "explanation": "A logic error means the program executes but computes an incorrect result.\n\nStudent note: Check the conditions, loops and calculations when a script runs but its output is wrong."
+    },
+    {
+      "number": "29",
+      "marks": 1,
+      "text": "Which one of the following can be considered as a runtime error?",
+      "options": [
+        "Excluding a ; at the end of a PHP statement",
+        "Using = instead of  == in an expression",
+        "The database server the PHP script is trying to connect to is unavailable",
+        "Coding a while loop that iterates incorrect number of times"
+      ],
+      "correctAnswer": "The database server the PHP script is trying to connect to is unavailable",
+      "explanation": "An unavailable database server causes a failure when the PHP script tries to connect during execution.\n\nStudent note: An unavailable service is an execution issue, unlike a missing semicolon (syntax) or incorrect arithmetic (logic)."
+    },
+    {
+      "number": "30",
+      "marks": 1,
+      "text": "Which of the following is not considered a common syntax error in PHP?",
+      "options": [
+        "misspelling keywords",
+        "using a keyword as a variable name",
+        "forgetting a closing quotation mark",
+        "multiplying by the wrong variable"
+      ],
+      "correctAnswer": "multiplying by the wrong variable",
+      "explanation": "Using the wrong variable in multiplication can produce a wrong result while remaining valid PHP syntax.\n\nStudent note: Even correctly written code can be wrong in its logic. Trace variables and values to find this kind of bug."
     }
   ]
 }
