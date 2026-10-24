@@ -33,6 +33,7 @@ jobs:
           node tests/ict2631-content.test.cjs
           node tests/ict2622-content.test.cjs
           node tests/ict2613-assessment1.test.cjs
+          node tests/ict2613-assessment4.test.cjs
           node tests/revision-insights.test.cjs
           node tests/book-reader-ui.test.cjs
           node tests/study-guess-first-ui.test.cjs
