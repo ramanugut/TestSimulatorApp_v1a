@@ -24,8 +24,8 @@ const settle=async()=>{for(let i=0;i<20;i++)await new Promise(r=>setImmediate(r)
  assert.equal(requests.length,0,'No AI is called automatically');
  assert.ok(d.querySelector('.mockup-ask'),'Ask is available in Test');
  d.querySelector('.mockup-ask').click();
- const chat=d.querySelector('.ai-tutor-chat');assert.equal(chat.querySelector('button').textContent,'Send');
- chat.querySelector('textarea').value='Explain scope';chat.querySelector('button').click();await settle();
+ const chat=d.querySelector('.ai-tutor-chat');const send=chat.querySelector('.ai-tutor-chat-send');assert.equal(send.textContent,'Send');
+ chat.querySelector('textarea').value='Explain scope';send.click();await settle();
  assert.equal(requests.length,1);assert.ok(chat.textContent.includes('A WBS divides'));
  assert.ok(chat.querySelector('.ai-tutor-reply-play'),'AI replies retain their voice reader');
  d.getElementById('mode-tab-study').click();await settle();
