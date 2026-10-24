@@ -5566,6 +5566,7 @@ const testFiles = [
   // Verified 2026 additions. ICT2613 is intentionally partial: missing/truncated
   // tutorial-letter questions are withheld instead of reconstructed by guesswork.
   "ict2613-assessment-1-2026-partial.json",
+  "ict2613-assessment-4-2026-original.json",
   "ict2613-assessment-1-2024-verified-practice.json",
   "ict2613-may-june-2017-exam-code-practice.json",
   "ict2613-oct-nov-2017-exam-verified-practice.json",
