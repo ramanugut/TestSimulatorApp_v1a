@@ -25,11 +25,10 @@ assert.match(
   /aiStudyToolsSetting\s*&&\s*aiStudyToolsSetting\.checked/,
   "Tutor should depend on the session AI checkbox"
 );
-assert.match(
-  script,
-  /!aiTutorEnabled\(\)\s*\|\|\s*\(!isStudyMode\s*&&\s*!testSubmitted\)/,
-  "Tutor should not appear during an active normal test"
-);
+assert.match(script, /if \(!aiTutorEnabled\(\)\) return null;/,
+  "Question tutor must still require a session opt-in");
+assert.match(script, /isNewLook\(\) \|\| !isStudyMode \|\| canRevealStudyContent/,
+  "Both looks allow Ask during tests, but Old Study still respects Guess First");
 assert.match(script, /Ask AI about this topic/, "Tutor should expose a contextual chat box");
 assert.match(script, /function requestAiTutorChat\(/, "Tutor chat should have its own request flow");
 assert.match(script, /aiTutorChatHistory/, "Tutor chat should preserve recent context in memory");
