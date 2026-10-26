@@ -430,3 +430,40 @@ body.new-look .study-answer-rich .answer-section-list li:last-child {
 body.new-look .study-answer-rich .rich-paragraph {
   margin: 0;
 }
+
+
+/* Old look: compact per-question Ask AI button without changing the original layout. */
+body:not(.new-look) .question > .mockup-ask {
+  position: absolute;
+  top: 1.35rem;
+  right: 9.25rem;
+  z-index: 1;
+  min-height: 32px;
+  padding: .3rem .75rem;
+  border: 1px solid var(--accent-color);
+  border-radius: 999px;
+  background: var(--surface-color);
+  color: var(--accent-color);
+  font: inherit;
+  font-size: .82rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: none;
+}
+body:not(.new-look) .question > .mockup-ask[aria-expanded="true"] {
+  background: var(--accent-color);
+  color: #fff;
+}
+body:not(.new-look) .question > .mockup-ask:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 3px;
+}
+body:not(.new-look) .question .ai-tutor-wrap { display: none; }
+body:not(.new-look) .question.tutor-open .ai-tutor-wrap { display: block; }
+@media(max-width: 760px) {
+  body:not(.new-look) .question > .mockup-ask {
+    top: 1.05rem;
+    right: 7.9rem;
+    min-height: 32px;
+  }
+}
