@@ -5563,10 +5563,11 @@ const testFiles = [
   "ict2622-assessment-1-2026-practice.json",
   "ict2622-assessment-2-2026-practice.json",
   "ict2622-practical-skills-lab.json",
-  // Verified 2026 additions. ICT2613 is intentionally partial: missing/truncated
-  // tutorial-letter questions are withheld instead of reconstructed by guesswork.
+  // Verified ICT2613 assessments and the user-uploaded 2023–2025 written-question collection.
+  // Written prompts use the original supplied source, with separate study notes.
   "ict2613-assessment-1-2026-partial.json",
   "ict2613-assessment-4-2026-original.json",
+  "ict2613-2023-2025-past-written-type-questions.json",
   "ict2613-assessment-1-2024-verified-practice.json",
   "ict2613-may-june-2017-exam-code-practice.json",
   "ict2613-oct-nov-2017-exam-verified-practice.json",
