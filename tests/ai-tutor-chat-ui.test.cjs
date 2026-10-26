@@ -179,8 +179,9 @@ async function main() {
     assert.equal(input.disabled, false);
 
     doc.getElementById("mode-tab-test").click();
-    assert.equal(doc.querySelector(".ai-tutor-chat"), null,
-      "Chat must be hidden during an unsubmitted normal test");
+    assert.equal(doc.querySelectorAll(".ai-tutor-chat").length, 2,
+      "Question-level Ask AI must work during normal Test mode in Old look");
+    assert.equal(requests.length, 3, "Opening Test questions never sends automatically");
     doc.getElementById("mode-tab-study").click();
     assert.equal(doc.querySelectorAll(".ai-tutor-chat").length, 2);
     doc.getElementById("study-guess-first-toggle").click();
