@@ -7357,9 +7357,12 @@ const ict2622VerifiedPaperArchive = [
         }
       }
 
-      // Let learners ask about the question in either look and either mode,
-      // without having to reveal or submit their own answer first.
-      const aiTutorBlock = createAiTutorBlock(question, actualIndex);
+      // Ask is available in Test for both looks. Preserve the Old look's
+      // Guess First gate in Study so checking a guess still comes first.
+      const aiTutorBlock =
+        (isNewLook() || !isStudyMode || canRevealStudyContent)
+          ? createAiTutorBlock(question, actualIndex)
+          : null;
       if (aiTutorBlock) {
         questionElement.appendChild(aiTutorBlock);
       }
