@@ -320,28 +320,47 @@
       });
     });
     function decorateQuestions() {
-      if (!body.classList.contains('new-look')) return;
+      const fresh = body.classList.contains('new-look');
       get('questions-container').querySelectorAll('.question').forEach(question => {
         const flag = question.querySelector('.bookmark-button');
-        if (flag) flag.setAttribute('aria-label', flag.classList.contains('active') ? 'Unflag question' : 'Flag question');
-        const diagrams=question.querySelectorAll('.editable-uml-workspace');
-        diagrams.forEach(diagram=>{
-          const strip=diagram.querySelector('.uml-tool-strip'), controls=diagram.querySelector('.answer-workspace-actions');
-          if(strip && controls && !strip.dataset.compact) {
-            strip.dataset.compact='true';
-            strip.querySelectorAll('[data-tool]').forEach(b=>{const names={move:'Move',class:'Box',usecase:'Oval',arrow:'Arrow',pen:'Draw'};if(names[b.dataset.tool]) b.textContent=names[b.dataset.tool];});
-            Array.from(controls.children).forEach(b=>{if(b.textContent==='Clear') b.classList.add('mockup-extra-tool');else {if(b.textContent==='Delete selected') b.textContent='Delete';strip.append(b);}});
-            const upload=strip.querySelector('.uml-upload');if(upload)upload.firstChild.textContent='Upload image';
-          }
-        });
-        const chat = question.querySelector('.ai-tutor-wrap');
-        if (!chat || question.querySelector('.mockup-ask')) return;
+        if (fresh && flag) flag.setAttribute('aria-label', flag.classList.contains('active') ? 'Unflag question' : 'Flag question');
+        if (fresh) {
+          const diagrams=question.querySelectorAll('.editable-uml-workspace');
+          diagrams.forEach(diagram=>{
+            const strip=diagram.querySelector('.uml-tool-strip'), controls=diagram.querySelector('.answer-workspace-actions');
+            if(strip && controls && !strip.dataset.compact) {
+              strip.dataset.compact='true';
+              strip.querySelectorAll('[data-tool]').forEach(b=>{const names={move:'Move',class:'Box',usecase:'Oval',arrow:'Arrow',pen:'Draw'};if(names[b.dataset.tool]) b.textContent=names[b.dataset.tool];});
+              Array.from(controls.children).forEach(b=>{if(b.textContent==='Clear') b.classList.add('mockup-extra-tool');else {if(b.textContent==='Delete selected') b.textContent='Delete';strip.append(b);}});
+              const upload=strip.querySelector('.uml-upload');if(upload)upload.firstChild.textContent='Upload image';
+            }
+          });
+        }
+        if (question.querySelector('.mockup-ask')) return;
         const ask = document.createElement('button');
         ask.type = 'button';
         ask.className = 'mockup-ask';
-        ask.textContent = 'Ask';
+        ask.textContent = fresh ? 'Ask' : 'Ask AI';
+        const questionIndex = question.dataset.questionIndex;
+        ask.setAttribute('aria-label', 'Ask AI about this question');
         ask.setAttribute('aria-expanded', 'false');
+        ask.setAttribute('aria-controls', 'question-ai-chat-' + questionIndex);
         ask.addEventListener('click', () => {
+          let chat = question.querySelector('.ai-tutor-wrap');
+          if (!chat) {
+            // Clicking Ask is an explicit, session-only AI opt-in.
+            // No AI request is sent until the learner submits a message.
+            const consent = get('ai-revision-enabled');
+            if (!consent || consent.checked) return;
+            consent.checked = true;
+            consent.dispatchEvent(new Event('change', { bubbles: true }));
+            // Consent redraws the question; reopen Ask for the same index.
+            decorateQuestions();
+            const replacement = Array.from(get('questions-container').querySelectorAll('.question'))
+              .find(item => item.dataset.questionIndex === questionIndex);
+            replacement?.querySelector('.mockup-ask')?.click();
+            return;
+          }
           const opened = question.classList.toggle('tutor-open');
           ask.setAttribute('aria-expanded', String(opened));
           if (opened) chat.querySelector('textarea, input')?.focus({ preventScroll: true });
