@@ -1787,12 +1787,14 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function createAiTutorBlock(question, actualIndex) {
-    if (!isNewLook()) {
-      if (!aiTutorEnabled() || (!isStudyMode && !testSubmitted)) return null;
-    } else if (!aiTutorEnabled()) return null;
+    // Both looks can ask about any question, including during a test.
+    // The existing per-session AI consent still applies; no request runs
+    // until the learner types a message and explicitly presses Send.
+    if (!aiTutorEnabled()) return null;
 
     const wrapper = document.createElement("section");
     wrapper.className = "ai-tutor-wrap ai-tutor-chat-only";
+    wrapper.id = "question-ai-chat-" + actualIndex;
     wrapper.setAttribute("aria-label", "AI study chat");
     wrapper.appendChild(createAiTutorChatPanel(question, actualIndex));
     return wrapper;
@@ -7355,10 +7357,9 @@ const ict2622VerifiedPaperArchive = [
         }
       }
 
-      const aiTutorBlock =
-        (isNewLook() || !isStudyMode || canRevealStudyContent)
-          ? createAiTutorBlock(question, actualIndex)
-          : null;
+      // Let learners ask about the question in either look and either mode,
+      // without having to reveal or submit their own answer first.
+      const aiTutorBlock = createAiTutorBlock(question, actualIndex);
       if (aiTutorBlock) {
         questionElement.appendChild(aiTutorBlock);
       }
