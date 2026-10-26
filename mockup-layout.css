@@ -467,3 +467,9 @@ body:not(.new-look) .question.tutor-open .ai-tutor-wrap { display: block; }
     min-height: 32px;
   }
 }
+
+body:not(.new-look) .question .ask-ai-locked-note {
+  margin: 0;
+  font-size: .8rem;
+  color: var(--muted-text);
+}
