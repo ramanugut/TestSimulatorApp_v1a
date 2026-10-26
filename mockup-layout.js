@@ -351,7 +351,20 @@
             // Clicking Ask is an explicit, session-only AI opt-in.
             // No AI request is sent until the learner submits a message.
             const consent = get('ai-revision-enabled');
-            if (!consent || consent.checked) return;
+            if (!consent) return;
+            if (consent.checked) {
+              // In Old Study with Guess First, checking a guess still comes
+              // before AI. Explain the lock only after the Ask button is used.
+              let notice = question.querySelector('.ask-ai-locked-note');
+              if (!notice) {
+                notice = document.createElement('p');
+                notice.className = 'ask-ai-locked-note';
+                notice.setAttribute('role', 'status');
+                notice.textContent = 'Check your answer first to unlock Ask AI in Study mode.';
+                question.append(notice);
+              }
+              return;
+            }
             consent.checked = true;
             consent.dispatchEvent(new Event('change', { bubbles: true }));
             // Consent redraws the question; reopen Ask for the same index.
