@@ -1,7 +1,7 @@
 'use strict';
 const assert=require('node:assert/strict'),fs=require('node:fs');
 const {JSDOM,VirtualConsole}=require('jsdom');
-const oldPaper='test36.json',exam='ict2631-oct-nov-2025-exam.json',second='ict2622-oct-nov-2025-practice.json',custom='__custom_session__';
+const archivedPaper='test36.json',oldPaper='ict2642-may-2026-assessment-quiz.json',exam='ict2642-assessment-2-2026.json',second='ict3612-assessment-1-2025-verified-practice.json',custom='__custom_session__';
 const preferenceKey='testSimulatorPreferences';
 function paper(file){return {testName:file,preserveOrder:true,questions:Array.from({length:12},(_,i)=>({text:file+' question '+(i+1),options:['Yes','No'],correctAnswer:'Yes',marks:1}))};}
 const settle=async()=>{for(let i=0;i<16;i++)await new Promise(r=>setImmediate(r));};
@@ -22,9 +22,9 @@ async function open({preferences={},progress,storage,reverse=false}={}){
 function dump(w){return Object.fromEntries(Array.from({length:w.localStorage.length},(_,i)=>{const key=w.localStorage.key(i);return[key,w.localStorage.getItem(key)];}));}
 function chosen(w){return w.document.getElementById('test-select').value;}
 (async()=>{
- // Legacy progress for Assessment 2 must not displace a more recent module choice.
- let app=await open({preferences:{lastSelectedPaper:exam,mode:'study',paperPagePositions:{[exam]:2}},progress:{currentTestFile:oldPaper,userAnswers:{0:'Yes'},testInProgress:false},reverse:true});
- assert.equal(chosen(app.w),exam);assert.match(app.w.document.querySelector('.question-text').textContent,/ict2631/);
+ // Hidden, completed-module progress must not displace a more recent active-module choice.
+ let app=await open({preferences:{lastSelectedPaper:exam,mode:'study',paperPagePositions:{[exam]:2}},progress:{currentTestFile:archivedPaper,userAnswers:{0:'Yes'},testInProgress:false},reverse:true});
+ assert.equal(chosen(app.w),exam);assert.match(app.w.document.querySelector('.question-text').textContent,/ict2642/);
  assert.match(app.w.document.getElementById('page-info').textContent,/Page 2/);
  assert.equal(app.w.document.querySelector('.option-item input').checked,false,'Never copy Assessment 2 answers into a different module');
  app.w.dispatchEvent(new app.w.Event('beforeunload'));const storage=dump(app.w);app.dom.window.close();
@@ -43,7 +43,7 @@ function chosen(w){return w.document.getElementById('test-select').value;}
  assert.equal(JSON.parse(app.w.localStorage.getItem(preferenceKey)).lastSelectedSession,second);
  app.delayed.get(second)[0]({ok:true,json:async()=>paper(second)});await settle();
  app.delayed.get(oldPaper)[0]({ok:true,json:async()=>paper(oldPaper)});await settle();
- assert.equal(chosen(app.w),second);assert.match(app.w.document.querySelector('.question-text').textContent,/ict2622/,'Slow old response cannot replace the newly opened module');
+ assert.equal(chosen(app.w),second);assert.match(app.w.document.querySelector('.question-text').textContent,/ict3612/,'Slow old response cannot replace the newly opened module');
  const changedStorage=dump(app.w);app.dom.window.close();
  app=await open({storage:changedStorage,reverse:true});assert.equal(chosen(app.w),second);app.dom.window.close();
  // Preserve custom-test resume and switching out of a custom mix.
@@ -51,6 +51,18 @@ function chosen(w){return w.document.getElementById('test-select').value;}
  app=await open({preferences:{lastSelectedPaper:exam,lastSelectedSession:custom},progress:customProgress});assert.equal(chosen(app.w),custom);app.dom.window.close();
  app=await open({preferences:{lastSelectedPaper:exam,lastSelectedSession:second},progress:customProgress});assert.equal(chosen(app.w),second);app.dom.window.close();
  app=await open({preferences:{lastSelectedPaper:exam},progress:customProgress});assert.equal(chosen(app.w),custom,'Legacy custom sessions still restore');app.dom.window.close();
- app=await open({reverse:true});assert.equal(chosen(app.w),'inf3708-oct-nov-2021.json','First visit does not select whichever network request finishes first');app.dom.window.close();
+ app=await open({reverse:true});
+ assert.equal(chosen(app.w),oldPaper,'First visit selects the first available (non-completed) paper, regardless of request order');
+ const selectableFiles=[...app.w.document.querySelectorAll('#test-select option:not([disabled])')].map(option=>option.value);
+ assert.ok(selectableFiles.includes(exam),'Active ICT2642 stays available');
+ for(const completed of ['inf3708','ict2631','ict2622','ict2613']) {
+   assert.ok(!selectableFiles.some(file=>file.toLowerCase().startsWith(completed)),completed+' must be hidden from the active picker');
+ }
+ assert.ok(!selectableFiles.includes(archivedPaper),'Legacy INF3708 Assessment 2 must also be hidden');
+ assert.equal(app.w.document.querySelectorAll('#test-select optgroup[label*="ICT2622"]').length,0,'Completed ICT2622 source archive is hidden');
+ app.dom.window.close();
+ app=await open({preferences:{lastSelectedPaper:archivedPaper,lastSelectedSession:archivedPaper},progress:{currentTestFile:archivedPaper,userAnswers:{0:'Yes'},testInProgress:false}});
+ assert.equal(chosen(app.w),oldPaper,'A completed paper in stored preferences cannot reappear after reload');
+ app.dom.window.close();
  console.log('Paper refresh checks passed: last choice beats stale progress, cold reload, matching answers, stable network order, custom resume, slow-response isolation.');
 })().catch(error=>{console.error(error);process.exitCode=1;});
