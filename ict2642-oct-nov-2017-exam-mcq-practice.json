@@ -1,0 +1,169 @@
+{
+  "testName": "ICT2642 · Oct/Nov 2017 exam · MCQ practice (rewritten)",
+  "module": "ICT2642",
+  "assessment": "Oct/Nov 2017 exam themes",
+  "totalMarks": 12,
+  "preserveOrder": true,
+  "marking": "automatic-mcq",
+  "sourceType": "Independent original practice questions based on publicly listed exam or MCQ topics; not verbatim UNISA paper questions",
+  "sourceReference": "https://www.studocu.com/en-za/document/university-of-south-africa/business-informatics-iib/exam-4-2017-questions-and-answers/4400898",
+  "sourceLimitations": "These are newly written MCQs based on themes in the linked public source, not exact original paper wording. Some source previews are incomplete. Use the Source link to view the original where available.",
+  "questions": [
+    {
+      "number": "1",
+      "text": "A business adopts a proven method that repeatedly produces strong results. What is the method usually called?",
+      "options": [
+        "Best practice",
+        "A data anomaly",
+        "A routing error",
+        "A temporary outage"
+      ],
+      "correctAnswer": "Best practice",
+      "marks": 1,
+      "explanation": "A best practice is a proven way of performing work that other organisations can learn from.\n\nStudent note: Best practice describes a method, not necessarily the software supporting it."
+    },
+    {
+      "number": "2",
+      "text": "Which system usually records sales, bookings and payments before other systems use the data?",
+      "options": [
+        "Transaction processing system (TPS)",
+        "Executive support system (ESS)",
+        "Expert system for strategy",
+        "Presentation software"
+      ],
+      "correctAnswer": "Transaction processing system (TPS)",
+      "marks": 1,
+      "explanation": "TPS records routine events; reports and analytical systems can use those transaction records later.\n\nStudent note: TPS is the source of many business records, such as purchases and payroll."
+    },
+    {
+      "number": "3",
+      "text": "Why might an organisation continue using an old legacy system?",
+      "options": [
+        "Replacing it may be expensive and may risk losing valuable information",
+        "Old systems cannot contain important data",
+        "Legacy software is automatically the most secure option",
+        "Every legacy system integrates effortlessly with modern platforms"
+      ],
+      "correctAnswer": "Replacing it may be expensive and may risk losing valuable information",
+      "marks": 1,
+      "explanation": "Legacy applications may support critical processes and contain many years of important records; replacement needs careful planning.\n\nStudent note: Legacy does not mean useless; it often means difficult to modernise."
+    },
+    {
+      "number": "4",
+      "text": "A virtual company relies on other organisations to perform some tasks while coordinating them through digital networks. What makes this model possible?",
+      "options": [
+        "Using network technology to connect independent partners",
+        "Owning every partner's buildings",
+        "Having no customers",
+        "Avoiding all information sharing"
+      ],
+      "correctAnswer": "Using network technology to connect independent partners",
+      "marks": 1,
+      "explanation": "Virtual organisations bring people, assets and services together through networked relationships without owning all the resources.\n\nStudent note: A virtual company can sell real products; 'virtual' describes the business structure."
+    },
+    {
+      "number": "5",
+      "text": "Compared with textbook planning diagrams, how is managers' daily behaviour often described?",
+      "options": [
+        "More informal and less orderly",
+        "Always completely predictable",
+        "Never involving conversations",
+        "Fully automated without human decisions"
+      ],
+      "correctAnswer": "More informal and less orderly",
+      "marks": 1,
+      "explanation": "Real management work involves interruptions, discussions, fast decisions and informal communication.\n\nStudent note: Know the difference between classical theory and observed management behaviour."
+    },
+    {
+      "number": "6",
+      "text": "Which result is the main aim of an enterprise application?",
+      "options": [
+        "Departments can use shared information to coordinate work",
+        "Each department must create separate customer IDs",
+        "All external communication stops",
+        "Only top management may enter information"
+      ],
+      "correctAnswer": "Departments can use shared information to coordinate work",
+      "marks": 1,
+      "explanation": "Enterprise applications connect data and processes across organisational functions.\n\nStudent note: Examples include ERP, CRM and SCM; learn what each one does."
+    },
+    {
+      "number": "7",
+      "text": "Online shoppers can compare product quality and prices quickly across many sellers. Which e-commerce feature helps this happen?",
+      "options": [
+        "Information density",
+        "Geographic isolation",
+        "Delayed communication",
+        "High switching cost"
+      ],
+      "correctAnswer": "Information density",
+      "marks": 1,
+      "explanation": "Information density means better, more timely information is available and information costs may be lower.\n\nStudent note: Richness means the depth of a message; information density means the amount and quality of available information."
+    },
+    {
+      "number": "8",
+      "text": "Which benefit of an information system is usually intangible?",
+      "options": [
+        "Improved organisational learning",
+        "Lower annual electricity bill",
+        "Reduction of printing expenses",
+        "Fewer physical storage cabinets"
+      ],
+      "correctAnswer": "Improved organisational learning",
+      "marks": 1,
+      "explanation": "Intangible benefits are valuable but harder to measure directly in money; tangible benefits can often be counted or priced.\n\nStudent note: For exams, look for measurable cost savings versus improvements in knowledge or reputation."
+    },
+    {
+      "number": "9",
+      "text": "A company turns collected sales facts into useful totals and summaries. Which activity is taking place?",
+      "options": [
+        "Data processing",
+        "Input only",
+        "Data deletion",
+        "Network installation"
+      ],
+      "correctAnswer": "Data processing",
+      "marks": 1,
+      "explanation": "Processing transforms raw inputs into organised information; output then presents the results.\n\nStudent note: Remember input → processing → output → feedback."
+    },
+    {
+      "number": "10",
+      "text": "What does a demand-planning supply chain system help a company do?",
+      "options": [
+        "Forecast demand and plan sourcing or production",
+        "Replace its whole website with email",
+        "Block supplier deliveries",
+        "Remove all inventory records"
+      ],
+      "correctAnswer": "Forecast demand and plan sourcing or production",
+      "marks": 1,
+      "explanation": "Supply chain planning uses demand forecasts to decide what materials and products will be needed.\n\nStudent note: Planning asks what we need; execution follows orders and shipments."
+    },
+    {
+      "number": "11",
+      "text": "Which option best describes a customer relationship management (CRM) system?",
+      "options": [
+        "A tool for keeping customer details and managing interactions",
+        "A tool used only for calculating employee salaries",
+        "A tool that creates network cables",
+        "An alternative name for a computer's CPU"
+      ],
+      "correctAnswer": "A tool for keeping customer details and managing interactions",
+      "marks": 1,
+      "explanation": "CRM brings together customer information, sales interactions, service issues and sometimes marketing activities.\n\nStudent note: CRM is customer-focused; SCM is supplier and product-flow focused."
+    },
+    {
+      "number": "12",
+      "text": "Which is an example of a data field rather than a record?",
+      "options": [
+        "Customer surname",
+        "A complete customer profile",
+        "Every customer in a table",
+        "The entire company database"
+      ],
+      "correctAnswer": "Customer surname",
+      "marks": 1,
+      "explanation": "A field holds one attribute. A record groups related fields for one item, such as a single customer.\n\nStudent note: Data hierarchy: field → record → file/table → database."
+    }
+  ]
+}
