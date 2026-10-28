@@ -1,0 +1,143 @@
+{
+  "testName": "ICT2642 · Oct/Nov 2016 exam · MCQ practice (rewritten)",
+  "module": "ICT2642",
+  "assessment": "Oct/Nov 2016 exam themes",
+  "totalMarks": 10,
+  "preserveOrder": true,
+  "marking": "automatic-mcq",
+  "sourceType": "Independent original practice questions based on publicly listed exam or MCQ topics; not verbatim UNISA paper questions",
+  "sourceReference": "https://www.studocu.com/en-za/document/university-of-south-africa/business-informatics-iib/ict2642-oct-nov-2016-questions/18274356",
+  "sourceLimitations": "These are newly written MCQs based on themes in the linked public source, not exact original paper wording. Some source previews are incomplete. Use the Source link to view the original where available.",
+  "questions": [
+    {
+      "number": "1",
+      "text": "Which business goal is supported when an information system helps staff complete the same work with fewer resources?",
+      "options": [
+        "Operational excellence",
+        "Customer intimacy",
+        "Supplier dependence",
+        "Increased paperwork"
+      ],
+      "correctAnswer": "Operational excellence",
+      "marks": 1,
+      "explanation": "Operational excellence means using better processes to reduce waste, improve productivity and provide consistent service.\n\nStudent note: Think of saving time and reducing errors in the business process."
+    },
+    {
+      "number": "2",
+      "text": "Which group contains major business reasons for investing in information systems?",
+      "options": [
+        "Better decisions, efficient operations and competitive advantage",
+        "More paper forms, isolated teams and slower service",
+        "Less accurate data and higher transaction costs",
+        "Eliminating all competition and avoiding customers"
+      ],
+      "correctAnswer": "Better decisions, efficient operations and competitive advantage",
+      "marks": 1,
+      "explanation": "Businesses use information systems to improve operations, offer new services, build relationships, make better decisions and survive in competitive markets.\n\nStudent note: Do not confuse business objectives with the hardware used to achieve them."
+    },
+    {
+      "number": "3",
+      "text": "A company gathers sales facts, processes them and produces useful performance reports. What does this flow illustrate?",
+      "options": [
+        "Turning raw data into valuable information",
+        "Replacing business objectives with software",
+        "Deleting information after each sale",
+        "Transferring ownership of all data to customers"
+      ],
+      "correctAnswer": "Turning raw data into valuable information",
+      "marks": 1,
+      "explanation": "Data is collected, organised and analysed so it becomes information that supports decisions.\n\nStudent note: Data is raw facts; information is data with useful meaning."
+    },
+    {
+      "number": "4",
+      "text": "Why do enterprise applications connect departments such as sales, finance and inventory?",
+      "options": [
+        "To share information and support processes across the business",
+        "To prevent departments from communicating",
+        "To force each department to maintain unrelated records",
+        "To replace all suppliers with employees"
+      ],
+      "correctAnswer": "To share information and support processes across the business",
+      "marks": 1,
+      "explanation": "Enterprise systems allow different departments to work with consistent shared data instead of isolated information.\n\nStudent note: Remember ERP = integrated business processes and shared information."
+    },
+    {
+      "number": "5",
+      "text": "A company wants selected external customers to see their advertising performance reports securely. Which network is designed for controlled access by outside partners?",
+      "options": [
+        "Extranet",
+        "Public web browser",
+        "Local keyboard driver",
+        "Personal desktop wallpaper"
+      ],
+      "correctAnswer": "Extranet",
+      "marks": 1,
+      "explanation": "An extranet extends approved parts of a company's system or network to authorised external users.\n\nStudent note: Intranet is mainly internal; extranet allows selected outsiders."
+    },
+    {
+      "number": "6",
+      "text": "Which item is not one of Porter's five competitive forces?",
+      "options": [
+        "The firm's accounting software version",
+        "Threat of new entrants",
+        "Bargaining power of suppliers",
+        "Threat of substitute products"
+      ],
+      "correctAnswer": "The firm's accounting software version",
+      "marks": 1,
+      "explanation": "The five forces consider industry rivalry, customers, suppliers, substitutes and potential new entrants.\n\nStudent note: The five forces describe competition, not a list of computer tools."
+    },
+    {
+      "number": "7",
+      "text": "What is a core competence in business strategy?",
+      "options": [
+        "An activity the company performs exceptionally well",
+        "Any task outsourced to another company",
+        "A law that every employee must learn",
+        "The number of servers in the company"
+      ],
+      "correctAnswer": "An activity the company performs exceptionally well",
+      "marks": 1,
+      "explanation": "Core competencies are strengths that can help a firm stand out and create value.\n\nStudent note: A company can use IT to strengthen its core competence."
+    },
+    {
+      "number": "8",
+      "text": "Which description fits open-source software?",
+      "options": [
+        "Software whose source code can be viewed and modified under its licence",
+        "Software that never needs security updates",
+        "Any software that is always free to run commercially",
+        "Software stored only on one company's private server"
+      ],
+      "correctAnswer": "Software whose source code can be viewed and modified under its licence",
+      "marks": 1,
+      "explanation": "Open-source licences generally allow people to inspect and modify source code, subject to licence rules.\n\nStudent note: Open-source does not mean there are no licence conditions or maintenance costs."
+    },
+    {
+      "number": "9",
+      "text": "Which tool does a person normally use to request and display a website?",
+      "options": [
+        "Web browser",
+        "Database engine",
+        "Operating system scheduler",
+        "Network switch"
+      ],
+      "correctAnswer": "Web browser",
+      "marks": 1,
+      "explanation": "A browser requests web resources and shows them to people using a graphical interface.\n\nStudent note: Chrome and Firefox are browsers; Apache and Nginx are servers."
+    },
+    {
+      "number": "10",
+      "text": "When a company hires an outside specialist to build or maintain its software, what is this called?",
+      "options": [
+        "Outsourcing",
+        "Data redundancy",
+        "Business process mapping",
+        "Vertical integration of all tasks"
+      ],
+      "correctAnswer": "Outsourcing",
+      "marks": 1,
+      "explanation": "Outsourcing transfers a defined service or development task to an outside provider under an agreement.\n\nStudent note: Distinguish outsourcing from using software developed internally."
+    }
+  ]
+}
