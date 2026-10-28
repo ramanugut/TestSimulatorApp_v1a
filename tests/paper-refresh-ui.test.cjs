@@ -65,4 +65,4 @@ function chosen(w){return w.document.getElementById('test-select').value;}
  assert.equal(chosen(app.w),oldPaper,'A completed paper in stored preferences cannot reappear after reload');
  app.dom.window.close();
  console.log('Paper refresh checks passed: last choice beats stale progress, cold reload, matching answers, stable network order, custom resume, slow-response isolation.');
-})().catch(error=>{console.error(error);process.exitCode=1;});
+})().catch(error=>{console.error(error);process.exit(1);});
