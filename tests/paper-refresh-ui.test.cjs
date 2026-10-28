@@ -55,7 +55,7 @@ function chosen(w){return w.document.getElementById('test-select').value;}
  assert.equal(chosen(app.w),oldPaper,'First visit selects the first available (non-completed) paper, regardless of request order');
  const selectableFiles=[...app.w.document.querySelectorAll('#test-select option:not([disabled])')].map(option=>option.value);
  assert.ok(selectableFiles.includes(exam),'Active ICT2642 stays available');
- for(const completed of ['inf3708','ict2631','ict2622','ict2613']) {
+ for(const completed of ['inf3708','ict2631','ict2622','ict2613','ict3641','ict3621','ict3642','ict3631']) {
    assert.ok(!selectableFiles.some(file=>file.toLowerCase().startsWith(completed)),completed+' must be hidden from the active picker');
  }
  assert.ok(!selectableFiles.includes(archivedPaper),'Legacy INF3708 Assessment 2 must also be hidden');
