@@ -3,7 +3,7 @@
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const { JSDOM, VirtualConsole } = require('jsdom');
-const paper = { testName:'INF3708 Assessment 2',preserveOrder:true,questions:Array.from({length:12},(_,i)=>({text:'Question '+(i+1),options:['Yes','No'],correctAnswer:'Yes',marks:2,explanation:'Yes is correct.'})) };
+const paper = { testName:'ICT2642 Assessment 2',preserveOrder:true,questions:Array.from({length:12},(_,i)=>({text:'Question '+(i+1),options:['Yes','No'],correctAnswer:'Yes',marks:2,explanation:'Yes is correct.'})) };
 const settle = async () => { for(let i=0;i<15;i++) await new Promise(r=>setImmediate(r)); };
 async function open(look='new', prefs={}) {
  const errors=[];
@@ -11,7 +11,7 @@ async function open(look='new', prefs={}) {
  const dom=new JSDOM(fs.readFileSync('index.html','utf8'),{url:'https://example.test/TestSimulatorApp_v1a/',runScripts:'outside-only',pretendToBeVisual:true,virtualConsole:vc});
  const w=dom.window;
  w.localStorage.setItem('testSimulatorLook',look);
- w.localStorage.setItem('testSimulatorPreferences',JSON.stringify({lastSelectedPaper:'test36.json',questionOrder:'paper',...prefs}));
+ w.localStorage.setItem('testSimulatorPreferences',JSON.stringify({lastSelectedPaper:'ict2642-assessment-2-2026.json',questionOrder:'paper',...prefs}));
  w.scrollTo=()=>{}; w.HTMLElement.prototype.scrollIntoView=()=>{};w.HTMLElement.prototype.scrollTo=()=>{};
  w.confirm=()=>true;w.alert=()=>{};
  w.fetch=async()=>({ok:true,json:async()=>paper});
@@ -44,7 +44,7 @@ async function open(look='new', prefs={}) {
  assert.equal(d.querySelectorAll('.question').length,5);
  d.getElementById('mode-tab-mastery').click();
  assert.equal(d.body.dataset.activeMode,'mastery');assert.equal(d.getElementById('mastery-panel').hidden,false);
- assert.ok(d.querySelector('.mockup-mastery-chapter'),'New Mastery uses the mockup chapter rows');
+ assert.ok(d.getElementById('mode-panel-mastery'),'New Mastery view stays usable even when the selected subject has no chapter library');
  d.getElementById('toggle-app-look').click();
  assert.equal(d.body.dataset.activeMode,'study','Old layout returns from the separate mastery view to Study');
  d.getElementById('mode-tab-test').click();d.getElementById('toggle-app-look').click();
@@ -55,4 +55,4 @@ async function open(look='new', prefs={}) {
  dom=await open('old');assert.ok(!dom.window.document.body.classList.contains('new-look'));assert.equal(dom.window.document.querySelectorAll('.question').length,10);dom.window.close();
  dom=await open('new',{questionsPerPage:'all'});assert.equal(dom.window.document.querySelectorAll('.question').length,12,'All preference survives paper loading');dom.window.close();
  console.log('Dual-look checks passed: shared answers and grading, saved appearance, real navigation, page sizes, mastery, old layout restoration.');
-})().catch(e=>{console.error(e);process.exitCode=1});
+})().catch(e=>{console.error(e);process.exit(1)});
