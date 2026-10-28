@@ -5545,7 +5545,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Completed modules remain stored in the repository, but do not appear
   // in the active module/paper picker or custom test builder.
   // To bring a completed module back, remove its code from this set.
-  const completedModuleCodes = new Set(["INF3708", "ICT2631", "ICT2622", "ICT2613"]);
+  const completedModuleCodes = new Set(["INF3708", "ICT2631", "ICT2622", "ICT2613", "ICT3641", "ICT3621", "ICT3642", "ICT3631"]);
   const isCompletedModulePaper = (file) => {
     const module = file === "test36.json"
       ? "INF3708"
