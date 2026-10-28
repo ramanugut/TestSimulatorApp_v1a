@@ -5578,6 +5578,13 @@ const testFiles = [
   // ICT2642 learner-supplied completed reviews and written assessments.
   "ict2642-may-2026-assessment-quiz.json",
   "ict2642-assessment-2-2026.json",
+  // ICT2642 publicly documented past-exam themes: independently written MCQ
+  // revision, with source links, explanations and student notes (NOT verbatim).
+  "ict2642-oct-nov-2016-exam-mcq-practice.json",
+  "ict2642-oct-nov-2017-exam-mcq-practice.json",
+  "ict2642-may-june-2018-exam-mcq-practice.json",
+  "ict2642-may-june-2019-memo-mcq-practice.json",
+  "ict2642-2018-2019-mcq-revision-practice.json",
   "ict2642-assessment-3-2026.json",
   "ict2642-assessment-4-2026.json",
   // Third-year additions. Where a public source is incomplete or copyrighted,
