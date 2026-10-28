@@ -1,0 +1,169 @@
+{
+  "testName": "ICT2642 · May/June 2019 memo · MCQ practice (rewritten)",
+  "module": "ICT2642",
+  "assessment": "May/June 2019 memo themes",
+  "totalMarks": 12,
+  "preserveOrder": true,
+  "marking": "automatic-mcq",
+  "sourceType": "Independent original practice questions based on publicly listed exam or MCQ topics; not verbatim UNISA paper questions",
+  "sourceReference": "https://www.studocu.com/en-za/document/university-of-south-africa/business-informatics-iib/ict2642-my-memos-vvvv/102321466",
+  "sourceLimitations": "These are newly written MCQs based on themes in the linked public source, not exact original paper wording. Some source previews are incomplete. Use the Source link to view the original where available.",
+  "questions": [
+    {
+      "number": "1",
+      "text": "Which business application is most suitable for managing repeat customer interactions?",
+      "options": [
+        "Customer relationship management",
+        "Transaction logging only",
+        "Hardware diagnostics",
+        "Antivirus definitions"
+      ],
+      "correctAnswer": "Customer relationship management",
+      "marks": 1,
+      "explanation": "CRM collects customer history and contact details to support stronger customer service and relationships.\n\nStudent note: Customer relationships are managed through CRM, not by a knowledge base alone."
+    },
+    {
+      "number": "2",
+      "text": "A company records expert troubleshooting steps so new employees can solve familiar problems. Which system fits best?",
+      "options": [
+        "Knowledge management system",
+        "Barcode-only system",
+        "Graphics processor",
+        "DNS resolver"
+      ],
+      "correctAnswer": "Knowledge management system",
+      "marks": 1,
+      "explanation": "Knowledge management helps organisations capture, organise and reuse know-how.\n\nStudent note: KMS = reusable organisational knowledge."
+    },
+    {
+      "number": "3",
+      "text": "A business hires a provider to maintain an older software application. Which practice is being used?",
+      "options": [
+        "Outsourcing",
+        "Data mining",
+        "Business intelligence",
+        "Batch sorting"
+      ],
+      "correctAnswer": "Outsourcing",
+      "marks": 1,
+      "explanation": "Outsourcing means a third party delivers services or development work under contract.\n\nStudent note: Outsourcing can cover maintenance as well as new development."
+    },
+    {
+      "number": "4",
+      "text": "Which internet service uses pages with links to present information?",
+      "options": [
+        "World Wide Web",
+        "Random access memory",
+        "Battery management",
+        "Local printer queue"
+      ],
+      "correctAnswer": "World Wide Web",
+      "marks": 1,
+      "explanation": "The Web is an information service that uses the Internet and web standards to present linked resources.\n\nStudent note: Internet = underlying network; Web = service running over it."
+    },
+    {
+      "number": "5",
+      "text": "What is the internet?",
+      "options": [
+        "A worldwide interconnection of networks using common protocols",
+        "A single company's intranet",
+        "A website design program",
+        "A list of database rows"
+      ],
+      "correctAnswer": "A worldwide interconnection of networks using common protocols",
+      "marks": 1,
+      "explanation": "The internet connects many networks and supports services such as websites, email and file transfer.\n\nStudent note: Internet and World Wide Web are related but not identical."
+    },
+    {
+      "number": "6",
+      "text": "What part of an application allows a user to enter commands and see results?",
+      "options": [
+        "User interface",
+        "Backup battery",
+        "Network patch cable",
+        "Server rack"
+      ],
+      "correctAnswer": "User interface",
+      "marks": 1,
+      "explanation": "A user interface is the point where a person interacts with a system through screens, controls or other input methods.\n\nStudent note: UI design affects usability and the number of mistakes people make."
+    },
+    {
+      "number": "7",
+      "text": "Employees resist a replacement ordering system. Which management activity should help address the resistance?",
+      "options": [
+        "Change management",
+        "Deleting all training materials",
+        "Disabling business processes indefinitely",
+        "Keeping system goals secret"
+      ],
+      "correctAnswer": "Change management",
+      "marks": 1,
+      "explanation": "Change management includes communication, training and support to help people adopt new ways of working.\n\nStudent note: A technically correct system can fail if users reject it."
+    },
+    {
+      "number": "8",
+      "text": "Which project stage describes how a proposed system will be built to meet the identified requirements?",
+      "options": [
+        "System design",
+        "System retirement",
+        "Business marketing",
+        "Record archiving"
+      ],
+      "correctAnswer": "System design",
+      "marks": 1,
+      "explanation": "Design turns requirements into plans for components, interfaces, data and processing.\n\nStudent note: Analysis asks what is needed; design explains how to build it."
+    },
+    {
+      "number": "9",
+      "text": "Which concept concerns safe, comfortable and effective interaction between people and computers in the workplace?",
+      "options": [
+        "Ergonomics",
+        "Packet switching",
+        "Database sharding",
+        "Data encapsulation"
+      ],
+      "correctAnswer": "Ergonomics",
+      "marks": 1,
+      "explanation": "Ergonomics studies how work tools and environments fit human needs, including posture and interface design.\n\nStudent note: Think people, health, workspace and ease of use."
+    },
+    {
+      "number": "10",
+      "text": "Which system supports a group of managers who must discuss and choose a solution together?",
+      "options": [
+        "Group decision-support system (GDSS)",
+        "Only a cash register",
+        "Only a web browser cache",
+        "Only a spreadsheet file format"
+      ],
+      "correctAnswer": "Group decision-support system (GDSS)",
+      "marks": 1,
+      "explanation": "GDSS provides tools that help multiple people share information, examine choices and reach group decisions.\n\nStudent note: GDSS is group-focused; DSS can support individual decision making."
+    },
+    {
+      "number": "11",
+      "text": "Which project document specifies what information a proposed system must provide, to whom and when?",
+      "options": [
+        "Information requirements",
+        "Hardware warranty",
+        "Sales receipt",
+        "Firewall advertisement"
+      ],
+      "correctAnswer": "Information requirements",
+      "marks": 1,
+      "explanation": "Information requirements identify the information users and processes need to operate effectively.\n\nStudent note: Know users, required information, timing and access needs."
+    },
+    {
+      "number": "12",
+      "text": "A supplier is granted secure access to part of a retailer's internal ordering system. What is this called?",
+      "options": [
+        "Extranet",
+        "Local area keyboard",
+        "Standalone browser history",
+        "Spreadsheet macro only"
+      ],
+      "correctAnswer": "Extranet",
+      "marks": 1,
+      "explanation": "An extranet provides approved external partners controlled access to company information.\n\nStudent note: Internal only = intranet; selected outsiders = extranet."
+    }
+  ]
+}
