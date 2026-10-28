@@ -43,7 +43,7 @@ async function open(look='new', prefs={}) {
  const size=d.getElementById('questions-per-page');size.value='5';size.dispatchEvent(new w.Event('change'));
  assert.equal(d.querySelectorAll('.question').length,5);
  d.getElementById('mode-tab-mastery').click();
- assert.equal(d.body.dataset.activeMode,'mastery');assert.equal(d.getElementById('mastery-panel').hidden,false);
+ assert.equal(d.body.dataset.activeMode,'mastery');assert.equal(d.getElementById('mastery-panel').hidden,true,'A subject without a mastery pack must not show another module\'s lesson content');
  assert.ok(d.getElementById('mode-panel-mastery'),'New Mastery view stays usable even when the selected subject has no chapter library');
  d.getElementById('toggle-app-look').click();
  assert.equal(d.body.dataset.activeMode,'study','Old layout returns from the separate mastery view to Study');
