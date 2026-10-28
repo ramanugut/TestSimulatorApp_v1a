@@ -1,0 +1,1116 @@
+{
+  "testName": "ICT2642 · 2026 Assessment 3 (50 MCQs · supplied review)",
+  "module": "ICT2642",
+  "assessment": "Assessment 3 2026",
+  "totalMarks": 50,
+  "originalQuestionCount": 50,
+  "preserveOrder": true,
+  "marking": "auto-choice",
+  "sourceType": "Learner-supplied completed assessment review with recorded answer feedback",
+  "sourceReference": "Learner-uploaded completed quiz review",
+  "sourceNote": "Completed review dated 2026-08-02. Original questions, choices, numbering and feedback answers are preserved. Explanations and student notes are added study guidance.",
+  "sourceLimitations": "This is the supplied quiz attempt, not a claim to cover the entire question bank. The source answer key is preserved, including textbook-specific claims; added notes explain qualifications. No official time limit is shown, so the completion time has not been used as the test duration. The pasted review identifies Assessment 3 but does not show a module code; filed under ICT2642 as supplied by the learner.",
+  "reviewDate": "2026-08-02",
+  "questions": [
+    {
+      "number": "1",
+      "text": "In what way do expert systems differ fundamentally from machine learning models?",
+      "options": [
+        "Expert systems rely on explicit, human-provided rules, whereas machine learning models learn patterns directly from data.",
+        "Expert systems learn from large datasets, while machine learning uses fixed rules.",
+        "Expert systems use fuzzy logic exclusively, while machine learning uses binary logic.",
+        "Expert systems are designed for unstructured problems, while machine learning is for structured problems."
+      ],
+      "correctAnswer": "Expert systems rely on explicit, human-provided rules, whereas machine learning models learn patterns directly from data.",
+      "marks": 1,
+      "explanation": "An expert system applies rules supplied by human experts, while machine learning identifies patterns from training examples.\n\nStudent note: Both approaches need evaluation; learning from data does not make a model automatically reliable.",
+      "studentNote": "Both approaches need evaluation; learning from data does not make a model automatically reliable.",
+      "study": {
+        "title": "Question 1",
+        "simple": "An expert system applies rules supplied by human experts, while machine learning identifies patterns from training examples.",
+        "whyCorrect": [
+          "An expert system applies rules supplied by human experts, while machine learning identifies patterns from training examples."
+        ],
+        "studentNote": "Both approaches need evaluation; learning from data does not make a model automatically reliable."
+      }
+    },
+    {
+      "number": "2",
+      "text": "In what way does generative AI (GenAI) enhance chatbot functionality compared to earlier AI-powered chatbots?",
+      "options": [
+        "It restricts chatbot responses to a fixed database of ANSWERs.",
+        "It enables chatbots to generate original content and perform problem-solving with contextual understanding.",
+        "It reduces chatbot availability to business hours only.",
+        "It eliminates the need for natural language processing."
+      ],
+      "correctAnswer": "It enables chatbots to generate original content and perform problem-solving with contextual understanding.",
+      "marks": 1,
+      "explanation": "Generative chatbots can compose responses suited to the conversation instead of only selecting prewritten replies.\n\nStudent note: A fluent response can still be wrong, so check factual claims and important instructions.",
+      "studentNote": "A fluent response can still be wrong, so check factual claims and important instructions.",
+      "study": {
+        "title": "Question 2",
+        "simple": "Generative chatbots can compose responses suited to the conversation instead of only selecting prewritten replies.",
+        "whyCorrect": [
+          "Generative chatbots can compose responses suited to the conversation instead of only selecting prewritten replies."
+        ],
+        "studentNote": "A fluent response can still be wrong, so check factual claims and important instructions."
+      }
+    },
+    {
+      "number": "3",
+      "text": "How does multimodal AI extend the functionality of Generative AI?",
+      "options": [
+        "By generating content only in text format",
+        "By integrating and generating content across multiple media types such as text, images, and video",
+        "By limiting AI to natural language processing tasks only",
+        "By requiring human labelling of all data inputs"
+      ],
+      "correctAnswer": "By integrating and generating content across multiple media types such as text, images, and video",
+      "marks": 1,
+      "explanation": "Multimodal systems work with more than one form of information, such as text, images, audio or video.\n\nStudent note: Multimodal describes types of input or output, not simply support for many languages.",
+      "studentNote": "Multimodal describes types of input or output, not simply support for many languages.",
+      "study": {
+        "title": "Question 3",
+        "simple": "Multimodal systems work with more than one form of information, such as text, images, audio or video.",
+        "whyCorrect": [
+          "Multimodal systems work with more than one form of information, such as text, images, audio or video."
+        ],
+        "studentNote": "Multimodal describes types of input or output, not simply support for many languages."
+      }
+    },
+    {
+      "number": "4",
+      "text": "Why is programmatic ad buying considered an advancement in online advertising technology?",
+      "options": [
+        "It automates real-time bidding for ad placements, allowing marketers to precisely target audiences and optimise ad spend efficiently",
+        "It removes the need for any human decision-making in advertising",
+        "It guarantees that all ads are shown equally to every user",
+        "It eliminates the use of cookies and tracking technologies entirely"
+      ],
+      "correctAnswer": "It automates real-time bidding for ad placements, allowing marketers to precisely target audiences and optimise ad spend efficiently",
+      "marks": 1,
+      "explanation": "Programmatic advertising automates the purchase and targeting of ad placements, often through real-time auctions.\n\nStudent note: Automation improves the buying process but does not guarantee that an advert succeeds.",
+      "studentNote": "Automation improves the buying process but does not guarantee that an advert succeeds.",
+      "study": {
+        "title": "Question 4",
+        "simple": "Programmatic advertising automates the purchase and targeting of ad placements, often through real-time auctions.",
+        "whyCorrect": [
+          "Programmatic advertising automates the purchase and targeting of ad placements, often through real-time auctions."
+        ],
+        "studentNote": "Automation improves the buying process but does not guarantee that an advert succeeds."
+      }
+    },
+    {
+      "number": "5",
+      "text": "How does crowdsourcing differ from traditional market research in the context of social networks?",
+      "options": [
+        "Crowdsourcing taps into large, diverse online audiences for ideas and solutions, while traditional research often relies on smaller, controlled samples.",
+        "Crowdsourcing excludes customer input.",
+        "Traditional research uses social media exclusively.",
+        "Crowdsourcing is limited to internal company employees."
+      ],
+      "correctAnswer": "Crowdsourcing taps into large, diverse online audiences for ideas and solutions, while traditional research often relies on smaller, controlled samples.",
+      "marks": 1,
+      "explanation": "Crowdsourcing invites contributions from a broad online group instead of relying only on a small research sample.\n\nStudent note: A large online group is not necessarily a representative sample of all customers.",
+      "studentNote": "A large online group is not necessarily a representative sample of all customers.",
+      "study": {
+        "title": "Question 5",
+        "simple": "Crowdsourcing invites contributions from a broad online group instead of relying only on a small research sample.",
+        "whyCorrect": [
+          "Crowdsourcing invites contributions from a broad online group instead of relying only on a small research sample."
+        ],
+        "studentNote": "A large online group is not necessarily a representative sample of all customers."
+      }
+    },
+    {
+      "number": "6",
+      "text": "Why is fuzzy logic particularly useful in consumer electronics such as washing machines?",
+      "options": [
+        "Because it enables smooth, incremental control adjustments based on sensor input rather than abrupt changes.",
+        "Because it uses fixed, binary on/off controls that are easy to implement.",
+        "Because it eliminates the need for sensors entirely.",
+        "Because it requires no programming or rule definition."
+      ],
+      "correctAnswer": "Because it enables smooth, incremental control adjustments based on sensor input rather than abrupt changes.",
+      "marks": 1,
+      "explanation": "Fuzzy logic represents degrees such as slightly dirty or very dirty and supports gradual changes in machine settings.\n\nStudent note: Fuzzy logic is not random control; it applies rules to degrees of membership.",
+      "studentNote": "Fuzzy logic is not random control; it applies rules to degrees of membership.",
+      "study": {
+        "title": "Question 6",
+        "simple": "Fuzzy logic represents degrees such as slightly dirty or very dirty and supports gradual changes in machine settings.",
+        "whyCorrect": [
+          "Fuzzy logic represents degrees such as slightly dirty or very dirty and supports gradual changes in machine settings."
+        ],
+        "studentNote": "Fuzzy logic is not random control; it applies rules to degrees of membership."
+      }
+    },
+    {
+      "number": "7",
+      "text": "How does the behavioural model of management contrast with the classical model regarding managerial behaviour?",
+      "options": [
+        "It portrays managerial behaviour as more systematic and reflective.",
+        "It emphasises that managers perform fewer activities but in longer durations.",
+        "It shows managerial behaviour as informal, reactive, and fragmented.",
+        "It suggests managers prefer written communication over oral communication."
+      ],
+      "correctAnswer": "It shows managerial behaviour as informal, reactive, and fragmented.",
+      "marks": 1,
+      "explanation": "The behavioural model describes managers as handling short, varied and reactive activities rather than following a neat sequence of planning steps.\n\nStudent note: Contrast observed managerial work with the classical description of management functions.",
+      "studentNote": "Contrast observed managerial work with the classical description of management functions.",
+      "study": {
+        "title": "Question 7",
+        "simple": "The behavioural model describes managers as handling short, varied and reactive activities rather than following a neat sequence of planning steps.",
+        "whyCorrect": [
+          "The behavioural model describes managers as handling short, varied and reactive activities rather than following a neat sequence of planning steps."
+        ],
+        "studentNote": "Contrast observed managerial work with the classical description of management functions."
+      }
+    },
+    {
+      "number": "8",
+      "text": "What is a key difference between NFC-driven mobile payment systems and QR code payment systems?",
+      "options": [
+        "NFC requires physical proximity and hardware-enabled readers, while QR codes use camera scanning without hardware proximity requirements.",
+        "QR codes require physical proximity, while NFC uses long-range wireless communication.",
+        "NFC payments are slower than QR code payments.",
+        "QR code payments cannot be used in retail stores."
+      ],
+      "correctAnswer": "NFC requires physical proximity and hardware-enabled readers, while QR codes use camera scanning without hardware proximity requirements.",
+      "marks": 1,
+      "explanation": "NFC payments exchange data over a short wireless distance with compatible readers, while QR payments use an optical code and camera.\n\nStudent note: The review's proximity wording refers to the communication method; a QR code still needs to be visible and readable.",
+      "studentNote": "The review's proximity wording refers to the communication method; a QR code still needs to be visible and readable.",
+      "study": {
+        "title": "Question 8",
+        "simple": "NFC payments exchange data over a short wireless distance with compatible readers, while QR payments use an optical code and camera.",
+        "whyCorrect": [
+          "NFC payments exchange data over a short wireless distance with compatible readers, while QR payments use an optical code and camera."
+        ],
+        "studentNote": "The review's proximity wording refers to the communication method; a QR code still needs to be visible and readable."
+      }
+    },
+    {
+      "number": "9",
+      "text": "What is the significance of managers maintaining a diverse and complex web of contacts?",
+      "options": [
+        "It serves as an informal information system aiding in achieving goals.",
+        "It reduces the need for formal communication channels.",
+        "It limits the flow of information to senior management only.",
+        "It primarily supports routine operational decisions."
+      ],
+      "correctAnswer": "It serves as an informal information system aiding in achieving goals.",
+      "marks": 1,
+      "explanation": "Managers use networks of contacts to obtain informal information, coordinate action and achieve organisational goals.\n\nStudent note: Informal information complements formal reports and should still be checked for accuracy.",
+      "studentNote": "Informal information complements formal reports and should still be checked for accuracy.",
+      "study": {
+        "title": "Question 9",
+        "simple": "Managers use networks of contacts to obtain informal information, coordinate action and achieve organisational goals.",
+        "whyCorrect": [
+          "Managers use networks of contacts to obtain informal information, coordinate action and achieve organisational goals."
+        ],
+        "studentNote": "Informal information complements formal reports and should still be checked for accuracy."
+      }
+    },
+    {
+      "number": "10",
+      "text": "How does behavioural targeting improve the efficiency of online marketing campaigns?",
+      "options": [
+        "By analysing users’ clickstream data to create precise customer profiles and serving ads that match individual interests",
+        "By randomly displaying ads to all users equally",
+        "By reducing the number of ads shown to users to zero",
+        "By only targeting users based on their geographic location"
+      ],
+      "correctAnswer": "By analysing users’ clickstream data to create precise customer profiles and serving ads that match individual interests",
+      "marks": 1,
+      "explanation": "Behavioural targeting uses browsing and interaction data to infer interests and select more relevant adverts.\n\nStudent note: Useful targeting must also respect consent, privacy and limits on data use.",
+      "studentNote": "Useful targeting must also respect consent, privacy and limits on data use.",
+      "study": {
+        "title": "Question 10",
+        "simple": "Behavioural targeting uses browsing and interaction data to infer interests and select more relevant adverts.",
+        "whyCorrect": [
+          "Behavioural targeting uses browsing and interaction data to infer interests and select more relevant adverts."
+        ],
+        "studentNote": "Useful targeting must also respect consent, privacy and limits on data use."
+      }
+    },
+    {
+      "number": "11",
+      "text": "What is a key limitation of rule-based NLP systems compared to deep learning-based NLP systems?",
+      "options": [
+        "Rule-based systems can handle more complex and varied language scenarios.",
+        "Rule-based systems rely on prespecified responses and cannot adapt to new language patterns.",
+        "Deep learning systems require manual input for every phrase.",
+        "Deep learning systems only work with spoken language, not written text."
+      ],
+      "correctAnswer": "Rule-based systems rely on prespecified responses and cannot adapt to new language patterns.",
+      "marks": 1,
+      "explanation": "Fixed language rules struggle with expressions outside the patterns they were written to recognise, whereas learned models can generalise from examples.\n\nStudent note: Learned models also make language errors; flexibility is not the same as perfect understanding.",
+      "studentNote": "Learned models also make language errors; flexibility is not the same as perfect understanding.",
+      "study": {
+        "title": "Question 11",
+        "simple": "Fixed language rules struggle with expressions outside the patterns they were written to recognise, whereas learned models can generalise from examples.",
+        "whyCorrect": [
+          "Fixed language rules struggle with expressions outside the patterns they were written to recognise, whereas learned models can generalise from examples."
+        ],
+        "studentNote": "Learned models also make language errors; flexibility is not the same as perfect understanding."
+      }
+    },
+    {
+      "number": "12",
+      "text": "Which of the following best explains how intelligent agents differ from traditional software programs?",
+      "options": [
+        "Intelligent agents operate only with direct human commands.",
+        "Intelligent agents work autonomously using built-in or learned knowledge to perform tasks.",
+        "Intelligent agents require manual input for every decision they make.",
+        "Intelligent agents are limited to managing email systems only."
+      ],
+      "correctAnswer": "Intelligent agents work autonomously using built-in or learned knowledge to perform tasks.",
+      "marks": 1,
+      "explanation": "Intelligent agents use rules or learned knowledge to act towards goals with some autonomy.\n\nStudent note: Autonomy can be limited by permissions, rules and human oversight.",
+      "studentNote": "Autonomy can be limited by permissions, rules and human oversight.",
+      "study": {
+        "title": "Question 12",
+        "simple": "Intelligent agents use rules or learned knowledge to act towards goals with some autonomy.",
+        "whyCorrect": [
+          "Intelligent agents use rules or learned knowledge to act towards goals with some autonomy."
+        ],
+        "studentNote": "Autonomy can be limited by permissions, rules and human oversight."
+      }
+    },
+    {
+      "number": "13",
+      "text": "How do dashboards and scorecards contribute to BI systems?",
+      "options": [
+        "They provide predefined textual reports only",
+        "They visually present performance data, helping users quickly grasp key metrics",
+        "They replace the need for data analysis tools",
+        "They limit user interaction with data"
+      ],
+      "correctAnswer": "They visually present performance data, helping users quickly grasp key metrics",
+      "marks": 1,
+      "explanation": "Dashboards and scorecards display performance measures visually so users can spot results, trends and exceptions quickly.\n\nStudent note: A dashboard highlights measures; it does not replace checking data quality or investigating causes.",
+      "studentNote": "A dashboard highlights measures; it does not replace checking data quality or investigating causes.",
+      "study": {
+        "title": "Question 13",
+        "simple": "Dashboards and scorecards display performance measures visually so users can spot results, trends and exceptions quickly.",
+        "whyCorrect": [
+          "Dashboards and scorecards display performance measures visually so users can spot results, trends and exceptions quickly."
+        ],
+        "studentNote": "A dashboard highlights measures; it does not replace checking data quality or investigating causes."
+      }
+    },
+    {
+      "number": "14",
+      "text": "How do foundation models contribute to the capabilities of Generative AI?",
+      "options": [
+        "They rely on small, labelled datasets for training",
+        "They use powerful neural networks trained on vast unstructured data to perform a wide range of tasks",
+        "They only generate images from text descriptions",
+        "They are limited to single-task applications"
+      ],
+      "correctAnswer": "They use powerful neural networks trained on vast unstructured data to perform a wide range of tasks",
+      "marks": 1,
+      "explanation": "Foundation models learn broad patterns from large datasets and can be adapted to many different tasks.\n\nStudent note: They are not restricted to one output type, and pretraining does not guarantee accurate answers.",
+      "studentNote": "They are not restricted to one output type, and pretraining does not guarantee accurate answers.",
+      "study": {
+        "title": "Question 14",
+        "simple": "Foundation models learn broad patterns from large datasets and can be adapted to many different tasks.",
+        "whyCorrect": [
+          "Foundation models learn broad patterns from large datasets and can be adapted to many different tasks."
+        ],
+        "studentNote": "They are not restricted to one output type, and pretraining does not guarantee accurate answers."
+      }
+    },
+    {
+      "number": "15",
+      "text": "Why has Electronic Data Interchange (EDI) remained important in B2B e-commerce despite the rise of Internet technologies?",
+      "options": [
+        "Because it is the only method for online transactions.",
+        "Because it standardises and automates document exchange, facilitating continuous inventory replenishment and just-in-time production.",
+        "Because it is incompatible with Internet protocols.",
+        "Because it requires manual data entry for accuracy."
+      ],
+      "correctAnswer": "Because it standardises and automates document exchange, facilitating continuous inventory replenishment and just-in-time production.",
+      "marks": 1,
+      "explanation": "EDI uses standard document formats to exchange business records automatically, reducing repeated entry and supporting linked supply chains.\n\nStudent note: Think of purchase orders and invoices exchanged between business systems.",
+      "studentNote": "Think of purchase orders and invoices exchanged between business systems.",
+      "study": {
+        "title": "Question 15",
+        "simple": "EDI uses standard document formats to exchange business records automatically, reducing repeated entry and supporting linked supply chains.",
+        "whyCorrect": [
+          "EDI uses standard document formats to exchange business records automatically, reducing repeated entry and supporting linked supply chains."
+        ],
+        "studentNote": "Think of purchase orders and invoices exchanged between business systems."
+      }
+    },
+    {
+      "number": "16",
+      "text": "Which of the following best describes the fundamental process by which a genetic algorithm finds an optimal solution?",
+      "options": [
+        "It evaluates a population of candidate solutions, selects the fittest, and combines them to produce new solutions iteratively.",
+        "It uses a fixed set of rules to systematically eliminate all but the best solution.",
+        "It randomly generates solutions without any selection or recombination.",
+        "It relies solely on human expert knowledge encoded as rules."
+      ],
+      "correctAnswer": "It evaluates a population of candidate solutions, selects the fittest, and combines them to produce new solutions iteratively.",
+      "marks": 1,
+      "explanation": "Genetic algorithms repeatedly select promising candidate solutions and create variations through recombination and mutation.\n\nStudent note: They search for good solutions; they do not guarantee the global optimum in every problem.",
+      "studentNote": "They search for good solutions; they do not guarantee the global optimum in every problem.",
+      "study": {
+        "title": "Question 16",
+        "simple": "Genetic algorithms repeatedly select promising candidate solutions and create variations through recombination and mutation.",
+        "whyCorrect": [
+          "Genetic algorithms repeatedly select promising candidate solutions and create variations through recombination and mutation."
+        ],
+        "studentNote": "They search for good solutions; they do not guarantee the global optimum in every problem."
+      }
+    },
+    {
+      "number": "17",
+      "text": "What role does interactivity play in e-commerce that differentiates it from traditional television advertising?",
+      "options": [
+        "It allows two-way communication and engagement with consumers",
+        "It restricts consumer feedback to surveys only",
+        "It broadcasts messages without consumer input",
+        "It prevents merchants from collecting customer data"
+      ],
+      "correctAnswer": "It allows two-way communication and engagement with consumers",
+      "marks": 1,
+      "explanation": "E-commerce enables customers and merchants to exchange messages and respond to each other rather than only receive a broadcast.\n\nStudent note: Interactivity means two-way participation, not just displaying more information.",
+      "studentNote": "Interactivity means two-way participation, not just displaying more information.",
+      "study": {
+        "title": "Question 17",
+        "simple": "E-commerce enables customers and merchants to exchange messages and respond to each other rather than only receive a broadcast.",
+        "whyCorrect": [
+          "E-commerce enables customers and merchants to exchange messages and respond to each other rather than only receive a broadcast."
+        ],
+        "studentNote": "Interactivity means two-way participation, not just displaying more information."
+      }
+    },
+    {
+      "number": "18",
+      "text": "What is the significance of the \"creator economy\" in the context of e-commerce and digital markets?",
+      "options": [
+        "It refers to companies producing all online content centrally",
+        "It represents users who create and distribute content, influencing social commerce and marketing",
+        "It limits content creation to professional media companies only",
+        "It discourages user participation in content generation"
+      ],
+      "correctAnswer": "It represents users who create and distribute content, influencing social commerce and marketing",
+      "marks": 1,
+      "explanation": "The creator economy includes people who produce online content and earn income through audiences, advertising, sponsorships or commerce.\n\nStudent note: Creators can influence demand without being the manufacturer or retailer of the product.",
+      "studentNote": "Creators can influence demand without being the manufacturer or retailer of the product.",
+      "study": {
+        "title": "Question 18",
+        "simple": "The creator economy includes people who produce online content and earn income through audiences, advertising, sponsorships or commerce.",
+        "whyCorrect": [
+          "The creator economy includes people who produce online content and earn income through audiences, advertising, sponsorships or commerce."
+        ],
+        "studentNote": "Creators can influence demand without being the manufacturer or retailer of the product."
+      }
+    },
+    {
+      "number": "19",
+      "text": "Why is a strong database foundation critical in the BI and analytics environment?",
+      "options": [
+        "Because it stores all relevant data needed for analysis and decision support",
+        "Because it replaces the need for managerial oversight",
+        "Because it limits data access to only senior executives",
+        "Because it only stores unstructured data"
+      ],
+      "correctAnswer": "Because it stores all relevant data needed for analysis and decision support",
+      "marks": 1,
+      "explanation": "Analytics needs accessible, relevant and well-managed data, which a strong database foundation helps provide.\n\nStudent note: Good storage is necessary, but accurate analysis also needs quality data and suitable methods.",
+      "studentNote": "Good storage is necessary, but accurate analysis also needs quality data and suitable methods.",
+      "study": {
+        "title": "Question 19",
+        "simple": "Analytics needs accessible, relevant and well-managed data, which a strong database foundation helps provide.",
+        "whyCorrect": [
+          "Analytics needs accessible, relevant and well-managed data, which a strong database foundation helps provide."
+        ],
+        "studentNote": "Good storage is necessary, but accurate analysis also needs quality data and suitable methods."
+      }
+    },
+    {
+      "number": "20",
+      "text": "Which of the following best describes the role of a manager acting as a liaison?",
+      "options": [
+        "Motivating subordinates to meet performance goals",
+        "Representing the company in public ceremonies",
+        "Connecting different organisational levels and management teams",
+        "Allocating resources to departments"
+      ],
+      "correctAnswer": "Connecting different organisational levels and management teams",
+      "marks": 1,
+      "explanation": "A liaison builds connections between people and groups so information and cooperation can cross organisational boundaries.\n\nStudent note: A spokesperson communicates on behalf of a group; a liaison maintains connecting relationships.",
+      "studentNote": "A spokesperson communicates on behalf of a group; a liaison maintains connecting relationships.",
+      "study": {
+        "title": "Question 20",
+        "simple": "A liaison builds connections between people and groups so information and cooperation can cross organisational boundaries.",
+        "whyCorrect": [
+          "A liaison builds connections between people and groups so information and cooperation can cross organisational boundaries."
+        ],
+        "studentNote": "A spokesperson communicates on behalf of a group; a liaison maintains connecting relationships."
+      }
+    },
+    {
+      "number": "21",
+      "text": "How does a private B2B network differ from a B2B e-commerce marketplace?",
+      "options": [
+        "A private B2B network connects multiple buyers and sellers independently, while marketplaces link only one buyer to suppliers.",
+        "A private B2B network is owned by a single firm to link its suppliers and partners, whereas a marketplace serves multiple buyers and sellers as an independent platform.",
+        "Private networks do not support collaboration, while marketplaces do.",
+        "Private networks are public platforms accessible to all businesses."
+      ],
+      "correctAnswer": "A private B2B network is owned by a single firm to link its suppliers and partners, whereas a marketplace serves multiple buyers and sellers as an independent platform.",
+      "marks": 1,
+      "explanation": "A private network links one firm's selected business partners, while a marketplace brings multiple buyers and sellers together.\n\nStudent note: A private B2B network is about controlled partner access, not necessarily a physically separate network.",
+      "studentNote": "A private B2B network is about controlled partner access, not necessarily a physically separate network.",
+      "study": {
+        "title": "Question 21",
+        "simple": "A private network links one firm's selected business partners, while a marketplace brings multiple buyers and sellers together.",
+        "whyCorrect": [
+          "A private network links one firm's selected business partners, while a marketplace brings multiple buyers and sellers together."
+        ],
+        "studentNote": "A private B2B network is about controlled partner access, not necessarily a physically separate network."
+      }
+    },
+    {
+      "number": "22",
+      "text": "In what way do universal technical standards of the Internet reduce market entry costs for merchants?",
+      "options": [
+        "By requiring different technologies for each country",
+        "By allowing any computer to connect regardless of platform",
+        "By increasing the complexity of e-commerce systems",
+        "By limiting merchants to local markets only"
+      ],
+      "correctAnswer": "By allowing any computer to connect regardless of platform",
+      "marks": 1,
+      "explanation": "Common Internet protocols allow different hardware and software platforms to connect, reducing the need for a separate network for each trading relationship.\n\nStudent note: Universal standards reduce technical barriers but do not remove every cost of entering a market.",
+      "studentNote": "Universal standards reduce technical barriers but do not remove every cost of entering a market.",
+      "study": {
+        "title": "Question 22",
+        "simple": "Common Internet protocols allow different hardware and software platforms to connect, reducing the need for a separate network for each trading relationship.",
+        "whyCorrect": [
+          "Common Internet protocols allow different hardware and software platforms to connect, reducing the need for a separate network for each trading relationship."
+        ],
+        "studentNote": "Universal standards reduce technical barriers but do not remove every cost of entering a market."
+      }
+    },
+    {
+      "number": "23",
+      "text": "Which characteristic most clearly distinguishes virtual assistants from chatbots?",
+      "options": [
+        "Virtual assistants focus on extended conversations without task completion.",
+        "Virtual assistants are optimised for complex interactions and executing a wide range of commands.",
+        "Chatbots can perform more complex tasks than virtual assistants.",
+        "Virtual assistants do not use conversational AI interfaces."
+      ],
+      "correctAnswer": "Virtual assistants are optimised for complex interactions and executing a wide range of commands.",
+      "marks": 1,
+      "explanation": "In the assessment's distinction, virtual assistants carry out a broad range of commands and tasks while traditional chatbots focus on conversation.\n\nStudent note: Modern assistants and chatbots overlap, so use the capabilities described rather than relying on the label alone.",
+      "studentNote": "Modern assistants and chatbots overlap, so use the capabilities described rather than relying on the label alone.",
+      "study": {
+        "title": "Question 23",
+        "simple": "In the assessment's distinction, virtual assistants carry out a broad range of commands and tasks while traditional chatbots focus on conversation.",
+        "whyCorrect": [
+          "In the assessment's distinction, virtual assistants carry out a broad range of commands and tasks while traditional chatbots focus on conversation."
+        ],
+        "studentNote": "Modern assistants and chatbots overlap, so use the capabilities described rather than relying on the label alone."
+      }
+    },
+    {
+      "number": "24",
+      "text": "Why are online advertising networks considered more effective than traditional advertising methods?",
+      "options": [
+        "Because they use behavioural targeting to deliver ads specifically tailored to users’ interests and browsing behaviour, increasing conversion rates",
+        "Because they only display ads randomly without targeting",
+        "Because they rely on physical mail campaigns to reach customers",
+        "Because they do not collect any user data, ensuring privacy"
+      ],
+      "correctAnswer": "Because they use behavioural targeting to deliver ads specifically tailored to users’ interests and browsing behaviour, increasing conversion rates",
+      "marks": 1,
+      "explanation": "Ad networks can use audience and browsing information across participating sites to show more relevant adverts.\n\nStudent note: Better targeting can improve results, but higher conversion rates are not guaranteed.",
+      "studentNote": "Better targeting can improve results, but higher conversion rates are not guaranteed.",
+      "study": {
+        "title": "Question 24",
+        "simple": "Ad networks can use audience and browsing information across participating sites to show more relevant adverts.",
+        "whyCorrect": [
+          "Ad networks can use audience and browsing information across participating sites to show more relevant adverts."
+        ],
+        "studentNote": "Better targeting can improve results, but higher conversion rates are not guaranteed."
+      }
+    },
+    {
+      "number": "25",
+      "text": "Which of the following best explains how the \"wisdom of crowds\" concept enhances marketing strategies on social networks?",
+      "options": [
+        "It prioritises expert opinions over consumer feedback to improve products.",
+        "It leverages large-scale customer input to build relationships and understand product use and sentiment.",
+        "It limits marketing efforts to small, focused groups to maintain exclusivity.",
+        "It relies solely on automated algorithms without human interaction."
+      ],
+      "correctAnswer": "It leverages large-scale customer input to build relationships and understand product use and sentiment.",
+      "marks": 1,
+      "explanation": "Large-scale customer contributions help marketers understand product use, preferences and sentiment.\n\nStudent note: Check whether the voices collected represent the audience you want to understand.",
+      "studentNote": "Check whether the voices collected represent the audience you want to understand.",
+      "study": {
+        "title": "Question 25",
+        "simple": "Large-scale customer contributions help marketers understand product use, preferences and sentiment.",
+        "whyCorrect": [
+          "Large-scale customer contributions help marketers understand product use, preferences and sentiment."
+        ],
+        "studentNote": "Check whether the voices collected represent the audience you want to understand."
+      }
+    },
+    {
+      "number": "26",
+      "text": "How can social listening improve a company’s marketing and product development efforts?",
+      "options": [
+        "By ignoring customer feedback and focusing on internal ideas.",
+        "By actively monitoring and analysing customer conversations and sentiments to inform product improvements and marketing strategies.",
+        "By limiting communication to only positive reviews.",
+        "By using automated bots to replace human customer service entirely."
+      ],
+      "correctAnswer": "By actively monitoring and analysing customer conversations and sentiments to inform product improvements and marketing strategies.",
+      "marks": 1,
+      "explanation": "Social listening analyses online conversations to identify customer concerns, preferences and reactions that can inform action.\n\nStudent note: Listening becomes useful when insights lead to changes in products or communication.",
+      "studentNote": "Listening becomes useful when insights lead to changes in products or communication.",
+      "study": {
+        "title": "Question 26",
+        "simple": "Social listening analyses online conversations to identify customer concerns, preferences and reactions that can inform action.",
+        "whyCorrect": [
+          "Social listening analyses online conversations to identify customer concerns, preferences and reactions that can inform action."
+        ],
+        "studentNote": "Listening becomes useful when insights lead to changes in products or communication."
+      }
+    },
+    {
+      "number": "27",
+      "text": "What role do influencers play in social e-commerce platforms like TikTok?",
+      "options": [
+        "They create content that can drive brand awareness, influence purchasing decisions, and facilitate direct sales through sponsored posts.",
+        "They only post personal content unrelated to products.",
+        "They restrict access to products by limiting follower engagement.",
+        "They discourage user interaction with brands."
+      ],
+      "correctAnswer": "They create content that can drive brand awareness, influence purchasing decisions, and facilitate direct sales through sponsored posts.",
+      "marks": 1,
+      "explanation": "Influencers connect brands with audiences through content, recommendations and sponsored promotions that can support sales.\n\nStudent note: Audience trust, clear sponsorship disclosure and product fit affect the value of an influencer campaign.",
+      "studentNote": "Audience trust, clear sponsorship disclosure and product fit affect the value of an influencer campaign.",
+      "study": {
+        "title": "Question 27",
+        "simple": "Influencers connect brands with audiences through content, recommendations and sponsored promotions that can support sales.",
+        "whyCorrect": [
+          "Influencers connect brands with audiences through content, recommendations and sponsored promotions that can support sales."
+        ],
+        "studentNote": "Audience trust, clear sponsorship disclosure and product fit affect the value of an influencer campaign."
+      }
+    },
+    {
+      "number": "28",
+      "text": "Considering the use of drones in various industries, what feature makes them particularly effective for data gathering in difficult-to-access areas?",
+      "options": [
+        "Their ability to carry heavy cargo loads.",
+        "Their pilotless operation and autonomous or remote guidance capabilities.",
+        "Their limited flight range and speed.",
+        "Their use exclusively in military applications."
+      ],
+      "correctAnswer": "Their pilotless operation and autonomous or remote guidance capabilities.",
+      "marks": 1,
+      "explanation": "Drones can be guided remotely or autonomously to gather images and measurements where sending people is difficult.\n\nStudent note: Pilotless does not mean unrestricted; safe operation still needs suitable control and oversight.",
+      "studentNote": "Pilotless does not mean unrestricted; safe operation still needs suitable control and oversight.",
+      "study": {
+        "title": "Question 28",
+        "simple": "Drones can be guided remotely or autonomously to gather images and measurements where sending people is difficult.",
+        "whyCorrect": [
+          "Drones can be guided remotely or autonomously to gather images and measurements where sending people is difficult."
+        ],
+        "studentNote": "Pilotless does not mean unrestricted; safe operation still needs suitable control and oversight."
+      }
+    },
+    {
+      "number": "29",
+      "text": "Which of the following best exemplifies a responsible AI practice?",
+      "options": [
+        "Designing AI systems with transparency, fairness, and privacy protections to ensure ethical use.",
+        "Maximising AI performance regardless of ethical concerns.",
+        "Avoiding any human oversight in AI decision-making.",
+        "Using AI only for profit without regard to societal impact."
+      ],
+      "correctAnswer": "Designing AI systems with transparency, fairness, and privacy protections to ensure ethical use.",
+      "marks": 1,
+      "explanation": "Responsible AI considers transparency, fair treatment and privacy throughout design and use.\n\nStudent note: Ethical use also needs testing, accountability and ways to address harmful outcomes.",
+      "studentNote": "Ethical use also needs testing, accountability and ways to address harmful outcomes.",
+      "study": {
+        "title": "Question 29",
+        "simple": "Responsible AI considers transparency, fair treatment and privacy throughout design and use.",
+        "whyCorrect": [
+          "Responsible AI considers transparency, fair treatment and privacy throughout design and use."
+        ],
+        "studentNote": "Ethical use also needs testing, accountability and ways to address harmful outcomes."
+      }
+    },
+    {
+      "number": "30",
+      "text": "What is a significant advantage of digital markets over traditional markets regarding menu costs?",
+      "options": [
+        "Digital markets have higher menu costs due to physical inventory",
+        "Digital markets have lower menu costs, allowing frequent price changes",
+        "Traditional markets can change prices more frequently",
+        "Menu costs are irrelevant in both digital and traditional markets"
+      ],
+      "correctAnswer": "Digital markets have lower menu costs, allowing frequent price changes",
+      "marks": 1,
+      "explanation": "Menu costs are the costs of changing listed prices, which are often lower when prices are updated digitally.\n\nStudent note: Menu costs are not the price paid by the customer or the cost of producing the goods.",
+      "studentNote": "Menu costs are not the price paid by the customer or the cost of producing the goods.",
+      "study": {
+        "title": "Question 30",
+        "simple": "Menu costs are the costs of changing listed prices, which are often lower when prices are updated digitally.",
+        "whyCorrect": [
+          "Menu costs are the costs of changing listed prices, which are often lower when prices are updated digitally."
+        ],
+        "studentNote": "Menu costs are not the price paid by the customer or the cost of producing the goods."
+      }
+    },
+    {
+      "number": "31",
+      "text": "Why might an online retailer choose the omnichannel business model over a purely virtual merchant model?",
+      "options": [
+        "To combine the benefits of physical presence with online convenience, enhancing customer reach and experience",
+        "To reduce operational costs by eliminating physical stores",
+        "To focus exclusively on wholesale transactions",
+        "To avoid competition with other online retailers"
+      ],
+      "correctAnswer": "To combine the benefits of physical presence with online convenience, enhancing customer reach and experience",
+      "marks": 1,
+      "explanation": "Omnichannel retail coordinates physical and digital channels so customers can move between them conveniently.\n\nStudent note: Examples include ordering online and collecting or returning goods in a shop.",
+      "studentNote": "Examples include ordering online and collecting or returning goods in a shop.",
+      "study": {
+        "title": "Question 31",
+        "simple": "Omnichannel retail coordinates physical and digital channels so customers can move between them conveniently.",
+        "whyCorrect": [
+          "Omnichannel retail coordinates physical and digital channels so customers can move between them conveniently."
+        ],
+        "studentNote": "Examples include ordering online and collecting or returning goods in a shop."
+      }
+    },
+    {
+      "number": "32",
+      "text": "What is a fundamental challenge that natural language processing must overcome to accurately interpret human communication?",
+      "options": [
+        "The uniformity and precision of human language.",
+        "The ambiguity, slang, dialects, and social context that influence meaning.",
+        "The inability of computers to process any spoken language.",
+        "The requirement that all input be formatted in programming languages."
+      ],
+      "correctAnswer": "The ambiguity, slang, dialects, and social context that influence meaning.",
+      "marks": 1,
+      "explanation": "Language meaning depends on context, ambiguous words, slang and social conventions, making interpretation difficult.\n\nStudent note: The same sentence can mean different things in different situations.",
+      "studentNote": "The same sentence can mean different things in different situations.",
+      "study": {
+        "title": "Question 32",
+        "simple": "Language meaning depends on context, ambiguous words, slang and social conventions, making interpretation difficult.",
+        "whyCorrect": [
+          "Language meaning depends on context, ambiguous words, slang and social conventions, making interpretation difficult."
+        ],
+        "studentNote": "The same sentence can mean different things in different situations."
+      }
+    },
+    {
+      "number": "33",
+      "text": "Which type of information system is most likely to support a manager acting as a spokesperson?",
+      "options": [
+        "Executive support systems",
+        "Telepresence and social networks",
+        "Decision-support systems",
+        "None exist"
+      ],
+      "correctAnswer": "Telepresence and social networks",
+      "marks": 1,
+      "explanation": "Telepresence and social networks help a spokesperson communicate the organisation's position to relevant audiences.\n\nStudent note: This is the spokesperson role; a liaison mainly maintains relationships and connections.",
+      "studentNote": "This is the spokesperson role; a liaison mainly maintains relationships and connections.",
+      "study": {
+        "title": "Question 33",
+        "simple": "Telepresence and social networks help a spokesperson communicate the organisation's position to relevant audiences.",
+        "whyCorrect": [
+          "Telepresence and social networks help a spokesperson communicate the organisation's position to relevant audiences."
+        ],
+        "studentNote": "This is the spokesperson role; a liaison mainly maintains relationships and connections."
+      }
+    },
+    {
+      "number": "34",
+      "text": "Why is it important for marketers to regularly monitor analytical data when using platforms like TikTok?",
+      "options": [
+        "To ensure they post the same content repeatedly without change.",
+        "To adapt strategies based on user engagement, competition, and evolving trends for maximum impact.",
+        "To avoid engaging with the audience.",
+        "To reduce marketing budgets by eliminating ads."
+      ],
+      "correctAnswer": "To adapt strategies based on user engagement, competition, and evolving trends for maximum impact.",
+      "marks": 1,
+      "explanation": "Engagement data and market signals help marketers see what works and adjust content and timing as conditions change.\n\nStudent note: Do not judge a campaign only by views; use measures linked to its objective.",
+      "studentNote": "Do not judge a campaign only by views; use measures linked to its objective.",
+      "study": {
+        "title": "Question 34",
+        "simple": "Engagement data and market signals help marketers see what works and adjust content and timing as conditions change.",
+        "whyCorrect": [
+          "Engagement data and market signals help marketers see what works and adjust content and timing as conditions change."
+        ],
+        "studentNote": "Do not judge a campaign only by views; use measures linked to its objective."
+      }
+    },
+    {
+      "number": "35",
+      "text": "Why might a company choose to operate as a community provider in the e-commerce ecosystem?",
+      "options": [
+        "To create a digital environment for social interaction and commerce among users with shared interests, enhancing engagement and monetisation opportunities",
+        "To focus exclusively on selling physical goods",
+        "To avoid any form of user interaction or content sharing",
+        "To operate solely as a search engine without social features"
+      ],
+      "correctAnswer": "To create a digital environment for social interaction and commerce among users with shared interests, enhancing engagement and monetisation opportunities",
+      "marks": 1,
+      "explanation": "A community provider brings people with shared interests together and can support interaction, commerce and revenue.\n\nStudent note: The community must offer ongoing value, not only opportunities to advertise.",
+      "studentNote": "The community must offer ongoing value, not only opportunities to advertise.",
+      "study": {
+        "title": "Question 35",
+        "simple": "A community provider brings people with shared interests together and can support interaction, commerce and revenue.",
+        "whyCorrect": [
+          "A community provider brings people with shared interests together and can support interaction, commerce and revenue."
+        ],
+        "studentNote": "The community must offer ongoing value, not only opportunities to advertise."
+      }
+    },
+    {
+      "number": "36",
+      "text": "Considering the risks associated with viral TikTok challenges, what is a critical ethical responsibility for companies using social media for marketing?",
+      "options": [
+        "To maximise exposure regardless of content safety.",
+        "To monitor and discourage dangerous trends that could harm users and damage brand reputation.",
+        "To avoid engagement with user-generated content entirely.",
+        "To focus only on sponsored content without regard for user safety."
+      ],
+      "correctAnswer": "To monitor and discourage dangerous trends that could harm users and damage brand reputation.",
+      "marks": 1,
+      "explanation": "Companies should monitor campaigns for dangerous participation and avoid encouraging content that could harm users.\n\nStudent note: Popularity does not make a challenge safe or suitable for a brand to promote.",
+      "studentNote": "Popularity does not make a challenge safe or suitable for a brand to promote.",
+      "study": {
+        "title": "Question 36",
+        "simple": "Companies should monitor campaigns for dangerous participation and avoid encouraging content that could harm users.",
+        "whyCorrect": [
+          "Companies should monitor campaigns for dangerous participation and avoid encouraging content that could harm users."
+        ],
+        "studentNote": "Popularity does not make a challenge safe or suitable for a brand to promote."
+      }
+    },
+    {
+      "number": "37",
+      "text": "What environmental challenge is associated with AI's increasing computational demands?",
+      "options": [
+        "Rising energy consumption and water use in data centers, contributing to carbon emissions and resource depletion.",
+        "Decreasing energy use due to AI efficiency.",
+        "Reduction in e-waste due to AI hardware recycling.",
+        "Complete elimination of carbon footprint by AI systems."
+      ],
+      "correctAnswer": "Rising energy consumption and water use in data centers, contributing to carbon emissions and resource depletion.",
+      "marks": 1,
+      "explanation": "Training and running AI uses electricity, and some data centres use water for cooling; impacts depend on scale and local infrastructure.\n\nStudent note: Energy use, emissions and water use are related but are not the same measure.",
+      "studentNote": "Energy use, emissions and water use are related but are not the same measure.",
+      "study": {
+        "title": "Question 37",
+        "simple": "Training and running AI uses electricity, and some data centres use water for cooling; impacts depend on scale and local infrastructure.",
+        "whyCorrect": [
+          "Training and running AI uses electricity, and some data centres use water for cooling; impacts depend on scale and local infrastructure."
+        ],
+        "studentNote": "Energy use, emissions and water use are related but are not the same measure."
+      }
+    },
+    {
+      "number": "38",
+      "text": "How do medical robots like the Da Vinci surgical system improve surgical procedures?",
+      "options": [
+        "By replacing surgeons entirely during operations.",
+        "By providing precise control of instruments and enabling minimally invasive surgery.",
+        "By automating only administrative hospital tasks.",
+        "By performing surgeries without any human guidance."
+      ],
+      "correctAnswer": "By providing precise control of instruments and enabling minimally invasive surgery.",
+      "marks": 1,
+      "explanation": "Robot-assisted surgery can improve precision and access through small incisions while the surgeon controls the instruments.\n\nStudent note: The Da Vinci system assists a trained surgeon; it does not independently replace the surgeon.",
+      "studentNote": "The Da Vinci system assists a trained surgeon; it does not independently replace the surgeon.",
+      "study": {
+        "title": "Question 38",
+        "simple": "Robot-assisted surgery can improve precision and access through small incisions while the surgeon controls the instruments.",
+        "whyCorrect": [
+          "Robot-assisted surgery can improve precision and access through small incisions while the surgeon controls the instruments."
+        ],
+        "studentNote": "The Da Vinci system assists a trained surgeon; it does not independently replace the surgeon."
+      }
+    },
+    {
+      "number": "39",
+      "text": "How did the shift from traditional display ads to social, mobile, and local marketing change the nature of online marketing?",
+      "options": [
+        "It increased the control the firms had over brand messaging",
+        "It emphasised one-way communication to large audiences",
+        "It introduced conversations and engagement with customers and critics",
+        "It reduced the importance of mobile devices in marketing"
+      ],
+      "correctAnswer": "It introduced conversations and engagement with customers and critics",
+      "marks": 1,
+      "explanation": "Social, mobile and local marketing allow ongoing conversations and participation instead of mainly one-way display messages.\n\nStudent note: Engagement can include criticism, so responding well is part of managing the channel.",
+      "studentNote": "Engagement can include criticism, so responding well is part of managing the channel.",
+      "study": {
+        "title": "Question 39",
+        "simple": "Social, mobile and local marketing allow ongoing conversations and participation instead of mainly one-way display messages.",
+        "whyCorrect": [
+          "Social, mobile and local marketing allow ongoing conversations and participation instead of mainly one-way display messages."
+        ],
+        "studentNote": "Engagement can include criticism, so responding well is part of managing the channel."
+      }
+    },
+    {
+      "number": "40",
+      "text": "Why is retail m-commerce expected to continue growing rapidly through 2028?",
+      "options": [
+        "Because mobile devices are being phased out in favour of desktop computers.",
+        "Due to increasing mobile device usage, larger screens, more convenient payment options, and expanding app ecosystems.",
+        "Because traditional retail stores are closing globally.",
+        "Because mobile internet speeds are decreasing."
+      ],
+      "correctAnswer": "Due to increasing mobile device usage, larger screens, more convenient payment options, and expanding app ecosystems.",
+      "marks": 1,
+      "explanation": "The assessment links growth in mobile commerce to convenient devices, payments and mobile applications.\n\nStudent note: This is a forecast in the supplied course material, not a guaranteed growth rate through 2028.",
+      "studentNote": "This is a forecast in the supplied course material, not a guaranteed growth rate through 2028.",
+      "study": {
+        "title": "Question 40",
+        "simple": "The assessment links growth in mobile commerce to convenient devices, payments and mobile applications.",
+        "whyCorrect": [
+          "The assessment links growth in mobile commerce to convenient devices, payments and mobile applications."
+        ],
+        "studentNote": "This is a forecast in the supplied course material, not a guaranteed growth rate through 2028."
+      }
+    },
+    {
+      "number": "41",
+      "text": "In what way has e-commerce transformed marketing strategies compared to pre-Internet methods?",
+      "options": [
+        "By enabling marketers to target niche markets (long tail marketing) cost-effectively, rather than focusing only on mass-market hits",
+        "By making mass media advertising more expensive and less effective",
+        "By eliminating the need for customer data analysis",
+        "By restricting marketers to only local audiences"
+      ],
+      "correctAnswer": "By enabling marketers to target niche markets (long tail marketing) cost-effectively, rather than focusing only on mass-market hits",
+      "marks": 1,
+      "explanation": "Online distribution and targeting make it economical to reach many small niche markets as well as mass audiences.\n\nStudent note: The long tail refers to combined demand for many less-popular items, not only the biggest sellers.",
+      "studentNote": "The long tail refers to combined demand for many less-popular items, not only the biggest sellers.",
+      "study": {
+        "title": "Question 41",
+        "simple": "Online distribution and targeting make it economical to reach many small niche markets as well as mass audiences.",
+        "whyCorrect": [
+          "Online distribution and targeting make it economical to reach many small niche markets as well as mass audiences."
+        ],
+        "studentNote": "The long tail refers to combined demand for many less-popular items, not only the biggest sellers."
+      }
+    },
+    {
+      "number": "42",
+      "text": "How does dynamic pricing in digital markets leverage information about consumer behaviour?",
+      "options": [
+        "By offering the same price to all consumers regardless of behaviour",
+        "By adjusting prices based on demand, time, and user-specific factors",
+        "By fixing prices for all products permanently",
+        "By ignoring consumer preferences and purchase history"
+      ],
+      "correctAnswer": "By adjusting prices based on demand, time, and user-specific factors",
+      "marks": 1,
+      "explanation": "Dynamic pricing changes prices in response to factors such as demand, timing and available customer information.\n\nStudent note: Dynamic pricing is not always personalised pricing; some changes apply equally to all customers.",
+      "studentNote": "Dynamic pricing is not always personalised pricing; some changes apply equally to all customers.",
+      "study": {
+        "title": "Question 42",
+        "simple": "Dynamic pricing changes prices in response to factors such as demand, timing and available customer information.",
+        "whyCorrect": [
+          "Dynamic pricing changes prices in response to factors such as demand, timing and available customer information."
+        ],
+        "studentNote": "Dynamic pricing is not always personalised pricing; some changes apply equally to all customers."
+      }
+    },
+    {
+      "number": "43",
+      "text": "What challenge does TikTok’s algorithmic recommendation system pose for user safety and brand reputation?",
+      "options": [
+        "It only promotes content from verified brands, reducing diversity.",
+        "It may inadvertently promote harmful or dangerous content, leading to user injury and potential legal liabilities.",
+        "It prevents users from discovering new content.",
+        "It restricts content sharing to prevent virality."
+      ],
+      "correctAnswer": "It may inadvertently promote harmful or dangerous content, leading to user injury and potential legal liabilities.",
+      "marks": 1,
+      "explanation": "Recommendation algorithms can amplify harmful content when engagement signals are treated as indicators of relevance.\n\nStudent note: Companies need safety checks and monitoring as well as engagement targets.",
+      "studentNote": "Companies need safety checks and monitoring as well as engagement targets.",
+      "study": {
+        "title": "Question 43",
+        "simple": "Recommendation algorithms can amplify harmful content when engagement signals are treated as indicators of relevance.",
+        "whyCorrect": [
+          "Recommendation algorithms can amplify harmful content when engagement signals are treated as indicators of relevance."
+        ],
+        "studentNote": "Companies need safety checks and monitoring as well as engagement targets."
+      }
+    },
+    {
+      "number": "44",
+      "text": "In what way has the rise of mobile commerce (m-commerce) fundamentally changed e-commerce transaction dynamics?",
+      "options": [
+        "It has shifted a significant portion of retail sales from desktop to mobile devices, increasing accessibility and convenience",
+        "It has eliminated the need for physical stores altogether",
+        "It has reduced the importance of social media in e-commerce",
+        "It has made wired internet connections obsolete for all users"
+      ],
+      "correctAnswer": "It has shifted a significant portion of retail sales from desktop to mobile devices, increasing accessibility and convenience",
+      "marks": 1,
+      "explanation": "Mobile devices allow shopping and payment in more situations, shifting transactions towards phones and tablets.\n\nStudent note: M-commerce is e-commerce performed through mobile devices, not a separate kind of seller relationship.",
+      "studentNote": "M-commerce is e-commerce performed through mobile devices, not a separate kind of seller relationship.",
+      "study": {
+        "title": "Question 44",
+        "simple": "Mobile devices allow shopping and payment in more situations, shifting transactions towards phones and tablets.",
+        "whyCorrect": [
+          "Mobile devices allow shopping and payment in more situations, shifting transactions towards phones and tablets."
+        ],
+        "studentNote": "M-commerce is e-commerce performed through mobile devices, not a separate kind of seller relationship."
+      }
+    },
+    {
+      "number": "45",
+      "text": "How do middle managers typically use Management Information Systems (MIS) in decision-making?",
+      "options": [
+        "To create complex predictive models",
+        "To monitor structured business processes and interactively query data for operational insights",
+        "To replace senior management in strategic planning",
+        "To avoid using data in decisions"
+      ],
+      "correctAnswer": "To monitor structured business processes and interactively query data for operational insights",
+      "marks": 1,
+      "explanation": "MIS supplies middle managers with reports and summaries for monitoring routine business performance, often with drill-down or query functions.\n\nStudent note: Distinguish routine MIS reporting from specialist analytical tools for less structured decisions.",
+      "studentNote": "Distinguish routine MIS reporting from specialist analytical tools for less structured decisions.",
+      "study": {
+        "title": "Question 45",
+        "simple": "MIS supplies middle managers with reports and summaries for monitoring routine business performance, often with drill-down or query functions.",
+        "whyCorrect": [
+          "MIS supplies middle managers with reports and summaries for monitoring routine business performance, often with drill-down or query functions."
+        ],
+        "studentNote": "Distinguish routine MIS reporting from specialist analytical tools for less structured decisions."
+      }
+    },
+    {
+      "number": "46",
+      "text": "What is a major force driving the rapid evolution of AI technology?",
+      "options": [
+        "Increased cost of computer processing",
+        "Reduction in big data availability",
+        "Development of big data databases and the Internet of Things (IoT)",
+        "Decreased investment from businesses and governments"
+      ],
+      "correctAnswer": "Development of big data databases and the Internet of Things (IoT)",
+      "marks": 1,
+      "explanation": "Large datasets and connected devices supply training examples and ongoing information that can support AI development.\n\nStudent note: Data is one driver; computing power, algorithms and skilled people also matter.",
+      "studentNote": "Data is one driver; computing power, algorithms and skilled people also matter.",
+      "study": {
+        "title": "Question 46",
+        "simple": "Large datasets and connected devices supply training examples and ongoing information that can support AI development.",
+        "whyCorrect": [
+          "Large datasets and connected devices supply training examples and ongoing information that can support AI development."
+        ],
+        "studentNote": "Data is one driver; computing power, algorithms and skilled people also matter."
+      }
+    },
+    {
+      "number": "47",
+      "text": "How does the consumer-to-consumer (C2C) e-commerce model primarily create value for its users?",
+      "options": [
+        "By providing a platform that facilitates direct peer-to-peer transactions",
+        "By manufacturing goods and selling directly to consumers",
+        "By offering subscription-based content services",
+        "By acting as a financial intermediary for business transactions"
+      ],
+      "correctAnswer": "By providing a platform that facilitates direct peer-to-peer transactions",
+      "marks": 1,
+      "explanation": "C2C platforms help individuals find each other, agree terms and exchange goods or services directly.\n\nStudent note: The platform may support payments and trust without owning the goods being sold.",
+      "studentNote": "The platform may support payments and trust without owning the goods being sold.",
+      "study": {
+        "title": "Question 47",
+        "simple": "C2C platforms help individuals find each other, agree terms and exchange goods or services directly.",
+        "whyCorrect": [
+          "C2C platforms help individuals find each other, agree terms and exchange goods or services directly."
+        ],
+        "studentNote": "The platform may support payments and trust without owning the goods being sold."
+      }
+    },
+    {
+      "number": "48",
+      "text": "Why might information systems be unable to improve every decision made by managers?",
+      "options": [
+        "Some decisions require judgment and insight beyond data processing.",
+        "Managers do not use information systems regularly.",
+        "Information systems are only designed for operational decisions.",
+        "All managerial decisions are structured and routine."
+      ],
+      "correctAnswer": "Some decisions require judgment and insight beyond data processing.",
+      "marks": 1,
+      "explanation": "Some managerial decisions depend on experience, values and context that cannot be fully captured in system data.\n\nStudent note: Information systems improve support, but responsibility and judgement remain with the decision maker.",
+      "studentNote": "Information systems improve support, but responsibility and judgement remain with the decision maker.",
+      "study": {
+        "title": "Question 48",
+        "simple": "Some managerial decisions depend on experience, values and context that cannot be fully captured in system data.",
+        "whyCorrect": [
+          "Some managerial decisions depend on experience, values and context that cannot be fully captured in system data."
+        ],
+        "studentNote": "Information systems improve support, but responsibility and judgement remain with the decision maker."
+      }
+    },
+    {
+      "number": "49",
+      "text": "Which of the following best describes geosocial services?",
+      "options": [
+        "Services that provide weather updates based on global satellite data.",
+        "Social networking features that connect users based on their physical location and enable real-time check-ins and notifications.",
+        "Advertising platforms that ignore user location.",
+        "Navigation apps that only provide route directions without social interaction."
+      ],
+      "correctAnswer": "Social networking features that connect users based on their physical location and enable real-time check-ins and notifications.",
+      "marks": 1,
+      "explanation": "Geosocial services combine social interaction with location information, such as nearby recommendations and check-ins.\n\nStudent note: Location sharing should be controlled because it can reveal sensitive movement patterns.",
+      "studentNote": "Location sharing should be controlled because it can reveal sensitive movement patterns.",
+      "study": {
+        "title": "Question 49",
+        "simple": "Geosocial services combine social interaction with location information, such as nearby recommendations and check-ins.",
+        "whyCorrect": [
+          "Geosocial services combine social interaction with location information, such as nearby recommendations and check-ins."
+        ],
+        "studentNote": "Location sharing should be controlled because it can reveal sensitive movement patterns."
+      }
+    },
+    {
+      "number": "50",
+      "text": "Which of the following best describes the relationship between large language models (LLMs) and foundation models?",
+      "options": [
+        "LLMs are a type of foundation model trained on vast unstructured data to understand and generate natural language",
+        "Foundation models are smaller and less complex than LLMs",
+        "LLMs only process numerical data, not language",
+        "Foundation models cannot be used for language-related tasks"
+      ],
+      "correctAnswer": "LLMs are a type of foundation model trained on vast unstructured data to understand and generate natural language",
+      "marks": 1,
+      "explanation": "Large language models are foundation models focused on understanding and generating language from patterns learned during training.\n\nStudent note: Foundation model is the broader category; not every foundation model is a language model.",
+      "studentNote": "Foundation model is the broader category; not every foundation model is a language model.",
+      "study": {
+        "title": "Question 50",
+        "simple": "Large language models are foundation models focused on understanding and generating language from patterns learned during training.",
+        "whyCorrect": [
+          "Large language models are foundation models focused on understanding and generating language from patterns learned during training."
+        ],
+        "studentNote": "Foundation model is the broader category; not every foundation model is a language model."
+      }
+    }
+  ]
+}

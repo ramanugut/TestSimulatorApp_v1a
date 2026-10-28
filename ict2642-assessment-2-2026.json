@@ -24,7 +24,8 @@
         "Mentions support for many processor/hardware platforms.",
         "Mentions broad enterprise/vendor support."
       ],
-      "explanation": "Unix and Linux are attractive server platforms because organisations need systems that are dependable, can grow with demand, can run on suitable hardware and do not create unnecessary platform cost. Their wide enterprise support also reduces the risk of using them in corporate environments.\n\nStudent note: For 5 marks, give separate reasons rather than repeating the same idea using different words."
+      "explanation": "Unix and Linux are attractive server platforms because organisations need systems that are dependable, can grow with demand, can run on suitable hardware and do not create unnecessary platform cost. Their wide enterprise support also reduces the risk of using them in corporate environments.\n\nStudent note: For 5 marks, give separate reasons rather than repeating the same idea using different words.",
+      "studentNote": "For 5 marks, give separate reasons rather than repeating the same idea using different words."
     },
     {
       "number": "1.2",
@@ -41,7 +42,8 @@
         "Identifies and describes cloud services/SaaS.",
         "Identifies and describes mashups and apps."
       ],
-      "explanation": "The question needs both identification and a short description. Naming six trends without explaining what they mean will not fully answer the question.\n\nStudent note: A useful exam method is: name the trend first, then add one sentence explaining what it changes or enables."
+      "explanation": "The question needs both identification and a short description. Naming six trends without explaining what they mean will not fully answer the question.\n\nStudent note: A useful exam method is: name the trend first, then add one sentence explaining what it changes or enables.",
+      "studentNote": "A useful exam method is: name the trend first, then add one sentence explaining what it changes or enables."
     },
     {
       "number": "2.1",
@@ -58,7 +60,8 @@
         "Defines file.",
         "Defines database and keeps the hierarchy in a sensible order."
       ],
-      "explanation": "The hierarchy shows how small pieces of data are combined into progressively larger structures: bit → byte → field → record → file → database.\n\nStudent note: Memorise the order, but also know one plain-English example for each level so you can explain it instead of only listing the terms."
+      "explanation": "The hierarchy shows how small pieces of data are combined into progressively larger structures: bit → byte → field → record → file → database.\n\nStudent note: Memorise the order, but also know one plain-English example for each level so you can explain it instead of only listing the terms.",
+      "studentNote": "Memorise the order, but also know one plain-English example for each level so you can explain it instead of only listing the terms."
     },
     {
       "number": "2.2",
@@ -72,7 +75,8 @@
         "Prediction of future behaviour or trends.",
         "Better decisions or useful business knowledge."
       ],
-      "explanation": "Data mining goes beyond simply storing or displaying data. It looks for patterns that can help a business understand what is happening and what may happen next.\n\nStudent note: Link data mining to action: discover patterns, predict, then make better decisions."
+      "explanation": "Data mining goes beyond simply storing or displaying data. It looks for patterns that can help a business understand what is happening and what may happen next.\n\nStudent note: Link data mining to action: discover patterns, predict, then make better decisions.",
+      "studentNote": "Link data mining to action: discover patterns, predict, then make better decisions."
     },
     {
       "number": "2.3",
@@ -87,7 +91,8 @@
         "Classification.",
         "Clustering."
       ],
-      "explanation": "The four common outputs describe different kinds of patterns: things linked together, things that happen in order, known categories, and naturally discovered groups.\n\nStudent note: Classification uses predefined categories; clustering discovers groups without starting with predefined categories."
+      "explanation": "The four common outputs describe different kinds of patterns: things linked together, things that happen in order, known categories, and naturally discovered groups.\n\nStudent note: Classification uses predefined categories; clustering discovers groups without starting with predefined categories.",
+      "studentNote": "Classification uses predefined categories; clustering discovers groups without starting with predefined categories."
     },
     {
       "number": "2.4",
@@ -106,7 +111,8 @@
         "OLAP supports multidimensional analysis.",
         "OLAP is driven by the user's chosen questions/dimensions."
       ],
-      "explanation": "Both tools analyse data, but they answer different kinds of questions. OLAP helps a user explore and summarise known dimensions; data mining is designed to uncover patterns and relationships that may not already be obvious.\n\nStudent note: A simple memory trick is OLAP = explore what you ask for; data mining = discover patterns you may not have known to ask for."
+      "explanation": "Both tools analyse data, but they answer different kinds of questions. OLAP helps a user explore and summarise known dimensions; data mining is designed to uncover patterns and relationships that may not already be obvious.\n\nStudent note: A simple memory trick is OLAP = explore what you ask for; data mining = discover patterns you may not have known to ask for.",
+      "studentNote": "A simple memory trick is OLAP = explore what you ask for; data mining = discover patterns you may not have known to ask for."
     },
     {
       "number": "3.1",
@@ -121,7 +127,8 @@
         "Finance/accounting plus a relevant process example.",
         "Human resources plus a relevant process example."
       ],
-      "explanation": "Enterprise systems integrate work across major business functions instead of keeping each department's information isolated. Good answers name the function and then give concrete processes the system supports.\n\nStudent note: Do not only write 'sales, HR, finance, manufacturing'. The question asks for examples, so attach real processes such as payroll, billing, inventory or production scheduling."
+      "explanation": "Enterprise systems integrate work across major business functions instead of keeping each department's information isolated. Good answers name the function and then give concrete processes the system supports.\n\nStudent note: Do not only write 'sales, HR, finance, manufacturing'. The question asks for examples, so attach real processes such as payroll, billing, inventory or production scheduling.",
+      "studentNote": "Do not only write 'sales, HR, finance, manufacturing'. The question asks for examples, so attach real processes such as payroll, billing, inventory or production scheduling."
     },
     {
       "number": "3.2",
@@ -136,7 +143,9 @@
         "Analytical CRM analyses customer data.",
         "Analytical CRM supports patterns/insights/strategic decision-making."
       ],
-      "explanation": "Operational CRM is about running customer interactions; analytical CRM is about learning from the data created by those interactions.\n\nStudent note: Think operational = doing the customer work now; analytical = studying customer data to improve future decisions."
+      "explanation": "Operational CRM is about running customer interactions; analytical CRM is about learning from the data created by those interactions.\n\nStudent note: Think operational = doing the customer work now; analytical = studying customer data to improve future decisions.",
+      "studentNote": "Think operational = doing the customer work now; analytical = studying customer data to improve future decisions."
     }
-  ]
+  ],
+  "sourceNote": "Also checked against the learner-uploaded Assessment 2 PDF on 28 October 2026. The same eight questions and 50 marks are already present; no duplicate paper was created. The supplied answers are study guidance, not an official memorandum."
 }

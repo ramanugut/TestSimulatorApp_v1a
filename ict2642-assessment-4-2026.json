@@ -1,0 +1,136 @@
+{
+  "testName": "ICT2642 · 2026 Assessment 4 (written study prompts · 50 marks)",
+  "module": "ICT2642",
+  "assessment": "Assessment 4 2026",
+  "totalMarks": 50,
+  "originalQuestionCount": 7,
+  "preserveOrder": true,
+  "marking": "ai-assisted-written",
+  "sourceType": "Learner-supplied Assignment 4 answers, with paraphrased study prompts matched to the public 2026 TL103 question preview",
+  "sourceReference": "https://www.studocu.com/en-za/document/university-of-south-africa/business-informatics-iib/tl103-assignment-04-2026-business-informatics-2b-ict2642-guide/174020641",
+  "sourceNote": "The learner-uploaded answer document explicitly identifies Assignment 04 - 2026. Its seven numbered answers match the topics and marks in the public TL103 preview. Prompts are paraphrased for study; reference answers follow the uploaded document with obvious typographical errors corrected.",
+  "sourceLimitations": "The uploaded PDF contains answers rather than question wording or marks. Question topics and marks were cross-checked against the public tutorial-letter preview on 28 October 2026. Prompts are not a verbatim transcription. The preview has inconsistent template years in its headers; the uploaded answer document explicitly identifies 2026. Reference answers and AI rubrics are study guidance, not an official memorandum. No official time limit was supplied.",
+  "questions": [
+    {
+      "number": "1.1",
+      "marks": 8,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "text": "Explain the four forms of organisational change made possible by IT. Illustrate each with a hotel example.",
+      "correctAnswer": "• Automation: Automation uses computers to speed up the performance of existing tasks. In a hotel, an automated reservation system can capture bookings, calculate room charges and produce confirmations automatically instead of staff completing these tasks manually.\n• Rationalisation of procedures: Rationalisation of procedures streamlines standard operating procedures and removes obvious bottlenecks so that automated procedures become more efficient. In a hotel, online check-in can simplify the arrival process by allowing guests to confirm details before reaching reception, reducing repeated data entry and waiting time.\n• Business process redesign: Business process redesign involves analysing, simplifying and redesigning business processes so that work is organised in a more efficient way. In a hotel, the entire room-service process could be redesigned so that a guest order entered through a mobile app is sent directly to the kitchen, linked to inventory and automatically charged to the guest's room.\n• Paradigm shift: A paradigm shift is a radical rethinking of the nature of the business and the organisation. In a hotel, management could move from a traditional reception-centred service model to a largely digital hotel model using mobile reservations, digital keys, self-service check-in and personalised digital guest services.",
+      "aiRubric": [
+        "Explains automation with a hotel example.",
+        "Explains rationalisation of procedures with a hotel example.",
+        "Explains business process redesign with a hotel example.",
+        "Explains a paradigm shift with a hotel example."
+      ],
+      "explanation": "The four forms range from making current tasks faster to rethinking the business model. Each explanation needs an example that shows the level of change.\n\nStudent note: Do not use the same example without explaining the difference: automation speeds up a task, rationalisation removes bottlenecks, redesign reorganises a process, and a paradigm shift rethinks the business.",
+      "studentNote": "Do not use the same example without explaining the difference: automation speeds up a task, rationalisation removes bottlenecks, redesign reorganises a process, and a paradigm shift rethinks the business."
+    },
+    {
+      "number": "1.2",
+      "marks": 8,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "text": "Identify eight areas addressed by a new system's design specifications, giving an example for each.",
+      "correctAnswer": "• Output: Specify the medium, content and timing of information produced. Example: a hotel system produces a daily occupancy report for the hotel manager.\n• Input: Specify the origins, flow and method of data entry. Example: reception staff enter a guest's identification and booking details when the guest checks in.\n• User interface: Specify simplicity, efficiency, logic, feedback and error handling. Example: the booking screen uses clear menus and immediately warns staff when a required field is missing.\n• Database design: Specify the logical data model, volume and speed requirements, and record specifications. Example: a guest record stores the guest number, contact details, booking history and preferences.\n• Processing: Specify computations, program modules, required reports and timing. Example: the system automatically calculates the guest's total bill from room charges and additional services.\n• Manual procedures: Specify which activities are performed manually, who performs them, and when, how and where they are performed. Example: housekeeping staff physically inspect a room and then update its status as ready.\n• Controls: Specify input, processing, output and procedural controls. for example the system checks that a room number entered on a charge transaction is valid before processing it.\n• Security: Specify access controls, catastrophe plans and audit trails. Example: only authorised managers can change room rates, and the system records who made each change.",
+      "aiRubric": [
+        "Covers output and a relevant example.",
+        "Covers input and a relevant example.",
+        "Covers user interface and a relevant example.",
+        "Covers database design and a relevant example.",
+        "Covers processing and a relevant example.",
+        "Covers manual procedures and a relevant example.",
+        "Covers controls and a relevant example.",
+        "Covers security and a relevant example."
+      ],
+      "explanation": "Design specifications describe how the proposed system will work, including its data, interactions, processing, procedures and safeguards.\n\nStudent note: Pair each factor with a specific example. Controls check that work is processed correctly; security restricts access and protects the system.",
+      "studentNote": "Pair each factor with a specific example. Controls check that work is processed correctly; security restricts access and protects the system."
+    },
+    {
+      "number": "1.3",
+      "marks": 4,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "text": "State the four stages of the prototyping process in their usual order.",
+      "correctAnswer": "• Identify the user's basic requirements.\n• Develop an initial prototype.\n• Use the prototype.\n• Revise and enhance the prototype.",
+      "aiRubric": [
+        "Identifies users' basic requirements.",
+        "Develops an initial prototype.",
+        "Lets users use or evaluate the prototype.",
+        "Revises and enhances the prototype based on feedback."
+      ],
+      "explanation": "A prototype is an early working model used to learn what users need. Feedback leads to revisions, and evaluation can be repeated.\n\nStudent note: Remember requirements, initial prototype, use, and revision. A prototype is not automatically the finished production system.",
+      "studentNote": "Remember requirements, initial prototype, use, and revision. A prototype is not automatically the finished production system."
+    },
+    {
+      "number": "2.1",
+      "marks": 4,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "text": "Explain how tangible benefits differ from intangible benefits and give one example of each.",
+      "correctAnswer": "• Tangible benefits are benefits that can be quantified and assigned a monetary value. An example is lower operational costs.\n• Intangible benefits are benefits that cannot easily be quantified in monetary terms, although they may create measurable gains in the long run. An example is improved decision making.",
+      "aiRubric": [
+        "Defines tangible benefits as quantifiable in monetary terms.",
+        "Gives an appropriate tangible example, such as reduced operating costs.",
+        "Defines intangible benefits as difficult to quantify in monetary terms.",
+        "Gives an appropriate intangible example, such as improved decision making."
+      ],
+      "explanation": "Tangible benefits can be assigned a financial value relatively directly. Intangible benefits still create value but are harder to express reliably in money.\n\nStudent note: Intangible does not mean unimportant or impossible to measure in any way. Customer satisfaction can be measured even when its financial value is uncertain.",
+      "studentNote": "Intangible does not mean unimportant or impossible to measure in any way. Customer satisfaction can be measured even when its financial value is uncertain."
+    },
+    {
+      "number": "2.2",
+      "marks": 8,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "text": "As a project manager at a small IT consultancy, what criteria would you use to review and audit the success of completed projects?",
+      "correctAnswer": "• Scope achievement: Determine whether all work and functionality promised in the approved project scope were delivered.\n• Time performance: Compare the actual completion date with the planned schedule and milestones.\n• Cost performance: Compare actual project expenditure with the approved budget.\n• Quality: Assess whether the completed system performs accurately, reliably and to the required standards.\n• Risk outcomes: Review whether major project risks were identified and controlled and whether unresolved risks remain.\n• User requirements and acceptance: Determine whether the system meets users' information requirements and whether users accept and can use it effectively.\n• Business objectives and benefits: Assess whether the system met its original objectives and delivered the expected tangible and intangible business benefits.\n• Technical and operational performance: Review system performance in production, including response time, capacity, stability, error levels and the need for corrective modifications.",
+      "aiRubric": [
+        "Assesses delivery against scope.",
+        "Compares actual and planned completion times.",
+        "Compares actual expenditure and budget.",
+        "Assesses quality against requirements.",
+        "Reviews risk management and remaining risks.",
+        "Assesses user requirements and acceptance.",
+        "Assesses business objectives and realised benefits.",
+        "Assesses technical and operational performance."
+      ],
+      "explanation": "A project review compares the delivered result with the approved plan and checks whether users and the business gained the intended benefits.\n\nStudent note: Give distinct criteria and say what you would check. Finishing on time and within budget is not enough if the system fails to meet user needs.",
+      "studentNote": "Give distinct criteria and say what you would check. Finishing on time and within budget is not enough if the system fails to meet user needs."
+    },
+    {
+      "number": "3.1",
+      "marks": 10,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "text": "Describe the steps used to develop an information systems architecture for an international business.",
+      "correctAnswer": "• Understand the global environment and business drivers: Identify the general cultural factors and specific business factors that are driving the organisation toward global operations, together with the challenges created by national differences.\n• Consider the corporate global strategy: Determine how the firm intends to compete internationally and which global business strategy it follows. The information systems architecture must support this strategy.\n• Consider the organisational structure: Examine how business activities, authority and resources are organised across headquarters, regional units and national operations. The systems design must fit this organisational arrangement.\n• Consider management and business processes: Identify the core business processes that must be coordinated internationally and determine how management will govern, standardise and control these processes across countries.\n• Develop the technology platform: Select the hardware, software, databases, telecommunications and networking arrangements needed to support global applications and the flow of information between locations.",
+      "aiRubric": [
+        "Explains global business drivers, environment and national differences.",
+        "Aligns the architecture with the corporate global strategy.",
+        "Considers the organisational structure and distribution of activities.",
+        "Considers management and business processes across countries.",
+        "Defines the technology platform needed for global applications and information flows."
+      ],
+      "explanation": "International systems planning begins with business drivers and strategy, then considers structure, processes and the technology needed to connect operations.\n\nStudent note: Explain each step rather than listing only hardware and software. The architecture must support how the global business is organised.",
+      "studentNote": "Explain each step rather than listing only hardware and software. The architecture must support how the global business is organised."
+    },
+    {
+      "number": "3.2",
+      "marks": 8,
+      "grading": "ai",
+      "answerType": "ai-text",
+      "text": "Explain the four global business strategies that shape the structure of international firms.",
+      "correctAnswer": "• Domestic exporter: The firm centralises corporate activities in its home country. Production, finance, accounting, sales and marketing are largely managed from the home base, while foreign operations mainly support sales and distribution.\n• Multinational: The firm concentrates financial management and control at a central home base but decentralises production, sales and marketing to operations in other countries. Products and services are adapted to local market conditions.\n• Franchiser: The product or service is initially created, designed and financed in the home country, but foreign units perform much of the local production, marketing and human-resource activity. Foreign operations generally reproduce the business model of the home-country unit while adapting where local conditions require it.\n• Transnational: The firm is managed from a global rather than a single-country perspective. Value-adding activities are coordinated across national borders so the organisation can use the best sources of supply, demand and local competitive advantage. Decision-making has a strong coordinating core but power and resources are also distributed across global divisions.",
+      "aiRubric": [
+        "Explains the domestic exporter strategy and home-country concentration.",
+        "Explains the multinational strategy and local adaptation under central financial control.",
+        "Explains the franchiser strategy and replication of a home-developed business model.",
+        "Explains the transnational strategy and globally coordinated, distributed activities."
+      ],
+      "explanation": "The strategies differ in where activities and decision-making are located and how strongly operations are coordinated across countries.\n\nStudent note: Distinguish multinational local adaptation from transnational global coordination. A franchiser repeats a core business model through foreign units.",
+      "studentNote": "Distinguish multinational local adaptation from transnational global coordination. A franchiser repeats a core business model through foreign units."
+    }
+  ]
+}

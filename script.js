@@ -5575,7 +5575,11 @@ const testFiles = [
   "ict2613-oct-nov-2017-exam-verified-practice.json",
   "ict2613-may-june-2018-exam-verified-practice.json",
   "ict2613-2022-exam-preview-verified-practice.json",
+  // ICT2642 learner-supplied completed reviews and written assessments.
+  "ict2642-may-2026-assessment-quiz.json",
   "ict2642-assessment-2-2026.json",
+  "ict2642-assessment-3-2026.json",
+  "ict2642-assessment-4-2026.json",
   // Third-year additions. Where a public source is incomplete or copyrighted,
   // prompts are paraphrased and clearly labelled as source-verified practice.
   "ict3612-assessment-1-2024-verified-partial.json",

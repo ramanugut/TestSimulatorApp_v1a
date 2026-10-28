@@ -1,0 +1,1116 @@
+{
+  "testName": "ICT2642 · May 2026 MCQ assessment (50 questions · supplied review)",
+  "module": "ICT2642",
+  "assessment": "May 2026 MCQ assessment; number not shown",
+  "totalMarks": 50,
+  "originalQuestionCount": 50,
+  "preserveOrder": true,
+  "marking": "auto-choice",
+  "sourceType": "Learner-supplied completed assessment review with recorded answer feedback",
+  "sourceReference": "Learner-uploaded completed quiz review",
+  "sourceNote": "Completed review dated 2026-05-03. Original questions, choices, numbering and feedback answers are preserved. Explanations and student notes are added study guidance.",
+  "sourceLimitations": "This is the supplied quiz attempt, not a claim to cover the entire question bank. The source answer key is preserved, including textbook-specific claims; added notes explain qualifications. No official time limit is shown, so the completion time has not been used as the test duration. The pasted review does not state its assessment number or module code; filed under ICT2642 as supplied by the learner. No assessment number has been inferred.",
+  "reviewDate": "2026-05-03",
+  "questions": [
+    {
+      "number": "1",
+      "text": "Product differentiation strategies often involve:",
+      "options": [
+        "Reducing product features",
+        "Standardizing customer experiences",
+        "Creating unique, personalized offerings",
+        "Minimizing technological investments"
+      ],
+      "correctAnswer": "Creating unique, personalized offerings",
+      "marks": 1,
+      "explanation": "Differentiation gives customers a reason to choose one product over its rivals, such as useful unique features or personalisation.\n\nStudent note: Differentiate by creating value; lower prices alone describe cost leadership.",
+      "studentNote": "Differentiate by creating value; lower prices alone describe cost leadership.",
+      "study": {
+        "title": "Question 1",
+        "simple": "Differentiation gives customers a reason to choose one product over its rivals, such as useful unique features or personalisation.",
+        "whyCorrect": [
+          "Differentiation gives customers a reason to choose one product over its rivals, such as useful unique features or personalisation."
+        ],
+        "studentNote": "Differentiate by creating value; lower prices alone describe cost leadership."
+      }
+    },
+    {
+      "number": "2",
+      "text": "Spotify's AI personalization strategy demonstrates the potential of AI through:",
+      "options": [
+        "Completely automating music selection",
+        "Eliminating human music curation",
+        "Creating hyper-personalized recommendations based on user data",
+        "Reducing user engagement with music platforms"
+      ],
+      "correctAnswer": "Creating hyper-personalized recommendations based on user data",
+      "marks": 1,
+      "explanation": "Spotify uses listening data to predict what each listener may enjoy, making recommendations relevant to that person.\n\nStudent note: Personalisation depends on useful data and feedback, not simply adding AI to a service.",
+      "studentNote": "Personalisation depends on useful data and feedback, not simply adding AI to a service.",
+      "study": {
+        "title": "Question 2",
+        "simple": "Spotify uses listening data to predict what each listener may enjoy, making recommendations relevant to that person.",
+        "whyCorrect": [
+          "Spotify uses listening data to predict what each listener may enjoy, making recommendations relevant to that person."
+        ],
+        "studentNote": "Personalisation depends on useful data and feedback, not simply adding AI to a service."
+      }
+    },
+    {
+      "number": "3",
+      "text": "Which of the following best describes how AI can impact an organization's competitive strategy?",
+      "options": [
+        "By providing data-driven insights to support strategic decision-making",
+        "By completely replacing human decision-making",
+        "By automatically generating business strategies without human input",
+        "By eliminating the need for organizational expertise"
+      ],
+      "correctAnswer": "By providing data-driven insights to support strategic decision-making",
+      "marks": 1,
+      "explanation": "AI can detect trends in business data and help managers compare strategic options.\n\nStudent note: AI supports strategy; people still set objectives and take responsibility for decisions.",
+      "studentNote": "AI supports strategy; people still set objectives and take responsibility for decisions.",
+      "study": {
+        "title": "Question 3",
+        "simple": "AI can detect trends in business data and help managers compare strategic options.",
+        "whyCorrect": [
+          "AI can detect trends in business data and help managers compare strategic options."
+        ],
+        "studentNote": "AI supports strategy; people still set objectives and take responsibility for decisions."
+      }
+    },
+    {
+      "number": "4",
+      "text": "Machine Learning algorithms primarily focus on:",
+      "options": [
+        "Identifying patterns and relationships in large datasets",
+        "Replacing human decision-making",
+        "Generating random data",
+        "Creating hardware infrastructure"
+      ],
+      "correctAnswer": "Identifying patterns and relationships in large datasets",
+      "marks": 1,
+      "explanation": "Machine learning learns patterns from examples rather than requiring a separate hand-written rule for every case.\n\nStudent note: Learning a pattern does not prove that one event caused another.",
+      "studentNote": "Learning a pattern does not prove that one event caused another.",
+      "study": {
+        "title": "Question 4",
+        "simple": "Machine learning learns patterns from examples rather than requiring a separate hand-written rule for every case.",
+        "whyCorrect": [
+          "Machine learning learns patterns from examples rather than requiring a separate hand-written rule for every case."
+        ],
+        "studentNote": "Learning a pattern does not prove that one event caused another."
+      }
+    },
+    {
+      "number": "5",
+      "text": "Customer intimacy can be enhanced through:",
+      "options": [
+        "Reducing customer interactions",
+        "Standardizing all customer experiences",
+        "Personalizing services using data",
+        "Increasing product prices"
+      ],
+      "correctAnswer": "Personalizing services using data",
+      "marks": 1,
+      "explanation": "Customer intimacy means understanding individual customers and tailoring products, service and communication to their needs.\n\nStudent note: A personalised offer should be useful to the customer and respect their privacy.",
+      "studentNote": "A personalised offer should be useful to the customer and respect their privacy.",
+      "study": {
+        "title": "Question 5",
+        "simple": "Customer intimacy means understanding individual customers and tailoring products, service and communication to their needs.",
+        "whyCorrect": [
+          "Customer intimacy means understanding individual customers and tailoring products, service and communication to their needs."
+        ],
+        "studentNote": "A personalised offer should be useful to the customer and respect their privacy."
+      }
+    },
+    {
+      "number": "6",
+      "text": "Operational excellence primarily aims to:",
+      "options": [
+        "Eliminate all employees",
+        "Improve efficiency and productivity",
+        "Reduce technological investments",
+        "Increase administrative complexity"
+      ],
+      "correctAnswer": "Improve efficiency and productivity",
+      "marks": 1,
+      "explanation": "Operational excellence means performing business activities more efficiently, reliably and productively.\n\nStudent note: Link this term to better processes, fewer errors and less waste.",
+      "studentNote": "Link this term to better processes, fewer errors and less waste.",
+      "study": {
+        "title": "Question 6",
+        "simple": "Operational excellence means performing business activities more efficiently, reliably and productively.",
+        "whyCorrect": [
+          "Operational excellence means performing business activities more efficiently, reliably and productively."
+        ],
+        "studentNote": "Link this term to better processes, fewer errors and less waste."
+      }
+    },
+    {
+      "number": "7",
+      "text": "Effective use of AI in competitive strategy requires:",
+      "options": [
+        "Minimal organizational expertise",
+        "Unlimited financial resources",
+        "Precise data management and technological skills",
+        "Complete technological independence"
+      ],
+      "correctAnswer": "Precise data management and technological skills",
+      "marks": 1,
+      "explanation": "Useful AI relies on well-managed data and people who can select, operate and evaluate the technology.\n\nStudent note: Poor or biased data can produce poor decisions even with advanced software.",
+      "studentNote": "Poor or biased data can produce poor decisions even with advanced software.",
+      "study": {
+        "title": "Question 7",
+        "simple": "Useful AI relies on well-managed data and people who can select, operate and evaluate the technology.",
+        "whyCorrect": [
+          "Useful AI relies on well-managed data and people who can select, operate and evaluate the technology."
+        ],
+        "studentNote": "Poor or biased data can produce poor decisions even with advanced software."
+      }
+    },
+    {
+      "number": "8",
+      "text": "An organization's culture is reflected in its:",
+      "options": [
+        "Technology infrastructure",
+        "Information systems",
+        "Financial statements",
+        "Marketing strategies"
+      ],
+      "correctAnswer": "Information systems",
+      "marks": 1,
+      "explanation": "Information systems reflect organisational values through their rules, access rights and ways of sharing information.\n\nStudent note: Culture also includes shared beliefs and habits; it is broader than the software itself.",
+      "studentNote": "Culture also includes shared beliefs and habits; it is broader than the software itself.",
+      "study": {
+        "title": "Question 8",
+        "simple": "Information systems reflect organisational values through their rules, access rights and ways of sharing information.",
+        "whyCorrect": [
+          "Information systems reflect organisational values through their rules, access rights and ways of sharing information."
+        ],
+        "studentNote": "Culture also includes shared beliefs and habits; it is broader than the software itself."
+      }
+    },
+    {
+      "number": "9",
+      "text": "How does the Internet fundamentally impact competitive rivalry?",
+      "options": [
+        "By creating absolute market barriers",
+        "By standardizing technologies that enable easier competition",
+        "By eliminating competitive forces",
+        "By reducing information availability"
+      ],
+      "correctAnswer": "By standardizing technologies that enable easier competition",
+      "marks": 1,
+      "explanation": "Shared Internet standards make it easier for more firms to enter markets and offer comparable services, increasing rivalry.\n\nStudent note: The Internet can expand markets while also making competition stronger.",
+      "studentNote": "The Internet can expand markets while also making competition stronger.",
+      "study": {
+        "title": "Question 9",
+        "simple": "Shared Internet standards make it easier for more firms to enter markets and offer comparable services, increasing rivalry.",
+        "whyCorrect": [
+          "Shared Internet standards make it easier for more firms to enter markets and offer comparable services, increasing rivalry."
+        ],
+        "studentNote": "The Internet can expand markets while also making competition stronger."
+      }
+    },
+    {
+      "number": "10",
+      "text": "Disruptive technologies typically:",
+      "options": [
+        "Maintain existing market structures",
+        "Are always developed by established companies",
+        "Reduce market share of existing products",
+        "Require massive initial investments"
+      ],
+      "correctAnswer": "Reduce market share of existing products",
+      "marks": 1,
+      "explanation": "Disruptive technologies can draw customers away from existing offerings by introducing a different way to meet their needs.\n\nStudent note: A disruption does not have to remove every older product immediately.",
+      "studentNote": "A disruption does not have to remove every older product immediately.",
+      "study": {
+        "title": "Question 10",
+        "simple": "Disruptive technologies can draw customers away from existing offerings by introducing a different way to meet their needs.",
+        "whyCorrect": [
+          "Disruptive technologies can draw customers away from existing offerings by introducing a different way to meet their needs."
+        ],
+        "studentNote": "A disruption does not have to remove every older product immediately."
+      }
+    },
+    {
+      "number": "11",
+      "text": "Digital skills in job markets are characterized by:",
+      "options": [
+        "Limited demand across industries",
+        "Strong demand across almost every occupation",
+        "Relevance only in IT sectors",
+        "Decreasing economic value"
+      ],
+      "correctAnswer": "Strong demand across almost every occupation",
+      "marks": 1,
+      "explanation": "Digital tools are used in many types of work, so digital skills are useful beyond specialist IT jobs.\n\nStudent note: Digital skills include using workplace applications and data, not only programming.",
+      "studentNote": "Digital skills include using workplace applications and data, not only programming.",
+      "study": {
+        "title": "Question 11",
+        "simple": "Digital tools are used in many types of work, so digital skills are useful beyond specialist IT jobs.",
+        "whyCorrect": [
+          "Digital tools are used in many types of work, so digital skills are useful beyond specialist IT jobs."
+        ],
+        "studentNote": "Digital skills include using workplace applications and data, not only programming."
+      }
+    },
+    {
+      "number": "12",
+      "text": "Spotify's podcast strategy illustrates the importance of:",
+      "options": [
+        "Blindly investing in content creation",
+        "Understanding medium-specific success factors",
+        "Ignoring market dynamics",
+        "Minimizing technological investment"
+      ],
+      "correctAnswer": "Understanding medium-specific success factors",
+      "marks": 1,
+      "explanation": "A strategy that works for music may not work unchanged for podcasts because content, audiences and business models differ.\n\nStudent note: Match the strategy to the medium and its users instead of copying a successful formula blindly.",
+      "studentNote": "Match the strategy to the medium and its users instead of copying a successful formula blindly.",
+      "study": {
+        "title": "Question 12",
+        "simple": "A strategy that works for music may not work unchanged for podcasts because content, audiences and business models differ.",
+        "whyCorrect": [
+          "A strategy that works for music may not work unchanged for podcasts because content, audiences and business models differ."
+        ],
+        "studentNote": "Match the strategy to the medium and its users instead of copying a successful formula blindly."
+      }
+    },
+    {
+      "number": "13",
+      "text": "Business processes can be best described as:",
+      "options": [
+        "Random organizational activities",
+        "Logically related tasks for accomplishing work",
+        "Exclusively technological procedures",
+        "Unstructured employee interactions"
+      ],
+      "correctAnswer": "Logically related tasks for accomplishing work",
+      "marks": 1,
+      "explanation": "A business process links related activities so that work can be completed and an outcome delivered.\n\nStudent note: Identify the input, connected tasks and useful output when describing a process.",
+      "studentNote": "Identify the input, connected tasks and useful output when describing a process.",
+      "study": {
+        "title": "Question 13",
+        "simple": "A business process links related activities so that work can be completed and an outcome delivered.",
+        "whyCorrect": [
+          "A business process links related activities so that work can be completed and an outcome delivered."
+        ],
+        "studentNote": "Identify the input, connected tasks and useful output when describing a process."
+      }
+    },
+    {
+      "number": "14",
+      "text": "Enterprise applications aim to:",
+      "options": [
+        "Complicate organizational processes",
+        "Isolate different business functions",
+        "Coordinate activities across organizational levels",
+        "Reduce technological investments"
+      ],
+      "correctAnswer": "Coordinate activities across organizational levels",
+      "marks": 1,
+      "explanation": "Enterprise applications connect information and activities across departments and management levels.\n\nStudent note: Their value comes from coordination rather than keeping each department isolated.",
+      "studentNote": "Their value comes from coordination rather than keeping each department isolated.",
+      "study": {
+        "title": "Question 14",
+        "simple": "Enterprise applications connect information and activities across departments and management levels.",
+        "whyCorrect": [
+          "Enterprise applications connect information and activities across departments and management levels."
+        ],
+        "studentNote": "Their value comes from coordination rather than keeping each department isolated."
+      }
+    },
+    {
+      "number": "15",
+      "text": "Cloud computing enables organizations to:",
+      "options": [
+        "Reduce technological investments",
+        "Access expanded analytical and processing power",
+        "Eliminate IT departments",
+        "Guarantee absolute data security"
+      ],
+      "correctAnswer": "Access expanded analytical and processing power",
+      "marks": 1,
+      "explanation": "Cloud services provide access to shared computing and storage resources, including capacity for analytics.\n\nStudent note: Cloud computing changes how resources are delivered; it does not remove the need to manage costs and access.",
+      "studentNote": "Cloud computing changes how resources are delivered; it does not remove the need to manage costs and access.",
+      "study": {
+        "title": "Question 15",
+        "simple": "Cloud services provide access to shared computing and storage resources, including capacity for analytics.",
+        "whyCorrect": [
+          "Cloud services provide access to shared computing and storage resources, including capacity for analytics."
+        ],
+        "studentNote": "Cloud computing changes how resources are delivered; it does not remove the need to manage costs and access."
+      }
+    },
+    {
+      "number": "16",
+      "text": "Generative AI tools can produce:",
+      "options": [
+        "Only textual content",
+        "Software programs, musical compositions, essays",
+        "Physical objects",
+        "Mechanical equipment"
+      ],
+      "correctAnswer": "Software programs, musical compositions, essays",
+      "marks": 1,
+      "explanation": "Generative AI creates new output such as text, code or music from learned patterns and user instructions.\n\nStudent note: Generated output may contain errors and should be checked before use.",
+      "studentNote": "Generated output may contain errors and should be checked before use.",
+      "study": {
+        "title": "Question 16",
+        "simple": "Generative AI creates new output such as text, code or music from learned patterns and user instructions.",
+        "whyCorrect": [
+          "Generative AI creates new output such as text, code or music from learned patterns and user instructions."
+        ],
+        "studentNote": "Generated output may contain errors and should be checked before use."
+      }
+    },
+    {
+      "number": "17",
+      "text": "Information systems support organizational functions by:",
+      "options": [
+        "Replacing human decision-making completely",
+        "Serving different specialties and organizational levels",
+        "Implementing uniform procedures across all departments",
+        "Eliminating departmental differences"
+      ],
+      "correctAnswer": "Serving different specialties and organizational levels",
+      "marks": 1,
+      "explanation": "Different business functions and management levels need different information and support from their systems.\n\nStudent note: A payroll system and a strategic dashboard support different tasks even if they share data.",
+      "studentNote": "A payroll system and a strategic dashboard support different tasks even if they share data.",
+      "study": {
+        "title": "Question 17",
+        "simple": "Different business functions and management levels need different information and support from their systems.",
+        "whyCorrect": [
+          "Different business functions and management levels need different information and support from their systems."
+        ],
+        "studentNote": "A payroll system and a strategic dashboard support different tasks even if they share data."
+      }
+    },
+    {
+      "number": "18",
+      "text": "An enterprise system (ERP) primarily helps:",
+      "options": [
+        "Isolate business functions",
+        "Integrate business processes into a single software system",
+        "Reduce technological investments",
+        "Limit information sharing"
+      ],
+      "correctAnswer": "Integrate business processes into a single software system",
+      "marks": 1,
+      "explanation": "ERP connects core processes through an integrated system and shared data so departments can coordinate work.\n\nStudent note: For example, a sales order can update inventory and accounting without repeated data capture.",
+      "studentNote": "For example, a sales order can update inventory and accounting without repeated data capture.",
+      "study": {
+        "title": "Question 18",
+        "simple": "ERP connects core processes through an integrated system and shared data so departments can coordinate work.",
+        "whyCorrect": [
+          "ERP connects core processes through an integrated system and shared data so departments can coordinate work."
+        ],
+        "studentNote": "For example, a sales order can update inventory and accounting without repeated data capture."
+      }
+    },
+    {
+      "number": "19",
+      "text": "What economic impact do information systems have on labour?",
+      "options": [
+        "They consistently increase employment",
+        "They can substitute for traditional labour",
+        "They have no impact on employment",
+        "They always require more human workers"
+      ],
+      "correctAnswer": "They can substitute for traditional labour",
+      "marks": 1,
+      "explanation": "Information systems can automate tasks previously performed by people and change the mix of labour a firm needs.\n\nStudent note: Automation can remove some tasks and create others; it does not always increase or decrease total employment.",
+      "studentNote": "Automation can remove some tasks and create others; it does not always increase or decrease total employment.",
+      "study": {
+        "title": "Question 19",
+        "simple": "Information systems can automate tasks previously performed by people and change the mix of labour a firm needs.",
+        "whyCorrect": [
+          "Information systems can automate tasks previously performed by people and change the mix of labour a firm needs."
+        ],
+        "studentNote": "Automation can remove some tasks and create others; it does not always increase or decrease total employment."
+      }
+    },
+    {
+      "number": "20",
+      "text": "Business processes can be best described as:",
+      "options": [
+        "Random organizational activities",
+        "Exclusively financial transactions",
+        "Only manufacturing-related workflows",
+        "The way work is organized to produce a valuable product or service"
+      ],
+      "correctAnswer": "The way work is organized to produce a valuable product or service",
+      "marks": 1,
+      "explanation": "A business process describes how related tasks are organised to produce a product or service with value.\n\nStudent note: A process can cross several departments; it is not restricted to manufacturing.",
+      "studentNote": "A process can cross several departments; it is not restricted to manufacturing.",
+      "study": {
+        "title": "Question 20",
+        "simple": "A business process describes how related tasks are organised to produce a product or service with value.",
+        "whyCorrect": [
+          "A business process describes how related tasks are organised to produce a product or service with value."
+        ],
+        "studentNote": "A process can cross several departments; it is not restricted to manufacturing."
+      }
+    },
+    {
+      "number": "21",
+      "text": "The value chain model helps organizations:",
+      "options": [
+        "Identify strategic improvement points",
+        "Eliminate all operational activities",
+        "Reduce technological investments",
+        "Ignore customer preferences"
+      ],
+      "correctAnswer": "Identify strategic improvement points",
+      "marks": 1,
+      "explanation": "The value chain breaks the firm into activities so managers can see where technology could reduce cost or add value.\n\nStudent note: Distinguish primary activities from supporting activities when applying the model.",
+      "studentNote": "Distinguish primary activities from supporting activities when applying the model.",
+      "study": {
+        "title": "Question 21",
+        "simple": "The value chain breaks the firm into activities so managers can see where technology could reduce cost or add value.",
+        "whyCorrect": [
+          "The value chain breaks the firm into activities so managers can see where technology could reduce cost or add value."
+        ],
+        "studentNote": "Distinguish primary activities from supporting activities when applying the model."
+      }
+    },
+    {
+      "number": "22",
+      "text": "Information technology can transform business processes by:",
+      "options": [
+        "Eliminating all human involvement",
+        "Increasing administrative bureaucracy",
+        "Reducing organizational flexibility",
+        "Replacing sequential steps with simultaneous tasks"
+      ],
+      "correctAnswer": "Replacing sequential steps with simultaneous tasks",
+      "marks": 1,
+      "explanation": "Shared information can let teams work in parallel instead of waiting for each step to finish before starting the next.\n\nStudent note: Parallel work helps only when tasks do not depend on an unfinished earlier result.",
+      "studentNote": "Parallel work helps only when tasks do not depend on an unfinished earlier result.",
+      "study": {
+        "title": "Question 22",
+        "simple": "Shared information can let teams work in parallel instead of waiting for each step to finish before starting the next.",
+        "whyCorrect": [
+          "Shared information can let teams work in parallel instead of waiting for each step to finish before starting the next."
+        ],
+        "studentNote": "Parallel work helps only when tasks do not depend on an unfinished earlier result."
+      }
+    },
+    {
+      "number": "23",
+      "text": "Strategic information systems typically:",
+      "options": [
+        "Remain completely static",
+        "Have no impact on operational procedures",
+        "Require minimal organizational adaptation",
+        "Fundamentally change organizational behaviours"
+      ],
+      "correctAnswer": "Fundamentally change organizational behaviours",
+      "marks": 1,
+      "explanation": "Strategic information systems can change roles, routines and relationships as they change how a firm competes.\n\nStudent note: Successful implementation usually needs organisational change as well as technology.",
+      "studentNote": "Successful implementation usually needs organisational change as well as technology.",
+      "study": {
+        "title": "Question 23",
+        "simple": "Strategic information systems can change roles, routines and relationships as they change how a firm competes.",
+        "whyCorrect": [
+          "Strategic information systems can change roles, routines and relationships as they change how a firm competes."
+        ],
+        "studentNote": "Successful implementation usually needs organisational change as well as technology."
+      }
+    },
+    {
+      "number": "24",
+      "text": "Corporate governance criteria primarily relate to:",
+      "options": [
+        "Technological investments only",
+        "Leadership actions and internal controls",
+        "Reducing operational costs",
+        "Eliminating employee interactions"
+      ],
+      "correctAnswer": "Leadership actions and internal controls",
+      "marks": 1,
+      "explanation": "Corporate governance concerns how an organisation is directed, controlled and held accountable.\n\nStudent note: Leadership decisions and internal controls matter alongside financial and technical measures.",
+      "studentNote": "Leadership decisions and internal controls matter alongside financial and technical measures.",
+      "study": {
+        "title": "Question 24",
+        "simple": "Corporate governance concerns how an organisation is directed, controlled and held accountable.",
+        "whyCorrect": [
+          "Corporate governance concerns how an organisation is directed, controlled and held accountable."
+        ],
+        "studentNote": "Leadership decisions and internal controls matter alongside financial and technical measures."
+      }
+    },
+    {
+      "number": "25",
+      "text": "What is the main purpose of knowledge management systems?",
+      "options": [
+        "To replace employees",
+        "To manage financial transactions",
+        "To create, store, transfer, and apply knowledge",
+        "To design hardware systems"
+      ],
+      "correctAnswer": "To create, store, transfer, and apply knowledge",
+      "marks": 1,
+      "explanation": "Knowledge management systems help capture, store, share and apply expertise so it can be reused.\n\nStudent note: Storing documents is useful only if people can find and apply the knowledge.",
+      "studentNote": "Storing documents is useful only if people can find and apply the knowledge.",
+      "study": {
+        "title": "Question 25",
+        "simple": "Knowledge management systems help capture, store, share and apply expertise so it can be reused.",
+        "whyCorrect": [
+          "Knowledge management systems help capture, store, share and apply expertise so it can be reused."
+        ],
+        "studentNote": "Storing documents is useful only if people can find and apply the knowledge."
+      }
+    },
+    {
+      "number": "26",
+      "text": "Big data is challenging to process using:",
+      "options": [
+        "Traditional methods",
+        "Advanced computing systems",
+        "Machine learning algorithms",
+        "Cloud infrastructure"
+      ],
+      "correctAnswer": "Traditional methods",
+      "marks": 1,
+      "explanation": "Very large, varied and rapidly arriving data can exceed the practical limits of conventional processing methods.\n\nStudent note: Big data is about processing challenges as well as size.",
+      "studentNote": "Big data is about processing challenges as well as size.",
+      "study": {
+        "title": "Question 26",
+        "simple": "Very large, varied and rapidly arriving data can exceed the practical limits of conventional processing methods.",
+        "whyCorrect": [
+          "Very large, varied and rapidly arriving data can exceed the practical limits of conventional processing methods."
+        ],
+        "studentNote": "Big data is about processing challenges as well as size."
+      }
+    },
+    {
+      "number": "27",
+      "text": "What distinguishes AI from traditional computing systems?",
+      "options": [
+        "Processing speed",
+        "Ability to perform tasks requiring human-like intelligence",
+        "Memory capacity",
+        "Network connectivity"
+      ],
+      "correctAnswer": "Ability to perform tasks requiring human-like intelligence",
+      "marks": 1,
+      "explanation": "AI systems carry out tasks such as recognising patterns or interpreting language that normally require aspects of human intelligence.\n\nStudent note: An AI label does not mean a system has human understanding or is always correct.",
+      "studentNote": "An AI label does not mean a system has human understanding or is always correct.",
+      "study": {
+        "title": "Question 27",
+        "simple": "AI systems carry out tasks such as recognising patterns or interpreting language that normally require aspects of human intelligence.",
+        "whyCorrect": [
+          "AI systems carry out tasks such as recognising patterns or interpreting language that normally require aspects of human intelligence."
+        ],
+        "studentNote": "An AI label does not mean a system has human understanding or is always correct."
+      }
+    },
+    {
+      "number": "28",
+      "text": "Smart products in the Internet of Things (IoT) typically:",
+      "options": [
+        "Increase switching costs",
+        "Decrease product functionality",
+        "Reduce manufacturer insights",
+        "Minimize customer interactions"
+      ],
+      "correctAnswer": "Increase switching costs",
+      "marks": 1,
+      "explanation": "Connected products can build up data, integrations and familiar services that make moving to a different supplier harder.\n\nStudent note: Higher switching costs are a possible strategic effect of IoT, not a property of every connected product.",
+      "studentNote": "Higher switching costs are a possible strategic effect of IoT, not a property of every connected product.",
+      "study": {
+        "title": "Question 28",
+        "simple": "Connected products can build up data, integrations and familiar services that make moving to a different supplier harder.",
+        "whyCorrect": [
+          "Connected products can build up data, integrations and familiar services that make moving to a different supplier harder."
+        ],
+        "studentNote": "Higher switching costs are a possible strategic effect of IoT, not a property of every connected product."
+      }
+    },
+    {
+      "number": "29",
+      "text": "Why is knowledge a source of competitive advantage?",
+      "options": [
+        "It is easy to copy",
+        "It is widely available",
+        "It cannot be easily duplicated",
+        "It requires no investment"
+      ],
+      "correctAnswer": "It cannot be easily duplicated",
+      "marks": 1,
+      "explanation": "Experience, expertise and organisational routines can be difficult for competitors to reproduce.\n\nStudent note: Knowledge becomes an advantage when the organisation can use it effectively.",
+      "studentNote": "Knowledge becomes an advantage when the organisation can use it effectively.",
+      "study": {
+        "title": "Question 29",
+        "simple": "Experience, expertise and organisational routines can be difficult for competitors to reproduce.",
+        "whyCorrect": [
+          "Experience, expertise and organisational routines can be difficult for competitors to reproduce."
+        ],
+        "studentNote": "Knowledge becomes an advantage when the organisation can use it effectively."
+      }
+    },
+    {
+      "number": "30",
+      "text": "Which technology enables real-time collaborative document editing?",
+      "options": [
+        "Cloud collaboration services",
+        "Traditional email systems",
+        "Telephone conferencing",
+        "Postal mail"
+      ],
+      "correctAnswer": "Cloud collaboration services",
+      "marks": 1,
+      "explanation": "Cloud collaboration platforms let several people work on shared documents with updates visible to others.\n\nStudent note: Check permissions and version history when sharing a document.",
+      "studentNote": "Check permissions and version history when sharing a document.",
+      "study": {
+        "title": "Question 30",
+        "simple": "Cloud collaboration platforms let several people work on shared documents with updates visible to others.",
+        "whyCorrect": [
+          "Cloud collaboration platforms let several people work on shared documents with updates visible to others."
+        ],
+        "studentNote": "Check permissions and version history when sharing a document."
+      }
+    },
+    {
+      "number": "31",
+      "text": "The key to successful AI implementation in competitive strategy involves:",
+      "options": [
+        "Massive, indiscriminate technological investment",
+        "Minimal management involvement",
+        "Precise alignment with organizational objectives",
+        "Standardizing all business processes"
+      ],
+      "correctAnswer": "Precise alignment with organizational objectives",
+      "marks": 1,
+      "explanation": "AI should solve a defined business problem and contribute to the organisation's objectives.\n\nStudent note: Start with the goal and measure results rather than adopting AI only because it is available.",
+      "studentNote": "Start with the goal and measure results rather than adopting AI only because it is available.",
+      "study": {
+        "title": "Question 31",
+        "simple": "AI should solve a defined business problem and contribute to the organisation's objectives.",
+        "whyCorrect": [
+          "AI should solve a defined business problem and contribute to the organisation's objectives."
+        ],
+        "studentNote": "Start with the goal and measure results rather than adopting AI only because it is available."
+      }
+    },
+    {
+      "number": "32",
+      "text": "AI's role in strategic decision-making can best be described as:",
+      "options": [
+        "A complete replacement for human creativity",
+        "A tool to advise and support executive decision-making",
+        "An autonomous strategic planning mechanism",
+        "A method to eliminate strategic thinking"
+      ],
+      "correctAnswer": "A tool to advise and support executive decision-making",
+      "marks": 1,
+      "explanation": "AI can analyse information and suggest options while executives use judgement to choose a course of action.\n\nStudent note: Decision support does not remove management accountability.",
+      "studentNote": "Decision support does not remove management accountability.",
+      "study": {
+        "title": "Question 32",
+        "simple": "AI can analyse information and suggest options while executives use judgement to choose a course of action.",
+        "whyCorrect": [
+          "AI can analyse information and suggest options while executives use judgement to choose a course of action."
+        ],
+        "studentNote": "Decision support does not remove management accountability."
+      }
+    },
+    {
+      "number": "33",
+      "text": "The \"wisdom of crowds\" supports:",
+      "options": [
+        "Individual work",
+        "Collaboration and teamwork",
+        "Strict hierarchical structures",
+        "Limiting information sharing"
+      ],
+      "correctAnswer": "Collaboration and teamwork",
+      "marks": 1,
+      "explanation": "Collecting contributions from many people can bring diverse knowledge and viewpoints to a shared problem.\n\nStudent note: Crowd input works best when contributions are diverse and assessed carefully; a crowd can also be wrong.",
+      "studentNote": "Crowd input works best when contributions are diverse and assessed carefully; a crowd can also be wrong.",
+      "study": {
+        "title": "Question 33",
+        "simple": "Collecting contributions from many people can bring diverse knowledge and viewpoints to a shared problem.",
+        "whyCorrect": [
+          "Collecting contributions from many people can bring diverse knowledge and viewpoints to a shared problem."
+        ],
+        "studentNote": "Crowd input works best when contributions are diverse and assessed carefully; a crowd can also be wrong."
+      }
+    },
+    {
+      "number": "34",
+      "text": "The primary purpose of a Customer Relationship Management (CRM) system is to:",
+      "options": [
+        "Replace sales representatives",
+        "Optimize revenue and customer retention",
+        "Develop product designs",
+        "Manage inventory levels"
+      ],
+      "correctAnswer": "Optimize revenue and customer retention",
+      "marks": 1,
+      "explanation": "CRM helps a business manage customer relationships to improve sales, service, retention and revenue.\n\nStudent note: CRM covers the customer lifecycle rather than only keeping an address book.",
+      "studentNote": "CRM covers the customer lifecycle rather than only keeping an address book.",
+      "study": {
+        "title": "Question 34",
+        "simple": "CRM helps a business manage customer relationships to improve sales, service, retention and revenue.",
+        "whyCorrect": [
+          "CRM helps a business manage customer relationships to improve sales, service, retention and revenue."
+        ],
+        "studentNote": "CRM covers the customer lifecycle rather than only keeping an address book."
+      }
+    },
+    {
+      "number": "35",
+      "text": "The behavioural view of organizations emphasizes:",
+      "options": [
+        "Technical production metrics",
+        "Rights, privileges, and relationships",
+        "Financial performance",
+        "Technological infrastructure"
+      ],
+      "correctAnswer": "Rights, privileges, and relationships",
+      "marks": 1,
+      "explanation": "The behavioural view focuses on people, rights, relationships and negotiated responsibilities inside an organisation.\n\nStudent note: Compare this with the technical view, which focuses on inputs, outputs and efficiency.",
+      "studentNote": "Compare this with the technical view, which focuses on inputs, outputs and efficiency.",
+      "study": {
+        "title": "Question 35",
+        "simple": "The behavioural view focuses on people, rights, relationships and negotiated responsibilities inside an organisation.",
+        "whyCorrect": [
+          "The behavioural view focuses on people, rights, relationships and negotiated responsibilities inside an organisation."
+        ],
+        "studentNote": "Compare this with the technical view, which focuses on inputs, outputs and efficiency."
+      }
+    },
+    {
+      "number": "36",
+      "text": "Digital transformation primarily involves:",
+      "options": [
+        "Maintaining traditional business models",
+        "Resisting technological change",
+        "Fundamental changes in business operations",
+        "Reducing digital investments"
+      ],
+      "correctAnswer": "Fundamental changes in business operations",
+      "marks": 1,
+      "explanation": "Digital transformation changes how a business operates and creates value through digital technology.\n\nStudent note: Buying new software without changing work practices may be only a technology upgrade.",
+      "studentNote": "Buying new software without changing work practices may be only a technology upgrade.",
+      "study": {
+        "title": "Question 36",
+        "simple": "Digital transformation changes how a business operates and creates value through digital technology.",
+        "whyCorrect": [
+          "Digital transformation changes how a business operates and creates value through digital technology."
+        ],
+        "studentNote": "Buying new software without changing work practices may be only a technology upgrade."
+      }
+    },
+    {
+      "number": "37",
+      "text": "Cloud computing allows access to resources:",
+      "options": [
+        "Only during business hours",
+        "Anytime and anywhere via Internet-connected devices",
+        "Exclusively through physical terminals",
+        "Limited to specific geographic regions"
+      ],
+      "correctAnswer": "Anytime and anywhere via Internet-connected devices",
+      "marks": 1,
+      "explanation": "Internet access allows authorised users to reach cloud services from different locations and at different times.\n\nStudent note: Availability still depends on connectivity, permissions and the service provider.",
+      "studentNote": "Availability still depends on connectivity, permissions and the service provider.",
+      "study": {
+        "title": "Question 37",
+        "simple": "Internet access allows authorised users to reach cloud services from different locations and at different times.",
+        "whyCorrect": [
+          "Internet access allows authorised users to reach cloud services from different locations and at different times."
+        ],
+        "studentNote": "Availability still depends on connectivity, permissions and the service provider."
+      }
+    },
+    {
+      "number": "38",
+      "text": "Collaboration tools help organizations:",
+      "options": [
+        "Maintain strict communication barriers",
+        "Reduce operational efficiency",
+        "Spur innovation and accelerate decision making",
+        "Limit employee interactions"
+      ],
+      "correctAnswer": "Spur innovation and accelerate decision making",
+      "marks": 1,
+      "explanation": "Collaboration tools make it easier to share ideas, coordinate work and reach decisions together.\n\nStudent note: The tools support teamwork, but clear responsibilities and communication are still needed.",
+      "studentNote": "The tools support teamwork, but clear responsibilities and communication are still needed.",
+      "study": {
+        "title": "Question 38",
+        "simple": "Collaboration tools make it easier to share ideas, coordinate work and reach decisions together.",
+        "whyCorrect": [
+          "Collaboration tools make it easier to share ideas, coordinate work and reach decisions together."
+        ],
+        "studentNote": "The tools support teamwork, but clear responsibilities and communication are still needed."
+      }
+    },
+    {
+      "number": "39",
+      "text": "Digital transformation is best characterized as:",
+      "options": [
+        "A one-time technological upgrade",
+        "An ongoing process of fundamental change",
+        "Exclusively an IT department responsibility",
+        "A temporary business trend"
+      ],
+      "correctAnswer": "An ongoing process of fundamental change",
+      "marks": 1,
+      "explanation": "Digital transformation continues as customer needs, technology and business opportunities change.\n\nStudent note: Treat it as ongoing improvement and organisational change, not a single installation.",
+      "studentNote": "Treat it as ongoing improvement and organisational change, not a single installation.",
+      "study": {
+        "title": "Question 39",
+        "simple": "Digital transformation continues as customer needs, technology and business opportunities change.",
+        "whyCorrect": [
+          "Digital transformation continues as customer needs, technology and business opportunities change."
+        ],
+        "studentNote": "Treat it as ongoing improvement and organisational change, not a single installation."
+      }
+    },
+    {
+      "number": "40",
+      "text": "An Executive Support System (ESS) primarily helps:",
+      "options": [
+        "Senior management make strategic decisions",
+        "Operational managers track inventory",
+        "Middle managers control daily operations",
+        "Customer service representatives resolve issues"
+      ],
+      "correctAnswer": "Senior management make strategic decisions",
+      "marks": 1,
+      "explanation": "An ESS gives senior managers high-level information for long-term, often unstructured strategic decisions.\n\nStudent note: Contrast an ESS with transaction systems that handle routine daily records.",
+      "studentNote": "Contrast an ESS with transaction systems that handle routine daily records.",
+      "study": {
+        "title": "Question 40",
+        "simple": "An ESS gives senior managers high-level information for long-term, often unstructured strategic decisions.",
+        "whyCorrect": [
+          "An ESS gives senior managers high-level information for long-term, often unstructured strategic decisions."
+        ],
+        "studentNote": "Contrast an ESS with transaction systems that handle routine daily records."
+      }
+    },
+    {
+      "number": "41",
+      "text": "The sustainability of competitive advantages from strategic information systems is challenged by:",
+      "options": [
+        "Technological immutability",
+        "Market stagnation",
+        "Rapid technological changes and potential competitor replication",
+        "Complete technological isolation"
+      ],
+      "correctAnswer": "Rapid technological changes and potential competitor replication",
+      "marks": 1,
+      "explanation": "Competitors can copy successful systems and new technologies can change customer expectations, weakening an earlier advantage.\n\nStudent note: A business must keep improving its processes and capabilities to sustain an advantage.",
+      "studentNote": "A business must keep improving its processes and capabilities to sustain an advantage.",
+      "study": {
+        "title": "Question 41",
+        "simple": "Competitors can copy successful systems and new technologies can change customer expectations, weakening an earlier advantage.",
+        "whyCorrect": [
+          "Competitors can copy successful systems and new technologies can change customer expectations, weakening an earlier advantage."
+        ],
+        "studentNote": "A business must keep improving its processes and capabilities to sustain an advantage."
+      }
+    },
+    {
+      "number": "42",
+      "text": "How do information systems affect decision-making?",
+      "options": [
+        "They centralize all decisions",
+        "They eliminate management roles",
+        "They complicate decision processes",
+        "They empower lower-level employees"
+      ],
+      "correctAnswer": "They empower lower-level employees",
+      "marks": 1,
+      "explanation": "Accessible information can allow employees closer to a problem to make informed decisions without sending every issue upwards.\n\nStudent note: Empowerment still needs suitable authority, skills and controls.",
+      "studentNote": "Empowerment still needs suitable authority, skills and controls.",
+      "study": {
+        "title": "Question 42",
+        "simple": "Accessible information can allow employees closer to a problem to make informed decisions without sending every issue upwards.",
+        "whyCorrect": [
+          "Accessible information can allow employees closer to a problem to make informed decisions without sending every issue upwards."
+        ],
+        "studentNote": "Empowerment still needs suitable authority, skills and controls."
+      }
+    },
+    {
+      "number": "43",
+      "text": "According to the text, what makes a technology \"disruptive\"?",
+      "options": [
+        "It is expensive to implement",
+        "It completely replaces existing products or services",
+        "It significantly reduces market share of existing products",
+        "It requires extensive employee training"
+      ],
+      "correctAnswer": "It significantly reduces market share of existing products",
+      "marks": 1,
+      "explanation": "In the supplied review, disruption is identified by its effect on the market share of established products.\n\nStudent note: Use the wording of this question: displacement can be significant without being complete.",
+      "studentNote": "Use the wording of this question: displacement can be significant without being complete.",
+      "study": {
+        "title": "Question 43",
+        "simple": "In the supplied review, disruption is identified by its effect on the market share of established products.",
+        "whyCorrect": [
+          "In the supplied review, disruption is identified by its effect on the market share of established products."
+        ],
+        "studentNote": "Use the wording of this question: displacement can be significant without being complete."
+      }
+    },
+    {
+      "number": "44",
+      "text": "According to the National Skills Coalition study, workers with how many digital skills can potentially increase their pay by an average of 45%?",
+      "options": [
+        "One digital skill",
+        "Two digital skills",
+        "At least three digital skills",
+        "Four or more digital skills"
+      ],
+      "correctAnswer": "At least three digital skills",
+      "marks": 1,
+      "explanation": "The supplied assessment feedback identifies at least three digital skills as the answer to this textbook-specific study question.\n\nStudent note: Remember the quoted threshold for this assessment; the pay figure is a reported study result, not a guaranteed personal outcome.",
+      "studentNote": "Remember the quoted threshold for this assessment; the pay figure is a reported study result, not a guaranteed personal outcome.",
+      "study": {
+        "title": "Question 44",
+        "simple": "The supplied assessment feedback identifies at least three digital skills as the answer to this textbook-specific study question.",
+        "whyCorrect": [
+          "The supplied assessment feedback identifies at least three digital skills as the answer to this textbook-specific study question."
+        ],
+        "studentNote": "Remember the quoted threshold for this assessment; the pay figure is a reported study result, not a guaranteed personal outcome."
+      }
+    },
+    {
+      "number": "45",
+      "text": "Transaction cost theory suggests organizations seek to:",
+      "options": [
+        "Maximize employee count",
+        "Increase bureaucratic complexity",
+        "Economize on transaction costs",
+        "Centralize decision-making"
+      ],
+      "correctAnswer": "Economize on transaction costs",
+      "marks": 1,
+      "explanation": "Transaction cost theory explains how firms organise work to reduce the costs of finding, negotiating and coordinating exchanges.\n\nStudent note: Information systems can reduce coordination costs inside a firm and with outside partners.",
+      "studentNote": "Information systems can reduce coordination costs inside a firm and with outside partners.",
+      "study": {
+        "title": "Question 45",
+        "simple": "Transaction cost theory explains how firms organise work to reduce the costs of finding, negotiating and coordinating exchanges.",
+        "whyCorrect": [
+          "Transaction cost theory explains how firms organise work to reduce the costs of finding, negotiating and coordinating exchanges."
+        ],
+        "studentNote": "Information systems can reduce coordination costs inside a firm and with outside partners."
+      }
+    },
+    {
+      "number": "46",
+      "text": "The interdependence between information technology and corporate strategy means:",
+      "options": [
+        "Technology determines all business strategies",
+        "Business goals increasingly depend on system capabilities",
+        "Systems are completely independent of business needs",
+        "Technology has no strategic significance"
+      ],
+      "correctAnswer": "Business goals increasingly depend on system capabilities",
+      "marks": 1,
+      "explanation": "Business plans increasingly depend on what information systems can deliver, such as integration, speed and reliable data.\n\nStudent note: Strategy guides technology choices, while system capabilities also shape which strategies are practical.",
+      "studentNote": "Strategy guides technology choices, while system capabilities also shape which strategies are practical.",
+      "study": {
+        "title": "Question 46",
+        "simple": "Business plans increasingly depend on what information systems can deliver, such as integration, speed and reliable data.",
+        "whyCorrect": [
+          "Business plans increasingly depend on what information systems can deliver, such as integration, speed and reliable data."
+        ],
+        "studentNote": "Strategy guides technology choices, while system capabilities also shape which strategies are practical."
+      }
+    },
+    {
+      "number": "47",
+      "text": "What happens when firms lack knowledge?",
+      "options": [
+        "They become more innovative",
+        "They become less efficient",
+        "They grow faster",
+        "They reduce costs automatically"
+      ],
+      "correctAnswer": "They become less efficient",
+      "marks": 1,
+      "explanation": "Without relevant knowledge, employees repeat mistakes and spend longer finding solutions, reducing efficiency.\n\nStudent note: Knowledge sharing helps avoid repeatedly solving the same problem.",
+      "studentNote": "Knowledge sharing helps avoid repeatedly solving the same problem.",
+      "study": {
+        "title": "Question 47",
+        "simple": "Without relevant knowledge, employees repeat mistakes and spend longer finding solutions, reducing efficiency.",
+        "whyCorrect": [
+          "Without relevant knowledge, employees repeat mistakes and spend longer finding solutions, reducing efficiency."
+        ],
+        "studentNote": "Knowledge sharing helps avoid repeatedly solving the same problem."
+      }
+    },
+    {
+      "number": "48",
+      "text": "Big data is characterized primarily by which three attributes?",
+      "options": [
+        "Speed, complexity, and volume",
+        "Volume, variety, and velocity",
+        "Size, scope, and scale",
+        "Complexity, density, and range"
+      ],
+      "correctAnswer": "Volume, variety, and velocity",
+      "marks": 1,
+      "explanation": "Volume describes quantity, variety describes different forms and sources, and velocity describes the speed of data generation and processing.\n\nStudent note: Remember the three Vs: volume, variety and velocity.",
+      "studentNote": "Remember the three Vs: volume, variety and velocity.",
+      "study": {
+        "title": "Question 48",
+        "simple": "Volume describes quantity, variety describes different forms and sources, and velocity describes the speed of data generation and processing.",
+        "whyCorrect": [
+          "Volume describes quantity, variety describes different forms and sources, and velocity describes the speed of data generation and processing."
+        ],
+        "studentNote": "Remember the three Vs: volume, variety and velocity."
+      }
+    },
+    {
+      "number": "49",
+      "text": "Information systems can help organizations:",
+      "options": [
+        "Ignore environmental changes",
+        "Resist technological innovations",
+        "Scan and respond to external changes",
+        "Maintain rigid structures"
+      ],
+      "correctAnswer": "Scan and respond to external changes",
+      "marks": 1,
+      "explanation": "Information systems help firms monitor customers, competitors and other external signals so they can respond to change.\n\nStudent note: Information must be interpreted and acted on; collecting it alone is not enough.",
+      "studentNote": "Information must be interpreted and acted on; collecting it alone is not enough.",
+      "study": {
+        "title": "Question 49",
+        "simple": "Information systems help firms monitor customers, competitors and other external signals so they can respond to change.",
+        "whyCorrect": [
+          "Information systems help firms monitor customers, competitors and other external signals so they can respond to change."
+        ],
+        "studentNote": "Information must be interpreted and acted on; collecting it alone is not enough."
+      }
+    },
+    {
+      "number": "50",
+      "text": "Business process analysis helps:",
+      "options": [
+        "Complicate organizational workflows",
+        "Eliminate technological investments",
+        "Understand and potentially improve business efficiency",
+        "Reduce organizational flexibility"
+      ],
+      "correctAnswer": "Understand and potentially improve business efficiency",
+      "marks": 1,
+      "explanation": "Process analysis examines activities, handovers and delays to identify ways to improve work.\n\nStudent note: Map the current process before proposing changes so the real problem is clear.",
+      "studentNote": "Map the current process before proposing changes so the real problem is clear.",
+      "study": {
+        "title": "Question 50",
+        "simple": "Process analysis examines activities, handovers and delays to identify ways to improve work.",
+        "whyCorrect": [
+          "Process analysis examines activities, handovers and delays to identify ways to improve work."
+        ],
+        "studentNote": "Map the current process before proposing changes so the real problem is clear."
+      }
+    }
+  ]
+}
