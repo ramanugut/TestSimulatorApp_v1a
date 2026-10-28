@@ -5542,8 +5542,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
   //************************ SECTION 4: TEST FILE LOADING ************************//
 
-  // Test file references
-const testFiles = [
+  // Completed modules remain stored in the repository, but do not appear
+  // in the active module/paper picker or custom test builder.
+  // To bring a completed module back, remove its code from this set.
+  const completedModuleCodes = new Set(["INF3708", "ICT2631", "ICT2622", "ICT2613"]);
+  const isCompletedModulePaper = (file) => {
+    const module = file === "test36.json"
+      ? "INF3708"
+      : (String(file).match(/^(?:ict|inf)\d{4}/i)?.[0] || "").toUpperCase();
+    return completedModuleCodes.has(module);
+  };
+
+  // Preserve the complete question-paper inventory, including completed modules.
+const allTestFiles = [
   // Curated INF3708 originals and separately labelled ICT2631 original revision
   // packs. Legacy test*.json files stay hidden from the picker and custom builder.
   "inf3708-oct-nov-2021.json",
@@ -5606,6 +5617,9 @@ const testFiles = [
   "ict3722-assignment-4-2024-practice.json",
   "ict3722-oracle-security-sql-verified-practice.json",
 ];
+
+// Only active modules feed the regular picker, both UI looks and custom tests.
+const testFiles = allTestFiles.filter((file) => !isCompletedModulePaper(file));
 
 // Verified ICT2622 paper archive.
 // These are real-paper records discovered from public source listings.
@@ -5694,7 +5708,7 @@ const ict2622VerifiedPaperArchive = [
     // Show the complete verified ICT2622 paper history without turning source
     // listings into fake tests. Disabled archive items are informational until
     // the exact original question text is available for import.
-    if (ict2622VerifiedPaperArchive.length) {
+    if (ict2622VerifiedPaperArchive.length && !completedModuleCodes.has("ICT2622")) {
       const archiveGroup = document.createElement("optgroup");
       archiveGroup.label = "ICT2622 · Verified paper archive (exact questions pending)";
       ict2622VerifiedPaperArchive.forEach(record => {
