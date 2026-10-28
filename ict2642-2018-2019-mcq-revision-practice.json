@@ -1,0 +1,169 @@
+{
+  "testName": "ICT2642 · 2018–2019 MCQ collection · revision (rewritten)",
+  "module": "ICT2642",
+  "assessment": "2018–2019 MCQ revision themes",
+  "totalMarks": 12,
+  "preserveOrder": true,
+  "marking": "automatic-mcq",
+  "sourceType": "Independent original practice questions based on publicly listed exam or MCQ topics; not verbatim UNISA paper questions",
+  "sourceReference": "https://www.studocu.com/en-za/quiz/ict2642-mcqs-questions/4835528",
+  "sourceLimitations": "These are newly written MCQs based on themes in the linked public source, not exact original paper wording. Some source previews are incomplete. Use the Source link to view the original where available.",
+  "questions": [
+    {
+      "number": "1",
+      "text": "Which activity is least likely to be recorded by a transaction processing system?",
+      "options": [
+        "An informal internal email between colleagues",
+        "A hotel room booking",
+        "A package dispatch record",
+        "An airline ticket sale"
+      ],
+      "correctAnswer": "An informal internal email between colleagues",
+      "marks": 1,
+      "explanation": "TPS is used for routine business transactions. An email conversation is communication, not necessarily a recorded business transaction.\n\nStudent note: Do not treat every computer activity as a TPS transaction."
+    },
+    {
+      "number": "2",
+      "text": "In the value chain, developing technology that supports production is normally what type of activity?",
+      "options": [
+        "Support activity",
+        "Primary inbound logistics activity",
+        "Primary outbound logistics activity",
+        "Primary sales activity"
+      ],
+      "correctAnswer": "Support activity",
+      "marks": 1,
+      "explanation": "Technology development helps several parts of the business operate and is one of the value chain's support activities.\n\nStudent note: Operations are primary; technology development is support."
+    },
+    {
+      "number": "3",
+      "text": "A company assembles and packages products for sale. In the value chain, this is normally ...",
+      "options": [
+        "Operations, a primary activity",
+        "Human resource management, a support activity",
+        "Firm infrastructure only",
+        "Procurement only"
+      ],
+      "correctAnswer": "Operations, a primary activity",
+      "marks": 1,
+      "explanation": "Operations convert inputs into finished products or services; they directly create value.\n\nStudent note: Primary activities also include logistics, marketing/sales and service."
+    },
+    {
+      "number": "4",
+      "text": "Customers can move to a competitor without paying an exit fee. What tends to happen to customer bargaining power?",
+      "options": [
+        "It increases",
+        "It always disappears",
+        "It becomes impossible to compare prices",
+        "It has no possible effect"
+      ],
+      "correctAnswer": "It increases",
+      "marks": 1,
+      "explanation": "Low switching costs make it easier for customers to leave, giving them more choice and bargaining power.\n\nStudent note: High switching cost can reduce customer bargaining power."
+    },
+    {
+      "number": "5",
+      "text": "What enables a virtual company to coordinate resources belonging to different partners?",
+      "options": [
+        "Networked information systems",
+        "A single shared head-office building",
+        "A ban on external suppliers",
+        "Eliminating all electronic communication"
+      ],
+      "correctAnswer": "Networked information systems",
+      "marks": 1,
+      "explanation": "Digital communication and networks allow virtual businesses to coordinate partners and resources.\n\nStudent note: Network collaboration can be global."
+    },
+    {
+      "number": "6",
+      "text": "What is a business model?",
+      "options": [
+        "An explanation of how a business creates and earns value",
+        "A computer's brand name",
+        "The number of database fields",
+        "A printed network diagram only"
+      ],
+      "correctAnswer": "An explanation of how a business creates and earns value",
+      "marks": 1,
+      "explanation": "A business model describes customers, offerings, costs, revenue and how the organisation operates.\n\nStudent note: A new business model can create competitive advantage."
+    },
+    {
+      "number": "7",
+      "text": "Which statement correctly expands SaaS?",
+      "options": [
+        "Software as a Service",
+        "Storage as a Security rule",
+        "System as an internal Switch",
+        "Software and Storage"
+      ],
+      "correctAnswer": "Software as a Service",
+      "marks": 1,
+      "explanation": "SaaS means users access vendor-hosted applications as a service, often with a subscription.\n\nStudent note: SaaS is an application delivery model, not a hardware type."
+    },
+    {
+      "number": "8",
+      "text": "Which technology is used to exchange standard business documents such as purchase orders between organisations?",
+      "options": [
+        "Electronic Data Interchange (EDI)",
+        "Random Access Memory (RAM)",
+        "Graphical Processing Unit (GPU)",
+        "Screen mirroring only"
+      ],
+      "correctAnswer": "Electronic Data Interchange (EDI)",
+      "marks": 1,
+      "explanation": "EDI allows systems at different organisations to exchange structured business documents using agreed formats.\n\nStudent note: EDI helps automate repeated business-to-business transactions."
+    },
+    {
+      "number": "9",
+      "text": "A manager starts with total sales and then opens sales by branch and by product. What BI action is this?",
+      "options": [
+        "Drill-down",
+        "Data deletion",
+        "System rollback",
+        "Network bridging"
+      ],
+      "correctAnswer": "Drill-down",
+      "marks": 1,
+      "explanation": "Drill-down lets a user move from a high-level summary to more detailed views.\n\nStudent note: Drill-down = go deeper; roll-up = summarise upwards."
+    },
+    {
+      "number": "10",
+      "text": "An online store sells directly to buyers instead of using several retailers. What is this called?",
+      "options": [
+        "Disintermediation",
+        "Data normalisation",
+        "Data encryption",
+        "Vertical reporting"
+      ],
+      "correctAnswer": "Disintermediation",
+      "marks": 1,
+      "explanation": "Disintermediation removes intermediaries in a distribution channel and may reduce costs.\n\nStudent note: The customer may pay less because fewer middlemen are involved."
+    },
+    {
+      "number": "11",
+      "text": "Which tool best presents key performance indicators on one screen?",
+      "options": [
+        "Business intelligence dashboard",
+        "Printer driver",
+        "Text compression utility",
+        "Power cable"
+      ],
+      "correctAnswer": "Business intelligence dashboard",
+      "marks": 1,
+      "explanation": "Dashboards combine important measures in charts and indicators so managers can monitor performance.\n\nStudent note: A dashboard shows a quick overview; drill-down reveals details."
+    },
+    {
+      "number": "12",
+      "text": "Which system is designed to support a company's communication with customers during sales and service?",
+      "options": [
+        "CRM system",
+        "Payroll-only system",
+        "Operating system kernel",
+        "Video display connector"
+      ],
+      "correctAnswer": "CRM system",
+      "marks": 1,
+      "explanation": "CRM helps teams follow customer interactions, service cases and sales activity in one place.\n\nStudent note: CRM deals with customers; ERP integrates internal processes; SCM coordinates supply."
+    }
+  ]
+}
