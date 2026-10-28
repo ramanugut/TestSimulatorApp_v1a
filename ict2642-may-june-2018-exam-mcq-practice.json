@@ -1,0 +1,169 @@
+{
+  "testName": "ICT2642 · May/June 2018 exam · MCQ practice (rewritten)",
+  "module": "ICT2642",
+  "assessment": "May/June 2018 exam themes",
+  "totalMarks": 12,
+  "preserveOrder": true,
+  "marking": "automatic-mcq",
+  "sourceType": "Independent original practice questions based on publicly listed exam or MCQ topics; not verbatim UNISA paper questions",
+  "sourceReference": "https://www.studocu.com/en-za/document/university-of-south-africa/business-informatics-iib/ict2642-2018-6-e-1-good/67584580",
+  "sourceLimitations": "These are newly written MCQs based on themes in the linked public source, not exact original paper wording. Some source previews are incomplete. Use the Source link to view the original where available.",
+  "questions": [
+    {
+      "number": "1",
+      "text": "An information system collects a customer's order, calculates the total and displays a receipt. Which sequence is correct?",
+      "options": [
+        "Input, processing, output",
+        "Processing, feedback, deletion",
+        "Output, backup, input",
+        "Storage, removal, output"
+      ],
+      "correctAnswer": "Input, processing, output",
+      "marks": 1,
+      "explanation": "The order enters as input, the total is calculated during processing and the receipt is output.\n\nStudent note: Feedback can help improve later processing; it is not the same as output."
+    },
+    {
+      "number": "2",
+      "text": "What system should a retailer use to track customer enquiries, preferences and service history?",
+      "options": [
+        "CRM",
+        "CPU",
+        "DNS",
+        "LAN"
+      ],
+      "correctAnswer": "CRM",
+      "marks": 1,
+      "explanation": "Customer relationship management systems bring together customer interactions to improve sales and service.\n\nStudent note: CRM = customer relationship management."
+    },
+    {
+      "number": "3",
+      "text": "Which system helps employees access documented expertise and lessons learned within a business?",
+      "options": [
+        "Knowledge management system (KMS)",
+        "Point-of-sale scanner",
+        "Basic file compressor",
+        "Power supply unit"
+      ],
+      "correctAnswer": "Knowledge management system (KMS)",
+      "marks": 1,
+      "explanation": "KMS stores and shares knowledge so staff can reuse experience and make better decisions.\n\nStudent note: A KMS manages knowledge; a TPS records everyday transactions."
+    },
+    {
+      "number": "4",
+      "text": "A company offers a better service at a lower price than its competitors. What can this provide?",
+      "options": [
+        "Competitive advantage",
+        "Guaranteed monopoly forever",
+        "An absence of business costs",
+        "A reason to stop improving"
+      ],
+      "correctAnswer": "Competitive advantage",
+      "marks": 1,
+      "explanation": "Competitive advantage means performing better than competitors in ways customers value.\n\nStudent note: Lower cost, differentiation and faster response are common advantages."
+    },
+    {
+      "number": "5",
+      "text": "A manager coordinates information systems staff with business department requirements. What job is being performed?",
+      "options": [
+        "Information systems management",
+        "Website browsing only",
+        "Product warehouse packing",
+        "Manual document shredding"
+      ],
+      "correctAnswer": "Information systems management",
+      "marks": 1,
+      "explanation": "IS managers connect technical systems and services with the needs and goals of the organisation.\n\nStudent note: An IS manager does not only write code."
+    },
+    {
+      "number": "6",
+      "text": "A repeatable set of actions used to complete a business task is called a ...",
+      "options": [
+        "Business process",
+        "Processor core",
+        "Corporate logo",
+        "Database byte"
+      ],
+      "correctAnswer": "Business process",
+      "marks": 1,
+      "explanation": "A business process is a set of related activities that produce a service or result.\n\nStudent note: Examples: order fulfilment, payroll and hiring."
+    },
+    {
+      "number": "7",
+      "text": "Which database key uniquely identifies each row in a table?",
+      "options": [
+        "Primary key",
+        "Duplicate field",
+        "Report heading",
+        "Default font"
+      ],
+      "correctAnswer": "Primary key",
+      "marks": 1,
+      "explanation": "A primary key gives each row its own unique identifier and supports relationships between tables.\n\nStudent note: A foreign key refers to a key in another related table."
+    },
+    {
+      "number": "8",
+      "text": "A virtual organisation coordinates outside specialists through online systems. Which resource helps it work?",
+      "options": [
+        "Networks",
+        "Only in-person meetings",
+        "One fixed office location for all partners",
+        "No shared communication tools"
+      ],
+      "correctAnswer": "Networks",
+      "marks": 1,
+      "explanation": "Networks allow independent people and organisations to collaborate across locations.\n\nStudent note: Do not assume a virtual business has no physical goods."
+    },
+    {
+      "number": "9",
+      "text": "What is the correct purpose of a management information system (MIS)?",
+      "options": [
+        "Provide routine summaries and reports for managers",
+        "Control the electrical power supply",
+        "Replace the operating system",
+        "Make every decision without human judgement"
+      ],
+      "correctAnswer": "Provide routine summaries and reports for managers",
+      "marks": 1,
+      "explanation": "An MIS commonly turns recorded data into useful scheduled reports for operational and middle managers.\n\nStudent note: MIS reports differ from TPS transaction recording."
+    },
+    {
+      "number": "10",
+      "text": "Which of the following is part of a company's IT infrastructure?",
+      "options": [
+        "Servers, networks, storage and platform software",
+        "Only its marketing slogan",
+        "Only a customer's shipping address",
+        "Only the colour of the office walls"
+      ],
+      "correctAnswer": "Servers, networks, storage and platform software",
+      "marks": 1,
+      "explanation": "Infrastructure is the shared foundation that supports the organisation's information systems.\n\nStudent note: Think hardware, networks, operating systems, services and storage."
+    },
+    {
+      "number": "11",
+      "text": "Which statement about databases is correct?",
+      "options": [
+        "A database organises related data for controlled access",
+        "A database is always a printed book",
+        "A database stores only one character",
+        "Every database must contain exactly one table"
+      ],
+      "correctAnswer": "A database organises related data for controlled access",
+      "marks": 1,
+      "explanation": "Databases help manage related data, reduce unnecessary duplication and enable reliable retrieval.\n\nStudent note: Records are rows; fields are columns in a typical relational table."
+    },
+    {
+      "number": "12",
+      "text": "Which technology lets employees use software over the internet without maintaining the program on every local computer?",
+      "options": [
+        "Software as a Service (SaaS)",
+        "A physical keyboard",
+        "Standalone USB cable",
+        "Paper filing"
+      ],
+      "correctAnswer": "Software as a Service (SaaS)",
+      "marks": 1,
+      "explanation": "SaaS provides applications through a service provider, usually accessed via browser or application.\n\nStudent note: Cloud does not mean data is not stored somewhere; the provider operates the infrastructure."
+    }
+  ]
+}
