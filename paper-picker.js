@@ -411,6 +411,23 @@ document.addEventListener("DOMContentLoaded", () => {
       : "Tap a paper below to open it. Use Modules to go back.";
     count.textContent = shown.length + (shown.length === 1 ? " paper" : " papers");
     results.replaceChildren();
+    // A real ICT3722 October/November 2018 exam answer-key reference exists,
+    // but its matching original questions could not be verified. Present the
+    // reference openly, not as a fake test or an editable student paper.
+    if (!searching && state.module === "ICT3722") {
+      const notice = document.createElement("p");
+      notice.className = "paper-picker-empty";
+      notice.appendChild(document.createTextNode(
+        "Past exam source: Oct/Nov 2018 has an answer key only (45 MCQ answers). The full exam questions are not yet available in this app. "
+      ));
+      const link = document.createElement("a");
+      link.href = "https://www.slideshare.net/slideshow/ict3722-october-november2018examination/239871131";
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      link.textContent = "View 2018 answer key";
+      notice.appendChild(link);
+      results.appendChild(notice);
+    }
     if (!shown.length) {
       const empty = document.createElement("p");
       empty.className = "paper-picker-empty";
