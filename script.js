@@ -5649,6 +5649,20 @@ const ict2622VerifiedPaperArchive = [
 ];
 
 
+
+// ICT3722 historical-exam source audit.
+// The public 2018 resource is ONLY an answer key (45 MCQ answers), not a full
+// exam question paper. Do not offer it as a playable past paper. This protects
+// the original-paper wording rule and prevents fabricated exam questions.
+const ict3722ExamSourceArchive = [
+  {
+    session: "October/November 2018",
+    status: "answer key only — exact exam questions unavailable",
+    source: "https://www.slideshare.net/slideshow/ict3722-october-november2018examination/239871131"
+  }
+];
+
+
   // Load test files into the select element
   async function loadTestFiles() {
     testSelect.innerHTML = "";
@@ -5718,6 +5732,22 @@ const ict2622VerifiedPaperArchive = [
         option.title = record.source;
         option.dataset.sourceReference = record.source;
         option.dataset.module = "ICT2622";
+        archiveGroup.appendChild(option);
+      });
+      testSelect.appendChild(archiveGroup);
+    }
+    // ICT3722 source reference: show genuine historical material without
+    // implying that a memo is a complete past examination paper.
+    if (ict3722ExamSourceArchive.length && !completedModuleCodes.has("ICT3722")) {
+      const archiveGroup = document.createElement("optgroup");
+      archiveGroup.label = "ICT3722 · Past exam source references (not playable)";
+      ict3722ExamSourceArchive.forEach(record => {
+        const option = document.createElement("option");
+        option.disabled = true;
+        option.textContent = `ICT3722 · ${record.session} · ${record.status}`;
+        option.title = record.source;
+        option.dataset.sourceReference = record.source;
+        option.dataset.module = "ICT3722";
         archiveGroup.appendChild(option);
       });
       testSelect.appendChild(archiveGroup);
